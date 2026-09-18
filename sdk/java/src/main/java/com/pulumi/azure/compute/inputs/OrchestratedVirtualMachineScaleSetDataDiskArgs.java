@@ -63,6 +63,20 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
 
+    @Import(name="diskIopsReadWrite")
+    private @Nullable Output<Integer> diskIopsReadWrite;
+
+    public Optional<Output<Integer>> diskIopsReadWrite() {
+        return Optional.ofNullable(this.diskIopsReadWrite);
+    }
+
+    @Import(name="diskMbpsReadWrite")
+    private @Nullable Output<Integer> diskMbpsReadWrite;
+
+    public Optional<Output<Integer>> diskMbpsReadWrite() {
+        return Optional.ofNullable(this.diskMbpsReadWrite);
+    }
+
     /**
      * The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
@@ -109,36 +123,6 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    @Import(name="ultraSsdDiskIopsReadWrite")
-    private @Nullable Output<Integer> ultraSsdDiskIopsReadWrite;
-
-    /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    public Optional<Output<Integer>> ultraSsdDiskIopsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
-    }
-
-    /**
-     * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    @Import(name="ultraSsdDiskMbpsReadWrite")
-    private @Nullable Output<Integer> ultraSsdDiskMbpsReadWrite;
-
-    /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    public Optional<Output<Integer>> ultraSsdDiskMbpsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
-    }
-
-    /**
      * Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
      * 
      */
@@ -159,11 +143,11 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         this.caching = $.caching;
         this.createOption = $.createOption;
         this.diskEncryptionSetId = $.diskEncryptionSetId;
+        this.diskIopsReadWrite = $.diskIopsReadWrite;
+        this.diskMbpsReadWrite = $.diskMbpsReadWrite;
         this.diskSizeGb = $.diskSizeGb;
         this.lun = $.lun;
         this.storageAccountType = $.storageAccountType;
-        this.ultraSsdDiskIopsReadWrite = $.ultraSsdDiskIopsReadWrite;
-        this.ultraSsdDiskMbpsReadWrite = $.ultraSsdDiskMbpsReadWrite;
         this.writeAcceleratorEnabled = $.writeAcceleratorEnabled;
     }
 
@@ -248,6 +232,24 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
             return diskEncryptionSetId(Output.of(diskEncryptionSetId));
         }
 
+        public Builder diskIopsReadWrite(@Nullable Output<Integer> diskIopsReadWrite) {
+            $.diskIopsReadWrite = diskIopsReadWrite;
+            return this;
+        }
+
+        public Builder diskIopsReadWrite(Integer diskIopsReadWrite) {
+            return diskIopsReadWrite(Output.of(diskIopsReadWrite));
+        }
+
+        public Builder diskMbpsReadWrite(@Nullable Output<Integer> diskMbpsReadWrite) {
+            $.diskMbpsReadWrite = diskMbpsReadWrite;
+            return this;
+        }
+
+        public Builder diskMbpsReadWrite(Integer diskMbpsReadWrite) {
+            return diskMbpsReadWrite(Output.of(diskMbpsReadWrite));
+        }
+
         /**
          * @param diskSizeGb The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
          * 
@@ -309,48 +311,6 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
          */
         public Builder storageAccountType(String storageAccountType) {
             return storageAccountType(Output.of(storageAccountType));
-        }
-
-        /**
-         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ultraSsdDiskIopsReadWrite(@Nullable Output<Integer> ultraSsdDiskIopsReadWrite) {
-            $.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            return this;
-        }
-
-        /**
-         * @param ultraSsdDiskIopsReadWrite Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ultraSsdDiskIopsReadWrite(Integer ultraSsdDiskIopsReadWrite) {
-            return ultraSsdDiskIopsReadWrite(Output.of(ultraSsdDiskIopsReadWrite));
-        }
-
-        /**
-         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ultraSsdDiskMbpsReadWrite(@Nullable Output<Integer> ultraSsdDiskMbpsReadWrite) {
-            $.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-            return this;
-        }
-
-        /**
-         * @param ultraSsdDiskMbpsReadWrite Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder ultraSsdDiskMbpsReadWrite(Integer ultraSsdDiskMbpsReadWrite) {
-            return ultraSsdDiskMbpsReadWrite(Output.of(ultraSsdDiskMbpsReadWrite));
         }
 
         /**

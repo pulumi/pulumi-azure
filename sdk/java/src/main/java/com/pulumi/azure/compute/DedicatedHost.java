@@ -120,14 +120,14 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
         return this.dedicatedHostGroupId;
     }
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      * 
      */
     @Export(name="licenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licenseType;
 
     /**
-     * @return Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * @return Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      * 
      */
     public Output<Optional<String>> licenseType() {

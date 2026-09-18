@@ -22,8 +22,7 @@ class LinkedStorageAccountArgs:
                  data_source_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_id: pulumi.Input[_builtins.str]):
         """
         The set of arguments for constructing a LinkedStorageAccount resource.
 
@@ -35,10 +34,7 @@ class LinkedStorageAccountArgs:
         pulumi.set(__self__, "data_source_type", data_source_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account_ids", storage_account_ids)
-        if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
-        if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        pulumi.set(__self__, "workspace_id", workspace_id)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceType")
@@ -78,24 +74,15 @@ class LinkedStorageAccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
         The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "workspace_resource_id")
-
-    @workspace_resource_id.setter
-    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_resource_id", value)
 
 
 @pulumi.input_type
@@ -104,8 +91,7 @@ class _LinkedStorageAccountState:
                  data_source_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering LinkedStorageAccount resources.
 
@@ -122,8 +108,6 @@ class _LinkedStorageAccountState:
             pulumi.set(__self__, "storage_account_ids", storage_account_ids)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
-        if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceType")
@@ -173,15 +157,6 @@ class _LinkedStorageAccountState:
     def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "workspace_resource_id")
-
-    @workspace_resource_id.setter
-    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "workspace_resource_id", value)
-
 
 @pulumi.type_token("azure:loganalytics/linkedStorageAccount:LinkedStorageAccount")
 class LinkedStorageAccount(pulumi.CustomResource):
@@ -193,7 +168,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a Log Analytics Linked Storage Account.
@@ -319,7 +293,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -338,8 +311,9 @@ class LinkedStorageAccount(pulumi.CustomResource):
             if storage_account_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_ids'")
             __props__.__dict__["storage_account_ids"] = storage_account_ids
+            if workspace_id is None and not opts.urn:
+                raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
-            __props__.__dict__["workspace_resource_id"] = workspace_resource_id
         super(LinkedStorageAccount, __self__).__init__(
             'azure:loganalytics/linkedStorageAccount:LinkedStorageAccount',
             resource_name,
@@ -353,8 +327,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             data_source_type: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-            workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedStorageAccount':
+            workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedStorageAccount':
         """
         Get an existing LinkedStorageAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -375,7 +348,6 @@ class LinkedStorageAccount(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["storage_account_ids"] = storage_account_ids
         __props__.__dict__["workspace_id"] = workspace_id
-        __props__.__dict__["workspace_resource_id"] = workspace_resource_id
         return LinkedStorageAccount(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -409,9 +381,4 @@ class LinkedStorageAccount(pulumi.CustomResource):
         The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         return pulumi.get(self, "workspace_id")
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "workspace_resource_id")
 

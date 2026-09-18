@@ -144,9 +144,6 @@ namespace Pulumi.Azure.Batch
         [Output("autoScale")]
         public Output<Outputs.PoolAutoScale?> AutoScale { get; private set; } = null!;
 
-        [Output("certificates")]
-        public Output<ImmutableArray<Outputs.PoolCertificate>> Certificates { get; private set; } = null!;
-
         /// <summary>
         /// The container configuration used in the pool's VMs. One `ContainerConfiguration` block as defined below.
         /// </summary>
@@ -368,15 +365,6 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleArgs>? AutoScale { get; set; }
-
-        [Input("certificates")]
-        private InputList<Inputs.PoolCertificateArgs>? _certificates;
-        [Obsolete(@"the `Certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.")]
-        public InputList<Inputs.PoolCertificateArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<Inputs.PoolCertificateArgs>());
-            set => _certificates = value;
-        }
 
         /// <summary>
         /// The container configuration used in the pool's VMs. One `ContainerConfiguration` block as defined below.
@@ -615,15 +603,6 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("autoScale")]
         public Input<Inputs.PoolAutoScaleGetArgs>? AutoScale { get; set; }
-
-        [Input("certificates")]
-        private InputList<Inputs.PoolCertificateGetArgs>? _certificates;
-        [Obsolete(@"the `Certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.")]
-        public InputList<Inputs.PoolCertificateGetArgs> Certificates
-        {
-            get => _certificates ?? (_certificates = new InputList<Inputs.PoolCertificateGetArgs>());
-            set => _certificates = value;
-        }
 
         /// <summary>
         /// The container configuration used in the pool's VMs. One `ContainerConfiguration` block as defined below.

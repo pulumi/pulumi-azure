@@ -64,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerFileSystemNfsUserArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerServerArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -159,9 +158,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .server(VolumeBucketWithServerServerArgs.builder()
  *                 .fqdn("example-bucket.example.internal")
- *                 .certificatePem(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                     .input(String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))
- *                     .build()).result())
+ *                 .certificatePem(StdFunctions.base64encode(Map.of("input", String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))).result())
  *                 .build())
  *             .build());
  * 

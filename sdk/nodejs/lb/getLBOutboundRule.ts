@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getLBOutboundRule(args: GetLBOutboundRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBOutboundRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +63,6 @@ export interface GetLBOutboundRuleResult {
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
     readonly backendAddressPoolId: string;
-    readonly enableTcpReset: boolean;
     /**
      * A `frontendIpConfiguration` block as defined below.
      */
@@ -111,7 +110,7 @@ export interface GetLBOutboundRuleResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getLBOutboundRuleOutput(args: GetLBOutboundRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLBOutboundRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

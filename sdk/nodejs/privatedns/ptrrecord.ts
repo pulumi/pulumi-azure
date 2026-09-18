@@ -23,8 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePTRRecord = new azure.privatedns.PTRRecord("example", {
  *     name: "15",
- *     zoneName: exampleZone.name,
- *     resourceGroupName: example.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     ttl: 300,
  *     records: ["test.example.com"],
  * });
@@ -82,13 +81,13 @@ export class PTRRecord extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     */
+    declare public readonly privateDnsZoneId: pulumi.Output<string>;
+    /**
      * List of Fully Qualified Domain Names.
      */
     declare public readonly records: pulumi.Output<string[]>;
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -97,10 +96,6 @@ export class PTRRecord extends pulumi.CustomResource {
      * The Time To Live (TTL) of the DNS record in seconds.
      */
     declare public readonly ttl: pulumi.Output<number>;
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     */
-    declare public readonly zoneName: pulumi.Output<string>;
 
     /**
      * Create a PTRRecord resource with the given unique name, arguments, and options.
@@ -117,31 +112,26 @@ export class PTRRecord extends pulumi.CustomResource {
             const state = argsOrState as PTRRecordState | undefined;
             resourceInputs["fqdn"] = state?.fqdn;
             resourceInputs["name"] = state?.name;
+            resourceInputs["privateDnsZoneId"] = state?.privateDnsZoneId;
             resourceInputs["records"] = state?.records;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["ttl"] = state?.ttl;
-            resourceInputs["zoneName"] = state?.zoneName;
         } else {
             const args = argsOrState as PTRRecordArgs | undefined;
+            if (args?.privateDnsZoneId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateDnsZoneId'");
+            }
             if (args?.records === undefined && !opts.urn) {
                 throw new Error("Missing required property 'records'");
-            }
-            if (args?.resourceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if (args?.zoneName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'zoneName'");
-            }
             resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsZoneId"] = args?.privateDnsZoneId;
             resourceInputs["records"] = args?.records;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["ttl"] = args?.ttl;
-            resourceInputs["zoneName"] = args?.zoneName;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,13 +152,13 @@ export interface PTRRecordState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     */
+    privateDnsZoneId?: pulumi.Input<string | undefined>;
+    /**
      * List of Fully Qualified Domain Names.
      */
     records?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -177,10 +167,6 @@ export interface PTRRecordState {
      * The Time To Live (TTL) of the DNS record in seconds.
      */
     ttl?: pulumi.Input<number | undefined>;
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     */
-    zoneName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -192,13 +178,13 @@ export interface PTRRecordArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     */
+    privateDnsZoneId: pulumi.Input<string>;
+    /**
      * List of Fully Qualified Domain Names.
      */
     records: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -207,8 +193,4 @@ export interface PTRRecordArgs {
      * The Time To Live (TTL) of the DNS record in seconds.
      */
     ttl: pulumi.Input<number>;
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     */
-    zoneName: pulumi.Input<string>;
 }

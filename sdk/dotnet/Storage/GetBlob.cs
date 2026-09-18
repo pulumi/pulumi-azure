@@ -109,26 +109,10 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public string? StorageAccountName { get; set; }
-
-        /// <summary>
         /// The ID of the Storage Container where the Blob exists.
         /// </summary>
-        [Input("storageContainerId")]
-        public string? StorageContainerId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Container where the Blob exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageContainerName")]
-        public string? StorageContainerName { get; set; }
+        [Input("storageContainerId", required: true)]
+        public string StorageContainerId { get; set; } = null!;
 
         public GetBlobArgs()
         {
@@ -157,26 +141,10 @@ namespace Pulumi.Azure.Storage
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Container exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
-
-        /// <summary>
         /// The ID of the Storage Container where the Blob exists.
         /// </summary>
-        [Input("storageContainerId")]
-        public Input<string>? StorageContainerId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Container where the Blob exists.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
+        [Input("storageContainerId", required: true)]
+        public Input<string> StorageContainerId { get; set; } = null!;
 
         public GetBlobInvokeArgs()
         {
@@ -213,9 +181,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
-        public readonly string StorageAccountName;
         public readonly string StorageContainerId;
-        public readonly string StorageContainerName;
         /// <summary>
         /// The type of the storage blob
         /// </summary>
@@ -241,11 +207,7 @@ namespace Pulumi.Azure.Storage
 
             string name,
 
-            string storageAccountName,
-
             string storageContainerId,
-
-            string storageContainerName,
 
             string type,
 
@@ -258,9 +220,7 @@ namespace Pulumi.Azure.Storage
             Id = id;
             Metadata = metadata;
             Name = name;
-            StorageAccountName = storageAccountName;
             StorageContainerId = storageContainerId;
-            StorageContainerName = storageContainerName;
             Type = type;
             Url = url;
         }

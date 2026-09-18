@@ -6101,7 +6101,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgsDict(TypedDict):
     """
     Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
     """
-    container_log_max_line: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -6140,7 +6139,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
-                 container_log_max_line: pulumi.Input[Optional[_builtins.int]] = None,
                  container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  cpu_cfs_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -6165,11 +6163,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            warnings.warn("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""container_log_max_line is deprecated: `container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -6210,16 +6203,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
     @container_log_max_files.setter
     def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "container_log_max_line")
-
-    @container_log_max_line.setter
-    def container_log_max_line(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "container_log_max_line", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -6335,7 +6318,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
@@ -6343,8 +6325,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
                  swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  sysctl_config: pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
                  transparent_huge_page: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] swap_file_size_mb: Specifies the size of the swap file on each node in MB.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below.
@@ -6359,11 +6340,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            warnings.warn("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""transparent_huge_page_enabled is deprecated: this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -6412,16 +6388,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
     @transparent_huge_page_defrag.setter
     def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
-
-    @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
 class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgsDict(TypedDict):
@@ -9910,7 +9876,6 @@ class KubernetesClusterNodePoolKubeletConfigArgsDict(TypedDict):
     """
     Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
     """
-    container_log_max_line: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -9949,7 +9914,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
-                 container_log_max_line: pulumi.Input[Optional[_builtins.int]] = None,
                  container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  cpu_cfs_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -9974,11 +9938,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            warnings.warn("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""container_log_max_line is deprecated: `container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -10019,16 +9978,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
     @container_log_max_files.setter
     def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "container_log_max_line")
-
-    @container_log_max_line.setter
-    def container_log_max_line(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "container_log_max_line", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -10144,7 +10093,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KubernetesClusterNodePoolLinuxOsConfigArgs:
@@ -10152,8 +10100,7 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
                  swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  sysctl_config: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
                  transparent_huge_page: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] swap_file_size_mb: Specifies the size of swap file on each node in MB.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below.
@@ -10168,11 +10115,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            warnings.warn("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""transparent_huge_page_enabled is deprecated: this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -10221,16 +10163,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
     @transparent_huge_page_defrag.setter
     def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
-
-    @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
 class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgsDict(TypedDict):
@@ -11171,23 +11103,31 @@ class KubernetesClusterOmsAgentArgsDict(TypedDict):
     """
     An `oms_agent_identity` block is exported. The exported attributes are defined below.
     """
+    retina_flow_logs_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Is Retina Flow Logs collection enabled?
+    """
 
 @pulumi.input_type
 class KubernetesClusterOmsAgentArgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  msi_auth_for_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 oms_agent_identities: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None):
+                 oms_agent_identities: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None,
+                 retina_flow_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param pulumi.Input[_builtins.bool] msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[_builtins.bool] retina_flow_logs_enabled: Is Retina Flow Logs collection enabled?
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if msi_auth_for_monitoring_enabled is not None:
             pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
         if oms_agent_identities is not None:
             pulumi.set(__self__, "oms_agent_identities", oms_agent_identities)
+        if retina_flow_logs_enabled is not None:
+            pulumi.set(__self__, "retina_flow_logs_enabled", retina_flow_logs_enabled)
 
     @_builtins.property
     @pulumi.getter(name="logAnalyticsWorkspaceId")
@@ -11224,6 +11164,18 @@ class KubernetesClusterOmsAgentArgs:
     @oms_agent_identities.setter
     def oms_agent_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]):
         pulumi.set(self, "oms_agent_identities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retinaFlowLogsEnabled")
+    def retina_flow_logs_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Is Retina Flow Logs collection enabled?
+        """
+        return pulumi.get(self, "retina_flow_logs_enabled")
+
+    @retina_flow_logs_enabled.setter
+    def retina_flow_logs_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "retina_flow_logs_enabled", value)
 
 
 class KubernetesClusterOmsAgentOmsAgentIdentityArgsDict(TypedDict):
@@ -12260,13 +12212,13 @@ class RegistryEncryptionArgs:
 
 
 class RegistryGeoreplicationArgsDict(TypedDict):
+    global_endpoint_routing_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+    """
     location: pulumi.Input[_builtins.str]
     """
     A location where the container registry should be geo-replicated.
-    """
-    regional_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Whether regional endpoint is enabled for this Container Registry?
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -12282,25 +12234,36 @@ class RegistryGeoreplicationArgsDict(TypedDict):
 @pulumi.input_type
 class RegistryGeoreplicationArgs:
     def __init__(__self__, *,
+                 global_endpoint_routing_enabled: pulumi.Input[_builtins.bool],
                  location: pulumi.Input[_builtins.str],
-                 regional_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
+        :param pulumi.Input[_builtins.bool] global_endpoint_routing_enabled: Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
         :param pulumi.Input[_builtins.str] location: A location where the container registry should be geo-replicated.
-        :param pulumi.Input[_builtins.bool] regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
                > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
+        pulumi.set(__self__, "global_endpoint_routing_enabled", global_endpoint_routing_enabled)
         pulumi.set(__self__, "location", location)
-        if regional_endpoint_enabled is not None:
-            pulumi.set(__self__, "regional_endpoint_enabled", regional_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="globalEndpointRoutingEnabled")
+    def global_endpoint_routing_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+        """
+        return pulumi.get(self, "global_endpoint_routing_enabled")
+
+    @global_endpoint_routing_enabled.setter
+    def global_endpoint_routing_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "global_endpoint_routing_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -12313,18 +12276,6 @@ class RegistryGeoreplicationArgs:
     @location.setter
     def location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="regionalEndpointEnabled")
-    def regional_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Whether regional endpoint is enabled for this Container Registry?
-        """
-        return pulumi.get(self, "regional_endpoint_enabled")
-
-    @regional_endpoint_enabled.setter
-    def regional_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "regional_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/siterecovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -43,7 +43,7 @@ import (
 //				ResourceGroupName:               example.Name,
 //				Sku:                             pulumi.String("Standard"),
 //				ClassicVmwareReplicationEnabled: pulumi.Bool(true),
-//				SoftDeleteEnabled:               pulumi.Bool(false),
+//				SoftDeleteEnabled:               false,
 //			})
 //			if err != nil {
 //				return err

@@ -46,11 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.EnvironmentCertificate;
  * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.containerapp.CustomDomain;
  * import com.pulumi.azure.containerapp.CustomDomainArgs;
- * import com.pulumi.std.inputs.TrimprefixArgs;
- * import com.pulumi.std.inputs.TrimsuffixArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -127,20 +124,18 @@ import javax.annotation.Nullable;
  *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()
  *             .name("myfriendlyname")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .certificateBlob(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("path/to/certificate_file.pfx")
- *                 .build()).result())
+ *             .certificateBlob(StdFunctions.filebase64(Map.of("input", "path/to/certificate_file.pfx")).result())
  *             .certificatePassword("$3cretSqu1rreL")
  *             .build());
  * 
  *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
- *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
- *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
- *                     .input(api.fqdn())
- *                     .prefix("asuid.")
- *                     .build()).result())
- *                 .suffix(".")
- *                 .build()).result())
+ *             .name(StdFunctions.trimsuffix(Map.ofEntries(
+ *                 Map.entry("input", StdFunctions.trimprefix(Map.ofEntries(
+ *                     Map.entry("input", api.fqdn()),
+ *                     Map.entry("prefix", "asuid.")
+ *                 )).result()),
+ *                 Map.entry("suffix", ".")
+ *             )).result())
  *             .containerAppId(exampleApp.id())
  *             .containerAppEnvironmentCertificateId(exampleEnvironmentCertificate.id())
  *             .certificateBindingType("SniEnabled")
@@ -163,8 +158,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.CustomDomain;
  * import com.pulumi.azure.containerapp.CustomDomainArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.TrimprefixArgs;
- * import com.pulumi.std.inputs.TrimsuffixArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -179,13 +172,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CustomDomain("example", CustomDomainArgs.builder()
- *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
- *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
- *                     .input(api.fqdn())
- *                     .prefix("asuid.")
- *                     .build()).result())
- *                 .suffix(".")
- *                 .build()).result())
+ *             .name(StdFunctions.trimsuffix(Map.ofEntries(
+ *                 Map.entry("input", StdFunctions.trimprefix(Map.ofEntries(
+ *                     Map.entry("input", api.fqdn()),
+ *                     Map.entry("prefix", "asuid.")
+ *                 )).result()),
+ *                 Map.entry("suffix", ".")
+ *             )).result())
  *             .containerAppId(exampleAzurermContainerApp.id())
  *             .build());
  * 

@@ -66,20 +66,6 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
      */
     private String storageAccountType;
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
-    private @Nullable Integer ultraSsdDiskIopsReadWrite;
-    /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
-    private @Nullable Integer ultraSsdDiskMbpsReadWrite;
-    /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
      * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -158,24 +144,6 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         return this.storageAccountType;
     }
     /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
-    public Optional<Integer> ultraSsdDiskIopsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
-    }
-    /**
-     * @deprecated
-     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
-     * 
-     */
-    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
-    public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
-    }
-    /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
      * &gt; **Note:** This requires that the `storageAccountType` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -203,8 +171,6 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         private Integer lun;
         private @Nullable String name;
         private String storageAccountType;
-        private @Nullable Integer ultraSsdDiskIopsReadWrite;
-        private @Nullable Integer ultraSsdDiskMbpsReadWrite;
         private @Nullable Boolean writeAcceleratorEnabled;
         public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetDataDisk defaults) {
@@ -218,8 +184,6 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
     	      this.lun = defaults.lun;
     	      this.name = defaults.name;
     	      this.storageAccountType = defaults.storageAccountType;
-    	      this.ultraSsdDiskIopsReadWrite = defaults.ultraSsdDiskIopsReadWrite;
-    	      this.ultraSsdDiskMbpsReadWrite = defaults.ultraSsdDiskMbpsReadWrite;
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
@@ -286,18 +250,6 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
             return this;
         }
         @CustomType.Setter
-        public Builder ultraSsdDiskIopsReadWrite(@Nullable Integer ultraSsdDiskIopsReadWrite) {
-
-            this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ultraSsdDiskMbpsReadWrite(@Nullable Integer ultraSsdDiskMbpsReadWrite) {
-
-            this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-            return this;
-        }
-        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
 
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
@@ -314,8 +266,6 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
             _resultValue.lun = lun;
             _resultValue.name = name;
             _resultValue.storageAccountType = storageAccountType;
-            _resultValue.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            _resultValue.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return _resultValue;
         }

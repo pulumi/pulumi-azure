@@ -170,6 +170,13 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
         ## Import
 
         Office IRM Data Connectors can be imported using the `resource id`, e.g.
@@ -215,6 +222,13 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
             name="example",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
 
         ## Import
 

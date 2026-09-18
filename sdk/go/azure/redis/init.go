@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,10 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CacheAccessPolicy{}
 	case "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment":
 		r = &CacheAccessPolicyAssignment{}
-	case "azure:redis/enterpriseCluster:EnterpriseCluster":
-		r = &EnterpriseCluster{}
-	case "azure:redis/enterpriseDatabase:EnterpriseDatabase":
-		r = &EnterpriseDatabase{}
 	case "azure:redis/firewallRule:FirewallRule":
 		r = &FirewallRule{}
 	case "azure:redis/linkedServer:LinkedServer":
@@ -61,16 +57,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"redis/cacheAccessPolicyAssignment",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"redis/enterpriseCluster",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"redis/enterpriseDatabase",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

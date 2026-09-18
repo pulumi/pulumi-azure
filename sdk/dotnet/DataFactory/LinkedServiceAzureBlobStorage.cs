@@ -108,9 +108,6 @@ namespace Pulumi.Azure.DataFactory
         [Output("integrationRuntimeName")]
         public Output<string?> IntegrationRuntimeName { get; private set; } = null!;
 
-        [Output("keyVaultSasToken")]
-        public Output<Outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken> KeyVaultSasToken { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -127,7 +124,7 @@ namespace Pulumi.Azure.DataFactory
         /// A `SasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `SasUri` is required.
         /// </summary>
         [Output("sasTokenLinkedKeyVaultKey")]
-        public Output<Outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey> SasTokenLinkedKeyVaultKey { get; private set; } = null!;
+        public Output<Outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey?> SasTokenLinkedKeyVaultKey { get; private set; } = null!;
 
         /// <summary>
         /// The SAS URI. Conflicts with `ConnectionStringInsecure`, `ConnectionString` and `ServiceEndpoint`.
@@ -276,9 +273,6 @@ namespace Pulumi.Azure.DataFactory
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
 
-        [Input("keyVaultSasToken")]
-        public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs>? KeyVaultSasToken { get; set; }
-
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         /// </summary>
@@ -424,9 +418,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("integrationRuntimeName")]
         public Input<string>? IntegrationRuntimeName { get; set; }
-
-        [Input("keyVaultSasToken")]
-        public Input<Inputs.LinkedServiceAzureBlobStorageKeyVaultSasTokenGetArgs>? KeyVaultSasToken { get; set; }
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

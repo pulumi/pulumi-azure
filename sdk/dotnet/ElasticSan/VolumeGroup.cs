@@ -71,7 +71,10 @@ namespace Pulumi.Azure.ElasticSan
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Storage.Global",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage.Global",
+    ///             },
     ///         },
     ///     });
     /// 

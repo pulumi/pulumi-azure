@@ -93,8 +93,11 @@ func TestAccAciMulti(t *testing.T) {
 func TestAccTable(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "table"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "table"),
+			// RunUpdateTest is incompatible with this major upgrade: phase 1 deploys against the
+			// last-published (pre-v5.0) @pulumi/azure package, whose types don't have the
+			// storage_account_id/etc. fields this example's source now requires.
+			// RunUpdateTest: true,
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
@@ -218,8 +221,9 @@ func TestAccTopic(t *testing.T) {
 func TestAccTimer(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "timer"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "timer"),
+			// See TestAccTable for why RunUpdateTest is disabled.
+			// RunUpdateTest: true,
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
@@ -228,8 +232,9 @@ func TestAccTimer(t *testing.T) {
 func TestAccQueue(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "queue"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "queue"),
+			// See TestAccTable for why RunUpdateTest is disabled.
+			// RunUpdateTest: true,
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
@@ -299,8 +304,9 @@ func TestAccEventgrid(t *testing.T) {
 func TestAccEventhub(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:                      filepath.Join(getCwd(t), "eventhub"),
-			RunUpdateTest:            true,
+			Dir: filepath.Join(getCwd(t), "eventhub"),
+			// See TestAccTable for why RunUpdateTest is disabled.
+			// RunUpdateTest:            true,
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
 		})
@@ -311,8 +317,9 @@ func TestAccEventhub(t *testing.T) {
 func TestAccHttpExternal(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "http-external"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "http-external"),
+			// See TestAccTable for why RunUpdateTest is disabled.
+			// RunUpdateTest: true,
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
@@ -321,8 +328,9 @@ func TestAccHttpExternal(t *testing.T) {
 func TestAccHttpMulti(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "http-multi"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "http-multi"),
+			// See TestAccTable for why RunUpdateTest is disabled.
+			// RunUpdateTest: true,
 		})
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
@@ -331,8 +339,9 @@ func TestAccHttpMulti(t *testing.T) {
 func TestAccSecretCapture(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "http"),
-			RunUpdateTest: true,
+			Dir: filepath.Join(getCwd(t), "http"),
+			// See TestAccTable for why RunUpdateTest is disabled.
+			// RunUpdateTest: true,
 			ExtraRuntimeValidation: func(t *testing.T, info integration.RuntimeValidationStackInfo) {
 				byts, err := json.Marshal(info.Deployment)
 				assert.NoError(t, err)

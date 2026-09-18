@@ -61,17 +61,16 @@ export interface GetGatewayConnectionResult {
      * ExpressRoute connection.
      */
     readonly authorizationKey: string;
+    /**
+     * If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+     */
+    readonly bgpEnabled: boolean;
     readonly connectionProtocol: string;
     /**
      * The dead peer detection timeout of this connection in seconds.
      */
     readonly dpdTimeoutSeconds: number;
     readonly egressBytesTransferred: number;
-    /**
-     * If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection.
-     */
-    readonly enableBgp: boolean;
     /**
      * The ID of the Express Route Circuit
      * (i.e. when `type` is `ExpressRoute`).

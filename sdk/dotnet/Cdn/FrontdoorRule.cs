@@ -95,42 +95,38 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "examplerule",
     ///         CdnFrontdoorRuleSetId = exampleFrontdoorRuleSet.Id,
     ///         Order = 1,
-    ///         BehaviorOnMatch = "Continue",
+    ///         BehaviourOnMatch = "Continue",
     ///         Actions = new Azure.Cdn.Inputs.FrontdoorRuleActionsArgs
     ///         {
-    ///             RouteConfigurationOverrideAction = new Azure.Cdn.Inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs
+    ///             RouteConfigurationOverride = new Azure.Cdn.Inputs.FrontdoorRuleActionsRouteConfigurationOverrideArgs
     ///             {
-    ///                 CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
-    ///                 ForwardingProtocol = "HttpsOnly",
-    ///                 QueryStringCachingBehavior = "IncludeSpecifiedQueryStrings",
-    ///                 QueryStringParameters = new[]
+    ///                 OriginGroup = new Azure.Cdn.Inputs.FrontdoorRuleActionsRouteConfigurationOverrideOriginGroupArgs
     ///                 {
-    ///                     "foo",
-    ///                     "clientIp={client_ip}",
+    ///                     CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
+    ///                     ForwardingProtocol = "HttpsOnly",
     ///                 },
-    ///                 CompressionEnabled = true,
-    ///                 CacheBehavior = "OverrideIfOriginMissing",
-    ///                 CacheDuration = "365.23:59:59",
-    ///             },
-    ///             UrlRedirectAction = new Azure.Cdn.Inputs.FrontdoorRuleActionsUrlRedirectActionArgs
-    ///             {
-    ///                 RedirectType = "PermanentRedirect",
-    ///                 RedirectProtocol = "MatchRequest",
-    ///                 QueryString = "clientIp={client_ip}",
-    ///                 DestinationPath = "/exampleredirection",
-    ///                 DestinationHostname = "contoso.com",
-    ///                 DestinationFragment = "UrlRedirect",
+    ///                 Caching = new Azure.Cdn.Inputs.FrontdoorRuleActionsRouteConfigurationOverrideCachingArgs
+    ///                 {
+    ///                     Behaviour = "OverrideIfOriginMissing",
+    ///                     Duration = "365.23:59:59",
+    ///                     CompressionEnabled = true,
+    ///                     QueryStringBehaviour = "IncludeSpecifiedQueryStrings",
+    ///                     QueryStringParameters = new[]
+    ///                     {
+    ///                         "foo",
+    ///                         "clientIp={client_ip}",
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///         Conditions = new Azure.Cdn.Inputs.FrontdoorRuleConditionsArgs
     ///         {
-    ///             HostNameConditions = new[]
+    ///             HostNames = new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsHostNameConditionArgs
+    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsHostNameArgs
     ///                 {
     ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = new[]
+    ///                     Values = new[]
     ///                     {
     ///                         "www.contoso.com",
     ///                         "images.contoso.com",
@@ -143,22 +139,21 @@ namespace Pulumi.Azure.Cdn
     ///                     },
     ///                 },
     ///             },
-    ///             IsDeviceConditions = new[]
+    ///             DeviceTypes = new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsIsDeviceConditionArgs
+    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsDeviceTypeArgs
     ///                 {
     ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = "Mobile",
+    ///                     Values = "Mobile",
     ///                 },
     ///             },
-    ///             PostArgsConditions = new[]
+    ///             PostArguments = new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsPostArgsConditionArgs
+    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsPostArgumentArgs
     ///                 {
-    ///                     PostArgsName = "customerName",
+    ///                     Name = "customerName",
     ///                     Operator = "BeginsWith",
-    ///                     MatchValues = new[]
+    ///                     Values = new[]
     ///                     {
     ///                         "J",
     ///                         "K",
@@ -169,25 +164,23 @@ namespace Pulumi.Azure.Cdn
     ///                     },
     ///                 },
     ///             },
-    ///             RequestMethodConditions = new[]
+    ///             RequestMethods = new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsRequestMethodConditionArgs
+    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsRequestMethodArgs
     ///                 {
     ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = new[]
+    ///                     Values = new[]
     ///                     {
     ///                         "DELETE",
     ///                     },
     ///                 },
     ///             },
-    ///             UrlFilenameConditions = new[]
+    ///             RequestFilenames = new[]
     ///             {
-    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs
+    ///                 new Azure.Cdn.Inputs.FrontdoorRuleConditionsRequestFilenameArgs
     ///                 {
     ///                     Operator = "Equal",
-    ///                     NegateCondition = false,
-    ///                     MatchValues = new[]
+    ///                     Values = new[]
     ///                     {
     ///                         "media.mp4",
     ///                     },
@@ -211,133 +204,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Specifying IP Address Ranges
-    /// 
-    /// When specifying IP address ranges in the `SocketAddressCondition` and the `RemoteAddressCondition` `MatchValues` use the following format:
-    /// 
-    /// Use `CIDR` notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size For example:
-    /// 
-    /// * `IPv4` example: `5.5.5.64/26` matches any requests that arrive from addresses `5.5.5.64` through `5.5.5.127`.
-    /// * `IPv6` example: `1:2:3:/48` matches any requests that arrive from addresses `1:2:3:0:0:0:0:0` through `1:2:3:ffff:ffff:ffff:ffff:ffff`.
-    /// 
-    /// When you specify multiple IP addresses and IP address blocks, `OR` logic is applied.
-    /// 
-    /// * `IPv4` example: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address `1.2.3.4` or `10.20.30.40`.
-    /// * `IPv6` example: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address `1:2:3:4:5:6:7:8` or `10:20:30:40:50:60:70:80`.
-    /// 
-    /// ***
-    /// 
-    /// ## Action Server Variables
-    /// 
-    /// Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
-    /// 
-    /// ### Supported Action Server Variables
-    /// 
-    /// | Variable name | Description |
-    /// |---------------|-------------|
-    /// | `SocketIp`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `SocketIp` is the IP address of the proxy or load balancer. |
-    /// | `ClientIp`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
-    /// | `ClientPort`    | The IP port of the client that made the request. |
-    /// | `Hostname`       | The host name in the request from the client. |
-    /// | `GeoCountry`    | Indicates the requester's country/region of origin through its country/region code. |
-    /// | `HttpMethod`    | The method used to make the URL request, such as `GET` or `POST`. |
-    /// | `HttpVersion`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-    /// | `QueryString`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `QueryString` value will be `id=123&amp;title=fabrikam`. |
-    /// | `RequestScheme` | The request scheme: `Http` or `Https`. |
-    /// | `RequestUri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `RequestUri` value will be `/article.aspx?id=123&amp;title=fabrikam`. |
-    /// | `SslProtocol`   | The protocol of an established TLS connection. |
-    /// | `ServerPort`    | The port of the server that accepted a request. |
-    /// | `UrlPath`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&amp;title=fabrikam`, the `UriPath` value will be `/article.aspx`. |
-    /// 
-    /// ### Action Server Variable Format
-    /// 
-    /// Server variables can be specified using the following formats:
-    /// 
-    /// * `{variable}` - Include the entire server variable. For example, if the client IP address is `111.222.333.444` then the `{client_ip}` token would evaluate to `111.222.333.444`.
-    /// 
-    /// * `{variable:offset}` - Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:3}` token would evaluate to `.222.333.444`.
-    /// 
-    /// * `{variable:offset:length}` - Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:4:3}` token would evaluate to `222`.
-    /// 
-    /// ### Action Server Variables Support
-    /// 
-    /// Action Server variables are supported on the following actions:
-    /// 
-    /// * `RouteConfigurationOverrideAction`
-    /// * `RequestHeaderAction`
-    /// * `ResponseHeaderAction`
-    /// * `UrlRedirectAction`
-    /// * `UrlRewriteAction`
-    /// 
-    /// ***
-    /// 
-    /// ## Condition Operator list
-    /// 
-    /// For rules that accept values from the standard operator list, the following operators are valid:
-    /// 
-    /// | Operator                   | Description | Condition Value |
-    /// |----------------------------|-------------|-----------------|
-    /// | Any                        |Matches when there is any value, regardless of what it is. | Any |
-    /// | Equal                      | Matches when the value exactly matches the specified string. | Equal |
-    /// | Contains                   | Matches when the value contains the specified string. | Contains |
-    /// | Less Than                  | Matches when the length of the value is less than the specified integer. | LessThan |
-    /// | Greater Than               | Matches when the length of the value is greater than the specified integer. | GreaterThan |
-    /// | Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer. | LessThanOrEqual |
-    /// | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
-    /// | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
-    /// | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
-    /// | RegEx                      | Matches when the value matches the specified regular expression. See `Condition Regular Expressions` below for more details. | RegEx |
-    /// | Wildcard                   | Matches when the request path matches a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard |
-    /// | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
-    /// | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
-    /// | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
-    /// | Not Less Than              | Matches when the length of the value is not less than the specified integer. | LessThan and negateCondition = true |
-    /// | Not Greater Than           | Matches when the length of the value is not greater than the specified integer. | GreaterThan and negateCondition = true |
-    /// | Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer. | LessThanOrEqual and negateCondition = true |
-    /// | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
-    /// | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
-    /// | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
-    /// | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for more details. | RegEx and negateCondition = true |
-    /// | Not Wildcard               | Matches when the request path does not match a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard and negateCondition = true |
-    /// 
-    /// ***
-    /// 
-    /// ## Condition Regular Expressions
-    /// 
-    /// Regular expressions **don't** support the following operations:
-    /// 
-    /// * Backreferences and capturing subexpressions.
-    /// * Arbitrary zero-width assertions.
-    /// * Subroutine references and recursive patterns.
-    /// * Conditional patterns.
-    /// * Backtracking control verbs.
-    /// * The `\C` single-byte directive.
-    /// * The `\R` newline match directive.
-    /// * The `\K` start of match reset directive.
-    /// * Callouts and embedded code.
-    /// * Atomic grouping and possessive quantifiers.
-    /// 
-    /// ## Condition Wildcard Expression
-    /// 
-    /// A wildcard expression can include the * character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but doesn't match `files/customer2/anotherfile.pdf`.
-    /// 
-    /// ***
-    /// 
-    /// ## Condition Transform List
-    /// 
-    /// For rules that can transform strings, the following transforms are valid:
-    /// 
-    /// | Transform   | Description |
-    /// |-------------|-------------|
-    /// | Lowercase   | Converts the string to the lowercase representation. |
-    /// | Uppercase   | Converts the string to the uppercase representation. |
-    /// | Trim        | Trims leading and trailing whitespace from the string. |
-    /// | RemoveNulls | Removes null values from the string. |
-    /// | URLEncode   | URL-encodes the string. |
-    /// | URLDecode   | URL-decodes the string. |
-    /// 
-    /// ***
     /// 
     /// ## API Providers
     /// 
@@ -364,13 +230,13 @@ namespace Pulumi.Azure.Cdn
         public Output<Outputs.FrontdoorRuleActions> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        /// The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         /// </summary>
-        [Output("behaviorOnMatch")]
-        public Output<string?> BehaviorOnMatch { get; private set; } = null!;
+        [Output("behaviourOnMatch")]
+        public Output<string?> BehaviourOnMatch { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `CdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         /// </summary>
@@ -390,7 +256,7 @@ namespace Pulumi.Azure.Cdn
         public Output<Outputs.FrontdoorRuleConditions?> Conditions { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -456,13 +322,13 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.FrontdoorRuleActionsArgs> Actions { get; set; } = null!;
 
         /// <summary>
-        /// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        /// The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         /// </summary>
-        [Input("behaviorOnMatch")]
-        public Input<string>? BehaviorOnMatch { get; set; }
+        [Input("behaviourOnMatch")]
+        public Input<string>? BehaviourOnMatch { get; set; }
 
         /// <summary>
-        /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `CdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         /// </summary>
@@ -476,7 +342,7 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.FrontdoorRuleConditionsArgs>? Conditions { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -504,13 +370,13 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.FrontdoorRuleActionsGetArgs>? Actions { get; set; }
 
         /// <summary>
-        /// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        /// The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         /// </summary>
-        [Input("behaviorOnMatch")]
-        public Input<string>? BehaviorOnMatch { get; set; }
+        [Input("behaviourOnMatch")]
+        public Input<string>? BehaviourOnMatch { get; set; }
 
         /// <summary>
-        /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `CdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         /// </summary>
@@ -530,7 +396,7 @@ namespace Pulumi.Azure.Cdn
         public Input<Inputs.FrontdoorRuleConditionsGetArgs>? Conditions { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -4,7 +4,7 @@
 package config
 
 import (
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -62,11 +62,6 @@ func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
 // This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
 func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableTerraformPartnerId")
-}
-
-// Deprecated: This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
-func GetEnhancedValidation(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azure:enhancedValidation")
 }
 
 // The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
@@ -152,21 +147,6 @@ func GetResourceProviderRegistrations(ctx *pulumi.Context) string {
 // A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
 func GetResourceProvidersToRegisters(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:resourceProvidersToRegisters")
-}
-
-// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-//
-// Deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
-	v, err := config.TryBool(ctx, "azure:skipProviderRegistration")
-	if err == nil {
-		return v
-	}
-	var value bool
-	if d := internal.GetEnvOrDefault(false, internal.ParseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION"); d != nil {
-		value = d.(bool)
-	}
-	return value
 }
 
 // Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?

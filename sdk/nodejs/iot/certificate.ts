@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     isVerified: true,
  *     certificateContent: std.filebase64({
  *         input: "example.cer",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

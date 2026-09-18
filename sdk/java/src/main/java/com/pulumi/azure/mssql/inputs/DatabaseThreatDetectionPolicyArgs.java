@@ -5,6 +5,7 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -33,18 +34,18 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+     * Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
      * 
      */
-    @Import(name="emailAccountAdmins")
-    private @Nullable Output<String> emailAccountAdmins;
+    @Import(name="emailAccountAdminsEnabled")
+    private @Nullable Output<Boolean> emailAccountAdminsEnabled;
 
     /**
-     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+     * @return Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
      * 
      */
-    public Optional<Output<String>> emailAccountAdmins() {
-        return Optional.ofNullable(this.emailAccountAdmins);
+    public Optional<Output<Boolean>> emailAccountAdminsEnabled() {
+        return Optional.ofNullable(this.emailAccountAdminsEnabled);
     }
 
     /**
@@ -126,7 +127,7 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
 
     private DatabaseThreatDetectionPolicyArgs(DatabaseThreatDetectionPolicyArgs $) {
         this.disabledAlerts = $.disabledAlerts;
-        this.emailAccountAdmins = $.emailAccountAdmins;
+        this.emailAccountAdminsEnabled = $.emailAccountAdminsEnabled;
         this.emailAddresses = $.emailAddresses;
         this.retentionDays = $.retentionDays;
         this.state = $.state;
@@ -184,24 +185,24 @@ public final class DatabaseThreatDetectionPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+         * @param emailAccountAdminsEnabled Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder emailAccountAdmins(@Nullable Output<String> emailAccountAdmins) {
-            $.emailAccountAdmins = emailAccountAdmins;
+        public Builder emailAccountAdminsEnabled(@Nullable Output<Boolean> emailAccountAdminsEnabled) {
+            $.emailAccountAdminsEnabled = emailAccountAdminsEnabled;
             return this;
         }
 
         /**
-         * @param emailAccountAdmins Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+         * @param emailAccountAdminsEnabled Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder emailAccountAdmins(String emailAccountAdmins) {
-            return emailAccountAdmins(Output.of(emailAccountAdmins));
+        public Builder emailAccountAdminsEnabled(Boolean emailAccountAdminsEnabled) {
+            return emailAccountAdminsEnabled(Output.of(emailAccountAdminsEnabled));
         }
 
         /**

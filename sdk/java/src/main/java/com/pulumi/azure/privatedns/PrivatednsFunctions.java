@@ -74,8 +74,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.AAAARecord;
-     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetAAAARecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -89,13 +89,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -126,8 +126,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.AAAARecord;
-     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetAAAARecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -141,13 +141,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -178,8 +178,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.AAAARecord;
-     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetAAAARecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -193,13 +193,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -230,8 +230,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.AAAARecord;
-     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetAAAARecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -245,13 +245,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -282,8 +282,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.AAAARecord;
-     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetAAAARecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -297,13 +297,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new AAAARecord("example", AAAARecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getAAAARecord(GetAAAARecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -594,8 +594,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.CnameRecord;
-     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetCnameRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -609,13 +609,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -646,8 +646,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.CnameRecord;
-     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetCnameRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -661,13 +661,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -698,8 +698,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.CnameRecord;
-     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetCnameRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -713,13 +713,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -750,8 +750,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.CnameRecord;
-     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetCnameRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -765,13 +765,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -802,8 +802,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.CnameRecord;
-     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetCnameRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -817,13 +817,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new CnameRecord("example", CnameRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getCnameRecord(GetCnameRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -1064,8 +1064,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.MxRecord;
-     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetMxRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1079,13 +1079,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getMxRecord(GetMxRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1116,8 +1116,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.MxRecord;
-     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetMxRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1131,13 +1131,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getMxRecord(GetMxRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1168,8 +1168,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.MxRecord;
-     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetMxRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1183,13 +1183,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getMxRecord(GetMxRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1220,8 +1220,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.MxRecord;
-     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetMxRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1235,13 +1235,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getMxRecord(GetMxRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1272,8 +1272,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.MxRecord;
-     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetMxRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1287,13 +1287,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new MxRecord("example", MxRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getMxRecord(GetMxRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1324,8 +1324,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PTRRecord;
-     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetPtrRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1339,13 +1339,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1376,8 +1376,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PTRRecord;
-     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetPtrRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1391,13 +1391,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1428,8 +1428,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PTRRecord;
-     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetPtrRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1443,13 +1443,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1480,8 +1480,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PTRRecord;
-     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetPtrRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1495,13 +1495,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1532,8 +1532,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.PTRRecord;
-     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetPtrRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1547,13 +1547,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new PTRRecord("example", PTRRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getPtrRecord(GetPtrRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -3279,8 +3279,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.SRVRecord;
-     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3294,13 +3294,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -3331,8 +3331,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.SRVRecord;
-     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3346,13 +3346,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -3383,8 +3383,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.SRVRecord;
-     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3398,13 +3398,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -3435,8 +3435,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.SRVRecord;
-     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3450,13 +3450,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -3487,8 +3487,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.SRVRecord;
-     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3502,13 +3502,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new SRVRecord("example", SRVRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getSrvRecord(GetSrvRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -3539,8 +3539,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.TxtRecord;
-     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3554,13 +3554,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -3591,8 +3591,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.TxtRecord;
-     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3606,13 +3606,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -3643,8 +3643,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.TxtRecord;
-     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3658,13 +3658,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -3695,8 +3695,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.TxtRecord;
-     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3710,13 +3710,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -3747,8 +3747,8 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Context;
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
-     * import com.pulumi.azure.privatedns.TxtRecord;
-     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3762,13 +3762,13 @@ public final class PrivatednsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var example = new TxtRecord("example", TxtRecordArgs.builder()
-     *             .name("test")
-     *             .zoneName("test-zone")
-     *             .resourceGroupName("test-rg")
+     *         final var example = PrivatednsFunctions.getTxtRecord(GetTxtRecordArgs.builder()
+     *             .name("example")
+     *             .zoneName("example-zone")
+     *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", example.id());
      *     }
      * }
      * }

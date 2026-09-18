@@ -12,28 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceProtocols {
     /**
-     * @deprecated
-     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private @Nullable Boolean enableHttp2;
-    /**
      * @return Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
      * 
      */
     private @Nullable Boolean http2Enabled;
 
     private ServiceProtocols() {}
-    /**
-     * @deprecated
-     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Boolean> enableHttp2() {
-        return Optional.ofNullable(this.enableHttp2);
-    }
     /**
      * @return Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
      * 
@@ -51,21 +35,13 @@ public final class ServiceProtocols {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean enableHttp2;
         private @Nullable Boolean http2Enabled;
         public Builder() {}
         public Builder(ServiceProtocols defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.enableHttp2 = defaults.enableHttp2;
     	      this.http2Enabled = defaults.http2Enabled;
         }
 
-        @CustomType.Setter
-        public Builder enableHttp2(@Nullable Boolean enableHttp2) {
-
-            this.enableHttp2 = enableHttp2;
-            return this;
-        }
         @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
 
@@ -74,7 +50,6 @@ public final class ServiceProtocols {
         }
         public ServiceProtocols build() {
             final var _resultValue = new ServiceProtocols();
-            _resultValue.enableHttp2 = enableHttp2;
             _resultValue.http2Enabled = http2Enabled;
             return _resultValue;
         }

@@ -62,9 +62,9 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * export const armExampleOutput = std.jsondecodeOutput({
+ * export const armExampleOutput = std.jsondecode({
  *     input: example.outputContent,
- * }).apply(invoke => invoke.result?.exampleOutput?.value);
+ * }).result.exampleOutput.value;
  * ```
  *
  * ```typescript

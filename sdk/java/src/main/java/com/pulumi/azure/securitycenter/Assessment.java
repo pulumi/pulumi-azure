@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.azure.securitycenter.AssessmentPolicy;
  * import com.pulumi.azure.securitycenter.AssessmentPolicyArgs;
  * import com.pulumi.azure.securitycenter.Assessment;
@@ -89,9 +88,7 @@ import javax.annotation.Nullable;
  *             .adminUsername("adminuser")
  *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
  *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input("~/.ssh/id_rsa.pub")
- *                     .build()).result())
+ *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")

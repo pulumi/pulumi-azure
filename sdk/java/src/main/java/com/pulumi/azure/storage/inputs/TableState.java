@@ -77,33 +77,6 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.storageAccountId);
     }
 
-    /**
-     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @return Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
-    }
-
     private TableState() {}
 
     private TableState(TableState $) {
@@ -111,7 +84,6 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.resourceManagerId = $.resourceManagerId;
         this.storageAccountId = $.storageAccountId;
-        this.storageAccountName = $.storageAccountName;
     }
 
     public static Builder builder() {
@@ -224,39 +196,6 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageAccountId(String storageAccountId) {
             return storageAccountId(Output.of(storageAccountId));
-        }
-
-        /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
         }
 
         public TableState build() {

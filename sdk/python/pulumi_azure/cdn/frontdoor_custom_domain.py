@@ -369,8 +369,8 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 input=[
                     "_dnsauth",
                     std.split(separator=".",
-                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
-                ]).result,
+                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
+                ])["result"],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
@@ -390,7 +390,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
 
         example = azure.dns.CNameRecord("example",
             name=std.split(separator=".",
-                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
+                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
@@ -533,8 +533,8 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                 input=[
                     "_dnsauth",
                     std.split(separator=".",
-                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
-                ]).result,
+                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
+                ])["result"],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
@@ -554,7 +554,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
 
         example = azure.dns.CNameRecord("example",
             name=std.split(separator=".",
-                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
+                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,

@@ -92,7 +92,6 @@ __all__ = [
     'IntegrationRuntimeSsisProxy',
     'IntegrationRuntimeSsisVnetIntegration',
     'LinkedCustomServiceIntegrationRuntime',
-    'LinkedServiceAzureBlobStorageKeyVaultSasToken',
     'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey',
     'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKey',
     'LinkedServiceAzureDatabricksInstancePool',
@@ -4554,44 +4553,6 @@ class LinkedCustomServiceIntegrationRuntime(dict):
         A map of parameters to associate with the integration runtime.
         """
         return pulumi.get(self, "parameters")
-
-
-@pulumi.output_type
-class LinkedServiceAzureBlobStorageKeyVaultSasToken(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "linkedServiceName":
-            suggest = "linked_service_name"
-        elif key == "secretName":
-            suggest = "secret_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceAzureBlobStorageKeyVaultSasToken. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        LinkedServiceAzureBlobStorageKeyVaultSasToken.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        LinkedServiceAzureBlobStorageKeyVaultSasToken.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 linked_service_name: _builtins.str,
-                 secret_name: _builtins.str):
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
-        pulumi.set(__self__, "secret_name", secret_name)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> _builtins.str:
-        return pulumi.get(self, "linked_service_name")
-
-    @_builtins.property
-    @pulumi.getter(name="secretName")
-    def secret_name(self) -> _builtins.str:
-        return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type

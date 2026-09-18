@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,10 +151,10 @@ type WindowsWebApp struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// Whether traffic for the image pull should be routed over the virtual network.
+	// Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
-	VirtualNetworkImagePullEnabled pulumi.BoolOutput `pulumi:"virtualNetworkImagePullEnabled"`
+	VirtualNetworkImagePullEnabled pulumi.BoolPtrOutput `pulumi:"virtualNetworkImagePullEnabled"`
 	// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	//
 	// > **Note:** The AzureRM Terraform provider provides regional virtual network integration via the standalone resource appServiceVirtualNetworkSwiftConnection and in-line within this resource using the `virtualNetworkSubnetId` property. You cannot use both methods simultaneously. If the virtual network is set via the resource `appServiceVirtualNetworkSwiftConnection` then `ignoreChanges` should be used in the web app configuration.
@@ -287,7 +287,7 @@ type windowsWebAppState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// Whether traffic for the image pull should be routed over the virtual network.
+	// Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
@@ -380,7 +380,7 @@ type WindowsWebAppState struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	// Whether traffic for the image pull should be routed over the virtual network.
+	// Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
@@ -459,7 +459,7 @@ type windowsWebAppArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled *bool `pulumi:"virtualNetworkBackupRestoreEnabled"`
-	// Whether traffic for the image pull should be routed over the virtual network.
+	// Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled *bool `pulumi:"virtualNetworkImagePullEnabled"`
@@ -535,7 +535,7 @@ type WindowsWebAppArgs struct {
 	Tags pulumi.StringMapInput
 	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
 	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
-	// Whether traffic for the image pull should be routed over the virtual network.
+	// Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 	//
 	// > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
 	VirtualNetworkImagePullEnabled pulumi.BoolPtrInput
@@ -816,11 +816,11 @@ func (o WindowsWebAppOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether traffic for the image pull should be routed over the virtual network.
+// Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 //
 // > **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
-func (o WindowsWebAppOutput) VirtualNetworkImagePullEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolOutput { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolOutput)
+func (o WindowsWebAppOutput) VirtualNetworkImagePullEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.VirtualNetworkImagePullEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).

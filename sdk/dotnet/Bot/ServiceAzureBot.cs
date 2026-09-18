@@ -321,8 +321,8 @@ namespace Pulumi.Azure.Bot
         /// 
         /// &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         /// </summary>
-        [Input("microsoftAppType")]
-        public Input<string>? MicrosoftAppType { get; set; }
+        [Input("microsoftAppType", required: true)]
+        public Input<string> MicrosoftAppType { get; set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.

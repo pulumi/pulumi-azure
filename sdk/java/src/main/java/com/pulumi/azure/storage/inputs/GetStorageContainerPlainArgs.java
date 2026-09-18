@@ -47,37 +47,18 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
-     * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * The ID of the Storage Account where the Container exists.
      * 
      */
-    @Import(name="storageAccountId")
-    private @Nullable String storageAccountId;
+    @Import(name="storageAccountId", required=true)
+    private String storageAccountId;
 
     /**
-     * @return The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * @return The ID of the Storage Account where the Container exists.
      * 
      */
-    public Optional<String> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-
-    /**
-     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-     * 
-     */
-    @Import(name="storageAccountName")
-    private @Nullable String storageAccountName;
-
-    /**
-     * @return The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-     * 
-     */
-    public Optional<String> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public String storageAccountId() {
+        return this.storageAccountId;
     }
 
     private GetStorageContainerPlainArgs() {}
@@ -86,7 +67,6 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
         this.metadata = $.metadata;
         this.name = $.name;
         this.storageAccountId = $.storageAccountId;
-        this.storageAccountName = $.storageAccountName;
     }
 
     public static Builder builder() {
@@ -130,32 +110,22 @@ public final class GetStorageContainerPlainArgs extends com.pulumi.resources.Inv
         }
 
         /**
-         * @param storageAccountId The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-         * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * @param storageAccountId The ID of the Storage Account where the Container exists.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountId(@Nullable String storageAccountId) {
+        public Builder storageAccountId(String storageAccountId) {
             $.storageAccountId = storageAccountId;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageAccountName(@Nullable String storageAccountName) {
-            $.storageAccountName = storageAccountName;
             return this;
         }
 
         public GetStorageContainerPlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetStorageContainerPlainArgs", "name");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("GetStorageContainerPlainArgs", "storageAccountId");
             }
             return $;
         }

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Lb
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2023-09-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetLBOutboundRuleResult> InvokeAsync(GetLBOutboundRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLBOutboundRuleResult>("azure:lb/getLBOutboundRule:getLBOutboundRule", args ?? new GetLBOutboundRuleArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Lb
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2023-09-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetLBOutboundRuleResult> Invoke(GetLBOutboundRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBOutboundRuleResult>("azure:lb/getLBOutboundRule:getLBOutboundRule", args ?? new GetLBOutboundRuleInvokeArgs(), options.WithDefaults());
@@ -114,7 +114,7 @@ namespace Pulumi.Azure.Lb
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2023-09-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetLBOutboundRuleResult> Invoke(GetLBOutboundRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBOutboundRuleResult>("azure:lb/getLBOutboundRule:getLBOutboundRule", args ?? new GetLBOutboundRuleInvokeArgs(), options.WithDefaults());
@@ -173,7 +173,6 @@ namespace Pulumi.Azure.Lb
         /// The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         /// </summary>
         public readonly string BackendAddressPoolId;
-        public readonly bool EnableTcpReset;
         /// <summary>
         /// A `FrontendIpConfiguration` block as defined below.
         /// </summary>
@@ -206,8 +205,6 @@ namespace Pulumi.Azure.Lb
 
             string backendAddressPoolId,
 
-            bool enableTcpReset,
-
             ImmutableArray<Outputs.GetLBOutboundRuleFrontendIpConfigurationResult> frontendIpConfigurations,
 
             string id,
@@ -224,7 +221,6 @@ namespace Pulumi.Azure.Lb
         {
             AllocatedOutboundPorts = allocatedOutboundPorts;
             BackendAddressPoolId = backendAddressPoolId;
-            EnableTcpReset = enableTcpReset;
             FrontendIpConfigurations = frontendIpConfigurations;
             Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;

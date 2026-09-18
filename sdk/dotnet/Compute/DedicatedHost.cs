@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Compute
         public Output<string> DedicatedHostGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+        /// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
         /// </summary>
         [Output("licenseType")]
         public Output<string?> LicenseType { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.Compute
         public Input<string> DedicatedHostGroupId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+        /// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? DedicatedHostGroupId { get; set; }
 
         /// <summary>
-        /// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+        /// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
         /// </summary>
         [Input("licenseType")]
         public Input<string>? LicenseType { get; set; }

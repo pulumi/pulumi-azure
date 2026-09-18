@@ -99,7 +99,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -108,7 +108,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+     * @return The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -520,7 +520,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -533,7 +533,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+         * @param minimumTlsVersion The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 

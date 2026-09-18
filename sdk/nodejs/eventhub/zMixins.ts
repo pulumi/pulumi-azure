@@ -21,6 +21,18 @@ import * as servicebus from "../servicebus";
 
 import * as appservice from "../appservice";
 
+/**
+ * Extracts the namespace name and resource group name out of an Event Hub Namespace resource ID.
+ * `namespace_name`/`resource_group_name` were removed from `azurerm_eventhub` in favor of `namespace_id`.
+ */
+function parseNamespaceId(namespaceId: string): { namespaceName: string, resourceGroupName: string } {
+    const parts = namespaceId.split("/");
+    return {
+        namespaceName: parts[parts.length - 1],
+        resourceGroupName: parts[parts.indexOf("resourceGroups") + 1],
+    };
+}
+
 /** @internal */
 /** This is only exported to be used internally by the /iot/zMixins.ts file */
 export interface EventHubBindingDefinition extends appservice.BindingDefinition {
@@ -177,7 +189,8 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
 
         opts = { parent: eventHub, ...opts };
 
-        const resourceGroupName = appservice.getResourceGroupName(args, eventHub.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(
+            args, eventHub.namespaceId.apply(id => parseNamespaceId(id).resourceGroupName));
 
         super("azure:eventhub:EventHubSubscription",
             name,
@@ -202,7 +215,8 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
         // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = pulumi.interpolate`EventHub${args.eventHub.namespaceName}ConnectionKey`;
+        const namespaceIdParts = args.eventHub.namespaceId.apply(parseNamespaceId);
+        const bindingConnectionKey = pulumi.interpolate`EventHub${namespaceIdParts.apply(p => p.namespaceName)}ConnectionKey`;
 
         const trigger = {
             name: "eventHub",
@@ -215,8 +229,8 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
         } as EventHubBindingDefinition;
 
         // Fold the event hub ID into the all so we don't attempt to fetch the namespace until we're sure it has been created.
-        const namespace = pulumi.all([args.eventHub.namespaceName, args.eventHub.resourceGroupName, args.eventHub.id])
-            .apply(([namespaceName, resourceGroupName]) =>
+        const namespace = pulumi.all([namespaceIdParts, args.eventHub.id])
+            .apply(([{ namespaceName, resourceGroupName }]) =>
                 getEventhubNamespace({ name: namespaceName, resourceGroupName }));
 
         // Place the mapping from the well known key name to the Event Hubs account connection string in

@@ -168,7 +168,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<bool> ClientAffinityEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         /// </summary>
         [Output("clientCertificateMode")]
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Azure.LogicApps
         /// &gt; **Note:** Setting this property will also set it in the Site Config.
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
-        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -644,7 +644,7 @@ namespace Pulumi.Azure.LogicApps
         public Input<bool>? ClientAffinityEnabled { get; set; }
 
         /// <summary>
-        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }

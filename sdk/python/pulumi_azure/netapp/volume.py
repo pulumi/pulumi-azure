@@ -594,7 +594,7 @@ class _VolumeState:
                  key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 mount_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mount_targets: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountTargetArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_features: pulumi.Input[Optional[_builtins.str]] = None,
                  pool_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -637,7 +637,7 @@ class _VolumeState:
                
                > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountTargetArgs']]] mount_targets: One or more `mount_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[_builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
@@ -695,8 +695,8 @@ class _VolumeState:
             pulumi.set(__self__, "large_volume_enabled", large_volume_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if mount_ip_addresses is not None:
-            pulumi.set(__self__, "mount_ip_addresses", mount_ip_addresses)
+        if mount_targets is not None:
+            pulumi.set(__self__, "mount_targets", mount_targets)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_features is not None:
@@ -921,16 +921,16 @@ class _VolumeState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
-    @pulumi.getter(name="mountIpAddresses")
-    def mount_ip_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountTargetArgs']]]]:
         """
-        A list of IPv4 Addresses which should be used to mount the volume.
+        One or more `mount_target` blocks as defined below.
         """
-        return pulumi.get(self, "mount_ip_addresses")
+        return pulumi.get(self, "mount_targets")
 
-    @mount_ip_addresses.setter
-    def mount_ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "mount_ip_addresses", value)
+    @mount_targets.setter
+    def mount_targets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeMountTargetArgs']]]]):
+        pulumi.set(self, "mount_targets", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1385,7 +1385,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'volume_path'")
             __props__.__dict__["volume_path"] = volume_path
             __props__.__dict__["zone"] = zone
-            __props__.__dict__["mount_ip_addresses"] = None
+            __props__.__dict__["mount_targets"] = None
         super(Volume, __self__).__init__(
             'azure:netapp/volume:Volume',
             resource_name,
@@ -1411,7 +1411,7 @@ class Volume(pulumi.CustomResource):
             key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            mount_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mount_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeMountTargetArgs', 'VolumeMountTargetArgsDict']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_features: pulumi.Input[Optional[_builtins.str]] = None,
             pool_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1458,7 +1458,7 @@ class Volume(pulumi.CustomResource):
                
                > **Note:** Large volumes must be at least 50 TiB in size and can be up to 1,024 TiB (1 PiB). For more information, please refer to [Requirements and considerations for large volumes](https://learn.microsoft.com/en-us/azure/azure-netapp-files/large-volumes-requirements-considerations)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mount_ip_addresses: A list of IPv4 Addresses which should be used to mount the volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeMountTargetArgs', 'VolumeMountTargetArgsDict']]]] mount_targets: One or more `mount_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         :param pulumi.Input[_builtins.str] pool_name: The name of the NetApp pool in which the NetApp Volume should be created.
@@ -1505,7 +1505,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["key_vault_private_endpoint_id"] = key_vault_private_endpoint_id
         __props__.__dict__["large_volume_enabled"] = large_volume_enabled
         __props__.__dict__["location"] = location
-        __props__.__dict__["mount_ip_addresses"] = mount_ip_addresses
+        __props__.__dict__["mount_targets"] = mount_targets
         __props__.__dict__["name"] = name
         __props__.__dict__["network_features"] = network_features
         __props__.__dict__["pool_name"] = pool_name
@@ -1653,12 +1653,12 @@ class Volume(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @_builtins.property
-    @pulumi.getter(name="mountIpAddresses")
-    def mount_ip_addresses(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> pulumi.Output[Sequence['outputs.VolumeMountTarget']]:
         """
-        A list of IPv4 Addresses which should be used to mount the volume.
+        One or more `mount_target` blocks as defined below.
         """
-        return pulumi.get(self, "mount_ip_addresses")
+        return pulumi.get(self, "mount_targets")
 
     @_builtins.property
     @pulumi.getter

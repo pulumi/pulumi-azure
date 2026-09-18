@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Storage
         public Output<string> RowKey { get; private set; } = null!;
 
         /// <summary>
-        /// The Storage Share ID in which this file will be placed into.
+        /// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageTableId")]
         public Output<string> StorageTableId { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Storage
         public Input<string> RowKey { get; set; } = null!;
 
         /// <summary>
-        /// The Storage Share ID in which this file will be placed into.
+        /// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageTableId", required: true)]
         public Input<string> StorageTableId { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? RowKey { get; set; }
 
         /// <summary>
-        /// The Storage Share ID in which this file will be placed into.
+        /// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageTableId")]
         public Input<string>? StorageTableId { get; set; }

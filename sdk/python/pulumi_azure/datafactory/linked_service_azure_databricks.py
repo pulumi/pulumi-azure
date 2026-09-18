@@ -31,7 +31,6 @@ class LinkedServiceAzureDatabricksArgs:
                  instance_pool: pulumi.Input[Optional['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_password: pulumi.Input[Optional['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] = None,
-                 msi_work_space_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  msi_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  new_cluster_config: pulumi.Input[Optional['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
@@ -72,11 +71,6 @@ class LinkedServiceAzureDatabricksArgs:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if key_vault_password is not None:
             pulumi.set(__self__, "key_vault_password", key_vault_password)
-        if msi_work_space_resource_id is not None:
-            warnings.warn("""The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""msi_work_space_resource_id is deprecated: The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""")
-        if msi_work_space_resource_id is not None:
-            pulumi.set(__self__, "msi_work_space_resource_id", msi_work_space_resource_id)
         if msi_workspace_id is not None:
             pulumi.set(__self__, "msi_workspace_id", msi_workspace_id)
         if name is not None:
@@ -207,16 +201,6 @@ class LinkedServiceAzureDatabricksArgs:
         pulumi.set(self, "key_vault_password", value)
 
     @_builtins.property
-    @pulumi.getter(name="msiWorkSpaceResourceId")
-    @_utilities.deprecated("""The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""")
-    def msi_work_space_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "msi_work_space_resource_id")
-
-    @msi_work_space_resource_id.setter
-    def msi_work_space_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "msi_work_space_resource_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="msiWorkspaceId")
     def msi_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -278,7 +262,6 @@ class _LinkedServiceAzureDatabricksState:
                  instance_pool: pulumi.Input[Optional['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_password: pulumi.Input[Optional['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] = None,
-                 msi_work_space_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  msi_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  new_cluster_config: pulumi.Input[Optional['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
@@ -321,11 +304,6 @@ class _LinkedServiceAzureDatabricksState:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if key_vault_password is not None:
             pulumi.set(__self__, "key_vault_password", key_vault_password)
-        if msi_work_space_resource_id is not None:
-            warnings.warn("""The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""msi_work_space_resource_id is deprecated: The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""")
-        if msi_work_space_resource_id is not None:
-            pulumi.set(__self__, "msi_work_space_resource_id", msi_work_space_resource_id)
         if msi_workspace_id is not None:
             pulumi.set(__self__, "msi_workspace_id", msi_workspace_id)
         if name is not None:
@@ -456,16 +434,6 @@ class _LinkedServiceAzureDatabricksState:
         pulumi.set(self, "key_vault_password", value)
 
     @_builtins.property
-    @pulumi.getter(name="msiWorkSpaceResourceId")
-    @_utilities.deprecated("""The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""")
-    def msi_work_space_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "msi_work_space_resource_id")
-
-    @msi_work_space_resource_id.setter
-    def msi_work_space_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "msi_work_space_resource_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="msiWorkspaceId")
     def msi_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -530,7 +498,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  instance_pool: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksInstancePoolArgs', 'LinkedServiceAzureDatabricksInstancePoolArgsDict']]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_password: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksKeyVaultPasswordArgs', 'LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict']]] = None,
-                 msi_work_space_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  msi_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  new_cluster_config: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksNewClusterConfigArgs', 'LinkedServiceAzureDatabricksNewClusterConfigArgsDict']]] = None,
@@ -780,7 +747,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  instance_pool: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksInstancePoolArgs', 'LinkedServiceAzureDatabricksInstancePoolArgsDict']]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_password: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksKeyVaultPasswordArgs', 'LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict']]] = None,
-                 msi_work_space_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  msi_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  new_cluster_config: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksNewClusterConfigArgs', 'LinkedServiceAzureDatabricksNewClusterConfigArgsDict']]] = None,
@@ -808,7 +774,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             __props__.__dict__["instance_pool"] = instance_pool
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["key_vault_password"] = key_vault_password
-            __props__.__dict__["msi_work_space_resource_id"] = msi_work_space_resource_id
             __props__.__dict__["msi_workspace_id"] = msi_workspace_id
             __props__.__dict__["name"] = name
             __props__.__dict__["new_cluster_config"] = new_cluster_config
@@ -835,7 +800,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             instance_pool: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksInstancePoolArgs', 'LinkedServiceAzureDatabricksInstancePoolArgsDict']]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
             key_vault_password: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksKeyVaultPasswordArgs', 'LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict']]] = None,
-            msi_work_space_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             msi_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             new_cluster_config: pulumi.Input[Optional[Union['LinkedServiceAzureDatabricksNewClusterConfigArgs', 'LinkedServiceAzureDatabricksNewClusterConfigArgsDict']]] = None,
@@ -876,7 +840,6 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         __props__.__dict__["instance_pool"] = instance_pool
         __props__.__dict__["integration_runtime_name"] = integration_runtime_name
         __props__.__dict__["key_vault_password"] = key_vault_password
-        __props__.__dict__["msi_work_space_resource_id"] = msi_work_space_resource_id
         __props__.__dict__["msi_workspace_id"] = msi_workspace_id
         __props__.__dict__["name"] = name
         __props__.__dict__["new_cluster_config"] = new_cluster_config
@@ -964,14 +927,8 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         return pulumi.get(self, "key_vault_password")
 
     @_builtins.property
-    @pulumi.getter(name="msiWorkSpaceResourceId")
-    @_utilities.deprecated("""The `msi_work_space_resource_id` property is deprecated in favour of the `msi_workspace_id` property and will be removed in v5.0 of the AzureRM Provider""")
-    def msi_work_space_resource_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "msi_work_space_resource_id")
-
-    @_builtins.property
     @pulumi.getter(name="msiWorkspaceId")
-    def msi_workspace_id(self) -> pulumi.Output[_builtins.str]:
+    def msi_workspace_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Authenticate to ADB via managed service identity.
         """

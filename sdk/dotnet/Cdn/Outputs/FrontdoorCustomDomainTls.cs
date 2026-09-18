@@ -31,7 +31,6 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// A `CipherSuite` block as defined below.
         /// </summary>
         public readonly Outputs.FrontdoorCustomDomainTlsCipherSuite? CipherSuite;
-        public readonly string? MinimumTlsVersion;
         /// <summary>
         /// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
         /// </summary>
@@ -45,14 +44,11 @@ namespace Pulumi.Azure.Cdn.Outputs
 
             Outputs.FrontdoorCustomDomainTlsCipherSuite? cipherSuite,
 
-            string? minimumTlsVersion,
-
             string? minimumVersion)
         {
             CdnFrontdoorSecretId = cdnFrontdoorSecretId;
             CertificateType = certificateType;
             CipherSuite = cipherSuite;
-            MinimumTlsVersion = minimumTlsVersion;
             MinimumVersion = minimumVersion;
         }
     }

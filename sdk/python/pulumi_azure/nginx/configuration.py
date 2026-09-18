@@ -274,7 +274,7 @@ class Configuration(pulumi.CustomResource):
                 include site/*.conf;
             }
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/nginx.conf",
                 },
                 {
@@ -285,7 +285,7 @@ class Configuration(pulumi.CustomResource):
           <div>at 10:38 am</div>
          </body></html>';
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/site/b.conf",
                 },
             ])
@@ -389,7 +389,7 @@ class Configuration(pulumi.CustomResource):
                 include site/*.conf;
             }
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/nginx.conf",
                 },
                 {
@@ -400,7 +400,7 @@ class Configuration(pulumi.CustomResource):
           <div>at 10:38 am</div>
          </body></html>';
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/site/b.conf",
                 },
             ])

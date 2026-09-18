@@ -387,11 +387,12 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example = azure.appservice.get_function_app_output(name="test-azure-functions",
+        example = azurerm.function_app(name="test-azure-functions",
             resource_group_name=example_resource_group.name)
         example_factory = azure.datafactory.Factory("example",
             name="example",
@@ -400,7 +401,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("example",
             name="example",
             data_factory_id=example_factory.id,
-            url=example.apply(lambda example: f"https://{example.default_hostname}"),
+            url=f"https://{example['defaultHostname']}",
             key="foo")
         ```
 
@@ -442,11 +443,12 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example_resource_group = azure.core.ResourceGroup("example",
             name="example-resources",
             location="West Europe")
-        example = azure.appservice.get_function_app_output(name="test-azure-functions",
+        example = azurerm.function_app(name="test-azure-functions",
             resource_group_name=example_resource_group.name)
         example_factory = azure.datafactory.Factory("example",
             name="example",
@@ -455,7 +457,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         example_linked_service_azure_function = azure.datafactory.LinkedServiceAzureFunction("example",
             name="example",
             data_factory_id=example_factory.id,
-            url=example.apply(lambda example: f"https://{example.default_hostname}"),
+            url=f"https://{example['defaultHostname']}",
             key="foo")
         ```
 

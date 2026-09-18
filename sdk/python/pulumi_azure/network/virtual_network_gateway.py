@@ -33,7 +33,6 @@ class VirtualNetworkGatewayArgs:
                  default_local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -110,11 +109,6 @@ class VirtualNetworkGatewayArgs:
             pulumi.set(__self__, "dns_forwarding_enabled", dns_forwarding_enabled)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_bgp is not None:
-            warnings.warn("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_bgp is deprecated: the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
         if generation is not None:
             pulumi.set(__self__, "generation", generation)
         if ip_sec_replay_protection_enabled is not None:
@@ -289,16 +283,6 @@ class VirtualNetworkGatewayArgs:
     @edge_zone.setter
     def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_bgp")
-
-    @enable_bgp.setter
-    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter
@@ -478,7 +462,6 @@ class _VirtualNetworkGatewayState:
                  default_local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -555,11 +538,6 @@ class _VirtualNetworkGatewayState:
             pulumi.set(__self__, "dns_forwarding_enabled", dns_forwarding_enabled)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_bgp is not None:
-            warnings.warn("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_bgp is deprecated: the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
         if generation is not None:
             pulumi.set(__self__, "generation", generation)
         if ip_configurations is not None:
@@ -690,16 +668,6 @@ class _VirtualNetworkGatewayState:
     @edge_zone.setter
     def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_bgp")
-
-    @enable_bgp.setter
-    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter
@@ -934,7 +902,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  default_local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1210,7 +1177,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  default_local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1245,7 +1211,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["default_local_network_gateway_id"] = default_local_network_gateway_id
             __props__.__dict__["dns_forwarding_enabled"] = dns_forwarding_enabled
             __props__.__dict__["edge_zone"] = edge_zone
-            __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["generation"] = generation
             if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")
@@ -1289,7 +1254,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             default_local_network_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             dns_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
             generation: pulumi.Input[Optional[_builtins.str]] = None,
             ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]]] = None,
             ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1366,7 +1330,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["default_local_network_gateway_id"] = default_local_network_gateway_id
         __props__.__dict__["dns_forwarding_enabled"] = dns_forwarding_enabled
         __props__.__dict__["edge_zone"] = edge_zone
-        __props__.__dict__["enable_bgp"] = enable_bgp
         __props__.__dict__["generation"] = generation
         __props__.__dict__["ip_configurations"] = ip_configurations
         __props__.__dict__["ip_sec_replay_protection_enabled"] = ip_sec_replay_protection_enabled
@@ -1396,7 +1359,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="bgpEnabled")
-    def bgp_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def bgp_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         """
@@ -1449,12 +1412,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         """
         return pulumi.get(self, "edge_zone")
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_bgp")
 
     @_builtins.property
     @pulumi.getter

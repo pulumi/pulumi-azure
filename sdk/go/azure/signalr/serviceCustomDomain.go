@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/signalr"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/signalr"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -96,8 +96,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate-to-import.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "certificate-to-import.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -106,7 +106,7 @@ import (
 //				Name:       pulumi.String("imported-cert"),
 //				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: pulumi.String(invokeFilebase64.Result),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
 //			})

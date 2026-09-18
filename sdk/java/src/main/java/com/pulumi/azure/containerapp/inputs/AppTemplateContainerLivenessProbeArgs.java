@@ -125,21 +125,6 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
     }
 
     /**
-     * The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-     * 
-     */
-    @Import(name="terminationGracePeriodSeconds")
-    private @Nullable Output<Integer> terminationGracePeriodSeconds;
-
-    /**
-     * @return The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-     * 
-     */
-    public Optional<Output<Integer>> terminationGracePeriodSeconds() {
-        return Optional.ofNullable(this.terminationGracePeriodSeconds);
-    }
-
-    /**
      * Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
      * 
      */
@@ -179,7 +164,6 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
         this.intervalSeconds = $.intervalSeconds;
         this.path = $.path;
         this.port = $.port;
-        this.terminationGracePeriodSeconds = $.terminationGracePeriodSeconds;
         this.timeout = $.timeout;
         this.transport = $.transport;
     }
@@ -357,27 +341,6 @@ public final class AppTemplateContainerLivenessProbeArgs extends com.pulumi.reso
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
-        }
-
-        /**
-         * @param terminationGracePeriodSeconds The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder terminationGracePeriodSeconds(@Nullable Output<Integer> terminationGracePeriodSeconds) {
-            $.terminationGracePeriodSeconds = terminationGracePeriodSeconds;
-            return this;
-        }
-
-        /**
-         * @param terminationGracePeriodSeconds The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder terminationGracePeriodSeconds(Integer terminationGracePeriodSeconds) {
-            return terminationGracePeriodSeconds(Output.of(terminationGracePeriodSeconds));
         }
 
         /**

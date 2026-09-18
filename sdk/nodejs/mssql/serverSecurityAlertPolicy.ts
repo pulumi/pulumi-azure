@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  *
  * ## Import
  *
@@ -97,9 +97,9 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      */
     declare public readonly disabledAlerts: pulumi.Output<string[] | undefined>;
     /**
-     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Defaults to `false`.
      */
-    declare public readonly emailAccountAdmins: pulumi.Output<boolean | undefined>;
+    declare public readonly emailAccountAdminsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
@@ -149,7 +149,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServerSecurityAlertPolicyState | undefined;
             resourceInputs["disabledAlerts"] = state?.disabledAlerts;
-            resourceInputs["emailAccountAdmins"] = state?.emailAccountAdmins;
+            resourceInputs["emailAccountAdminsEnabled"] = state?.emailAccountAdminsEnabled;
             resourceInputs["emailAddresses"] = state?.emailAddresses;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["retentionDays"] = state?.retentionDays;
@@ -169,7 +169,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'state'");
             }
             resourceInputs["disabledAlerts"] = args?.disabledAlerts;
-            resourceInputs["emailAccountAdmins"] = args?.emailAccountAdmins;
+            resourceInputs["emailAccountAdminsEnabled"] = args?.emailAccountAdminsEnabled;
             resourceInputs["emailAddresses"] = args?.emailAddresses;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retentionDays"] = args?.retentionDays;
@@ -194,9 +194,9 @@ export interface ServerSecurityAlertPolicyState {
      */
     disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Defaults to `false`.
      */
-    emailAccountAdmins?: pulumi.Input<boolean | undefined>;
+    emailAccountAdminsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */
@@ -242,9 +242,9 @@ export interface ServerSecurityAlertPolicyArgs {
      */
     disabledAlerts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Defaults to `false`.
      */
-    emailAccountAdmins?: pulumi.Input<boolean | undefined>;
+    emailAccountAdminsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies an array of email addresses to which the alert is sent.
      */

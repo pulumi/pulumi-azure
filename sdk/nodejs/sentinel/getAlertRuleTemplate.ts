@@ -21,6 +21,15 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ *
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  */
 export function getAlertRuleTemplate(args: GetAlertRuleTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,6 +99,15 @@ export interface GetAlertRuleTemplateResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ *
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  */
 export function getAlertRuleTemplateOutput(args: GetAlertRuleTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

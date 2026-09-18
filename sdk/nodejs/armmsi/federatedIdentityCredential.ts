@@ -87,14 +87,6 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly parentId: pulumi.Output<string>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
-    /**
      * Specifies the subject for this Federated Identity Credential.
      */
     declare public readonly subject: pulumi.Output<string>;
@@ -119,8 +111,6 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["audience"] = state?.audience;
             resourceInputs["issuer"] = state?.issuer;
             resourceInputs["name"] = state?.name;
-            resourceInputs["parentId"] = state?.parentId;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["subject"] = state?.subject;
             resourceInputs["userAssignedIdentityId"] = state?.userAssignedIdentityId;
         } else {
@@ -134,11 +124,12 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
+            if (args?.userAssignedIdentityId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'userAssignedIdentityId'");
+            }
             resourceInputs["audience"] = args?.audience;
             resourceInputs["issuer"] = args?.issuer;
             resourceInputs["name"] = args?.name;
-            resourceInputs["parentId"] = args?.parentId;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["subject"] = args?.subject;
             resourceInputs["userAssignedIdentityId"] = args?.userAssignedIdentityId;
         }
@@ -163,14 +154,6 @@ export interface FederatedIdentityCredentialState {
      * Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    parentId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the subject for this Federated Identity Credential.
      */
@@ -198,19 +181,11 @@ export interface FederatedIdentityCredentialArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    parentId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated This field is no longer used and will be removed in the next major version of the Azure Provider
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
-    /**
      * Specifies the subject for this Federated Identity Credential.
      */
     subject: pulumi.Input<string>;
     /**
      * Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
      */
-    userAssignedIdentityId?: pulumi.Input<string | undefined>;
+    userAssignedIdentityId: pulumi.Input<string>;
 }

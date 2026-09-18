@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -160,7 +160,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dns"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -168,13 +168,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
-//				Separator: ".",
-//				Input: []interface{}{
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": []interface{}{
 //					"_dnsauth",
-//					std.Split(ctx, std.SplitArgs{
-//						Separator: ".",
-//						Text:      exampleAzurermCdnFrontdoorCustomDomain.HostName,
+//					std.Split(ctx, map[string]interface{}{
+//						"separator": ".",
+//						"text":      exampleAzurermCdnFrontdoorCustomDomain.HostName,
 //					}, nil).Result[0],
 //				},
 //			}, nil)
@@ -182,7 +182,7 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String(invokeJoin.Result),
+//				Name:              invokeJoin.Result,
 //				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Ttl:               pulumi.Int(3600),
@@ -210,7 +210,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dns"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -218,15 +218,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeSplit, err := std.Split(ctx, &std.SplitArgs{
-//				Separator: ".",
-//				Text:      exampleAzurermCdnFrontdoorCustomDomain.HostName,
+//			invokeSplit, err := std.Split(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"text":      exampleAzurermCdnFrontdoorCustomDomain.HostName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				Name:              pulumi.String(invokeSplit.Result[0]),
+//				Name:              invokeSplit.Result[0],
 //				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Ttl:               pulumi.Int(3600),

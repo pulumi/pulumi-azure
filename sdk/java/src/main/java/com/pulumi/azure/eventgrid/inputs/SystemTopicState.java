@@ -47,13 +47,6 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.location);
     }
 
-    @Import(name="metricArmResourceId")
-    private @Nullable Output<String> metricArmResourceId;
-
-    public Optional<Output<String>> metricArmResourceId() {
-        return Optional.ofNullable(this.metricArmResourceId);
-    }
-
     /**
      * The Metric Resource ID of the Event Grid System Topic.
      * 
@@ -97,25 +90,6 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> resourceGroupName() {
         return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-    @Import(name="sourceArmResourceId")
-    private @Nullable Output<String> sourceArmResourceId;
-
-    /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> sourceArmResourceId() {
-        return Optional.ofNullable(this.sourceArmResourceId);
     }
 
     /**
@@ -176,11 +150,9 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
     private SystemTopicState(SystemTopicState $) {
         this.identity = $.identity;
         this.location = $.location;
-        this.metricArmResourceId = $.metricArmResourceId;
         this.metricResourceId = $.metricResourceId;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
-        this.sourceArmResourceId = $.sourceArmResourceId;
         this.sourceResourceId = $.sourceResourceId;
         this.tags = $.tags;
         this.topicType = $.topicType;
@@ -246,15 +218,6 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
             return location(Output.of(location));
         }
 
-        public Builder metricArmResourceId(@Nullable Output<String> metricArmResourceId) {
-            $.metricArmResourceId = metricArmResourceId;
-            return this;
-        }
-
-        public Builder metricArmResourceId(String metricArmResourceId) {
-            return metricArmResourceId(Output.of(metricArmResourceId));
-        }
-
         /**
          * @param metricResourceId The Metric Resource ID of the Event Grid System Topic.
          * 
@@ -316,31 +279,6 @@ public final class SystemTopicState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-        public Builder sourceArmResourceId(@Nullable Output<String> sourceArmResourceId) {
-            $.sourceArmResourceId = sourceArmResourceId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-        public Builder sourceArmResourceId(String sourceArmResourceId) {
-            return sourceArmResourceId(Output.of(sourceArmResourceId));
         }
 
         /**

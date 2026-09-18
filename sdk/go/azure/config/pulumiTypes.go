@@ -7,72 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
-
-type EnhancedValidation struct {
-	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-	Locations *bool `pulumi:"locations"`
-	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-	ResourceProviders *bool `pulumi:"resourceProviders"`
-}
-
-// EnhancedValidationInput is an input type that accepts EnhancedValidationArgs and EnhancedValidationOutput values.
-// You can construct a concrete instance of `EnhancedValidationInput` via:
-//
-//	EnhancedValidationArgs{...}
-type EnhancedValidationInput interface {
-	pulumi.Input
-
-	ToEnhancedValidationOutput() EnhancedValidationOutput
-	ToEnhancedValidationOutputWithContext(context.Context) EnhancedValidationOutput
-}
-
-type EnhancedValidationArgs struct {
-	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-	Locations pulumi.BoolPtrInput `pulumi:"locations"`
-	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-	ResourceProviders pulumi.BoolPtrInput `pulumi:"resourceProviders"`
-}
-
-func (EnhancedValidationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnhancedValidation)(nil)).Elem()
-}
-
-func (i EnhancedValidationArgs) ToEnhancedValidationOutput() EnhancedValidationOutput {
-	return i.ToEnhancedValidationOutputWithContext(context.Background())
-}
-
-func (i EnhancedValidationArgs) ToEnhancedValidationOutputWithContext(ctx context.Context) EnhancedValidationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnhancedValidationOutput)
-}
-
-type EnhancedValidationOutput struct{ *pulumi.OutputState }
-
-func (EnhancedValidationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnhancedValidation)(nil)).Elem()
-}
-
-func (o EnhancedValidationOutput) ToEnhancedValidationOutput() EnhancedValidationOutput {
-	return o
-}
-
-func (o EnhancedValidationOutput) ToEnhancedValidationOutputWithContext(ctx context.Context) EnhancedValidationOutput {
-	return o
-}
-
-// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-func (o EnhancedValidationOutput) Locations() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EnhancedValidation) *bool { return v.Locations }).(pulumi.BoolPtrOutput)
-}
-
-// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-func (o EnhancedValidationOutput) ResourceProviders() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EnhancedValidation) *bool { return v.ResourceProviders }).(pulumi.BoolPtrOutput)
-}
 
 type Features struct {
 	ApiManagement         *FeaturesApiManagement         `pulumi:"apiManagement"`
@@ -3137,9 +3076,7 @@ func (o FeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDeletion() p
 type FeaturesVirtualMachine struct {
 	DeleteOsDiskOnDeletion           *bool `pulumi:"deleteOsDiskOnDeletion"`
 	DetachImplicitDataDiskOnDeletion *bool `pulumi:"detachImplicitDataDiskOnDeletion"`
-	// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-	GracefulShutdown           *bool `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete *bool `pulumi:"skipShutdownAndForceDelete"`
+	SkipShutdownAndForceDelete       *bool `pulumi:"skipShutdownAndForceDelete"`
 }
 
 // FeaturesVirtualMachineInput is an input type that accepts FeaturesVirtualMachineArgs and FeaturesVirtualMachineOutput values.
@@ -3156,9 +3093,7 @@ type FeaturesVirtualMachineInput interface {
 type FeaturesVirtualMachineArgs struct {
 	DeleteOsDiskOnDeletion           pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
 	DetachImplicitDataDiskOnDeletion pulumi.BoolPtrInput `pulumi:"detachImplicitDataDiskOnDeletion"`
-	// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-	GracefulShutdown           pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
+	SkipShutdownAndForceDelete       pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
 }
 
 func (FeaturesVirtualMachineArgs) ElementType() reflect.Type {
@@ -3246,11 +3181,6 @@ func (o FeaturesVirtualMachineOutput) DetachImplicitDataDiskOnDeletion() pulumi.
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.DetachImplicitDataDiskOnDeletion }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-func (o FeaturesVirtualMachineOutput) GracefulShutdown() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.GracefulShutdown }).(pulumi.BoolPtrOutput)
-}
-
 func (o FeaturesVirtualMachineOutput) SkipShutdownAndForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.SkipShutdownAndForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -3294,16 +3224,6 @@ func (o FeaturesVirtualMachinePtrOutput) DetachImplicitDataDiskOnDeletion() pulu
 			return nil
 		}
 		return v.DetachImplicitDataDiskOnDeletion
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-func (o FeaturesVirtualMachinePtrOutput) GracefulShutdown() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FeaturesVirtualMachine) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.GracefulShutdown
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -3495,7 +3415,6 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) ScaleToZeroBeforeDeletion() pul
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnhancedValidationInput)(nil)).Elem(), EnhancedValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesInput)(nil)).Elem(), FeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApiManagementInput)(nil)).Elem(), FeaturesApiManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApiManagementPtrInput)(nil)).Elem(), FeaturesApiManagementArgs{})
@@ -3539,7 +3458,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachinePtrInput)(nil)).Elem(), FeaturesVirtualMachineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachineScaleSetInput)(nil)).Elem(), FeaturesVirtualMachineScaleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachineScaleSetPtrInput)(nil)).Elem(), FeaturesVirtualMachineScaleSetArgs{})
-	pulumi.RegisterOutputType(EnhancedValidationOutput{})
 	pulumi.RegisterOutputType(FeaturesOutput{})
 	pulumi.RegisterOutputType(FeaturesApiManagementOutput{})
 	pulumi.RegisterOutputType(FeaturesApiManagementPtrOutput{})

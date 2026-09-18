@@ -17,14 +17,14 @@ public final class ProtectionContainerMappingState extends com.pulumi.resources.
     public static final ProtectionContainerMappingState Empty = new ProtectionContainerMappingState();
 
     /**
-     * a `automaticUpdate` block defined as below.
+     * An `automaticUpdate` block defined as below.
      * 
      */
     @Import(name="automaticUpdate")
     private @Nullable Output<ProtectionContainerMappingAutomaticUpdateArgs> automaticUpdate;
 
     /**
-     * @return a `automaticUpdate` block defined as below.
+     * @return An `automaticUpdate` block defined as below.
      * 
      */
     public Optional<Output<ProtectionContainerMappingAutomaticUpdateArgs>> automaticUpdate() {
@@ -47,14 +47,14 @@ public final class ProtectionContainerMappingState extends com.pulumi.resources.
     }
 
     /**
-     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="recoveryFabricName")
     private @Nullable Output<String> recoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * @return Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> recoveryFabricName() {
@@ -168,7 +168,7 @@ public final class ProtectionContainerMappingState extends com.pulumi.resources.
         }
 
         /**
-         * @param automaticUpdate a `automaticUpdate` block defined as below.
+         * @param automaticUpdate An `automaticUpdate` block defined as below.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ProtectionContainerMappingState extends com.pulumi.resources.
         }
 
         /**
-         * @param automaticUpdate a `automaticUpdate` block defined as below.
+         * @param automaticUpdate An `automaticUpdate` block defined as below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ProtectionContainerMappingState extends com.pulumi.resources.
         }
 
         /**
-         * @param recoveryFabricName Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+         * @param recoveryFabricName Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class ProtectionContainerMappingState extends com.pulumi.resources.
         }
 
         /**
-         * @param recoveryFabricName Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+         * @param recoveryFabricName Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

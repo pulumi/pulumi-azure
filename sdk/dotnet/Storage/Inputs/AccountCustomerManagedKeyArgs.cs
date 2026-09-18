@@ -15,11 +15,8 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         /// </summary>
-        [Input("keyVaultKeyId")]
-        public Input<string>? KeyVaultKeyId { get; set; }
-
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
+        [Input("keyVaultKeyId", required: true)]
+        public Input<string> KeyVaultKeyId { get; set; } = null!;
 
         /// <summary>
         /// The ID of a user assigned identity.

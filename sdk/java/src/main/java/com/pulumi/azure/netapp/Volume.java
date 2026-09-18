@@ -12,6 +12,7 @@ import com.pulumi.azure.netapp.outputs.VolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionReplication;
 import com.pulumi.azure.netapp.outputs.VolumeDataProtectionSnapshotPolicy;
 import com.pulumi.azure.netapp.outputs.VolumeExportPolicyRule;
+import com.pulumi.azure.netapp.outputs.VolumeMountTarget;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -264,18 +265,18 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      * 
      */
-    @Export(name="mountIpAddresses", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> mountIpAddresses;
+    @Export(name="mountTargets", refs={List.class,VolumeMountTarget.class}, tree="[0,1]")
+    private Output<List<VolumeMountTarget>> mountTargets;
 
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    public Output<List<String>> mountIpAddresses() {
-        return this.mountIpAddresses;
+    public Output<List<VolumeMountTarget>> mountTargets() {
+        return this.mountTargets;
     }
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.

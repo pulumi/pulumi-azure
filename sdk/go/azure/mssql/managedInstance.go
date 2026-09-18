@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +25,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -322,14 +322,14 @@ type ManagedInstance struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName pulumi.StringPtrOutput `pulumi:"maintenanceConfigurationName"`
-	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
-	ProxyOverride pulumi.StringOutput `pulumi:"proxyOverride"`
+	// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
+	ProxyOverride pulumi.StringPtrOutput `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Defaults to `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicDataEndpointEnabled"`
 	// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
@@ -457,13 +457,13 @@ type managedInstanceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
-	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+	// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Defaults to `false`.
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
@@ -532,13 +532,13 @@ type ManagedInstanceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName pulumi.StringPtrInput
-	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+	// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
 	ProxyOverride pulumi.StringPtrInput
 	// Is the public data endpoint enabled? Defaults to `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
@@ -607,13 +607,13 @@ type managedInstanceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName *string `pulumi:"maintenanceConfigurationName"`
-	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+	// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Is the public data endpoint enabled? Defaults to `false`.
 	PublicDataEndpointEnabled *bool `pulumi:"publicDataEndpointEnabled"`
@@ -679,13 +679,13 @@ type ManagedInstanceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
 	MaintenanceConfigurationName pulumi.StringPtrInput
-	// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+	// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+	// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
 	ProxyOverride pulumi.StringPtrInput
 	// Is the public data endpoint enabled? Defaults to `false`.
 	PublicDataEndpointEnabled pulumi.BoolPtrInput
@@ -884,7 +884,7 @@ func (o ManagedInstanceOutput) MaintenanceConfigurationName() pulumi.StringPtrOu
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.MaintenanceConfigurationName }).(pulumi.StringPtrOutput)
 }
 
-// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
 //
 // > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o ManagedInstanceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
@@ -896,9 +896,9 @@ func (o ManagedInstanceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
-func (o ManagedInstanceOutput) ProxyOverride() pulumi.StringOutput {
-	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.ProxyOverride }).(pulumi.StringOutput)
+// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
+func (o ManagedInstanceOutput) ProxyOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.ProxyOverride }).(pulumi.StringPtrOutput)
 }
 
 // Is the public data endpoint enabled? Defaults to `false`.

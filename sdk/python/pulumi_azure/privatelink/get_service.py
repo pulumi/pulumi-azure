@@ -27,16 +27,13 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, enable_proxy_protocol=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, proxy_protocol_enabled=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
+    def __init__(__self__, alias=None, auto_approval_subscription_ids=None, id=None, load_balancer_frontend_ip_configuration_ids=None, location=None, name=None, nat_ip_configurations=None, proxy_protocol_enabled=None, resource_group_name=None, tags=None, visibility_subscription_ids=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
         if auto_approval_subscription_ids and not isinstance(auto_approval_subscription_ids, list):
             raise TypeError("Expected argument 'auto_approval_subscription_ids' to be a list")
         pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
-        if enable_proxy_protocol and not isinstance(enable_proxy_protocol, bool):
-            raise TypeError("Expected argument 'enable_proxy_protocol' to be a bool")
-        pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -80,15 +77,6 @@ class GetServiceResult:
         The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
         """
         return pulumi.get(self, "auto_approval_subscription_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="enableProxyProtocol")
-    @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> _builtins.bool:
-        """
-        Does the Private Link Service support the Proxy Protocol?
-        """
-        return pulumi.get(self, "enable_proxy_protocol")
 
     @_builtins.property
     @pulumi.getter
@@ -165,7 +153,6 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             alias=self.alias,
             auto_approval_subscription_ids=self.auto_approval_subscription_ids,
-            enable_proxy_protocol=self.enable_proxy_protocol,
             id=self.id,
             load_balancer_frontend_ip_configuration_ids=self.load_balancer_frontend_ip_configuration_ids,
             location=self.location,
@@ -214,7 +201,6 @@ def get_service(name: Optional[_builtins.str] = None,
     return AwaitableGetServiceResult(
         alias=pulumi.get(__ret__, 'alias'),
         auto_approval_subscription_ids=pulumi.get(__ret__, 'auto_approval_subscription_ids'),
-        enable_proxy_protocol=pulumi.get(__ret__, 'enable_proxy_protocol'),
         id=pulumi.get(__ret__, 'id'),
         load_balancer_frontend_ip_configuration_ids=pulumi.get(__ret__, 'load_balancer_frontend_ip_configuration_ids'),
         location=pulumi.get(__ret__, 'location'),
@@ -260,7 +246,6 @@ def get_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetServiceResult(
         alias=pulumi.get(__response__, 'alias'),
         auto_approval_subscription_ids=pulumi.get(__response__, 'auto_approval_subscription_ids'),
-        enable_proxy_protocol=pulumi.get(__response__, 'enable_proxy_protocol'),
         id=pulumi.get(__response__, 'id'),
         load_balancer_frontend_ip_configuration_ids=pulumi.get(__response__, 'load_balancer_frontend_ip_configuration_ids'),
         location=pulumi.get(__response__, 'location'),

@@ -253,8 +253,8 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 }],
             }],
             automatic_os_upgrade_policy={
-                "disable_automatic_rollback": True,
-                "enable_automatic_os_upgrade": True,
+                "automatic_rollback_enabled": False,
+                "automatic_os_upgrade_enabled": True,
             },
             rolling_upgrade_policy={
                 "max_batch_instance_percent": 20,
@@ -412,8 +412,8 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 }],
             }],
             automatic_os_upgrade_policy={
-                "disable_automatic_rollback": True,
-                "enable_automatic_os_upgrade": True,
+                "automatic_rollback_enabled": False,
+                "automatic_os_upgrade_enabled": True,
             },
             rolling_upgrade_policy={
                 "max_batch_instance_percent": 20,

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -46,8 +46,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "certificate.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				Description:           pulumi.String("This is an example certificate"),
-//				Base64:                pulumi.String(invokeFilebase64.Result),
+//				Base64:                invokeFilebase64.Result,
 //				Exportable:            pulumi.Bool(true),
 //			})
 //			if err != nil {

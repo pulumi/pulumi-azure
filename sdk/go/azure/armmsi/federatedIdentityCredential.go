@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/armmsi"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/armmsi"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,10 +84,6 @@ type FederatedIdentityCredential struct {
 	Issuer pulumi.StringOutput `pulumi:"issuer"`
 	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-	ParentId pulumi.StringOutput `pulumi:"parentId"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the subject for this Federated Identity Credential.
 	Subject pulumi.StringOutput `pulumi:"subject"`
 	// Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
@@ -109,6 +105,9 @@ func NewFederatedIdentityCredential(ctx *pulumi.Context,
 	}
 	if args.Subject == nil {
 		return nil, errors.New("invalid value for required argument 'Subject'")
+	}
+	if args.UserAssignedIdentityId == nil {
+		return nil, errors.New("invalid value for required argument 'UserAssignedIdentityId'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FederatedIdentityCredential
@@ -139,10 +138,6 @@ type federatedIdentityCredentialState struct {
 	Issuer *string `pulumi:"issuer"`
 	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-	ParentId *string `pulumi:"parentId"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the subject for this Federated Identity Credential.
 	Subject *string `pulumi:"subject"`
 	// Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
@@ -156,10 +151,6 @@ type FederatedIdentityCredentialState struct {
 	Issuer pulumi.StringPtrInput
 	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-	ParentId pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the subject for this Federated Identity Credential.
 	Subject pulumi.StringPtrInput
 	// Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
@@ -177,14 +168,10 @@ type federatedIdentityCredentialArgs struct {
 	Issuer string `pulumi:"issuer"`
 	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-	ParentId *string `pulumi:"parentId"`
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the subject for this Federated Identity Credential.
 	Subject string `pulumi:"subject"`
 	// Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // The set of arguments for constructing a FederatedIdentityCredential resource.
@@ -195,14 +182,10 @@ type FederatedIdentityCredentialArgs struct {
 	Issuer pulumi.StringInput
 	// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-	ParentId pulumi.StringPtrInput
-	// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the subject for this Federated Identity Credential.
 	Subject pulumi.StringInput
 	// Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
-	UserAssignedIdentityId pulumi.StringPtrInput
+	UserAssignedIdentityId pulumi.StringInput
 }
 
 func (FederatedIdentityCredentialArgs) ElementType() reflect.Type {
@@ -305,16 +288,6 @@ func (o FederatedIdentityCredentialOutput) Issuer() pulumi.StringOutput {
 // Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
 func (o FederatedIdentityCredentialOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deprecated: `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-func (o FederatedIdentityCredentialOutput) ParentId() pulumi.StringOutput {
-	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
-}
-
-// Deprecated: This field is no longer used and will be removed in the next major version of the Azure Provider
-func (o FederatedIdentityCredentialOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *FederatedIdentityCredential) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // Specifies the subject for this Federated Identity Credential.

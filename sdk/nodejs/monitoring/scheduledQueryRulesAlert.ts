@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  *   | join b on fail
  * `,
  *         args: [example2.id],
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     severity: 1,
  *     frequency: 5,
  *     timeWindow: 30,

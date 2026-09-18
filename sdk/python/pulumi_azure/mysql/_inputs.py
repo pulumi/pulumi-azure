@@ -42,10 +42,6 @@ class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
     """
     The ID of the Key Vault Key.
     """
-    managed_hsm_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The ID of the Managed HSM Key.
-    """
     primary_user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
@@ -57,7 +53,6 @@ class FlexibleServerCustomerManagedKeyArgs:
                  geo_backup_key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  geo_backup_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
@@ -65,7 +60,6 @@ class FlexibleServerCustomerManagedKeyArgs:
                
                > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: The ID of the Managed HSM Key.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
         if geo_backup_key_vault_key_id is not None:
@@ -74,11 +68,6 @@ class FlexibleServerCustomerManagedKeyArgs:
             pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
 
@@ -119,19 +108,6 @@ class FlexibleServerCustomerManagedKeyArgs:
     @key_vault_key_id.setter
     def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the Managed HSM Key.
-        """
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryUserAssignedIdentityId")

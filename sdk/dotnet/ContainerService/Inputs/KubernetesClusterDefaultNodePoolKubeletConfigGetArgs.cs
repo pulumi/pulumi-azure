@@ -30,9 +30,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("containerLogMaxFiles")]
         public Input<int>? ContainerLogMaxFiles { get; set; }
 
-        [Input("containerLogMaxLine")]
-        public Input<int>? ContainerLogMaxLine { get; set; }
-
         /// <summary>
         /// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
         /// </summary>

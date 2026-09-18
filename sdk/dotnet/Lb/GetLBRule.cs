@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Lb
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2023-09-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Task<GetLBRuleResult> InvokeAsync(GetLBRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleArgs(), options.WithDefaults());
@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Lb
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2023-09-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithDefaults());
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Lb
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Network` - 2023-09-01
+        /// * `Microsoft.Network` - 2025-01-01
         /// </summary>
         public static Output<GetLBRuleResult> Invoke(GetLBRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLBRuleResult>("azure:lb/getLBRule:getLBRule", args ?? new GetLBRuleInvokeArgs(), options.WithDefaults());
@@ -123,11 +123,6 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// If Floating IPs are enabled for this Load Balancer Rule
         /// </summary>
-        public readonly bool EnableFloatingIp;
-        /// <summary>
-        /// If TCP Reset is enabled for this Load Balancer Rule.
-        /// </summary>
-        public readonly bool EnableTcpReset;
         public readonly bool FloatingIpEnabled;
         /// <summary>
         /// The name of the frontend IP configuration to which the rule is associated.
@@ -159,6 +154,9 @@ namespace Pulumi.Azure.Lb
         /// The transport protocol for the external endpoint.
         /// </summary>
         public readonly string Protocol;
+        /// <summary>
+        /// If TCP Reset is enabled for this Load Balancer Rule.
+        /// </summary>
         public readonly bool TcpResetEnabled;
 
         [OutputConstructor]
@@ -168,10 +166,6 @@ namespace Pulumi.Azure.Lb
             int backendPort,
 
             bool disableOutboundSnat,
-
-            bool enableFloatingIp,
-
-            bool enableTcpReset,
 
             bool floatingIpEnabled,
 
@@ -198,8 +192,6 @@ namespace Pulumi.Azure.Lb
             BackendAddressPoolId = backendAddressPoolId;
             BackendPort = backendPort;
             DisableOutboundSnat = disableOutboundSnat;
-            EnableFloatingIp = enableFloatingIp;
-            EnableTcpReset = enableTcpReset;
             FloatingIpEnabled = floatingIpEnabled;
             FrontendIpConfigurationName = frontendIpConfigurationName;
             FrontendPort = frontendPort;

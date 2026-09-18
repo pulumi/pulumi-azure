@@ -99,6 +99,10 @@ export interface GetRoleDefinitionResult {
      */
     readonly permissions: outputs.role.GetRoleDefinitionPermission[];
     readonly roleDefinitionId: string;
+    /**
+     * The Azure Resource Manager ID for the resource.
+     */
+    readonly roleDefinitionResourceId: string;
     readonly scope?: string;
     /**
      * The Type of the Role.

@@ -36,6 +36,11 @@ public final class GetRoleDefinitionResult {
      */
     private List<GetRoleDefinitionPermission> permissions;
     private String roleDefinitionId;
+    /**
+     * @return The Azure Resource Manager ID for the resource.
+     * 
+     */
+    private String roleDefinitionResourceId;
     private @Nullable String scope;
     /**
      * @return The Type of the Role.
@@ -78,6 +83,13 @@ public final class GetRoleDefinitionResult {
     public String roleDefinitionId() {
         return this.roleDefinitionId;
     }
+    /**
+     * @return The Azure Resource Manager ID for the resource.
+     * 
+     */
+    public String roleDefinitionResourceId() {
+        return this.roleDefinitionResourceId;
+    }
     public Optional<String> scope() {
         return Optional.ofNullable(this.scope);
     }
@@ -104,6 +116,7 @@ public final class GetRoleDefinitionResult {
         private String name;
         private List<GetRoleDefinitionPermission> permissions;
         private String roleDefinitionId;
+        private String roleDefinitionResourceId;
         private @Nullable String scope;
         private String type;
         public Builder() {}
@@ -115,6 +128,7 @@ public final class GetRoleDefinitionResult {
     	      this.name = defaults.name;
     	      this.permissions = defaults.permissions;
     	      this.roleDefinitionId = defaults.roleDefinitionId;
+    	      this.roleDefinitionResourceId = defaults.roleDefinitionResourceId;
     	      this.scope = defaults.scope;
     	      this.type = defaults.type;
         }
@@ -174,6 +188,14 @@ public final class GetRoleDefinitionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder roleDefinitionResourceId(String roleDefinitionResourceId) {
+            if (roleDefinitionResourceId == null) {
+              throw new MissingRequiredPropertyException("GetRoleDefinitionResult", "roleDefinitionResourceId");
+            }
+            this.roleDefinitionResourceId = roleDefinitionResourceId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
 
             this.scope = scope;
@@ -195,6 +217,7 @@ public final class GetRoleDefinitionResult {
             _resultValue.name = name;
             _resultValue.permissions = permissions;
             _resultValue.roleDefinitionId = roleDefinitionId;
+            _resultValue.roleDefinitionResourceId = roleDefinitionResourceId;
             _resultValue.scope = scope;
             _resultValue.type = type;
             return _resultValue;

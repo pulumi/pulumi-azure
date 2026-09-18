@@ -63,12 +63,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? KeyVaultCertificateId { get; set; }
 
         /// <summary>
-        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-        /// </summary>
-        [Input("keyVaultId")]
-        public Input<string>? KeyVaultId { get; set; }
-
-        /// <summary>
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.
         /// </summary>
         [Input("negotiateClientCertificate")]

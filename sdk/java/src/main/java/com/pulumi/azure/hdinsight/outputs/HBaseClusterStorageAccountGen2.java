@@ -24,17 +24,17 @@ public final class HBaseClusterStorageAccountGen2 {
      */
     private Boolean isDefault;
     /**
-     * @return The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     */
+    private String storageAccountId;
+    /**
+     * @return The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
-    private String managedIdentityResourceId;
-    /**
-     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
-     * 
-     */
-    private String storageResourceId;
+    private String userAssignedIdentityId;
 
     private HBaseClusterStorageAccountGen2() {}
     /**
@@ -54,20 +54,20 @@ public final class HBaseClusterStorageAccountGen2 {
         return this.isDefault;
     }
     /**
-     * @return The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     */
+    public String storageAccountId() {
+        return this.storageAccountId;
+    }
+    /**
+     * @return The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
-    public String managedIdentityResourceId() {
-        return this.managedIdentityResourceId;
-    }
-    /**
-     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
-     * 
-     */
-    public String storageResourceId() {
-        return this.storageResourceId;
+    public String userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -81,15 +81,15 @@ public final class HBaseClusterStorageAccountGen2 {
     public static final class Builder {
         private String filesystemId;
         private Boolean isDefault;
-        private String managedIdentityResourceId;
-        private String storageResourceId;
+        private String storageAccountId;
+        private String userAssignedIdentityId;
         public Builder() {}
         public Builder(HBaseClusterStorageAccountGen2 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filesystemId = defaults.filesystemId;
     	      this.isDefault = defaults.isDefault;
-    	      this.managedIdentityResourceId = defaults.managedIdentityResourceId;
-    	      this.storageResourceId = defaults.storageResourceId;
+    	      this.storageAccountId = defaults.storageAccountId;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
@@ -109,27 +109,27 @@ public final class HBaseClusterStorageAccountGen2 {
             return this;
         }
         @CustomType.Setter
-        public Builder managedIdentityResourceId(String managedIdentityResourceId) {
-            if (managedIdentityResourceId == null) {
-              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "managedIdentityResourceId");
+        public Builder storageAccountId(String storageAccountId) {
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "storageAccountId");
             }
-            this.managedIdentityResourceId = managedIdentityResourceId;
+            this.storageAccountId = storageAccountId;
             return this;
         }
         @CustomType.Setter
-        public Builder storageResourceId(String storageResourceId) {
-            if (storageResourceId == null) {
-              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "storageResourceId");
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            if (userAssignedIdentityId == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2", "userAssignedIdentityId");
             }
-            this.storageResourceId = storageResourceId;
+            this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
         public HBaseClusterStorageAccountGen2 build() {
             final var _resultValue = new HBaseClusterStorageAccountGen2();
             _resultValue.filesystemId = filesystemId;
             _resultValue.isDefault = isDefault;
-            _resultValue.managedIdentityResourceId = managedIdentityResourceId;
-            _resultValue.storageResourceId = storageResourceId;
+            _resultValue.storageAccountId = storageAccountId;
+            _resultValue.userAssignedIdentityId = userAssignedIdentityId;
             return _resultValue;
         }
     }

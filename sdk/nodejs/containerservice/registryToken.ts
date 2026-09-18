@@ -26,9 +26,11 @@ import * as utilities from "../utilities";
  *     georeplications: [
  *         {
  *             location: "East US",
+ *             globalEndpointRoutingEnabled: true,
  *         },
  *         {
  *             location: "West Europe",
+ *             globalEndpointRoutingEnabled: true,
  *         },
  *     ],
  * });

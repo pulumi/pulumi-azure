@@ -129,9 +129,6 @@ namespace Pulumi.Azure.RecoveryServices
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
 
-        [Output("softDeleteEnabled")]
-        public Output<bool?> SoftDeleteEnabled { get; private set; } = null!;
-
         /// <summary>
         /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         /// </summary>
@@ -262,9 +259,6 @@ namespace Pulumi.Azure.RecoveryServices
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
-        [Input("softDeleteEnabled")]
-        public Input<bool>? SoftDeleteEnabled { get; set; }
-
         /// <summary>
         /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         /// </summary>
@@ -362,9 +356,6 @@ namespace Pulumi.Azure.RecoveryServices
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
-
-        [Input("softDeleteEnabled")]
-        public Input<bool>? SoftDeleteEnabled { get; set; }
 
         /// <summary>
         /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.

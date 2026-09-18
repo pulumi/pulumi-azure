@@ -112,15 +112,15 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      * 
      */
-    @Import(name="moniterMetricsAfterDuration")
-    private @Nullable Output<String> moniterMetricsAfterDuration;
+    @Import(name="monitorMetricsAfterDuration")
+    private @Nullable Output<String> monitorMetricsAfterDuration;
 
     /**
      * @return The TimeSpan value after which an Azure Monitoring Metric is fired.
      * 
      */
-    public Optional<Output<String>> moniterMetricsAfterDuration() {
-        return Optional.ofNullable(this.moniterMetricsAfterDuration);
+    public Optional<Output<String>> monitorMetricsAfterDuration() {
+        return Optional.ofNullable(this.monitorMetricsAfterDuration);
     }
 
     /**
@@ -177,7 +177,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
         this.folder = $.folder;
-        this.moniterMetricsAfterDuration = $.moniterMetricsAfterDuration;
+        this.monitorMetricsAfterDuration = $.monitorMetricsAfterDuration;
         this.name = $.name;
         this.parameters = $.parameters;
         this.variables = $.variables;
@@ -338,24 +338,24 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param moniterMetricsAfterDuration The TimeSpan value after which an Azure Monitoring Metric is fired.
+         * @param monitorMetricsAfterDuration The TimeSpan value after which an Azure Monitoring Metric is fired.
          * 
          * @return builder
          * 
          */
-        public Builder moniterMetricsAfterDuration(@Nullable Output<String> moniterMetricsAfterDuration) {
-            $.moniterMetricsAfterDuration = moniterMetricsAfterDuration;
+        public Builder monitorMetricsAfterDuration(@Nullable Output<String> monitorMetricsAfterDuration) {
+            $.monitorMetricsAfterDuration = monitorMetricsAfterDuration;
             return this;
         }
 
         /**
-         * @param moniterMetricsAfterDuration The TimeSpan value after which an Azure Monitoring Metric is fired.
+         * @param monitorMetricsAfterDuration The TimeSpan value after which an Azure Monitoring Metric is fired.
          * 
          * @return builder
          * 
          */
-        public Builder moniterMetricsAfterDuration(String moniterMetricsAfterDuration) {
-            return moniterMetricsAfterDuration(Output.of(moniterMetricsAfterDuration));
+        public Builder monitorMetricsAfterDuration(String monitorMetricsAfterDuration) {
+            return monitorMetricsAfterDuration(Output.of(monitorMetricsAfterDuration));
         }
 
         /**

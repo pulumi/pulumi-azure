@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/nginx"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/nginx"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -103,8 +103,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `http {
+//			invokeBase64encode, err := std.Base64encode(ctx, map[string]string{
+//				"input": `http {
 //	    server {
 //	        listen 80;
 //	        location / {
@@ -124,8 +124,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `location /bbb {
+//			invokeBase64encode1, err := std.Base64encode(ctx, map[string]string{
+//				"input": `location /bbb {
 //	 default_type text/html;
 //	 return 200 '<!doctype html><html lang=\"en\"><head></head><body>
 //	  <div>this one will be updated</div>
@@ -144,11 +144,11 @@ import (
 //				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
 //				ConfigFiles: nginx.ConfigurationConfigFileArray{
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     pulumi.String(invokeBase64encode.Result),
+//						Content:     invokeBase64encode.Result,
 //						VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
 //					},
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     pulumi.String(invokeBase64encode1.Result),
+//						Content:     invokeBase64encode1.Result,
 //						VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
 //					},
 //				},

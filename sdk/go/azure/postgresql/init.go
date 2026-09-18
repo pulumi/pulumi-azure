@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,14 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator":
-		r = &ActiveDirectoryAdministrator{}
-	case "azure:postgresql/configuration:Configuration":
-		r = &Configuration{}
-	case "azure:postgresql/database:Database":
-		r = &Database{}
-	case "azure:postgresql/firewallRule:FirewallRule":
-		r = &FirewallRule{}
 	case "azure:postgresql/flexibleServer:FlexibleServer":
 		r = &FlexibleServer{}
 	case "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
@@ -43,12 +35,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlexibleServerFirewallRule{}
 	case "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint":
 		r = &FlexibleServerVirtualEndpoint{}
-	case "azure:postgresql/server:Server":
-		r = &Server{}
-	case "azure:postgresql/serverKey:ServerKey":
-		r = &ServerKey{}
-	case "azure:postgresql/virtualNetworkRule:VirtualNetworkRule":
-		r = &VirtualNetworkRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -62,26 +48,6 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/activeDirectoryAdministrator",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/configuration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/database",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/firewallRule",
-		&module{version},
-	)
 	pulumi.RegisterResourceModule(
 		"azure",
 		"postgresql/flexibleServer",
@@ -115,21 +81,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"postgresql/flexibleServerVirtualEndpoint",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/server",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/serverKey",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"postgresql/virtualNetworkRule",
 		&module{version},
 	)
 }

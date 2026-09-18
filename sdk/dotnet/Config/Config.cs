@@ -139,13 +139,6 @@ namespace Pulumi.Azure
             set => _disableTerraformPartnerId.Set(value);
         }
 
-        private static readonly __Value<Pulumi.Azure.Config.Types.EnhancedValidation?> _enhancedValidation = new __Value<Pulumi.Azure.Config.Types.EnhancedValidation?>(() => __config.GetObject<Pulumi.Azure.Config.Types.EnhancedValidation>("enhancedValidation"));
-        public static Pulumi.Azure.Config.Types.EnhancedValidation? EnhancedValidation
-        {
-            get => _enhancedValidation.Get();
-            set => _enhancedValidation.Set(value);
-        }
-
         private static readonly __Value<string?> _environment = new __Value<string?>(() => __config.Get("environment") ?? Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public");
         /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `MetadataHost` is specified.
@@ -270,16 +263,6 @@ namespace Pulumi.Azure
             set => _resourceProvidersToRegisters.Set(value);
         }
 
-        private static readonly __Value<bool?> _skipProviderRegistration = new __Value<bool?>(() => __config.GetBoolean("skipProviderRegistration") ?? Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false);
-        /// <summary>
-        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-        /// </summary>
-        public static bool? SkipProviderRegistration
-        {
-            get => _skipProviderRegistration.Get();
-            set => _skipProviderRegistration.Set(value);
-        }
-
         private static readonly __Value<bool?> _storageUseAzuread = new __Value<bool?>(() => __config.GetBoolean("storageUseAzuread") ?? Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false);
         /// <summary>
         /// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
@@ -352,18 +335,6 @@ namespace Pulumi.Azure
 
         public static class Types
         {
-
-             public class EnhancedValidation
-             {
-            /// <summary>
-            /// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
-            /// </summary>
-                public bool? Locations { get; set; }
-            /// <summary>
-            /// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-            /// </summary>
-                public bool? ResourceProviders { get; set; }
-            }
 
              public class Features
              {
@@ -572,7 +543,6 @@ namespace Pulumi.Azure
              {
                 public bool? DeleteOsDiskOnDeletion { get; set; }
                 public bool? DetachImplicitDataDiskOnDeletion { get; set; }
-                public bool? GracefulShutdown { get; set; }
                 public bool? SkipShutdownAndForceDelete { get; set; }
             }
 

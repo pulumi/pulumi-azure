@@ -27,8 +27,6 @@ __all__ = [
     'DeploymentFrontendPublicArgsDict',
     'DeploymentIdentityArgs',
     'DeploymentIdentityArgsDict',
-    'DeploymentLoggingStorageAccountArgs',
-    'DeploymentLoggingStorageAccountArgsDict',
     'DeploymentNetworkInterfaceArgs',
     'DeploymentNetworkInterfaceArgsDict',
     'DeploymentWebApplicationFirewallArgs',
@@ -404,48 +402,6 @@ class DeploymentIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
-
-
-class DeploymentLoggingStorageAccountArgsDict(TypedDict):
-    container_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-    """
-
-@pulumi.input_type
-class DeploymentLoggingStorageAccountArgs:
-    def __init__(__self__, *,
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        """
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "container_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
 
 
 class DeploymentNetworkInterfaceArgsDict(TypedDict):

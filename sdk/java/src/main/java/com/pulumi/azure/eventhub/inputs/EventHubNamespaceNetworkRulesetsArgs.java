@@ -23,12 +23,16 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     /**
      * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
+     * &gt; **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
+     * 
      */
     @Import(name="defaultAction", required=true)
     private Output<String> defaultAction;
 
     /**
      * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+     * 
+     * &gt; **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
      * 
      */
     public Output<String> defaultAction() {
@@ -130,6 +134,8 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         /**
          * @param defaultAction The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
          * 
+         * &gt; **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
+         * 
          * @return builder
          * 
          */
@@ -140,6 +146,8 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
 
         /**
          * @param defaultAction The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+         * 
+         * &gt; **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
          * 
          * @return builder
          * 

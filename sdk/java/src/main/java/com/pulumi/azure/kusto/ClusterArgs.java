@@ -7,7 +7,6 @@ import com.pulumi.azure.kusto.inputs.ClusterIdentityArgs;
 import com.pulumi.azure.kusto.inputs.ClusterLanguageExtensionArgs;
 import com.pulumi.azure.kusto.inputs.ClusterOptimizedAutoScaleArgs;
 import com.pulumi.azure.kusto.inputs.ClusterSkuArgs;
-import com.pulumi.azure.kusto.inputs.ClusterVirtualNetworkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -118,32 +117,13 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      * A `languageExtension` block as defined below.
      * 
      */
-    @Import(name="languageExtension")
-    private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtension;
+    @Import(name="languageExtensions")
+    private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions;
 
     /**
      * @return A `languageExtension` block as defined below.
      * 
      */
-    public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtension() {
-        return Optional.ofNullable(this.languageExtension);
-    }
-
-    /**
-     * @deprecated
-     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="languageExtensions")
-    private @Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions;
-
-    /**
-     * @deprecated
-     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtensions() {
         return Optional.ofNullable(this.languageExtensions);
     }
@@ -333,25 +313,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-     * 
-     */
-    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
-    @Import(name="virtualNetworkConfiguration")
-    private @Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration;
-
-    /**
-     * @deprecated
-     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-     * 
-     */
-    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
-    public Optional<Output<ClusterVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
-        return Optional.ofNullable(this.virtualNetworkConfiguration);
-    }
-
-    /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
      * 
      */
@@ -375,7 +336,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.diskEncryptionEnabled = $.diskEncryptionEnabled;
         this.doubleEncryptionEnabled = $.doubleEncryptionEnabled;
         this.identity = $.identity;
-        this.languageExtension = $.languageExtension;
         this.languageExtensions = $.languageExtensions;
         this.location = $.location;
         this.name = $.name;
@@ -389,7 +349,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.streamingIngestionEnabled = $.streamingIngestionEnabled;
         this.tags = $.tags;
         this.trustedExternalTenants = $.trustedExternalTenants;
-        this.virtualNetworkConfiguration = $.virtualNetworkConfiguration;
         this.zones = $.zones;
     }
 
@@ -558,69 +517,32 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param languageExtension A `languageExtension` block as defined below.
+         * @param languageExtensions A `languageExtension` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder languageExtension(@Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtension) {
-            $.languageExtension = languageExtension;
-            return this;
-        }
-
-        /**
-         * @param languageExtension A `languageExtension` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder languageExtension(List<ClusterLanguageExtensionArgs> languageExtension) {
-            return languageExtension(Output.of(languageExtension));
-        }
-
-        /**
-         * @param languageExtension A `languageExtension` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder languageExtension(ClusterLanguageExtensionArgs... languageExtension) {
-            return languageExtension(List.of(languageExtension));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
         public Builder languageExtensions(@Nullable Output<List<ClusterLanguageExtensionArgs>> languageExtensions) {
             $.languageExtensions = languageExtensions;
             return this;
         }
 
         /**
+         * @param languageExtensions A `languageExtension` block as defined below.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-         * 
          */
-        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
         public Builder languageExtensions(List<ClusterLanguageExtensionArgs> languageExtensions) {
             return languageExtensions(Output.of(languageExtensions));
         }
 
         /**
+         * @param languageExtensions A `languageExtension` block as defined below.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-         * 
          */
-        @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
         public Builder languageExtensions(ClusterLanguageExtensionArgs... languageExtensions) {
             return languageExtensions(List.of(languageExtensions));
         }
@@ -891,31 +813,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder trustedExternalTenants(String... trustedExternalTenants) {
             return trustedExternalTenants(List.of(trustedExternalTenants));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-         * 
-         */
-        @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
-        public Builder virtualNetworkConfiguration(@Nullable Output<ClusterVirtualNetworkConfigurationArgs> virtualNetworkConfiguration) {
-            $.virtualNetworkConfiguration = virtualNetworkConfiguration;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-         * 
-         */
-        @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
-        public Builder virtualNetworkConfiguration(ClusterVirtualNetworkConfigurationArgs virtualNetworkConfiguration) {
-            return virtualNetworkConfiguration(Output.of(virtualNetworkConfiguration));
         }
 
         /**

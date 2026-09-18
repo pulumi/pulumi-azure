@@ -50,53 +50,15 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
      * The ID of the Service Bus Namespace.
      * 
      */
-    @Import(name="namespaceId")
-    private @Nullable Output<String> namespaceId;
+    @Import(name="namespaceId", required=true)
+    private Output<String> namespaceId;
 
     /**
      * @return The ID of the Service Bus Namespace.
      * 
      */
-    public Optional<Output<String>> namespaceId() {
-        return Optional.ofNullable(this.namespaceId);
-    }
-
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    @Import(name="namespaceName")
-    private @Nullable Output<String> namespaceName;
-
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
-    }
-
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
+    public Output<String> namespaceId() {
+        return this.namespaceId;
     }
 
     private GetNamespaceDisasterRecoveryConfigArgs() {}
@@ -105,8 +67,6 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
         this.aliasAuthorizationRuleId = $.aliasAuthorizationRuleId;
         this.name = $.name;
         this.namespaceId = $.namespaceId;
-        this.namespaceName = $.namespaceName;
-        this.resourceGroupName = $.resourceGroupName;
     }
 
     public static Builder builder() {
@@ -175,7 +135,7 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder namespaceId(@Nullable Output<String> namespaceId) {
+        public Builder namespaceId(Output<String> namespaceId) {
             $.namespaceId = namespaceId;
             return this;
         }
@@ -190,59 +150,12 @@ public final class GetNamespaceDisasterRecoveryConfigArgs extends com.pulumi.res
             return namespaceId(Output.of(namespaceId));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-        public Builder namespaceName(@Nullable Output<String> namespaceName) {
-            $.namespaceName = namespaceName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-        public Builder namespaceName(String namespaceName) {
-            return namespaceName(Output.of(namespaceName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
-        }
-
         public GetNamespaceDisasterRecoveryConfigArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigArgs", "name");
+            }
+            if ($.namespaceId == null) {
+                throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigArgs", "namespaceId");
             }
             return $;
         }

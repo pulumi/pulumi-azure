@@ -33,8 +33,6 @@ export function getNamespaceDisasterRecoveryConfig(args: GetNamespaceDisasterRec
         "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -53,15 +51,7 @@ export interface GetNamespaceDisasterRecoveryConfigArgs {
     /**
      * The ID of the Service Bus Namespace.
      */
-    namespaceId?: string;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    namespaceName?: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: string;
+    namespaceId: string;
 }
 
 /**
@@ -84,10 +74,6 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
     readonly name: string;
     readonly namespaceId: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly namespaceName: string;
-    /**
      * The ID of the Service Bus Namespace to replicate to.
      */
     readonly partnerNamespaceId: string;
@@ -95,10 +81,6 @@ export interface GetNamespaceDisasterRecoveryConfigResult {
      * The alias Primary Connection String for the ServiceBus Namespace.
      */
     readonly primaryConnectionStringAlias: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly resourceGroupName: string;
     /**
      * The alias Secondary Connection String for the ServiceBus Namespace
      */
@@ -133,8 +115,6 @@ export function getNamespaceDisasterRecoveryConfigOutput(args: GetNamespaceDisas
         "aliasAuthorizationRuleId": args.aliasAuthorizationRuleId,
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -153,13 +133,5 @@ export interface GetNamespaceDisasterRecoveryConfigOutputArgs {
     /**
      * The ID of the Service Bus Namespace.
      */
-    namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
+    namespaceId: pulumi.Input<string>;
 }

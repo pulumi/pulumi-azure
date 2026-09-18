@@ -461,7 +461,7 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
             })
         ```
 
@@ -769,7 +769,7 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
             })
         ```
 

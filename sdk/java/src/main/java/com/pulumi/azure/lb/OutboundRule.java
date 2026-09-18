@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  * 
  * ## Import
  * 
@@ -144,18 +144,6 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> backendAddressPoolId() {
         return this.backendAddressPoolId;
-    }
-    /**
-     * @deprecated
-     * This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-    @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableTcpReset;
-
-    public Output<Boolean> enableTcpReset() {
-        return this.enableTcpReset;
     }
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
@@ -232,14 +220,14 @@ public class OutboundRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tcpResetEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> tcpResetEnabled;
+    private Output</* @Nullable */ Boolean> tcpResetEnabled;
 
     /**
      * @return Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      * 
      */
-    public Output<Boolean> tcpResetEnabled() {
-        return this.tcpResetEnabled;
+    public Output<Optional<Boolean>> tcpResetEnabled() {
+        return Codegen.optional(this.tcpResetEnabled);
     }
 
     /**

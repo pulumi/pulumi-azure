@@ -70,7 +70,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
      */
-    declare public readonly dataLocation: pulumi.Output<string | undefined>;
+    declare public readonly dataLocation: pulumi.Output<string>;
     /**
      * The hostname of the Communication Service
      */
@@ -128,6 +128,9 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
+            if (args?.dataLocation === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataLocation'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -197,7 +200,7 @@ export interface ServiceArgs {
     /**
      * The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
      */
-    dataLocation?: pulumi.Input<string | undefined>;
+    dataLocation: pulumi.Input<string>;
     /**
      * The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
      */

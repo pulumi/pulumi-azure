@@ -841,22 +841,22 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.nodeResourceGroupId;
     }
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
      */
     @Export(name="oidcIssuerEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> oidcIssuerEnabled;
+    private Output</* @Nullable */ Boolean> oidcIssuerEnabled;
 
     /**
-     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
      */
-    public Output<Boolean> oidcIssuerEnabled() {
-        return this.oidcIssuerEnabled;
+    public Output<Optional<Boolean>> oidcIssuerEnabled() {
+        return Codegen.optional(this.oidcIssuerEnabled);
     }
     /**
      * The OIDC issuer URL that is associated with the cluster.

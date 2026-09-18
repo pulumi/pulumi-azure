@@ -20,6 +20,21 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
     public static final WindowsVirtualMachineScaleSetNetworkInterfaceArgs Empty = new WindowsVirtualMachineScaleSetNetworkInterfaceArgs();
 
     /**
+     * Does this Network Interface support Accelerated Networking? Defaults to `false`.
+     * 
+     */
+    @Import(name="acceleratedNetworkingEnabled")
+    private @Nullable Output<Boolean> acceleratedNetworkingEnabled;
+
+    /**
+     * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
+
+    /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
      * 
      * &gt; **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -73,36 +88,6 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
     }
 
     /**
-     * Does this Network Interface support Accelerated Networking? Defaults to `false`.
-     * 
-     */
-    @Import(name="enableAcceleratedNetworking")
-    private @Nullable Output<Boolean> enableAcceleratedNetworking;
-
-    /**
-     * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableAcceleratedNetworking() {
-        return Optional.ofNullable(this.enableAcceleratedNetworking);
-    }
-
-    /**
-     * Does this Network Interface support IP Forwarding? Defaults to `false`.
-     * 
-     */
-    @Import(name="enableIpForwarding")
-    private @Nullable Output<Boolean> enableIpForwarding;
-
-    /**
-     * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableIpForwarding() {
-        return Optional.ofNullable(this.enableIpForwarding);
-    }
-
-    /**
      * One or more `ipConfiguration` blocks as defined above.
      * 
      */
@@ -115,6 +100,21 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
      */
     public Output<List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>> ipConfigurations() {
         return this.ipConfigurations;
+    }
+
+    /**
+     * Does this Network Interface support IP Forwarding? Defaults to `false`.
+     * 
+     */
+    @Import(name="ipForwardingEnabled")
+    private @Nullable Output<Boolean> ipForwardingEnabled;
+
+    /**
+     * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ipForwardingEnabled() {
+        return Optional.ofNullable(this.ipForwardingEnabled);
     }
 
     /**
@@ -169,12 +169,12 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
     private WindowsVirtualMachineScaleSetNetworkInterfaceArgs() {}
 
     private WindowsVirtualMachineScaleSetNetworkInterfaceArgs(WindowsVirtualMachineScaleSetNetworkInterfaceArgs $) {
+        this.acceleratedNetworkingEnabled = $.acceleratedNetworkingEnabled;
         this.auxiliaryMode = $.auxiliaryMode;
         this.auxiliarySku = $.auxiliarySku;
         this.dnsServers = $.dnsServers;
-        this.enableAcceleratedNetworking = $.enableAcceleratedNetworking;
-        this.enableIpForwarding = $.enableIpForwarding;
         this.ipConfigurations = $.ipConfigurations;
+        this.ipForwardingEnabled = $.ipForwardingEnabled;
         this.name = $.name;
         this.networkSecurityGroupId = $.networkSecurityGroupId;
         this.primary = $.primary;
@@ -196,6 +196,27 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
 
         public Builder(WindowsVirtualMachineScaleSetNetworkInterfaceArgs defaults) {
             $ = new WindowsVirtualMachineScaleSetNetworkInterfaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceleratedNetworkingEnabled Does this Network Interface support Accelerated Networking? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratedNetworkingEnabled(@Nullable Output<Boolean> acceleratedNetworkingEnabled) {
+            $.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
+
+        /**
+         * @param acceleratedNetworkingEnabled Does this Network Interface support Accelerated Networking? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            return acceleratedNetworkingEnabled(Output.of(acceleratedNetworkingEnabled));
         }
 
         /**
@@ -280,48 +301,6 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
         }
 
         /**
-         * @param enableAcceleratedNetworking Does this Network Interface support Accelerated Networking? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAcceleratedNetworking(@Nullable Output<Boolean> enableAcceleratedNetworking) {
-            $.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-
-        /**
-         * @param enableAcceleratedNetworking Does this Network Interface support Accelerated Networking? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            return enableAcceleratedNetworking(Output.of(enableAcceleratedNetworking));
-        }
-
-        /**
-         * @param enableIpForwarding Does this Network Interface support IP Forwarding? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableIpForwarding(@Nullable Output<Boolean> enableIpForwarding) {
-            $.enableIpForwarding = enableIpForwarding;
-            return this;
-        }
-
-        /**
-         * @param enableIpForwarding Does this Network Interface support IP Forwarding? Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            return enableIpForwarding(Output.of(enableIpForwarding));
-        }
-
-        /**
          * @param ipConfigurations One or more `ipConfiguration` blocks as defined above.
          * 
          * @return builder
@@ -350,6 +329,27 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceArgs extends com
          */
         public Builder ipConfigurations(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+
+        /**
+         * @param ipForwardingEnabled Does this Network Interface support IP Forwarding? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipForwardingEnabled(@Nullable Output<Boolean> ipForwardingEnabled) {
+            $.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
+        }
+
+        /**
+         * @param ipForwardingEnabled Does this Network Interface support IP Forwarding? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipForwardingEnabled(Boolean ipForwardingEnabled) {
+            return ipForwardingEnabled(Output.of(ipForwardingEnabled));
         }
 
         /**

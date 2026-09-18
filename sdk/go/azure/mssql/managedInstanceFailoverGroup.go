@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,10 +25,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,10 +67,9 @@ import (
 //				return err
 //			}
 //			primaryZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "primary", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("primary-link"),
-//				ResourceGroupName:  primary.Name,
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				Name:             pulumi.String("primary-link"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -167,10 +166,9 @@ import (
 //				return err
 //			}
 //			failoverZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "failover", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("failover-link"),
-//				ResourceGroupName:  exampleZone.ResourceGroupName,
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   failoverVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				Name:             pulumi.String("failover-link"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: failoverVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

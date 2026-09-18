@@ -176,7 +176,6 @@ namespace Pulumi.Azure.Batch
         /// A `AutoScale` block that describes the scale settings when using auto scale.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolAutoScaleResult> AutoScales;
-        public readonly ImmutableArray<Outputs.GetPoolCertificateResult> Certificates;
         /// <summary>
         /// The container configuration used in the pool's VMs.
         /// </summary>
@@ -268,8 +267,6 @@ namespace Pulumi.Azure.Batch
 
             ImmutableArray<Outputs.GetPoolAutoScaleResult> autoScales,
 
-            ImmutableArray<Outputs.GetPoolCertificateResult> certificates,
-
             ImmutableArray<Outputs.GetPoolContainerConfigurationResult> containerConfigurations,
 
             ImmutableArray<Outputs.GetPoolDataDiskResult> dataDisks,
@@ -320,7 +317,6 @@ namespace Pulumi.Azure.Batch
         {
             AccountName = accountName;
             AutoScales = autoScales;
-            Certificates = certificates;
             ContainerConfigurations = containerConfigurations;
             DataDisks = dataDisks;
             DiskEncryptions = diskEncryptions;

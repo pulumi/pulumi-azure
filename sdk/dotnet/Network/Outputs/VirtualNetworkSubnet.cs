@@ -64,9 +64,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ServiceEndpointPolicyIds;
         /// <summary>
-        /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
-        public readonly ImmutableArray<string> ServiceEndpoints;
+        public readonly ImmutableArray<Outputs.VirtualNetworkSubnetServiceEndpoint> ServiceEndpoints;
 
         [OutputConstructor]
         private VirtualNetworkSubnet(
@@ -90,7 +90,7 @@ namespace Pulumi.Azure.Network.Outputs
 
             ImmutableArray<string> serviceEndpointPolicyIds,
 
-            ImmutableArray<string> serviceEndpoints)
+            ImmutableArray<Outputs.VirtualNetworkSubnetServiceEndpoint> serviceEndpoints)
         {
             AddressPrefixes = addressPrefixes;
             DefaultOutboundAccessEnabled = defaultOutboundAccessEnabled;

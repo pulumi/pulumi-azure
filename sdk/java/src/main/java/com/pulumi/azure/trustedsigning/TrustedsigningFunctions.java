@@ -16,7 +16,9 @@ import java.util.concurrent.CompletableFuture;
 
 public final class TrustedsigningFunctions {
     /**
-     * Use this data source to access information about an existing Trusted Signing Account.
+     * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+     * 
+     * &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
      * 
      * ## Example Usage
      * 
@@ -58,14 +60,16 @@ public final class TrustedsigningFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CodeSigning` - 2024-09-30-preview
+     * * `Microsoft.CodeSigning` - 2025-10-13
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
         return getAccount(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Trusted Signing Account.
+     * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+     * 
+     * &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
      * 
      * ## Example Usage
      * 
@@ -107,14 +111,16 @@ public final class TrustedsigningFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CodeSigning` - 2024-09-30-preview
+     * * `Microsoft.CodeSigning` - 2025-10-13
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
         return getAccountPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Trusted Signing Account.
+     * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+     * 
+     * &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
      * 
      * ## Example Usage
      * 
@@ -156,14 +162,16 @@ public final class TrustedsigningFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CodeSigning` - 2024-09-30-preview
+     * * `Microsoft.CodeSigning` - 2025-10-13
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:trustedsigning/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Trusted Signing Account.
+     * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+     * 
+     * &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
      * 
      * ## Example Usage
      * 
@@ -205,14 +213,16 @@ public final class TrustedsigningFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CodeSigning` - 2024-09-30-preview
+     * * `Microsoft.CodeSigning` - 2025-10-13
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:trustedsigning/getAccount:getAccount", TypeShape.of(GetAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Trusted Signing Account.
+     * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+     * 
+     * &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
      * 
      * ## Example Usage
      * 
@@ -254,7 +264,7 @@ public final class TrustedsigningFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CodeSigning` - 2024-09-30-preview
+     * * `Microsoft.CodeSigning` - 2025-10-13
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {

@@ -133,10 +133,6 @@ export class LinkService extends pulumi.CustomResource {
      */
     declare public readonly destinationIpAddress: pulumi.Output<string | undefined>;
     /**
-     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly enableProxyProtocol: pulumi.Output<boolean>;
-    /**
      * List of FQDNs allowed for the Private Link Service.
      */
     declare public readonly fqdns: pulumi.Output<string[] | undefined>;
@@ -159,7 +155,7 @@ export class LinkService extends pulumi.CustomResource {
     /**
      * Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
      */
-    declare public readonly proxyProtocolEnabled: pulumi.Output<boolean>;
+    declare public readonly proxyProtocolEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
      */
@@ -191,7 +187,6 @@ export class LinkService extends pulumi.CustomResource {
             resourceInputs["alias"] = state?.alias;
             resourceInputs["autoApprovalSubscriptionIds"] = state?.autoApprovalSubscriptionIds;
             resourceInputs["destinationIpAddress"] = state?.destinationIpAddress;
-            resourceInputs["enableProxyProtocol"] = state?.enableProxyProtocol;
             resourceInputs["fqdns"] = state?.fqdns;
             resourceInputs["loadBalancerFrontendIpConfigurationIds"] = state?.loadBalancerFrontendIpConfigurationIds;
             resourceInputs["location"] = state?.location;
@@ -211,7 +206,6 @@ export class LinkService extends pulumi.CustomResource {
             }
             resourceInputs["autoApprovalSubscriptionIds"] = args?.autoApprovalSubscriptionIds;
             resourceInputs["destinationIpAddress"] = args?.destinationIpAddress;
-            resourceInputs["enableProxyProtocol"] = args?.enableProxyProtocol;
             resourceInputs["fqdns"] = args?.fqdns;
             resourceInputs["loadBalancerFrontendIpConfigurationIds"] = args?.loadBalancerFrontendIpConfigurationIds;
             resourceInputs["location"] = args?.location;
@@ -244,10 +238,6 @@ export interface LinkServiceState {
      * The destination IP address of the Private Link Service.
      */
     destinationIpAddress?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableProxyProtocol?: pulumi.Input<boolean | undefined>;
     /**
      * List of FQDNs allowed for the Private Link Service.
      */
@@ -300,10 +290,6 @@ export interface LinkServiceArgs {
      * The destination IP address of the Private Link Service.
      */
     destinationIpAddress?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableProxyProtocol?: pulumi.Input<boolean | undefined>;
     /**
      * List of FQDNs allowed for the Private Link Service.
      */

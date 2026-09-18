@@ -26,8 +26,6 @@ class RuleArgs:
                  protocol: pulumi.Input[_builtins.str],
                  backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  disable_outbound_snat: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_floating_ip: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
                  floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  load_distribution: pulumi.Input[Optional[_builtins.str]] = None,
@@ -67,16 +65,6 @@ class RuleArgs:
             pulumi.set(__self__, "backend_address_pool_ids", backend_address_pool_ids)
         if disable_outbound_snat is not None:
             pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
-        if enable_floating_ip is not None:
-            warnings.warn("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_floating_ip is deprecated: This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
-        if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
-        if enable_tcp_reset is not None:
-            warnings.warn("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_tcp_reset is deprecated: This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-        if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
         if floating_ip_enabled is not None:
             pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
         if idle_timeout_in_minutes is not None:
@@ -177,26 +165,6 @@ class RuleArgs:
         pulumi.set(self, "disable_outbound_snat", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableFloatingIp")
-    @_utilities.deprecated("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_floating_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_floating_ip")
-
-    @enable_floating_ip.setter
-    def enable_floating_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_floating_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableTcpReset")
-    @_utilities.deprecated("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_tcp_reset(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_tcp_reset")
-
-    @enable_tcp_reset.setter
-    def enable_tcp_reset(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_tcp_reset", value)
-
-    @_builtins.property
     @pulumi.getter(name="floatingIpEnabled")
     def floating_ip_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -280,8 +248,6 @@ class _RuleState:
                  backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backend_port: pulumi.Input[Optional[_builtins.int]] = None,
                  disable_outbound_snat: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_floating_ip: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
                  floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -323,16 +289,6 @@ class _RuleState:
             pulumi.set(__self__, "backend_port", backend_port)
         if disable_outbound_snat is not None:
             pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
-        if enable_floating_ip is not None:
-            warnings.warn("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_floating_ip is deprecated: This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
-        if enable_floating_ip is not None:
-            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
-        if enable_tcp_reset is not None:
-            warnings.warn("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_tcp_reset is deprecated: This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-        if enable_tcp_reset is not None:
-            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
         if floating_ip_enabled is not None:
             pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
         if frontend_ip_configuration_id is not None:
@@ -393,26 +349,6 @@ class _RuleState:
     @disable_outbound_snat.setter
     def disable_outbound_snat(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_outbound_snat", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableFloatingIp")
-    @_utilities.deprecated("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_floating_ip(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_floating_ip")
-
-    @enable_floating_ip.setter
-    def enable_floating_ip(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_floating_ip", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableTcpReset")
-    @_utilities.deprecated("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_tcp_reset(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_tcp_reset")
-
-    @enable_tcp_reset.setter
-    def enable_tcp_reset(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_tcp_reset", value)
 
     @_builtins.property
     @pulumi.getter(name="floatingIpEnabled")
@@ -558,8 +494,6 @@ class Rule(pulumi.CustomResource):
                  backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backend_port: pulumi.Input[Optional[_builtins.int]] = None,
                  disable_outbound_snat: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_floating_ip: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
                  floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_port: pulumi.Input[Optional[_builtins.int]] = None,
@@ -612,7 +546,7 @@ class Rule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2023-09-01
+        * `Microsoft.Network` - 2025-01-01
 
         ## Import
 
@@ -693,7 +627,7 @@ class Rule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Network` - 2023-09-01
+        * `Microsoft.Network` - 2025-01-01
 
         ## Import
 
@@ -722,8 +656,6 @@ class Rule(pulumi.CustomResource):
                  backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backend_port: pulumi.Input[Optional[_builtins.int]] = None,
                  disable_outbound_snat: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_floating_ip: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
                  floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_port: pulumi.Input[Optional[_builtins.int]] = None,
@@ -748,8 +680,6 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'backend_port'")
             __props__.__dict__["backend_port"] = backend_port
             __props__.__dict__["disable_outbound_snat"] = disable_outbound_snat
-            __props__.__dict__["enable_floating_ip"] = enable_floating_ip
-            __props__.__dict__["enable_tcp_reset"] = enable_tcp_reset
             __props__.__dict__["floating_ip_enabled"] = floating_ip_enabled
             if frontend_ip_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'frontend_ip_configuration_name'")
@@ -782,8 +712,6 @@ class Rule(pulumi.CustomResource):
             backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             backend_port: pulumi.Input[Optional[_builtins.int]] = None,
             disable_outbound_snat: pulumi.Input[Optional[_builtins.bool]] = None,
-            enable_floating_ip: pulumi.Input[Optional[_builtins.bool]] = None,
-            enable_tcp_reset: pulumi.Input[Optional[_builtins.bool]] = None,
             floating_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             frontend_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
             frontend_ip_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -830,8 +758,6 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["backend_address_pool_ids"] = backend_address_pool_ids
         __props__.__dict__["backend_port"] = backend_port
         __props__.__dict__["disable_outbound_snat"] = disable_outbound_snat
-        __props__.__dict__["enable_floating_ip"] = enable_floating_ip
-        __props__.__dict__["enable_tcp_reset"] = enable_tcp_reset
         __props__.__dict__["floating_ip_enabled"] = floating_ip_enabled
         __props__.__dict__["frontend_ip_configuration_id"] = frontend_ip_configuration_id
         __props__.__dict__["frontend_ip_configuration_name"] = frontend_ip_configuration_name
@@ -872,20 +798,8 @@ class Rule(pulumi.CustomResource):
         return pulumi.get(self, "disable_outbound_snat")
 
     @_builtins.property
-    @pulumi.getter(name="enableFloatingIp")
-    @_utilities.deprecated("""This field is deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_floating_ip(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_floating_ip")
-
-    @_builtins.property
-    @pulumi.getter(name="enableTcpReset")
-    @_utilities.deprecated("""This field is deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider.""")
-    def enable_tcp_reset(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_tcp_reset")
-
-    @_builtins.property
     @pulumi.getter(name="floatingIpEnabled")
-    def floating_ip_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def floating_ip_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         """
@@ -967,7 +881,7 @@ class Rule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tcpResetEnabled")
-    def tcp_reset_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def tcp_reset_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Is TCP Reset enabled for this Load Balancer Rule?
         """

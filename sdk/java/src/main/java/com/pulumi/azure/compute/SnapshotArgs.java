@@ -21,18 +21,22 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     public static final SnapshotArgs Empty = new SnapshotArgs();
 
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      * 
      * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     * 
+     * &gt; **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      * 
      */
     @Import(name="createOption", required=true)
     private Output<String> createOption;
 
     /**
-     * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * @return Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      * 
      * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     * 
+     * &gt; **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      * 
      */
     public Output<String> createOption() {
@@ -179,14 +183,14 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceResourceId")
     private @Nullable Output<String> sourceResourceId;
 
     /**
-     * @return Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * @return Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceResourceId() {
@@ -276,9 +280,11 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
          * 
          * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+         * 
+         * &gt; **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
          * 
          * @return builder
          * 
@@ -289,9 +295,11 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+         * @param createOption Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
          * 
          * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+         * 
+         * &gt; **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
          * 
          * @return builder
          * 
@@ -494,7 +502,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+         * @param sourceResourceId Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -505,7 +513,7 @@ public final class SnapshotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceResourceId Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+         * @param sourceResourceId Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

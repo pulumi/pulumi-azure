@@ -229,7 +229,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             is_verified=True,
-            certificate_content=std.filebase64(input="example.cer").result)
+            certificate_content=std.filebase64(input="example.cer")["result"])
         ```
 
         ## Import
@@ -281,7 +281,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             is_verified=True,
-            certificate_content=std.filebase64(input="example.cer").result)
+            certificate_content=std.filebase64(input="example.cer")["result"])
         ```
 
         ## Import

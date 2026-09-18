@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,9 +35,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -175,8 +175,6 @@ type WindowsVirtualMachine struct {
 	DiskControllerType pulumi.StringOutput `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-	EnableAutomaticUpdates pulumi.BoolOutput `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -282,8 +280,6 @@ type WindowsVirtualMachine struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId pulumi.StringPtrOutput `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-	//
-	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled pulumi.BoolOutput `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrOutput `pulumi:"vtpmEnabled"`
@@ -386,8 +382,6 @@ type windowsVirtualMachineState struct {
 	DiskControllerType *string `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -493,8 +487,6 @@ type windowsVirtualMachineState struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-	//
-	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled *bool `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
@@ -545,8 +537,6 @@ type WindowsVirtualMachineState struct {
 	DiskControllerType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -652,8 +642,6 @@ type WindowsVirtualMachineState struct {
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
 	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-	//
-	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
@@ -708,8 +696,6 @@ type windowsVirtualMachineArgs struct {
 	DiskControllerType *string `pulumi:"diskControllerType"`
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -804,10 +790,6 @@ type windowsVirtualMachineArgs struct {
 	//
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId *string `pulumi:"virtualMachineScaleSetId"`
-	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-	//
-	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-	VmAgentPlatformUpdatesEnabled *bool `pulumi:"vmAgentPlatformUpdatesEnabled"`
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled *bool `pulumi:"vtpmEnabled"`
 	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
@@ -858,8 +840,6 @@ type WindowsVirtualMachineArgs struct {
 	DiskControllerType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
@@ -954,10 +934,6 @@ type WindowsVirtualMachineArgs struct {
 	//
 	// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 	VirtualMachineScaleSetId pulumi.StringPtrInput
-	// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-	//
-	// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-	VmAgentPlatformUpdatesEnabled pulumi.BoolPtrInput
 	// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	VtpmEnabled pulumi.BoolPtrInput
 	// One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
@@ -1145,11 +1121,6 @@ func (o WindowsVirtualMachineOutput) DiskControllerType() pulumi.StringOutput {
 // Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
 func (o WindowsVirtualMachineOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-func (o WindowsVirtualMachineOutput) EnableAutomaticUpdates() pulumi.BoolOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolOutput { return v.EnableAutomaticUpdates }).(pulumi.BoolOutput)
 }
 
 // Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -1379,8 +1350,6 @@ func (o WindowsVirtualMachineOutput) VirtualMachineScaleSetId() pulumi.StringPtr
 }
 
 // Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-//
-// Deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
 func (o WindowsVirtualMachineOutput) VmAgentPlatformUpdatesEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolOutput { return v.VmAgentPlatformUpdatesEnabled }).(pulumi.BoolOutput)
 }

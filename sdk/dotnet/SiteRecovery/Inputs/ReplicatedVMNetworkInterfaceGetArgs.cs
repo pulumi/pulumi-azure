@@ -12,59 +12,23 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
 
     public sealed class ReplicatedVMNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Id of the public IP object to use when a test failover is done.
-        /// </summary>
-        [Input("failoverTestPublicIpAddressId")]
-        public Input<string>? FailoverTestPublicIpAddressId { get; set; }
+        [Input("ipConfigurations")]
+        private InputList<Inputs.ReplicatedVMNetworkInterfaceIpConfigurationGetArgs>? _ipConfigurations;
 
         /// <summary>
-        /// Static IP to assign when a test failover is done.
+        /// IP configuration to assign when a failover is done. One or more `IpConfiguration` blocks as defined below.
         /// </summary>
-        [Input("failoverTestStaticIp")]
-        public Input<string>? FailoverTestStaticIp { get; set; }
-
-        /// <summary>
-        /// Name of the subnet to use when a test failover is done.
-        /// </summary>
-        [Input("failoverTestSubnetName")]
-        public Input<string>? FailoverTestSubnetName { get; set; }
-
-        [Input("recoveryLoadBalancerBackendAddressPoolIds")]
-        private InputList<string>? _recoveryLoadBalancerBackendAddressPoolIds;
-
-        /// <summary>
-        /// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-        /// </summary>
-        public InputList<string> RecoveryLoadBalancerBackendAddressPoolIds
+        public InputList<Inputs.ReplicatedVMNetworkInterfaceIpConfigurationGetArgs> IpConfigurations
         {
-            get => _recoveryLoadBalancerBackendAddressPoolIds ?? (_recoveryLoadBalancerBackendAddressPoolIds = new InputList<string>());
-            set => _recoveryLoadBalancerBackendAddressPoolIds = value;
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.ReplicatedVMNetworkInterfaceIpConfigurationGetArgs>());
+            set => _ipConfigurations = value;
         }
 
         /// <summary>
-        /// Id of the public IP object to use when a failover is done.
-        /// </summary>
-        [Input("recoveryPublicIpAddressId")]
-        public Input<string>? RecoveryPublicIpAddressId { get; set; }
-
-        /// <summary>
-        /// (Required if the NetworkInterface block is specified) Id source network interface.
+        /// Id source network interface.
         /// </summary>
         [Input("sourceNetworkInterfaceId")]
         public Input<string>? SourceNetworkInterfaceId { get; set; }
-
-        /// <summary>
-        /// Static IP to assign when a failover is done.
-        /// </summary>
-        [Input("targetStaticIp")]
-        public Input<string>? TargetStaticIp { get; set; }
-
-        /// <summary>
-        /// Name of the subnet to use when a failover is done.
-        /// </summary>
-        [Input("targetSubnetName")]
-        public Input<string>? TargetSubnetName { get; set; }
 
         public ReplicatedVMNetworkInterfaceGetArgs()
         {

@@ -73,10 +73,6 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The version of Python to run. Possible values include `3.14`, `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         /// </summary>
         public readonly string? PythonVersion;
-        /// <summary>
-        /// The version of Ruby to run. Possible values include `2.6` and `2.7`.
-        /// </summary>
-        public readonly string? RubyVersion;
 
         [OutputConstructor]
         private LinuxWebAppSiteConfigApplicationStack(
@@ -102,9 +98,7 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string? phpVersion,
 
-            string? pythonVersion,
-
-            string? rubyVersion)
+            string? pythonVersion)
         {
             DockerImageName = dockerImageName;
             DockerRegistryPassword = dockerRegistryPassword;
@@ -118,7 +112,6 @@ namespace Pulumi.Azure.AppService.Outputs
             NodeVersion = nodeVersion;
             PhpVersion = phpVersion;
             PythonVersion = pythonVersion;
-            RubyVersion = rubyVersion;
         }
     }
 }

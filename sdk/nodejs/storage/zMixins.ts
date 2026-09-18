@@ -25,6 +25,18 @@ import * as core from "../core";
 import * as storage from "../storage";
 
 /**
+ * Extracts the resource group name and resource name out of an ARM resource ID (the last path
+ * segment is the resource name, the segment following "resourceGroups" is the resource group).
+ */
+function parseResourceId(id: string): { resourceGroupName: string, name: string } {
+    const parts = id.split("/");
+    return {
+        name: parts[parts.length - 1],
+        resourceGroupName: parts[parts.indexOf("resourceGroups") + 1],
+    };
+}
+
+/**
  * Produce a URL with read-only access to a Storage Blob with a Shared Access Signature (SAS).
  * @param blob Blob to construct URL for.
  * @param account Storage account.
@@ -37,7 +49,10 @@ export function signedBlobReadUrl(blob: Blob, account: Account): pulumi.Output<s
     // date, rather than (e.g.) "today plus ten years", the signing operation is idempotent.
     const signatureExpiration = "2100-01-01";
 
-    return pulumi.all([account.name, account.primaryConnectionString, blob.storageContainerName, blob.name]).apply(
+    // storage_container_name was removed from azurerm_storage_blob in favor of storage_container_id.
+    const containerNames = blob.storageContainerId.apply(id => parseResourceId(id).name);
+
+    return pulumi.all([account.name, account.primaryConnectionString, containerNames, blob.name]).apply(
         async ([accountName, connectionString, containerName, blobName]) => {
             const sas = await storage.getAccountBlobContainerSAS({
                 connectionString,
@@ -519,30 +534,19 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
     }
 }
 
-// Given a Queue or a Table, resolve the resource group name of the corresponding storage account
-function resolveResourceGroupNameOfStorageAccount(container: { storageAccountName: pulumi.Output<string | undefined>, id: pulumi.Output<string> }) {
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) => {
-        // In upstream v4, storageAccountName is always set.
-        // https://github.com/hashicorp/terraform-provider-azurerm/pull/27733/files#diff-e1f645d5290fdcc40b01762eb09185c901d0d62b39198a42b8492d7ea697ea82R398
-        if (storageAccountName === undefined) {
-            throw new Error("Storage account name not defined, but should always be populated. Please report this issue to github.com/pulumi/pulumi-azure");
-        }
-        return storage.getAccount({ name: storageAccountName! });
-    });
-    return account.resourceGroupName!.apply(n => n!);
+// Given a Queue or a Table, resolve the resource group name of the corresponding storage account.
+// storage_account_name was removed in favor of storage_account_id, which already encodes the
+// resource group, so this can be read directly off the ID without an extra API call.
+function resolveResourceGroupNameOfStorageAccount(container: { storageAccountId: pulumi.Output<string>, id: pulumi.Output<string> }) {
+    return container.storageAccountId.apply(id => parseResourceId(id).resourceGroupName);
 }
 
 // Given a Queue or a Table, produce Settings and a Connection String Key relevant to the Storage Account
-function resolveAccount(container: { storageAccountName: pulumi.Output<string | undefined>, id: pulumi.Output<string> }) {
-    const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
-    const account = pulumi.all([container.id, container.storageAccountName]).apply(([_, storageAccountName]) => {
-        // In upstream v4, storageAccountName is always set.
-        // https://github.com/hashicorp/terraform-provider-azurerm/pull/27733/files#diff-e1f645d5290fdcc40b01762eb09185c901d0d62b39198a42b8492d7ea697ea82R398
-        if (storageAccountName === undefined) {
-            throw new Error("Storage account name not defined, but should always be populated. Please report this issue to github.com/pulumi/pulumi-azure");
-        }
-        return storage.getAccount({ name: storageAccountName! });
-    });
+function resolveAccount(container: { storageAccountId: pulumi.Output<string>, id: pulumi.Output<string> }) {
+    const storageAccountIdParts = container.storageAccountId.apply(parseResourceId);
+    const connectionKey = pulumi.interpolate`Storage${storageAccountIdParts.apply(p => p.name)}ConnectionStringKey`;
+    const account = pulumi.all([container.id, storageAccountIdParts]).apply(([_, { name, resourceGroupName }]) =>
+        storage.getAccount({ name, resourceGroupName }));
     const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
         ([connectionString, key]) => ({ [key]: connectionString }));
 

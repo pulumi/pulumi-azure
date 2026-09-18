@@ -45,7 +45,7 @@ class NamespaceArgs:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
@@ -170,7 +170,7 @@ class NamespaceArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -277,7 +277,7 @@ class _NamespaceState:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
@@ -452,7 +452,7 @@ class _NamespaceState:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -620,7 +620,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
@@ -785,7 +785,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
@@ -907,7 +907,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+        The minimum supported TLS version for this Service Bus Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """

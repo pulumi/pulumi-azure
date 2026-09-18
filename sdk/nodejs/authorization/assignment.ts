@@ -124,17 +124,15 @@ import * as utilities from "../utilities";
  *     principalType: "ServicePrincipal",
  *     description: "Role Based Access Control Administrator role assignment with ABAC Condition.",
  *     conditionVersion: "2.0",
- *     condition: Promise.all([builtin.then(builtin => std.basename({
- *         input: builtin.roleDefinitionId,
- *     })), builtin.then(builtin => std.basename({
- *         input: builtin.roleDefinitionId,
- *     }))]).then(([invoke, invoke1]) => `(
+ *     condition: `(
  *  (
  *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
  *  )
  *  OR
  *  (
- *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke.result}}
+ *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${std.basename({
+ *         input: builtin.then(builtin => builtin.roleDefinitionId),
+ *     }).result}}
  *  )
  * )
  * AND
@@ -144,10 +142,12 @@ import * as utilities from "../utilities";
  *  )
  *  OR
  *  (
- *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke1.result}}
+ *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${std.basename({
+ *         input: builtin.then(builtin => builtin.roleDefinitionId),
+ *     }).result}}
  *  )
  * )
- * `),
+ * `,
  * });
  * ```
  *
@@ -204,11 +204,11 @@ export class Assignment extends pulumi.CustomResource {
     }
 
     /**
-     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to.
      */
     declare public readonly condition: pulumi.Output<string | undefined>;
     /**
-     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * The version of the condition. Possible values are `1.0` or `2.0`.
      *
      * > **Note:** `condition` is required when `conditionVersion` is set.
      */
@@ -220,7 +220,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     declare public readonly delegatedManagedIdentityResourceId: pulumi.Output<string | undefined>;
     /**
-     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     * The description for this Role Assignment.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -314,11 +314,11 @@ export class Assignment extends pulumi.CustomResource {
  */
 export interface AssignmentState {
     /**
-     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to.
      */
     condition?: pulumi.Input<string | undefined>;
     /**
-     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * The version of the condition. Possible values are `1.0` or `2.0`.
      *
      * > **Note:** `condition` is required when `conditionVersion` is set.
      */
@@ -330,7 +330,7 @@ export interface AssignmentState {
      */
     delegatedManagedIdentityResourceId?: pulumi.Input<string | undefined>;
     /**
-     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     * The description for this Role Assignment.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -374,11 +374,11 @@ export interface AssignmentState {
  */
 export interface AssignmentArgs {
     /**
-     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to.
      */
     condition?: pulumi.Input<string | undefined>;
     /**
-     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * The version of the condition. Possible values are `1.0` or `2.0`.
      *
      * > **Note:** `condition` is required when `conditionVersion` is set.
      */
@@ -390,7 +390,7 @@ export interface AssignmentArgs {
      */
     delegatedManagedIdentityResourceId?: pulumi.Input<string | undefined>;
     /**
-     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     * The description for this Role Assignment.
      */
     description?: pulumi.Input<string | undefined>;
     /**

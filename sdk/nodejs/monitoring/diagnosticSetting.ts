@@ -106,7 +106,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      *
      * > **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      */
-    declare public readonly enabledMetrics: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[]>;
+    declare public readonly enabledMetrics: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[] | undefined>;
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      *
@@ -133,10 +133,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
     declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly metrics: pulumi.Output<outputs.monitoring.DiagnosticSettingMetric[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
@@ -179,7 +175,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["eventhubName"] = state?.eventhubName;
             resourceInputs["logAnalyticsDestinationType"] = state?.logAnalyticsDestinationType;
             resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
-            resourceInputs["metrics"] = state?.metrics;
             resourceInputs["name"] = state?.name;
             resourceInputs["partnerSolutionId"] = state?.partnerSolutionId;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
@@ -195,7 +190,6 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["eventhubName"] = args?.eventhubName;
             resourceInputs["logAnalyticsDestinationType"] = args?.logAnalyticsDestinationType;
             resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
-            resourceInputs["metrics"] = args?.metrics;
             resourceInputs["name"] = args?.name;
             resourceInputs["partnerSolutionId"] = args?.partnerSolutionId;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
@@ -248,10 +242,6 @@ export interface DiagnosticSettingState {
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[] | undefined>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *
@@ -318,10 +308,6 @@ export interface DiagnosticSettingArgs {
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     */
-    metrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingMetric>[] | undefined>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      *

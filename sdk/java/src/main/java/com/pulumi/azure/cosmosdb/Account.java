@@ -130,7 +130,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountIdentityArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -154,12 +153,12 @@ import javax.annotation.Nullable;
  *             .name("example-resource")
  *             .location(exampleAzurermResourceGroup.location())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .defaultIdentityType(StdFunctions.join(JoinArgs.builder()
- *                 .separator("=")
- *                 .input(                
+ *             .defaultIdentityType(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "="),
+ *                 Map.entry("input", Arrays.asList(                
  *                     "UserAssignedIdentity",
- *                     example.id())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *                     example.id()))
+ *             )).result())
  *             .offerType("Standard")
  *             .kind("MongoDB")
  *             .capabilities(AccountCapabilityArgs.builder()
@@ -364,23 +363,11 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> kind() {
         return Codegen.optional(this.kind);
     }
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> localAuthenticationDisabled;
-
-    public Output<Boolean> localAuthenticationDisabled() {
-        return this.localAuthenticationDisabled;
-    }
     @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> localAuthenticationEnabled;
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
-    public Output<Boolean> localAuthenticationEnabled() {
-        return this.localAuthenticationEnabled;
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -397,19 +384,7 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> managedHsmKeyId;
-
-    public Output<Optional<String>> managedHsmKeyId() {
-        return Codegen.optional(this.managedHsmKeyId);
-    }
-    /**
-     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      * 
@@ -418,7 +393,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> minimalTlsVersion;
 
     /**
-     * @return Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * @return Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      * 

@@ -420,7 +420,7 @@ class ManagedRedis(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes redis.EnterpriseCluster and redis.EnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+        Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes azurerm_redis_enterprise_cluster and azurerm_redis_enterprise_database resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 
         ## Example Usage
 
@@ -560,7 +560,7 @@ class ManagedRedis(pulumi.CustomResource):
                  args: ManagedRedisArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes redis.EnterpriseCluster and redis.EnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+        Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes azurerm_redis_enterprise_cluster and azurerm_redis_enterprise_database resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
 
         ## Example Usage
 

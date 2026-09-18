@@ -36,7 +36,7 @@ __all__ = [
     'SecurityDeviceGroupAllowRule',
     'SecurityDeviceGroupRangeRule',
     'SecuritySolutionAdditionalWorkspace',
-    'SecuritySolutionRecommendationsEnabled',
+    'SecuritySolutionRecommendations',
     'GetIotHubIdentityResult',
 ]
 
@@ -1550,7 +1550,7 @@ class SecuritySolutionAdditionalWorkspace(dict):
 
 
 @pulumi.output_type
-class SecuritySolutionRecommendationsEnabled(dict):
+class SecuritySolutionRecommendations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1586,14 +1586,14 @@ class SecuritySolutionRecommendationsEnabled(dict):
             suggest = "vulnerable_tls_cipher_suite"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SecuritySolutionRecommendationsEnabled. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SecuritySolutionRecommendations. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SecuritySolutionRecommendationsEnabled.__key_warning(key)
+        SecuritySolutionRecommendations.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SecuritySolutionRecommendationsEnabled.__key_warning(key)
+        SecuritySolutionRecommendations.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -455,7 +455,7 @@ class Certifiate(pulumi.CustomResource):
             name="imported-cert",
             key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
             })
         ```
@@ -671,7 +671,7 @@ class Certifiate(pulumi.CustomResource):
             name="imported-cert",
             key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
             })
         ```

@@ -8,13 +8,112 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a Cassandra Datacenter.
 //
 // > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("accexample-rg"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vnet"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := azuread.ServicePrincipal(ctx, map[string]string{
+//				"displayName": "Azure Cosmos DB",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        pulumi.Any(example.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCassandraCluster, err := cosmosdb.NewCassandraCluster(ctx, "example", &cosmosdb.CassandraClusterArgs{
+//				Name:                        pulumi.String("example-cluster"),
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				Location:                    exampleResourceGroup.Location,
+//				DelegatedManagementSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				DefaultAdminPassword:        pulumi.String("Password1234"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewCassandraDatacenter(ctx, "example", &cosmosdb.CassandraDatacenterArgs{
+//				Name:                        pulumi.String("example-datacenter"),
+//				Location:                    exampleCassandraCluster.Location,
+//				CassandraClusterId:          exampleCassandraCluster.ID().ToIDOutput().ToStringOutput(),
+//				DelegatedManagementSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				NodeCount:                   pulumi.Int(3),
+//				DiskCount:                   pulumi.Int(4),
+//				SkuName:                     pulumi.String("Standard_DS14_v2"),
+//				AvailabilityZonesEnabled:    pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DocumentDB` - 2023-04-15
 //
 // ## Import
 //
@@ -51,8 +150,6 @@ type CassandraDatacenter struct {
 	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
 	SeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 }
 
@@ -117,8 +214,6 @@ type cassandraDatacenterState struct {
 	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
 	SeedNodeIpAddresses []string `pulumi:"seedNodeIpAddresses"`
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -148,8 +243,6 @@ type CassandraDatacenterState struct {
 	// A list of IP Address for the seed nodes in this Cassandra Datacenter.
 	SeedNodeIpAddresses pulumi.StringArrayInput
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -181,8 +274,6 @@ type cassandraDatacenterArgs struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount *int `pulumi:"nodeCount"`
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName *string `pulumi:"skuName"`
 }
 
@@ -211,8 +302,6 @@ type CassandraDatacenterArgs struct {
 	// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
 	NodeCount pulumi.IntPtrInput
 	// Determines the selected sku. Defaults to `Standard_E16s_v5`.
-	//
-	// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 	SkuName pulumi.StringPtrInput
 }
 
@@ -364,8 +453,6 @@ func (o CassandraDatacenterOutput) SeedNodeIpAddresses() pulumi.StringArrayOutpu
 }
 
 // Determines the selected sku. Defaults to `Standard_E16s_v5`.
-//
-// > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
 func (o CassandraDatacenterOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraDatacenter) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }

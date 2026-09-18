@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/communication"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/communication"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +68,7 @@ type Service struct {
 	pulumi.CustomResourceState
 
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
-	DataLocation pulumi.StringPtrOutput `pulumi:"dataLocation"`
+	DataLocation pulumi.StringOutput `pulumi:"dataLocation"`
 	// The hostname of the Communication Service
 	Hostname pulumi.StringOutput `pulumi:"hostname"`
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
@@ -94,6 +94,9 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataLocation == nil {
+		return nil, errors.New("invalid value for required argument 'DataLocation'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -174,7 +177,7 @@ func (ServiceState) ElementType() reflect.Type {
 
 type serviceArgs struct {
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
-	DataLocation *string `pulumi:"dataLocation"`
+	DataLocation string `pulumi:"dataLocation"`
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
@@ -186,7 +189,7 @@ type serviceArgs struct {
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
-	DataLocation pulumi.StringPtrInput
+	DataLocation pulumi.StringInput
 	// The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
@@ -283,8 +286,8 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 }
 
 // The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
-func (o ServiceOutput) DataLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.DataLocation }).(pulumi.StringPtrOutput)
+func (o ServiceOutput) DataLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.DataLocation }).(pulumi.StringOutput)
 }
 
 // The hostname of the Communication Service

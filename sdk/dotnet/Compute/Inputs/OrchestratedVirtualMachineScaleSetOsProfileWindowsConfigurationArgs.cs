@@ -46,17 +46,14 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("adminUsername", required: true)]
         public Input<string> AdminUsername { get; set; } = null!;
 
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
+
         /// <summary>
         /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerNamePrefix`, then you must specify `ComputerNamePrefix`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `True` and `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).

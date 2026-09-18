@@ -58,13 +58,6 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
         return Optional.ofNullable(this.keyVaultKeyId);
     }
 
-    @Import(name="managedHsmKeyId")
-    private @Nullable Output<String> managedHsmKeyId;
-
-    public Optional<Output<String>> managedHsmKeyId() {
-        return Optional.ofNullable(this.managedHsmKeyId);
-    }
-
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      * 
@@ -85,7 +78,6 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
     private ManagedInstanceTransparentDataEncryptionState(ManagedInstanceTransparentDataEncryptionState $) {
         this.autoRotationEnabled = $.autoRotationEnabled;
         this.keyVaultKeyId = $.keyVaultKeyId;
-        this.managedHsmKeyId = $.managedHsmKeyId;
         this.managedInstanceId = $.managedInstanceId;
     }
 
@@ -159,15 +151,6 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
-        }
-
-        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
-            $.managedHsmKeyId = managedHsmKeyId;
-            return this;
-        }
-
-        public Builder managedHsmKeyId(String managedHsmKeyId) {
-            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery.inputs;
 
+import com.pulumi.azure.siterecovery.inputs.ReplicatedVMNetworkInterfaceIpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -17,136 +18,40 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
     public static final ReplicatedVMNetworkInterfaceArgs Empty = new ReplicatedVMNetworkInterfaceArgs();
 
     /**
-     * Id of the public IP object to use when a test failover is done.
+     * IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
      * 
      */
-    @Import(name="failoverTestPublicIpAddressId")
-    private @Nullable Output<String> failoverTestPublicIpAddressId;
+    @Import(name="ipConfigurations")
+    private @Nullable Output<List<ReplicatedVMNetworkInterfaceIpConfigurationArgs>> ipConfigurations;
 
     /**
-     * @return Id of the public IP object to use when a test failover is done.
+     * @return IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
      * 
      */
-    public Optional<Output<String>> failoverTestPublicIpAddressId() {
-        return Optional.ofNullable(this.failoverTestPublicIpAddressId);
+    public Optional<Output<List<ReplicatedVMNetworkInterfaceIpConfigurationArgs>>> ipConfigurations() {
+        return Optional.ofNullable(this.ipConfigurations);
     }
 
     /**
-     * Static IP to assign when a test failover is done.
-     * 
-     */
-    @Import(name="failoverTestStaticIp")
-    private @Nullable Output<String> failoverTestStaticIp;
-
-    /**
-     * @return Static IP to assign when a test failover is done.
-     * 
-     */
-    public Optional<Output<String>> failoverTestStaticIp() {
-        return Optional.ofNullable(this.failoverTestStaticIp);
-    }
-
-    /**
-     * Name of the subnet to use when a test failover is done.
-     * 
-     */
-    @Import(name="failoverTestSubnetName")
-    private @Nullable Output<String> failoverTestSubnetName;
-
-    /**
-     * @return Name of the subnet to use when a test failover is done.
-     * 
-     */
-    public Optional<Output<String>> failoverTestSubnetName() {
-        return Optional.ofNullable(this.failoverTestSubnetName);
-    }
-
-    /**
-     * A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-     * 
-     */
-    @Import(name="recoveryLoadBalancerBackendAddressPoolIds")
-    private @Nullable Output<List<String>> recoveryLoadBalancerBackendAddressPoolIds;
-
-    /**
-     * @return A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-     * 
-     */
-    public Optional<Output<List<String>>> recoveryLoadBalancerBackendAddressPoolIds() {
-        return Optional.ofNullable(this.recoveryLoadBalancerBackendAddressPoolIds);
-    }
-
-    /**
-     * Id of the public IP object to use when a failover is done.
-     * 
-     */
-    @Import(name="recoveryPublicIpAddressId")
-    private @Nullable Output<String> recoveryPublicIpAddressId;
-
-    /**
-     * @return Id of the public IP object to use when a failover is done.
-     * 
-     */
-    public Optional<Output<String>> recoveryPublicIpAddressId() {
-        return Optional.ofNullable(this.recoveryPublicIpAddressId);
-    }
-
-    /**
-     * (Required if the networkInterface block is specified) Id source network interface.
+     * Id source network interface.
      * 
      */
     @Import(name="sourceNetworkInterfaceId")
     private @Nullable Output<String> sourceNetworkInterfaceId;
 
     /**
-     * @return (Required if the networkInterface block is specified) Id source network interface.
+     * @return Id source network interface.
      * 
      */
     public Optional<Output<String>> sourceNetworkInterfaceId() {
         return Optional.ofNullable(this.sourceNetworkInterfaceId);
     }
 
-    /**
-     * Static IP to assign when a failover is done.
-     * 
-     */
-    @Import(name="targetStaticIp")
-    private @Nullable Output<String> targetStaticIp;
-
-    /**
-     * @return Static IP to assign when a failover is done.
-     * 
-     */
-    public Optional<Output<String>> targetStaticIp() {
-        return Optional.ofNullable(this.targetStaticIp);
-    }
-
-    /**
-     * Name of the subnet to use when a failover is done.
-     * 
-     */
-    @Import(name="targetSubnetName")
-    private @Nullable Output<String> targetSubnetName;
-
-    /**
-     * @return Name of the subnet to use when a failover is done.
-     * 
-     */
-    public Optional<Output<String>> targetSubnetName() {
-        return Optional.ofNullable(this.targetSubnetName);
-    }
-
     private ReplicatedVMNetworkInterfaceArgs() {}
 
     private ReplicatedVMNetworkInterfaceArgs(ReplicatedVMNetworkInterfaceArgs $) {
-        this.failoverTestPublicIpAddressId = $.failoverTestPublicIpAddressId;
-        this.failoverTestStaticIp = $.failoverTestStaticIp;
-        this.failoverTestSubnetName = $.failoverTestSubnetName;
-        this.recoveryLoadBalancerBackendAddressPoolIds = $.recoveryLoadBalancerBackendAddressPoolIds;
-        this.recoveryPublicIpAddressId = $.recoveryPublicIpAddressId;
+        this.ipConfigurations = $.ipConfigurations;
         this.sourceNetworkInterfaceId = $.sourceNetworkInterfaceId;
-        this.targetStaticIp = $.targetStaticIp;
-        this.targetSubnetName = $.targetSubnetName;
     }
 
     public static Builder builder() {
@@ -168,122 +73,38 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param failoverTestPublicIpAddressId Id of the public IP object to use when a test failover is done.
+         * @param ipConfigurations IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder failoverTestPublicIpAddressId(@Nullable Output<String> failoverTestPublicIpAddressId) {
-            $.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+        public Builder ipConfigurations(@Nullable Output<List<ReplicatedVMNetworkInterfaceIpConfigurationArgs>> ipConfigurations) {
+            $.ipConfigurations = ipConfigurations;
             return this;
         }
 
         /**
-         * @param failoverTestPublicIpAddressId Id of the public IP object to use when a test failover is done.
+         * @param ipConfigurations IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder failoverTestPublicIpAddressId(String failoverTestPublicIpAddressId) {
-            return failoverTestPublicIpAddressId(Output.of(failoverTestPublicIpAddressId));
+        public Builder ipConfigurations(List<ReplicatedVMNetworkInterfaceIpConfigurationArgs> ipConfigurations) {
+            return ipConfigurations(Output.of(ipConfigurations));
         }
 
         /**
-         * @param failoverTestStaticIp Static IP to assign when a test failover is done.
+         * @param ipConfigurations IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder failoverTestStaticIp(@Nullable Output<String> failoverTestStaticIp) {
-            $.failoverTestStaticIp = failoverTestStaticIp;
-            return this;
+        public Builder ipConfigurations(ReplicatedVMNetworkInterfaceIpConfigurationArgs... ipConfigurations) {
+            return ipConfigurations(List.of(ipConfigurations));
         }
 
         /**
-         * @param failoverTestStaticIp Static IP to assign when a test failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder failoverTestStaticIp(String failoverTestStaticIp) {
-            return failoverTestStaticIp(Output.of(failoverTestStaticIp));
-        }
-
-        /**
-         * @param failoverTestSubnetName Name of the subnet to use when a test failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder failoverTestSubnetName(@Nullable Output<String> failoverTestSubnetName) {
-            $.failoverTestSubnetName = failoverTestSubnetName;
-            return this;
-        }
-
-        /**
-         * @param failoverTestSubnetName Name of the subnet to use when a test failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder failoverTestSubnetName(String failoverTestSubnetName) {
-            return failoverTestSubnetName(Output.of(failoverTestSubnetName));
-        }
-
-        /**
-         * @param recoveryLoadBalancerBackendAddressPoolIds A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder recoveryLoadBalancerBackendAddressPoolIds(@Nullable Output<List<String>> recoveryLoadBalancerBackendAddressPoolIds) {
-            $.recoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
-            return this;
-        }
-
-        /**
-         * @param recoveryLoadBalancerBackendAddressPoolIds A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder recoveryLoadBalancerBackendAddressPoolIds(List<String> recoveryLoadBalancerBackendAddressPoolIds) {
-            return recoveryLoadBalancerBackendAddressPoolIds(Output.of(recoveryLoadBalancerBackendAddressPoolIds));
-        }
-
-        /**
-         * @param recoveryLoadBalancerBackendAddressPoolIds A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder recoveryLoadBalancerBackendAddressPoolIds(String... recoveryLoadBalancerBackendAddressPoolIds) {
-            return recoveryLoadBalancerBackendAddressPoolIds(List.of(recoveryLoadBalancerBackendAddressPoolIds));
-        }
-
-        /**
-         * @param recoveryPublicIpAddressId Id of the public IP object to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder recoveryPublicIpAddressId(@Nullable Output<String> recoveryPublicIpAddressId) {
-            $.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
-            return this;
-        }
-
-        /**
-         * @param recoveryPublicIpAddressId Id of the public IP object to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder recoveryPublicIpAddressId(String recoveryPublicIpAddressId) {
-            return recoveryPublicIpAddressId(Output.of(recoveryPublicIpAddressId));
-        }
-
-        /**
-         * @param sourceNetworkInterfaceId (Required if the networkInterface block is specified) Id source network interface.
+         * @param sourceNetworkInterfaceId Id source network interface.
          * 
          * @return builder
          * 
@@ -294,55 +115,13 @@ public final class ReplicatedVMNetworkInterfaceArgs extends com.pulumi.resources
         }
 
         /**
-         * @param sourceNetworkInterfaceId (Required if the networkInterface block is specified) Id source network interface.
+         * @param sourceNetworkInterfaceId Id source network interface.
          * 
          * @return builder
          * 
          */
         public Builder sourceNetworkInterfaceId(String sourceNetworkInterfaceId) {
             return sourceNetworkInterfaceId(Output.of(sourceNetworkInterfaceId));
-        }
-
-        /**
-         * @param targetStaticIp Static IP to assign when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder targetStaticIp(@Nullable Output<String> targetStaticIp) {
-            $.targetStaticIp = targetStaticIp;
-            return this;
-        }
-
-        /**
-         * @param targetStaticIp Static IP to assign when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder targetStaticIp(String targetStaticIp) {
-            return targetStaticIp(Output.of(targetStaticIp));
-        }
-
-        /**
-         * @param targetSubnetName Name of the subnet to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder targetSubnetName(@Nullable Output<String> targetSubnetName) {
-            $.targetSubnetName = targetSubnetName;
-            return this;
-        }
-
-        /**
-         * @param targetSubnetName Name of the subnet to use when a failover is done.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder targetSubnetName(String targetSubnetName) {
-            return targetSubnetName(Output.of(targetSubnetName));
         }
 
         public ReplicatedVMNetworkInterfaceArgs build() {

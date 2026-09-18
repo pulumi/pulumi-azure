@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleTable = new azure.storage.Table("example", {
  *     name: "mysampletable",
- *     storageAccountName: exampleAccount.name,
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * Table's within a Storage Account can be imported using the `resource id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
+ * $ pulumi import azure:storage/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/tableServices/default/tables/table1
  * ```
  */
 export class Table extends pulumi.CustomResource {
@@ -85,15 +85,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
-    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     *
-     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     */
-    declare public readonly storageAccountName: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -102,7 +94,7 @@ export class Table extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TableArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -112,13 +104,14 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceManagerId"] = state?.resourceManagerId;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
-            resourceInputs["storageAccountName"] = state?.storageAccountName;
         } else {
             const args = argsOrState as TableArgs | undefined;
+            if (args?.storageAccountId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageAccountId'");
+            }
             resourceInputs["acls"] = args?.acls;
             resourceInputs["name"] = args?.name;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
-            resourceInputs["storageAccountName"] = args?.storageAccountName;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -146,14 +139,6 @@ export interface TableState {
      * Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
     storageAccountId?: pulumi.Input<string | undefined>;
-    /**
-     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     *
-     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     */
-    storageAccountName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -171,13 +156,5 @@ export interface TableArgs {
     /**
      * Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
      */
-    storageAccountId?: pulumi.Input<string | undefined>;
-    /**
-     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     *
-     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     *
-     * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     */
-    storageAccountName?: pulumi.Input<string | undefined>;
+    storageAccountId: pulumi.Input<string>;
 }

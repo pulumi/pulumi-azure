@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Management
         ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
-        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///         }).Result.ExampleOutput.Value,
         ///     };
         /// });
         /// ```
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Management
         ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
-        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///         }).Result.ExampleOutput.Value,
         ///     };
         /// });
         /// ```
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Management
         ///         ["exampleOutput"] = Std.Jsondecode.Invoke(new()
         ///         {
         ///             Input = example.Apply(getGroupTemplateDeploymentResult =&gt; getGroupTemplateDeploymentResult.OutputContent),
-        ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+        ///         }).Result.ExampleOutput.Value,
         ///     };
         /// });
         /// ```

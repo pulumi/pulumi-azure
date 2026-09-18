@@ -5,7 +5,7 @@ package com.pulumi.azure.siterecovery.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -38,39 +38,16 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     /**
      * The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
-     * 
      */
-    @Import(name="automationAccountId")
-    private @Nullable Output<String> automationAccountId;
+    @Import(name="automationAccountId", required=true)
+    private Output<String> automationAccountId;
 
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
-     * 
      */
-    public Optional<Output<String>> automationAccountId() {
-        return Optional.ofNullable(this.automationAccountId);
-    }
-
-    /**
-     * Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-     * 
-     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-     * 
-     */
-    @Import(name="enabled")
-    private @Nullable Output<Boolean> enabled;
-
-    /**
-     * @return Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-     * 
-     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-     * 
-     */
-    public Optional<Output<Boolean>> enabled() {
-        return Optional.ofNullable(this.enabled);
+    public Output<String> automationAccountId() {
+        return this.automationAccountId;
     }
 
     private ProtectionContainerMappingAutomaticUpdateArgs() {}
@@ -78,7 +55,6 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
     private ProtectionContainerMappingAutomaticUpdateArgs(ProtectionContainerMappingAutomaticUpdateArgs $) {
         this.authenticationType = $.authenticationType;
         this.automationAccountId = $.automationAccountId;
-        this.enabled = $.enabled;
     }
 
     public static Builder builder() {
@@ -127,20 +103,16 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
          * 
-         * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
-         * 
          * @return builder
          * 
          */
-        public Builder automationAccountId(@Nullable Output<String> automationAccountId) {
+        public Builder automationAccountId(Output<String> automationAccountId) {
             $.automationAccountId = automationAccountId;
             return this;
         }
 
         /**
          * @param automationAccountId The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-         * 
-         * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
          * 
          * @return builder
          * 
@@ -149,32 +121,10 @@ public final class ProtectionContainerMappingAutomaticUpdateArgs extends com.pul
             return automationAccountId(Output.of(automationAccountId));
         }
 
-        /**
-         * @param enabled Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-         * 
-         * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enabled(@Nullable Output<Boolean> enabled) {
-            $.enabled = enabled;
-            return this;
-        }
-
-        /**
-         * @param enabled Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-         * 
-         * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enabled(Boolean enabled) {
-            return enabled(Output.of(enabled));
-        }
-
         public ProtectionContainerMappingAutomaticUpdateArgs build() {
+            if ($.automationAccountId == null) {
+                throw new MissingRequiredPropertyException("ProtectionContainerMappingAutomaticUpdateArgs", "automationAccountId");
+            }
             return $;
         }
     }

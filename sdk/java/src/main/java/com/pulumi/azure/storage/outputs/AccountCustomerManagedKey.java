@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AccountCustomerManagedKey {
@@ -16,14 +14,7 @@ public final class AccountCustomerManagedKey {
      * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
-    private @Nullable String keyVaultKeyId;
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    private @Nullable String managedHsmKeyId;
+    private String keyVaultKeyId;
     /**
      * @return The ID of a user assigned identity.
      * 
@@ -37,17 +28,8 @@ public final class AccountCustomerManagedKey {
      * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
-    public Optional<String> keyVaultKeyId() {
-        return Optional.ofNullable(this.keyVaultKeyId);
-    }
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<String> managedHsmKeyId() {
-        return Optional.ofNullable(this.managedHsmKeyId);
+    public String keyVaultKeyId() {
+        return this.keyVaultKeyId;
     }
     /**
      * @return The ID of a user assigned identity.
@@ -68,27 +50,21 @@ public final class AccountCustomerManagedKey {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String keyVaultKeyId;
-        private @Nullable String managedHsmKeyId;
+        private String keyVaultKeyId;
         private String userAssignedIdentityId;
         public Builder() {}
         public Builder(AccountCustomerManagedKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
-    	      this.managedHsmKeyId = defaults.managedHsmKeyId;
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
-        public Builder keyVaultKeyId(@Nullable String keyVaultKeyId) {
-
+        public Builder keyVaultKeyId(String keyVaultKeyId) {
+            if (keyVaultKeyId == null) {
+              throw new MissingRequiredPropertyException("AccountCustomerManagedKey", "keyVaultKeyId");
+            }
             this.keyVaultKeyId = keyVaultKeyId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder managedHsmKeyId(@Nullable String managedHsmKeyId) {
-
-            this.managedHsmKeyId = managedHsmKeyId;
             return this;
         }
         @CustomType.Setter
@@ -102,7 +78,6 @@ public final class AccountCustomerManagedKey {
         public AccountCustomerManagedKey build() {
             final var _resultValue = new AccountCustomerManagedKey();
             _resultValue.keyVaultKeyId = keyVaultKeyId;
-            _resultValue.managedHsmKeyId = managedHsmKeyId;
             _resultValue.userAssignedIdentityId = userAssignedIdentityId;
             return _resultValue;
         }

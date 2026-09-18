@@ -14,12 +14,185 @@ namespace Pulumi.Azure.RedHatOpenShift
     /// 
     /// &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Azuread = Pulumi.Azuread;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleClientConfig = Azuread.ClientConfig.Invoke();
+    /// 
+    ///     var exampleApplication = new Azuread.Application("example", new()
+    ///     {
+    ///         DisplayName = "example-aro",
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = new Azuread.ServicePrincipal("example", new()
+    ///     {
+    ///         ClientId = exampleApplication.ClientId,
+    ///     });
+    /// 
+    ///     var exampleServicePrincipalPassword = new Azuread.ServicePrincipalPassword("example", new()
+    ///     {
+    ///         ServicePrincipalId = exampleServicePrincipal.ObjectId,
+    ///     });
+    /// 
+    ///     var redhatopenshift = Azuread.ServicePrincipal.Invoke(new()
+    ///     {
+    ///         ClientId = "f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West US",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/22",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var roleNetwork1 = new Azure.Authorization.Assignment("role_network1", new()
+    ///     {
+    ///         Scope = exampleVirtualNetwork.Id,
+    ///         RoleDefinitionName = "Network Contributor",
+    ///         PrincipalId = exampleServicePrincipal.ObjectId,
+    ///     });
+    /// 
+    ///     var roleNetwork2 = new Azure.Authorization.Assignment("role_network2", new()
+    ///     {
+    ///         Scope = exampleVirtualNetwork.Id,
+    ///         RoleDefinitionName = "Network Contributor",
+    ///         PrincipalId = redhatopenshift.ObjectId,
+    ///     });
+    /// 
+    ///     var mainSubnet = new Azure.Network.Subnet("main_subnet", new()
+    ///     {
+    ///         Name = "main-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/23",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.ContainerRegistry",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var workerSubnet = new Azure.Network.Subnet("worker_subnet", new()
+    ///     {
+    ///         Name = "worker-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/23",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.ContainerRegistry",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.RedHatOpenShift.Cluster("example", new()
+    ///     {
+    ///         Name = "examplearo",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClusterProfile = new Azure.RedHatOpenShift.Inputs.ClusterClusterProfileArgs
+    ///         {
+    ///             Domain = "aro-example.com",
+    ///             Version = "4.13.23",
+    ///         },
+    ///         NetworkProfile = new Azure.RedHatOpenShift.Inputs.ClusterNetworkProfileArgs
+    ///         {
+    ///             PodCidr = "10.128.0.0/14",
+    ///             ServiceCidr = "172.30.0.0/16",
+    ///         },
+    ///         MainProfile = new Azure.RedHatOpenShift.Inputs.ClusterMainProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D8s_v3",
+    ///             SubnetId = mainSubnet.Id,
+    ///         },
+    ///         ApiServerProfile = new Azure.RedHatOpenShift.Inputs.ClusterApiServerProfileArgs
+    ///         {
+    ///             Visibility = "Public",
+    ///         },
+    ///         IngressProfile = new Azure.RedHatOpenShift.Inputs.ClusterIngressProfileArgs
+    ///         {
+    ///             Visibility = "Public",
+    ///         },
+    ///         WorkerProfile = new Azure.RedHatOpenShift.Inputs.ClusterWorkerProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D4s_v3",
+    ///             DiskSizeGb = 128,
+    ///             NodeCount = 3,
+    ///             SubnetId = workerSubnet.Id,
+    ///         },
+    ///         ServicePrincipal = new Azure.RedHatOpenShift.Inputs.ClusterServicePrincipalArgs
+    ///         {
+    ///             ClientId = exampleApplication.ClientId,
+    ///             ClientSecret = exampleServicePrincipalPassword.Value,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             roleNetwork1,
+    ///             roleNetwork2,
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["consoleUrl"] = exampleCluster.ConsoleUrl,
+    ///     };
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.RedHatOpenShift` - 2025-07-25
+    /// 
     /// ## Import
     /// 
-    /// Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+    /// An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+    /// $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
     /// ```
     /// </summary>
     [AzureResourceType("azure:redhatopenshift/cluster:Cluster")]
@@ -38,10 +211,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<Outputs.ClusterClusterProfile> ClusterProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The Red Hat OpenShift cluster console URL.
+        /// The console URL of the Azure Red Hat OpenShift Cluster.
         /// </summary>
         [Output("consoleUrl")]
         public Output<string> ConsoleUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// An `Identity` block as defined below. Exactly one of `Identity` or `ServicePrincipal` must be specified. Required when `PlatformWorkloadIdentityProfile` is set.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ClusterIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// An `IngressProfile` block as defined below. Changing this forces a new resource to be created.
@@ -68,10 +247,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Output("networkProfile")]
         public Output<Outputs.ClusterNetworkProfile> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// A `PlatformWorkloadIdentityProfile` block as defined below. Required when `Identity` is set.
+        /// </summary>
+        [Output("platformWorkloadIdentityProfile")]
+        public Output<Outputs.ClusterPlatformWorkloadIdentityProfile?> PlatformWorkloadIdentityProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -80,10 +265,10 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `ServicePrincipal` block as defined below.
+        /// A `ServicePrincipal` block as defined below. Exactly one of `ServicePrincipal` or `Identity` must be specified.
         /// </summary>
         [Output("servicePrincipal")]
-        public Output<Outputs.ClusterServicePrincipal> ServicePrincipal { get; private set; } = null!;
+        public Output<Outputs.ClusterServicePrincipal?> ServicePrincipal { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -156,6 +341,12 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<Inputs.ClusterClusterProfileArgs> ClusterProfile { get; set; } = null!;
 
         /// <summary>
+        /// An `Identity` block as defined below. Exactly one of `Identity` or `ServicePrincipal` must be specified. Required when `PlatformWorkloadIdentityProfile` is set.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// An `IngressProfile` block as defined below. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ingressProfile", required: true)]
@@ -180,10 +371,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile", required: true)]
         public Input<Inputs.ClusterNetworkProfileArgs> NetworkProfile { get; set; } = null!;
+
+        /// <summary>
+        /// A `PlatformWorkloadIdentityProfile` block as defined below. Required when `Identity` is set.
+        /// </summary>
+        [Input("platformWorkloadIdentityProfile")]
+        public Input<Inputs.ClusterPlatformWorkloadIdentityProfileArgs>? PlatformWorkloadIdentityProfile { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -192,10 +389,10 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `ServicePrincipal` block as defined below.
+        /// A `ServicePrincipal` block as defined below. Exactly one of `ServicePrincipal` or `Identity` must be specified.
         /// </summary>
-        [Input("servicePrincipal", required: true)]
-        public Input<Inputs.ClusterServicePrincipalArgs> ServicePrincipal { get; set; } = null!;
+        [Input("servicePrincipal")]
+        public Input<Inputs.ClusterServicePrincipalArgs>? ServicePrincipal { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -236,10 +433,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<Inputs.ClusterClusterProfileGetArgs>? ClusterProfile { get; set; }
 
         /// <summary>
-        /// The Red Hat OpenShift cluster console URL.
+        /// The console URL of the Azure Red Hat OpenShift Cluster.
         /// </summary>
         [Input("consoleUrl")]
         public Input<string>? ConsoleUrl { get; set; }
+
+        /// <summary>
+        /// An `Identity` block as defined below. Exactly one of `Identity` or `ServicePrincipal` must be specified. Required when `PlatformWorkloadIdentityProfile` is set.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// An `IngressProfile` block as defined below. Changing this forces a new resource to be created.
@@ -266,10 +469,16 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A `NetworkProfile` block as defined below. Changing this forces a new resource to be created.
+        /// A `NetworkProfile` block as defined below.
         /// </summary>
         [Input("networkProfile")]
         public Input<Inputs.ClusterNetworkProfileGetArgs>? NetworkProfile { get; set; }
+
+        /// <summary>
+        /// A `PlatformWorkloadIdentityProfile` block as defined below. Required when `Identity` is set.
+        /// </summary>
+        [Input("platformWorkloadIdentityProfile")]
+        public Input<Inputs.ClusterPlatformWorkloadIdentityProfileGetArgs>? PlatformWorkloadIdentityProfile { get; set; }
 
         /// <summary>
         /// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -278,7 +487,7 @@ namespace Pulumi.Azure.RedHatOpenShift
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `ServicePrincipal` block as defined below.
+        /// A `ServicePrincipal` block as defined below. Exactly one of `ServicePrincipal` or `Identity` must be specified.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<Inputs.ClusterServicePrincipalGetArgs>? ServicePrincipal { get; set; }

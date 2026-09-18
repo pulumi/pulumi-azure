@@ -8,11 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+// Manages an Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 //
 // ## Example Usage
 //
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/siterecovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-network-mapping-primary"),
+//				Name:     pulumi.String("example-network-mapping-primary"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("tfex-network-mapping-secondary"),
+//				Name:     pulumi.String("example-network-mapping-secondary"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
@@ -134,11 +134,11 @@ import (
 type ProtectionContainerMapping struct {
 	pulumi.CustomResourceState
 
-	// a `automaticUpdate` block defined as below.
-	AutomaticUpdate ProtectionContainerMappingAutomaticUpdateOutput `pulumi:"automaticUpdate"`
+	// An `automaticUpdate` block defined as below.
+	AutomaticUpdate ProtectionContainerMappingAutomaticUpdatePtrOutput `pulumi:"automaticUpdate"`
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+	// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringOutput `pulumi:"recoveryFabricName"`
 	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringOutput `pulumi:"recoveryReplicationPolicyId"`
@@ -200,11 +200,11 @@ func GetProtectionContainerMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionContainerMapping resources.
 type protectionContainerMappingState struct {
-	// a `automaticUpdate` block defined as below.
+	// An `automaticUpdate` block defined as below.
 	AutomaticUpdate *ProtectionContainerMappingAutomaticUpdate `pulumi:"automaticUpdate"`
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+	// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName *string `pulumi:"recoveryFabricName"`
 	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId *string `pulumi:"recoveryReplicationPolicyId"`
@@ -219,11 +219,11 @@ type protectionContainerMappingState struct {
 }
 
 type ProtectionContainerMappingState struct {
-	// a `automaticUpdate` block defined as below.
+	// An `automaticUpdate` block defined as below.
 	AutomaticUpdate ProtectionContainerMappingAutomaticUpdatePtrInput
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+	// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringPtrInput
 	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringPtrInput
@@ -242,11 +242,11 @@ func (ProtectionContainerMappingState) ElementType() reflect.Type {
 }
 
 type protectionContainerMappingArgs struct {
-	// a `automaticUpdate` block defined as below.
+	// An `automaticUpdate` block defined as below.
 	AutomaticUpdate *ProtectionContainerMappingAutomaticUpdate `pulumi:"automaticUpdate"`
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+	// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName string `pulumi:"recoveryFabricName"`
 	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId string `pulumi:"recoveryReplicationPolicyId"`
@@ -262,11 +262,11 @@ type protectionContainerMappingArgs struct {
 
 // The set of arguments for constructing a ProtectionContainerMapping resource.
 type ProtectionContainerMappingArgs struct {
-	// a `automaticUpdate` block defined as below.
+	// An `automaticUpdate` block defined as below.
 	AutomaticUpdate ProtectionContainerMappingAutomaticUpdatePtrInput
 	// The name of the protection container mapping. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+	// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
 	RecoveryFabricName pulumi.StringInput
 	// Id of the policy to use for this mapping. Changing this forces a new resource to be created.
 	RecoveryReplicationPolicyId pulumi.StringInput
@@ -367,11 +367,11 @@ func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutputWith
 	return o
 }
 
-// a `automaticUpdate` block defined as below.
-func (o ProtectionContainerMappingOutput) AutomaticUpdate() ProtectionContainerMappingAutomaticUpdateOutput {
-	return o.ApplyT(func(v *ProtectionContainerMapping) ProtectionContainerMappingAutomaticUpdateOutput {
+// An `automaticUpdate` block defined as below.
+func (o ProtectionContainerMappingOutput) AutomaticUpdate() ProtectionContainerMappingAutomaticUpdatePtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerMapping) ProtectionContainerMappingAutomaticUpdatePtrOutput {
 		return v.AutomaticUpdate
-	}).(ProtectionContainerMappingAutomaticUpdateOutput)
+	}).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
 }
 
 // The name of the protection container mapping. Changing this forces a new resource to be created.
@@ -379,7 +379,7 @@ func (o ProtectionContainerMappingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
 func (o ProtectionContainerMappingOutput) RecoveryFabricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionContainerMapping) pulumi.StringOutput { return v.RecoveryFabricName }).(pulumi.StringOutput)
 }

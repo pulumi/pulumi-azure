@@ -831,7 +831,7 @@ class PolicyPolicySettingsArgsDict(TypedDict):
     """
     file_upload_enforcement: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+    Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`. Defaults to `true`.
     """
     file_upload_limit_in_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -881,7 +881,7 @@ class PolicyPolicySettingsArgs:
                  request_body_inspect_limit_in_kb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Describes if the policy is in enabled state or disabled state. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] file_upload_enforcement: Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        :param pulumi.Input[_builtins.bool] file_upload_enforcement: Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`. Defaults to `true`.
         :param pulumi.Input[_builtins.int] file_upload_limit_in_mb: The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
         :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
         :param pulumi.Input['PolicyPolicySettingsLogScrubbingArgs'] log_scrubbing: One `log_scrubbing` block as defined below.
@@ -928,7 +928,7 @@ class PolicyPolicySettingsArgs:
     @pulumi.getter(name="fileUploadEnforcement")
     def file_upload_enforcement(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`.
+        Whether the firewall should block a request with upload size greater then `file_upload_limit_in_mb`. Defaults to `true`.
         """
         return pulumi.get(self, "file_upload_enforcement")
 

@@ -4,7 +4,7 @@
 package com.pulumi.azure.iot;
 
 import com.pulumi.azure.iot.inputs.SecuritySolutionAdditionalWorkspaceArgs;
-import com.pulumi.azure.iot.inputs.SecuritySolutionRecommendationsEnabledArgs;
+import com.pulumi.azure.iot.inputs.SecuritySolutionRecommendationsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -202,18 +202,18 @@ public final class SecuritySolutionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * A `recommendations` block as defined below.
      * 
      */
-    @Import(name="recommendationsEnabled")
-    private @Nullable Output<SecuritySolutionRecommendationsEnabledArgs> recommendationsEnabled;
+    @Import(name="recommendations")
+    private @Nullable Output<SecuritySolutionRecommendationsArgs> recommendations;
 
     /**
-     * @return A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * @return A `recommendations` block as defined below.
      * 
      */
-    public Optional<Output<SecuritySolutionRecommendationsEnabledArgs>> recommendationsEnabled() {
-        return Optional.ofNullable(this.recommendationsEnabled);
+    public Optional<Output<SecuritySolutionRecommendationsArgs>> recommendations() {
+        return Optional.ofNullable(this.recommendations);
     }
 
     /**
@@ -261,7 +261,7 @@ public final class SecuritySolutionArgs extends com.pulumi.resources.ResourceArg
         this.name = $.name;
         this.queryForResources = $.queryForResources;
         this.querySubscriptionIds = $.querySubscriptionIds;
-        this.recommendationsEnabled = $.recommendationsEnabled;
+        this.recommendations = $.recommendations;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -587,24 +587,24 @@ public final class SecuritySolutionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param recommendationsEnabled A `recommendationsEnabled` block of options to enable or disable as defined below.
+         * @param recommendations A `recommendations` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder recommendationsEnabled(@Nullable Output<SecuritySolutionRecommendationsEnabledArgs> recommendationsEnabled) {
-            $.recommendationsEnabled = recommendationsEnabled;
+        public Builder recommendations(@Nullable Output<SecuritySolutionRecommendationsArgs> recommendations) {
+            $.recommendations = recommendations;
             return this;
         }
 
         /**
-         * @param recommendationsEnabled A `recommendationsEnabled` block of options to enable or disable as defined below.
+         * @param recommendations A `recommendations` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder recommendationsEnabled(SecuritySolutionRecommendationsEnabledArgs recommendationsEnabled) {
-            return recommendationsEnabled(Output.of(recommendationsEnabled));
+        public Builder recommendations(SecuritySolutionRecommendationsArgs recommendations) {
+            return recommendations(Output.of(recommendations));
         }
 
         /**

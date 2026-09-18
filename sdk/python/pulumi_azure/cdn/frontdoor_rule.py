@@ -24,28 +24,28 @@ class FrontdoorRuleArgs:
                  actions: pulumi.Input['FrontdoorRuleActionsArgs'],
                  cdn_frontdoor_rule_set_id: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int],
-                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviour_on_match: pulumi.Input[Optional[_builtins.str]] = None,
                  conditions: pulumi.Input[Optional['FrontdoorRuleConditionsArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FrontdoorRule resource.
 
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
                
                > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
                > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
-        :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        :param pulumi.Input[_builtins.str] behaviour_on_match: The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
         pulumi.set(__self__, "order", order)
-        if behavior_on_match is not None:
-            pulumi.set(__self__, "behavior_on_match", behavior_on_match)
+        if behaviour_on_match is not None:
+            pulumi.set(__self__, "behaviour_on_match", behaviour_on_match)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if name is not None:
@@ -67,7 +67,7 @@ class FrontdoorRuleArgs:
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
 
         > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         """
@@ -92,16 +92,16 @@ class FrontdoorRuleArgs:
         pulumi.set(self, "order", value)
 
     @_builtins.property
-    @pulumi.getter(name="behaviorOnMatch")
-    def behavior_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="behaviourOnMatch")
+    def behaviour_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         """
-        return pulumi.get(self, "behavior_on_match")
+        return pulumi.get(self, "behaviour_on_match")
 
-    @behavior_on_match.setter
-    def behavior_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "behavior_on_match", value)
+    @behaviour_on_match.setter
+    def behaviour_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "behaviour_on_match", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,7 +119,7 @@ class FrontdoorRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -132,7 +132,7 @@ class FrontdoorRuleArgs:
 class _FrontdoorRuleState:
     def __init__(__self__, *,
                  actions: pulumi.Input[Optional['FrontdoorRuleActionsArgs']] = None,
-                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviour_on_match: pulumi.Input[Optional[_builtins.str]] = None,
                  cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cdn_frontdoor_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  conditions: pulumi.Input[Optional['FrontdoorRuleConditionsArgs']] = None,
@@ -142,21 +142,21 @@ class _FrontdoorRuleState:
         Input properties used for looking up and filtering FrontdoorRule resources.
 
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
-        :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] behaviour_on_match: The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
                
                > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
                > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
-        if behavior_on_match is not None:
-            pulumi.set(__self__, "behavior_on_match", behavior_on_match)
+        if behaviour_on_match is not None:
+            pulumi.set(__self__, "behaviour_on_match", behaviour_on_match)
         if cdn_frontdoor_rule_set_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_rule_set_id", cdn_frontdoor_rule_set_id)
         if cdn_frontdoor_rule_set_name is not None:
@@ -181,22 +181,22 @@ class _FrontdoorRuleState:
         pulumi.set(self, "actions", value)
 
     @_builtins.property
-    @pulumi.getter(name="behaviorOnMatch")
-    def behavior_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="behaviourOnMatch")
+    def behaviour_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         """
-        return pulumi.get(self, "behavior_on_match")
+        return pulumi.get(self, "behaviour_on_match")
 
-    @behavior_on_match.setter
-    def behavior_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "behavior_on_match", value)
+    @behaviour_on_match.setter
+    def behaviour_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "behaviour_on_match", value)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
 
         > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         """
@@ -234,7 +234,7 @@ class _FrontdoorRuleState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -264,7 +264,7 @@ class FrontdoorRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
-                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviour_on_match: pulumi.Input[Optional[_builtins.str]] = None,
                  cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -330,34 +330,29 @@ class FrontdoorRule(pulumi.CustomResource):
             name="examplerule",
             cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
             order=1,
-            behavior_on_match="Continue",
+            behaviour_on_match="Continue",
             actions={
-                "route_configuration_override_action": {
-                    "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
-                    "forwarding_protocol": "HttpsOnly",
-                    "query_string_caching_behavior": "IncludeSpecifiedQueryStrings",
-                    "query_string_parameters": [
-                        "foo",
-                        "clientIp={client_ip}",
-                    ],
-                    "compression_enabled": True,
-                    "cache_behavior": "OverrideIfOriginMissing",
-                    "cache_duration": "365.23:59:59",
-                },
-                "url_redirect_action": {
-                    "redirect_type": "PermanentRedirect",
-                    "redirect_protocol": "MatchRequest",
-                    "query_string": "clientIp={client_ip}",
-                    "destination_path": "/exampleredirection",
-                    "destination_hostname": "contoso.com",
-                    "destination_fragment": "UrlRedirect",
+                "route_configuration_override": {
+                    "origin_group": {
+                        "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
+                        "forwarding_protocol": "HttpsOnly",
+                    },
+                    "caching": {
+                        "behaviour": "OverrideIfOriginMissing",
+                        "duration": "365.23:59:59",
+                        "compression_enabled": True,
+                        "query_string_behaviour": "IncludeSpecifiedQueryStrings",
+                        "query_string_parameters": [
+                            "foo",
+                            "clientIp={client_ip}",
+                        ],
+                    },
                 },
             },
             conditions={
-                "host_name_conditions": [{
+                "host_names": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": [
+                    "values": [
                         "www.contoso.com",
                         "images.contoso.com",
                         "video.contoso.com",
@@ -367,29 +362,26 @@ class FrontdoorRule(pulumi.CustomResource):
                         "Trim",
                     ],
                 }],
-                "is_device_conditions": [{
+                "device_types": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": "Mobile",
+                    "values": "Mobile",
                 }],
-                "post_args_conditions": [{
-                    "post_args_name": "customerName",
+                "post_arguments": [{
+                    "name": "customerName",
                     "operator": "BeginsWith",
-                    "match_values": [
+                    "values": [
                         "J",
                         "K",
                     ],
                     "transforms": ["Uppercase"],
                 }],
-                "request_method_conditions": [{
+                "request_methods": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": ["DELETE"],
+                    "values": ["DELETE"],
                 }],
-                "url_filename_conditions": [{
+                "request_filenames": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": ["media.mp4"],
+                    "values": ["media.mp4"],
                     "transforms": [
                         "Lowercase",
                         "RemoveNulls",
@@ -402,133 +394,6 @@ class FrontdoorRule(pulumi.CustomResource):
                     example_frontdoor_origin,
                 ]))
         ```
-
-        ## Specifying IP Address Ranges
-
-        When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:
-
-        Use `CIDR` notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size For example:
-
-        * `IPv4` example: `5.5.5.64/26` matches any requests that arrive from addresses `5.5.5.64` through `5.5.5.127`.
-        * `IPv6` example: `1:2:3:/48` matches any requests that arrive from addresses `1:2:3:0:0:0:0:0` through `1:2:3:ffff:ffff:ffff:ffff:ffff`.
-
-        When you specify multiple IP addresses and IP address blocks, `OR` logic is applied.
-
-        * `IPv4` example: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address `1.2.3.4` or `10.20.30.40`.
-        * `IPv6` example: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address `1:2:3:4:5:6:7:8` or `10:20:30:40:50:60:70:80`.
-
-        ***
-
-        ## Action Server Variables
-
-        Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
-
-        ### Supported Action Server Variables
-
-        | Variable name | Description |
-        |---------------|-------------|
-        | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
-        | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
-        | `client_port`    | The IP port of the client that made the request. |
-        | `hostname`       | The host name in the request from the client. |
-        | `geo_country`    | Indicates the requester's country/region of origin through its country/region code. |
-        | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
-        | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-        | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`. |
-        | `request_scheme` | The request scheme: `http` or `https`. |
-        | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`. |
-        | `ssl_protocol`   | The protocol of an established TLS connection. |
-        | `server_port`    | The port of the server that accepted a request. |
-        | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
-
-        ### Action Server Variable Format
-
-        Server variables can be specified using the following formats:
-
-        * `{variable}` - Include the entire server variable. For example, if the client IP address is `111.222.333.444` then the `{client_ip}` token would evaluate to `111.222.333.444`.
-
-        * `{variable:offset}` - Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:3}` token would evaluate to `.222.333.444`.
-
-        * `{variable:offset:length}` - Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:4:3}` token would evaluate to `222`.
-
-        ### Action Server Variables Support
-
-        Action Server variables are supported on the following actions:
-
-        * `route_configuration_override_action`
-        * `request_header_action`
-        * `response_header_action`
-        * `url_redirect_action`
-        * `url_rewrite_action`
-
-        ***
-
-        ## Condition Operator list
-
-        For rules that accept values from the standard operator list, the following operators are valid:
-
-        | Operator                   | Description | Condition Value |
-        |----------------------------|-------------|-----------------|
-        | Any                        |Matches when there is any value, regardless of what it is. | Any |
-        | Equal                      | Matches when the value exactly matches the specified string. | Equal |
-        | Contains                   | Matches when the value contains the specified string. | Contains |
-        | Less Than                  | Matches when the length of the value is less than the specified integer. | LessThan |
-        | Greater Than               | Matches when the length of the value is greater than the specified integer. | GreaterThan |
-        | Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer. | LessThanOrEqual |
-        | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
-        | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
-        | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
-        | RegEx                      | Matches when the value matches the specified regular expression. See `Condition Regular Expressions` below for more details. | RegEx |
-        | Wildcard                   | Matches when the request path matches a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard |
-        | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
-        | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
-        | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
-        | Not Less Than              | Matches when the length of the value is not less than the specified integer. | LessThan and negateCondition = true |
-        | Not Greater Than           | Matches when the length of the value is not greater than the specified integer. | GreaterThan and negateCondition = true |
-        | Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer. | LessThanOrEqual and negateCondition = true |
-        | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
-        | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
-        | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
-        | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for more details. | RegEx and negateCondition = true |
-        | Not Wildcard               | Matches when the request path does not match a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard and negateCondition = true |
-
-        ***
-
-        ## Condition Regular Expressions
-
-        Regular expressions **don't** support the following operations:
-
-        * Backreferences and capturing subexpressions.
-        * Arbitrary zero-width assertions.
-        * Subroutine references and recursive patterns.
-        * Conditional patterns.
-        * Backtracking control verbs.
-        * The `\\C` single-byte directive.
-        * The `\\R` newline match directive.
-        * The `\\K` start of match reset directive.
-        * Callouts and embedded code.
-        * Atomic grouping and possessive quantifiers.
-
-        ## Condition Wildcard Expression
-
-        A wildcard expression can include the * character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but doesn't match `files/customer2/anotherfile.pdf`.
-
-        ***
-
-        ## Condition Transform List
-
-        For rules that can transform strings, the following transforms are valid:
-
-        | Transform   | Description |
-        |-------------|-------------|
-        | Lowercase   | Converts the string to the lowercase representation. |
-        | Uppercase   | Converts the string to the uppercase representation. |
-        | Trim        | Trims leading and trailing whitespace from the string. |
-        | RemoveNulls | Removes null values from the string. |
-        | URLEncode   | URL-encodes the string. |
-        | URLDecode   | URL-decodes the string. |
-
-        ***
 
         ## API Providers
 
@@ -549,12 +414,12 @@ class FrontdoorRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
-        :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] behaviour_on_match: The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
                
                > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
                > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
@@ -625,34 +490,29 @@ class FrontdoorRule(pulumi.CustomResource):
             name="examplerule",
             cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
             order=1,
-            behavior_on_match="Continue",
+            behaviour_on_match="Continue",
             actions={
-                "route_configuration_override_action": {
-                    "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
-                    "forwarding_protocol": "HttpsOnly",
-                    "query_string_caching_behavior": "IncludeSpecifiedQueryStrings",
-                    "query_string_parameters": [
-                        "foo",
-                        "clientIp={client_ip}",
-                    ],
-                    "compression_enabled": True,
-                    "cache_behavior": "OverrideIfOriginMissing",
-                    "cache_duration": "365.23:59:59",
-                },
-                "url_redirect_action": {
-                    "redirect_type": "PermanentRedirect",
-                    "redirect_protocol": "MatchRequest",
-                    "query_string": "clientIp={client_ip}",
-                    "destination_path": "/exampleredirection",
-                    "destination_hostname": "contoso.com",
-                    "destination_fragment": "UrlRedirect",
+                "route_configuration_override": {
+                    "origin_group": {
+                        "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
+                        "forwarding_protocol": "HttpsOnly",
+                    },
+                    "caching": {
+                        "behaviour": "OverrideIfOriginMissing",
+                        "duration": "365.23:59:59",
+                        "compression_enabled": True,
+                        "query_string_behaviour": "IncludeSpecifiedQueryStrings",
+                        "query_string_parameters": [
+                            "foo",
+                            "clientIp={client_ip}",
+                        ],
+                    },
                 },
             },
             conditions={
-                "host_name_conditions": [{
+                "host_names": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": [
+                    "values": [
                         "www.contoso.com",
                         "images.contoso.com",
                         "video.contoso.com",
@@ -662,29 +522,26 @@ class FrontdoorRule(pulumi.CustomResource):
                         "Trim",
                     ],
                 }],
-                "is_device_conditions": [{
+                "device_types": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": "Mobile",
+                    "values": "Mobile",
                 }],
-                "post_args_conditions": [{
-                    "post_args_name": "customerName",
+                "post_arguments": [{
+                    "name": "customerName",
                     "operator": "BeginsWith",
-                    "match_values": [
+                    "values": [
                         "J",
                         "K",
                     ],
                     "transforms": ["Uppercase"],
                 }],
-                "request_method_conditions": [{
+                "request_methods": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": ["DELETE"],
+                    "values": ["DELETE"],
                 }],
-                "url_filename_conditions": [{
+                "request_filenames": [{
                     "operator": "Equal",
-                    "negate_condition": False,
-                    "match_values": ["media.mp4"],
+                    "values": ["media.mp4"],
                     "transforms": [
                         "Lowercase",
                         "RemoveNulls",
@@ -697,133 +554,6 @@ class FrontdoorRule(pulumi.CustomResource):
                     example_frontdoor_origin,
                 ]))
         ```
-
-        ## Specifying IP Address Ranges
-
-        When specifying IP address ranges in the `socket_address_condition` and the `remote_address_condition` `match_values` use the following format:
-
-        Use `CIDR` notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size For example:
-
-        * `IPv4` example: `5.5.5.64/26` matches any requests that arrive from addresses `5.5.5.64` through `5.5.5.127`.
-        * `IPv6` example: `1:2:3:/48` matches any requests that arrive from addresses `1:2:3:0:0:0:0:0` through `1:2:3:ffff:ffff:ffff:ffff:ffff`.
-
-        When you specify multiple IP addresses and IP address blocks, `OR` logic is applied.
-
-        * `IPv4` example: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address `1.2.3.4` or `10.20.30.40`.
-        * `IPv6` example: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address `1:2:3:4:5:6:7:8` or `10:20:30:40:50:60:70:80`.
-
-        ***
-
-        ## Action Server Variables
-
-        Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
-
-        ### Supported Action Server Variables
-
-        | Variable name | Description |
-        |---------------|-------------|
-        | `socket_ip`      | The IP address of the direct connection to Front Door Profiles edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer. |
-        | `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header. |
-        | `client_port`    | The IP port of the client that made the request. |
-        | `hostname`       | The host name in the request from the client. |
-        | `geo_country`    | Indicates the requester's country/region of origin through its country/region code. |
-        | `http_method`    | The method used to make the URL request, such as `GET` or `POST`. |
-        | `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`. |
-        | `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`. |
-        | `request_scheme` | The request scheme: `http` or `https`. |
-        | `request_uri`    | The full original request URI (with arguments). For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`. |
-        | `ssl_protocol`   | The protocol of an established TLS connection. |
-        | `server_port`    | The port of the server that accepted a request. |
-        | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
-
-        ### Action Server Variable Format
-
-        Server variables can be specified using the following formats:
-
-        * `{variable}` - Include the entire server variable. For example, if the client IP address is `111.222.333.444` then the `{client_ip}` token would evaluate to `111.222.333.444`.
-
-        * `{variable:offset}` - Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:3}` token would evaluate to `.222.333.444`.
-
-        * `{variable:offset:length}` - Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:4:3}` token would evaluate to `222`.
-
-        ### Action Server Variables Support
-
-        Action Server variables are supported on the following actions:
-
-        * `route_configuration_override_action`
-        * `request_header_action`
-        * `response_header_action`
-        * `url_redirect_action`
-        * `url_rewrite_action`
-
-        ***
-
-        ## Condition Operator list
-
-        For rules that accept values from the standard operator list, the following operators are valid:
-
-        | Operator                   | Description | Condition Value |
-        |----------------------------|-------------|-----------------|
-        | Any                        |Matches when there is any value, regardless of what it is. | Any |
-        | Equal                      | Matches when the value exactly matches the specified string. | Equal |
-        | Contains                   | Matches when the value contains the specified string. | Contains |
-        | Less Than                  | Matches when the length of the value is less than the specified integer. | LessThan |
-        | Greater Than               | Matches when the length of the value is greater than the specified integer. | GreaterThan |
-        | Less Than or Equal         | Matches when the length of the value is less than or equal to the specified integer. | LessThanOrEqual |
-        | Greater Than or Equal      | Matches when the length of the value is greater than or equal to the specified integer. | GreaterThanOrEqual |
-        | Begins With                | Matches when the value begins with the specified string. | BeginsWith |
-        | Ends With                  | Matches when the value ends with the specified string. | EndsWith |
-        | RegEx                      | Matches when the value matches the specified regular expression. See `Condition Regular Expressions` below for more details. | RegEx |
-        | Wildcard                   | Matches when the request path matches a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard |
-        | Not Any                    | Matches when there is no value. | Any and negateCondition = true |
-        | Not Equal                  | Matches when the value does not match the specified string. | Equal and negateCondition : true |
-        | Not Contains               | Matches when the value does not contain the specified string. | Contains and negateCondition = true |
-        | Not Less Than              | Matches when the length of the value is not less than the specified integer. | LessThan and negateCondition = true |
-        | Not Greater Than           | Matches when the length of the value is not greater than the specified integer. | GreaterThan and negateCondition = true |
-        | Not Less Than or Equal     | Matches when the length of the value is not less than or equal to the specified integer. | LessThanOrEqual and negateCondition = true |
-        | Not Greater Than or Equals | Matches when the length of the value is not greater than or equal to the specified integer. | GreaterThanOrEqual and negateCondition = true |
-        | Not Begins With            | Matches when the value does not begin with the specified string. | BeginsWith and negateCondition = true |
-        | Not Ends With              | Matches when the value does not end with the specified string. | EndsWith and negateCondition = true |
-        | Not RegEx                  | Matches when the value does not match the specified regular expression. See `Condition Regular Expressions` for more details. | RegEx and negateCondition = true |
-        | Not Wildcard               | Matches when the request path does not match a wildcard expression. See `Condition Wildcard Expression` below for more details. | Wildcard and negateCondition = true |
-
-        ***
-
-        ## Condition Regular Expressions
-
-        Regular expressions **don't** support the following operations:
-
-        * Backreferences and capturing subexpressions.
-        * Arbitrary zero-width assertions.
-        * Subroutine references and recursive patterns.
-        * Conditional patterns.
-        * Backtracking control verbs.
-        * The `\\C` single-byte directive.
-        * The `\\R` newline match directive.
-        * The `\\K` start of match reset directive.
-        * Callouts and embedded code.
-        * Atomic grouping and possessive quantifiers.
-
-        ## Condition Wildcard Expression
-
-        A wildcard expression can include the * character to match zero or more characters within the path. For example, the wildcard expression `files/customer*/file.pdf` matches the paths `files/customer1/file.pdf`, `files/customer109/file.pdf`, and `files/customer/file.pdf`, but doesn't match `files/customer2/anotherfile.pdf`.
-
-        ***
-
-        ## Condition Transform List
-
-        For rules that can transform strings, the following transforms are valid:
-
-        | Transform   | Description |
-        |-------------|-------------|
-        | Lowercase   | Converts the string to the lowercase representation. |
-        | Uppercase   | Converts the string to the uppercase representation. |
-        | Trim        | Trims leading and trailing whitespace from the string. |
-        | RemoveNulls | Removes null values from the string. |
-        | URLEncode   | URL-encodes the string. |
-        | URLDecode   | URL-decodes the string. |
-
-        ***
 
         ## API Providers
 
@@ -857,7 +587,7 @@ class FrontdoorRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
-                 behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 behaviour_on_match: pulumi.Input[Optional[_builtins.str]] = None,
                  cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -874,7 +604,7 @@ class FrontdoorRule(pulumi.CustomResource):
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
-            __props__.__dict__["behavior_on_match"] = behavior_on_match
+            __props__.__dict__["behaviour_on_match"] = behaviour_on_match
             if cdn_frontdoor_rule_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_rule_set_id'")
             __props__.__dict__["cdn_frontdoor_rule_set_id"] = cdn_frontdoor_rule_set_id
@@ -895,7 +625,7 @@ class FrontdoorRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             actions: pulumi.Input[Optional[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']]] = None,
-            behavior_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+            behaviour_on_match: pulumi.Input[Optional[_builtins.str]] = None,
             cdn_frontdoor_rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
             cdn_frontdoor_rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
             conditions: pulumi.Input[Optional[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']]] = None,
@@ -909,13 +639,13 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
-        :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] behaviour_on_match: The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
                
                > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
         :param pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']] conditions: A `conditions` block as defined below.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
                > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
@@ -925,7 +655,7 @@ class FrontdoorRule(pulumi.CustomResource):
         __props__ = _FrontdoorRuleState.__new__(_FrontdoorRuleState)
 
         __props__.__dict__["actions"] = actions
-        __props__.__dict__["behavior_on_match"] = behavior_on_match
+        __props__.__dict__["behaviour_on_match"] = behaviour_on_match
         __props__.__dict__["cdn_frontdoor_rule_set_id"] = cdn_frontdoor_rule_set_id
         __props__.__dict__["cdn_frontdoor_rule_set_name"] = cdn_frontdoor_rule_set_name
         __props__.__dict__["conditions"] = conditions
@@ -942,18 +672,18 @@ class FrontdoorRule(pulumi.CustomResource):
         return pulumi.get(self, "actions")
 
     @_builtins.property
-    @pulumi.getter(name="behaviorOnMatch")
-    def behavior_on_match(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @pulumi.getter(name="behaviourOnMatch")
+    def behaviour_on_match(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         """
-        return pulumi.get(self, "behavior_on_match")
+        return pulumi.get(self, "behaviour_on_match")
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorRuleSetId")
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
 
         > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         """
@@ -979,7 +709,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+        The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

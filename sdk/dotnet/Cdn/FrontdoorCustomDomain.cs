@@ -155,19 +155,19 @@ namespace Pulumi.Azure.Cdn
     /// {
     ///     var example = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = Std.Split.Invoke(new()
-    ///         {
-    ///             Separator = ".",
-    ///             Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
-    ///         }).Apply(invoke =&gt; Std.Join.Invoke(new()
+    ///         Name = Std.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]
     ///             {
     ///                 "_dnsauth",
-    ///                 invoke.Result[0],
+    ///                 Std.Split.Invoke(new()
+    ///                 {
+    ///                     Separator = ".",
+    ///                     Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
+    ///                 }).Result[0],
     ///             },
-    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         ZoneName = exampleAzurermDnsZone.Name,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
     ///         Ttl = 3600,
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Cdn
     ///         {
     ///             Separator = ".",
     ///             Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
-    ///         }).Apply(invoke =&gt; invoke.Result[0]),
+    ///         }).Result[0],
     ///         ZoneName = exampleAzurermDnsZone.Name,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
     ///         Ttl = 3600,

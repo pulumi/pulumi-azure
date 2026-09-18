@@ -86,7 +86,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
      * 
-     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     @Import(name="azureadAuthenticationAsArmPolicyEnabled")
@@ -95,7 +95,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
      * 
-     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> azureadAuthenticationAsArmPolicyEnabled() {
@@ -400,21 +400,6 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     * 
-     */
-    @Import(name="trustPolicyEnabled")
-    private @Nullable Output<Boolean> trustPolicyEnabled;
-
-    /**
-     * @return Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> trustPolicyEnabled() {
-        return Optional.ofNullable(this.trustPolicyEnabled);
-    }
-
-    /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      * 
      */
@@ -456,7 +441,6 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         this.roleAssignmentMode = $.roleAssignmentMode;
         this.sku = $.sku;
         this.tags = $.tags;
-        this.trustPolicyEnabled = $.trustPolicyEnabled;
         this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
 
@@ -565,7 +549,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param azureadAuthenticationAsArmPolicyEnabled Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
          * 
-         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -578,7 +562,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param azureadAuthenticationAsArmPolicyEnabled Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
          * 
-         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -1022,27 +1006,6 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
-        }
-
-        /**
-         * @param trustPolicyEnabled Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder trustPolicyEnabled(@Nullable Output<Boolean> trustPolicyEnabled) {
-            $.trustPolicyEnabled = trustPolicyEnabled;
-            return this;
-        }
-
-        /**
-         * @param trustPolicyEnabled Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder trustPolicyEnabled(Boolean trustPolicyEnabled) {
-            return trustPolicyEnabled(Output.of(trustPolicyEnabled));
         }
 
         /**

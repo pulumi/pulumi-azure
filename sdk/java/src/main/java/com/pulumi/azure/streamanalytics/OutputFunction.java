@@ -32,11 +32,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
- * import com.pulumi.azure.appservice.FunctionApp;
- * import com.pulumi.azure.appservice.FunctionAppArgs;
+ * import com.pulumi.azurerm.AppServicePlan;
+ * import com.pulumi.azurerm.AppServicePlanArgs;
+ * import com.pulumi.azurerm.FunctionApp;
+ * import com.pulumi.azurerm.FunctionAppArgs;
  * import com.pulumi.azure.streamanalytics.Job;
  * import com.pulumi.azure.streamanalytics.JobArgs;
  * import com.pulumi.azure.streamanalytics.OutputFunction;
@@ -67,23 +66,23 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *         var exampleAppServicePlan = new AppServicePlan("exampleAppServicePlan", AppServicePlanArgs.builder()
  *             .name("exampleappserviceplan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("FunctionApp")
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Dynamic")
- *                 .size("Y1")
- *                 .build())
+ *             .sku(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("tier", "Dynamic"),
+ *                 Map.entry("size", "Y1")
+ *             )))
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()
  *             .name("examplefunctionapp")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .osType("linux")

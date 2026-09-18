@@ -264,7 +264,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumiverse_time as time
+        import pulumi_time as time
 
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
@@ -275,7 +275,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static.rfc3339,
+                "start_date_time": example_static["rfc3339"],
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -292,7 +292,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumiverse_time as time
+        import pulumi_time as time
 
         example = azure.core.get_client_config()
         example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
@@ -303,7 +303,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static.rfc3339,
+                "start_date_time": example_static["rfc3339"],
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -358,7 +358,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumiverse_time as time
+        import pulumi_time as time
 
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
@@ -369,7 +369,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static.rfc3339,
+                "start_date_time": example_static["rfc3339"],
                 "expiration": {
                     "duration_hours": 8,
                 },
@@ -386,7 +386,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
-        import pulumiverse_time as time
+        import pulumi_time as time
 
         example = azure.core.get_client_config()
         example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
@@ -397,7 +397,7 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
             schedule={
-                "start_date_time": example_static.rfc3339,
+                "start_date_time": example_static["rfc3339"],
                 "expiration": {
                     "duration_hours": 8,
                 },

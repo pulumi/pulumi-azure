@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *         username: "adminuser",
  *         publicKey: std.file({
  *             input: "~/.ssh/id_rsa.pub",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *     }],
  *     sourceImageReference: {
  *         publisher: "Canonical",

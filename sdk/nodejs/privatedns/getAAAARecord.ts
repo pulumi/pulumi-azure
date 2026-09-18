@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.AAAARecord("example", {
- *     name: "test",
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
+ * const example = azure.privatedns.getAAAARecord({
+ *     name: "example",
+ *     zoneName: "example-zone",
+ *     resourceGroupName: "example-rg",
  * });
- * export const privateDnsAaaaRecordId = exampleAzurermPrivateDnsAaaaRecord.id;
+ * export const privateDnsAaaaRecordId = example.then(example => example.id);
  * ```
  *
  * ## API Providers
@@ -96,12 +96,12 @@ export interface GetAAAARecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.AAAARecord("example", {
- *     name: "test",
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
+ * const example = azure.privatedns.getAAAARecord({
+ *     name: "example",
+ *     zoneName: "example-zone",
+ *     resourceGroupName: "example-rg",
  * });
- * export const privateDnsAaaaRecordId = exampleAzurermPrivateDnsAaaaRecord.id;
+ * export const privateDnsAaaaRecordId = example.then(example => example.id);
  * ```
  *
  * ## API Providers

@@ -158,7 +158,7 @@ namespace Pulumi.Azure.NetApp
     ///             CertificatePem = Std.Base64encode.Invoke(new()
     ///             {
     ///                 Input = $"{bucketSelfSignedCert.CertPem}{bucket.PrivateKeyPem}",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///         },
     ///     });
     /// 

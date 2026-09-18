@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -809,118 +809,6 @@ func (o CacheRedisConfigurationPtrOutput) StorageAccountSubscriptionId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-type EnterpriseDatabaseModule struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-	Args *string `pulumi:"args"`
-	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-	Name    string  `pulumi:"name"`
-	Version *string `pulumi:"version"`
-}
-
-// EnterpriseDatabaseModuleInput is an input type that accepts EnterpriseDatabaseModuleArgs and EnterpriseDatabaseModuleOutput values.
-// You can construct a concrete instance of `EnterpriseDatabaseModuleInput` via:
-//
-//	EnterpriseDatabaseModuleArgs{...}
-type EnterpriseDatabaseModuleInput interface {
-	pulumi.Input
-
-	ToEnterpriseDatabaseModuleOutput() EnterpriseDatabaseModuleOutput
-	ToEnterpriseDatabaseModuleOutputWithContext(context.Context) EnterpriseDatabaseModuleOutput
-}
-
-type EnterpriseDatabaseModuleArgs struct {
-	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-	Args pulumi.StringPtrInput `pulumi:"args"`
-	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-	Name    pulumi.StringInput    `pulumi:"name"`
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (EnterpriseDatabaseModuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseDatabaseModule)(nil)).Elem()
-}
-
-func (i EnterpriseDatabaseModuleArgs) ToEnterpriseDatabaseModuleOutput() EnterpriseDatabaseModuleOutput {
-	return i.ToEnterpriseDatabaseModuleOutputWithContext(context.Background())
-}
-
-func (i EnterpriseDatabaseModuleArgs) ToEnterpriseDatabaseModuleOutputWithContext(ctx context.Context) EnterpriseDatabaseModuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseModuleOutput)
-}
-
-// EnterpriseDatabaseModuleArrayInput is an input type that accepts EnterpriseDatabaseModuleArray and EnterpriseDatabaseModuleArrayOutput values.
-// You can construct a concrete instance of `EnterpriseDatabaseModuleArrayInput` via:
-//
-//	EnterpriseDatabaseModuleArray{ EnterpriseDatabaseModuleArgs{...} }
-type EnterpriseDatabaseModuleArrayInput interface {
-	pulumi.Input
-
-	ToEnterpriseDatabaseModuleArrayOutput() EnterpriseDatabaseModuleArrayOutput
-	ToEnterpriseDatabaseModuleArrayOutputWithContext(context.Context) EnterpriseDatabaseModuleArrayOutput
-}
-
-type EnterpriseDatabaseModuleArray []EnterpriseDatabaseModuleInput
-
-func (EnterpriseDatabaseModuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnterpriseDatabaseModule)(nil)).Elem()
-}
-
-func (i EnterpriseDatabaseModuleArray) ToEnterpriseDatabaseModuleArrayOutput() EnterpriseDatabaseModuleArrayOutput {
-	return i.ToEnterpriseDatabaseModuleArrayOutputWithContext(context.Background())
-}
-
-func (i EnterpriseDatabaseModuleArray) ToEnterpriseDatabaseModuleArrayOutputWithContext(ctx context.Context) EnterpriseDatabaseModuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseDatabaseModuleArrayOutput)
-}
-
-type EnterpriseDatabaseModuleOutput struct{ *pulumi.OutputState }
-
-func (EnterpriseDatabaseModuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseDatabaseModule)(nil)).Elem()
-}
-
-func (o EnterpriseDatabaseModuleOutput) ToEnterpriseDatabaseModuleOutput() EnterpriseDatabaseModuleOutput {
-	return o
-}
-
-func (o EnterpriseDatabaseModuleOutput) ToEnterpriseDatabaseModuleOutputWithContext(ctx context.Context) EnterpriseDatabaseModuleOutput {
-	return o
-}
-
-// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
-func (o EnterpriseDatabaseModuleOutput) Args() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnterpriseDatabaseModule) *string { return v.Args }).(pulumi.StringPtrOutput)
-}
-
-// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
-func (o EnterpriseDatabaseModuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EnterpriseDatabaseModule) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o EnterpriseDatabaseModuleOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnterpriseDatabaseModule) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-type EnterpriseDatabaseModuleArrayOutput struct{ *pulumi.OutputState }
-
-func (EnterpriseDatabaseModuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnterpriseDatabaseModule)(nil)).Elem()
-}
-
-func (o EnterpriseDatabaseModuleArrayOutput) ToEnterpriseDatabaseModuleArrayOutput() EnterpriseDatabaseModuleArrayOutput {
-	return o
-}
-
-func (o EnterpriseDatabaseModuleArrayOutput) ToEnterpriseDatabaseModuleArrayOutputWithContext(ctx context.Context) EnterpriseDatabaseModuleArrayOutput {
-	return o
-}
-
-func (o EnterpriseDatabaseModuleArrayOutput) Index(i pulumi.IntInput) EnterpriseDatabaseModuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnterpriseDatabaseModule {
-		return vs[0].([]EnterpriseDatabaseModule)[vs[1].(int)]
-	}).(EnterpriseDatabaseModuleOutput)
-}
-
 type GetCachePatchSchedule struct {
 	// the Weekday name for the patch item
 	DayOfWeek string `pulumi:"dayOfWeek"`
@@ -1263,8 +1151,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePatchScheduleArrayInput)(nil)).Elem(), CachePatchScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheRedisConfigurationInput)(nil)).Elem(), CacheRedisConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CacheRedisConfigurationPtrInput)(nil)).Elem(), CacheRedisConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseModuleInput)(nil)).Elem(), EnterpriseDatabaseModuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnterpriseDatabaseModuleArrayInput)(nil)).Elem(), EnterpriseDatabaseModuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePatchScheduleInput)(nil)).Elem(), GetCachePatchScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePatchScheduleArrayInput)(nil)).Elem(), GetCachePatchScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCacheRedisConfigurationInput)(nil)).Elem(), GetCacheRedisConfigurationArgs{})
@@ -1275,8 +1161,6 @@ func init() {
 	pulumi.RegisterOutputType(CachePatchScheduleArrayOutput{})
 	pulumi.RegisterOutputType(CacheRedisConfigurationOutput{})
 	pulumi.RegisterOutputType(CacheRedisConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(EnterpriseDatabaseModuleOutput{})
-	pulumi.RegisterOutputType(EnterpriseDatabaseModuleArrayOutput{})
 	pulumi.RegisterOutputType(GetCachePatchScheduleOutput{})
 	pulumi.RegisterOutputType(GetCachePatchScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetCacheRedisConfigurationOutput{})

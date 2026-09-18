@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,23 +83,23 @@ import (
 //				return err
 //			}
 //			reader, err := azuread.NewDirectoryRole(ctx, "reader", &azuread.DirectoryRoleArgs{
-//				DisplayName: pulumi.String("Directory Readers"),
+//				DisplayName: "Directory Readers",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = azuread.NewDirectoryRoleMember(ctx, "example", &azuread.DirectoryRoleMemberArgs{
 //				RoleObjectId:   reader.ObjectId,
-//				MemberObjectId: exampleManagedInstance.Identity.PrincipalId(),
+//				MemberObjectId: exampleManagedInstance.Identity.PrincipalId,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("ms.admin@example.com"),
-//				DisplayName:       pulumi.String("Ms Admin"),
-//				MailNickname:      pulumi.String("ms.admin"),
-//				Password:          pulumi.String("SecretP@sswd99!"),
+//				UserPrincipalName: "ms.admin@example.com",
+//				DisplayName:       "Ms Admin",
+//				MailNickname:      "ms.admin",
+//				Password:          "SecretP@sswd99!",
 //			})
 //			if err != nil {
 //				return err

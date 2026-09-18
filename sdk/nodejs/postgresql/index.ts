@@ -5,26 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ActiveDirectoryAdministratorArgs, ActiveDirectoryAdministratorState } from "./activeDirectoryAdministrator";
-export type ActiveDirectoryAdministrator = import("./activeDirectoryAdministrator").ActiveDirectoryAdministrator;
-export const ActiveDirectoryAdministrator: typeof import("./activeDirectoryAdministrator").ActiveDirectoryAdministrator = null as any;
-utilities.lazyLoad(exports, ["ActiveDirectoryAdministrator"], () => require("./activeDirectoryAdministrator"));
-
-export { ConfigurationArgs, ConfigurationState } from "./configuration";
-export type Configuration = import("./configuration").Configuration;
-export const Configuration: typeof import("./configuration").Configuration = null as any;
-utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
-
-export { DatabaseArgs, DatabaseState } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-
-export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
-export type FirewallRule = import("./firewallRule").FirewallRule;
-export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-
 export { FlexibleServerArgs, FlexibleServerState } from "./flexibleServer";
 export type FlexibleServer = import("./flexibleServer").FlexibleServer;
 export const FlexibleServer: typeof import("./flexibleServer").FlexibleServer = null as any;
@@ -65,39 +45,11 @@ export const getFlexibleServer: typeof import("./getFlexibleServer").getFlexible
 export const getFlexibleServerOutput: typeof import("./getFlexibleServer").getFlexibleServerOutput = null as any;
 utilities.lazyLoad(exports, ["getFlexibleServer","getFlexibleServerOutput"], () => require("./getFlexibleServer"));
 
-export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
-export const getServer: typeof import("./getServer").getServer = null as any;
-export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-
-export { ServerArgs, ServerState } from "./server";
-export type Server = import("./server").Server;
-export const Server: typeof import("./server").Server = null as any;
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-
-export { ServerKeyArgs, ServerKeyState } from "./serverKey";
-export type ServerKey = import("./serverKey").ServerKey;
-export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
-utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
-
-export { VirtualNetworkRuleArgs, VirtualNetworkRuleState } from "./virtualNetworkRule";
-export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
-export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
-
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator":
-                return new ActiveDirectoryAdministrator(name, <any>undefined, { urn })
-            case "azure:postgresql/configuration:Configuration":
-                return new Configuration(name, <any>undefined, { urn })
-            case "azure:postgresql/database:Database":
-                return new Database(name, <any>undefined, { urn })
-            case "azure:postgresql/firewallRule:FirewallRule":
-                return new FirewallRule(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServer:FlexibleServer":
                 return new FlexibleServer(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator":
@@ -112,21 +64,11 @@ const _module = {
                 return new FlexibleServerFirewallRule(name, <any>undefined, { urn })
             case "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint":
                 return new FlexibleServerVirtualEndpoint(name, <any>undefined, { urn })
-            case "azure:postgresql/server:Server":
-                return new Server(name, <any>undefined, { urn })
-            case "azure:postgresql/serverKey:ServerKey":
-                return new ServerKey(name, <any>undefined, { urn })
-            case "azure:postgresql/virtualNetworkRule:VirtualNetworkRule":
-                return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "postgresql/activeDirectoryAdministrator", _module)
-pulumi.runtime.registerResourceModule("azure", "postgresql/configuration", _module)
-pulumi.runtime.registerResourceModule("azure", "postgresql/database", _module)
-pulumi.runtime.registerResourceModule("azure", "postgresql/firewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerActiveDirectoryAdministrator", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerBackup", _module)
@@ -134,6 +76,3 @@ pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerConfigu
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerDatabase", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerFirewallRule", _module)
 pulumi.runtime.registerResourceModule("azure", "postgresql/flexibleServerVirtualEndpoint", _module)
-pulumi.runtime.registerResourceModule("azure", "postgresql/server", _module)
-pulumi.runtime.registerResourceModule("azure", "postgresql/serverKey", _module)
-pulumi.runtime.registerResourceModule("azure", "postgresql/virtualNetworkRule", _module)

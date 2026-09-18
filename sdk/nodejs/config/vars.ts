@@ -127,14 +127,6 @@ Object.defineProperty(exports, "disableTerraformPartnerId", {
     enumerable: true,
 });
 
-export declare const enhancedValidation: outputs.config.EnhancedValidation | undefined;
-Object.defineProperty(exports, "enhancedValidation", {
-    get() {
-        return __config.getObject<outputs.config.EnhancedValidation>("enhancedValidation");
-    },
-    enumerable: true,
-});
-
 /**
  * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
  */
@@ -268,17 +260,6 @@ export declare const resourceProvidersToRegisters: string[] | undefined;
 Object.defineProperty(exports, "resourceProvidersToRegisters", {
     get() {
         return __config.getObject<string[]>("resourceProvidersToRegisters");
-    },
-    enumerable: true,
-});
-
-/**
- * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
- */
-export declare const skipProviderRegistration: boolean;
-Object.defineProperty(exports, "skipProviderRegistration", {
-    get() {
-        return __config.getObject<boolean>("skipProviderRegistration") ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
     },
     enumerable: true,
 });

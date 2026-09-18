@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,8 +78,6 @@ type LookupVirtualNetworkGatewayResult struct {
 	// gateway is created will be routed (*forced tunneling*). Refer to the
 	// [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 	DefaultLocalNetworkGatewayId string `pulumi:"defaultLocalNetworkGatewayId"`
-	// Deprecated:  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
-	EnableBgp bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network Gateway.
 	Generation string `pulumi:"generation"`
 	// The provider-assigned unique ID for this managed resource.
@@ -161,11 +159,6 @@ func (o LookupVirtualNetworkGatewayResultOutput) CustomRoutes() GetVirtualNetwor
 // [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
 func (o LookupVirtualNetworkGatewayResultOutput) DefaultLocalNetworkGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) string { return v.DefaultLocalNetworkGatewayId }).(pulumi.StringOutput)
-}
-
-// Deprecated:  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
-func (o LookupVirtualNetworkGatewayResultOutput) EnableBgp() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupVirtualNetworkGatewayResult) bool { return v.EnableBgp }).(pulumi.BoolOutput)
 }
 
 // The Generation of the Virtual Network Gateway.

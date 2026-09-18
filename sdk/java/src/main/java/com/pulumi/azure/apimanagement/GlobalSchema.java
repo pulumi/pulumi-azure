@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.GlobalSchema;
  * import com.pulumi.azure.apimanagement.GlobalSchemaArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,9 +65,7 @@ import javax.annotation.Nullable;
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
  *             .type("xml")
- *             .value(StdFunctions.file(FileArgs.builder()
- *                 .input("api_management_api_schema.xml")
- *                 .build()).result())
+ *             .value(StdFunctions.file(Map.of("input", "api_management_api_schema.xml")).result())
  *             .build());
  * 
  *     }}{@code

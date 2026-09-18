@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventgrid"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,11 +119,11 @@ type SystemTopicEventSubscription struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
-	EventhubEndpointId pulumi.StringOutput `pulumi:"eventhubEndpointId"`
+	EventhubId pulumi.StringOutput `pulumi:"eventhubId"`
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc pulumi.StringPtrOutput `pulumi:"expirationTimeUtc"`
 	// Specifies the id where the Hybrid Connection is located.
-	HybridConnectionEndpointId pulumi.StringOutput `pulumi:"hybridConnectionEndpointId"`
+	HybridConnectionId pulumi.StringOutput `pulumi:"hybridConnectionId"`
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes pulumi.StringArrayOutput `pulumi:"includedEventTypes"`
 	// A list of labels to assign to the event subscription.
@@ -135,9 +135,9 @@ type SystemTopicEventSubscription struct {
 	// A `retryPolicy` block as defined below.
 	RetryPolicy SystemTopicEventSubscriptionRetryPolicyOutput `pulumi:"retryPolicy"`
 	// Specifies the id where the Service Bus Queue is located.
-	ServiceBusQueueEndpointId pulumi.StringPtrOutput `pulumi:"serviceBusQueueEndpointId"`
+	ServiceBusQueueId pulumi.StringPtrOutput `pulumi:"serviceBusQueueId"`
 	// Specifies the id where the Service Bus Topic is located.
-	ServiceBusTopicEndpointId pulumi.StringPtrOutput `pulumi:"serviceBusTopicEndpointId"`
+	ServiceBusTopicId pulumi.StringPtrOutput `pulumi:"serviceBusTopicId"`
 	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrOutput `pulumi:"storageBlobDeadLetterDestination"`
 	// A `storageQueueEndpoint` block as defined below.
@@ -148,7 +148,7 @@ type SystemTopicEventSubscription struct {
 	SystemTopic pulumi.StringOutput `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
 }
 
@@ -205,11 +205,11 @@ type systemTopicEventSubscriptionState struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
-	EventhubEndpointId *string `pulumi:"eventhubEndpointId"`
+	EventhubId *string `pulumi:"eventhubId"`
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
 	// Specifies the id where the Hybrid Connection is located.
-	HybridConnectionEndpointId *string `pulumi:"hybridConnectionEndpointId"`
+	HybridConnectionId *string `pulumi:"hybridConnectionId"`
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes []string `pulumi:"includedEventTypes"`
 	// A list of labels to assign to the event subscription.
@@ -221,9 +221,9 @@ type systemTopicEventSubscriptionState struct {
 	// A `retryPolicy` block as defined below.
 	RetryPolicy *SystemTopicEventSubscriptionRetryPolicy `pulumi:"retryPolicy"`
 	// Specifies the id where the Service Bus Queue is located.
-	ServiceBusQueueEndpointId *string `pulumi:"serviceBusQueueEndpointId"`
+	ServiceBusQueueId *string `pulumi:"serviceBusQueueId"`
 	// Specifies the id where the Service Bus Topic is located.
-	ServiceBusTopicEndpointId *string `pulumi:"serviceBusTopicEndpointId"`
+	ServiceBusTopicId *string `pulumi:"serviceBusTopicId"`
 	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination `pulumi:"storageBlobDeadLetterDestination"`
 	// A `storageQueueEndpoint` block as defined below.
@@ -234,7 +234,7 @@ type systemTopicEventSubscriptionState struct {
 	SystemTopic *string `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint *SystemTopicEventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -256,11 +256,11 @@ type SystemTopicEventSubscriptionState struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Specifies the id where the Event Hub is located.
-	EventhubEndpointId pulumi.StringPtrInput
+	EventhubId pulumi.StringPtrInput
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc pulumi.StringPtrInput
 	// Specifies the id where the Hybrid Connection is located.
-	HybridConnectionEndpointId pulumi.StringPtrInput
+	HybridConnectionId pulumi.StringPtrInput
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes pulumi.StringArrayInput
 	// A list of labels to assign to the event subscription.
@@ -272,9 +272,9 @@ type SystemTopicEventSubscriptionState struct {
 	// A `retryPolicy` block as defined below.
 	RetryPolicy SystemTopicEventSubscriptionRetryPolicyPtrInput
 	// Specifies the id where the Service Bus Queue is located.
-	ServiceBusQueueEndpointId pulumi.StringPtrInput
+	ServiceBusQueueId pulumi.StringPtrInput
 	// Specifies the id where the Service Bus Topic is located.
-	ServiceBusTopicEndpointId pulumi.StringPtrInput
+	ServiceBusTopicId pulumi.StringPtrInput
 	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrInput
 	// A `storageQueueEndpoint` block as defined below.
@@ -285,7 +285,7 @@ type SystemTopicEventSubscriptionState struct {
 	SystemTopic pulumi.StringPtrInput
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -311,11 +311,11 @@ type systemTopicEventSubscriptionArgs struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
 	// Specifies the id where the Event Hub is located.
-	EventhubEndpointId *string `pulumi:"eventhubEndpointId"`
+	EventhubId *string `pulumi:"eventhubId"`
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
 	// Specifies the id where the Hybrid Connection is located.
-	HybridConnectionEndpointId *string `pulumi:"hybridConnectionEndpointId"`
+	HybridConnectionId *string `pulumi:"hybridConnectionId"`
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes []string `pulumi:"includedEventTypes"`
 	// A list of labels to assign to the event subscription.
@@ -327,9 +327,9 @@ type systemTopicEventSubscriptionArgs struct {
 	// A `retryPolicy` block as defined below.
 	RetryPolicy *SystemTopicEventSubscriptionRetryPolicy `pulumi:"retryPolicy"`
 	// Specifies the id where the Service Bus Queue is located.
-	ServiceBusQueueEndpointId *string `pulumi:"serviceBusQueueEndpointId"`
+	ServiceBusQueueId *string `pulumi:"serviceBusQueueId"`
 	// Specifies the id where the Service Bus Topic is located.
-	ServiceBusTopicEndpointId *string `pulumi:"serviceBusTopicEndpointId"`
+	ServiceBusTopicId *string `pulumi:"serviceBusTopicId"`
 	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination *SystemTopicEventSubscriptionStorageBlobDeadLetterDestination `pulumi:"storageBlobDeadLetterDestination"`
 	// A `storageQueueEndpoint` block as defined below.
@@ -340,7 +340,7 @@ type systemTopicEventSubscriptionArgs struct {
 	SystemTopic string `pulumi:"systemTopic"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint *SystemTopicEventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -363,11 +363,11 @@ type SystemTopicEventSubscriptionArgs struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
 	EventDeliverySchema pulumi.StringPtrInput
 	// Specifies the id where the Event Hub is located.
-	EventhubEndpointId pulumi.StringPtrInput
+	EventhubId pulumi.StringPtrInput
 	// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
 	ExpirationTimeUtc pulumi.StringPtrInput
 	// Specifies the id where the Hybrid Connection is located.
-	HybridConnectionEndpointId pulumi.StringPtrInput
+	HybridConnectionId pulumi.StringPtrInput
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes pulumi.StringArrayInput
 	// A list of labels to assign to the event subscription.
@@ -379,9 +379,9 @@ type SystemTopicEventSubscriptionArgs struct {
 	// A `retryPolicy` block as defined below.
 	RetryPolicy SystemTopicEventSubscriptionRetryPolicyPtrInput
 	// Specifies the id where the Service Bus Queue is located.
-	ServiceBusQueueEndpointId pulumi.StringPtrInput
+	ServiceBusQueueId pulumi.StringPtrInput
 	// Specifies the id where the Service Bus Topic is located.
-	ServiceBusTopicEndpointId pulumi.StringPtrInput
+	ServiceBusTopicId pulumi.StringPtrInput
 	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination SystemTopicEventSubscriptionStorageBlobDeadLetterDestinationPtrInput
 	// A `storageQueueEndpoint` block as defined below.
@@ -392,7 +392,7 @@ type SystemTopicEventSubscriptionArgs struct {
 	SystemTopic pulumi.StringInput
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+	// > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 	WebhookEndpoint SystemTopicEventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -531,8 +531,8 @@ func (o SystemTopicEventSubscriptionOutput) EventDeliverySchema() pulumi.StringP
 }
 
 // Specifies the id where the Event Hub is located.
-func (o SystemTopicEventSubscriptionOutput) EventhubEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.EventhubEndpointId }).(pulumi.StringOutput)
+func (o SystemTopicEventSubscriptionOutput) EventhubId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.EventhubId }).(pulumi.StringOutput)
 }
 
 // Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -541,8 +541,8 @@ func (o SystemTopicEventSubscriptionOutput) ExpirationTimeUtc() pulumi.StringPtr
 }
 
 // Specifies the id where the Hybrid Connection is located.
-func (o SystemTopicEventSubscriptionOutput) HybridConnectionEndpointId() pulumi.StringOutput {
-	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.HybridConnectionEndpointId }).(pulumi.StringOutput)
+func (o SystemTopicEventSubscriptionOutput) HybridConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.HybridConnectionId }).(pulumi.StringOutput)
 }
 
 // A list of applicable event types that need to be part of the event subscription.
@@ -573,13 +573,13 @@ func (o SystemTopicEventSubscriptionOutput) RetryPolicy() SystemTopicEventSubscr
 }
 
 // Specifies the id where the Service Bus Queue is located.
-func (o SystemTopicEventSubscriptionOutput) ServiceBusQueueEndpointId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringPtrOutput { return v.ServiceBusQueueEndpointId }).(pulumi.StringPtrOutput)
+func (o SystemTopicEventSubscriptionOutput) ServiceBusQueueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringPtrOutput { return v.ServiceBusQueueId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the id where the Service Bus Topic is located.
-func (o SystemTopicEventSubscriptionOutput) ServiceBusTopicEndpointId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringPtrOutput { return v.ServiceBusTopicEndpointId }).(pulumi.StringPtrOutput)
+func (o SystemTopicEventSubscriptionOutput) ServiceBusTopicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringPtrOutput { return v.ServiceBusTopicId }).(pulumi.StringPtrOutput)
 }
 
 // A `storageBlobDeadLetterDestination` block as defined below.
@@ -610,7 +610,7 @@ func (o SystemTopicEventSubscriptionOutput) SystemTopic() pulumi.StringOutput {
 
 // A `webhookEndpoint` block as defined below.
 //
-// > **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+// > **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
 func (o SystemTopicEventSubscriptionOutput) WebhookEndpoint() SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemTopicEventSubscriptionWebhookEndpointPtrOutput {
 		return v.WebhookEndpoint

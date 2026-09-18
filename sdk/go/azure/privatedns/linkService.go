@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,8 +152,6 @@ type LinkService struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayOutput `pulumi:"autoApprovalSubscriptionIds"`
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress pulumi.StringPtrOutput `pulumi:"destinationIpAddress"`
-	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableProxyProtocol pulumi.BoolOutput `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayOutput `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -165,7 +163,7 @@ type LinkService struct {
 	// One or more (up to 8) `natIpConfiguration` block as defined below.
 	NatIpConfigurations LinkServiceNatIpConfigurationArrayOutput `pulumi:"natIpConfigurations"`
 	// Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
-	ProxyProtocolEnabled pulumi.BoolOutput `pulumi:"proxyProtocolEnabled"`
+	ProxyProtocolEnabled pulumi.BoolPtrOutput `pulumi:"proxyProtocolEnabled"`
 	// The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
@@ -218,8 +216,6 @@ type linkServiceState struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress *string `pulumi:"destinationIpAddress"`
-	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns []string `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -249,8 +245,6 @@ type LinkServiceState struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress pulumi.StringPtrInput
-	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayInput
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -282,8 +276,6 @@ type linkServiceArgs struct {
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress *string `pulumi:"destinationIpAddress"`
-	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns []string `pulumi:"fqdns"`
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -312,8 +304,6 @@ type LinkServiceArgs struct {
 	AutoApprovalSubscriptionIds pulumi.StringArrayInput
 	// The destination IP address of the Private Link Service.
 	DestinationIpAddress pulumi.StringPtrInput
-	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableProxyProtocol pulumi.BoolPtrInput
 	// List of FQDNs allowed for the Private Link Service.
 	Fqdns pulumi.StringArrayInput
 	// A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
@@ -438,11 +428,6 @@ func (o LinkServiceOutput) DestinationIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringPtrOutput { return v.DestinationIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-func (o LinkServiceOutput) EnableProxyProtocol() pulumi.BoolOutput {
-	return o.ApplyT(func(v *LinkService) pulumi.BoolOutput { return v.EnableProxyProtocol }).(pulumi.BoolOutput)
-}
-
 // List of FQDNs allowed for the Private Link Service.
 func (o LinkServiceOutput) Fqdns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringArrayOutput { return v.Fqdns }).(pulumi.StringArrayOutput)
@@ -469,8 +454,8 @@ func (o LinkServiceOutput) NatIpConfigurations() LinkServiceNatIpConfigurationAr
 }
 
 // Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
-func (o LinkServiceOutput) ProxyProtocolEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *LinkService) pulumi.BoolOutput { return v.ProxyProtocolEnabled }).(pulumi.BoolOutput)
+func (o LinkServiceOutput) ProxyProtocolEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinkService) pulumi.BoolPtrOutput { return v.ProxyProtocolEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.

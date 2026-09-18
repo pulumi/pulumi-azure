@@ -125,9 +125,6 @@ namespace Pulumi.Azure.Network
         [Output("authorizationKey")]
         public Output<string?> AuthorizationKey { get; private set; } = null!;
 
-        [Output("enableInternetSecurity")]
-        public Output<bool> EnableInternetSecurity { get; private set; } = null!;
-
         /// <summary>
         /// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
         /// </summary>
@@ -150,16 +147,13 @@ namespace Pulumi.Azure.Network
         /// Is Internet security enabled for this Express Route Connection? Defaults to `False`.
         /// </summary>
         [Output("internetSecurityEnabled")]
-        public Output<bool> InternetSecurityEnabled { get; private set; } = null!;
+        public Output<bool?> InternetSecurityEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        [Output("privateLinkFastPathEnabled")]
-        public Output<bool?> PrivateLinkFastPathEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A `Routing` block as defined below.
@@ -225,9 +219,6 @@ namespace Pulumi.Azure.Network
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
 
-        [Input("enableInternetSecurity")]
-        public Input<bool>? EnableInternetSecurity { get; set; }
-
         /// <summary>
         /// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
         /// </summary>
@@ -258,9 +249,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("privateLinkFastPathEnabled")]
-        public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
-
         /// <summary>
         /// A `Routing` block as defined below.
         /// </summary>
@@ -286,9 +274,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("authorizationKey")]
         public Input<string>? AuthorizationKey { get; set; }
-
-        [Input("enableInternetSecurity")]
-        public Input<bool>? EnableInternetSecurity { get; set; }
 
         /// <summary>
         /// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
@@ -319,9 +304,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("privateLinkFastPathEnabled")]
-        public Input<bool>? PrivateLinkFastPathEnabled { get; set; }
 
         /// <summary>
         /// A `Routing` block as defined below.

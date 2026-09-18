@@ -29,6 +29,8 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      * 
      */
     private @Nullable String diskEncryptionSetId;
+    private @Nullable Integer diskIopsReadWrite;
+    private @Nullable Integer diskMbpsReadWrite;
     /**
      * @return The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
@@ -44,16 +46,6 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      * 
      */
     private String storageAccountType;
-    /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    private @Nullable Integer ultraSsdDiskIopsReadWrite;
-    /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     /**
      * @return Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
      * 
@@ -82,6 +74,12 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
     public Optional<String> diskEncryptionSetId() {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
+    public Optional<Integer> diskIopsReadWrite() {
+        return Optional.ofNullable(this.diskIopsReadWrite);
+    }
+    public Optional<Integer> diskMbpsReadWrite() {
+        return Optional.ofNullable(this.diskMbpsReadWrite);
+    }
     /**
      * @return The size of the Data Disk which should be created. Required if `createOption` is specified as `Empty`.
      * 
@@ -104,20 +102,6 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return this.storageAccountType;
     }
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    public Optional<Integer> ultraSsdDiskIopsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
-    }
-    /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-     * 
-     */
-    public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
-        return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
-    }
-    /**
      * @return Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
      * 
      */
@@ -137,11 +121,11 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         private String caching;
         private @Nullable String createOption;
         private @Nullable String diskEncryptionSetId;
+        private @Nullable Integer diskIopsReadWrite;
+        private @Nullable Integer diskMbpsReadWrite;
         private @Nullable Integer diskSizeGb;
         private @Nullable Integer lun;
         private String storageAccountType;
-        private @Nullable Integer ultraSsdDiskIopsReadWrite;
-        private @Nullable Integer ultraSsdDiskMbpsReadWrite;
         private @Nullable Boolean writeAcceleratorEnabled;
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetDataDisk defaults) {
@@ -149,11 +133,11 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
     	      this.caching = defaults.caching;
     	      this.createOption = defaults.createOption;
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
+    	      this.diskIopsReadWrite = defaults.diskIopsReadWrite;
+    	      this.diskMbpsReadWrite = defaults.diskMbpsReadWrite;
     	      this.diskSizeGb = defaults.diskSizeGb;
     	      this.lun = defaults.lun;
     	      this.storageAccountType = defaults.storageAccountType;
-    	      this.ultraSsdDiskIopsReadWrite = defaults.ultraSsdDiskIopsReadWrite;
-    	      this.ultraSsdDiskMbpsReadWrite = defaults.ultraSsdDiskMbpsReadWrite;
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
@@ -178,6 +162,18 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
             return this;
         }
         @CustomType.Setter
+        public Builder diskIopsReadWrite(@Nullable Integer diskIopsReadWrite) {
+
+            this.diskIopsReadWrite = diskIopsReadWrite;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder diskMbpsReadWrite(@Nullable Integer diskMbpsReadWrite) {
+
+            this.diskMbpsReadWrite = diskMbpsReadWrite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
 
             this.diskSizeGb = diskSizeGb;
@@ -198,18 +194,6 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
             return this;
         }
         @CustomType.Setter
-        public Builder ultraSsdDiskIopsReadWrite(@Nullable Integer ultraSsdDiskIopsReadWrite) {
-
-            this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder ultraSsdDiskMbpsReadWrite(@Nullable Integer ultraSsdDiskMbpsReadWrite) {
-
-            this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-            return this;
-        }
-        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
 
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
@@ -220,11 +204,11 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
             _resultValue.caching = caching;
             _resultValue.createOption = createOption;
             _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskIopsReadWrite = diskIopsReadWrite;
+            _resultValue.diskMbpsReadWrite = diskMbpsReadWrite;
             _resultValue.diskSizeGb = diskSizeGb;
             _resultValue.lun = lun;
             _resultValue.storageAccountType = storageAccountType;
-            _resultValue.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            _resultValue.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             _resultValue.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return _resultValue;
         }

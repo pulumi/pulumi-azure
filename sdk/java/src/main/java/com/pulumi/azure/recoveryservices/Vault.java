@@ -250,18 +250,6 @@ public class Vault extends com.pulumi.resources.CustomResource {
         return this.sku;
     }
     /**
-     * @deprecated
-     * `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure&#39;s secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-     * 
-     */
-    @Deprecated /* `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default) */
-    @Export(name="softDeleteEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> softDeleteEnabled;
-
-    public Output<Optional<Boolean>> softDeleteEnabled() {
-        return Codegen.optional(this.softDeleteEnabled);
-    }
-    /**
      * The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
      * 
      */

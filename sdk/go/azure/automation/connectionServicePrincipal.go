@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/automation"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -50,8 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "automation_certificate_test.thumb",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "automation_certificate_test.thumb",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -63,7 +63,7 @@ import (
 //				ApplicationId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				TenantId:              pulumi.String(example.TenantId),
 //				SubscriptionId:        pulumi.String(example.SubscriptionId),
-//				CertificateThumbprint: pulumi.String(invokeFile.Result),
+//				CertificateThumbprint: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

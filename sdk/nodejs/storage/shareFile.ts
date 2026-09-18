@@ -89,7 +89,7 @@ export class ShareFile extends pulumi.CustomResource {
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      *
-     * > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      */
     declare public readonly contentMd5: pulumi.Output<string | undefined>;
     /**
@@ -109,15 +109,19 @@ export class ShareFile extends pulumi.CustomResource {
      */
     declare public readonly path: pulumi.Output<string | undefined>;
     /**
-     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      *
      * > **Note:** The file specified with `source` can not be empty.
      */
     declare public readonly source: pulumi.Output<string | undefined>;
     /**
-     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     *
+     * > **Note:** The content specified with `sourceContent` can not be empty.
+     *
+     * > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
      */
-    declare public readonly storageShareId: pulumi.Output<string>;
+    declare public readonly sourceContent: pulumi.Output<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
@@ -130,7 +134,7 @@ export class ShareFile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ShareFileArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ShareFileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareFileArgs | ShareFileState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -145,10 +149,13 @@ export class ShareFile extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["path"] = state?.path;
             resourceInputs["source"] = state?.source;
-            resourceInputs["storageShareId"] = state?.storageShareId;
+            resourceInputs["sourceContent"] = state?.sourceContent;
             resourceInputs["storageShareUrl"] = state?.storageShareUrl;
         } else {
             const args = argsOrState as ShareFileArgs | undefined;
+            if (args?.storageShareUrl === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageShareUrl'");
+            }
             resourceInputs["contentDisposition"] = args?.contentDisposition;
             resourceInputs["contentEncoding"] = args?.contentEncoding;
             resourceInputs["contentMd5"] = args?.contentMd5;
@@ -157,7 +164,7 @@ export class ShareFile extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["path"] = args?.path;
             resourceInputs["source"] = args?.source;
-            resourceInputs["storageShareId"] = args?.storageShareId;
+            resourceInputs["sourceContent"] = args?.sourceContent;
             resourceInputs["storageShareUrl"] = args?.storageShareUrl;
             resourceInputs["contentLength"] = undefined /*out*/;
         }
@@ -185,7 +192,7 @@ export interface ShareFileState {
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      *
-     * > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      */
     contentMd5?: pulumi.Input<string | undefined>;
     /**
@@ -205,15 +212,19 @@ export interface ShareFileState {
      */
     path?: pulumi.Input<string | undefined>;
     /**
-     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      *
      * > **Note:** The file specified with `source` can not be empty.
      */
     source?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     *
+     * > **Note:** The content specified with `sourceContent` can not be empty.
+     *
+     * > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
      */
-    storageShareId?: pulumi.Input<string | undefined>;
+    sourceContent?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
@@ -235,7 +246,7 @@ export interface ShareFileArgs {
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      *
-     * > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      */
     contentMd5?: pulumi.Input<string | undefined>;
     /**
@@ -255,17 +266,21 @@ export interface ShareFileArgs {
      */
     path?: pulumi.Input<string | undefined>;
     /**
-     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      *
      * > **Note:** The file specified with `source` can not be empty.
      */
     source?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     *
+     * > **Note:** The content specified with `sourceContent` can not be empty.
+     *
+     * > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
      */
-    storageShareId?: pulumi.Input<string | undefined>;
+    sourceContent?: pulumi.Input<string | undefined>;
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareUrl?: pulumi.Input<string | undefined>;
+    storageShareUrl: pulumi.Input<string>;
 }

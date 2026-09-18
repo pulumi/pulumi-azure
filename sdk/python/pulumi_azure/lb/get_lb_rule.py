@@ -26,7 +26,7 @@ class GetLBRuleResult:
     """
     A collection of values returned by getLBRule.
     """
-    def __init__(__self__, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, enable_tcp_reset=None, floating_ip_enabled=None, frontend_ip_configuration_name=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, tcp_reset_enabled=None):
+    def __init__(__self__, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, floating_ip_enabled=None, frontend_ip_configuration_name=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, name=None, probe_id=None, protocol=None, tcp_reset_enabled=None):
         if backend_address_pool_id and not isinstance(backend_address_pool_id, str):
             raise TypeError("Expected argument 'backend_address_pool_id' to be a str")
         pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
@@ -36,12 +36,6 @@ class GetLBRuleResult:
         if disable_outbound_snat and not isinstance(disable_outbound_snat, bool):
             raise TypeError("Expected argument 'disable_outbound_snat' to be a bool")
         pulumi.set(__self__, "disable_outbound_snat", disable_outbound_snat)
-        if enable_floating_ip and not isinstance(enable_floating_ip, bool):
-            raise TypeError("Expected argument 'enable_floating_ip' to be a bool")
-        pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
-        if enable_tcp_reset and not isinstance(enable_tcp_reset, bool):
-            raise TypeError("Expected argument 'enable_tcp_reset' to be a bool")
-        pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
         if floating_ip_enabled and not isinstance(floating_ip_enabled, bool):
             raise TypeError("Expected argument 'floating_ip_enabled' to be a bool")
         pulumi.set(__self__, "floating_ip_enabled", floating_ip_enabled)
@@ -101,26 +95,11 @@ class GetLBRuleResult:
         return pulumi.get(self, "disable_outbound_snat")
 
     @_builtins.property
-    @pulumi.getter(name="enableFloatingIp")
-    @_utilities.deprecated("""The property `enable_floating_ip` has been deprecated in favour of `floating_ip_enabled` and will be removed in version 5.0 of the provider""")
-    def enable_floating_ip(self) -> _builtins.bool:
+    @pulumi.getter(name="floatingIpEnabled")
+    def floating_ip_enabled(self) -> _builtins.bool:
         """
         If Floating IPs are enabled for this Load Balancer Rule
         """
-        return pulumi.get(self, "enable_floating_ip")
-
-    @_builtins.property
-    @pulumi.getter(name="enableTcpReset")
-    @_utilities.deprecated("""The property `enable_tcp_reset` has been deprecated in favour of `tcp_reset_enabled` and will be removed in version 5.0 of the provider""")
-    def enable_tcp_reset(self) -> _builtins.bool:
-        """
-        If TCP Reset is enabled for this Load Balancer Rule.
-        """
-        return pulumi.get(self, "enable_tcp_reset")
-
-    @_builtins.property
-    @pulumi.getter(name="floatingIpEnabled")
-    def floating_ip_enabled(self) -> _builtins.bool:
         return pulumi.get(self, "floating_ip_enabled")
 
     @_builtins.property
@@ -192,6 +171,9 @@ class GetLBRuleResult:
     @_builtins.property
     @pulumi.getter(name="tcpResetEnabled")
     def tcp_reset_enabled(self) -> _builtins.bool:
+        """
+        If TCP Reset is enabled for this Load Balancer Rule.
+        """
         return pulumi.get(self, "tcp_reset_enabled")
 
 
@@ -204,8 +186,6 @@ class AwaitableGetLBRuleResult(GetLBRuleResult):
             backend_address_pool_id=self.backend_address_pool_id,
             backend_port=self.backend_port,
             disable_outbound_snat=self.disable_outbound_snat,
-            enable_floating_ip=self.enable_floating_ip,
-            enable_tcp_reset=self.enable_tcp_reset,
             floating_ip_enabled=self.floating_ip_enabled,
             frontend_ip_configuration_name=self.frontend_ip_configuration_name,
             frontend_port=self.frontend_port,
@@ -232,7 +212,7 @@ def get_lb_rule(loadbalancer_id: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2023-09-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer Rule.
@@ -248,8 +228,6 @@ def get_lb_rule(loadbalancer_id: Optional[_builtins.str] = None,
         backend_address_pool_id=pulumi.get(__ret__, 'backend_address_pool_id'),
         backend_port=pulumi.get(__ret__, 'backend_port'),
         disable_outbound_snat=pulumi.get(__ret__, 'disable_outbound_snat'),
-        enable_floating_ip=pulumi.get(__ret__, 'enable_floating_ip'),
-        enable_tcp_reset=pulumi.get(__ret__, 'enable_tcp_reset'),
         floating_ip_enabled=pulumi.get(__ret__, 'floating_ip_enabled'),
         frontend_ip_configuration_name=pulumi.get(__ret__, 'frontend_ip_configuration_name'),
         frontend_port=pulumi.get(__ret__, 'frontend_port'),
@@ -274,7 +252,7 @@ def get_lb_rule_output(loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = 
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Network` - 2023-09-01
+    * `Microsoft.Network` - 2025-01-01
 
 
     :param _builtins.str loadbalancer_id: The ID of the Load Balancer Rule.
@@ -289,8 +267,6 @@ def get_lb_rule_output(loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = 
         backend_address_pool_id=pulumi.get(__response__, 'backend_address_pool_id'),
         backend_port=pulumi.get(__response__, 'backend_port'),
         disable_outbound_snat=pulumi.get(__response__, 'disable_outbound_snat'),
-        enable_floating_ip=pulumi.get(__response__, 'enable_floating_ip'),
-        enable_tcp_reset=pulumi.get(__response__, 'enable_tcp_reset'),
         floating_ip_enabled=pulumi.get(__response__, 'floating_ip_enabled'),
         frontend_ip_configuration_name=pulumi.get(__response__, 'frontend_ip_configuration_name'),
         frontend_port=pulumi.get(__response__, 'frontend_port'),

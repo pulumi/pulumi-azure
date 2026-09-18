@@ -146,7 +146,7 @@ namespace Pulumi.Azure.Nginx
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "",
     ///         },
     ///     });

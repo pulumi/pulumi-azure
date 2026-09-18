@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -34,42 +32,15 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
      * The ID of the Storage Account where the Table exists.
      * 
      */
-    @Import(name="storageAccountId")
-    private @Nullable String storageAccountId;
+    @Import(name="storageAccountId", required=true)
+    private String storageAccountId;
 
     /**
      * @return The ID of the Storage Account where the Table exists.
      * 
      */
-    public Optional<String> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-
-    /**
-     * The name of the Storage Account where the Table exists.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="storageAccountName")
-    private @Nullable String storageAccountName;
-
-    /**
-     * @return The name of the Storage Account where the Table exists.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<String> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public String storageAccountId() {
+        return this.storageAccountId;
     }
 
     private GetTablePlainArgs() {}
@@ -77,7 +48,6 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetTablePlainArgs(GetTablePlainArgs $) {
         this.name = $.name;
         this.storageAccountId = $.storageAccountId;
-        this.storageAccountName = $.storageAccountName;
     }
 
     public static Builder builder() {
@@ -115,31 +85,17 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder storageAccountId(@Nullable String storageAccountId) {
+        public Builder storageAccountId(String storageAccountId) {
             $.storageAccountId = storageAccountId;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName The name of the Storage Account where the Table exists.
-         * 
-         * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder storageAccountName(@Nullable String storageAccountName) {
-            $.storageAccountName = storageAccountName;
             return this;
         }
 
         public GetTablePlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetTablePlainArgs", "name");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("GetTablePlainArgs", "storageAccountId");
             }
             return $;
         }

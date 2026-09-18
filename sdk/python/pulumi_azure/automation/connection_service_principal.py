@@ -325,7 +325,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
             application_id="00000000-0000-0000-0000-000000000000",
             tenant_id=example.tenant_id,
             subscription_id=example.subscription_id,
-            certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
+            certificate_thumbprint=std.file(input="automation_certificate_test.thumb")["result"])
         ```
 
         ## API Providers
@@ -387,7 +387,7 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
             application_id="00000000-0000-0000-0000-000000000000",
             tenant_id=example.tenant_id,
             subscription_id=example.subscription_id,
-            certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
+            certificate_thumbprint=std.file(input="automation_certificate_test.thumb")["result"])
         ```
 
         ## API Providers

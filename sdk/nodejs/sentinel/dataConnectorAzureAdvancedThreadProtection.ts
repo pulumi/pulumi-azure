@@ -32,6 +32,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ *
  * ## Import
  *
  * Azure Advanced Threat Protection Data Connectors can be imported using the `resource id`, e.g.

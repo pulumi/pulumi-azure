@@ -33,8 +33,6 @@ __all__ = [
     'AccountNetworkProfileNodeManagementAccessIpRuleArgsDict',
     'PoolAutoScaleArgs',
     'PoolAutoScaleArgsDict',
-    'PoolCertificateArgs',
-    'PoolCertificateArgsDict',
     'PoolContainerConfigurationArgs',
     'PoolContainerConfigurationArgsDict',
     'PoolContainerConfigurationContainerRegistryArgs',
@@ -559,72 +557,6 @@ class PoolAutoScaleArgs:
     @evaluation_interval.setter
     def evaluation_interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "evaluation_interval", value)
-
-
-class PoolCertificateArgsDict(TypedDict):
-    id: pulumi.Input[_builtins.str]
-    """
-    The ID of the Batch Pool.
-    """
-    store_location: pulumi.Input[_builtins.str]
-    store_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    visibilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-
-@pulumi.input_type
-class PoolCertificateArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str],
-                 store_location: pulumi.Input[_builtins.str],
-                 store_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 visibilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] id: The ID of the Batch Pool.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "store_location", store_location)
-        if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
-        if visibilities is not None:
-            pulumi.set(__self__, "visibilities", visibilities)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Batch Pool.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storeLocation")
-    def store_location(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "store_location")
-
-    @store_location.setter
-    def store_location(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "store_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storeName")
-    def store_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "store_name")
-
-    @store_name.setter
-    def store_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "store_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def visibilities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "visibilities")
-
-    @visibilities.setter
-    def visibilities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "visibilities", value)
 
 
 class PoolContainerConfigurationArgsDict(TypedDict):

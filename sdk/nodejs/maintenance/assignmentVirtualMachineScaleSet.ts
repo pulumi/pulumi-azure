@@ -130,8 +130,8 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  *     automaticOsUpgradePolicy: {
- *         disableAutomaticRollback: true,
- *         enableAutomaticOsUpgrade: true,
+ *         automaticRollbackEnabled: false,
+ *         automaticOsUpgradeEnabled: true,
  *     },
  *     rollingUpgradePolicy: {
  *         maxBatchInstancePercent: 20,

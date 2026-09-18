@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Network
         /// If `True`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `False`.
         /// </summary>
         [Output("bgpEnabled")]
-        public Output<bool> BgpEnabled { get; private set; } = null!;
+        public Output<bool?> BgpEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Is BGP Route Translation for NAT enabled? Defaults to `False`.
@@ -193,9 +193,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
-
-        [Output("enableBgp")]
-        public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
@@ -407,9 +404,6 @@ namespace Pulumi.Azure.Network
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
-
         /// <summary>
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         /// 
@@ -599,9 +593,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.

@@ -12,9 +12,6 @@ namespace Pulumi.Azure.MSSql.Inputs
 
     public sealed class ManagedDatabaseLongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
-        [Input("immutableBackupsEnabled")]
-        public Input<bool>? ImmutableBackupsEnabled { get; set; }
-
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         /// </summary>

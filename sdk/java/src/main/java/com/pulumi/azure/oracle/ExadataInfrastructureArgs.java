@@ -204,15 +204,15 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
      * Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
-    @Import(name="zones", required=true)
-    private Output<List<String>> zones;
+    @Import(name="zones")
+    private @Nullable Output<List<String>> zones;
 
     /**
      * @return Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
-    public Output<List<String>> zones() {
-        return this.zones;
+    public Optional<Output<List<String>>> zones() {
+        return Optional.ofNullable(this.zones);
     }
 
     private ExadataInfrastructureArgs() {}
@@ -529,7 +529,7 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
          * @return builder
          * 
          */
-        public Builder zones(Output<List<String>> zones) {
+        public Builder zones(@Nullable Output<List<String>> zones) {
             $.zones = zones;
             return this;
         }
@@ -569,9 +569,6 @@ public final class ExadataInfrastructureArgs extends com.pulumi.resources.Resour
             }
             if ($.storageCount == null) {
                 throw new MissingRequiredPropertyException("ExadataInfrastructureArgs", "storageCount");
-            }
-            if ($.zones == null) {
-                throw new MissingRequiredPropertyException("ExadataInfrastructureArgs", "zones");
             }
             return $;
         }

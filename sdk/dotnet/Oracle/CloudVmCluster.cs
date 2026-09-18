@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Oracle
     ///             Std.File.Invoke(new()
     ///             {
     ///                 Input = "~/.ssh/id_rsa.pub",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///         },
     ///         DisplayName = "example-cloud-vm-cluster",
     ///         CloudExadataInfrastructureId = exampleExadataInfrastructure.Id,

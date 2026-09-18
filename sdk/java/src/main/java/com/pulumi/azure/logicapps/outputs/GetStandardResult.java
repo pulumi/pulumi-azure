@@ -122,7 +122,7 @@ public final class GetStandardResult {
      * @return A `siteConfig` object as defined below.
      * 
      */
-    private GetStandardSiteConfig siteConfig;
+    private List<GetStandardSiteConfig> siteConfigs;
     /**
      * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
      * 
@@ -317,8 +317,8 @@ public final class GetStandardResult {
      * @return A `siteConfig` object as defined below.
      * 
      */
-    public GetStandardSiteConfig siteConfig() {
-        return this.siteConfig;
+    public List<GetStandardSiteConfig> siteConfigs() {
+        return this.siteConfigs;
     }
     /**
      * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
@@ -414,7 +414,7 @@ public final class GetStandardResult {
         private String publicNetworkAccess;
         private String resourceGroupName;
         private Boolean scmPublishBasicAuthenticationEnabled;
-        private GetStandardSiteConfig siteConfig;
+        private List<GetStandardSiteConfig> siteConfigs;
         private List<GetStandardSiteCredential> siteCredentials;
         private String storageAccountAccessKey;
         private String storageAccountName;
@@ -448,7 +448,7 @@ public final class GetStandardResult {
     	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.scmPublishBasicAuthenticationEnabled = defaults.scmPublishBasicAuthenticationEnabled;
-    	      this.siteConfig = defaults.siteConfig;
+    	      this.siteConfigs = defaults.siteConfigs;
     	      this.siteCredentials = defaults.siteCredentials;
     	      this.storageAccountAccessKey = defaults.storageAccountAccessKey;
     	      this.storageAccountName = defaults.storageAccountName;
@@ -635,12 +635,15 @@ public final class GetStandardResult {
             return this;
         }
         @CustomType.Setter
-        public Builder siteConfig(GetStandardSiteConfig siteConfig) {
-            if (siteConfig == null) {
-              throw new MissingRequiredPropertyException("GetStandardResult", "siteConfig");
+        public Builder siteConfigs(List<GetStandardSiteConfig> siteConfigs) {
+            if (siteConfigs == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "siteConfigs");
             }
-            this.siteConfig = siteConfig;
+            this.siteConfigs = siteConfigs;
             return this;
+        }
+        public Builder siteConfigs(GetStandardSiteConfig... siteConfigs) {
+            return siteConfigs(List.of(siteConfigs));
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetStandardSiteCredential> siteCredentials) {
@@ -740,7 +743,7 @@ public final class GetStandardResult {
             _resultValue.publicNetworkAccess = publicNetworkAccess;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.scmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
-            _resultValue.siteConfig = siteConfig;
+            _resultValue.siteConfigs = siteConfigs;
             _resultValue.siteCredentials = siteCredentials;
             _resultValue.storageAccountAccessKey = storageAccountAccessKey;
             _resultValue.storageAccountName = storageAccountName;

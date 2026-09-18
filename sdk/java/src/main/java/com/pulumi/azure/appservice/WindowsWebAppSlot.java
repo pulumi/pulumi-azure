@@ -578,22 +578,22 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.virtualNetworkBackupRestoreEnabled);
     }
     /**
-     * Whether traffic for the image pull should be routed over the virtual network.
+     * Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
      * 
      * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
      * 
      */
     @Export(name="virtualNetworkImagePullEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> virtualNetworkImagePullEnabled;
+    private Output</* @Nullable */ Boolean> virtualNetworkImagePullEnabled;
 
     /**
-     * @return Whether traffic for the image pull should be routed over the virtual network.
+     * @return Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
      * 
      * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
      * 
      */
-    public Output<Boolean> virtualNetworkImagePullEnabled() {
-        return this.virtualNetworkImagePullEnabled;
+    public Output<Optional<Boolean>> virtualNetworkImagePullEnabled() {
+        return Codegen.optional(this.virtualNetworkImagePullEnabled);
     }
     /**
      * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).

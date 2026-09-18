@@ -22,6 +22,7 @@ __all__ = [
     'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey',
     'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey',
     'ReplicatedVMNetworkInterface',
+    'ReplicatedVMNetworkInterfaceIpConfiguration',
     'ReplicatedVMUnmanagedDisk',
     'ReplicationRecoveryPlanAzureToAzureSettings',
     'ReplicationRecoveryPlanBootRecoveryGroup',
@@ -46,10 +47,10 @@ class ProtectionContainerMappingAutomaticUpdate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "authenticationType":
-            suggest = "authentication_type"
-        elif key == "automationAccountId":
+        if key == "automationAccountId":
             suggest = "automation_account_id"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ProtectionContainerMappingAutomaticUpdate. Access the value via the '{suggest}' property getter instead.")
@@ -63,26 +64,25 @@ class ProtectionContainerMappingAutomaticUpdate(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 authentication_type: Optional[_builtins.str] = None,
-                 automation_account_id: Optional[_builtins.str] = None,
-                 enabled: Optional[_builtins.bool] = None):
+                 automation_account_id: _builtins.str,
+                 authentication_type: Optional[_builtins.str] = None):
         """
+        :param _builtins.str automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         :param _builtins.str authentication_type: The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
                
                > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
-        :param _builtins.str automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-               
-               > **Note:** `automation_account_id` is required when `enabled` is specified.
-        :param _builtins.bool enabled: Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-               
-               > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         """
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
-        if automation_account_id is not None:
-            pulumi.set(__self__, "automation_account_id", automation_account_id)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="automationAccountId")
+    def automation_account_id(self) -> _builtins.str:
+        """
+        The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+        """
+        return pulumi.get(self, "automation_account_id")
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
@@ -93,26 +93,6 @@ class ProtectionContainerMappingAutomaticUpdate(dict):
         > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
         """
         return pulumi.get(self, "authentication_type")
-
-    @_builtins.property
-    @pulumi.getter(name="automationAccountId")
-    def automation_account_id(self) -> Optional[_builtins.str]:
-        """
-        The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-
-        > **Note:** `automation_account_id` is required when `enabled` is specified.
-        """
-        return pulumi.get(self, "automation_account_id")
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[_builtins.bool]:
-        """
-        Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-
-        > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-        """
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -157,8 +137,8 @@ class ReplicatedVMManagedDisk(dict):
         """
         :param _builtins.str disk_id: Id of disk that should be replicated. Changing this forces a new resource to be created.
         :param _builtins.str staging_storage_account_id: Storage account that should be used for caching. Changing this forces a new resource to be created.
-        :param _builtins.str target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param _builtins.str target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        :param _builtins.str target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
+        :param _builtins.str target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
         :param _builtins.str target_resource_group_id: Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
         :param 'ReplicatedVMManagedDiskTargetDiskEncryptionArgs' target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param _builtins.str target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
@@ -195,7 +175,7 @@ class ReplicatedVMManagedDisk(dict):
     @pulumi.getter(name="targetDiskType")
     def target_disk_type(self) -> _builtins.str:
         """
-        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
         """
         return pulumi.get(self, "target_disk_type")
 
@@ -203,7 +183,7 @@ class ReplicatedVMManagedDisk(dict):
     @pulumi.getter(name="targetReplicaDiskType")
     def target_replica_disk_type(self) -> _builtins.str:
         """
-        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `PremiumV2_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`.
         """
         return pulumi.get(self, "target_replica_disk_type")
 
@@ -384,22 +364,10 @@ class ReplicatedVMNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "failoverTestPublicIpAddressId":
-            suggest = "failover_test_public_ip_address_id"
-        elif key == "failoverTestStaticIp":
-            suggest = "failover_test_static_ip"
-        elif key == "failoverTestSubnetName":
-            suggest = "failover_test_subnet_name"
-        elif key == "recoveryLoadBalancerBackendAddressPoolIds":
-            suggest = "recovery_load_balancer_backend_address_pool_ids"
-        elif key == "recoveryPublicIpAddressId":
-            suggest = "recovery_public_ip_address_id"
+        if key == "ipConfigurations":
+            suggest = "ip_configurations"
         elif key == "sourceNetworkInterfaceId":
             suggest = "source_network_interface_id"
-        elif key == "targetStaticIp":
-            suggest = "target_static_ip"
-        elif key == "targetSubnetName":
-            suggest = "target_subnet_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMNetworkInterface. Access the value via the '{suggest}' property getter instead.")
@@ -413,21 +381,85 @@ class ReplicatedVMNetworkInterface(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 ip_configurations: Optional[Sequence['outputs.ReplicatedVMNetworkInterfaceIpConfiguration']] = None,
+                 source_network_interface_id: Optional[_builtins.str] = None):
+        """
+        :param Sequence['ReplicatedVMNetworkInterfaceIpConfigurationArgs'] ip_configurations: IP configuration to assign when a failover is done. One or more `ip_configuration` blocks as defined below.
+        :param _builtins.str source_network_interface_id: Id source network interface.
+        """
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if source_network_interface_id is not None:
+            pulumi.set(__self__, "source_network_interface_id", source_network_interface_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.ReplicatedVMNetworkInterfaceIpConfiguration']]:
+        """
+        IP configuration to assign when a failover is done. One or more `ip_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceNetworkInterfaceId")
+    def source_network_interface_id(self) -> Optional[_builtins.str]:
+        """
+        Id source network interface.
+        """
+        return pulumi.get(self, "source_network_interface_id")
+
+
+@pulumi.output_type
+class ReplicatedVMNetworkInterfaceIpConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failoverTestPublicIpAddressId":
+            suggest = "failover_test_public_ip_address_id"
+        elif key == "failoverTestStaticIp":
+            suggest = "failover_test_static_ip"
+        elif key == "failoverTestSubnetName":
+            suggest = "failover_test_subnet_name"
+        elif key == "recoveryLoadBalancerBackendAddressPoolIds":
+            suggest = "recovery_load_balancer_backend_address_pool_ids"
+        elif key == "recoveryPublicIpAddressId":
+            suggest = "recovery_public_ip_address_id"
+        elif key == "targetStaticIp":
+            suggest = "target_static_ip"
+        elif key == "targetSubnetName":
+            suggest = "target_subnet_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatedVMNetworkInterfaceIpConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatedVMNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatedVMNetworkInterfaceIpConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
                  failover_test_public_ip_address_id: Optional[_builtins.str] = None,
                  failover_test_static_ip: Optional[_builtins.str] = None,
                  failover_test_subnet_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 primary: Optional[_builtins.bool] = None,
                  recovery_load_balancer_backend_address_pool_ids: Optional[Sequence[_builtins.str]] = None,
                  recovery_public_ip_address_id: Optional[_builtins.str] = None,
-                 source_network_interface_id: Optional[_builtins.str] = None,
                  target_static_ip: Optional[_builtins.str] = None,
                  target_subnet_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str failover_test_public_ip_address_id: Id of the public IP object to use when a test failover is done.
         :param _builtins.str failover_test_static_ip: Static IP to assign when a test failover is done.
         :param _builtins.str failover_test_subnet_name: Name of the subnet to use when a test failover is done.
+        :param _builtins.str name: Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+               
+               > **Note:** `name` is required when more than one `ip_configuration` block is specified.
+        :param _builtins.bool primary: Whether this IP configuration is primary. If only one `ip_configuration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ip_configuration`.
         :param Sequence[_builtins.str] recovery_load_balancer_backend_address_pool_ids: A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
         :param _builtins.str recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
-        :param _builtins.str source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
         :param _builtins.str target_static_ip: Static IP to assign when a failover is done.
         :param _builtins.str target_subnet_name: Name of the subnet to use when a failover is done.
         """
@@ -437,12 +469,14 @@ class ReplicatedVMNetworkInterface(dict):
             pulumi.set(__self__, "failover_test_static_ip", failover_test_static_ip)
         if failover_test_subnet_name is not None:
             pulumi.set(__self__, "failover_test_subnet_name", failover_test_subnet_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
         if recovery_load_balancer_backend_address_pool_ids is not None:
             pulumi.set(__self__, "recovery_load_balancer_backend_address_pool_ids", recovery_load_balancer_backend_address_pool_ids)
         if recovery_public_ip_address_id is not None:
             pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
-        if source_network_interface_id is not None:
-            pulumi.set(__self__, "source_network_interface_id", source_network_interface_id)
         if target_static_ip is not None:
             pulumi.set(__self__, "target_static_ip", target_static_ip)
         if target_subnet_name is not None:
@@ -473,6 +507,24 @@ class ReplicatedVMNetworkInterface(dict):
         return pulumi.get(self, "failover_test_subnet_name")
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+
+        > **Note:** `name` is required when more than one `ip_configuration` block is specified.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> Optional[_builtins.bool]:
+        """
+        Whether this IP configuration is primary. If only one `ip_configuration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ip_configuration`.
+        """
+        return pulumi.get(self, "primary")
+
+    @_builtins.property
     @pulumi.getter(name="recoveryLoadBalancerBackendAddressPoolIds")
     def recovery_load_balancer_backend_address_pool_ids(self) -> Optional[Sequence[_builtins.str]]:
         """
@@ -487,14 +539,6 @@ class ReplicatedVMNetworkInterface(dict):
         Id of the public IP object to use when a failover is done.
         """
         return pulumi.get(self, "recovery_public_ip_address_id")
-
-    @_builtins.property
-    @pulumi.getter(name="sourceNetworkInterfaceId")
-    def source_network_interface_id(self) -> Optional[_builtins.str]:
-        """
-        (Required if the network_interface block is specified) Id source network interface.
-        """
-        return pulumi.get(self, "source_network_interface_id")
 
     @_builtins.property
     @pulumi.getter(name="targetStaticIp")

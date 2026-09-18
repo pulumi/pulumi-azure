@@ -28,16 +28,23 @@ namespace Pulumi.Azure.SecurityCenter
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "examplestorage",
-    ///         ResourceGroupName = example.Name,
+    ///         Name = "example-cosmosdb-account",
     ///         Location = example.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         Tags = 
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
-    ///             { "environment", "example" },
+    ///             ConsistencyLevel = "Eventual",
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = example.Location,
+    ///                 FailoverPriority = 0,
+    ///             },
     ///         },
     ///     });
     /// 
@@ -55,7 +62,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// Advanced Threat Protection can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+    /// $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/databaseAccount1/providers/Microsoft.Security/advancedThreatProtectionSettings/default
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection")]

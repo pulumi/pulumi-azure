@@ -71,7 +71,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -124,9 +123,7 @@ import javax.annotation.Nullable;
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
  *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input("~/.ssh/id_rsa.pub")
- *                     .build()).result())
+ *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
  *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
@@ -976,11 +973,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
      * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
      */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     @Export(name="vmAgentPlatformUpdatesEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> vmAgentPlatformUpdatesEnabled;
 

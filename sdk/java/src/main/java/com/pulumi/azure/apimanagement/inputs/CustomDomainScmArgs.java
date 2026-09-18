@@ -91,29 +91,6 @@ public final class CustomDomainScmArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-     * 
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="keyVaultId")
-    private @Nullable Output<String> keyVaultId;
-
-    /**
-     * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-     * 
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> keyVaultId() {
-        return Optional.ofNullable(this.keyVaultId);
-    }
-
-    /**
      * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
@@ -171,7 +148,6 @@ public final class CustomDomainScmArgs extends com.pulumi.resources.ResourceArgs
         this.expiry = $.expiry;
         this.hostName = $.hostName;
         this.keyVaultCertificateId = $.keyVaultCertificateId;
-        this.keyVaultId = $.keyVaultId;
         this.negotiateClientCertificate = $.negotiateClientCertificate;
         this.sslKeyvaultIdentityClientId = $.sslKeyvaultIdentityClientId;
         this.subject = $.subject;
@@ -293,35 +269,6 @@ public final class CustomDomainScmArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder keyVaultCertificateId(String keyVaultCertificateId) {
             return keyVaultCertificateId(Output.of(keyVaultCertificateId));
-        }
-
-        /**
-         * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
-            $.keyVaultId = keyVaultId;
-            return this;
-        }
-
-        /**
-         * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder keyVaultId(String keyVaultId) {
-            return keyVaultId(Output.of(keyVaultId));
         }
 
         /**

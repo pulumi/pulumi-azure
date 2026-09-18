@@ -31,8 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appservice.AppserviceFunctions;
- * import com.pulumi.azure.appservice.inputs.GetFunctionAppArgs;
+ * import com.pulumi.azurerm.AzurermFunctions;
  * import com.pulumi.azure.datafactory.Factory;
  * import com.pulumi.azure.datafactory.FactoryArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceAzureFunction;
@@ -55,10 +54,10 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
- *             .name("test-azure-functions")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
+ *         final var example = AzurermFunctions.FunctionApp(Map.ofEntries(
+ *             Map.entry("name", "test-azure-functions"),
+ *             Map.entry("resourceGroupName", exampleResourceGroup.name())
+ *         ));
  * 
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
  *             .name("example")
@@ -69,7 +68,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", LinkedServiceAzureFunctionArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .url(example.applyValue(_example -> String.format("https://%s", _example.defaultHostname())))
+ *             .url(String.format("https://%s", example.defaultHostname()))
  *             .key("foo")
  *             .build());
  * 

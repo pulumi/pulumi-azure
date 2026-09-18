@@ -32,7 +32,7 @@ class AccountRaiPolicyArgs:
 
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]] content_filters: A `content_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]] content_filters: One or more `content_filter` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -75,7 +75,7 @@ class AccountRaiPolicyArgs:
     @pulumi.getter(name="contentFilters")
     def content_filters(self) -> pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]:
         """
-        A `content_filter` block as defined below.
+        One or more `content_filter` blocks as defined below.
         """
         return pulumi.get(self, "content_filters")
 
@@ -134,7 +134,7 @@ class _AccountRaiPolicyState:
 
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]] content_filters: A `content_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]] content_filters: One or more `content_filter` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -180,7 +180,7 @@ class _AccountRaiPolicyState:
     @pulumi.getter(name="contentFilters")
     def content_filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountRaiPolicyContentFilterArgs']]]]:
         """
-        A `content_filter` block as defined below.
+        One or more `content_filter` blocks as defined below.
         """
         return pulumi.get(self, "content_filters")
 
@@ -289,7 +289,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]] content_filters: A `content_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]] content_filters: One or more `content_filter` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -414,7 +414,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] base_policy_name: The name of the base policy to use for this RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]] content_filters: A `content_filter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRaiPolicyContentFilterArgs', 'AccountRaiPolicyContentFilterArgsDict']]]] content_filters: One or more `content_filter` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Service Account RAI Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -451,7 +451,7 @@ class AccountRaiPolicy(pulumi.CustomResource):
     @pulumi.getter(name="contentFilters")
     def content_filters(self) -> pulumi.Output[Sequence['outputs.AccountRaiPolicyContentFilter']]:
         """
-        A `content_filter` block as defined below.
+        One or more `content_filter` blocks as defined below.
         """
         return pulumi.get(self, "content_filters")
 

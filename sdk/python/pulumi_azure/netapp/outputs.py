@@ -41,6 +41,7 @@ __all__ = [
     'VolumeGroupSapHanaVolumeDataProtectionReplication',
     'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicy',
     'VolumeGroupSapHanaVolumeExportPolicyRule',
+    'VolumeMountTarget',
     'GetAccountIdentityResult',
     'GetSnapshotPolicyDailyScheduleResult',
     'GetSnapshotPolicyHourlyScheduleResult',
@@ -62,6 +63,7 @@ __all__ = [
     'GetVolumeGroupSapHanaVolumeDataProtectionReplicationResult',
     'GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyResult',
     'GetVolumeGroupSapHanaVolumeExportPolicyRuleResult',
+    'GetVolumeMountTargetResult',
 ]
 
 @pulumi.output_type
@@ -1219,8 +1221,6 @@ class VolumeExportPolicyRule(dict):
             suggest = "kerberos5p_read_only_enabled"
         elif key == "kerberos5pReadWriteEnabled":
             suggest = "kerberos5p_read_write_enabled"
-        elif key == "protocolsEnabled":
-            suggest = "protocols_enabled"
         elif key == "rootAccessEnabled":
             suggest = "root_access_enabled"
         elif key == "unixReadOnly":
@@ -1249,7 +1249,6 @@ class VolumeExportPolicyRule(dict):
                  kerberos5p_read_only_enabled: Optional[_builtins.bool] = None,
                  kerberos5p_read_write_enabled: Optional[_builtins.bool] = None,
                  protocol: Optional[_builtins.str] = None,
-                 protocols_enabled: Optional[_builtins.str] = None,
                  root_access_enabled: Optional[_builtins.bool] = None,
                  unix_read_only: Optional[_builtins.bool] = None,
                  unix_read_write: Optional[_builtins.bool] = None):
@@ -1283,8 +1282,6 @@ class VolumeExportPolicyRule(dict):
             pulumi.set(__self__, "kerberos5p_read_write_enabled", kerberos5p_read_write_enabled)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
-        if protocols_enabled is not None:
-            pulumi.set(__self__, "protocols_enabled", protocols_enabled)
         if root_access_enabled is not None:
             pulumi.set(__self__, "root_access_enabled", root_access_enabled)
         if unix_read_only is not None:
@@ -1363,12 +1360,6 @@ class VolumeExportPolicyRule(dict):
         A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
         """
         return pulumi.get(self, "protocol")
-
-    @_builtins.property
-    @pulumi.getter(name="protocolsEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.""")
-    def protocols_enabled(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "protocols_enabled")
 
     @_builtins.property
     @pulumi.getter(name="rootAccessEnabled")
@@ -2465,6 +2456,56 @@ class VolumeGroupSapHanaVolumeExportPolicyRule(dict):
         Is the file system on unix read and write? Defaults to `true`.
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class VolumeMountTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "smbServerFqdn":
+            suggest = "smb_server_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeMountTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeMountTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeMountTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: Optional[_builtins.str] = None,
+                 smb_server_fqdn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str ip_address: The IP address of the mount target.
+        :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if smb_server_fqdn is not None:
+            pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        """
+        The IP address of the mount target.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> Optional[_builtins.str]:
+        """
+        The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        return pulumi.get(self, "smb_server_fqdn")
 
 
 @pulumi.output_type
@@ -3767,5 +3808,34 @@ class GetVolumeGroupSapHanaVolumeExportPolicyRuleResult(dict):
         Is the file system on unix read and write?.
         """
         return pulumi.get(self, "unix_read_write")
+
+
+@pulumi.output_type
+class GetVolumeMountTargetResult(dict):
+    def __init__(__self__, *,
+                 ip_address: _builtins.str,
+                 smb_server_fqdn: _builtins.str):
+        """
+        :param _builtins.str ip_address: The IP address of the mount target.
+        :param _builtins.str smb_server_fqdn: The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "smb_server_fqdn", smb_server_fqdn)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        The IP address of the mount target.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="smbServerFqdn")
+    def smb_server_fqdn(self) -> _builtins.str:
+        """
+        The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+        """
+        return pulumi.get(self, "smb_server_fqdn")
 
 

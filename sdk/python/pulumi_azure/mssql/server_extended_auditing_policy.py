@@ -21,33 +21,35 @@ class ServerExtendedAuditingPolicyArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.str],
                  audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
-                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerExtendedAuditingPolicy resource.
 
         :param pulumi.Input[_builtins.str] server_id: The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
+        :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[_builtins.bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[_builtins.str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         pulumi.set(__self__, "server_id", server_id)
         if audit_actions_and_groups is not None:
             pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
+        if blob_storage_endpoint is not None:
+            pulumi.set(__self__, "blob_storage_endpoint", blob_storage_endpoint)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_monitoring_enabled is not None:
@@ -62,8 +64,6 @@ class ServerExtendedAuditingPolicyArgs:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
         if storage_account_subscription_id is not None:
             pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
@@ -90,12 +90,24 @@ class ServerExtendedAuditingPolicyArgs:
         pulumi.set(self, "audit_actions_and_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="blobStorageEndpoint")
+    def blob_storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+        """
+        return pulumi.get(self, "blob_storage_endpoint")
+
+    @blob_storage_endpoint.setter
+    def blob_storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "blob_storage_endpoint", value)
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
-        > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         """
         return pulumi.get(self, "enabled")
 
@@ -175,23 +187,12 @@ class ServerExtendedAuditingPolicyArgs:
     def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-        """
-        return pulumi.get(self, "storage_endpoint")
-
-    @storage_endpoint.setter
-    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_endpoint", value)
-
 
 @pulumi.input_type
 class _ServerExtendedAuditingPolicyState:
     def __init__(__self__, *,
                  audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -199,15 +200,15 @@ class _ServerExtendedAuditingPolicyState:
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
-                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerExtendedAuditingPolicy resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
+        :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -215,10 +216,11 @@ class _ServerExtendedAuditingPolicyState:
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[_builtins.bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[_builtins.str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         if audit_actions_and_groups is not None:
             pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
+        if blob_storage_endpoint is not None:
+            pulumi.set(__self__, "blob_storage_endpoint", blob_storage_endpoint)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_monitoring_enabled is not None:
@@ -235,8 +237,6 @@ class _ServerExtendedAuditingPolicyState:
             pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
         if storage_account_subscription_id is not None:
             pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
-        if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="auditActionsAndGroups")
@@ -251,12 +251,24 @@ class _ServerExtendedAuditingPolicyState:
         pulumi.set(self, "audit_actions_and_groups", value)
 
     @_builtins.property
+    @pulumi.getter(name="blobStorageEndpoint")
+    def blob_storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+        """
+        return pulumi.get(self, "blob_storage_endpoint")
+
+    @blob_storage_endpoint.setter
+    def blob_storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "blob_storage_endpoint", value)
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
-        > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         """
         return pulumi.get(self, "enabled")
 
@@ -348,18 +360,6 @@ class _ServerExtendedAuditingPolicyState:
     def storage_account_subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_subscription_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-        """
-        return pulumi.get(self, "storage_endpoint")
-
-    @storage_endpoint.setter
-    def storage_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_endpoint", value)
-
 
 @pulumi.type_token("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy")
 class ServerExtendedAuditingPolicy(pulumi.CustomResource):
@@ -368,6 +368,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -376,7 +377,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages a MS SQL Server Extended Auditing Policy.
@@ -405,7 +405,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS")
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             server_id=example_server.id,
-            storage_endpoint=example_account.primary_blob_endpoint,
+            blob_storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
@@ -434,8 +434,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
@@ -482,7 +486,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                 "type": "SystemAssigned",
             })
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
-            storage_endpoint=example_account.primary_blob_endpoint,
+            blob_storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
             retention_in_days=6,
             log_monitoring_enabled=False,
@@ -505,9 +509,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
+        :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -515,7 +520,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[_builtins.bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[_builtins.str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         ...
     @overload
@@ -550,7 +554,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS")
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             server_id=example_server.id,
-            storage_endpoint=example_account.primary_blob_endpoint,
+            blob_storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
@@ -579,8 +583,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
@@ -627,7 +635,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                 "type": "SystemAssigned",
             })
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
-            storage_endpoint=example_account.primary_blob_endpoint,
+            blob_storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
             retention_in_days=6,
             log_monitoring_enabled=False,
@@ -663,6 +671,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -671,7 +680,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -682,6 +690,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             __props__ = ServerExtendedAuditingPolicyArgs.__new__(ServerExtendedAuditingPolicyArgs)
 
             __props__.__dict__["audit_actions_and_groups"] = audit_actions_and_groups
+            __props__.__dict__["blob_storage_endpoint"] = blob_storage_endpoint
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
             __props__.__dict__["predicate_expression"] = predicate_expression
@@ -692,7 +701,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
             __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
             __props__.__dict__["storage_account_subscription_id"] = None if storage_account_subscription_id is None else pulumi.Output.secret(storage_account_subscription_id)
-            __props__.__dict__["storage_endpoint"] = storage_endpoint
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["storageAccountAccessKey", "storageAccountSubscriptionId"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServerExtendedAuditingPolicy, __self__).__init__(
@@ -706,6 +714,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             audit_actions_and_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blob_storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             log_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             predicate_expression: pulumi.Input[Optional[_builtins.str]] = None,
@@ -713,8 +722,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             server_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_access_key_is_secondary: pulumi.Input[Optional[_builtins.bool]] = None,
-            storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerExtendedAuditingPolicy':
+            storage_account_subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerExtendedAuditingPolicy':
         """
         Get an existing ServerExtendedAuditingPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -723,9 +731,10 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
+        :param pulumi.Input[_builtins.str] blob_storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[_builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[_builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[_builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -733,13 +742,13 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key to use for the auditing storage account.
         :param pulumi.Input[_builtins.bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[_builtins.str] storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
-        :param pulumi.Input[_builtins.str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ServerExtendedAuditingPolicyState.__new__(_ServerExtendedAuditingPolicyState)
 
         __props__.__dict__["audit_actions_and_groups"] = audit_actions_and_groups
+        __props__.__dict__["blob_storage_endpoint"] = blob_storage_endpoint
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["log_monitoring_enabled"] = log_monitoring_enabled
         __props__.__dict__["predicate_expression"] = predicate_expression
@@ -748,7 +757,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_access_key_is_secondary"] = storage_account_access_key_is_secondary
         __props__.__dict__["storage_account_subscription_id"] = storage_account_subscription_id
-        __props__.__dict__["storage_endpoint"] = storage_endpoint
         return ServerExtendedAuditingPolicy(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -760,12 +768,20 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         return pulumi.get(self, "audit_actions_and_groups")
 
     @_builtins.property
+    @pulumi.getter(name="blobStorageEndpoint")
+    def blob_storage_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+        """
+        return pulumi.get(self, "blob_storage_endpoint")
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
-        > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        > **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         """
         return pulumi.get(self, "enabled")
 
@@ -824,12 +840,4 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageEndpoint")
-    def storage_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
-        """
-        The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-        """
-        return pulumi.get(self, "storage_endpoint")
 

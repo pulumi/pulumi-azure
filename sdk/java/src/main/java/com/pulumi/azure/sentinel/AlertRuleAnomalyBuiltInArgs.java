@@ -18,7 +18,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
     public static final AlertRuleAnomalyBuiltInArgs Empty = new AlertRuleAnomalyBuiltInArgs();
 
     /**
-     * The Display Name of the built-in Anomaly Alert Rule.
+     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
@@ -27,7 +27,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The Display Name of the built-in Anomaly Alert Rule.
+     * @return The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
@@ -82,14 +82,14 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Name of the built-in Anomaly Alert Rule.
+     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The Name of the built-in Anomaly Alert Rule.
+     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -125,7 +125,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param displayName The Display Name of the built-in Anomaly Alert Rule.
+         * @param displayName The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** One of `name` or `displayName` block must be specified.
          * 
@@ -138,7 +138,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param displayName The Display Name of the built-in Anomaly Alert Rule.
+         * @param displayName The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** One of `name` or `displayName` block must be specified.
          * 
@@ -213,7 +213,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The Name of the built-in Anomaly Alert Rule.
+         * @param name The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class AlertRuleAnomalyBuiltInArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name The Name of the built-in Anomaly Alert Rule.
+         * @param name The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -30,7 +30,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.SshPublicKey;
  * import com.pulumi.azure.compute.SshPublicKeyArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -48,9 +47,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .resourceGroupName("example")
  *             .location("West Europe")
- *             .publicKey(StdFunctions.file(FileArgs.builder()
- *                 .input("~/.ssh/id_rsa.pub")
- *                 .build()).result())
+ *             .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
  *             .build());
  * 
  *     }

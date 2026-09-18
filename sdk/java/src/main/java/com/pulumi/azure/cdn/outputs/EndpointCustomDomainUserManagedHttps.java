@@ -18,7 +18,7 @@ public final class EndpointCustomDomainUserManagedHttps {
      */
     private String keyVaultSecretId;
     /**
-     * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+     * @return The minimum TLS protocol version that is used for HTTPS. The only possible value is `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -34,7 +34,7 @@ public final class EndpointCustomDomainUserManagedHttps {
         return this.keyVaultSecretId;
     }
     /**
-     * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+     * @return The minimum TLS protocol version that is used for HTTPS. The only possible value is `TLS12` (representing TLS 1.2). Defaults to `TLS12`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 

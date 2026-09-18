@@ -64,8 +64,6 @@ namespace Pulumi.Azure.Policy
     /// 
     /// * `Microsoft.Authorization` - 2025-01-01
     /// 
-    /// * `Microsoft.Management` - 2025-01-01
-    /// 
     /// ## Import
     /// 
     /// Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -88,9 +86,6 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
-
-        [Output("managementGroupId")]
-        public Output<string?> ManagementGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The metadata for the Policy Set Definition in JSON format.
@@ -186,9 +181,6 @@ namespace Pulumi.Azure.Policy
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        [Input("managementGroupId")]
-        public Input<string>? ManagementGroupId { get; set; }
-
         /// <summary>
         /// The metadata for the Policy Set Definition in JSON format.
         /// </summary>
@@ -256,9 +248,6 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
-
-        [Input("managementGroupId")]
-        public Input<string>? ManagementGroupId { get; set; }
 
         /// <summary>
         /// The metadata for the Policy Set Definition in JSON format.

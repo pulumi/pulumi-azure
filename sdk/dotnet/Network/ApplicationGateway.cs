@@ -177,12 +177,6 @@ namespace Pulumi.Azure.Network
     public partial class ApplicationGateway : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more `AuthenticationCertificate` blocks as defined below.
-        /// </summary>
-        [Output("authenticationCertificates")]
-        public Output<ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificate>> AuthenticationCertificates { get; private set; } = null!;
-
-        /// <summary>
         /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
         [Output("autoscaleConfiguration")]
@@ -215,9 +209,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("customErrorConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorConfiguration>> CustomErrorConfigurations { get; private set; } = null!;
-
-        [Output("enableHttp2")]
-        public Output<bool> EnableHttp2 { get; private set; } = null!;
 
         /// <summary>
         /// Is FIPS enabled on the Application Gateway?
@@ -265,7 +256,7 @@ namespace Pulumi.Azure.Network
         /// Is HTTP2 enabled on the application gateway resource? Defaults to `False`.
         /// </summary>
         [Output("http2Enabled")]
-        public Output<bool> Http2Enabled { get; private set; } = null!;
+        public Output<bool?> Http2Enabled { get; private set; } = null!;
 
         /// <summary>
         /// One or more `HttpListener` blocks as defined below.
@@ -461,18 +452,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayArgs : global::Pulumi.ResourceArgs
     {
-        [Input("authenticationCertificates")]
-        private InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>? _authenticationCertificates;
-
-        /// <summary>
-        /// One or more `AuthenticationCertificate` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs> AuthenticationCertificates
-        {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>());
-            set => _authenticationCertificates = value;
-        }
-
         /// <summary>
         /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
@@ -530,9 +509,6 @@ namespace Pulumi.Azure.Network
             get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationArgs>());
             set => _customErrorConfigurations = value;
         }
-
-        [Input("enableHttp2")]
-        public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
         /// Is FIPS enabled on the Application Gateway?
@@ -840,18 +816,6 @@ namespace Pulumi.Azure.Network
 
     public sealed class ApplicationGatewayState : global::Pulumi.ResourceArgs
     {
-        [Input("authenticationCertificates")]
-        private InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs>? _authenticationCertificates;
-
-        /// <summary>
-        /// One or more `AuthenticationCertificate` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs> AuthenticationCertificates
-        {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs>());
-            set => _authenticationCertificates = value;
-        }
-
         /// <summary>
         /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
@@ -909,9 +873,6 @@ namespace Pulumi.Azure.Network
             get => _customErrorConfigurations ?? (_customErrorConfigurations = new InputList<Inputs.ApplicationGatewayCustomErrorConfigurationGetArgs>());
             set => _customErrorConfigurations = value;
         }
-
-        [Input("enableHttp2")]
-        public Input<bool>? EnableHttp2 { get; set; }
 
         /// <summary>
         /// Is FIPS enabled on the Application Gateway?

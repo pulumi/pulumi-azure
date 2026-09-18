@@ -4,7 +4,6 @@
 package com.pulumi.azure.batch;
 
 import com.pulumi.azure.batch.inputs.PoolAutoScaleArgs;
-import com.pulumi.azure.batch.inputs.PoolCertificateArgs;
 import com.pulumi.azure.batch.inputs.PoolContainerConfigurationArgs;
 import com.pulumi.azure.batch.inputs.PoolDataDiskArgs;
 import com.pulumi.azure.batch.inputs.PoolDiskEncryptionArgs;
@@ -69,25 +68,6 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<PoolAutoScaleArgs>> autoScale() {
         return Optional.ofNullable(this.autoScale);
-    }
-
-    /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-    @Import(name="certificates")
-    private @Nullable Output<List<PoolCertificateArgs>> certificates;
-
-    /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-    public Optional<Output<List<PoolCertificateArgs>>> certificates() {
-        return Optional.ofNullable(this.certificates);
     }
 
     /**
@@ -500,7 +480,6 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     private PoolArgs(PoolArgs $) {
         this.accountName = $.accountName;
         this.autoScale = $.autoScale;
-        this.certificates = $.certificates;
         this.containerConfiguration = $.containerConfiguration;
         this.dataDisks = $.dataDisks;
         this.diskEncryptions = $.diskEncryptions;
@@ -592,43 +571,6 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoScale(PoolAutoScaleArgs autoScale) {
             return autoScale(Output.of(autoScale));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-        public Builder certificates(@Nullable Output<List<PoolCertificateArgs>> certificates) {
-            $.certificates = certificates;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-        public Builder certificates(List<PoolCertificateArgs> certificates) {
-            return certificates(Output.of(certificates));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-        public Builder certificates(PoolCertificateArgs... certificates) {
-            return certificates(List.of(certificates));
         }
 
         /**

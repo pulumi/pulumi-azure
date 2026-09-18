@@ -18,14 +18,14 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     public static final AssignmentArgs Empty = new AssignmentArgs();
 
     /**
-     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to.
      * 
      */
     @Import(name="condition")
     private @Nullable Output<String> condition;
 
     /**
-     * @return The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * @return The condition that limits the resources that the role can be assigned to.
      * 
      */
     public Optional<Output<String>> condition() {
@@ -33,7 +33,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * The version of the condition. Possible values are `1.0` or `2.0`.
      * 
      * &gt; **Note:** `condition` is required when `conditionVersion` is set.
      * 
@@ -42,7 +42,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> conditionVersion;
 
     /**
-     * @return The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * @return The version of the condition. Possible values are `1.0` or `2.0`.
      * 
      * &gt; **Note:** `condition` is required when `conditionVersion` is set.
      * 
@@ -71,14 +71,14 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     * The description for this Role Assignment.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for this Role Assignment. Changing this forces a new resource to be created.
+     * @return The description for this Role Assignment.
      * 
      */
     public Optional<Output<String>> description() {
@@ -237,7 +237,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param condition The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+         * @param condition The condition that limits the resources that the role can be assigned to.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param condition The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+         * @param condition The condition that limits the resources that the role can be assigned to.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+         * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`.
          * 
          * &gt; **Note:** `condition` is required when `conditionVersion` is set.
          * 
@@ -271,7 +271,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+         * @param conditionVersion The version of the condition. Possible values are `1.0` or `2.0`.
          * 
          * &gt; **Note:** `condition` is required when `conditionVersion` is set.
          * 
@@ -308,7 +308,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for this Role Assignment. Changing this forces a new resource to be created.
+         * @param description The description for this Role Assignment.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class AssignmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description for this Role Assignment. Changing this forces a new resource to be created.
+         * @param description The description for this Role Assignment.
          * 
          * @return builder
          * 

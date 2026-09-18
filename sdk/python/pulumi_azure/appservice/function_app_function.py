@@ -500,7 +500,7 @@ class FunctionAppFunction(pulumi.CustomResource):
             language="CSharp",
             files=[{
                 "name": "run.csx",
-                "content": std.file(input="exampledata/run.csx").result,
+                "content": std.file(input="exampledata/run.csx")["result"],
             }],
             test_data=json.dumps({
                 "name": "Azure",
@@ -668,7 +668,7 @@ class FunctionAppFunction(pulumi.CustomResource):
             language="CSharp",
             files=[{
                 "name": "run.csx",
-                "content": std.file(input="exampledata/run.csx").result,
+                "content": std.file(input="exampledata/run.csx")["result"],
             }],
             test_data=json.dumps({
                 "name": "Azure",

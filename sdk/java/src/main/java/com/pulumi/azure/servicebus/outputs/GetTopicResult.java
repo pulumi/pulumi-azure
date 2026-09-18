@@ -9,8 +9,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTopicResult {
@@ -34,9 +32,6 @@ public final class GetTopicResult {
      * 
      */
     private String duplicateDetectionHistoryTimeWindow;
-    private Boolean enableBatchedOperations;
-    private Boolean enableExpress;
-    private Boolean enablePartitioning;
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
@@ -53,14 +48,7 @@ public final class GetTopicResult {
      */
     private Integer maxSizeInMegabytes;
     private String name;
-    private @Nullable String namespaceId;
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
-    private @Nullable String namespaceName;
+    private String namespaceId;
     /**
      * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
      * 
@@ -71,13 +59,6 @@ public final class GetTopicResult {
      * 
      */
     private Boolean requiresDuplicateDetection;
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
-    private @Nullable String resourceGroupName;
     /**
      * @return The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
      * 
@@ -118,15 +99,6 @@ public final class GetTopicResult {
     public String duplicateDetectionHistoryTimeWindow() {
         return this.duplicateDetectionHistoryTimeWindow;
     }
-    public Boolean enableBatchedOperations() {
-        return this.enableBatchedOperations;
-    }
-    public Boolean enableExpress() {
-        return this.enableExpress;
-    }
-    public Boolean enablePartitioning() {
-        return this.enablePartitioning;
-    }
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
@@ -151,17 +123,8 @@ public final class GetTopicResult {
     public String name() {
         return this.name;
     }
-    public Optional<String> namespaceId() {
-        return Optional.ofNullable(this.namespaceId);
-    }
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
-    public Optional<String> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
+    public String namespaceId() {
+        return this.namespaceId;
     }
     /**
      * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
@@ -176,15 +139,6 @@ public final class GetTopicResult {
      */
     public Boolean requiresDuplicateDetection() {
         return this.requiresDuplicateDetection;
-    }
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider. */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
     }
     /**
      * @return The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
@@ -214,18 +168,13 @@ public final class GetTopicResult {
         private Boolean batchedOperationsEnabled;
         private String defaultMessageTtl;
         private String duplicateDetectionHistoryTimeWindow;
-        private Boolean enableBatchedOperations;
-        private Boolean enableExpress;
-        private Boolean enablePartitioning;
         private Boolean expressEnabled;
         private String id;
         private Integer maxSizeInMegabytes;
         private String name;
-        private @Nullable String namespaceId;
-        private @Nullable String namespaceName;
+        private String namespaceId;
         private Boolean partitioningEnabled;
         private Boolean requiresDuplicateDetection;
-        private @Nullable String resourceGroupName;
         private String status;
         private Boolean supportOrdering;
         public Builder() {}
@@ -235,18 +184,13 @@ public final class GetTopicResult {
     	      this.batchedOperationsEnabled = defaults.batchedOperationsEnabled;
     	      this.defaultMessageTtl = defaults.defaultMessageTtl;
     	      this.duplicateDetectionHistoryTimeWindow = defaults.duplicateDetectionHistoryTimeWindow;
-    	      this.enableBatchedOperations = defaults.enableBatchedOperations;
-    	      this.enableExpress = defaults.enableExpress;
-    	      this.enablePartitioning = defaults.enablePartitioning;
     	      this.expressEnabled = defaults.expressEnabled;
     	      this.id = defaults.id;
     	      this.maxSizeInMegabytes = defaults.maxSizeInMegabytes;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
-    	      this.namespaceName = defaults.namespaceName;
     	      this.partitioningEnabled = defaults.partitioningEnabled;
     	      this.requiresDuplicateDetection = defaults.requiresDuplicateDetection;
-    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.status = defaults.status;
     	      this.supportOrdering = defaults.supportOrdering;
         }
@@ -284,30 +228,6 @@ public final class GetTopicResult {
             return this;
         }
         @CustomType.Setter
-        public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            if (enableBatchedOperations == null) {
-              throw new MissingRequiredPropertyException("GetTopicResult", "enableBatchedOperations");
-            }
-            this.enableBatchedOperations = enableBatchedOperations;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableExpress(Boolean enableExpress) {
-            if (enableExpress == null) {
-              throw new MissingRequiredPropertyException("GetTopicResult", "enableExpress");
-            }
-            this.enableExpress = enableExpress;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enablePartitioning(Boolean enablePartitioning) {
-            if (enablePartitioning == null) {
-              throw new MissingRequiredPropertyException("GetTopicResult", "enablePartitioning");
-            }
-            this.enablePartitioning = enablePartitioning;
-            return this;
-        }
-        @CustomType.Setter
         public Builder expressEnabled(Boolean expressEnabled) {
             if (expressEnabled == null) {
               throw new MissingRequiredPropertyException("GetTopicResult", "expressEnabled");
@@ -340,15 +260,11 @@ public final class GetTopicResult {
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceId(@Nullable String namespaceId) {
-
+        public Builder namespaceId(String namespaceId) {
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetTopicResult", "namespaceId");
+            }
             this.namespaceId = namespaceId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder namespaceName(@Nullable String namespaceName) {
-
-            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
@@ -365,12 +281,6 @@ public final class GetTopicResult {
               throw new MissingRequiredPropertyException("GetTopicResult", "requiresDuplicateDetection");
             }
             this.requiresDuplicateDetection = requiresDuplicateDetection;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-
-            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
@@ -395,18 +305,13 @@ public final class GetTopicResult {
             _resultValue.batchedOperationsEnabled = batchedOperationsEnabled;
             _resultValue.defaultMessageTtl = defaultMessageTtl;
             _resultValue.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-            _resultValue.enableBatchedOperations = enableBatchedOperations;
-            _resultValue.enableExpress = enableExpress;
-            _resultValue.enablePartitioning = enablePartitioning;
             _resultValue.expressEnabled = expressEnabled;
             _resultValue.id = id;
             _resultValue.maxSizeInMegabytes = maxSizeInMegabytes;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
-            _resultValue.namespaceName = namespaceName;
             _resultValue.partitioningEnabled = partitioningEnabled;
             _resultValue.requiresDuplicateDetection = requiresDuplicateDetection;
-            _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.status = status;
             _resultValue.supportOrdering = supportOrdering;
             return _resultValue;

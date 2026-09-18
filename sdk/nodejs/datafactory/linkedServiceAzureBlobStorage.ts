@@ -104,10 +104,6 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
      */
     declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
-     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly keyVaultSasToken: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken>;
-    /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -118,7 +114,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
     /**
      * A `sasTokenLinkedKeyVaultKey` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sasUri` is required.
      */
-    declare public readonly sasTokenLinkedKeyVaultKey: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey>;
+    declare public readonly sasTokenLinkedKeyVaultKey: pulumi.Output<outputs.datafactory.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey | undefined>;
     /**
      * The SAS URI. Conflicts with `connectionStringInsecure`, `connectionString` and `serviceEndpoint`.
      */
@@ -151,7 +147,6 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             resourceInputs["dataFactoryId"] = state?.dataFactoryId;
             resourceInputs["description"] = state?.description;
             resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
-            resourceInputs["keyVaultSasToken"] = state?.keyVaultSasToken;
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
             resourceInputs["sasTokenLinkedKeyVaultKey"] = state?.sasTokenLinkedKeyVaultKey;
@@ -175,7 +170,6 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
             resourceInputs["dataFactoryId"] = args?.dataFactoryId;
             resourceInputs["description"] = args?.description;
             resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
-            resourceInputs["keyVaultSasToken"] = args?.keyVaultSasToken;
             resourceInputs["name"] = args?.name;
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["sasTokenLinkedKeyVaultKey"] = args?.sasTokenLinkedKeyVaultKey;
@@ -231,10 +225,6 @@ export interface LinkedServiceAzureBlobStorageState {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     integrationRuntimeName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -296,10 +286,6 @@ export interface LinkedServiceAzureBlobStorageArgs {
      * The integration runtime reference to associate with the Data Factory Linked Service.
      */
     integrationRuntimeName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated the `keyVaultSasToken` property has been deprecated in favour of the `sasTokenLinkedKeyVaultKey` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    keyVaultSasToken?: pulumi.Input<inputs.datafactory.LinkedServiceAzureBlobStorageKeyVaultSasToken | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */

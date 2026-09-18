@@ -182,7 +182,6 @@ namespace Pulumi.Azure.Network
         /// [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         /// </summary>
         public readonly string DefaultLocalNetworkGatewayId;
-        public readonly bool EnableBgp;
         /// <summary>
         /// The Generation of the Virtual Network Gateway.
         /// </summary>
@@ -241,8 +240,6 @@ namespace Pulumi.Azure.Network
 
             string defaultLocalNetworkGatewayId,
 
-            bool enableBgp,
-
             string generation,
 
             string id,
@@ -272,7 +269,6 @@ namespace Pulumi.Azure.Network
             BgpSettings = bgpSettings;
             CustomRoutes = customRoutes;
             DefaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
-            EnableBgp = enableBgp;
             Generation = generation;
             Id = id;
             IpConfigurations = ipConfigurations;

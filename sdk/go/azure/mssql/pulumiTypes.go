@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -421,8 +421,6 @@ func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringPtrOutput {
 }
 
 type DatabaseLongTermRetentionPolicy struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
-	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -445,8 +443,6 @@ type DatabaseLongTermRetentionPolicyInput interface {
 }
 
 type DatabaseLongTermRetentionPolicyArgs struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
-	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -534,11 +530,6 @@ func (o DatabaseLongTermRetentionPolicyOutput) ToDatabaseLongTermRetentionPolicy
 	}).(DatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-// Specifies if the backups are immutable. Defaults to `false`.
-func (o DatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 func (o DatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
@@ -581,16 +572,6 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) Elem() DatabaseLongTermRetenti
 		var ret DatabaseLongTermRetentionPolicy
 		return ret
 	}).(DatabaseLongTermRetentionPolicyOutput)
-}
-
-// Specifies if the backups are immutable. Defaults to `false`.
-func (o DatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DatabaseLongTermRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ImmutableBackupsEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -792,8 +773,8 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) RetentionDays() pulumi.IntPtr
 type DatabaseThreatDetectionPolicy struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
-	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
+	// Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
+	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
@@ -820,8 +801,8 @@ type DatabaseThreatDetectionPolicyInput interface {
 type DatabaseThreatDetectionPolicyArgs struct {
 	// Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
 	DisabledAlerts pulumi.StringArrayInput `pulumi:"disabledAlerts"`
-	// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
-	EmailAccountAdmins pulumi.StringPtrInput `pulumi:"emailAccountAdmins"`
+	// Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
+	EmailAccountAdminsEnabled pulumi.BoolPtrInput `pulumi:"emailAccountAdminsEnabled"`
 	// A list of email addresses which alerts should be sent to.
 	EmailAddresses pulumi.StringArrayInput `pulumi:"emailAddresses"`
 	// Specifies the number of days to keep in the Threat Detection audit logs.
@@ -916,9 +897,9 @@ func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringArray
 	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) []string { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
-func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *string { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+// Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
+func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DatabaseThreatDetectionPolicy) *bool { return v.EmailAccountAdminsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A list of email addresses which alerts should be sent to.
@@ -980,14 +961,14 @@ func (o DatabaseThreatDetectionPolicyPtrOutput) DisabledAlerts() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
-func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *string {
+// Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
+func (o DatabaseThreatDetectionPolicyPtrOutput) EmailAccountAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) *bool {
 		if v == nil {
 			return nil
 		}
-		return v.EmailAccountAdmins
-	}).(pulumi.StringPtrOutput)
+		return v.EmailAccountAdminsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A list of email addresses which alerts should be sent to.
@@ -2269,8 +2250,6 @@ func (o JobTargetGroupJobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetGr
 }
 
 type ManagedDatabaseLongTermRetentionPolicy struct {
-	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -2293,8 +2272,6 @@ type ManagedDatabaseLongTermRetentionPolicyInput interface {
 }
 
 type ManagedDatabaseLongTermRetentionPolicyArgs struct {
-	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
@@ -2382,11 +2359,6 @@ func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermR
 	}).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-func (o ManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
@@ -2429,16 +2401,6 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) Elem() ManagedDatabaseL
 		var ret ManagedDatabaseLongTermRetentionPolicy
 		return ret
 	}).(ManagedDatabaseLongTermRetentionPolicyOutput)
-}
-
-// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ImmutableBackupsEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -4572,8 +4534,6 @@ func (o VirtualMachineAssessmentSchedulePtrOutput) WeeklyInterval() pulumi.IntPt
 }
 
 type VirtualMachineAutoBackup struct {
-	// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-	EncryptionEnabled *bool `pulumi:"encryptionEnabled"`
 	// Encryption password to use. Setting a password will enable encryption.
 	EncryptionPassword *string `pulumi:"encryptionPassword"`
 	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
@@ -4600,8 +4560,6 @@ type VirtualMachineAutoBackupInput interface {
 }
 
 type VirtualMachineAutoBackupArgs struct {
-	// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-	EncryptionEnabled pulumi.BoolPtrInput `pulumi:"encryptionEnabled"`
 	// Encryption password to use. Setting a password will enable encryption.
 	EncryptionPassword pulumi.StringPtrInput `pulumi:"encryptionPassword"`
 	// A `manualSchedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
@@ -4693,11 +4651,6 @@ func (o VirtualMachineAutoBackupOutput) ToVirtualMachineAutoBackupPtrOutputWithC
 	}).(VirtualMachineAutoBackupPtrOutput)
 }
 
-// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-func (o VirtualMachineAutoBackupOutput) EncryptionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineAutoBackup) *bool { return v.EncryptionEnabled }).(pulumi.BoolPtrOutput)
-}
-
 // Encryption password to use. Setting a password will enable encryption.
 func (o VirtualMachineAutoBackupOutput) EncryptionPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineAutoBackup) *string { return v.EncryptionPassword }).(pulumi.StringPtrOutput)
@@ -4750,16 +4703,6 @@ func (o VirtualMachineAutoBackupPtrOutput) Elem() VirtualMachineAutoBackupOutput
 		var ret VirtualMachineAutoBackup
 		return ret
 	}).(VirtualMachineAutoBackupOutput)
-}
-
-// Deprecated: `encryptionEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryptionPassword` is set; otherwise disabled.
-func (o VirtualMachineAutoBackupPtrOutput) EncryptionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineAutoBackup) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionEnabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 // Encryption password to use. Setting a password will enable encryption.
@@ -7838,8 +7781,6 @@ func (o GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput) Index(i pulu
 }
 
 type GetManagedDatabaseLongTermRetentionPolicy struct {
-	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
-	ImmutableBackupsEnabled bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format.
 	MonthlyRetention string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup.
@@ -7862,8 +7803,6 @@ type GetManagedDatabaseLongTermRetentionPolicyInput interface {
 }
 
 type GetManagedDatabaseLongTermRetentionPolicyArgs struct {
-	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
-	ImmutableBackupsEnabled pulumi.BoolInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format.
 	MonthlyRetention pulumi.StringInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup.
@@ -7923,11 +7862,6 @@ func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ToGetManagedDatabaseLon
 
 func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ToGetManagedDatabaseLongTermRetentionPolicyOutputWithContext(ctx context.Context) GetManagedDatabaseLongTermRetentionPolicyOutput {
 	return o
-}
-
-// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
-func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolOutput)
 }
 
 // The monthly retention policy for an LTR backup in an ISO 8601 format.

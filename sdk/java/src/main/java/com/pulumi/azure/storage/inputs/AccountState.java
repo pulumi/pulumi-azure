@@ -10,11 +10,9 @@ import com.pulumi.azure.storage.inputs.AccountCustomerManagedKeyArgs;
 import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
 import com.pulumi.azure.storage.inputs.AccountImmutabilityPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountNetworkRulesArgs;
-import com.pulumi.azure.storage.inputs.AccountQueuePropertiesArgs;
 import com.pulumi.azure.storage.inputs.AccountRoutingArgs;
 import com.pulumi.azure.storage.inputs.AccountSasPolicyArgs;
 import com.pulumi.azure.storage.inputs.AccountSharePropertiesArgs;
-import com.pulumi.azure.storage.inputs.AccountStaticWebsiteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -98,7 +96,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      * 
      * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
@@ -107,7 +105,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> allowNestedItemsToBePublic;
 
     /**
-     * @return Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+     * @return Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
      * 
      * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
@@ -392,7 +390,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -403,7 +401,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> minTlsVersion;
 
     /**
-     * @return The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+     * @return The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -1049,33 +1047,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `queueProperties` block as defined below.
-     * 
-     * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="queueProperties")
-    private @Nullable Output<AccountQueuePropertiesArgs> queueProperties;
-
-    /**
-     * @return A `queueProperties` block as defined below.
-     * 
-     * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<AccountQueuePropertiesArgs>> queueProperties() {
-        return Optional.ofNullable(this.queueProperties);
-    }
-
-    /**
      * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      * 
      */
@@ -1718,37 +1689,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `staticWebsite` block as defined below.
-     * 
-     * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     * 
-     * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="staticWebsite")
-    private @Nullable Output<AccountStaticWebsiteArgs> staticWebsite;
-
-    /**
-     * @return A `staticWebsite` block as defined below.
-     * 
-     * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-     * 
-     * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-     * 
-     * @deprecated
-     * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<AccountStaticWebsiteArgs>> staticWebsite() {
-        return Optional.ofNullable(this.staticWebsite);
-    }
-
-    /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
      * &gt; **Note:** `queueEncryptionKeyType` and `tableEncryptionKeyType` cannot be set to `Account` when `accountKind` is set `Storage`
@@ -1850,7 +1790,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.provisionedBillingModelVersion = $.provisionedBillingModelVersion;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.queueEncryptionKeyType = $.queueEncryptionKeyType;
-        this.queueProperties = $.queueProperties;
         this.resourceGroupName = $.resourceGroupName;
         this.routing = $.routing;
         this.sasPolicy = $.sasPolicy;
@@ -1893,7 +1832,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.sftpEnabled = $.sftpEnabled;
         this.shareProperties = $.shareProperties;
         this.sharedAccessKeyEnabled = $.sharedAccessKeyEnabled;
-        this.staticWebsite = $.staticWebsite;
         this.tableEncryptionKeyType = $.tableEncryptionKeyType;
         this.tags = $.tags;
     }
@@ -2009,7 +1947,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
          * 
          * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
          * 
@@ -2022,7 +1960,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
+         * @param allowNestedItemsToBePublic Allow or disallow nested items within this Account to opt into being public. Defaults to `false`.
          * 
          * &gt; **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
          * 
@@ -2411,7 +2349,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+         * @param minTlsVersion The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -2426,7 +2364,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1` and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
+         * @param minTlsVersion The minimum supported TLS version for the storage account. The only possible value is `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -3326,39 +3264,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queueProperties A `queueProperties` block as defined below.
-         * 
-         * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder queueProperties(@Nullable Output<AccountQueuePropertiesArgs> queueProperties) {
-            $.queueProperties = queueProperties;
-            return this;
-        }
-
-        /**
-         * @param queueProperties A `queueProperties` block as defined below.
-         * 
-         * &gt; **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountQueueProperties` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder queueProperties(AccountQueuePropertiesArgs queueProperties) {
-            return queueProperties(Output.of(queueProperties));
-        }
-
-        /**
          * @param resourceGroupName The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -4250,43 +4155,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sharedAccessKeyEnabled(Boolean sharedAccessKeyEnabled) {
             return sharedAccessKeyEnabled(Output.of(sharedAccessKeyEnabled));
-        }
-
-        /**
-         * @param staticWebsite A `staticWebsite` block as defined below.
-         * 
-         * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-         * 
-         * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder staticWebsite(@Nullable Output<AccountStaticWebsiteArgs> staticWebsite) {
-            $.staticWebsite = staticWebsite;
-            return this;
-        }
-
-        /**
-         * @param staticWebsite A `staticWebsite` block as defined below.
-         * 
-         * &gt; **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
-         * 
-         * &gt; **Note:** If `staticWebsite` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* this block has been deprecated and superseded by the `azure.storage.AccountStaticWebsite` resource and will be removed in v5.0 of the AzureRM provider */
-        public Builder staticWebsite(AccountStaticWebsiteArgs staticWebsite) {
-            return staticWebsite(Output.of(staticWebsite));
         }
 
         /**

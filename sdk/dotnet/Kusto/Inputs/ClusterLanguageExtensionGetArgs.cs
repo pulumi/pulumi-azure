@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Kusto.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+        /// The name of the language extension. Possible values are `PYTHON` and `R`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

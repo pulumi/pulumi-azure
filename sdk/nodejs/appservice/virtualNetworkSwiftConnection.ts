@@ -35,6 +35,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -59,20 +60,20 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "example-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Standard",
  *         size: "S1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: "example-app-service",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const exampleVirtualNetworkSwiftConnection = new azure.appservice.VirtualNetworkSwiftConnection("example", {
  *     appServiceId: exampleAppService.id,
@@ -85,6 +86,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -109,14 +111,14 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "example-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Standard",
  *         size: "S1",
- *     },
+ *     }],
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "functionsappexamplesa",
@@ -125,11 +127,11 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ * const exampleFunctionApp = new azurerm.index.FunctionApp("example", {
  *     name: "example-function-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });

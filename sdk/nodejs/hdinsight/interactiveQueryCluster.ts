@@ -35,28 +35,29 @@ import * as utilities from "../utilities";
  *     name: "example-hdicluster",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     clusterVersion: "3.6",
+ *     clusterVersion: "5.1",
  *     tier: "Standard",
+ *     tlsMinVersion: "1.2",
  *     componentVersion: {
- *         interactiveHive: "2.1",
+ *         interactiveHive: "3.1",
  *     },
  *     gateway: {
  *         username: "acctestusrgw",
  *         password: "Password!",
  *     },
  *     storageAccounts: [{
- *         storageContainerId: exampleContainer.id,
+ *         storageContainerUrl: exampleContainer.url,
  *         storageAccountKey: exampleAccount.primaryAccessKey,
  *         isDefault: true,
  *     }],
  *     roles: {
  *         headNode: {
- *             vmSize: "Standard_D13_V2",
+ *             vmSize: "Standard_A4_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *         },
  *         workerNode: {
- *             vmSize: "Standard_D14_V2",
+ *             vmSize: "Standard_A4_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *             targetInstanceCount: 3,
@@ -203,10 +204,8 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
     declare public readonly tier: pulumi.Output<string>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-     *
-     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    declare public readonly tlsMinVersion: pulumi.Output<string | undefined>;
+    declare public readonly tlsMinVersion: pulumi.Output<string>;
 
     /**
      * Create a InteractiveQueryCluster resource with the given unique name, arguments, and options.
@@ -263,6 +262,9 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             }
             if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
+            }
+            if (args?.tlsMinVersion === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tlsMinVersion'");
             }
             resourceInputs["clusterVersion"] = args?.clusterVersion;
             resourceInputs["componentVersion"] = args?.componentVersion;
@@ -387,8 +389,6 @@ export interface InteractiveQueryClusterState {
     tier?: pulumi.Input<string | undefined>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-     *
-     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     tlsMinVersion?: pulumi.Input<string | undefined>;
 }
@@ -479,8 +479,6 @@ export interface InteractiveQueryClusterArgs {
     tier: pulumi.Input<string>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-     *
-     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    tlsMinVersion?: pulumi.Input<string | undefined>;
+    tlsMinVersion: pulumi.Input<string>;
 }

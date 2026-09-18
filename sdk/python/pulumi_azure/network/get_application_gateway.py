@@ -27,10 +27,7 @@ class GetApplicationGatewayResult:
     """
     A collection of values returned by getApplicationGateway.
     """
-    def __init__(__self__, authentication_certificates=None, autoscale_configurations=None, backend_address_pools=None, backend_http_settings=None, backends=None, custom_error_configurations=None, fips_enabled=None, firewall_policy_id=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, globals=None, http2_enabled=None, http_listeners=None, id=None, identities=None, listeners=None, location=None, name=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, routing_rules=None, skus=None, ssl_certificates=None, ssl_policies=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, url_path_maps=None, waf_configurations=None, zones=None):
-        if authentication_certificates and not isinstance(authentication_certificates, list):
-            raise TypeError("Expected argument 'authentication_certificates' to be a list")
-        pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+    def __init__(__self__, autoscale_configurations=None, backend_address_pools=None, backend_http_settings=None, backends=None, custom_error_configurations=None, fips_enabled=None, firewall_policy_id=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, globals=None, http2_enabled=None, http_listeners=None, id=None, identities=None, listeners=None, location=None, name=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, routing_rules=None, skus=None, ssl_certificates=None, ssl_policies=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, url_path_maps=None, waf_configurations=None, zones=None):
         if autoscale_configurations and not isinstance(autoscale_configurations, list):
             raise TypeError("Expected argument 'autoscale_configurations' to be a list")
         pulumi.set(__self__, "autoscale_configurations", autoscale_configurations)
@@ -142,14 +139,6 @@ class GetApplicationGatewayResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> Sequence['outputs.GetApplicationGatewayAuthenticationCertificateResult']:
-        """
-        One or more `authentication_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "authentication_certificates")
 
     @_builtins.property
     @pulumi.getter(name="autoscaleConfigurations")
@@ -448,7 +437,6 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
         if False:
             yield self
         return GetApplicationGatewayResult(
-            authentication_certificates=self.authentication_certificates,
             autoscale_configurations=self.autoscale_configurations,
             backend_address_pools=self.backend_address_pools,
             backend_http_settings=self.backend_http_settings,
@@ -523,7 +511,6 @@ def get_application_gateway(name: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationGateway:getApplicationGateway', __args__, opts=opts, typ=GetApplicationGatewayResult).value
 
     return AwaitableGetApplicationGatewayResult(
-        authentication_certificates=pulumi.get(__ret__, 'authentication_certificates'),
         autoscale_configurations=pulumi.get(__ret__, 'autoscale_configurations'),
         backend_address_pools=pulumi.get(__ret__, 'backend_address_pools'),
         backend_http_settings=pulumi.get(__ret__, 'backend_http_settings'),
@@ -595,7 +582,6 @@ def get_application_gateway_output(name: pulumi.Input[Optional[_builtins.str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:network/getApplicationGateway:getApplicationGateway', __args__, opts=opts, typ=GetApplicationGatewayResult)
     return __ret__.apply(lambda __response__: GetApplicationGatewayResult(
-        authentication_certificates=pulumi.get(__response__, 'authentication_certificates'),
         autoscale_configurations=pulumi.get(__response__, 'autoscale_configurations'),
         backend_address_pools=pulumi.get(__response__, 'backend_address_pools'),
         backend_http_settings=pulumi.get(__response__, 'backend_http_settings'),

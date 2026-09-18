@@ -104,8 +104,7 @@ import javax.annotation.Nullable;
  * 
  *         var primaryZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("primaryZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("primary-link")
- *             .resourceGroupName(primary.name())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(primaryVirtualNetwork.id())
  *             .build());
  * 
@@ -180,8 +179,7 @@ import javax.annotation.Nullable;
  * 
  *         var failoverZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("failoverZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("failover-link")
- *             .resourceGroupName(exampleZone.resourceGroupName())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(failoverVirtualNetwork.id())
  *             .build());
  * 

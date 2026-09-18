@@ -102,6 +102,10 @@ class AutomationActionArgsDict(TypedDict):
     """
     The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
     """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
+    """
     connection_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
@@ -114,35 +118,30 @@ class AutomationActionArgsDict(TypedDict):
 
     > **Note:** `trigger_url` is required when `type` is `LogicApp`.
     """
-    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
-    """
 
 @pulumi.input_type
 class AutomationActionArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 trigger_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 trigger_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] resource_id: The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
+        :param pulumi.Input[_builtins.str] type: Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         :param pulumi.Input[_builtins.str] connection_string: A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
                
                > **Note:** `connection_string` is required when `type` is `EventHub`.
         :param pulumi.Input[_builtins.str] trigger_url: The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
                
                > **Note:** `trigger_url` is required when `type` is `LogicApp`.
-        :param pulumi.Input[_builtins.str] type: Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         """
         pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "type", type)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
         if trigger_url is not None:
             pulumi.set(__self__, "trigger_url", trigger_url)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -155,6 +154,18 @@ class AutomationActionArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
@@ -183,18 +194,6 @@ class AutomationActionArgs:
     @trigger_url.setter
     def trigger_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trigger_url", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "type", value)
 
 
 class AutomationSourceArgsDict(TypedDict):

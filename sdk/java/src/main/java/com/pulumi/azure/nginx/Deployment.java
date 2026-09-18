@@ -10,14 +10,12 @@ import com.pulumi.azure.nginx.outputs.DeploymentAutoScaleProfile;
 import com.pulumi.azure.nginx.outputs.DeploymentFrontendPrivate;
 import com.pulumi.azure.nginx.outputs.DeploymentFrontendPublic;
 import com.pulumi.azure.nginx.outputs.DeploymentIdentity;
-import com.pulumi.azure.nginx.outputs.DeploymentLoggingStorageAccount;
 import com.pulumi.azure.nginx.outputs.DeploymentNetworkInterface;
 import com.pulumi.azure.nginx.outputs.DeploymentWebApplicationFirewall;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -199,18 +197,6 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.dataplaneApiEndpoint;
     }
     /**
-     * @deprecated
-     * this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed in v5.0, metrics are enabled by default. */
-    @Export(name="diagnoseSupportEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> diagnoseSupportEnabled;
-
-    public Output<Optional<Boolean>> diagnoseSupportEnabled() {
-        return Codegen.optional(this.diagnoseSupportEnabled);
-    }
-    /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      * 
      */
@@ -293,30 +279,6 @@ public class Deployment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> location() {
         return this.location;
-    }
-    /**
-     * @deprecated
-     * The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-     * 
-     */
-    @Deprecated /* The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead. */
-    @Export(name="loggingStorageAccounts", refs={List.class,DeploymentLoggingStorageAccount.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<DeploymentLoggingStorageAccount>> loggingStorageAccounts;
-
-    public Output<Optional<List<DeploymentLoggingStorageAccount>>> loggingStorageAccounts() {
-        return Codegen.optional(this.loggingStorageAccounts);
-    }
-    /**
-     * @deprecated
-     * The `managedResourceGroup` field isn&#39;t supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider. */
-    @Export(name="managedResourceGroup", refs={String.class}, tree="[0]")
-    private Output<String> managedResourceGroup;
-
-    public Output<String> managedResourceGroup() {
-        return this.managedResourceGroup;
     }
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.

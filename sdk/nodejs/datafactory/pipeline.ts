@@ -126,7 +126,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      */
-    declare public readonly moniterMetricsAfterDuration: pulumi.Output<string | undefined>;
+    declare public readonly monitorMetricsAfterDuration: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -159,7 +159,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["dataFactoryId"] = state?.dataFactoryId;
             resourceInputs["description"] = state?.description;
             resourceInputs["folder"] = state?.folder;
-            resourceInputs["moniterMetricsAfterDuration"] = state?.moniterMetricsAfterDuration;
+            resourceInputs["monitorMetricsAfterDuration"] = state?.monitorMetricsAfterDuration;
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
             resourceInputs["variables"] = state?.variables;
@@ -174,7 +174,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["dataFactoryId"] = args?.dataFactoryId;
             resourceInputs["description"] = args?.description;
             resourceInputs["folder"] = args?.folder;
-            resourceInputs["moniterMetricsAfterDuration"] = args?.moniterMetricsAfterDuration;
+            resourceInputs["monitorMetricsAfterDuration"] = args?.monitorMetricsAfterDuration;
             resourceInputs["name"] = args?.name;
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["variables"] = args?.variables;
@@ -215,7 +215,7 @@ export interface PipelineState {
     /**
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      */
-    moniterMetricsAfterDuration?: pulumi.Input<string | undefined>;
+    monitorMetricsAfterDuration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -261,7 +261,7 @@ export interface PipelineArgs {
     /**
      * The TimeSpan value after which an Azure Monitoring Metric is fired.
      */
-    moniterMetricsAfterDuration?: pulumi.Input<string | undefined>;
+    monitorMetricsAfterDuration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */

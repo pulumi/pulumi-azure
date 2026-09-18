@@ -18,10 +18,6 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? AffinityCookieName;
         /// <summary>
-        /// One or more `AuthenticationCertificateBackend` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate> AuthenticationCertificates;
-        /// <summary>
         /// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `True`.
         /// </summary>
         public readonly bool? CertificateChainValidationEnabled;
@@ -46,7 +42,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The name of the Authentication Certificate.
+        /// The name of the Backend HTTP Settings Collection.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -96,8 +92,6 @@ namespace Pulumi.Azure.Network.Outputs
         private ApplicationGatewayBackendHttpSetting(
             string? affinityCookieName,
 
-            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates,
-
             bool? certificateChainValidationEnabled,
 
             Outputs.ApplicationGatewayBackendHttpSettingConnectionDraining? connectionDraining,
@@ -133,7 +127,6 @@ namespace Pulumi.Azure.Network.Outputs
             ImmutableArray<string> trustedRootCertificateNames)
         {
             AffinityCookieName = affinityCookieName;
-            AuthenticationCertificates = authenticationCertificates;
             CertificateChainValidationEnabled = certificateChainValidationEnabled;
             ConnectionDraining = connectionDraining;
             CookieBasedAffinity = cookieBasedAffinity;

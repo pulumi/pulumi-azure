@@ -82,7 +82,7 @@ class WindowsWebAppSlotArgs:
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
+        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -436,7 +436,7 @@ class WindowsWebAppSlotArgs:
     @pulumi.getter(name="virtualNetworkImagePullEnabled")
     def virtual_network_image_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether traffic for the image pull should be routed over the virtual network.
+        Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 
         > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         """
@@ -571,7 +571,7 @@ class _WindowsWebAppSlotState:
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
+        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -1053,7 +1053,7 @@ class _WindowsWebAppSlotState:
     @pulumi.getter(name="virtualNetworkImagePullEnabled")
     def virtual_network_image_pull_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether traffic for the image pull should be routed over the virtual network.
+        Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 
         > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         """
@@ -1219,7 +1219,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
+        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -1470,7 +1470,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network.
+        :param pulumi.Input[_builtins.bool] virtual_network_image_pull_enabled: Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
                
                > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -1791,9 +1791,9 @@ class WindowsWebAppSlot(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkImagePullEnabled")
-    def virtual_network_image_pull_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def virtual_network_image_pull_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether traffic for the image pull should be routed over the virtual network.
+        Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
 
         > **Note:** `virtual_network_image_pull_enabled` must be set to `true` when running in an App Service Environment.
         """

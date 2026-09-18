@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing",
  * });
  * export const id = example.then(example => example.id);
- * export const exampleOutput = example.then(example => std.jsondecode({
- *     input: example.outputContent,
- * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * export const exampleOutput = std.jsondecode({
+ *     input: example.then(example => example.outputContent),
+ * }).result.exampleOutput.value;
  * ```
  */
 export function getResourceGroupTemplateDeployment(args: GetResourceGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupTemplateDeploymentResult> {
@@ -76,9 +76,9 @@ export interface GetResourceGroupTemplateDeploymentResult {
  *     resourceGroupName: "existing",
  * });
  * export const id = example.then(example => example.id);
- * export const exampleOutput = example.then(example => std.jsondecode({
- *     input: example.outputContent,
- * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * export const exampleOutput = std.jsondecode({
+ *     input: example.then(example => example.outputContent),
+ * }).result.exampleOutput.value;
  * ```
  */
 export function getResourceGroupTemplateDeploymentOutput(args: GetResourceGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupTemplateDeploymentResult> {

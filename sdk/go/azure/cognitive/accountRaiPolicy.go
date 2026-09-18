@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cognitive"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cognitive"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +90,7 @@ type AccountRaiPolicy struct {
 	BasePolicyName pulumi.StringOutput `pulumi:"basePolicyName"`
 	// The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringOutput `pulumi:"cognitiveAccountId"`
-	// A `contentFilter` block as defined below.
+	// One or more `contentFilter` blocks as defined below.
 	ContentFilters AccountRaiPolicyContentFilterArrayOutput `pulumi:"contentFilters"`
 	// The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
@@ -143,7 +143,7 @@ type accountRaiPolicyState struct {
 	BasePolicyName *string `pulumi:"basePolicyName"`
 	// The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
-	// A `contentFilter` block as defined below.
+	// One or more `contentFilter` blocks as defined below.
 	ContentFilters []AccountRaiPolicyContentFilter `pulumi:"contentFilters"`
 	// The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
 	Mode *string `pulumi:"mode"`
@@ -158,7 +158,7 @@ type AccountRaiPolicyState struct {
 	BasePolicyName pulumi.StringPtrInput
 	// The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
-	// A `contentFilter` block as defined below.
+	// One or more `contentFilter` blocks as defined below.
 	ContentFilters AccountRaiPolicyContentFilterArrayInput
 	// The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
 	Mode pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type accountRaiPolicyArgs struct {
 	BasePolicyName string `pulumi:"basePolicyName"`
 	// The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
 	CognitiveAccountId string `pulumi:"cognitiveAccountId"`
-	// A `contentFilter` block as defined below.
+	// One or more `contentFilter` blocks as defined below.
 	ContentFilters []AccountRaiPolicyContentFilter `pulumi:"contentFilters"`
 	// The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
 	Mode *string `pulumi:"mode"`
@@ -193,7 +193,7 @@ type AccountRaiPolicyArgs struct {
 	BasePolicyName pulumi.StringInput
 	// The ID of the Cognitive Service Account to which this RAI Policy should be associated. Changing this forces a new resource to be created.
 	CognitiveAccountId pulumi.StringInput
-	// A `contentFilter` block as defined below.
+	// One or more `contentFilter` blocks as defined below.
 	ContentFilters AccountRaiPolicyContentFilterArrayInput
 	// The mode of the RAI Policy. Possible values are `Default`, `Deferred`, `Blocking` or `Asynchronous_filter`.
 	Mode pulumi.StringPtrInput
@@ -300,7 +300,7 @@ func (o AccountRaiPolicyOutput) CognitiveAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountRaiPolicy) pulumi.StringOutput { return v.CognitiveAccountId }).(pulumi.StringOutput)
 }
 
-// A `contentFilter` block as defined below.
+// One or more `contentFilter` blocks as defined below.
 func (o AccountRaiPolicyOutput) ContentFilters() AccountRaiPolicyContentFilterArrayOutput {
 	return o.ApplyT(func(v *AccountRaiPolicy) AccountRaiPolicyContentFilterArrayOutput { return v.ContentFilters }).(AccountRaiPolicyContentFilterArrayOutput)
 }

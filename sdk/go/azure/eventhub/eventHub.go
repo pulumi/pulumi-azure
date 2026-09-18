@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/eventhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,10 +89,8 @@ type EventHub struct {
 	MessageRetention pulumi.IntOutput `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the ID of the EventHub Namespace.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partitionCount` cannot be decreased.
@@ -101,11 +99,11 @@ type EventHub struct {
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayOutput `pulumi:"partitionIds"`
-	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `retentionDescription` block as defined below.
 	RetentionDescription EventHubRetentionDescriptionOutput `pulumi:"retentionDescription"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	//
+	// > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -116,6 +114,9 @@ func NewEventHub(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.NamespaceId == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceId'")
+	}
 	if args.PartitionCount == nil {
 		return nil, errors.New("invalid value for required argument 'PartitionCount'")
 	}
@@ -150,10 +151,8 @@ type eventHubState struct {
 	MessageRetention *int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the EventHub Namespace.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	NamespaceName *string `pulumi:"namespaceName"`
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partitionCount` cannot be decreased.
@@ -162,11 +161,11 @@ type eventHubState struct {
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds []string `pulumi:"partitionIds"`
-	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `retentionDescription` block as defined below.
 	RetentionDescription *EventHubRetentionDescription `pulumi:"retentionDescription"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	//
+	// > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
 	Status *string `pulumi:"status"`
 }
 
@@ -179,10 +178,8 @@ type EventHubState struct {
 	MessageRetention pulumi.IntPtrInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the ID of the EventHub Namespace.
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceId pulumi.StringPtrInput
-	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	NamespaceName pulumi.StringPtrInput
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partitionCount` cannot be decreased.
@@ -191,11 +188,11 @@ type EventHubState struct {
 	PartitionCount pulumi.IntPtrInput
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds pulumi.StringArrayInput
-	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// A `retentionDescription` block as defined below.
 	RetentionDescription EventHubRetentionDescriptionPtrInput
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	//
+	// > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
 	Status pulumi.StringPtrInput
 }
 
@@ -212,21 +209,19 @@ type eventHubArgs struct {
 	MessageRetention *int `pulumi:"messageRetention"`
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the ID of the EventHub Namespace.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	NamespaceName *string `pulumi:"namespaceName"`
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId string `pulumi:"namespaceId"`
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partitionCount` cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount int `pulumi:"partitionCount"`
-	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `retentionDescription` block as defined below.
 	RetentionDescription *EventHubRetentionDescription `pulumi:"retentionDescription"`
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	//
+	// > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
 	Status *string `pulumi:"status"`
 }
 
@@ -240,21 +235,19 @@ type EventHubArgs struct {
 	MessageRetention pulumi.IntPtrInput
 	// Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the ID of the EventHub Namespace.
-	NamespaceId pulumi.StringPtrInput
-	// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	NamespaceName pulumi.StringPtrInput
+	// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
+	NamespaceId pulumi.StringInput
 	// Specifies the current number of shards on the Event Hub.
 	//
 	// > **Note:** When using a shared parent EventHub Namespace, `partitionCount` cannot be changed unless the Eventhub Namespace SKU is `Premium`. When using a dedicated Event Hubs cluster, this restriction doesn't apply. In either case though, the `partitionCount` cannot be decreased.
 	//
 	// > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
 	PartitionCount pulumi.IntInput
-	// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-	ResourceGroupName pulumi.StringPtrInput
 	// A `retentionDescription` block as defined below.
 	RetentionDescription EventHubRetentionDescriptionPtrInput
 	// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+	//
+	// > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
 	Status pulumi.StringPtrInput
 }
 
@@ -362,14 +355,9 @@ func (o EventHubOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the ID of the EventHub Namespace.
+// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
 func (o EventHubOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
-}
-
-// Deprecated: `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-func (o EventHubOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
 }
 
 // Specifies the current number of shards on the Event Hub.
@@ -386,17 +374,14 @@ func (o EventHubOutput) PartitionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringArrayOutput { return v.PartitionIds }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-func (o EventHubOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
-}
-
 // A `retentionDescription` block as defined below.
 func (o EventHubOutput) RetentionDescription() EventHubRetentionDescriptionOutput {
 	return o.ApplyT(func(v *EventHub) EventHubRetentionDescriptionOutput { return v.RetentionDescription }).(EventHubRetentionDescriptionOutput)
 }
 
 // Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+//
+// > **Note:** `status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
 func (o EventHubOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHub) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }

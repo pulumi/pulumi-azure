@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,22 +22,22 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := privatedns.NewMxRecord(ctx, "example", &privatedns.MxRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          pulumi.String("test-zone"),
-//				ResourceGroupName: pulumi.String("test-rg"),
-//			})
+//			example, err := privatedns.LookupMxRecord(ctx, &privatedns.LookupMxRecordArgs{
+//				Name:              pulumi.StringRef("example"),
+//				ZoneName:          "example-zone",
+//				ResourceGroupName: "example-rg",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("privateDnsMxRecordId", pulumi.Any(exampleAzurermPrivateDnsMxRecord.Id))
+//			ctx.Export("privateDnsMxRecordId", example.Id)
 //			return nil
 //		})
 //	}

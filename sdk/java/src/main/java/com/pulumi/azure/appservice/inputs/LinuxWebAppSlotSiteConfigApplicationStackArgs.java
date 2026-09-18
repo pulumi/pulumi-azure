@@ -215,29 +215,6 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         return Optional.ofNullable(this.pythonVersion);
     }
 
-    /**
-     * The version of Ruby to run. Possible values include `2.6` and `2.7`.
-     * 
-     * @deprecated
-     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="rubyVersion")
-    private @Nullable Output<String> rubyVersion;
-
-    /**
-     * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
-     * 
-     * @deprecated
-     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> rubyVersion() {
-        return Optional.ofNullable(this.rubyVersion);
-    }
-
     private LinuxWebAppSlotSiteConfigApplicationStackArgs() {}
 
     private LinuxWebAppSlotSiteConfigApplicationStackArgs(LinuxWebAppSlotSiteConfigApplicationStackArgs $) {
@@ -253,7 +230,6 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         this.nodeVersion = $.nodeVersion;
         this.phpVersion = $.phpVersion;
         this.pythonVersion = $.pythonVersion;
-        this.rubyVersion = $.rubyVersion;
     }
 
     public static Builder builder() {
@@ -544,35 +520,6 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
          */
         public Builder pythonVersion(String pythonVersion) {
             return pythonVersion(Output.of(pythonVersion));
-        }
-
-        /**
-         * @param rubyVersion The version of Ruby to run. Possible values include `2.6` and `2.7`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
-        public Builder rubyVersion(@Nullable Output<String> rubyVersion) {
-            $.rubyVersion = rubyVersion;
-            return this;
-        }
-
-        /**
-         * @param rubyVersion The version of Ruby to run. Possible values include `2.6` and `2.7`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
-        public Builder rubyVersion(String rubyVersion) {
-            return rubyVersion(Output.of(rubyVersion));
         }
 
         public LinuxWebAppSlotSiteConfigApplicationStackArgs build() {

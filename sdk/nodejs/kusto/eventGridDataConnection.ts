@@ -156,11 +156,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
-    declare public readonly eventgridEventSubscriptionId: pulumi.Output<string>;
-    /**
-     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-     */
-    declare public readonly eventgridResourceId: pulumi.Output<string>;
+    declare public readonly eventgridEventSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
@@ -176,11 +172,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
     /**
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
-    declare public readonly managedIdentityId: pulumi.Output<string>;
-    /**
-     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-     */
-    declare public readonly managedIdentityResourceId: pulumi.Output<string>;
+    declare public readonly managedIdentityId: pulumi.Output<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
@@ -225,12 +217,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["databaseName"] = state?.databaseName;
             resourceInputs["databaseRoutingType"] = state?.databaseRoutingType;
             resourceInputs["eventgridEventSubscriptionId"] = state?.eventgridEventSubscriptionId;
-            resourceInputs["eventgridResourceId"] = state?.eventgridResourceId;
             resourceInputs["eventhubConsumerGroupName"] = state?.eventhubConsumerGroupName;
             resourceInputs["eventhubId"] = state?.eventhubId;
             resourceInputs["location"] = state?.location;
             resourceInputs["managedIdentityId"] = state?.managedIdentityId;
-            resourceInputs["managedIdentityResourceId"] = state?.managedIdentityResourceId;
             resourceInputs["mappingRuleName"] = state?.mappingRuleName;
             resourceInputs["name"] = state?.name;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
@@ -263,12 +253,10 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["databaseRoutingType"] = args?.databaseRoutingType;
             resourceInputs["eventgridEventSubscriptionId"] = args?.eventgridEventSubscriptionId;
-            resourceInputs["eventgridResourceId"] = args?.eventgridResourceId;
             resourceInputs["eventhubConsumerGroupName"] = args?.eventhubConsumerGroupName;
             resourceInputs["eventhubId"] = args?.eventhubId;
             resourceInputs["location"] = args?.location;
             resourceInputs["managedIdentityId"] = args?.managedIdentityId;
-            resourceInputs["managedIdentityResourceId"] = args?.managedIdentityResourceId;
             resourceInputs["mappingRuleName"] = args?.mappingRuleName;
             resourceInputs["name"] = args?.name;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -310,10 +298,6 @@ export interface EventGridDataConnectionState {
      */
     eventgridEventSubscriptionId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-     */
-    eventgridResourceId?: pulumi.Input<string | undefined>;
-    /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubConsumerGroupName?: pulumi.Input<string | undefined>;
@@ -329,10 +313,6 @@ export interface EventGridDataConnectionState {
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
     managedIdentityId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-     */
-    managedIdentityResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */
@@ -388,10 +368,6 @@ export interface EventGridDataConnectionArgs {
      */
     eventgridEventSubscriptionId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `eventgridResourceId` has been deprecated in favour of the `eventgridEventSubscriptionId` property and will be removed in v5.0 of the AzureRM Provider.
-     */
-    eventgridResourceId?: pulumi.Input<string | undefined>;
-    /**
      * Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
      */
     eventhubConsumerGroupName: pulumi.Input<string>;
@@ -407,10 +383,6 @@ export interface EventGridDataConnectionArgs {
      * Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
      */
     managedIdentityId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `managedIdentityResourceId` has been deprecated in favour of the `managedIdentityId` property and will be removed in v5.0 of the AzureRM Provider.
-     */
-    managedIdentityResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
      */

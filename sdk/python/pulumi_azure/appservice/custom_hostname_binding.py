@@ -243,6 +243,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
         import pulumi_random as random
 
         server = random.Id("server",
@@ -253,22 +254,22 @@ class CustomHostnameBinding(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="some-resource-group",
             location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=some-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name=server["hex"],
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=server.hex,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
             hostname="www.mywebsite.com",
-            app_service_name=example_app_service.name,
+            app_service_name=example_app_service["name"],
             resource_group_name=example.name)
         ```
 
@@ -314,6 +315,7 @@ class CustomHostnameBinding(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
         import pulumi_random as random
 
         server = random.Id("server",
@@ -324,22 +326,22 @@ class CustomHostnameBinding(pulumi.CustomResource):
         example = azure.core.ResourceGroup("example",
             name="some-resource-group",
             location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=some-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name=server["hex"],
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=server.hex,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
             hostname="www.mywebsite.com",
-            app_service_name=example_app_service.name,
+            app_service_name=example_app_service["name"],
             resource_group_name=example.name)
         ```
 

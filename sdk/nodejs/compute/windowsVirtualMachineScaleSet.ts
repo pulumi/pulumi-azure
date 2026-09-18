@@ -144,6 +144,10 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly automaticOsUpgradePolicy: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
+     * (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     */
+    declare public readonly automaticUpdatesEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * A `bootDiagnostics` block as defined below.
      */
     declare public readonly bootDiagnostics: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics | undefined>;
@@ -177,10 +181,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     */
-    declare public readonly enableAutomaticUpdates: pulumi.Output<boolean | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -298,7 +298,9 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      */
     declare public readonly rollingUpgradePolicy: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
@@ -403,6 +405,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["adminUsername"] = state?.adminUsername;
             resourceInputs["automaticInstanceRepair"] = state?.automaticInstanceRepair;
             resourceInputs["automaticOsUpgradePolicy"] = state?.automaticOsUpgradePolicy;
+            resourceInputs["automaticUpdatesEnabled"] = state?.automaticUpdatesEnabled;
             resourceInputs["bootDiagnostics"] = state?.bootDiagnostics;
             resourceInputs["capacityReservationGroupId"] = state?.capacityReservationGroupId;
             resourceInputs["computerNamePrefix"] = state?.computerNamePrefix;
@@ -410,7 +413,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["dataDisks"] = state?.dataDisks;
             resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = state?.doNotRunExtensionsOnOverprovisionedMachines;
             resourceInputs["edgeZone"] = state?.edgeZone;
-            resourceInputs["enableAutomaticUpdates"] = state?.enableAutomaticUpdates;
             resourceInputs["encryptionAtHostEnabled"] = state?.encryptionAtHostEnabled;
             resourceInputs["evictionPolicy"] = state?.evictionPolicy;
             resourceInputs["extensionOperationsEnabled"] = state?.extensionOperationsEnabled;
@@ -484,6 +486,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["adminUsername"] = args?.adminUsername;
             resourceInputs["automaticInstanceRepair"] = args?.automaticInstanceRepair;
             resourceInputs["automaticOsUpgradePolicy"] = args?.automaticOsUpgradePolicy;
+            resourceInputs["automaticUpdatesEnabled"] = args?.automaticUpdatesEnabled;
             resourceInputs["bootDiagnostics"] = args?.bootDiagnostics;
             resourceInputs["capacityReservationGroupId"] = args?.capacityReservationGroupId;
             resourceInputs["computerNamePrefix"] = args?.computerNamePrefix;
@@ -491,7 +494,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["dataDisks"] = args?.dataDisks;
             resourceInputs["doNotRunExtensionsOnOverprovisionedMachines"] = args?.doNotRunExtensionsOnOverprovisionedMachines;
             resourceInputs["edgeZone"] = args?.edgeZone;
-            resourceInputs["enableAutomaticUpdates"] = args?.enableAutomaticUpdates;
             resourceInputs["encryptionAtHostEnabled"] = args?.encryptionAtHostEnabled;
             resourceInputs["evictionPolicy"] = args?.evictionPolicy;
             resourceInputs["extensionOperationsEnabled"] = args?.extensionOperationsEnabled;
@@ -575,6 +577,10 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
+     * (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     */
+    automaticUpdatesEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics | undefined>;
@@ -608,10 +614,6 @@ export interface WindowsVirtualMachineScaleSetState {
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
     edgeZone?: pulumi.Input<string | undefined>;
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     */
-    enableAutomaticUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -729,7 +731,9 @@ export interface WindowsVirtualMachineScaleSetState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
@@ -847,6 +851,10 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
+     * (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     */
+    automaticUpdatesEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetBootDiagnostics | undefined>;
@@ -880,10 +888,6 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      */
     edgeZone?: pulumi.Input<string | undefined>;
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     */
-    enableAutomaticUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -1001,7 +1005,9 @@ export interface WindowsVirtualMachineScaleSetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**

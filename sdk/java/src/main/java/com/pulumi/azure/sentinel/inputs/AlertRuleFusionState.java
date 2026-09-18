@@ -64,25 +64,6 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * @deprecated
-     * the `name` is deprecated and will be removed in v5.0 version of the provider.
-     * 
-     */
-    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    /**
-     * @deprecated
-     * the `name` is deprecated and will be removed in v5.0 version of the provider.
-     * 
-     */
-    @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
      * One or more `source` blocks as defined below.
      * 
      */
@@ -103,7 +84,6 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
         this.alertRuleTemplateGuid = $.alertRuleTemplateGuid;
         this.enabled = $.enabled;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
-        this.name = $.name;
         this.sources = $.sources;
     }
 
@@ -186,31 +166,6 @@ public final class AlertRuleFusionState extends com.pulumi.resources.ResourceArg
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `name` is deprecated and will be removed in v5.0 version of the provider.
-         * 
-         */
-        @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `name` is deprecated and will be removed in v5.0 version of the provider.
-         * 
-         */
-        @Deprecated /* the `name` is deprecated and will be removed in v5.0 version of the provider. */
-        public Builder name(String name) {
-            return name(Output.of(name));
         }
 
         /**

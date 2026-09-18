@@ -18,7 +18,9 @@ namespace Pulumi.Azure.DevCenter.Outputs
         /// </summary>
         public readonly Outputs.ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount? AdministratorAccount;
         /// <summary>
-        /// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+        /// Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `Kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
         /// </summary>
         public readonly string Kind;
 

@@ -116,6 +116,37 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         """
         Manages a Managed Redis Access Policy Assignment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        current = azuread.client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_managed_redis = azure.managedredis.ManagedRedis("example",
+            name="example-managedredis",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Balanced_B0",
+            default_database={
+                "access_keys_authentication_enabled": True,
+            })
+        example_access_policy_assignment = azure.managedredis.AccessPolicyAssignment("example",
+            managed_redis_id=example_managed_redis.id,
+            object_id=current["objectId"])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache` - 2025-07-01
+
         ## Import
 
         Managed Redis Access Policy Assignments can be imported using the `resource id`, e.g.
@@ -140,6 +171,37 @@ class AccessPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Managed Redis Access Policy Assignment.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        current = azuread.client_config()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_managed_redis = azure.managedredis.ManagedRedis("example",
+            name="example-managedredis",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Balanced_B0",
+            default_database={
+                "access_keys_authentication_enabled": True,
+            })
+        example_access_policy_assignment = azure.managedredis.AccessPolicyAssignment("example",
+            managed_redis_id=example_managed_redis.id,
+            object_id=current["objectId"])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache` - 2025-07-01
 
         ## Import
 

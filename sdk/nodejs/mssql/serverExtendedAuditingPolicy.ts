@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("example", {
  *     serverId: exampleServer.id,
- *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
+ *     blobStorageEndpoint: exampleAccount.primaryBlobEndpoint,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     storageAccountAccessKeyIsSecondary: false,
  *     retentionInDays: 6,
@@ -66,8 +66,12 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: [
- *         "Microsoft.Sql",
- *         "Microsoft.Storage",
+ *         {
+ *             service: "Microsoft.Sql",
+ *         },
+ *         {
+ *             service: "Microsoft.Storage",
+ *         },
  *     ],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
@@ -120,7 +124,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("example", {
- *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
+ *     blobStorageEndpoint: exampleAccount.primaryBlobEndpoint,
  *     serverId: exampleServer.id,
  *     retentionInDays: 6,
  *     logMonitoringEnabled: false,
@@ -174,9 +178,13 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
      */
     declare public readonly auditActionsAndGroups: pulumi.Output<string[]>;
     /**
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+     */
+    declare public readonly blobStorageEndpoint: pulumi.Output<string | undefined>;
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
-     * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
@@ -207,10 +215,6 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
      * The ID of the Subscription containing the Storage Account.
      */
     declare public readonly storageAccountSubscriptionId: pulumi.Output<string | undefined>;
-    /**
-     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-     */
-    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerExtendedAuditingPolicy resource with the given unique name, arguments, and options.
@@ -226,6 +230,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServerExtendedAuditingPolicyState | undefined;
             resourceInputs["auditActionsAndGroups"] = state?.auditActionsAndGroups;
+            resourceInputs["blobStorageEndpoint"] = state?.blobStorageEndpoint;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["logMonitoringEnabled"] = state?.logMonitoringEnabled;
             resourceInputs["predicateExpression"] = state?.predicateExpression;
@@ -234,13 +239,13 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["storageAccountAccessKey"] = state?.storageAccountAccessKey;
             resourceInputs["storageAccountAccessKeyIsSecondary"] = state?.storageAccountAccessKeyIsSecondary;
             resourceInputs["storageAccountSubscriptionId"] = state?.storageAccountSubscriptionId;
-            resourceInputs["storageEndpoint"] = state?.storageEndpoint;
         } else {
             const args = argsOrState as ServerExtendedAuditingPolicyArgs | undefined;
             if (args?.serverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
             resourceInputs["auditActionsAndGroups"] = args?.auditActionsAndGroups;
+            resourceInputs["blobStorageEndpoint"] = args?.blobStorageEndpoint;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["logMonitoringEnabled"] = args?.logMonitoringEnabled;
             resourceInputs["predicateExpression"] = args?.predicateExpression;
@@ -249,7 +254,6 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey ? pulumi.secret(args.storageAccountAccessKey) : undefined;
             resourceInputs["storageAccountAccessKeyIsSecondary"] = args?.storageAccountAccessKeyIsSecondary;
             resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId ? pulumi.secret(args.storageAccountSubscriptionId) : undefined;
-            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey", "storageAccountSubscriptionId"] };
@@ -267,9 +271,13 @@ export interface ServerExtendedAuditingPolicyState {
      */
     auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+     */
+    blobStorageEndpoint?: pulumi.Input<string | undefined>;
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
-     * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -300,10 +308,6 @@ export interface ServerExtendedAuditingPolicyState {
      * The ID of the Subscription containing the Storage Account.
      */
     storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
-    /**
-     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-     */
-    storageEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -315,9 +319,13 @@ export interface ServerExtendedAuditingPolicyArgs {
      */
     auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+     */
+    blobStorageEndpoint?: pulumi.Input<string | undefined>;
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
-     * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -348,8 +356,4 @@ export interface ServerExtendedAuditingPolicyArgs {
      * The ID of the Subscription containing the Storage Account.
      */
     storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
-    /**
-     * The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-     */
-    storageEndpoint?: pulumi.Input<string | undefined>;
 }

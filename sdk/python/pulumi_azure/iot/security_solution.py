@@ -34,7 +34,7 @@ class SecuritySolutionArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
                  query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']] = None,
+                 recommendations: pulumi.Input[Optional['SecuritySolutionRecommendationsArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecuritySolution resource.
@@ -52,7 +52,7 @@ class SecuritySolutionArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
-        :param pulumi.Input['SecuritySolutionRecommendationsEnabledArgs'] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
+        :param pulumi.Input['SecuritySolutionRecommendationsArgs'] recommendations: A `recommendations` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -78,8 +78,8 @@ class SecuritySolutionArgs:
             pulumi.set(__self__, "query_for_resources", query_for_resources)
         if query_subscription_ids is not None:
             pulumi.set(__self__, "query_subscription_ids", query_subscription_ids)
-        if recommendations_enabled is not None:
-            pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
+        if recommendations is not None:
+            pulumi.set(__self__, "recommendations", recommendations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -240,16 +240,16 @@ class SecuritySolutionArgs:
         pulumi.set(self, "query_subscription_ids", value)
 
     @_builtins.property
-    @pulumi.getter(name="recommendationsEnabled")
-    def recommendations_enabled(self) -> pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]:
+    @pulumi.getter
+    def recommendations(self) -> pulumi.Input[Optional['SecuritySolutionRecommendationsArgs']]:
         """
-        A `recommendations_enabled` block of options to enable or disable as defined below.
+        A `recommendations` block as defined below.
         """
-        return pulumi.get(self, "recommendations_enabled")
+        return pulumi.get(self, "recommendations")
 
-    @recommendations_enabled.setter
-    def recommendations_enabled(self, value: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]):
-        pulumi.set(self, "recommendations_enabled", value)
+    @recommendations.setter
+    def recommendations(self, value: pulumi.Input[Optional['SecuritySolutionRecommendationsArgs']]):
+        pulumi.set(self, "recommendations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -279,7 +279,7 @@ class _SecuritySolutionState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
                  query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']] = None,
+                 recommendations: pulumi.Input[Optional['SecuritySolutionRecommendationsArgs']] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -297,7 +297,7 @@ class _SecuritySolutionState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
-        :param pulumi.Input['SecuritySolutionRecommendationsEnabledArgs'] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
+        :param pulumi.Input['SecuritySolutionRecommendationsArgs'] recommendations: A `recommendations` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -325,8 +325,8 @@ class _SecuritySolutionState:
             pulumi.set(__self__, "query_for_resources", query_for_resources)
         if query_subscription_ids is not None:
             pulumi.set(__self__, "query_subscription_ids", query_subscription_ids)
-        if recommendations_enabled is not None:
-            pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
+        if recommendations is not None:
+            pulumi.set(__self__, "recommendations", recommendations)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -477,16 +477,16 @@ class _SecuritySolutionState:
         pulumi.set(self, "query_subscription_ids", value)
 
     @_builtins.property
-    @pulumi.getter(name="recommendationsEnabled")
-    def recommendations_enabled(self) -> pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]:
+    @pulumi.getter
+    def recommendations(self) -> pulumi.Input[Optional['SecuritySolutionRecommendationsArgs']]:
         """
-        A `recommendations_enabled` block of options to enable or disable as defined below.
+        A `recommendations` block as defined below.
         """
-        return pulumi.get(self, "recommendations_enabled")
+        return pulumi.get(self, "recommendations")
 
-    @recommendations_enabled.setter
-    def recommendations_enabled(self, value: pulumi.Input[Optional['SecuritySolutionRecommendationsEnabledArgs']]):
-        pulumi.set(self, "recommendations_enabled", value)
+    @recommendations.setter
+    def recommendations(self, value: pulumi.Input[Optional['SecuritySolutionRecommendationsArgs']]):
+        pulumi.set(self, "recommendations", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -531,7 +531,7 @@ class SecuritySolution(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
                  query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
+                 recommendations: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsArgs', 'SecuritySolutionRecommendationsArgsDict']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -586,7 +586,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
-        :param pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
+        :param pulumi.Input[Union['SecuritySolutionRecommendationsArgs', 'SecuritySolutionRecommendationsArgsDict']] recommendations: A `recommendations` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -660,7 +660,7 @@ class SecuritySolution(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
                  query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 recommendations_enabled: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
+                 recommendations: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsArgs', 'SecuritySolutionRecommendationsArgsDict']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -688,7 +688,7 @@ class SecuritySolution(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["query_for_resources"] = query_for_resources
             __props__.__dict__["query_subscription_ids"] = query_subscription_ids
-            __props__.__dict__["recommendations_enabled"] = recommendations_enabled
+            __props__.__dict__["recommendations"] = recommendations
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -715,7 +715,7 @@ class SecuritySolution(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query_for_resources: pulumi.Input[Optional[_builtins.str]] = None,
             query_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            recommendations_enabled: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']]] = None,
+            recommendations: pulumi.Input[Optional[Union['SecuritySolutionRecommendationsArgs', 'SecuritySolutionRecommendationsArgsDict']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SecuritySolution':
         """
@@ -737,7 +737,7 @@ class SecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] query_for_resources: An Azure Resource Graph query used to set the resources monitored.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] query_subscription_ids: A list of subscription Ids on which the user defined resources query should be executed.
-        :param pulumi.Input[Union['SecuritySolutionRecommendationsEnabledArgs', 'SecuritySolutionRecommendationsEnabledArgsDict']] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
+        :param pulumi.Input[Union['SecuritySolutionRecommendationsArgs', 'SecuritySolutionRecommendationsArgsDict']] recommendations: A `recommendations` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -757,7 +757,7 @@ class SecuritySolution(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["query_for_resources"] = query_for_resources
         __props__.__dict__["query_subscription_ids"] = query_subscription_ids
-        __props__.__dict__["recommendations_enabled"] = recommendations_enabled
+        __props__.__dict__["recommendations"] = recommendations
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         return SecuritySolution(resource_name, opts=opts, __props__=__props__)
@@ -859,12 +859,12 @@ class SecuritySolution(pulumi.CustomResource):
         return pulumi.get(self, "query_subscription_ids")
 
     @_builtins.property
-    @pulumi.getter(name="recommendationsEnabled")
-    def recommendations_enabled(self) -> pulumi.Output['outputs.SecuritySolutionRecommendationsEnabled']:
+    @pulumi.getter
+    def recommendations(self) -> pulumi.Output['outputs.SecuritySolutionRecommendations']:
         """
-        A `recommendations_enabled` block of options to enable or disable as defined below.
+        A `recommendations` block as defined below.
         """
-        return pulumi.get(self, "recommendations_enabled")
+        return pulumi.get(self, "recommendations")
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")

@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 /**
  * ## Disclaimers
  * 
- * &gt; **Note:** A Built-in Anomaly Alert Rule could not be deleted. delete a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
+ * &gt; **Note:** A Built-in Anomaly Alert Rule cannot be deleted. Deleting a Terraform managed Built-in Anomaly Alert Rule will cause the Built-in Anomaly Alert Rule to be disabled.
  * 
  * Manages a Built-in Anomaly Alert Rule.
  * 
@@ -94,6 +94,15 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ * 
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+ * 
  * ## Import
  * 
  * Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.
@@ -148,7 +157,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.description;
     }
     /**
-     * The Display Name of the built-in Anomaly Alert Rule.
+     * The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
@@ -157,7 +166,7 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
     private Output<String> displayName;
 
     /**
-     * @return The Display Name of the built-in Anomaly Alert Rule.
+     * @return The Display Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** One of `name` or `displayName` block must be specified.
      * 
@@ -236,14 +245,14 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
         return this.multiSelectObservations;
     }
     /**
-     * The Name of the built-in Anomaly Alert Rule.
+     * The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The Name of the built-in Anomaly Alert Rule.
+     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

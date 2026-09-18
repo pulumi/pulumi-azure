@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +25,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/databricks"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/databricks"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,9 +114,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/databricks"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/databricks"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -198,10 +198,8 @@ type LinkedServiceAzureDatabricks struct {
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput `pulumi:"keyVaultPassword"`
-	// Deprecated: The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-	MsiWorkSpaceResourceId pulumi.StringOutput `pulumi:"msiWorkSpaceResourceId"`
 	// Authenticate to ADB via managed service identity.
-	MsiWorkspaceId pulumi.StringOutput `pulumi:"msiWorkspaceId"`
+	MsiWorkspaceId pulumi.StringPtrOutput `pulumi:"msiWorkspaceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates new clusters within the linked ADB instance as defined in the `newClusterConfig` block below.
@@ -273,8 +271,6 @@ type linkedServiceAzureDatabricksState struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword *LinkedServiceAzureDatabricksKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Deprecated: The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
 	// Authenticate to ADB via managed service identity.
 	MsiWorkspaceId *string `pulumi:"msiWorkspaceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -306,8 +302,6 @@ type LinkedServiceAzureDatabricksState struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput
-	// Deprecated: The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-	MsiWorkSpaceResourceId pulumi.StringPtrInput
 	// Authenticate to ADB via managed service identity.
 	MsiWorkspaceId pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -343,8 +337,6 @@ type linkedServiceAzureDatabricksArgs struct {
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword *LinkedServiceAzureDatabricksKeyVaultPassword `pulumi:"keyVaultPassword"`
-	// Deprecated: The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-	MsiWorkSpaceResourceId *string `pulumi:"msiWorkSpaceResourceId"`
 	// Authenticate to ADB via managed service identity.
 	MsiWorkspaceId *string `pulumi:"msiWorkspaceId"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -377,8 +369,6 @@ type LinkedServiceAzureDatabricksArgs struct {
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
 	KeyVaultPassword LinkedServiceAzureDatabricksKeyVaultPasswordPtrInput
-	// Deprecated: The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-	MsiWorkSpaceResourceId pulumi.StringPtrInput
 	// Authenticate to ADB via managed service identity.
 	MsiWorkspaceId pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -530,14 +520,9 @@ func (o LinkedServiceAzureDatabricksOutput) KeyVaultPassword() LinkedServiceAzur
 	}).(LinkedServiceAzureDatabricksKeyVaultPasswordPtrOutput)
 }
 
-// Deprecated: The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-func (o LinkedServiceAzureDatabricksOutput) MsiWorkSpaceResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringOutput { return v.MsiWorkSpaceResourceId }).(pulumi.StringOutput)
-}
-
 // Authenticate to ADB via managed service identity.
-func (o LinkedServiceAzureDatabricksOutput) MsiWorkspaceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringOutput { return v.MsiWorkspaceId }).(pulumi.StringOutput)
+func (o LinkedServiceAzureDatabricksOutput) MsiWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceAzureDatabricks) pulumi.StringPtrOutput { return v.MsiWorkspaceId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

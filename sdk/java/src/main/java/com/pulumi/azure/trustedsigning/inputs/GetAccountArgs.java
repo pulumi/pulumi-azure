@@ -15,14 +15,14 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAccountArgs Empty = new GetAccountArgs();
 
     /**
-     * The name of the Trusted Signing Account.
+     * The name of the Artifact Signing Account.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Trusted Signing Account.
+     * @return The name of the Artifact Signing Account.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Resource Group where the Trusted Signing Account exists.
+     * The name of the Resource Group where the Artifact Signing Account exists.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Trusted Signing Account exists.
+     * @return The name of the Resource Group where the Artifact Signing Account exists.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -70,7 +70,7 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Trusted Signing Account.
+         * @param name The name of the Artifact Signing Account.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the Trusted Signing Account.
+         * @param name The name of the Artifact Signing Account.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Trusted Signing Account exists.
+         * @param resourceGroupName The name of the Resource Group where the Artifact Signing Account exists.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class GetAccountArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Trusted Signing Account exists.
+         * @param resourceGroupName The name of the Resource Group where the Artifact Signing Account exists.
          * 
          * @return builder
          * 

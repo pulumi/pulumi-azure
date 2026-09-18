@@ -27,11 +27,11 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Trusted Signing Account.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
@@ -46,7 +46,7 @@ class AccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -58,7 +58,7 @@ class AccountArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+        The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -70,7 +70,7 @@ class AccountArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "location")
 
@@ -82,7 +82,7 @@ class AccountArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+        The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +94,7 @@ class AccountArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A mapping of tags which should be assigned to the Trusted Signing Account.
+        A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         return pulumi.get(self, "tags")
 
@@ -115,12 +115,12 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
 
-        :param pulumi.Input[_builtins.str] account_uri: The URI of the Trusted Signing Account which is used during signing files.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Trusted Signing Account.
+        :param pulumi.Input[_builtins.str] account_uri: The URI of the Artifact Signing Account which is used during signing files.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         if account_uri is not None:
             pulumi.set(__self__, "account_uri", account_uri)
@@ -139,7 +139,7 @@ class _AccountState:
     @pulumi.getter(name="accountUri")
     def account_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The URI of the Trusted Signing Account which is used during signing files.
+        The URI of the Artifact Signing Account which is used during signing files.
         """
         return pulumi.get(self, "account_uri")
 
@@ -151,7 +151,7 @@ class _AccountState:
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "location")
 
@@ -163,7 +163,7 @@ class _AccountState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+        The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "name")
 
@@ -175,7 +175,7 @@ class _AccountState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -187,7 +187,7 @@ class _AccountState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+        The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -199,7 +199,7 @@ class _AccountState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A mapping of tags which should be assigned to the Trusted Signing Account.
+        A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         return pulumi.get(self, "tags")
 
@@ -221,7 +221,9 @@ class Account(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Trusted Signing Account.
+        Manages a Trusted Signing Account (Artifact Signing Account).
+
+        > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
 
         ## Example Usage
 
@@ -244,11 +246,11 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CodeSigning` - 2024-09-30-preview
+        * `Microsoft.CodeSigning` - 2025-10-13
 
         ## Import
 
-        Trusted Signing Accounts can be imported using the `resource id`, e.g.
+        Artifact Signing Accounts can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
@@ -257,11 +259,11 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Trusted Signing Account.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         ...
     @overload
@@ -270,7 +272,9 @@ class Account(pulumi.CustomResource):
                  args: AccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Trusted Signing Account.
+        Manages a Trusted Signing Account (Artifact Signing Account).
+
+        > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
 
         ## Example Usage
 
@@ -293,11 +297,11 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CodeSigning` - 2024-09-30-preview
+        * `Microsoft.CodeSigning` - 2025-10-13
 
         ## Import
 
-        Trusted Signing Accounts can be imported using the `resource id`, e.g.
+        Artifact Signing Accounts can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
@@ -366,12 +370,12 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_uri: The URI of the Trusted Signing Account which is used during signing files.
-        :param pulumi.Input[_builtins.str] location: The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
-        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Trusted Signing Account.
+        :param pulumi.Input[_builtins.str] account_uri: The URI of the Artifact Signing Account which is used during signing files.
+        :param pulumi.Input[_builtins.str] location: The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
+        :param pulumi.Input[_builtins.str] sku_name: The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -389,7 +393,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="accountUri")
     def account_uri(self) -> pulumi.Output[_builtins.str]:
         """
-        The URI of the Trusted Signing Account which is used during signing files.
+        The URI of the Artifact Signing Account which is used during signing files.
         """
         return pulumi.get(self, "account_uri")
 
@@ -397,7 +401,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "location")
 
@@ -405,7 +409,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+        The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "name")
 
@@ -413,7 +417,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -421,7 +425,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+        The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -429,7 +433,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A mapping of tags which should be assigned to the Trusted Signing Account.
+        A mapping of tags which should be assigned to the Artifact Signing Account.
         """
         return pulumi.get(self, "tags")
 

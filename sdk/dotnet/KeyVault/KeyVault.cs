@@ -98,12 +98,6 @@ namespace Pulumi.Azure.KeyVault
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
 
-        [Output("contacts")]
-        public Output<ImmutableArray<Outputs.KeyVaultContact>> Contacts { get; private set; } = null!;
-
-        [Output("enableRbacAuthorization")]
-        public Output<bool> EnableRbacAuthorization { get; private set; } = null!;
-
         /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         /// </summary>
@@ -118,6 +112,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+        /// 
+        /// &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         /// </summary>
         [Output("enabledForTemplateDeployment")]
         public Output<bool?> EnabledForTemplateDeployment { get; private set; } = null!;
@@ -155,9 +151,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `False`.
-        /// 
-        /// &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         /// </summary>
         [Output("rbacAuthorizationEnabled")]
         public Output<bool> RbacAuthorizationEnabled { get; private set; } = null!;
@@ -260,18 +254,6 @@ namespace Pulumi.Azure.KeyVault
             set => _accessPolicies = value;
         }
 
-        [Input("contacts")]
-        private InputList<Inputs.KeyVaultContactArgs>? _contacts;
-        [Obsolete(@"As the `Contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `Contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `Contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.")]
-        public InputList<Inputs.KeyVaultContactArgs> Contacts
-        {
-            get => _contacts ?? (_contacts = new InputList<Inputs.KeyVaultContactArgs>());
-            set => _contacts = value;
-        }
-
-        [Input("enableRbacAuthorization")]
-        public Input<bool>? EnableRbacAuthorization { get; set; }
-
         /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         /// </summary>
@@ -286,6 +268,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+        /// 
+        /// &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         /// </summary>
         [Input("enabledForTemplateDeployment")]
         public Input<bool>? EnabledForTemplateDeployment { get; set; }
@@ -323,12 +307,10 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PurgeProtectionEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `False`.
-        /// 
-        /// &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         /// </summary>
-        [Input("rbacAuthorizationEnabled")]
-        public Input<bool>? RbacAuthorizationEnabled { get; set; }
+        [Input("rbacAuthorizationEnabled", required: true)]
+        public Input<bool> RbacAuthorizationEnabled { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -390,18 +372,6 @@ namespace Pulumi.Azure.KeyVault
             set => _accessPolicies = value;
         }
 
-        [Input("contacts")]
-        private InputList<Inputs.KeyVaultContactGetArgs>? _contacts;
-        [Obsolete(@"As the `Contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `Contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `Contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.")]
-        public InputList<Inputs.KeyVaultContactGetArgs> Contacts
-        {
-            get => _contacts ?? (_contacts = new InputList<Inputs.KeyVaultContactGetArgs>());
-            set => _contacts = value;
-        }
-
-        [Input("enableRbacAuthorization")]
-        public Input<bool>? EnableRbacAuthorization { get; set; }
-
         /// <summary>
         /// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
         /// </summary>
@@ -416,6 +386,8 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+        /// 
+        /// &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
         /// </summary>
         [Input("enabledForTemplateDeployment")]
         public Input<bool>? EnabledForTemplateDeployment { get; set; }
@@ -453,9 +425,7 @@ namespace Pulumi.Azure.KeyVault
         public Input<bool>? PurgeProtectionEnabled { get; set; }
 
         /// <summary>
-        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. Defaults to `False`.
-        /// 
-        /// &gt; **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
+        /// Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
         /// </summary>
         [Input("rbacAuthorizationEnabled")]
         public Input<bool>? RbacAuthorizationEnabled { get; set; }

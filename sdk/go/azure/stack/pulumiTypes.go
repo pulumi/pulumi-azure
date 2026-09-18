@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1949,7 +1949,7 @@ type HciLogicalNetworkSubnet struct {
 	// > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
 	IpPools []HciLogicalNetworkSubnetIpPool `pulumi:"ipPools"`
 	// A `route` block as defined above. Changing this forces a new resource to be created.
-	Routes []HciLogicalNetworkSubnetRoute `pulumi:"routes"`
+	Route *HciLogicalNetworkSubnetRoute `pulumi:"route"`
 	// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
 	VlanId *int `pulumi:"vlanId"`
 }
@@ -1975,7 +1975,7 @@ type HciLogicalNetworkSubnetArgs struct {
 	// > **Note:** If `ipPool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignoreChanges`.
 	IpPools HciLogicalNetworkSubnetIpPoolArrayInput `pulumi:"ipPools"`
 	// A `route` block as defined above. Changing this forces a new resource to be created.
-	Routes HciLogicalNetworkSubnetRouteArrayInput `pulumi:"routes"`
+	Route HciLogicalNetworkSubnetRoutePtrInput `pulumi:"route"`
 	// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
 	VlanId pulumi.IntPtrInput `pulumi:"vlanId"`
 }
@@ -2075,8 +2075,8 @@ func (o HciLogicalNetworkSubnetOutput) IpPools() HciLogicalNetworkSubnetIpPoolAr
 }
 
 // A `route` block as defined above. Changing this forces a new resource to be created.
-func (o HciLogicalNetworkSubnetOutput) Routes() HciLogicalNetworkSubnetRouteArrayOutput {
-	return o.ApplyT(func(v HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetRoute { return v.Routes }).(HciLogicalNetworkSubnetRouteArrayOutput)
+func (o HciLogicalNetworkSubnetOutput) Route() HciLogicalNetworkSubnetRoutePtrOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnet) *HciLogicalNetworkSubnetRoute { return v.Route }).(HciLogicalNetworkSubnetRoutePtrOutput)
 }
 
 // The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
@@ -2141,13 +2141,13 @@ func (o HciLogicalNetworkSubnetPtrOutput) IpPools() HciLogicalNetworkSubnetIpPoo
 }
 
 // A `route` block as defined above. Changing this forces a new resource to be created.
-func (o HciLogicalNetworkSubnetPtrOutput) Routes() HciLogicalNetworkSubnetRouteArrayOutput {
-	return o.ApplyT(func(v *HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetRoute {
+func (o HciLogicalNetworkSubnetPtrOutput) Route() HciLogicalNetworkSubnetRoutePtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) *HciLogicalNetworkSubnetRoute {
 		if v == nil {
 			return nil
 		}
-		return v.Routes
-	}).(HciLogicalNetworkSubnetRouteArrayOutput)
+		return v.Route
+	}).(HciLogicalNetworkSubnetRoutePtrOutput)
 }
 
 // The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
@@ -2307,29 +2307,45 @@ func (i HciLogicalNetworkSubnetRouteArgs) ToHciLogicalNetworkSubnetRouteOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetRouteOutput)
 }
 
-// HciLogicalNetworkSubnetRouteArrayInput is an input type that accepts HciLogicalNetworkSubnetRouteArray and HciLogicalNetworkSubnetRouteArrayOutput values.
-// You can construct a concrete instance of `HciLogicalNetworkSubnetRouteArrayInput` via:
+func (i HciLogicalNetworkSubnetRouteArgs) ToHciLogicalNetworkSubnetRoutePtrOutput() HciLogicalNetworkSubnetRoutePtrOutput {
+	return i.ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetRouteArgs) ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetRouteOutput).ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(ctx)
+}
+
+// HciLogicalNetworkSubnetRoutePtrInput is an input type that accepts HciLogicalNetworkSubnetRouteArgs, HciLogicalNetworkSubnetRoutePtr and HciLogicalNetworkSubnetRoutePtrOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetRoutePtrInput` via:
 //
-//	HciLogicalNetworkSubnetRouteArray{ HciLogicalNetworkSubnetRouteArgs{...} }
-type HciLogicalNetworkSubnetRouteArrayInput interface {
+//	        HciLogicalNetworkSubnetRouteArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciLogicalNetworkSubnetRoutePtrInput interface {
 	pulumi.Input
 
-	ToHciLogicalNetworkSubnetRouteArrayOutput() HciLogicalNetworkSubnetRouteArrayOutput
-	ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(context.Context) HciLogicalNetworkSubnetRouteArrayOutput
+	ToHciLogicalNetworkSubnetRoutePtrOutput() HciLogicalNetworkSubnetRoutePtrOutput
+	ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(context.Context) HciLogicalNetworkSubnetRoutePtrOutput
 }
 
-type HciLogicalNetworkSubnetRouteArray []HciLogicalNetworkSubnetRouteInput
+type hciLogicalNetworkSubnetRoutePtrType HciLogicalNetworkSubnetRouteArgs
 
-func (HciLogicalNetworkSubnetRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HciLogicalNetworkSubnetRoute)(nil)).Elem()
+func HciLogicalNetworkSubnetRoutePtr(v *HciLogicalNetworkSubnetRouteArgs) HciLogicalNetworkSubnetRoutePtrInput {
+	return (*hciLogicalNetworkSubnetRoutePtrType)(v)
 }
 
-func (i HciLogicalNetworkSubnetRouteArray) ToHciLogicalNetworkSubnetRouteArrayOutput() HciLogicalNetworkSubnetRouteArrayOutput {
-	return i.ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(context.Background())
+func (*hciLogicalNetworkSubnetRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciLogicalNetworkSubnetRoute)(nil)).Elem()
 }
 
-func (i HciLogicalNetworkSubnetRouteArray) ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetRouteArrayOutput)
+func (i *hciLogicalNetworkSubnetRoutePtrType) ToHciLogicalNetworkSubnetRoutePtrOutput() HciLogicalNetworkSubnetRoutePtrOutput {
+	return i.ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *hciLogicalNetworkSubnetRoutePtrType) ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetRoutePtrOutput)
 }
 
 type HciLogicalNetworkSubnetRouteOutput struct{ *pulumi.OutputState }
@@ -2344,6 +2360,16 @@ func (o HciLogicalNetworkSubnetRouteOutput) ToHciLogicalNetworkSubnetRouteOutput
 
 func (o HciLogicalNetworkSubnetRouteOutput) ToHciLogicalNetworkSubnetRouteOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteOutput {
 	return o
+}
+
+func (o HciLogicalNetworkSubnetRouteOutput) ToHciLogicalNetworkSubnetRoutePtrOutput() HciLogicalNetworkSubnetRoutePtrOutput {
+	return o.ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(context.Background())
+}
+
+func (o HciLogicalNetworkSubnetRouteOutput) ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRoutePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciLogicalNetworkSubnetRoute) *HciLogicalNetworkSubnetRoute {
+		return &v
+	}).(HciLogicalNetworkSubnetRoutePtrOutput)
 }
 
 // The Address in CIDR notation. Changing this forces a new resource to be created.
@@ -2361,24 +2387,58 @@ func (o HciLogicalNetworkSubnetRouteOutput) NextHopIpAddress() pulumi.StringOutp
 	return o.ApplyT(func(v HciLogicalNetworkSubnetRoute) string { return v.NextHopIpAddress }).(pulumi.StringOutput)
 }
 
-type HciLogicalNetworkSubnetRouteArrayOutput struct{ *pulumi.OutputState }
+type HciLogicalNetworkSubnetRoutePtrOutput struct{ *pulumi.OutputState }
 
-func (HciLogicalNetworkSubnetRouteArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HciLogicalNetworkSubnetRoute)(nil)).Elem()
+func (HciLogicalNetworkSubnetRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciLogicalNetworkSubnetRoute)(nil)).Elem()
 }
 
-func (o HciLogicalNetworkSubnetRouteArrayOutput) ToHciLogicalNetworkSubnetRouteArrayOutput() HciLogicalNetworkSubnetRouteArrayOutput {
+func (o HciLogicalNetworkSubnetRoutePtrOutput) ToHciLogicalNetworkSubnetRoutePtrOutput() HciLogicalNetworkSubnetRoutePtrOutput {
 	return o
 }
 
-func (o HciLogicalNetworkSubnetRouteArrayOutput) ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteArrayOutput {
+func (o HciLogicalNetworkSubnetRoutePtrOutput) ToHciLogicalNetworkSubnetRoutePtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRoutePtrOutput {
 	return o
 }
 
-func (o HciLogicalNetworkSubnetRouteArrayOutput) Index(i pulumi.IntInput) HciLogicalNetworkSubnetRouteOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciLogicalNetworkSubnetRoute {
-		return vs[0].([]HciLogicalNetworkSubnetRoute)[vs[1].(int)]
+func (o HciLogicalNetworkSubnetRoutePtrOutput) Elem() HciLogicalNetworkSubnetRouteOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnetRoute) HciLogicalNetworkSubnetRoute {
+		if v != nil {
+			return *v
+		}
+		var ret HciLogicalNetworkSubnetRoute
+		return ret
 	}).(HciLogicalNetworkSubnetRouteOutput)
+}
+
+// The Address in CIDR notation. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetRoutePtrOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnetRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AddressPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the route. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetRoutePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnetRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 address of the next hop. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetRoutePtrOutput) NextHopIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnetRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NextHopIpAddress
+	}).(pulumi.StringPtrOutput)
 }
 
 type HciMarketplaceGalleryImageIdentifier struct {
@@ -2895,7 +2955,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetIpPoolInput)(nil)).Elem(), HciLogicalNetworkSubnetIpPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetIpPoolArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetIpPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRoutePtrInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciMarketplaceGalleryImageIdentifierInput)(nil)).Elem(), HciMarketplaceGalleryImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciMarketplaceGalleryImageIdentifierPtrInput)(nil)).Elem(), HciMarketplaceGalleryImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciNetworkInterfaceIpConfigurationInput)(nil)).Elem(), HciNetworkInterfaceIpConfigurationArgs{})
@@ -2931,7 +2991,7 @@ func init() {
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetIpPoolOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetIpPoolArrayOutput{})
 	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteOutput{})
-	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteArrayOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRoutePtrOutput{})
 	pulumi.RegisterOutputType(HciMarketplaceGalleryImageIdentifierOutput{})
 	pulumi.RegisterOutputType(HciMarketplaceGalleryImageIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(HciNetworkInterfaceIpConfigurationOutput{})

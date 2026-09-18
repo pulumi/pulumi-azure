@@ -78,9 +78,7 @@ export class BackupVault extends pulumi.CustomResource {
      */
     declare public readonly crossRegionRestoreEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
      */
     declare public readonly datastoreType: pulumi.Output<string>;
     /**
@@ -187,9 +185,7 @@ export interface BackupVaultState {
      */
     crossRegionRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
      */
     datastoreType?: pulumi.Input<string | undefined>;
     /**
@@ -245,9 +241,7 @@ export interface BackupVaultArgs {
      */
     crossRegionRestoreEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-     *
-     * > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
      */
     datastoreType: pulumi.Input<string>;
     /**

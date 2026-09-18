@@ -373,7 +373,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         ```
 
@@ -426,7 +426,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
             name="example-certificate",
             key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="path/to/certificate_file.pfx").result,
+                "contents": std.filebase64(input="path/to/certificate_file.pfx")["result"],
                 "password": "",
             },
             opts = pulumi.ResourceOptions(depends_on=[
@@ -509,7 +509,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         ```
 
@@ -562,7 +562,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
             name="example-certificate",
             key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="path/to/certificate_file.pfx").result,
+                "contents": std.filebase64(input="path/to/certificate_file.pfx")["result"],
                 "password": "",
             },
             opts = pulumi.ResourceOptions(depends_on=[

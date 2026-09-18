@@ -127,49 +127,18 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the share.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="storageAccountId")
-    private @Nullable Output<String> storageAccountId;
+    @Import(name="storageAccountId", required=true)
+    private Output<String> storageAccountId;
 
     /**
-     * @return Specifies the storage account in which to create the share.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * @return Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<String>> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-
-    /**
-     * Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     * @deprecated
-     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @return Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     * @deprecated
-     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
     }
 
     private ShareArgs() {}
@@ -182,7 +151,6 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.quota = $.quota;
         this.storageAccountId = $.storageAccountId;
-        this.storageAccountName = $.storageAccountName;
     }
 
     public static Builder builder() {
@@ -356,22 +324,18 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId Specifies the storage account in which to create the share.
-         * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * @param storageAccountId Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+        public Builder storageAccountId(Output<String> storageAccountId) {
             $.storageAccountId = storageAccountId;
             return this;
         }
 
         /**
-         * @param storageAccountId Specifies the storage account in which to create the share.
-         * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * @param storageAccountId Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -380,42 +344,12 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
             return storageAccountId(Output.of(storageAccountId));
         }
 
-        /**
-         * @param storageAccountName Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
-        }
-
         public ShareArgs build() {
             if ($.quota == null) {
                 throw new MissingRequiredPropertyException("ShareArgs", "quota");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("ShareArgs", "storageAccountId");
             }
             return $;
         }

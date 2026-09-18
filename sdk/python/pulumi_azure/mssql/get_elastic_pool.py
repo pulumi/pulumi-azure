@@ -236,7 +236,7 @@ def get_elastic_pool(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Sql` - 2023-08-01-preview
+    * `Microsoft.Sql` - 2025-01-01
 
 
     :param _builtins.str name: The name of the elastic pool.
@@ -290,7 +290,7 @@ def get_elastic_pool_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Sql` - 2023-08-01-preview
+    * `Microsoft.Sql` - 2025-01-01
 
 
     :param _builtins.str name: The name of the elastic pool.

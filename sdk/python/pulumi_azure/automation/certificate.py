@@ -275,7 +275,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             description="This is an example certificate",
-            base64=std.filebase64(input="certificate.pfx").result,
+            base64=std.filebase64(input="certificate.pfx")["result"],
             exportable=True)
         ```
 
@@ -333,7 +333,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name,
             description="This is an example certificate",
-            base64=std.filebase64(input="certificate.pfx").result,
+            base64=std.filebase64(input="certificate.pfx")["result"],
             exportable=True)
         ```
 

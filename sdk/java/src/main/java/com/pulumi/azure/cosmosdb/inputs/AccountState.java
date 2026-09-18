@@ -212,25 +212,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.kind);
     }
 
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="localAuthenticationDisabled")
-    private @Nullable Output<Boolean> localAuthenticationDisabled;
-
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> localAuthenticationDisabled() {
-        return Optional.ofNullable(this.localAuthenticationDisabled);
-    }
-
     @Import(name="localAuthenticationEnabled")
     private @Nullable Output<Boolean> localAuthenticationEnabled;
 
@@ -254,26 +235,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="managedHsmKeyId")
-    private @Nullable Output<String> managedHsmKeyId;
-
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> managedHsmKeyId() {
-        return Optional.ofNullable(this.managedHsmKeyId);
-    }
-
-    /**
-     * Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      * 
@@ -282,7 +244,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> minimalTlsVersion;
 
     /**
-     * @return Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+     * @return Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
      * 
@@ -640,10 +602,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.isVirtualNetworkFilterEnabled = $.isVirtualNetworkFilterEnabled;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.kind = $.kind;
-        this.localAuthenticationDisabled = $.localAuthenticationDisabled;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
-        this.managedHsmKeyId = $.managedHsmKeyId;
         this.minimalTlsVersion = $.minimalTlsVersion;
         this.mongoServerVersion = $.mongoServerVersion;
         this.multipleWriteLocationsEnabled = $.multipleWriteLocationsEnabled;
@@ -947,31 +907,6 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             return kind(Output.of(kind));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
-            $.localAuthenticationDisabled = localAuthenticationDisabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
-            return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
-        }
-
         public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
             $.localAuthenticationEnabled = localAuthenticationEnabled;
             return this;
@@ -1003,32 +938,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
-            $.managedHsmKeyId = managedHsmKeyId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder managedHsmKeyId(String managedHsmKeyId) {
-            return managedHsmKeyId(Output.of(managedHsmKeyId));
-        }
-
-        /**
-         * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+         * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          * 
@@ -1041,7 +951,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+         * @param minimalTlsVersion Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
          * 

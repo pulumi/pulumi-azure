@@ -78,25 +78,6 @@ public final class ChannelTeamsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
-    @Import(name="enableCalling")
-    private @Nullable Output<Boolean> enableCalling;
-
-    /**
-     * @deprecated
-     * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> enableCalling() {
-        return Optional.ofNullable(this.enableCalling);
-    }
-
-    /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -133,7 +114,6 @@ public final class ChannelTeamsArgs extends com.pulumi.resources.ResourceArgs {
         this.callingEnabled = $.callingEnabled;
         this.callingWebHook = $.callingWebHook;
         this.deploymentEnvironment = $.deploymentEnvironment;
-        this.enableCalling = $.enableCalling;
         this.location = $.location;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -238,31 +218,6 @@ public final class ChannelTeamsArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder deploymentEnvironment(String deploymentEnvironment) {
             return deploymentEnvironment(Output.of(deploymentEnvironment));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
-        public Builder enableCalling(@Nullable Output<Boolean> enableCalling) {
-            $.enableCalling = enableCalling;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider. */
-        public Builder enableCalling(Boolean enableCalling) {
-            return enableCalling(Output.of(enableCalling));
         }
 
         /**

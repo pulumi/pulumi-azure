@@ -14,7 +14,7 @@ const storageAccount = new azure.storage.Account("storage", {
 
 // And a container to use to upload images into
 const storageContainer = new azure.storage.Container("images-container", {
-   storageAccountName: storageAccount.name,
+   storageAccountId: storageAccount.id,
    name: "images",
 });
 
@@ -30,8 +30,7 @@ storageContainer.onBlobEvent("newImage", {
 // Put a sample HTML file
 const sampleFile = new azure.storage.Blob("test.html", {
     name: "test.html",
-    storageAccountName: storageAccount.name,
-    storageContainerName: storageContainer.name,
+    storageContainerId: storageContainer.id,
     type: "Block",
     source: new pulumi.asset.FileAsset("./test.html"),
     contentType: "text/html",

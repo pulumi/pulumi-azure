@@ -5,6 +5,7 @@ package com.pulumi.azure.storage;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -97,49 +98,18 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Storage Account where the Container should be created.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="storageAccountId")
-    private @Nullable Output<String> storageAccountId;
+    @Import(name="storageAccountId", required=true)
+    private Output<String> storageAccountId;
 
     /**
-     * @return The name of the Storage Account where the Container should be created.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * @return The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<String>> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-
-    /**
-     * The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @return The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
     }
 
     private ContainerArgs() {}
@@ -151,7 +121,6 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
         this.metadata = $.metadata;
         this.name = $.name;
         this.storageAccountId = $.storageAccountId;
-        this.storageAccountName = $.storageAccountName;
     }
 
     public static Builder builder() {
@@ -282,22 +251,18 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountId The name of the Storage Account where the Container should be created.
-         * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * @param storageAccountId The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+        public Builder storageAccountId(Output<String> storageAccountId) {
             $.storageAccountId = storageAccountId;
             return this;
         }
 
         /**
-         * @param storageAccountId The name of the Storage Account where the Container should be created.
-         * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+         * @param storageAccountId The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -306,40 +271,10 @@ public final class ContainerArgs extends com.pulumi.resources.ResourceArgs {
             return storageAccountId(Output.of(storageAccountId));
         }
 
-        /**
-         * @param storageAccountName The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
-        }
-
         public ContainerArgs build() {
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("ContainerArgs", "storageAccountId");
+            }
             return $;
         }
     }

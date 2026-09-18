@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Kusto
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of databases from the `ClusterResourceId` which are currently attached to the cluster.
+        /// The list of databases from the `ClusterId` which are currently attached to the cluster.
         /// </summary>
         [Output("attachedDatabaseNames")]
         public Output<ImmutableArray<string>> AttachedDatabaseNames { get; private set; } = null!;
@@ -151,9 +151,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
-
-        [Output("clusterResourceId")]
-        public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
@@ -254,17 +251,14 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// The resource id of the cluster where the databases you would like to attach reside.
         /// </summary>
-        [Input("clusterId")]
-        public Input<string>? ClusterId { get; set; }
+        [Input("clusterId", required: true)]
+        public Input<string> ClusterId { get; set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
-
-        [Input("clusterResourceId")]
-        public Input<string>? ClusterResourceId { get; set; }
 
         /// <summary>
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
@@ -328,7 +322,7 @@ namespace Pulumi.Azure.Kusto
         private InputList<string>? _attachedDatabaseNames;
 
         /// <summary>
-        /// The list of databases from the `ClusterResourceId` which are currently attached to the cluster.
+        /// The list of databases from the `ClusterId` which are currently attached to the cluster.
         /// </summary>
         public InputList<string> AttachedDatabaseNames
         {
@@ -347,9 +341,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
-
-        [Input("clusterResourceId")]
-        public Input<string>? ClusterResourceId { get; set; }
 
         /// <summary>
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.

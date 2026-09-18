@@ -3,7 +3,7 @@
 
 package com.pulumi.azure.logicapps.outputs;
 
-import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigCors;
+import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigCor;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigIpRestriction;
 import com.pulumi.azure.logicapps.outputs.GetStandardSiteConfigScmIpRestriction;
 import com.pulumi.core.annotations.CustomType;
@@ -35,7 +35,7 @@ public final class GetStandardSiteConfig {
      * @return A `cors` block as defined below.
      * 
      */
-    private GetStandardSiteConfigCors cors;
+    private List<GetStandardSiteConfigCor> cors;
     /**
      * @return The version of the .NET framework&#39;s CLR used in this Logic App.
      * 
@@ -86,13 +86,6 @@ public final class GetStandardSiteConfig {
      * 
      */
     private Integer preWarmedInstanceCount;
-    /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-    private Boolean publicNetworkAccessEnabled;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
      * 
@@ -165,7 +158,7 @@ public final class GetStandardSiteConfig {
      * @return A `cors` block as defined below.
      * 
      */
-    public GetStandardSiteConfigCors cors() {
+    public List<GetStandardSiteConfigCor> cors() {
         return this.cors;
     }
     /**
@@ -237,15 +230,6 @@ public final class GetStandardSiteConfig {
      */
     public Integer preWarmedInstanceCount() {
         return this.preWarmedInstanceCount;
-    }
-    /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Boolean publicNetworkAccessEnabled() {
-        return this.publicNetworkAccessEnabled;
     }
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
@@ -323,7 +307,7 @@ public final class GetStandardSiteConfig {
         private Boolean alwaysOn;
         private Integer appScaleLimit;
         private String autoSwapSlotName;
-        private GetStandardSiteConfigCors cors;
+        private List<GetStandardSiteConfigCor> cors;
         private String dotnetFrameworkVersion;
         private Integer elasticInstanceMinimum;
         private String ftpsState;
@@ -334,7 +318,6 @@ public final class GetStandardSiteConfig {
         private String linuxFxVersion;
         private String minTlsVersion;
         private Integer preWarmedInstanceCount;
-        private Boolean publicNetworkAccessEnabled;
         private Boolean runtimeScaleMonitoringEnabled;
         private String scmIpRestrictionDefaultAction;
         private List<GetStandardSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -361,7 +344,6 @@ public final class GetStandardSiteConfig {
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
-    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
     	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
@@ -398,12 +380,15 @@ public final class GetStandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder cors(GetStandardSiteConfigCors cors) {
+        public Builder cors(List<GetStandardSiteConfigCor> cors) {
             if (cors == null) {
               throw new MissingRequiredPropertyException("GetStandardSiteConfig", "cors");
             }
             this.cors = cors;
             return this;
+        }
+        public Builder cors(GetStandardSiteConfigCor... cors) {
+            return cors(List.of(cors));
         }
         @CustomType.Setter
         public Builder dotnetFrameworkVersion(String dotnetFrameworkVersion) {
@@ -486,14 +471,6 @@ public final class GetStandardSiteConfig {
               throw new MissingRequiredPropertyException("GetStandardSiteConfig", "preWarmedInstanceCount");
             }
             this.preWarmedInstanceCount = preWarmedInstanceCount;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            if (publicNetworkAccessEnabled == null) {
-              throw new MissingRequiredPropertyException("GetStandardSiteConfig", "publicNetworkAccessEnabled");
-            }
-            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
         @CustomType.Setter
@@ -587,7 +564,6 @@ public final class GetStandardSiteConfig {
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.minTlsVersion = minTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
-            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;

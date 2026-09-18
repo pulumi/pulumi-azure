@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {

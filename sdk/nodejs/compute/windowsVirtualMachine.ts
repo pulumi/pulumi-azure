@@ -192,10 +192,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
     /**
-     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-     */
-    declare public readonly enableAutomaticUpdates: pulumi.Output<boolean>;
-    /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
     declare public readonly encryptionAtHostEnabled: pulumi.Output<boolean | undefined>;
@@ -377,10 +373,8 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     declare public readonly virtualMachineScaleSetId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     *
-     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
-    declare public readonly vmAgentPlatformUpdatesEnabled: pulumi.Output<boolean>;
+    declare public /*out*/ readonly vmAgentPlatformUpdatesEnabled: pulumi.Output<boolean>;
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */
@@ -423,7 +417,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["dedicatedHostId"] = state?.dedicatedHostId;
             resourceInputs["diskControllerType"] = state?.diskControllerType;
             resourceInputs["edgeZone"] = state?.edgeZone;
-            resourceInputs["enableAutomaticUpdates"] = state?.enableAutomaticUpdates;
             resourceInputs["encryptionAtHostEnabled"] = state?.encryptionAtHostEnabled;
             resourceInputs["evictionPolicy"] = state?.evictionPolicy;
             resourceInputs["extensionsTimeBudget"] = state?.extensionsTimeBudget;
@@ -496,7 +489,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["dedicatedHostId"] = args?.dedicatedHostId;
             resourceInputs["diskControllerType"] = args?.diskControllerType;
             resourceInputs["edgeZone"] = args?.edgeZone;
-            resourceInputs["enableAutomaticUpdates"] = args?.enableAutomaticUpdates;
             resourceInputs["encryptionAtHostEnabled"] = args?.encryptionAtHostEnabled;
             resourceInputs["evictionPolicy"] = args?.evictionPolicy;
             resourceInputs["extensionsTimeBudget"] = args?.extensionsTimeBudget;
@@ -530,7 +522,6 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["timezone"] = args?.timezone;
             resourceInputs["userData"] = args?.userData;
             resourceInputs["virtualMachineScaleSetId"] = args?.virtualMachineScaleSetId;
-            resourceInputs["vmAgentPlatformUpdatesEnabled"] = args?.vmAgentPlatformUpdatesEnabled;
             resourceInputs["vtpmEnabled"] = args?.vtpmEnabled;
             resourceInputs["winrmListeners"] = args?.winrmListeners;
             resourceInputs["zone"] = args?.zone;
@@ -539,6 +530,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             resourceInputs["publicIpAddress"] = undefined /*out*/;
             resourceInputs["publicIpAddresses"] = undefined /*out*/;
             resourceInputs["virtualMachineId"] = undefined /*out*/;
+            resourceInputs["vmAgentPlatformUpdatesEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
@@ -623,10 +615,6 @@ export interface WindowsVirtualMachineState {
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
      */
     edgeZone?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-     */
-    enableAutomaticUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -809,8 +797,6 @@ export interface WindowsVirtualMachineState {
     virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     *
-     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      */
     vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -903,10 +889,6 @@ export interface WindowsVirtualMachineArgs {
      * Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
      */
     edgeZone?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-     */
-    enableAutomaticUpdates?: pulumi.Input<boolean | undefined>;
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      */
@@ -1067,12 +1049,6 @@ export interface WindowsVirtualMachineArgs {
      * > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `singlePlacementGroup` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      */
     virtualMachineScaleSetId?: pulumi.Input<string | undefined>;
-    /**
-     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     *
-     * @deprecated this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     */
-    vmAgentPlatformUpdatesEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      */

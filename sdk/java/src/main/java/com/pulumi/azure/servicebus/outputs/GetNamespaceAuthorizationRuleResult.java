@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNamespaceAuthorizationRuleResult {
@@ -18,14 +16,7 @@ public final class GetNamespaceAuthorizationRuleResult {
      */
     private String id;
     private String name;
-    private @Nullable String namespaceId;
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
-    private @Nullable String namespaceName;
+    private String namespaceId;
     /**
      * @return The primary connection string for the authorization rule.
      * 
@@ -41,13 +32,6 @@ public final class GetNamespaceAuthorizationRuleResult {
      * 
      */
     private String primaryKey;
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
-    private @Nullable String resourceGroupName;
     /**
      * @return The secondary connection string for the authorization rule.
      * 
@@ -75,17 +59,8 @@ public final class GetNamespaceAuthorizationRuleResult {
     public String name() {
         return this.name;
     }
-    public Optional<String> namespaceId() {
-        return Optional.ofNullable(this.namespaceId);
-    }
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
-    public Optional<String> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
+    public String namespaceId() {
+        return this.namespaceId;
     }
     /**
      * @return The primary connection string for the authorization rule.
@@ -107,15 +82,6 @@ public final class GetNamespaceAuthorizationRuleResult {
      */
     public String primaryKey() {
         return this.primaryKey;
-    }
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider. */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
     }
     /**
      * @return The secondary connection string for the authorization rule.
@@ -150,12 +116,10 @@ public final class GetNamespaceAuthorizationRuleResult {
     public static final class Builder {
         private String id;
         private String name;
-        private @Nullable String namespaceId;
-        private @Nullable String namespaceName;
+        private String namespaceId;
         private String primaryConnectionString;
         private String primaryConnectionStringAlias;
         private String primaryKey;
-        private @Nullable String resourceGroupName;
         private String secondaryConnectionString;
         private String secondaryConnectionStringAlias;
         private String secondaryKey;
@@ -165,11 +129,9 @@ public final class GetNamespaceAuthorizationRuleResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
-    	      this.namespaceName = defaults.namespaceName;
     	      this.primaryConnectionString = defaults.primaryConnectionString;
     	      this.primaryConnectionStringAlias = defaults.primaryConnectionStringAlias;
     	      this.primaryKey = defaults.primaryKey;
-    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryConnectionString = defaults.secondaryConnectionString;
     	      this.secondaryConnectionStringAlias = defaults.secondaryConnectionStringAlias;
     	      this.secondaryKey = defaults.secondaryKey;
@@ -192,15 +154,11 @@ public final class GetNamespaceAuthorizationRuleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceId(@Nullable String namespaceId) {
-
+        public Builder namespaceId(String namespaceId) {
+            if (namespaceId == null) {
+              throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "namespaceId");
+            }
             this.namespaceId = namespaceId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder namespaceName(@Nullable String namespaceName) {
-
-            this.namespaceName = namespaceName;
             return this;
         }
         @CustomType.Setter
@@ -225,12 +183,6 @@ public final class GetNamespaceAuthorizationRuleResult {
               throw new MissingRequiredPropertyException("GetNamespaceAuthorizationRuleResult", "primaryKey");
             }
             this.primaryKey = primaryKey;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-
-            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
@@ -262,11 +214,9 @@ public final class GetNamespaceAuthorizationRuleResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
-            _resultValue.namespaceName = namespaceName;
             _resultValue.primaryConnectionString = primaryConnectionString;
             _resultValue.primaryConnectionStringAlias = primaryConnectionStringAlias;
             _resultValue.primaryKey = primaryKey;
-            _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryConnectionString = secondaryConnectionString;
             _resultValue.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
             _resultValue.secondaryKey = secondaryKey;

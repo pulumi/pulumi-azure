@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/batch"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/batch"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -142,8 +142,6 @@ type Pool struct {
 	//
 	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale PoolAutoScalePtrOutput `pulumi:"autoScale"`
-	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-	Certificates PoolCertificateArrayOutput `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrOutput `pulumi:"containerConfiguration"`
 	// A `dataDisks` block describes the data disk settings as defined below.
@@ -251,8 +249,6 @@ type poolState struct {
 	//
 	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale *PoolAutoScale `pulumi:"autoScale"`
-	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-	Certificates []PoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
 	// A `dataDisks` block describes the data disk settings as defined below.
@@ -316,8 +312,6 @@ type PoolState struct {
 	//
 	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale PoolAutoScalePtrInput
-	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-	Certificates PoolCertificateArrayInput
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
 	// A `dataDisks` block describes the data disk settings as defined below.
@@ -385,8 +379,6 @@ type poolArgs struct {
 	//
 	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale *PoolAutoScale `pulumi:"autoScale"`
-	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-	Certificates []PoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
 	// A `dataDisks` block describes the data disk settings as defined below.
@@ -451,8 +443,6 @@ type PoolArgs struct {
 	//
 	// > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 	AutoScale PoolAutoScalePtrInput
-	// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-	Certificates PoolCertificateArrayInput
 	// The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
 	// A `dataDisks` block describes the data disk settings as defined below.
@@ -606,11 +596,6 @@ func (o PoolOutput) AccountName() pulumi.StringOutput {
 // > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
 func (o PoolOutput) AutoScale() PoolAutoScalePtrOutput {
 	return o.ApplyT(func(v *Pool) PoolAutoScalePtrOutput { return v.AutoScale }).(PoolAutoScalePtrOutput)
-}
-
-// Deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-func (o PoolOutput) Certificates() PoolCertificateArrayOutput {
-	return o.ApplyT(func(v *Pool) PoolCertificateArrayOutput { return v.Certificates }).(PoolCertificateArrayOutput)
 }
 
 // The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.

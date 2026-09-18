@@ -23,19 +23,15 @@ namespace Pulumi.Azure.Compute.Outputs
         /// &gt; **Note:** When `AllocationStrategy` is set to `Prioritized`, you must use the `VirtualMachineSize` block to specify rank values.
         /// </summary>
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> VirtualMachineSizes;
-        public readonly ImmutableArray<string> VmSizes;
 
         [OutputConstructor]
         private OrchestratedVirtualMachineScaleSetSkuProfile(
             string allocationStrategy,
 
-            ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes,
-
-            ImmutableArray<string> vmSizes)
+            ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes)
         {
             AllocationStrategy = allocationStrategy;
             VirtualMachineSizes = virtualMachineSizes;
-            VmSizes = vmSizes;
         }
     }
 }

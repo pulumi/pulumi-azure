@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getLBRule(args: GetLBRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLBRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,16 +56,7 @@ export interface GetLBRuleResult {
     readonly disableOutboundSnat: boolean;
     /**
      * If Floating IPs are enabled for this Load Balancer Rule
-     *
-     * @deprecated The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
      */
-    readonly enableFloatingIp: boolean;
-    /**
-     * If TCP Reset is enabled for this Load Balancer Rule.
-     *
-     * @deprecated The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
-     */
-    readonly enableTcpReset: boolean;
     readonly floatingIpEnabled: boolean;
     /**
      * The name of the frontend IP configuration to which the rule is associated.
@@ -97,6 +88,9 @@ export interface GetLBRuleResult {
      * The transport protocol for the external endpoint.
      */
     readonly protocol: string;
+    /**
+     * If TCP Reset is enabled for this Load Balancer Rule.
+     */
     readonly tcpResetEnabled: boolean;
 }
 /**
@@ -109,7 +103,7 @@ export interface GetLBRuleResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  */
 export function getLBRuleOutput(args: GetLBRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLBRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

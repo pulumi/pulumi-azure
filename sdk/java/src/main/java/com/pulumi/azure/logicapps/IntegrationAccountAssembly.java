@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.IntegrationAccountAssembly;
  * import com.pulumi.azure.logicapps.IntegrationAccountAssemblyArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -65,9 +64,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .assemblyName("TestAssembly")
- *             .content(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("testdata/log4net.dll")
- *                 .build()).result())
+ *             .content(StdFunctions.filebase64(Map.of("input", "testdata/log4net.dll")).result())
  *             .build());
  * 
  *     }

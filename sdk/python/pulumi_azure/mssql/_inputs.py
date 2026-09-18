@@ -288,10 +288,6 @@ class DatabaseImportArgs:
 
 
 class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
-    immutable_backups_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Specifies if the backups are immutable. Defaults to `false`.
-    """
     monthly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -312,20 +308,16 @@ class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class DatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 immutable_backups_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
                  weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  yearly_retention: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] immutable_backups_enabled: Specifies if the backups are immutable. Defaults to `false`.
         :param pulumi.Input[_builtins.str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         :param pulumi.Input[_builtins.int] week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
         :param pulumi.Input[_builtins.str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         :param pulumi.Input[_builtins.str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
-        if immutable_backups_enabled is not None:
-            pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -334,18 +326,6 @@ class DatabaseLongTermRetentionPolicyArgs:
             pulumi.set(__self__, "weekly_retention", weekly_retention)
         if yearly_retention is not None:
             pulumi.set(__self__, "yearly_retention", yearly_retention)
-
-    @_builtins.property
-    @pulumi.getter(name="immutableBackupsEnabled")
-    def immutable_backups_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Specifies if the backups are immutable. Defaults to `false`.
-        """
-        return pulumi.get(self, "immutable_backups_enabled")
-
-    @immutable_backups_enabled.setter
-    def immutable_backups_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "immutable_backups_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
@@ -449,9 +429,9 @@ class DatabaseThreatDetectionPolicyArgsDict(TypedDict):
     """
     Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
     """
-    email_account_admins: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    email_account_admins_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+    Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
     """
     email_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -478,7 +458,7 @@ class DatabaseThreatDetectionPolicyArgsDict(TypedDict):
 class DatabaseThreatDetectionPolicyArgs:
     def __init__(__self__, *,
                  disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
@@ -486,7 +466,7 @@ class DatabaseThreatDetectionPolicyArgs:
                  storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
-        :param pulumi.Input[_builtins.str] email_account_admins: Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+        :param pulumi.Input[_builtins.bool] email_account_admins_enabled: Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: A list of email addresses which alerts should be sent to.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
         :param pulumi.Input[_builtins.str] state: The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
@@ -495,8 +475,8 @@ class DatabaseThreatDetectionPolicyArgs:
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
-        if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+        if email_account_admins_enabled is not None:
+            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
             pulumi.set(__self__, "email_addresses", email_addresses)
         if retention_days is not None:
@@ -521,16 +501,16 @@ class DatabaseThreatDetectionPolicyArgs:
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
-    @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="emailAccountAdminsEnabled")
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+        Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
         """
-        return pulumi.get(self, "email_account_admins")
+        return pulumi.get(self, "email_account_admins_enabled")
 
-    @email_account_admins.setter
-    def email_account_admins(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "email_account_admins", value)
+    @email_account_admins_enabled.setter
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
@@ -1151,7 +1131,6 @@ class JobTargetGroupJobTargetArgs:
 
 
 class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
-    immutable_backups_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     monthly_retention: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -1172,7 +1151,6 @@ class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class ManagedDatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
-                 immutable_backups_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
                  weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1183,11 +1161,6 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
         :param pulumi.Input[_builtins.str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         :param pulumi.Input[_builtins.str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
-        if immutable_backups_enabled is not None:
-            warnings.warn("""The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.""", DeprecationWarning)
-            pulumi.log.warn("""immutable_backups_enabled is deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.""")
-        if immutable_backups_enabled is not None:
-            pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
         if week_of_year is not None:
@@ -1196,16 +1169,6 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
             pulumi.set(__self__, "weekly_retention", weekly_retention)
         if yearly_retention is not None:
             pulumi.set(__self__, "yearly_retention", yearly_retention)
-
-    @_builtins.property
-    @pulumi.getter(name="immutableBackupsEnabled")
-    @_utilities.deprecated("""The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.""")
-    def immutable_backups_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "immutable_backups_enabled")
-
-    @immutable_backups_enabled.setter
-    def immutable_backups_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "immutable_backups_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
@@ -2185,7 +2148,6 @@ class VirtualMachineAutoBackupArgsDict(TypedDict):
     """
     Blob endpoint for the storage account where backups will be kept.
     """
-    encryption_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     encryption_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Encryption password to use. Setting a password will enable encryption.
@@ -2205,7 +2167,6 @@ class VirtualMachineAutoBackupArgs:
                  retention_period_in_days: pulumi.Input[_builtins.int],
                  storage_account_access_key: pulumi.Input[_builtins.str],
                  storage_blob_endpoint: pulumi.Input[_builtins.str],
-                 encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_password: pulumi.Input[Optional[_builtins.str]] = None,
                  manual_schedule: pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']] = None,
                  system_databases_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -2220,11 +2181,6 @@ class VirtualMachineAutoBackupArgs:
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         pulumi.set(__self__, "storage_blob_endpoint", storage_blob_endpoint)
-        if encryption_enabled is not None:
-            warnings.warn("""`encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""", DeprecationWarning)
-            pulumi.log.warn("""encryption_enabled is deprecated: `encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""")
-        if encryption_enabled is not None:
-            pulumi.set(__self__, "encryption_enabled", encryption_enabled)
         if encryption_password is not None:
             pulumi.set(__self__, "encryption_password", encryption_password)
         if manual_schedule is not None:
@@ -2267,16 +2223,6 @@ class VirtualMachineAutoBackupArgs:
     @storage_blob_endpoint.setter
     def storage_blob_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "storage_blob_endpoint", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionEnabled")
-    @_utilities.deprecated("""`encryption_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Encryption is enabled when `encryption_password` is set; otherwise disabled.""")
-    def encryption_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "encryption_enabled")
-
-    @encryption_enabled.setter
-    def encryption_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "encryption_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionPassword")

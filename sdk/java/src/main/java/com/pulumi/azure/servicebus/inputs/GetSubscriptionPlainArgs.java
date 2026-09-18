@@ -7,8 +7,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -31,85 +29,25 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    @Import(name="namespaceName")
-    private @Nullable String namespaceName;
-
-    /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
-    }
-
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    @Import(name="resourceGroupName")
-    private @Nullable String resourceGroupName;
-
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
      * The ID of the ServiceBus Topic where the Service Bus Subscription exists.
      * 
      */
-    @Import(name="topicId")
-    private @Nullable String topicId;
+    @Import(name="topicId", required=true)
+    private String topicId;
 
     /**
      * @return The ID of the ServiceBus Topic where the Service Bus Subscription exists.
      * 
      */
-    public Optional<String> topicId() {
-        return Optional.ofNullable(this.topicId);
-    }
-
-    /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    @Import(name="topicName")
-    private @Nullable String topicName;
-
-    /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> topicName() {
-        return Optional.ofNullable(this.topicName);
+    public String topicId() {
+        return this.topicId;
     }
 
     private GetSubscriptionPlainArgs() {}
 
     private GetSubscriptionPlainArgs(GetSubscriptionPlainArgs $) {
         this.name = $.name;
-        this.namespaceName = $.namespaceName;
-        this.resourceGroupName = $.resourceGroupName;
         this.topicId = $.topicId;
-        this.topicName = $.topicName;
     }
 
     public static Builder builder() {
@@ -142,58 +80,22 @@ public final class GetSubscriptionPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-        public Builder namespaceName(@Nullable String namespaceName) {
-            $.namespaceName = namespaceName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
          * @param topicId The ID of the ServiceBus Topic where the Service Bus Subscription exists.
          * 
          * @return builder
          * 
          */
-        public Builder topicId(@Nullable String topicId) {
+        public Builder topicId(String topicId) {
             $.topicId = topicId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-        public Builder topicName(@Nullable String topicName) {
-            $.topicName = topicName;
             return this;
         }
 
         public GetSubscriptionPlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetSubscriptionPlainArgs", "name");
+            }
+            if ($.topicId == null) {
+                throw new MissingRequiredPropertyException("GetSubscriptionPlainArgs", "topicId");
             }
             return $;
         }

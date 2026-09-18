@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Compute
     ///                 PublicKey = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "~/.ssh/id_rsa.pub",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///             },
     ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs

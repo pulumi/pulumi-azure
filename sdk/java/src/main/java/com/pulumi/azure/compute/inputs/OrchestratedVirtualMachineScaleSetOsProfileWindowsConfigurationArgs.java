@@ -66,6 +66,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return this.adminUsername;
     }
 
+    @Import(name="automaticUpdatesEnabled")
+    private @Nullable Output<Boolean> automaticUpdatesEnabled;
+
+    public Optional<Output<Boolean>> automaticUpdatesEnabled() {
+        return Optional.ofNullable(this.automaticUpdatesEnabled);
+    }
+
     /**
      * The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
@@ -79,21 +86,6 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     public Optional<Output<String>> computerNamePrefix() {
         return Optional.ofNullable(this.computerNamePrefix);
-    }
-
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    @Import(name="enableAutomaticUpdates")
-    private @Nullable Output<Boolean> enableAutomaticUpdates;
-
-    /**
-     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableAutomaticUpdates() {
-        return Optional.ofNullable(this.enableAutomaticUpdates);
     }
 
     /**
@@ -219,8 +211,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         this.additionalUnattendContents = $.additionalUnattendContents;
         this.adminPassword = $.adminPassword;
         this.adminUsername = $.adminUsername;
+        this.automaticUpdatesEnabled = $.automaticUpdatesEnabled;
         this.computerNamePrefix = $.computerNamePrefix;
-        this.enableAutomaticUpdates = $.enableAutomaticUpdates;
         this.hotpatchingEnabled = $.hotpatchingEnabled;
         this.patchAssessmentMode = $.patchAssessmentMode;
         this.patchMode = $.patchMode;
@@ -321,6 +313,15 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return adminUsername(Output.of(adminUsername));
         }
 
+        public Builder automaticUpdatesEnabled(@Nullable Output<Boolean> automaticUpdatesEnabled) {
+            $.automaticUpdatesEnabled = automaticUpdatesEnabled;
+            return this;
+        }
+
+        public Builder automaticUpdatesEnabled(Boolean automaticUpdatesEnabled) {
+            return automaticUpdatesEnabled(Output.of(automaticUpdatesEnabled));
+        }
+
         /**
          * @param computerNamePrefix The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
          * 
@@ -340,27 +341,6 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
          */
         public Builder computerNamePrefix(String computerNamePrefix) {
             return computerNamePrefix(Output.of(computerNamePrefix));
-        }
-
-        /**
-         * @param enableAutomaticUpdates Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
-            $.enableAutomaticUpdates = enableAutomaticUpdates;
-            return this;
-        }
-
-        /**
-         * @param enableAutomaticUpdates Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
-            return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
 
         /**

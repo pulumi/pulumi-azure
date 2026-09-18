@@ -402,7 +402,7 @@ class Provider(pulumi.CustomResource):
             name="exampleprovider",
             resource_group_name=example.name,
             location=example.location,
-            policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
+            policy_signing_certificate_data=std.file(input="./example/cert.pem")["result"])
         ```
 
         ## API Providers
@@ -460,7 +460,7 @@ class Provider(pulumi.CustomResource):
             name="exampleprovider",
             resource_group_name=example.name,
             location=example.location,
-            policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
+            policy_signing_certificate_data=std.file(input="./example/cert.pem")["result"])
         ```
 
         ## API Providers

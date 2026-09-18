@@ -4,7 +4,6 @@
 package com.pulumi.azure.batch.outputs;
 
 import com.pulumi.azure.batch.outputs.GetPoolAutoScale;
-import com.pulumi.azure.batch.outputs.GetPoolCertificate;
 import com.pulumi.azure.batch.outputs.GetPoolContainerConfiguration;
 import com.pulumi.azure.batch.outputs.GetPoolDataDisk;
 import com.pulumi.azure.batch.outputs.GetPoolDiskEncryption;
@@ -38,13 +37,6 @@ public final class GetPoolResult {
      * 
      */
     private List<GetPoolAutoScale> autoScales;
-    /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-    private List<GetPoolCertificate> certificates;
     /**
      * @return The container configuration used in the pool&#39;s VMs.
      * 
@@ -164,15 +156,6 @@ public final class GetPoolResult {
      */
     public List<GetPoolAutoScale> autoScales() {
         return this.autoScales;
-    }
-    /**
-     * @deprecated
-     * the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider. */
-    public List<GetPoolCertificate> certificates() {
-        return this.certificates;
     }
     /**
      * @return The container configuration used in the pool&#39;s VMs.
@@ -338,7 +321,6 @@ public final class GetPoolResult {
     public static final class Builder {
         private String accountName;
         private List<GetPoolAutoScale> autoScales;
-        private List<GetPoolCertificate> certificates;
         private List<GetPoolContainerConfiguration> containerConfigurations;
         private List<GetPoolDataDisk> dataDisks;
         private List<GetPoolDiskEncryption> diskEncryptions;
@@ -368,7 +350,6 @@ public final class GetPoolResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
     	      this.autoScales = defaults.autoScales;
-    	      this.certificates = defaults.certificates;
     	      this.containerConfigurations = defaults.containerConfigurations;
     	      this.dataDisks = defaults.dataDisks;
     	      this.diskEncryptions = defaults.diskEncryptions;
@@ -413,17 +394,6 @@ public final class GetPoolResult {
         }
         public Builder autoScales(GetPoolAutoScale... autoScales) {
             return autoScales(List.of(autoScales));
-        }
-        @CustomType.Setter
-        public Builder certificates(List<GetPoolCertificate> certificates) {
-            if (certificates == null) {
-              throw new MissingRequiredPropertyException("GetPoolResult", "certificates");
-            }
-            this.certificates = certificates;
-            return this;
-        }
-        public Builder certificates(GetPoolCertificate... certificates) {
-            return certificates(List.of(certificates));
         }
         @CustomType.Setter
         public Builder containerConfigurations(List<GetPoolContainerConfiguration> containerConfigurations) {
@@ -660,7 +630,6 @@ public final class GetPoolResult {
             final var _resultValue = new GetPoolResult();
             _resultValue.accountName = accountName;
             _resultValue.autoScales = autoScales;
-            _resultValue.certificates = certificates;
             _resultValue.containerConfigurations = containerConfigurations;
             _resultValue.dataDisks = dataDisks;
             _resultValue.diskEncryptions = diskEncryptions;

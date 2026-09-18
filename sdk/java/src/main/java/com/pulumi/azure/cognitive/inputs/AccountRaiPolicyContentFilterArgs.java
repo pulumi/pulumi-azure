@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountRaiPolicyContentFilterArgs extends com.pulumi.resources.ResourceArgs {
@@ -63,16 +65,20 @@ public final class AccountRaiPolicyContentFilterArgs extends com.pulumi.resource
     /**
      * The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
      * 
+     * &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
+     * 
      */
-    @Import(name="severityThreshold", required=true)
-    private Output<String> severityThreshold;
+    @Import(name="severityThreshold")
+    private @Nullable Output<String> severityThreshold;
 
     /**
      * @return The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
      * 
+     * &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
+     * 
      */
-    public Output<String> severityThreshold() {
-        return this.severityThreshold;
+    public Optional<Output<String>> severityThreshold() {
+        return Optional.ofNullable(this.severityThreshold);
     }
 
     /**
@@ -184,16 +190,20 @@ public final class AccountRaiPolicyContentFilterArgs extends com.pulumi.resource
         /**
          * @param severityThreshold The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
          * 
+         * &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
+         * 
          * @return builder
          * 
          */
-        public Builder severityThreshold(Output<String> severityThreshold) {
+        public Builder severityThreshold(@Nullable Output<String> severityThreshold) {
             $.severityThreshold = severityThreshold;
             return this;
         }
 
         /**
          * @param severityThreshold The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+         * 
+         * &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
          * 
          * @return builder
          * 
@@ -232,9 +242,6 @@ public final class AccountRaiPolicyContentFilterArgs extends com.pulumi.resource
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("AccountRaiPolicyContentFilterArgs", "name");
-            }
-            if ($.severityThreshold == null) {
-                throw new MissingRequiredPropertyException("AccountRaiPolicyContentFilterArgs", "severityThreshold");
             }
             if ($.source == null) {
                 throw new MissingRequiredPropertyException("AccountRaiPolicyContentFilterArgs", "source");

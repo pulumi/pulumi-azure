@@ -111,52 +111,37 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      * 
      */
-    @Import(name="internetIngestionEnabled")
-    private @Nullable Output<Boolean> internetIngestionEnabled;
+    @Import(name="internetIngestionAccessType")
+    private @Nullable Output<String> internetIngestionAccessType;
 
     /**
-     * @return Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * @return Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      * 
      */
-    public Optional<Output<Boolean>> internetIngestionEnabled() {
-        return Optional.ofNullable(this.internetIngestionEnabled);
+    public Optional<Output<String>> internetIngestionAccessType() {
+        return Optional.ofNullable(this.internetIngestionAccessType);
     }
 
     /**
-     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      * 
      */
-    @Import(name="internetQueryEnabled")
-    private @Nullable Output<Boolean> internetQueryEnabled;
+    @Import(name="internetQueryAccessType")
+    private @Nullable Output<String> internetQueryAccessType;
 
     /**
-     * @return Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * @return Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      * 
      */
-    public Optional<Output<Boolean>> internetQueryEnabled() {
-        return Optional.ofNullable(this.internetQueryEnabled);
-    }
-
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="localAuthenticationDisabled")
-    private @Nullable Output<Boolean> localAuthenticationDisabled;
-
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> localAuthenticationDisabled() {
-        return Optional.ofNullable(this.localAuthenticationDisabled);
+    public Optional<Output<String>> internetQueryAccessType() {
+        return Optional.ofNullable(this.internetQueryAccessType);
     }
 
     /**
@@ -349,9 +334,8 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         this.dataCollectionRuleId = $.dataCollectionRuleId;
         this.identity = $.identity;
         this.immediateDataPurgeOn30DaysEnabled = $.immediateDataPurgeOn30DaysEnabled;
-        this.internetIngestionEnabled = $.internetIngestionEnabled;
-        this.internetQueryEnabled = $.internetQueryEnabled;
-        this.localAuthenticationDisabled = $.localAuthenticationDisabled;
+        this.internetIngestionAccessType = $.internetIngestionAccessType;
+        this.internetQueryAccessType = $.internetQueryAccessType;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.name = $.name;
@@ -510,70 +494,49 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param internetIngestionEnabled Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+         * @param internetIngestionAccessType Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
          */
-        public Builder internetIngestionEnabled(@Nullable Output<Boolean> internetIngestionEnabled) {
-            $.internetIngestionEnabled = internetIngestionEnabled;
+        public Builder internetIngestionAccessType(@Nullable Output<String> internetIngestionAccessType) {
+            $.internetIngestionAccessType = internetIngestionAccessType;
             return this;
         }
 
         /**
-         * @param internetIngestionEnabled Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+         * @param internetIngestionAccessType Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
          * 
          * @return builder
          * 
          */
-        public Builder internetIngestionEnabled(Boolean internetIngestionEnabled) {
-            return internetIngestionEnabled(Output.of(internetIngestionEnabled));
+        public Builder internetIngestionAccessType(String internetIngestionAccessType) {
+            return internetIngestionAccessType(Output.of(internetIngestionAccessType));
         }
 
         /**
-         * @param internetQueryEnabled Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+         * @param internetQueryAccessType Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+         * 
+         * &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
          * 
          * @return builder
          * 
          */
-        public Builder internetQueryEnabled(@Nullable Output<Boolean> internetQueryEnabled) {
-            $.internetQueryEnabled = internetQueryEnabled;
+        public Builder internetQueryAccessType(@Nullable Output<String> internetQueryAccessType) {
+            $.internetQueryAccessType = internetQueryAccessType;
             return this;
         }
 
         /**
-         * @param internetQueryEnabled Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+         * @param internetQueryAccessType Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+         * 
+         * &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
          * 
          * @return builder
          * 
          */
-        public Builder internetQueryEnabled(Boolean internetQueryEnabled) {
-            return internetQueryEnabled(Output.of(internetQueryEnabled));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
-            $.localAuthenticationDisabled = localAuthenticationDisabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
-            return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
+        public Builder internetQueryAccessType(String internetQueryAccessType) {
+            return internetQueryAccessType(Output.of(internetQueryAccessType));
         }
 
         /**

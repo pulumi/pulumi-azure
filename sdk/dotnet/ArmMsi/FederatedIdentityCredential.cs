@@ -83,12 +83,6 @@ namespace Pulumi.Azure.ArmMsi
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("parentId")]
-        public Output<string> ParentId { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
         /// <summary>
         /// Specifies the subject for this Federated Identity Credential.
         /// </summary>
@@ -165,12 +159,6 @@ namespace Pulumi.Azure.ArmMsi
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("parentId")]
-        public Input<string>? ParentId { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// Specifies the subject for this Federated Identity Credential.
         /// </summary>
@@ -180,8 +168,8 @@ namespace Pulumi.Azure.ArmMsi
         /// <summary>
         /// Specifies the ID of the User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         /// </summary>
-        [Input("userAssignedIdentityId")]
-        public Input<string>? UserAssignedIdentityId { get; set; }
+        [Input("userAssignedIdentityId", required: true)]
+        public Input<string> UserAssignedIdentityId { get; set; } = null!;
 
         public FederatedIdentityCredentialArgs()
         {
@@ -208,12 +196,6 @@ namespace Pulumi.Azure.ArmMsi
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("parentId")]
-        public Input<string>? ParentId { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// Specifies the subject for this Federated Identity Credential.

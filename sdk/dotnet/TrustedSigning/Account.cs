@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.TrustedSigning
 {
     /// <summary>
-    /// Manages a Trusted Signing Account.
+    /// Manages a Trusted Signing Account (Artifact Signing Account).
+    /// 
+    /// &gt; **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
     /// 
     /// ## Example Usage
     /// 
@@ -44,11 +46,11 @@ namespace Pulumi.Azure.TrustedSigning
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.CodeSigning` - 2024-09-30-preview
+    /// * `Microsoft.CodeSigning` - 2025-10-13
     /// 
     /// ## Import
     /// 
-    /// Trusted Signing Accounts can be imported using the `resource id`, e.g.
+    /// Artifact Signing Accounts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:trustedsigning/account:Account example /subscriptions/0000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.CodeSigning/codeSigningAccounts/example-account
@@ -58,37 +60,37 @@ namespace Pulumi.Azure.TrustedSigning
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URI of the Trusted Signing Account which is used during signing files.
+        /// The URI of the Artifact Signing Account which is used during signing files.
         /// </summary>
         [Output("accountUri")]
         public Output<string> AccountUri { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        /// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+        /// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        /// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+        /// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Trusted Signing Account.
+        /// A mapping of tags which should be assigned to the Artifact Signing Account.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -140,25 +142,25 @@ namespace Pulumi.Azure.TrustedSigning
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        /// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+        /// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        /// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+        /// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -167,7 +169,7 @@ namespace Pulumi.Azure.TrustedSigning
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Trusted Signing Account.
+        /// A mapping of tags which should be assigned to the Artifact Signing Account.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -184,31 +186,31 @@ namespace Pulumi.Azure.TrustedSigning
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URI of the Trusted Signing Account which is used during signing files.
+        /// The URI of the Artifact Signing Account which is used during signing files.
         /// </summary>
         [Input("accountUri")]
         public Input<string>? AccountUri { get; set; }
 
         /// <summary>
-        /// The Azure Region where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        /// The Azure Region where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Trusted Signing Account. Changing this forces a new Trusted Signing Account to be created.
+        /// The name which should be used for this Artifact Signing Account. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Trusted Signing Account should exist. Changing this forces a new Trusted Signing Account to be created.
+        /// The name of the Resource Group where the Artifact Signing Account should exist. Changing this forces a new Artifact Signing Account to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The sku name of this Trusted Signing Account. Possible values are `Basic` and `Premium`.
+        /// The sku name of this Artifact Signing Account. Possible values are `Basic` and `Premium`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -217,7 +219,7 @@ namespace Pulumi.Azure.TrustedSigning
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to the Trusted Signing Account.
+        /// A mapping of tags which should be assigned to the Artifact Signing Account.
         /// </summary>
         public InputMap<string> Tags
         {

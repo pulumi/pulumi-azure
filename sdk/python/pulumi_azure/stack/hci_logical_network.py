@@ -330,8 +330,8 @@ class HciLogicalNetwork(pulumi.CustomResource):
                 "address_prefix": "10.0.0.0/24",
                 "vlan_id": 123,
                 "route": {
-                    "addressPrefix": "0.0.0.0/0",
-                    "nextHopIpAddress": "10.0.0.1",
+                    "address_prefix": "0.0.0.0/0",
+                    "next_hop_ip_address": "10.0.0.1",
                 },
             },
             tags={
@@ -399,8 +399,8 @@ class HciLogicalNetwork(pulumi.CustomResource):
                 "address_prefix": "10.0.0.0/24",
                 "vlan_id": 123,
                 "route": {
-                    "addressPrefix": "0.0.0.0/0",
-                    "nextHopIpAddress": "10.0.0.1",
+                    "address_prefix": "0.0.0.0/0",
+                    "next_hop_ip_address": "10.0.0.1",
                 },
             },
             tags={

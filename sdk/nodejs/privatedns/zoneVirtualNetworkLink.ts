@@ -29,8 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
  *     name: "test",
- *     resourceGroupName: example.name,
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
  * ```
@@ -83,9 +82,9 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    declare public readonly privateDnsZoneName: pulumi.Output<string>;
+    declare public readonly privateDnsZoneId: pulumi.Output<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
@@ -94,10 +93,6 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
      * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
      */
     declare public readonly resolutionPolicy: pulumi.Output<string>;
-    /**
-     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -121,28 +116,23 @@ export class ZoneVirtualNetworkLink extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ZoneVirtualNetworkLinkState | undefined;
             resourceInputs["name"] = state?.name;
-            resourceInputs["privateDnsZoneName"] = state?.privateDnsZoneName;
+            resourceInputs["privateDnsZoneId"] = state?.privateDnsZoneId;
             resourceInputs["registrationEnabled"] = state?.registrationEnabled;
             resourceInputs["resolutionPolicy"] = state?.resolutionPolicy;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["virtualNetworkId"] = state?.virtualNetworkId;
         } else {
             const args = argsOrState as ZoneVirtualNetworkLinkArgs | undefined;
-            if (args?.privateDnsZoneName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateDnsZoneName'");
-            }
-            if (args?.resourceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
+            if (args?.privateDnsZoneId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateDnsZoneId'");
             }
             if (args?.virtualNetworkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkId'");
             }
             resourceInputs["name"] = args?.name;
-            resourceInputs["privateDnsZoneName"] = args?.privateDnsZoneName;
+            resourceInputs["privateDnsZoneId"] = args?.privateDnsZoneId;
             resourceInputs["registrationEnabled"] = args?.registrationEnabled;
             resourceInputs["resolutionPolicy"] = args?.resolutionPolicy;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
         }
@@ -160,9 +150,9 @@ export interface ZoneVirtualNetworkLinkState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    privateDnsZoneName?: pulumi.Input<string | undefined>;
+    privateDnsZoneId?: pulumi.Input<string | undefined>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
@@ -171,10 +161,6 @@ export interface ZoneVirtualNetworkLinkState {
      * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
      */
     resolutionPolicy?: pulumi.Input<string | undefined>;
-    /**
-     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -194,9 +180,9 @@ export interface ZoneVirtualNetworkLinkArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Private DNS zone (without a terminating dot). Changing this forces a new resource to be created.
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    privateDnsZoneName: pulumi.Input<string>;
+    privateDnsZoneId: pulumi.Input<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
      */
@@ -205,10 +191,6 @@ export interface ZoneVirtualNetworkLinkArgs {
      * Specifies the resolution policy of the Private DNS Zone Virtual Network Link. Possible values are `Default` and `NxDomainRedirect`.
      */
     resolutionPolicy?: pulumi.Input<string | undefined>;
-    /**
-     * Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

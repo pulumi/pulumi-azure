@@ -25,14 +25,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string AdminUsername;
+        public readonly bool? AutomaticUpdatesEnabled;
         /// <summary>
         /// The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `Name` field. If the value of the `Name` field is not a valid `ComputerNamePrefix`, then you must specify `ComputerNamePrefix`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ComputerNamePrefix;
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        public readonly bool? EnableAutomaticUpdates;
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `True` and `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
@@ -76,9 +73,9 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string adminUsername,
 
-            string? computerNamePrefix,
+            bool? automaticUpdatesEnabled,
 
-            bool? enableAutomaticUpdates,
+            string? computerNamePrefix,
 
             bool? hotpatchingEnabled,
 
@@ -97,8 +94,8 @@ namespace Pulumi.Azure.Compute.Outputs
             AdditionalUnattendContents = additionalUnattendContents;
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            AutomaticUpdatesEnabled = automaticUpdatesEnabled;
             ComputerNamePrefix = computerNamePrefix;
-            EnableAutomaticUpdates = enableAutomaticUpdates;
             HotpatchingEnabled = hotpatchingEnabled;
             PatchAssessmentMode = patchAssessmentMode;
             PatchMode = patchMode;

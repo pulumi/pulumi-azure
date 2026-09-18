@@ -72,10 +72,6 @@ export interface GetDeploymentResult {
      */
     readonly dataplaneApiEndpoint: string;
     /**
-     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     */
-    readonly diagnoseSupportEnabled: boolean;
-    /**
      * Preferred email associated with the NGINX Deployment.
      */
     readonly email: string;
@@ -103,14 +99,6 @@ export interface GetDeploymentResult {
      * The Azure Region where the NGINX Deployment exists.
      */
     readonly location: string;
-    /**
-     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     */
-    readonly loggingStorageAccounts: outputs.nginx.GetDeploymentLoggingStorageAccount[];
-    /**
-     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     */
-    readonly managedResourceGroup: string;
     /**
      * Name of the autoscaling profile.
      */

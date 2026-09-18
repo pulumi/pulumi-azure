@@ -81,16 +81,12 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more `diskEncryption` block as defined below.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
     @Import(name="diskEncryptions")
     private @Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions;
 
     /**
      * @return One or more `diskEncryption` block as defined below.
-     * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
     public Optional<Output<List<KafkaClusterDiskEncryptionArgs>>> diskEncryptions() {
@@ -356,15 +352,15 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      * The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="tlsMinVersion")
-    private @Nullable Output<String> tlsMinVersion;
+    @Import(name="tlsMinVersion", required=true)
+    private Output<String> tlsMinVersion;
 
     /**
      * @return The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<String>> tlsMinVersion() {
-        return Optional.ofNullable(this.tlsMinVersion);
+    public Output<String> tlsMinVersion() {
+        return this.tlsMinVersion;
     }
 
     private KafkaClusterArgs() {}
@@ -478,8 +474,6 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
-         * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-         * 
          * @return builder
          * 
          */
@@ -491,8 +485,6 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param diskEncryptions One or more `diskEncryption` block as defined below.
          * 
-         * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-         * 
          * @return builder
          * 
          */
@@ -502,8 +494,6 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param diskEncryptions One or more `diskEncryption` block as defined below.
-         * 
-         * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
          * 
          * @return builder
          * 
@@ -885,7 +875,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder tlsMinVersion(@Nullable Output<String> tlsMinVersion) {
+        public Builder tlsMinVersion(Output<String> tlsMinVersion) {
             $.tlsMinVersion = tlsMinVersion;
             return this;
         }
@@ -918,6 +908,9 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.tier == null) {
                 throw new MissingRequiredPropertyException("KafkaClusterArgs", "tier");
+            }
+            if ($.tlsMinVersion == null) {
+                throw new MissingRequiredPropertyException("KafkaClusterArgs", "tlsMinVersion");
             }
             return $;
         }

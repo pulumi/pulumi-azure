@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,7 +86,7 @@ type TableEntity struct {
 	PartitionKey pulumi.StringOutput `pulumi:"partitionKey"`
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey pulumi.StringOutput `pulumi:"rowKey"`
-	// The Storage Share ID in which this file will be placed into.
+	// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
 	StorageTableId pulumi.StringOutput `pulumi:"storageTableId"`
 }
 
@@ -138,7 +138,7 @@ type tableEntityState struct {
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey *string `pulumi:"rowKey"`
-	// The Storage Share ID in which this file will be placed into.
+	// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
 	StorageTableId *string `pulumi:"storageTableId"`
 }
 
@@ -149,7 +149,7 @@ type TableEntityState struct {
 	PartitionKey pulumi.StringPtrInput
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey pulumi.StringPtrInput
-	// The Storage Share ID in which this file will be placed into.
+	// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
 	StorageTableId pulumi.StringPtrInput
 }
 
@@ -164,7 +164,7 @@ type tableEntityArgs struct {
 	PartitionKey string `pulumi:"partitionKey"`
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey string `pulumi:"rowKey"`
-	// The Storage Share ID in which this file will be placed into.
+	// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
 	StorageTableId string `pulumi:"storageTableId"`
 }
 
@@ -176,7 +176,7 @@ type TableEntityArgs struct {
 	PartitionKey pulumi.StringInput
 	// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
 	RowKey pulumi.StringInput
-	// The Storage Share ID in which this file will be placed into.
+	// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
 	StorageTableId pulumi.StringInput
 }
 
@@ -282,7 +282,7 @@ func (o TableEntityOutput) RowKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.RowKey }).(pulumi.StringOutput)
 }
 
-// The Storage Share ID in which this file will be placed into.
+// The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
 func (o TableEntityOutput) StorageTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableEntity) pulumi.StringOutput { return v.StorageTableId }).(pulumi.StringOutput)
 }

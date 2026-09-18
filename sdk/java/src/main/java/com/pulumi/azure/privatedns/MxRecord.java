@@ -62,8 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMxRecord = new MxRecord("exampleMxRecord", MxRecordArgs.builder()
  *             .name("example")
- *             .resourceGroupName(example.name())
- *             .zoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .ttl(300)
  *             .records(            
  *                 MxRecordRecordArgs.builder()
@@ -129,6 +128,20 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="privateDnsZoneId", refs={String.class}, tree="[0]")
+    private Output<String> privateDnsZoneId;
+
+    /**
+     * @return Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> privateDnsZoneId() {
+        return this.privateDnsZoneId;
+    }
+    /**
      * One or more `record` blocks as defined below.
      * 
      */
@@ -141,20 +154,6 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      */
     public Output<List<MxRecordRecord>> records() {
         return this.records;
-    }
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    /**
-     * @return Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * A mapping of tags to assign to the resource.
@@ -183,20 +182,6 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> ttl() {
         return this.ttl;
-    }
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Export(name="zoneName", refs={String.class}, tree="[0]")
-    private Output<String> zoneName;
-
-    /**
-     * @return Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> zoneName() {
-        return this.zoneName;
     }
 
     /**

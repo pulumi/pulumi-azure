@@ -21,28 +21,17 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         public readonly string? AuthenticationType;
         /// <summary>
         /// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-        /// 
-        /// &gt; **Note:** `AutomationAccountId` is required when `Enabled` is specified.
         /// </summary>
-        public readonly string? AutomationAccountId;
-        /// <summary>
-        /// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `False`.
-        /// 
-        /// &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-        /// </summary>
-        public readonly bool? Enabled;
+        public readonly string AutomationAccountId;
 
         [OutputConstructor]
         private ProtectionContainerMappingAutomaticUpdate(
             string? authenticationType,
 
-            string? automationAccountId,
-
-            bool? enabled)
+            string automationAccountId)
         {
             AuthenticationType = authenticationType;
             AutomationAccountId = automationAccountId;
-            Enabled = enabled;
         }
     }
 }

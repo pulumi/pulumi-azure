@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDatabaseExtendedAuditingPolicy = new DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", DatabaseExtendedAuditingPolicyArgs.builder()
  *             .databaseId(exampleDatabase.id())
- *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
+ *             .blobStorageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .storageAccountAccessKeyIsSecondary(false)
  *             .retentionInDays(6)
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 
@@ -110,6 +110,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy")
 public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+     * 
+     */
+    @Export(name="blobStorageEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> blobStorageEndpoint;
+
+    /**
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+     * 
+     */
+    public Output<Optional<String>> blobStorageEndpoint() {
+        return Codegen.optional(this.blobStorageEndpoint);
+    }
     /**
      * The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
      * 
@@ -125,18 +139,18 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
         return this.databaseId;
     }
     /**
-     * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     * Whether to enable the extended auditing policy. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+     * @return Whether to enable the extended auditing policy. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -203,20 +217,6 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      */
     public Output<Optional<Boolean>> storageAccountAccessKeyIsSecondary() {
         return Codegen.optional(this.storageAccountAccessKeyIsSecondary);
-    }
-    /**
-     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-     * 
-     */
-    @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageEndpoint;
-
-    /**
-     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-     * 
-     */
-    public Output<Optional<String>> storageEndpoint() {
-        return Codegen.optional(this.storageEndpoint);
     }
 
     /**

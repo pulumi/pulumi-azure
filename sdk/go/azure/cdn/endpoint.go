@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +84,7 @@ import (
 type Endpoint struct {
 	pulumi.CustomResourceState
 
-	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
 	ContentTypesToCompresses pulumi.StringArrayOutput `pulumi:"contentTypesToCompresses"`
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules EndpointDeliveryRuleArrayOutput `pulumi:"deliveryRules"`
@@ -165,7 +165,7 @@ func GetEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
-	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules []EndpointDeliveryRule `pulumi:"deliveryRules"`
@@ -208,7 +208,7 @@ type endpointState struct {
 }
 
 type EndpointState struct {
-	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
 	ContentTypesToCompresses pulumi.StringArrayInput
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules EndpointDeliveryRuleArrayInput
@@ -255,7 +255,7 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
-	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
 	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules []EndpointDeliveryRule `pulumi:"deliveryRules"`
@@ -297,7 +297,7 @@ type endpointArgs struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
-	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
 	ContentTypesToCompresses pulumi.StringArrayInput
 	// Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `deliveryRule` blocks as defined below.
 	DeliveryRules EndpointDeliveryRuleArrayInput
@@ -424,7 +424,7 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
-// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
 func (o EndpointOutput) ContentTypesToCompresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.ContentTypesToCompresses }).(pulumi.StringArrayOutput)
 }

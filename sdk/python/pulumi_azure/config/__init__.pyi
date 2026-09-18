@@ -67,8 +67,6 @@ disableTerraformPartnerId: Optional[bool]
 This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
 """
 
-enhancedValidation: Optional[str]
-
 environment: str
 """
 The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
@@ -126,11 +124,6 @@ The set of Resource Providers which should be automatically registered for the s
 resourceProvidersToRegisters: Optional[str]
 """
 A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
-"""
-
-skipProviderRegistration: bool
-"""
-Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
 """
 
 storageUseAzuread: bool

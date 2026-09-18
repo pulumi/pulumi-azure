@@ -30,14 +30,16 @@ namespace Pulumi.Azure.Storage
         public static Output<string> SignedBlobReadUrl(Blob blob, Account account)
         {
             return Output
-                .Tuple(account.Name, account.PrimaryConnectionString, blob.StorageContainerName, blob.Name)
-                .Apply(async ((string accountName, string connectionString, string containerName, string blobName) v) =>
+                .Tuple(account.Name, account.PrimaryConnectionString, blob.StorageContainerId, blob.Name)
+                .Apply(async ((string accountName, string connectionString, string storageContainerId, string blobName) v) =>
                 {
+                    // The storage_container_id is a full resource ID; the container name is its last path segment.
+                    var containerName = v.storageContainerId.Substring(v.storageContainerId.LastIndexOf('/') + 1);
                     var sas = await GetAccountBlobContainerSAS.InvokeAsync(
                         new GetAccountBlobContainerSASArgs
                         {
                             ConnectionString = v.connectionString,
-                            ContainerName = v.containerName,
+                            ContainerName = containerName,
                             Start = "2019-01-01",
                             Expiry = "2100-01-01",
                             Permissions = new Inputs.GetAccountBlobContainerSASPermissionsArgs
@@ -51,7 +53,7 @@ namespace Pulumi.Azure.Storage
                             },
                         }
                     );
-                    return $"https://{v.accountName}.blob.core.windows.net/{v.containerName}/{v.blobName}{sas.Sas}";
+                    return $"https://{v.accountName}.blob.core.windows.net/{containerName}/{v.blobName}{sas.Sas}";
                 });
         }
     }

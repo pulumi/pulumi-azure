@@ -49,11 +49,12 @@ namespace Pulumi.Azure.HDInsight
     ///         Name = "example-hdicluster",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         ClusterVersion = "4.0",
+    ///         ClusterVersion = "5.1",
     ///         Tier = "Standard",
+    ///         TlsMinVersion = "1.2",
     ///         ComponentVersion = new Azure.HDInsight.Inputs.KafkaClusterComponentVersionArgs
     ///         {
-    ///             Kafka = "2.1",
+    ///             Kafka = "3.2",
     ///         },
     ///         Gateway = new Azure.HDInsight.Inputs.KafkaClusterGatewayArgs
     ///         {
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             new Azure.HDInsight.Inputs.KafkaClusterStorageAccountArgs
     ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageContainerUrl = exampleContainer.Url,
     ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
     ///                 IsDefault = true,
     ///             },
@@ -73,13 +74,13 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             HeadNode = new Azure.HDInsight.Inputs.KafkaClusterRolesHeadNodeArgs
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
+    ///                 VmSize = "Standard_A4_V2",
     ///                 Username = "acctestusrvm",
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
     ///             WorkerNode = new Azure.HDInsight.Inputs.KafkaClusterRolesWorkerNodeArgs
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
+    ///                 VmSize = "Standard_A4_V2",
     ///                 Username = "acctestusrvm",
     ///                 Password = "AccTestvdSC4daf986!",
     ///                 NumberOfDisksPerNode = 3,
@@ -87,7 +88,7 @@ namespace Pulumi.Azure.HDInsight
     ///             },
     ///             ZookeeperNode = new Azure.HDInsight.Inputs.KafkaClusterRolesZookeeperNodeArgs
     ///             {
-    ///                 VmSize = "Standard_D3_V2",
+    ///                 VmSize = "Standard_A4_V2",
     ///                 Username = "acctestusrvm",
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
@@ -135,8 +136,6 @@ namespace Pulumi.Azure.HDInsight
 
         /// <summary>
         /// One or more `DiskEncryption` block as defined below.
-        /// 
-        /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
         [Output("diskEncryptions")]
         public Output<ImmutableArray<Outputs.KafkaClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
@@ -265,7 +264,7 @@ namespace Pulumi.Azure.HDInsight
         /// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("tlsMinVersion")]
-        public Output<string?> TlsMinVersion { get; private set; } = null!;
+        public Output<string> TlsMinVersion { get; private set; } = null!;
 
 
         /// <summary>
@@ -336,8 +335,6 @@ namespace Pulumi.Azure.HDInsight
 
         /// <summary>
         /// One or more `DiskEncryption` block as defined below.
-        /// 
-        /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
         public InputList<Inputs.KafkaClusterDiskEncryptionArgs> DiskEncryptions
         {
@@ -462,8 +459,8 @@ namespace Pulumi.Azure.HDInsight
         /// <summary>
         /// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("tlsMinVersion")]
-        public Input<string>? TlsMinVersion { get; set; }
+        [Input("tlsMinVersion", required: true)]
+        public Input<string> TlsMinVersion { get; set; } = null!;
 
         public KafkaClusterArgs()
         {
@@ -496,8 +493,6 @@ namespace Pulumi.Azure.HDInsight
 
         /// <summary>
         /// One or more `DiskEncryption` block as defined below.
-        /// 
-        /// &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         /// </summary>
         public InputList<Inputs.KafkaClusterDiskEncryptionGetArgs> DiskEncryptions
         {

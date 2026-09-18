@@ -117,7 +117,7 @@ namespace Pulumi.Azure.CosmosDB
     ///                 "UserAssignedIdentity",
     ///                 example.Id,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         OfferType = "Standard",
     ///         Kind = "MongoDB",
     ///         Capabilities = new[]
@@ -246,11 +246,8 @@ namespace Pulumi.Azure.CosmosDB
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
-        [Output("localAuthenticationDisabled")]
-        public Output<bool> LocalAuthenticationDisabled { get; private set; } = null!;
-
         [Output("localAuthenticationEnabled")]
-        public Output<bool> LocalAuthenticationEnabled { get; private set; } = null!;
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -258,11 +255,8 @@ namespace Pulumi.Azure.CosmosDB
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        [Output("managedHsmKeyId")]
-        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
-
         /// <summary>
-        /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        /// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         /// </summary>
@@ -548,9 +542,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        [Input("localAuthenticationDisabled")]
-        public Input<bool>? LocalAuthenticationDisabled { get; set; }
-
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
@@ -560,11 +551,8 @@ namespace Pulumi.Azure.CosmosDB
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
-
         /// <summary>
-        /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        /// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         /// </summary>
@@ -735,9 +723,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        [Input("localAuthenticationDisabled")]
-        public Input<bool>? LocalAuthenticationDisabled { get; set; }
-
         [Input("localAuthenticationEnabled")]
         public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
@@ -747,11 +732,8 @@ namespace Pulumi.Azure.CosmosDB
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
-
         /// <summary>
-        /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        /// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         /// </summary>

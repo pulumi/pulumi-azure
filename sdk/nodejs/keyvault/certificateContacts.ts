@@ -92,7 +92,7 @@ export class CertificateContacts extends pulumi.CustomResource {
     /**
      * One or more `contact` blocks as defined below.
      */
-    declare public readonly contacts: pulumi.Output<outputs.keyvault.CertificateContactsContact[] | undefined>;
+    declare public readonly contacts: pulumi.Output<outputs.keyvault.CertificateContactsContact[]>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */
@@ -115,6 +115,9 @@ export class CertificateContacts extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = state?.keyVaultId;
         } else {
             const args = argsOrState as CertificateContactsArgs | undefined;
+            if (args?.contacts === undefined && !opts.urn) {
+                throw new Error("Missing required property 'contacts'");
+            }
             if (args?.keyVaultId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultId'");
             }
@@ -147,7 +150,7 @@ export interface CertificateContactsArgs {
     /**
      * One or more `contact` blocks as defined below.
      */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[] | undefined>;
+    contacts: pulumi.Input<pulumi.Input<inputs.keyvault.CertificateContactsContact>[]>;
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.
      */

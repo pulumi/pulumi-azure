@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineScaleSetNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Does this Network Interface support Accelerated Networking? Defaults to `False`.
+        /// </summary>
+        [Input("acceleratedNetworkingEnabled")]
+        public Input<bool>? AcceleratedNetworkingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
         /// 
         /// &gt; **Note:** `AuxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -40,18 +46,6 @@ namespace Pulumi.Azure.Compute.Inputs
             set => _dnsServers = value;
         }
 
-        /// <summary>
-        /// Does this Network Interface support Accelerated Networking? Defaults to `False`.
-        /// </summary>
-        [Input("enableAcceleratedNetworking")]
-        public Input<bool>? EnableAcceleratedNetworking { get; set; }
-
-        /// <summary>
-        /// Does this Network Interface support IP Forwarding? Defaults to `False`.
-        /// </summary>
-        [Input("enableIpForwarding")]
-        public Input<bool>? EnableIpForwarding { get; set; }
-
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>? _ipConfigurations;
 
@@ -63,6 +57,12 @@ namespace Pulumi.Azure.Compute.Inputs
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>());
             set => _ipConfigurations = value;
         }
+
+        /// <summary>
+        /// Does this Network Interface support IP Forwarding? Defaults to `False`.
+        /// </summary>
+        [Input("ipForwardingEnabled")]
+        public Input<bool>? IpForwardingEnabled { get; set; }
 
         /// <summary>
         /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.

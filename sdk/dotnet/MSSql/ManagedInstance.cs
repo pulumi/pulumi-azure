@@ -369,7 +369,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string?> MaintenanceConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -383,10 +383,10 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+        /// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
         /// </summary>
         [Output("proxyOverride")]
-        public Output<string> ProxyOverride { get; private set; } = null!;
+        public Output<string?> ProxyOverride { get; private set; } = null!;
 
         /// <summary>
         /// Is the public data endpoint enabled? Defaults to `False`.
@@ -609,7 +609,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
-        /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -623,7 +623,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+        /// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
         /// </summary>
         [Input("proxyOverride")]
         public Input<string>? ProxyOverride { get; set; }
@@ -821,7 +821,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? MaintenanceConfigurationName { get; set; }
 
         /// <summary>
-        /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+        /// The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -835,7 +835,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+        /// Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
         /// </summary>
         [Input("proxyOverride")]
         public Input<string>? ProxyOverride { get; set; }

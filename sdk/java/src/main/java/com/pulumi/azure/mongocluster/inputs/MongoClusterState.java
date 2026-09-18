@@ -41,12 +41,16 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
+     * 
      */
     @Import(name="administratorUsername")
     private @Nullable Output<String> administratorUsername;
 
     /**
      * @return The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      * 
      */
     public Optional<Output<String>> administratorUsername() {
@@ -454,6 +458,8 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param administratorUsername The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
+         * 
          * @return builder
          * 
          */
@@ -464,6 +470,8 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param administratorUsername The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
          * 
          * @return builder
          * 

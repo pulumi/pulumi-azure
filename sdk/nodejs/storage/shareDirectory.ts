@@ -82,10 +82,6 @@ export class ShareDirectory extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-     */
-    declare public readonly storageShareId: pulumi.Output<string>;
-    /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
     declare public readonly storageShareUrl: pulumi.Output<string>;
@@ -97,7 +93,7 @@ export class ShareDirectory extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ShareDirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ShareDirectoryArgs | ShareDirectoryState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -105,13 +101,14 @@ export class ShareDirectory extends pulumi.CustomResource {
             const state = argsOrState as ShareDirectoryState | undefined;
             resourceInputs["metadata"] = state?.metadata;
             resourceInputs["name"] = state?.name;
-            resourceInputs["storageShareId"] = state?.storageShareId;
             resourceInputs["storageShareUrl"] = state?.storageShareUrl;
         } else {
             const args = argsOrState as ShareDirectoryArgs | undefined;
+            if (args?.storageShareUrl === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageShareUrl'");
+            }
             resourceInputs["metadata"] = args?.metadata;
             resourceInputs["name"] = args?.name;
-            resourceInputs["storageShareId"] = args?.storageShareId;
             resourceInputs["storageShareUrl"] = args?.storageShareUrl;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,10 +129,6 @@ export interface ShareDirectoryState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-     */
-    storageShareId?: pulumi.Input<string | undefined>;
-    /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
     storageShareUrl?: pulumi.Input<string | undefined>;
@@ -154,11 +147,7 @@ export interface ShareDirectoryArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-     */
-    storageShareId?: pulumi.Input<string | undefined>;
-    /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
      */
-    storageShareUrl?: pulumi.Input<string | undefined>;
+    storageShareUrl: pulumi.Input<string>;
 }

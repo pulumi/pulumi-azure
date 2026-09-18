@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        /// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -338,7 +338,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        /// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        /// The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>

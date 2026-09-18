@@ -132,14 +132,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
         /// </summary>
-        [Input("namespaceId")]
-        public string? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public string? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public string NamespaceId { get; set; } = null!;
 
         public GetNamespaceAuthorizationRuleArgs()
         {
@@ -158,14 +152,8 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         public GetNamespaceAuthorizationRuleInvokeArgs()
         {
@@ -182,8 +170,7 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string Id;
         public readonly string Name;
-        public readonly string? NamespaceId;
-        public readonly string? NamespaceName;
+        public readonly string NamespaceId;
         /// <summary>
         /// The primary connection string for the authorization rule.
         /// </summary>
@@ -196,7 +183,6 @@ namespace Pulumi.Azure.ServiceBus
         /// The primary access key for the authorization rule.
         /// </summary>
         public readonly string PrimaryKey;
-        public readonly string? ResourceGroupName;
         /// <summary>
         /// The secondary connection string for the authorization rule.
         /// </summary>
@@ -216,17 +202,13 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string? namespaceId,
-
-            string? namespaceName,
+            string namespaceId,
 
             string primaryConnectionString,
 
             string primaryConnectionStringAlias,
 
             string primaryKey,
-
-            string? resourceGroupName,
 
             string secondaryConnectionString,
 
@@ -237,11 +219,9 @@ namespace Pulumi.Azure.ServiceBus
             Id = id;
             Name = name;
             NamespaceId = namespaceId;
-            NamespaceName = namespaceName;
             PrimaryConnectionString = primaryConnectionString;
             PrimaryConnectionStringAlias = primaryConnectionStringAlias;
             PrimaryKey = primaryKey;
-            ResourceGroupName = resourceGroupName;
             SecondaryConnectionString = secondaryConnectionString;
             SecondaryConnectionStringAlias = secondaryConnectionStringAlias;
             SecondaryKey = secondaryKey;

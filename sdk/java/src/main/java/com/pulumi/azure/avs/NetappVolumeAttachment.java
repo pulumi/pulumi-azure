@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *             .exportPolicyRules(VolumeExportPolicyRuleArgs.builder()
  *                 .ruleIndex(1)
  *                 .allowedClients("0.0.0.0/0")
- *                 .protocolsEnabled("NFSv3")
+ *                 .protocolsEnabled(Arrays.asList("NFSv3"))
  *                 .unixReadOnly(false)
  *                 .unixReadWrite(true)
  *                 .rootAccessEnabled(true)

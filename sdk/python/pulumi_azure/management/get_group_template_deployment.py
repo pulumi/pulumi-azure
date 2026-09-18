@@ -95,7 +95,7 @@ def get_group_template_deployment(management_group_id: Optional[_builtins.str] =
     example = azure.management.get_group_template_deployment(name="existing",
         management_group_id="00000000-0000-0000-000000000000")
     pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content)["result"]["exampleOutput"]["value"])
     ```
 
 
@@ -129,7 +129,7 @@ def get_group_template_deployment_output(management_group_id: pulumi.Input[Optio
     example = azure.management.get_group_template_deployment(name="existing",
         management_group_id="00000000-0000-0000-000000000000")
     pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content)["result"]["exampleOutput"]["value"])
     ```
 
 

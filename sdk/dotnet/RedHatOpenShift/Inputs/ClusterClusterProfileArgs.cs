@@ -47,7 +47,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Inputs
         }
 
         /// <summary>
-        /// The resource group that the cluster profile is attached to.
+        /// The Resource Group that the cluster profile is attached to.
         /// </summary>
         [Input("resourceGroupId")]
         public Input<string>? ResourceGroupId { get; set; }

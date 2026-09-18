@@ -228,7 +228,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             export_policy_rules=[{
                 "rule_index": 1,
                 "allowed_clients": ["0.0.0.0/0"],
-                "protocols_enabled": "NFSv3",
+                "protocols_enabled": ["NFSv3"],
                 "unix_read_only": False,
                 "unix_read_write": True,
                 "root_access_enabled": True,
@@ -377,7 +377,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             export_policy_rules=[{
                 "rule_index": 1,
                 "allowed_clients": ["0.0.0.0/0"],
-                "protocols_enabled": "NFSv3",
+                "protocols_enabled": ["NFSv3"],
                 "unix_read_only": False,
                 "unix_read_write": True,
                 "root_access_enabled": True,

@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  *
  * ## Import
  *
@@ -115,14 +115,6 @@ export class NatRule extends pulumi.CustomResource {
      */
     declare public readonly backendPort: pulumi.Output<number>;
     /**
-     * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-     */
-    declare public readonly enableFloatingIp: pulumi.Output<boolean>;
-    /**
-     * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     */
-    declare public readonly enableTcpReset: pulumi.Output<boolean>;
-    /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     declare public readonly floatingIpEnabled: pulumi.Output<boolean>;
@@ -166,7 +158,7 @@ export class NatRule extends pulumi.CustomResource {
     /**
      * Is TCP Reset enabled for this Load Balancer Rule?
      */
-    declare public readonly tcpResetEnabled: pulumi.Output<boolean>;
+    declare public readonly tcpResetEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a NatRule resource with the given unique name, arguments, and options.
@@ -184,8 +176,6 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["backendAddressPoolId"] = state?.backendAddressPoolId;
             resourceInputs["backendIpConfigurationId"] = state?.backendIpConfigurationId;
             resourceInputs["backendPort"] = state?.backendPort;
-            resourceInputs["enableFloatingIp"] = state?.enableFloatingIp;
-            resourceInputs["enableTcpReset"] = state?.enableTcpReset;
             resourceInputs["floatingIpEnabled"] = state?.floatingIpEnabled;
             resourceInputs["frontendIpConfigurationId"] = state?.frontendIpConfigurationId;
             resourceInputs["frontendIpConfigurationName"] = state?.frontendIpConfigurationName;
@@ -217,8 +207,6 @@ export class NatRule extends pulumi.CustomResource {
             }
             resourceInputs["backendAddressPoolId"] = args?.backendAddressPoolId;
             resourceInputs["backendPort"] = args?.backendPort;
-            resourceInputs["enableFloatingIp"] = args?.enableFloatingIp;
-            resourceInputs["enableTcpReset"] = args?.enableTcpReset;
             resourceInputs["floatingIpEnabled"] = args?.floatingIpEnabled;
             resourceInputs["frontendIpConfigurationName"] = args?.frontendIpConfigurationName;
             resourceInputs["frontendPort"] = args?.frontendPort;
@@ -251,14 +239,6 @@ export interface NatRuleState {
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
     backendPort?: pulumi.Input<number | undefined>;
-    /**
-     * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-     */
-    enableFloatingIp?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     */
-    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
@@ -318,14 +298,6 @@ export interface NatRuleArgs {
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
     backendPort: pulumi.Input<number>;
-    /**
-     * @deprecated This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-     */
-    enableFloatingIp?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     */
-    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */

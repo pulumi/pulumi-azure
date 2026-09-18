@@ -23,8 +23,7 @@ import * as utilities from "../utilities";
  * });
  * const testAAAARecord = new azure.privatedns.AAAARecord("test", {
  *     name: "test",
- *     zoneName: test.name,
- *     resourceGroupName: example.name,
+ *     privateDnsZoneId: test.id,
  *     ttl: 300,
  *     records: [
  *         "fd5d:70bc:930e:d008:0000:0000:0000:7334",
@@ -85,13 +84,13 @@ export class AAAARecord extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     */
+    declare public readonly privateDnsZoneId: pulumi.Output<string>;
+    /**
      * A list of IPv6 Addresses.
      */
     declare public readonly records: pulumi.Output<string[]>;
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -100,10 +99,6 @@ export class AAAARecord extends pulumi.CustomResource {
      * The Time To Live (TTL) of the DNS record in seconds.
      */
     declare public readonly ttl: pulumi.Output<number>;
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     */
-    declare public readonly zoneName: pulumi.Output<string>;
 
     /**
      * Create a AAAARecord resource with the given unique name, arguments, and options.
@@ -120,31 +115,26 @@ export class AAAARecord extends pulumi.CustomResource {
             const state = argsOrState as AAAARecordState | undefined;
             resourceInputs["fqdn"] = state?.fqdn;
             resourceInputs["name"] = state?.name;
+            resourceInputs["privateDnsZoneId"] = state?.privateDnsZoneId;
             resourceInputs["records"] = state?.records;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["ttl"] = state?.ttl;
-            resourceInputs["zoneName"] = state?.zoneName;
         } else {
             const args = argsOrState as AAAARecordArgs | undefined;
+            if (args?.privateDnsZoneId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateDnsZoneId'");
+            }
             if (args?.records === undefined && !opts.urn) {
                 throw new Error("Missing required property 'records'");
-            }
-            if (args?.resourceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
             }
             if (args?.ttl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ttl'");
             }
-            if (args?.zoneName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'zoneName'");
-            }
             resourceInputs["name"] = args?.name;
+            resourceInputs["privateDnsZoneId"] = args?.privateDnsZoneId;
             resourceInputs["records"] = args?.records;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["ttl"] = args?.ttl;
-            resourceInputs["zoneName"] = args?.zoneName;
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -165,13 +155,13 @@ export interface AAAARecordState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     */
+    privateDnsZoneId?: pulumi.Input<string | undefined>;
+    /**
      * A list of IPv6 Addresses.
      */
     records?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -180,10 +170,6 @@ export interface AAAARecordState {
      * The Time To Live (TTL) of the DNS record in seconds.
      */
     ttl?: pulumi.Input<number | undefined>;
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     */
-    zoneName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -195,13 +181,13 @@ export interface AAAARecordArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     */
+    privateDnsZoneId: pulumi.Input<string>;
+    /**
      * A list of IPv6 Addresses.
      */
     records: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     */
-    resourceGroupName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -210,8 +196,4 @@ export interface AAAARecordArgs {
      * The Time To Live (TTL) of the DNS record in seconds.
      */
     ttl: pulumi.Input<number>;
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     */
-    zoneName: pulumi.Input<string>;
 }

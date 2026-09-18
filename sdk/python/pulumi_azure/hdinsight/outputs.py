@@ -1684,10 +1684,10 @@ class HBaseClusterStorageAccount(dict):
             suggest = "is_default"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageContainerUrl":
+            suggest = "storage_container_url"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HBaseClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -1703,23 +1703,21 @@ class HBaseClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: _builtins.bool,
                  storage_account_key: _builtins.str,
-                 storage_container_id: _builtins.str,
-                 storage_resource_id: Optional[_builtins.str] = None):
+                 storage_container_url: _builtins.str,
+                 storage_account_id: Optional[_builtins.str] = None):
         """
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param _builtins.str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param _builtins.str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-               
-               > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str storage_container_url: The URL of the Storage Container. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_container_url", storage_container_url)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
@@ -1740,22 +1738,20 @@ class HBaseClusterStorageAccount(dict):
         return pulumi.get(self, "storage_account_key")
 
     @_builtins.property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageContainerUrl")
+    def storage_container_url(self) -> _builtins.str:
         """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-
-        > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
+        The URL of the Storage Container. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_container_id")
+        return pulumi.get(self, "storage_container_url")
 
     @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[_builtins.str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -1767,10 +1763,10 @@ class HBaseClusterStorageAccountGen2(dict):
             suggest = "filesystem_id"
         elif key == "isDefault":
             suggest = "is_default"
-        elif key == "managedIdentityResourceId":
-            suggest = "managed_identity_resource_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HBaseClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
@@ -1786,22 +1782,22 @@ class HBaseClusterStorageAccountGen2(dict):
     def __init__(__self__, *,
                  filesystem_id: _builtins.str,
                  is_default: _builtins.bool,
-                 managed_identity_resource_id: _builtins.str,
-                 storage_resource_id: _builtins.str):
+                 storage_account_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
         """
         :param _builtins.str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-        :param _builtins.str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str user_assigned_identity_id: The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @_builtins.property
     @pulumi.getter(name="filesystemId")
@@ -1822,22 +1818,22 @@ class HBaseClusterStorageAccountGen2(dict):
         return pulumi.get(self, "is_default")
 
     @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> _builtins.str:
-        """
-        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-
-        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        """
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -3706,10 +3702,10 @@ class HadoopClusterStorageAccount(dict):
             suggest = "is_default"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageContainerUrl":
+            suggest = "storage_container_url"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HadoopClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -3725,23 +3721,21 @@ class HadoopClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: _builtins.bool,
                  storage_account_key: _builtins.str,
-                 storage_container_id: _builtins.str,
-                 storage_resource_id: Optional[_builtins.str] = None):
+                 storage_container_url: _builtins.str,
+                 storage_account_id: Optional[_builtins.str] = None):
         """
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param _builtins.str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param _builtins.str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-               
-               > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str storage_container_url: The URL of the Storage Container. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_container_url", storage_container_url)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
@@ -3762,22 +3756,20 @@ class HadoopClusterStorageAccount(dict):
         return pulumi.get(self, "storage_account_key")
 
     @_builtins.property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageContainerUrl")
+    def storage_container_url(self) -> _builtins.str:
         """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-
-        > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
+        The URL of the Storage Container. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_container_id")
+        return pulumi.get(self, "storage_container_url")
 
     @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[_builtins.str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -3789,10 +3781,10 @@ class HadoopClusterStorageAccountGen2(dict):
             suggest = "filesystem_id"
         elif key == "isDefault":
             suggest = "is_default"
-        elif key == "managedIdentityResourceId":
-            suggest = "managed_identity_resource_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HadoopClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
@@ -3808,22 +3800,22 @@ class HadoopClusterStorageAccountGen2(dict):
     def __init__(__self__, *,
                  filesystem_id: _builtins.str,
                  is_default: _builtins.bool,
-                 managed_identity_resource_id: _builtins.str,
-                 storage_resource_id: _builtins.str):
+                 storage_account_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
         """
         :param _builtins.str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-        :param _builtins.str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str user_assigned_identity_id: The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @_builtins.property
     @pulumi.getter(name="filesystemId")
@@ -3844,22 +3836,22 @@ class HadoopClusterStorageAccountGen2(dict):
         return pulumi.get(self, "is_default")
 
     @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> _builtins.str:
-        """
-        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-
-        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        """
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -5412,10 +5404,10 @@ class InteractiveQueryClusterStorageAccount(dict):
             suggest = "is_default"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageContainerUrl":
+            suggest = "storage_container_url"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -5431,23 +5423,21 @@ class InteractiveQueryClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: _builtins.bool,
                  storage_account_key: _builtins.str,
-                 storage_container_id: _builtins.str,
-                 storage_resource_id: Optional[_builtins.str] = None):
+                 storage_container_url: _builtins.str,
+                 storage_account_id: Optional[_builtins.str] = None):
         """
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param _builtins.str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param _builtins.str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-               
-               > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str storage_container_url: The URL of the Storage Container. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_container_url", storage_container_url)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
@@ -5468,22 +5458,20 @@ class InteractiveQueryClusterStorageAccount(dict):
         return pulumi.get(self, "storage_account_key")
 
     @_builtins.property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageContainerUrl")
+    def storage_container_url(self) -> _builtins.str:
         """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-
-        > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
+        The URL of the Storage Container. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_container_id")
+        return pulumi.get(self, "storage_container_url")
 
     @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[_builtins.str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -5495,10 +5483,10 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
             suggest = "filesystem_id"
         elif key == "isDefault":
             suggest = "is_default"
-        elif key == "managedIdentityResourceId":
-            suggest = "managed_identity_resource_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
@@ -5514,22 +5502,22 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
     def __init__(__self__, *,
                  filesystem_id: _builtins.str,
                  is_default: _builtins.bool,
-                 managed_identity_resource_id: _builtins.str,
-                 storage_resource_id: _builtins.str):
+                 storage_account_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
         """
         :param _builtins.str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-        :param _builtins.str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str user_assigned_identity_id: The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @_builtins.property
     @pulumi.getter(name="filesystemId")
@@ -5550,22 +5538,22 @@ class InteractiveQueryClusterStorageAccountGen2(dict):
         return pulumi.get(self, "is_default")
 
     @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> _builtins.str:
-        """
-        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-
-        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        """
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -6377,8 +6365,6 @@ class KafkaClusterRoles(dict):
         :param 'KafkaClusterRolesWorkerNodeArgs' worker_node: A `worker_node` block as defined below.
         :param 'KafkaClusterRolesZookeeperNodeArgs' zookeeper_node: A `zookeeper_node` block as defined below.
         :param 'KafkaClusterRolesKafkaManagementNodeArgs' kafka_management_node: A `kafka_management_node` block as defined below.
-               
-               > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
         pulumi.set(__self__, "head_node", head_node)
         pulumi.set(__self__, "worker_node", worker_node)
@@ -6415,8 +6401,6 @@ class KafkaClusterRoles(dict):
     def kafka_management_node(self) -> Optional['outputs.KafkaClusterRolesKafkaManagementNode']:
         """
         A `kafka_management_node` block as defined below.
-
-        > **Note:** This property has been deprecated and will be removed in version 4.0.
         """
         return pulumi.get(self, "kafka_management_node")
 
@@ -6631,7 +6615,7 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         :param _builtins.str subnet_id: The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param _builtins.str username: The Username of the local administrator for the Kafka Management Nodes.
                
-               > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+               > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
         :param _builtins.str virtual_network_id: The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "vm_size", vm_size)
@@ -6698,7 +6682,7 @@ class KafkaClusterRolesKafkaManagementNode(dict):
         """
         The Username of the local administrator for the Kafka Management Nodes.
 
-        > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+        > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
         """
         return pulumi.get(self, "username")
 
@@ -7227,10 +7211,10 @@ class KafkaClusterStorageAccount(dict):
             suggest = "is_default"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageContainerUrl":
+            suggest = "storage_container_url"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KafkaClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -7246,23 +7230,21 @@ class KafkaClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: _builtins.bool,
                  storage_account_key: _builtins.str,
-                 storage_container_id: _builtins.str,
-                 storage_resource_id: Optional[_builtins.str] = None):
+                 storage_container_url: _builtins.str,
+                 storage_account_id: Optional[_builtins.str] = None):
         """
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param _builtins.str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param _builtins.str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-               
-               > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str storage_container_url: The URL of the Storage Container. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_container_url", storage_container_url)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
@@ -7283,22 +7265,20 @@ class KafkaClusterStorageAccount(dict):
         return pulumi.get(self, "storage_account_key")
 
     @_builtins.property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageContainerUrl")
+    def storage_container_url(self) -> _builtins.str:
         """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-
-        > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
+        The URL of the Storage Container. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_container_id")
+        return pulumi.get(self, "storage_container_url")
 
     @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[_builtins.str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -7310,10 +7290,10 @@ class KafkaClusterStorageAccountGen2(dict):
             suggest = "filesystem_id"
         elif key == "isDefault":
             suggest = "is_default"
-        elif key == "managedIdentityResourceId":
-            suggest = "managed_identity_resource_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KafkaClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
@@ -7329,22 +7309,22 @@ class KafkaClusterStorageAccountGen2(dict):
     def __init__(__self__, *,
                  filesystem_id: _builtins.str,
                  is_default: _builtins.bool,
-                 managed_identity_resource_id: _builtins.str,
-                 storage_resource_id: _builtins.str):
+                 storage_account_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
         """
         :param _builtins.str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-        :param _builtins.str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str user_assigned_identity_id: The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @_builtins.property
     @pulumi.getter(name="filesystemId")
@@ -7365,22 +7345,22 @@ class KafkaClusterStorageAccountGen2(dict):
         return pulumi.get(self, "is_default")
 
     @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> _builtins.str:
-        """
-        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-
-        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        """
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type
@@ -8972,10 +8952,10 @@ class SparkClusterStorageAccount(dict):
             suggest = "is_default"
         elif key == "storageAccountKey":
             suggest = "storage_account_key"
-        elif key == "storageContainerId":
-            suggest = "storage_container_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageContainerUrl":
+            suggest = "storage_container_url"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SparkClusterStorageAccount. Access the value via the '{suggest}' property getter instead.")
@@ -8991,23 +8971,21 @@ class SparkClusterStorageAccount(dict):
     def __init__(__self__, *,
                  is_default: _builtins.bool,
                  storage_account_key: _builtins.str,
-                 storage_container_id: _builtins.str,
-                 storage_resource_id: Optional[_builtins.str] = None):
+                 storage_container_url: _builtins.str,
+                 storage_account_id: Optional[_builtins.str] = None):
         """
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
         :param _builtins.str storage_account_key: The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
-        :param _builtins.str storage_container_id: The ID of the Storage Container. Changing this forces a new resource to be created.
-               
-               > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str storage_container_url: The URL of the Storage Container. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "is_default", is_default)
         pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_resource_id is not None:
-            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_container_url", storage_container_url)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
@@ -9028,22 +9006,20 @@ class SparkClusterStorageAccount(dict):
         return pulumi.get(self, "storage_account_key")
 
     @_builtins.property
-    @pulumi.getter(name="storageContainerId")
-    def storage_container_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageContainerUrl")
+    def storage_container_url(self) -> _builtins.str:
         """
-        The ID of the Storage Container. Changing this forces a new resource to be created.
-
-        > **Note:** When the `storage.Container` resource is created with `storage_account_name`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storage_account_id`, please use `storage_get_containers` data source to get the `data_plane_id` of the `storage.Container` resource for this field.
+        The URL of the Storage Container. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_container_id")
+        return pulumi.get(self, "storage_container_url")
 
     @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[_builtins.str]:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
 
 
 @pulumi.output_type
@@ -9055,10 +9031,10 @@ class SparkClusterStorageAccountGen2(dict):
             suggest = "filesystem_id"
         elif key == "isDefault":
             suggest = "is_default"
-        elif key == "managedIdentityResourceId":
-            suggest = "managed_identity_resource_id"
-        elif key == "storageResourceId":
-            suggest = "storage_resource_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SparkClusterStorageAccountGen2. Access the value via the '{suggest}' property getter instead.")
@@ -9074,22 +9050,22 @@ class SparkClusterStorageAccountGen2(dict):
     def __init__(__self__, *,
                  filesystem_id: _builtins.str,
                  is_default: _builtins.bool,
-                 managed_identity_resource_id: _builtins.str,
-                 storage_resource_id: _builtins.str):
+                 storage_account_id: _builtins.str,
+                 user_assigned_identity_id: _builtins.str):
         """
         :param _builtins.str filesystem_id: The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
         :param _builtins.bool is_default: Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
                
                > **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
-        :param _builtins.str managed_identity_resource_id: The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        :param _builtins.str storage_account_id: The ID of the Storage Account. Changing this forces a new resource to be created.
+        :param _builtins.str user_assigned_identity_id: The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
                
                > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        :param _builtins.str storage_resource_id: The ID of the Storage Account. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "filesystem_id", filesystem_id)
         pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
-        pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @_builtins.property
     @pulumi.getter(name="filesystemId")
@@ -9110,22 +9086,22 @@ class SparkClusterStorageAccountGen2(dict):
         return pulumi.get(self, "is_default")
 
     @_builtins.property
-    @pulumi.getter(name="managedIdentityResourceId")
-    def managed_identity_resource_id(self) -> _builtins.str:
-        """
-        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-
-        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-        """
-        return pulumi.get(self, "managed_identity_resource_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageResourceId")
-    def storage_resource_id(self) -> _builtins.str:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> _builtins.str:
         """
         The ID of the Storage Account. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "storage_resource_id")
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> _builtins.str:
+        """
+        The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
 
 @pulumi.output_type

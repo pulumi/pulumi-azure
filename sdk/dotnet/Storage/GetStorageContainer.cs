@@ -148,18 +148,10 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Container exists.
         /// </summary>
-        [Input("storageAccountId")]
-        public string? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Container exists. This property is deprecated in favour of `StorageAccountId`.
-        /// </summary>
-        [Input("storageAccountName")]
-        public string? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public string StorageAccountId { get; set; } = null!;
 
         public GetStorageContainerArgs()
         {
@@ -188,18 +180,10 @@ namespace Pulumi.Azure.Storage
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Container exists.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Container exists. This property is deprecated in favour of `StorageAccountId`.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public GetStorageContainerInvokeArgs()
         {
@@ -240,9 +224,7 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
-        public readonly string ResourceManagerId;
-        public readonly string? StorageAccountId;
-        public readonly string? StorageAccountName;
+        public readonly string StorageAccountId;
         /// <summary>
         /// The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
         /// </summary>
@@ -266,11 +248,7 @@ namespace Pulumi.Azure.Storage
 
             string name,
 
-            string resourceManagerId,
-
-            string? storageAccountId,
-
-            string? storageAccountName,
+            string storageAccountId,
 
             string url)
         {
@@ -282,9 +260,7 @@ namespace Pulumi.Azure.Storage
             Id = id;
             Metadata = metadata;
             Name = name;
-            ResourceManagerId = resourceManagerId;
             StorageAccountId = storageAccountId;
-            StorageAccountName = storageAccountName;
             Url = url;
         }
     }

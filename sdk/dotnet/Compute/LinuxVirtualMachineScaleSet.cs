@@ -389,7 +389,9 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `RollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         /// </summary>
         [Output("rollingUpgradePolicy")]
         public Output<Outputs.LinuxVirtualMachineScaleSetRollingUpgradePolicy?> RollingUpgradePolicy { get; private set; } = null!;
@@ -864,7 +866,9 @@ namespace Pulumi.Azure.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `RollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs>? RollingUpgradePolicy { get; set; }
@@ -1308,7 +1312,9 @@ namespace Pulumi.Azure.Compute
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `RollingUpgradePolicy` block as defined below. This is Required and can only be specified when `UpgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        /// A `RollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `RollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         /// </summary>
         [Input("rollingUpgradePolicy")]
         public Input<Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyGetArgs>? RollingUpgradePolicy { get; set; }

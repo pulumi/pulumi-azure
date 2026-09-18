@@ -90,25 +90,6 @@ public final class MonitorSsoConfigurationState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.singleSignOn);
     }
 
-    /**
-     * @deprecated
-     * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="singleSignOnEnabled")
-    private @Nullable Output<String> singleSignOnEnabled;
-
-    /**
-     * @deprecated
-     * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> singleSignOnEnabled() {
-        return Optional.ofNullable(this.singleSignOnEnabled);
-    }
-
     private MonitorSsoConfigurationState() {}
 
     private MonitorSsoConfigurationState(MonitorSsoConfigurationState $) {
@@ -117,7 +98,6 @@ public final class MonitorSsoConfigurationState extends com.pulumi.resources.Res
         this.loginUrl = $.loginUrl;
         this.name = $.name;
         this.singleSignOn = $.singleSignOn;
-        this.singleSignOnEnabled = $.singleSignOnEnabled;
     }
 
     public static Builder builder() {
@@ -241,31 +221,6 @@ public final class MonitorSsoConfigurationState extends com.pulumi.resources.Res
          */
         public Builder singleSignOn(String singleSignOn) {
             return singleSignOn(Output.of(singleSignOn));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder singleSignOnEnabled(@Nullable Output<String> singleSignOnEnabled) {
-            $.singleSignOnEnabled = singleSignOnEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder singleSignOnEnabled(String singleSignOnEnabled) {
-            return singleSignOnEnabled(Output.of(singleSignOnEnabled));
         }
 
         public MonitorSsoConfigurationState build() {

@@ -32,7 +32,6 @@ class VaultArgs:
                  monitoring: pulumi.Input[Optional['VaultMonitoringArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -78,11 +77,6 @@ class VaultArgs:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
-        if soft_delete_enabled is not None:
-            warnings.warn("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""", DeprecationWarning)
-            pulumi.log.warn("""soft_delete_enabled is deprecated: `soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-        if soft_delete_enabled is not None:
-            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
             pulumi.set(__self__, "storage_mode_type", storage_mode_type)
         if tags is not None:
@@ -227,16 +221,6 @@ class VaultArgs:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="softDeleteEnabled")
-    @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-    def soft_delete_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "soft_delete_enabled")
-
-    @soft_delete_enabled.setter
-    def soft_delete_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "soft_delete_enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="storageModeType")
     def storage_mode_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -275,7 +259,6 @@ class _VaultState:
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
-                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -323,11 +306,6 @@ class _VaultState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if soft_delete_enabled is not None:
-            warnings.warn("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""", DeprecationWarning)
-            pulumi.log.warn("""soft_delete_enabled is deprecated: `soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-        if soft_delete_enabled is not None:
-            pulumi.set(__self__, "soft_delete_enabled", soft_delete_enabled)
         if storage_mode_type is not None:
             pulumi.set(__self__, "storage_mode_type", storage_mode_type)
         if tags is not None:
@@ -472,16 +450,6 @@ class _VaultState:
         pulumi.set(self, "sku", value)
 
     @_builtins.property
-    @pulumi.getter(name="softDeleteEnabled")
-    @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-    def soft_delete_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "soft_delete_enabled")
-
-    @soft_delete_enabled.setter
-    def soft_delete_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "soft_delete_enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="storageModeType")
     def storage_mode_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -523,7 +491,6 @@ class Vault(pulumi.CustomResource):
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
-                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -651,7 +618,6 @@ class Vault(pulumi.CustomResource):
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
-                 soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -678,7 +644,6 @@ class Vault(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["soft_delete_enabled"] = soft_delete_enabled
             __props__.__dict__["storage_mode_type"] = storage_mode_type
             __props__.__dict__["tags"] = tags
         super(Vault, __self__).__init__(
@@ -702,7 +667,6 @@ class Vault(pulumi.CustomResource):
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
-            soft_delete_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             storage_mode_type: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Vault':
         """
@@ -747,7 +711,6 @@ class Vault(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
-        __props__.__dict__["soft_delete_enabled"] = soft_delete_enabled
         __props__.__dict__["storage_mode_type"] = storage_mode_type
         __props__.__dict__["tags"] = tags
         return Vault(resource_name, opts=opts, __props__=__props__)
@@ -845,12 +808,6 @@ class Vault(pulumi.CustomResource):
         Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         """
         return pulumi.get(self, "sku")
-
-    @_builtins.property
-    @pulumi.getter(name="softDeleteEnabled")
-    @_utilities.deprecated("""`soft_delete_enabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)""")
-    def soft_delete_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        return pulumi.get(self, "soft_delete_enabled")
 
     @_builtins.property
     @pulumi.getter(name="storageModeType")

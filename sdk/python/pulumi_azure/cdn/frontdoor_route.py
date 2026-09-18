@@ -584,11 +584,11 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="contoso-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).result,
+                ])["result"],
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -597,11 +597,11 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="fabrikam-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "fabrikam",
                     example_zone.name,
-                ]).result,
+                ])["result"],
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -645,6 +645,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=fabrikam.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 
@@ -737,11 +744,11 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="contoso-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).result,
+                ])["result"],
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -750,11 +757,11 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="fabrikam-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "fabrikam",
                     example_zone.name,
-                ]).result,
+                ])["result"],
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -798,6 +805,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=fabrikam.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 

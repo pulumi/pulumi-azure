@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dashboard"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dashboard"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/monitoring"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //				Name:                       pulumi.String("example-dg"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
-//				GrafanaMajorVersion:        pulumi.String("12"),
+//				GrafanaMajorVersion:        pulumi.String("13"),
 //				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				AzureMonitorWorkspaceIntegrations: dashboard.GrafanaAzureMonitorWorkspaceIntegrationArray{
 //					&dashboard.GrafanaAzureMonitorWorkspaceIntegrationArgs{

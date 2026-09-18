@@ -274,6 +274,13 @@ def get_alert_rule_anomaly(display_name: Optional[_builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.SecurityInsights` - 2022-10-01-preview
+
 
     :param _builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
            
@@ -335,6 +342,13 @@ def get_alert_rule_anomaly_output(display_name: pulumi.Input[Optional[Optional[_
         display_name="Potential data staging")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.SecurityInsights` - 2022-10-01-preview
 
 
     :param _builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.

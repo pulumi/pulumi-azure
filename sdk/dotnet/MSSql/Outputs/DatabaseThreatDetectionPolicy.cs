@@ -18,9 +18,9 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DisabledAlerts;
         /// <summary>
-        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+        /// Whether the account administrators should receive an email when this alert is triggered. Defaults to `False`.
         /// </summary>
-        public readonly string? EmailAccountAdmins;
+        public readonly bool? EmailAccountAdminsEnabled;
         /// <summary>
         /// A list of email addresses which alerts should be sent to.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         private DatabaseThreatDetectionPolicy(
             ImmutableArray<string> disabledAlerts,
 
-            string? emailAccountAdmins,
+            bool? emailAccountAdminsEnabled,
 
             ImmutableArray<string> emailAddresses,
 
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.MSSql.Outputs
             string? storageEndpoint)
         {
             DisabledAlerts = disabledAlerts;
-            EmailAccountAdmins = emailAccountAdmins;
+            EmailAccountAdminsEnabled = emailAccountAdminsEnabled;
             EmailAddresses = emailAddresses;
             RetentionDays = retentionDays;
             State = state;

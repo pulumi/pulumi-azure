@@ -125,6 +125,24 @@ namespace Pulumi.Azure.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("networkSecurityGroupId")]
+        public Output<string> NetworkSecurityGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The ID of the Network Security Group to associate with the subnet.
+        /// 
+        /// &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        /// </summary>
+        [Output("networkSecurityGroupIdWo")]
+        public Output<string?> NetworkSecurityGroupIdWo { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer that must be incremented whenever `NetworkSecurityGroupIdWo` is updated. Required if `NetworkSecurityGroupIdWo` is specified.
+        /// </summary>
+        [Output("networkSecurityGroupIdWoVersion")]
+        public Output<int?> NetworkSecurityGroupIdWoVersion { get; private set; } = null!;
+
         /// <summary>
         /// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
         /// 
@@ -151,6 +169,24 @@ namespace Pulumi.Azure.Network
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        [Output("routeTableId")]
+        public Output<string> RouteTableId { get; private set; } = null!;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The ID of the Route Table to associate with the subnet.
+        /// 
+        /// &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+        /// </summary>
+        [Output("routeTableIdWo")]
+        public Output<string?> RouteTableIdWo { get; private set; } = null!;
+
+        /// <summary>
+        /// An integer that must be incremented whenever `RouteTableIdWo` is updated. Required if `RouteTableIdWo` is specified.
+        /// </summary>
+        [Output("routeTableIdWoVersion")]
+        public Output<int?> RouteTableIdWoVersion { get; private set; } = null!;
+
         /// <summary>
         /// The list of IDs of Service Endpoint Policies to associate with the subnet.
         /// </summary>
@@ -158,12 +194,10 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> ServiceEndpointPolicyIds { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-        /// 
-        /// &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
         [Output("serviceEndpoints")]
-        public Output<ImmutableArray<string>> ServiceEndpoints { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SubnetServiceEndpoint>> ServiceEndpoints { get; private set; } = null!;
 
         /// <summary>
         /// The sharing scope of the subnet. Possible value is `Tenant`.
@@ -204,6 +238,11 @@ namespace Pulumi.Azure.Network
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "networkSecurityGroupIdWo",
+                    "routeTableIdWo",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -273,6 +312,31 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networkSecurityGroupIdWo")]
+        private Input<string>? _networkSecurityGroupIdWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The ID of the Network Security Group to associate with the subnet.
+        /// 
+        /// &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        /// </summary>
+        public Input<string>? NetworkSecurityGroupIdWo
+        {
+            get => _networkSecurityGroupIdWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _networkSecurityGroupIdWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer that must be incremented whenever `NetworkSecurityGroupIdWo` is updated. Required if `NetworkSecurityGroupIdWo` is specified.
+        /// </summary>
+        [Input("networkSecurityGroupIdWoVersion")]
+        public Input<int>? NetworkSecurityGroupIdWoVersion { get; set; }
+
         /// <summary>
         /// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
         /// 
@@ -299,6 +363,31 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("routeTableIdWo")]
+        private Input<string>? _routeTableIdWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The ID of the Route Table to associate with the subnet.
+        /// 
+        /// &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+        /// </summary>
+        public Input<string>? RouteTableIdWo
+        {
+            get => _routeTableIdWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _routeTableIdWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer that must be incremented whenever `RouteTableIdWo` is updated. Required if `RouteTableIdWo` is specified.
+        /// </summary>
+        [Input("routeTableIdWoVersion")]
+        public Input<int>? RouteTableIdWoVersion { get; set; }
+
         [Input("serviceEndpointPolicyIds")]
         private InputList<string>? _serviceEndpointPolicyIds;
 
@@ -312,16 +401,14 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("serviceEndpoints")]
-        private InputList<string>? _serviceEndpoints;
+        private InputList<Inputs.SubnetServiceEndpointArgs>? _serviceEndpoints;
 
         /// <summary>
-        /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-        /// 
-        /// &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
-        public InputList<string> ServiceEndpoints
+        public InputList<Inputs.SubnetServiceEndpointArgs> ServiceEndpoints
         {
-            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<string>());
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.SubnetServiceEndpointArgs>());
             set => _serviceEndpoints = value;
         }
 
@@ -395,6 +482,34 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("networkSecurityGroupId")]
+        public Input<string>? NetworkSecurityGroupId { get; set; }
+
+        [Input("networkSecurityGroupIdWo")]
+        private Input<string>? _networkSecurityGroupIdWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The ID of the Network Security Group to associate with the subnet.
+        /// 
+        /// &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        /// </summary>
+        public Input<string>? NetworkSecurityGroupIdWo
+        {
+            get => _networkSecurityGroupIdWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _networkSecurityGroupIdWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer that must be incremented whenever `NetworkSecurityGroupIdWo` is updated. Required if `NetworkSecurityGroupIdWo` is specified.
+        /// </summary>
+        [Input("networkSecurityGroupIdWoVersion")]
+        public Input<int>? NetworkSecurityGroupIdWoVersion { get; set; }
+
         /// <summary>
         /// Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
         /// 
@@ -421,6 +536,34 @@ namespace Pulumi.Azure.Network
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        [Input("routeTableId")]
+        public Input<string>? RouteTableId { get; set; }
+
+        [Input("routeTableIdWo")]
+        private Input<string>? _routeTableIdWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// The ID of the Route Table to associate with the subnet.
+        /// 
+        /// &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+        /// </summary>
+        public Input<string>? RouteTableIdWo
+        {
+            get => _routeTableIdWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _routeTableIdWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// An integer that must be incremented whenever `RouteTableIdWo` is updated. Required if `RouteTableIdWo` is specified.
+        /// </summary>
+        [Input("routeTableIdWoVersion")]
+        public Input<int>? RouteTableIdWoVersion { get; set; }
+
         [Input("serviceEndpointPolicyIds")]
         private InputList<string>? _serviceEndpointPolicyIds;
 
@@ -434,16 +577,14 @@ namespace Pulumi.Azure.Network
         }
 
         [Input("serviceEndpoints")]
-        private InputList<string>? _serviceEndpoints;
+        private InputList<Inputs.SubnetServiceEndpointGetArgs>? _serviceEndpoints;
 
         /// <summary>
-        /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-        /// 
-        /// &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
-        public InputList<string> ServiceEndpoints
+        public InputList<Inputs.SubnetServiceEndpointGetArgs> ServiceEndpoints
         {
-            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<string>());
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.SubnetServiceEndpointGetArgs>());
             set => _serviceEndpoints = value;
         }
 

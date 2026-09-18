@@ -983,8 +983,11 @@ class ReplicatedVM(pulumi.CustomResource):
             }],
             network_interfaces=[{
                 "source_network_interface_id": vm_network_interface.id,
-                "target_subnet_name": secondary_subnet.name,
-                "recovery_public_ip_address_id": secondary_public_ip.id,
+                "ip_configurations": [{
+                    "name": "vm",
+                    "target_subnet_name": secondary_subnet.name,
+                    "recovery_public_ip_address_id": secondary_public_ip.id,
+                }],
             }],
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
@@ -1198,8 +1201,11 @@ class ReplicatedVM(pulumi.CustomResource):
             }],
             network_interfaces=[{
                 "source_network_interface_id": vm_network_interface.id,
-                "target_subnet_name": secondary_subnet.name,
-                "recovery_public_ip_address_id": secondary_public_ip.id,
+                "ip_configurations": [{
+                    "name": "vm",
+                    "target_subnet_name": secondary_subnet.name,
+                    "recovery_public_ip_address_id": secondary_public_ip.id,
+                }],
             }],
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,

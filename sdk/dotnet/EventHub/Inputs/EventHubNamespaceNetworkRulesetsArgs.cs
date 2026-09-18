@@ -14,6 +14,8 @@ namespace Pulumi.Azure.EventHub.Inputs
     {
         /// <summary>
         /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+        /// 
+        /// &gt; **Note:** `DefaultAction` can only be set to `Deny` when at least one `IpRule` or `VirtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;

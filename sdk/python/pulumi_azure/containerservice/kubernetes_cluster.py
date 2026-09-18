@@ -22,6 +22,7 @@ __all__ = ['KubernetesClusterArgs', 'KubernetesCluster']
 class KubernetesClusterArgs:
     def __init__(__self__, *,
                  default_node_pool: pulumi.Input['KubernetesClusterDefaultNodePoolArgs'],
+                 node_provisioning_profile: pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aci_connector_linux: pulumi.Input[Optional['KubernetesClusterAciConnectorLinuxArgs']] = None,
                  ai_toolchain_operator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -59,7 +60,6 @@ class KubernetesClusterArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional['KubernetesClusterNetworkProfileArgs']] = None,
                  node_os_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_provisioning_profile: pulumi.Input[Optional['KubernetesClusterNodeProvisioningProfileArgs']] = None,
                  node_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  oidc_issuer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  oms_agent: pulumi.Input[Optional['KubernetesClusterOmsAgentArgs']] = None,
@@ -84,6 +84,7 @@ class KubernetesClusterArgs:
         The set of arguments for constructing a KubernetesCluster resource.
 
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
+        :param pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs'] node_provisioning_profile: A `node_provisioning_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterAciConnectorLinuxArgs'] aci_connector_linux: A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         :param pulumi.Input[_builtins.bool] ai_toolchain_operator_enabled: Specifies whether the AI Toolchain Operator should be enabled for the Cluster. Defaults to `false`.
@@ -145,11 +146,10 @@ class KubernetesClusterArgs:
         :param pulumi.Input[_builtins.str] node_os_upgrade_channel: The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
                
                > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
-        :param pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs'] node_provisioning_profile: A `node_provisioning_profile` block as defined below.
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterOmsAgentArgs'] oms_agent: A `oms_agent` block as defined below.
@@ -210,6 +210,7 @@ class KubernetesClusterArgs:
                > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
         pulumi.set(__self__, "default_node_pool", default_node_pool)
+        pulumi.set(__self__, "node_provisioning_profile", node_provisioning_profile)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aci_connector_linux is not None:
             pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
@@ -283,8 +284,6 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if node_os_upgrade_channel is not None:
             pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
-        if node_provisioning_profile is not None:
-            pulumi.set(__self__, "node_provisioning_profile", node_provisioning_profile)
         if node_resource_group is not None:
             pulumi.set(__self__, "node_resource_group", node_resource_group)
         if oidc_issuer_enabled is not None:
@@ -337,6 +336,18 @@ class KubernetesClusterArgs:
     @default_node_pool.setter
     def default_node_pool(self, value: pulumi.Input['KubernetesClusterDefaultNodePoolArgs']):
         pulumi.set(self, "default_node_pool", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeProvisioningProfile")
+    def node_provisioning_profile(self) -> pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']:
+        """
+        A `node_provisioning_profile` block as defined below.
+        """
+        return pulumi.get(self, "node_provisioning_profile")
+
+    @node_provisioning_profile.setter
+    def node_provisioning_profile(self, value: pulumi.Input['KubernetesClusterNodeProvisioningProfileArgs']):
+        pulumi.set(self, "node_provisioning_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -807,18 +818,6 @@ class KubernetesClusterArgs:
         pulumi.set(self, "node_os_upgrade_channel", value)
 
     @_builtins.property
-    @pulumi.getter(name="nodeProvisioningProfile")
-    def node_provisioning_profile(self) -> pulumi.Input[Optional['KubernetesClusterNodeProvisioningProfileArgs']]:
-        """
-        A `node_provisioning_profile` block as defined below.
-        """
-        return pulumi.get(self, "node_provisioning_profile")
-
-    @node_provisioning_profile.setter
-    def node_provisioning_profile(self, value: pulumi.Input[Optional['KubernetesClusterNodeProvisioningProfileArgs']]):
-        pulumi.set(self, "node_provisioning_profile", value)
-
-    @_builtins.property
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -836,7 +835,7 @@ class KubernetesClusterArgs:
     @pulumi.getter(name="oidcIssuerEnabled")
     def oidc_issuer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 
         > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         """
@@ -1250,7 +1249,7 @@ class _KubernetesClusterState:
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[_builtins.str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
@@ -2049,7 +2048,7 @@ class _KubernetesClusterState:
     @pulumi.getter(name="oidcIssuerEnabled")
     def oidc_issuer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 
         > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         """
@@ -2547,7 +2546,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_resource_group: The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input[Union['KubernetesClusterOmsAgentArgs', 'KubernetesClusterOmsAgentArgsDict']] oms_agent: A `oms_agent` block as defined below.
@@ -2788,6 +2787,8 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_os_upgrade_channel"] = node_os_upgrade_channel
+            if node_provisioning_profile is None and not opts.urn:
+                raise TypeError("Missing required property 'node_provisioning_profile'")
             __props__.__dict__["node_provisioning_profile"] = node_provisioning_profile
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
@@ -2985,7 +2986,7 @@ class KubernetesCluster(pulumi.CustomResource):
                
                > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         :param pulumi.Input[_builtins.str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
-        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        :param pulumi.Input[_builtins.bool] oidc_issuer_enabled: Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
                
                > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
@@ -3529,9 +3530,9 @@ class KubernetesCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="oidcIssuerEnabled")
-    def oidc_issuer_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def oidc_issuer_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 
         > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         """

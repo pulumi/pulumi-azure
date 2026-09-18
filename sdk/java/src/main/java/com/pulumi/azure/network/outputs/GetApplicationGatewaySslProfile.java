@@ -33,6 +33,10 @@ public final class GetApplicationGatewaySslProfile {
      * 
      */
     private List<String> trustedClientCertificateNames;
+    /**
+     * @return Will the client certificate issuer DN be verified?
+     * 
+     */
     private Boolean verifyClientCertificateIssuerDn;
     /**
      * @return The method used to check client certificate revocation status.
@@ -69,6 +73,10 @@ public final class GetApplicationGatewaySslProfile {
     public List<String> trustedClientCertificateNames() {
         return this.trustedClientCertificateNames;
     }
+    /**
+     * @return Will the client certificate issuer DN be verified?
+     * 
+     */
     public Boolean verifyClientCertificateIssuerDn() {
         return this.verifyClientCertificateIssuerDn;
     }

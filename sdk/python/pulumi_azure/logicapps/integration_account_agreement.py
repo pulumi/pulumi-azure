@@ -406,7 +406,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             agreement_type="AS2",
             host_partner_name=host.name,
             guest_partner_name=guest.name,
-            content=std.file(input="testdata/integration_account_agreement_content_as2.json").result,
+            content=std.file(input="testdata/integration_account_agreement_content_as2.json")["result"],
             host_identity={
                 "qualifier": "AS2Identity",
                 "value": "FabrikamNY",
@@ -493,7 +493,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             agreement_type="AS2",
             host_partner_name=host.name,
             guest_partner_name=guest.name,
-            content=std.file(input="testdata/integration_account_agreement_content_as2.json").result,
+            content=std.file(input="testdata/integration_account_agreement_content_as2.json")["result"],
             host_identity={
                 "qualifier": "AS2Identity",
                 "value": "FabrikamNY",

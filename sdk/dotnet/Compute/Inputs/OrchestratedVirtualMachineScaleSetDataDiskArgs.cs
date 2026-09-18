@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
 
+        [Input("diskIopsReadWrite")]
+        public Input<int>? DiskIopsReadWrite { get; set; }
+
+        [Input("diskMbpsReadWrite")]
+        public Input<int>? DiskMbpsReadWrite { get; set; }
+
         /// <summary>
         /// The size of the Data Disk which should be created. Required if `CreateOption` is specified as `Empty`.
         /// </summary>
@@ -47,18 +53,6 @@ namespace Pulumi.Azure.Compute.Inputs
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
-        [Input("ultraSsdDiskIopsReadWrite")]
-        public Input<int>? UltraSsdDiskIopsReadWrite { get; set; }
-
-        /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
-        [Input("ultraSsdDiskMbpsReadWrite")]
-        public Input<int>? UltraSsdDiskMbpsReadWrite { get; set; }
 
         /// <summary>
         /// Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `False`.

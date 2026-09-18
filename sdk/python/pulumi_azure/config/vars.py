@@ -96,10 +96,6 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('disableTerraformPartnerId')
 
     @_builtins.property
-    def enhanced_validation(self) -> Optional[str]:
-        return __config__.get('enhancedValidation')
-
-    @_builtins.property
     def environment(self) -> str:
         """
         The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadata_host` is specified.
@@ -183,13 +179,6 @@ class _ExportableConfig(types.ModuleType):
         A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
         """
         return __config__.get('resourceProvidersToRegisters')
-
-    @_builtins.property
-    def skip_provider_registration(self) -> bool:
-        """
-        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-        """
-        return __config__.get_bool('skipProviderRegistration') or (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
 
     @_builtins.property
     def storage_use_azuread(self) -> bool:

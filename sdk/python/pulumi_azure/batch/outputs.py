@@ -25,7 +25,6 @@ __all__ = [
     'AccountNetworkProfileNodeManagementAccess',
     'AccountNetworkProfileNodeManagementAccessIpRule',
     'PoolAutoScale',
-    'PoolCertificate',
     'PoolContainerConfiguration',
     'PoolContainerConfigurationContainerRegistry',
     'PoolDataDisk',
@@ -58,7 +57,6 @@ __all__ = [
     'GetAccountEncryptionResult',
     'GetAccountKeyVaultReferenceResult',
     'GetPoolAutoScaleResult',
-    'GetPoolCertificateResult',
     'GetPoolContainerConfigurationResult',
     'GetPoolContainerConfigurationContainerRegistryResult',
     'GetPoolDataDiskResult',
@@ -524,66 +522,6 @@ class PoolAutoScale(dict):
         The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
         """
         return pulumi.get(self, "evaluation_interval")
-
-
-@pulumi.output_type
-class PoolCertificate(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "storeLocation":
-            suggest = "store_location"
-        elif key == "storeName":
-            suggest = "store_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PoolCertificate. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PoolCertificate.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PoolCertificate.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: _builtins.str,
-                 store_location: _builtins.str,
-                 store_name: Optional[_builtins.str] = None,
-                 visibilities: Optional[Sequence[_builtins.str]] = None):
-        """
-        :param _builtins.str id: The ID of the Batch Pool.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "store_location", store_location)
-        if store_name is not None:
-            pulumi.set(__self__, "store_name", store_name)
-        if visibilities is not None:
-            pulumi.set(__self__, "visibilities", visibilities)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The ID of the Batch Pool.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter(name="storeLocation")
-    def store_location(self) -> _builtins.str:
-        return pulumi.get(self, "store_location")
-
-    @_builtins.property
-    @pulumi.getter(name="storeName")
-    def store_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "store_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def visibilities(self) -> Optional[Sequence[_builtins.str]]:
-        return pulumi.get(self, "visibilities")
 
 
 @pulumi.output_type
@@ -2771,45 +2709,6 @@ class GetPoolAutoScaleResult(dict):
         The autoscale formula that needs to be used for scaling the Batch pool.
         """
         return pulumi.get(self, "formula")
-
-
-@pulumi.output_type
-class GetPoolCertificateResult(dict):
-    def __init__(__self__, *,
-                 id: _builtins.str,
-                 store_location: _builtins.str,
-                 store_name: _builtins.str,
-                 visibilities: Sequence[_builtins.str]):
-        """
-        :param _builtins.str id: The Batch pool ID.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "store_location", store_location)
-        pulumi.set(__self__, "store_name", store_name)
-        pulumi.set(__self__, "visibilities", visibilities)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> _builtins.str:
-        """
-        The Batch pool ID.
-        """
-        return pulumi.get(self, "id")
-
-    @_builtins.property
-    @pulumi.getter(name="storeLocation")
-    def store_location(self) -> _builtins.str:
-        return pulumi.get(self, "store_location")
-
-    @_builtins.property
-    @pulumi.getter(name="storeName")
-    def store_name(self) -> _builtins.str:
-        return pulumi.get(self, "store_name")
-
-    @_builtins.property
-    @pulumi.getter
-    def visibilities(self) -> Sequence[_builtins.str]:
-        return pulumi.get(self, "visibilities")
 
 
 @pulumi.output_type

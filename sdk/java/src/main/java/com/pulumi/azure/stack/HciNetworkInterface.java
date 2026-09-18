@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.stack.HciLogicalNetwork;
  * import com.pulumi.azure.stack.HciLogicalNetworkArgs;
  * import com.pulumi.azure.stack.inputs.HciLogicalNetworkSubnetArgs;
+ * import com.pulumi.azure.stack.inputs.HciLogicalNetworkSubnetRouteArgs;
  * import com.pulumi.azure.stack.HciNetworkInterface;
  * import com.pulumi.azure.stack.HciNetworkInterfaceArgs;
  * import com.pulumi.azure.stack.inputs.HciNetworkInterfaceIpConfigurationArgs;
@@ -67,11 +68,11 @@ import javax.annotation.Nullable;
  *             .subnet(HciLogicalNetworkSubnetArgs.builder()
  *                 .ipAllocationMethod("Static")
  *                 .addressPrefix("10.0.0.0/24")
- *                 .route(Map.ofEntries(
- *                     Map.entry("name", "example-route"),
- *                     Map.entry("addressPrefix", "0.0.0.0/0"),
- *                     Map.entry("nextHopIpAddress", "10.0.20.1")
- *                 ))
+ *                 .route(HciLogicalNetworkSubnetRouteArgs.builder()
+ *                     .name("example-route")
+ *                     .addressPrefix("0.0.0.0/0")
+ *                     .nextHopIpAddress("10.0.20.1")
+ *                     .build())
  *                 .vlanId(123)
  *                 .build())
  *             .tags(Map.of("foo", "bar"))

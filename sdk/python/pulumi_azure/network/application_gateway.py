@@ -27,12 +27,10 @@ class ApplicationGatewayArgs:
                  gateway_ip_configurations: pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ApplicationGatewaySkuArgs'],
-                 authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
                  autoscale_configuration: pulumi.Input[Optional['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
                  backend_http_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
                  backends: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendArgs']]]] = None,
                  custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
-                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
                  fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  force_firewall_policy_association: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -67,7 +65,6 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: A `sku` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
                
@@ -118,8 +115,6 @@ class ApplicationGatewayArgs:
         pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if authentication_certificates is not None:
-            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if backend_http_settings is not None:
@@ -128,11 +123,6 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "backends", backends)
         if custom_error_configurations is not None:
             pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
-        if enable_http2 is not None:
-            warnings.warn("""the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_http2 is deprecated: the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_http2 is not None:
-            pulumi.set(__self__, "enable_http2", enable_http2)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
         if firewall_policy_id is not None:
@@ -257,18 +247,6 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "sku", value)
 
     @_builtins.property
-    @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]]:
-        """
-        One or more `authentication_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "authentication_certificates")
-
-    @authentication_certificates.setter
-    def authentication_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]]):
-        pulumi.set(self, "authentication_certificates", value)
-
-    @_builtins.property
     @pulumi.getter(name="autoscaleConfiguration")
     def autoscale_configuration(self) -> pulumi.Input[Optional['ApplicationGatewayAutoscaleConfigurationArgs']]:
         """
@@ -319,16 +297,6 @@ class ApplicationGatewayArgs:
     @custom_error_configurations.setter
     def custom_error_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]]):
         pulumi.set(self, "custom_error_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableHttp2")
-    @_utilities.deprecated("""the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_http2(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_http2")
-
-    @enable_http2.setter
-    def enable_http2(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_http2", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
@@ -644,13 +612,11 @@ class ApplicationGatewayArgs:
 @pulumi.input_type
 class _ApplicationGatewayState:
     def __init__(__self__, *,
-                 authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
                  autoscale_configuration: pulumi.Input[Optional['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
                  backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
                  backend_http_settings: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]]] = None,
                  backends: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendArgs']]]] = None,
                  custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]] = None,
-                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
                  fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  force_firewall_policy_association: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -685,7 +651,6 @@ class _ApplicationGatewayState:
         """
         Input properties used for looking up and filtering ApplicationGateway resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingArgs']]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
@@ -737,8 +702,6 @@ class _ApplicationGatewayState:
                
                > **Note:** Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
         """
-        if authentication_certificates is not None:
-            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
         if backend_address_pools is not None:
@@ -749,11 +712,6 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "backends", backends)
         if custom_error_configurations is not None:
             pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
-        if enable_http2 is not None:
-            warnings.warn("""the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_http2 is deprecated: the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_http2 is not None:
-            pulumi.set(__self__, "enable_http2", enable_http2)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
         if firewall_policy_id is not None:
@@ -818,18 +776,6 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
-    @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]]:
-        """
-        One or more `authentication_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "authentication_certificates")
-
-    @authentication_certificates.setter
-    def authentication_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]]):
-        pulumi.set(self, "authentication_certificates", value)
-
-    @_builtins.property
     @pulumi.getter(name="autoscaleConfiguration")
     def autoscale_configuration(self) -> pulumi.Input[Optional['ApplicationGatewayAutoscaleConfigurationArgs']]:
         """
@@ -892,16 +838,6 @@ class _ApplicationGatewayState:
     @custom_error_configurations.setter
     def custom_error_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayCustomErrorConfigurationArgs']]]]):
         pulumi.set(self, "custom_error_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableHttp2")
-    @_utilities.deprecated("""the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_http2(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_http2")
-
-    @enable_http2.setter
-    def enable_http2(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_http2", value)
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
@@ -1292,13 +1228,11 @@ class ApplicationGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayAuthenticationCertificateArgs', 'ApplicationGatewayAuthenticationCertificateArgsDict']]]]] = None,
                  autoscale_configuration: pulumi.Input[Optional[Union['ApplicationGatewayAutoscaleConfigurationArgs', 'ApplicationGatewayAutoscaleConfigurationArgsDict']]] = None,
                  backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendAddressPoolArgs', 'ApplicationGatewayBackendAddressPoolArgsDict']]]]] = None,
                  backend_http_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendHttpSettingArgs', 'ApplicationGatewayBackendHttpSettingArgsDict']]]]] = None,
                  backends: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendArgs', 'ApplicationGatewayBackendArgsDict']]]]] = None,
                  custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayCustomErrorConfigurationArgs', 'ApplicationGatewayCustomErrorConfigurationArgsDict']]]]] = None,
-                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
                  fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  force_firewall_policy_association: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1435,7 +1369,6 @@ class ApplicationGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayAuthenticationCertificateArgs', 'ApplicationGatewayAuthenticationCertificateArgsDict']]]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param pulumi.Input[Union['ApplicationGatewayAutoscaleConfigurationArgs', 'ApplicationGatewayAutoscaleConfigurationArgsDict']] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayBackendAddressPoolArgs', 'ApplicationGatewayBackendAddressPoolArgsDict']]]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayBackendHttpSettingArgs', 'ApplicationGatewayBackendHttpSettingArgsDict']]]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
@@ -1610,13 +1543,11 @@ class ApplicationGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayAuthenticationCertificateArgs', 'ApplicationGatewayAuthenticationCertificateArgsDict']]]]] = None,
                  autoscale_configuration: pulumi.Input[Optional[Union['ApplicationGatewayAutoscaleConfigurationArgs', 'ApplicationGatewayAutoscaleConfigurationArgsDict']]] = None,
                  backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendAddressPoolArgs', 'ApplicationGatewayBackendAddressPoolArgsDict']]]]] = None,
                  backend_http_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendHttpSettingArgs', 'ApplicationGatewayBackendHttpSettingArgsDict']]]]] = None,
                  backends: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendArgs', 'ApplicationGatewayBackendArgsDict']]]]] = None,
                  custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayCustomErrorConfigurationArgs', 'ApplicationGatewayCustomErrorConfigurationArgsDict']]]]] = None,
-                 enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
                  fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  force_firewall_policy_association: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1656,7 +1587,6 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationGatewayArgs.__new__(ApplicationGatewayArgs)
 
-            __props__.__dict__["authentication_certificates"] = authentication_certificates
             __props__.__dict__["autoscale_configuration"] = autoscale_configuration
             if backend_address_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pools'")
@@ -1664,7 +1594,6 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["backend_http_settings"] = backend_http_settings
             __props__.__dict__["backends"] = backends
             __props__.__dict__["custom_error_configurations"] = custom_error_configurations
-            __props__.__dict__["enable_http2"] = enable_http2
             __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["firewall_policy_id"] = firewall_policy_id
             __props__.__dict__["force_firewall_policy_association"] = force_firewall_policy_association
@@ -1716,13 +1645,11 @@ class ApplicationGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayAuthenticationCertificateArgs', 'ApplicationGatewayAuthenticationCertificateArgsDict']]]]] = None,
             autoscale_configuration: pulumi.Input[Optional[Union['ApplicationGatewayAutoscaleConfigurationArgs', 'ApplicationGatewayAutoscaleConfigurationArgsDict']]] = None,
             backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendAddressPoolArgs', 'ApplicationGatewayBackendAddressPoolArgsDict']]]]] = None,
             backend_http_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendHttpSettingArgs', 'ApplicationGatewayBackendHttpSettingArgsDict']]]]] = None,
             backends: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayBackendArgs', 'ApplicationGatewayBackendArgsDict']]]]] = None,
             custom_error_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationGatewayCustomErrorConfigurationArgs', 'ApplicationGatewayCustomErrorConfigurationArgsDict']]]]] = None,
-            enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
             fips_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             firewall_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             force_firewall_policy_association: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1761,7 +1688,6 @@ class ApplicationGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayAuthenticationCertificateArgs', 'ApplicationGatewayAuthenticationCertificateArgsDict']]]] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
         :param pulumi.Input[Union['ApplicationGatewayAutoscaleConfigurationArgs', 'ApplicationGatewayAutoscaleConfigurationArgsDict']] autoscale_configuration: An `autoscale_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayBackendAddressPoolArgs', 'ApplicationGatewayBackendAddressPoolArgsDict']]]] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayBackendHttpSettingArgs', 'ApplicationGatewayBackendHttpSettingArgsDict']]]] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
@@ -1817,13 +1743,11 @@ class ApplicationGateway(pulumi.CustomResource):
 
         __props__ = _ApplicationGatewayState.__new__(_ApplicationGatewayState)
 
-        __props__.__dict__["authentication_certificates"] = authentication_certificates
         __props__.__dict__["autoscale_configuration"] = autoscale_configuration
         __props__.__dict__["backend_address_pools"] = backend_address_pools
         __props__.__dict__["backend_http_settings"] = backend_http_settings
         __props__.__dict__["backends"] = backends
         __props__.__dict__["custom_error_configurations"] = custom_error_configurations
-        __props__.__dict__["enable_http2"] = enable_http2
         __props__.__dict__["fips_enabled"] = fips_enabled
         __props__.__dict__["firewall_policy_id"] = firewall_policy_id
         __props__.__dict__["force_firewall_policy_association"] = force_firewall_policy_association
@@ -1856,14 +1780,6 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["waf_configuration"] = waf_configuration
         __props__.__dict__["zones"] = zones
         return ApplicationGateway(resource_name, opts=opts, __props__=__props__)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificate']]]:
-        """
-        One or more `authentication_certificate` blocks as defined below.
-        """
-        return pulumi.get(self, "authentication_certificates")
 
     @_builtins.property
     @pulumi.getter(name="autoscaleConfiguration")
@@ -1908,12 +1824,6 @@ class ApplicationGateway(pulumi.CustomResource):
         One or more `custom_error_configuration` blocks as defined below.
         """
         return pulumi.get(self, "custom_error_configurations")
-
-    @_builtins.property
-    @pulumi.getter(name="enableHttp2")
-    @_utilities.deprecated("""the `enable_http2` property has been deprecated in favour of the `http2_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_http2(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_http2")
 
     @_builtins.property
     @pulumi.getter(name="fipsEnabled")
@@ -1973,7 +1883,7 @@ class ApplicationGateway(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="http2Enabled")
-    def http2_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def http2_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         """

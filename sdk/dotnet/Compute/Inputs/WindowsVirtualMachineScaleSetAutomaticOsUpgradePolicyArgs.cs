@@ -13,16 +13,16 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should automatic rollbacks be disabled?
-        /// </summary>
-        [Input("disableAutomaticRollback", required: true)]
-        public Input<bool> DisableAutomaticRollback { get; set; } = null!;
-
-        /// <summary>
         /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         /// </summary>
-        [Input("enableAutomaticOsUpgrade", required: true)]
-        public Input<bool> EnableAutomaticOsUpgrade { get; set; } = null!;
+        [Input("automaticOsUpgradeEnabled", required: true)]
+        public Input<bool> AutomaticOsUpgradeEnabled { get; set; } = null!;
+
+        /// <summary>
+        /// Should automatic rollbacks be enabled?
+        /// </summary>
+        [Input("automaticRollbackEnabled", required: true)]
+        public Input<bool> AutomaticRollbackEnabled { get; set; } = null!;
 
         public WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs()
         {

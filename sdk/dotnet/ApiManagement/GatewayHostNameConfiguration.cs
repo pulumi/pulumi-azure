@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Data = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     ///     var exampleGatewayHostNameConfiguration = new Azure.ApiManagement.GatewayHostNameConfiguration("example", new()

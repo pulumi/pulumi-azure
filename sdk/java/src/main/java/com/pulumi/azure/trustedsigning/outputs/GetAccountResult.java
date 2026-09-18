@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountResult {
     /**
-     * @return The URI of the Trusted Signing Account.
+     * @return The URI of the Artifact Signing Account.
      * 
      */
     private String accountUri;
@@ -22,26 +22,26 @@ public final class GetAccountResult {
      */
     private String id;
     /**
-     * @return The Azure Region where the Trusted Signing Account exists.
+     * @return The Azure Region where the Artifact Signing Account exists.
      * 
      */
     private String location;
     private String name;
     private String resourceGroupName;
     /**
-     * @return The sku name of the Trusted Signing Account.
+     * @return The sku name of the Artifact Signing Account.
      * 
      */
     private String skuName;
     /**
-     * @return A mapping of tags assigned to the Trusted Signing Account.
+     * @return A mapping of tags assigned to the Artifact Signing Account.
      * 
      */
     private Map<String,String> tags;
 
     private GetAccountResult() {}
     /**
-     * @return The URI of the Trusted Signing Account.
+     * @return The URI of the Artifact Signing Account.
      * 
      */
     public String accountUri() {
@@ -55,7 +55,7 @@ public final class GetAccountResult {
         return this.id;
     }
     /**
-     * @return The Azure Region where the Trusted Signing Account exists.
+     * @return The Azure Region where the Artifact Signing Account exists.
      * 
      */
     public String location() {
@@ -68,14 +68,14 @@ public final class GetAccountResult {
         return this.resourceGroupName;
     }
     /**
-     * @return The sku name of the Trusted Signing Account.
+     * @return The sku name of the Artifact Signing Account.
      * 
      */
     public String skuName() {
         return this.skuName;
     }
     /**
-     * @return A mapping of tags assigned to the Trusted Signing Account.
+     * @return A mapping of tags assigned to the Artifact Signing Account.
      * 
      */
     public Map<String,String> tags() {

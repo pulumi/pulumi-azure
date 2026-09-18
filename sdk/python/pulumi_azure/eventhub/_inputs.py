@@ -1182,6 +1182,8 @@ class EventHubNamespaceNetworkRulesetsArgsDict(TypedDict):
     default_action: pulumi.Input[_builtins.str]
     """
     The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+
+    > **Note:** `default_action` can only be set to `Deny` when at least one `ip_rule` or `virtual_network_rule` block is specified, otherwise the Azure API will not honor the setting.
     """
     ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgsDict']]]]]
     """
@@ -1212,6 +1214,8 @@ class EventHubNamespaceNetworkRulesetsArgs:
                  virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+               
+               > **Note:** `default_action` can only be set to `Deny` when at least one `ip_rule` or `virtual_network_rule` block is specified, otherwise the Azure API will not honor the setting.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
                
@@ -1234,6 +1238,8 @@ class EventHubNamespaceNetworkRulesetsArgs:
     def default_action(self) -> pulumi.Input[_builtins.str]:
         """
         The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+
+        > **Note:** `default_action` can only be set to `Deny` when at least one `ip_rule` or `virtual_network_rule` block is specified, otherwise the Azure API will not honor the setting.
         """
         return pulumi.get(self, "default_action")
 

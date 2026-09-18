@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -207,10 +207,10 @@ type KubernetesCluster struct {
 	NodeResourceGroup pulumi.StringOutput `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringOutput `pulumi:"nodeResourceGroupId"`
-	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 	//
 	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
-	OidcIssuerEnabled pulumi.BoolOutput `pulumi:"oidcIssuerEnabled"`
+	OidcIssuerEnabled pulumi.BoolPtrOutput `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringOutput `pulumi:"oidcIssuerUrl"`
 	// A `omsAgent` block as defined below.
@@ -229,10 +229,10 @@ type KubernetesCluster struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -337,6 +337,9 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 
 	if args.DefaultNodePool == nil {
 		return nil, errors.New("invalid value for required argument 'DefaultNodePool'")
+	}
+	if args.NodeProvisioningProfile == nil {
+		return nil, errors.New("invalid value for required argument 'NodeProvisioningProfile'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -491,7 +494,7 @@ type kubernetesClusterState struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId *string `pulumi:"nodeResourceGroupId"`
-	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 	//
 	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
@@ -513,10 +516,10 @@ type kubernetesClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -733,7 +736,7 @@ type KubernetesClusterState struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroupId pulumi.StringPtrInput
-	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 	//
 	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolPtrInput
@@ -755,10 +758,10 @@ type KubernetesClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -958,12 +961,12 @@ type kubernetesClusterArgs struct {
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel *string `pulumi:"nodeOsUpgradeChannel"`
 	// A `nodeProvisioningProfile` block as defined below.
-	NodeProvisioningProfile *KubernetesClusterNodeProvisioningProfile `pulumi:"nodeProvisioningProfile"`
+	NodeProvisioningProfile KubernetesClusterNodeProvisioningProfile `pulumi:"nodeProvisioningProfile"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
-	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 	//
 	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
@@ -981,10 +984,10 @@ type kubernetesClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1179,12 +1182,12 @@ type KubernetesClusterArgs struct {
 	// > **Note:** `nodeOsUpgradeChannel` must be set to `NodeImage` if `automaticUpgradeChannel` has been set to `node-image`
 	NodeOsUpgradeChannel pulumi.StringPtrInput
 	// A `nodeProvisioningProfile` block as defined below.
-	NodeProvisioningProfile KubernetesClusterNodeProvisioningProfilePtrInput
+	NodeProvisioningProfile KubernetesClusterNodeProvisioningProfileInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
 	NodeResourceGroup pulumi.StringPtrInput
-	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 	//
 	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolPtrInput
@@ -1202,10 +1205,10 @@ type KubernetesClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -1665,11 +1668,11 @@ func (o KubernetesClusterOutput) NodeResourceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringOutput { return v.NodeResourceGroupId }).(pulumi.StringOutput)
 }
 
-// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
 //
 // > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
-func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolOutput { return v.OidcIssuerEnabled }).(pulumi.BoolOutput)
+func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.OidcIssuerEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The OIDC issuer URL that is associated with the cluster.
@@ -1706,10 +1709,10 @@ func (o KubernetesClusterOutput) PrivateClusterEnabled() pulumi.BoolPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

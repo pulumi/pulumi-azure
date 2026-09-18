@@ -30,7 +30,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
- *     serviceEndpoints: ["Microsoft.Storage"],
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Storage",
+ *     }],
  *     delegations: [{
  *         name: "fs",
  *         serviceDelegation: {
@@ -45,9 +47,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
  *     name: "exampleVnetZone.com",
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: exampleVirtualNetwork.id,
- *     resourceGroupName: example.name,
  * });
  * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
  *     name: "example-fs",
@@ -189,7 +190,6 @@ export class FlexibleServer extends pulumi.CustomResource {
      * > **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`").
      */
     declare public readonly publicNetworkAccess: pulumi.Output<string>;
-    declare public /*out*/ readonly publicNetworkAccessEnabled: pulumi.Output<boolean>;
     /**
      * The maximum number of replicas that a primary MySQL Flexible Server can have.
      */
@@ -267,7 +267,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["pointInTimeRestoreTimeInUtc"] = state?.pointInTimeRestoreTimeInUtc;
             resourceInputs["privateDnsZoneId"] = state?.privateDnsZoneId;
             resourceInputs["publicNetworkAccess"] = state?.publicNetworkAccess;
-            resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
             resourceInputs["replicaCapacity"] = state?.replicaCapacity;
             resourceInputs["replicationRole"] = state?.replicationRole;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
@@ -307,7 +306,6 @@ export class FlexibleServer extends pulumi.CustomResource {
             resourceInputs["version"] = args?.version;
             resourceInputs["zone"] = args?.zone;
             resourceInputs["fqdn"] = undefined /*out*/;
-            resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
             resourceInputs["replicaCapacity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -403,7 +401,6 @@ export interface FlexibleServerState {
      * > **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`").
      */
     publicNetworkAccess?: pulumi.Input<string | undefined>;
-    publicNetworkAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The maximum number of replicas that a primary MySQL Flexible Server can have.
      */

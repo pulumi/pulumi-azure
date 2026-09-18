@@ -56,6 +56,13 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
         /// </summary>
         public static Task<GetAlertRuleAnomalyResult> InvokeAsync(GetAlertRuleAnomalyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyArgs(), options.WithDefaults());
@@ -105,6 +112,13 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
         /// </summary>
         public static Output<GetAlertRuleAnomalyResult> Invoke(GetAlertRuleAnomalyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyInvokeArgs(), options.WithDefaults());
@@ -154,6 +168,13 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
         /// </summary>
         public static Output<GetAlertRuleAnomalyResult> Invoke(GetAlertRuleAnomalyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleAnomalyResult>("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args ?? new GetAlertRuleAnomalyInvokeArgs(), options.WithDefaults());

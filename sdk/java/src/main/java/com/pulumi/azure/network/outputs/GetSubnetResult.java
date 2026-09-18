@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.network.outputs;
 
+import com.pulumi.azure.network.outputs.GetSubnetServiceEndpoint;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -51,10 +52,10 @@ public final class GetSubnetResult {
      */
     private String routeTableId;
     /**
-     * @return A list of Service Endpoints within this subnet.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    private List<String> serviceEndpoints;
+    private List<GetSubnetServiceEndpoint> serviceEndpoints;
     private String virtualNetworkName;
 
     private GetSubnetResult() {}
@@ -117,10 +118,10 @@ public final class GetSubnetResult {
         return this.routeTableId;
     }
     /**
-     * @return A list of Service Endpoints within this subnet.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    public List<String> serviceEndpoints() {
+    public List<GetSubnetServiceEndpoint> serviceEndpoints() {
         return this.serviceEndpoints;
     }
     public String virtualNetworkName() {
@@ -146,7 +147,7 @@ public final class GetSubnetResult {
         private Boolean privateLinkServiceNetworkPoliciesEnabled;
         private String resourceGroupName;
         private String routeTableId;
-        private List<String> serviceEndpoints;
+        private List<GetSubnetServiceEndpoint> serviceEndpoints;
         private String virtualNetworkName;
         public Builder() {}
         public Builder(GetSubnetResult defaults) {
@@ -249,14 +250,14 @@ public final class GetSubnetResult {
             return this;
         }
         @CustomType.Setter
-        public Builder serviceEndpoints(List<String> serviceEndpoints) {
+        public Builder serviceEndpoints(List<GetSubnetServiceEndpoint> serviceEndpoints) {
             if (serviceEndpoints == null) {
               throw new MissingRequiredPropertyException("GetSubnetResult", "serviceEndpoints");
             }
             this.serviceEndpoints = serviceEndpoints;
             return this;
         }
-        public Builder serviceEndpoints(String... serviceEndpoints) {
+        public Builder serviceEndpoints(GetSubnetServiceEndpoint... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
         }
         @CustomType.Setter

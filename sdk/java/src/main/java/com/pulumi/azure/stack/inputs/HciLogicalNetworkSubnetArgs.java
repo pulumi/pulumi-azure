@@ -73,15 +73,15 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
      * A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="routes")
-    private @Nullable Output<List<HciLogicalNetworkSubnetRouteArgs>> routes;
+    @Import(name="route")
+    private @Nullable Output<HciLogicalNetworkSubnetRouteArgs> route;
 
     /**
      * @return A `route` block as defined above. Changing this forces a new resource to be created.
      * 
      */
-    public Optional<Output<List<HciLogicalNetworkSubnetRouteArgs>>> routes() {
-        return Optional.ofNullable(this.routes);
+    public Optional<Output<HciLogicalNetworkSubnetRouteArgs>> route() {
+        return Optional.ofNullable(this.route);
     }
 
     /**
@@ -105,7 +105,7 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         this.addressPrefix = $.addressPrefix;
         this.ipAllocationMethod = $.ipAllocationMethod;
         this.ipPools = $.ipPools;
-        this.routes = $.routes;
+        this.route = $.route;
         this.vlanId = $.vlanId;
     }
 
@@ -207,34 +207,24 @@ public final class HciLogicalNetworkSubnetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param routes A `route` block as defined above. Changing this forces a new resource to be created.
+         * @param route A `route` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder routes(@Nullable Output<List<HciLogicalNetworkSubnetRouteArgs>> routes) {
-            $.routes = routes;
+        public Builder route(@Nullable Output<HciLogicalNetworkSubnetRouteArgs> route) {
+            $.route = route;
             return this;
         }
 
         /**
-         * @param routes A `route` block as defined above. Changing this forces a new resource to be created.
+         * @param route A `route` block as defined above. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder routes(List<HciLogicalNetworkSubnetRouteArgs> routes) {
-            return routes(Output.of(routes));
-        }
-
-        /**
-         * @param routes A `route` block as defined above. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder routes(HciLogicalNetworkSubnetRouteArgs... routes) {
-            return routes(List.of(routes));
+        public Builder route(HciLogicalNetworkSubnetRouteArgs route) {
+            return route(Output.of(route));
         }
 
         /**

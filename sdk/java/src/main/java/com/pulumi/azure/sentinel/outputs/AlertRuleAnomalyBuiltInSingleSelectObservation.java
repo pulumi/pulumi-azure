@@ -18,7 +18,7 @@ public final class AlertRuleAnomalyBuiltInSingleSelectObservation {
      */
     private @Nullable String description;
     /**
-     * @return The Name of the built-in Anomaly Alert Rule.
+     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String name;
@@ -42,7 +42,7 @@ public final class AlertRuleAnomalyBuiltInSingleSelectObservation {
         return Optional.ofNullable(this.description);
     }
     /**
-     * @return The Name of the built-in Anomaly Alert Rule.
+     * @return The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> name() {

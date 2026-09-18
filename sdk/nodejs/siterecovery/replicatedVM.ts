@@ -182,8 +182,11 @@ import * as utilities from "../utilities";
  *     }],
  *     networkInterfaces: [{
  *         sourceNetworkInterfaceId: vmNetworkInterface.id,
- *         targetSubnetName: secondarySubnet.name,
- *         recoveryPublicIpAddressId: secondaryPublicIp.id,
+ *         ipConfigurations: [{
+ *             name: "vm",
+ *             targetSubnetName: secondarySubnet.name,
+ *             recoveryPublicIpAddressId: secondaryPublicIp.id,
+ *         }],
  *     }],
  * }, {
  *     dependsOn: [

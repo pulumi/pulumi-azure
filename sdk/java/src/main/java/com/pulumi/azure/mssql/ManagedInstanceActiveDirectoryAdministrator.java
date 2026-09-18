@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()
  *             .roleObjectId(reader.objectId())
- *             .memberObjectId(exampleManagedInstance.identity().applyValue(_identity -> _identity.principalId()))
+ *             .memberObjectId(exampleManagedInstance.identity().principalId())
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()

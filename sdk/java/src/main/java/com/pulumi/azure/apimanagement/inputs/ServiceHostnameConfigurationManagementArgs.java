@@ -131,25 +131,6 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
     }
 
     /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="keyVaultId")
-    private @Nullable Output<String> keyVaultId;
-
-    /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> keyVaultId() {
-        return Optional.ofNullable(this.keyVaultId);
-    }
-
-    /**
      * Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
@@ -223,7 +204,6 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
         this.expiry = $.expiry;
         this.hostName = $.hostName;
         this.keyVaultCertificateId = $.keyVaultCertificateId;
-        this.keyVaultId = $.keyVaultId;
         this.negotiateClientCertificate = $.negotiateClientCertificate;
         this.sslKeyvaultIdentityClientId = $.sslKeyvaultIdentityClientId;
         this.subject = $.subject;
@@ -401,31 +381,6 @@ public final class ServiceHostnameConfigurationManagementArgs extends com.pulumi
          */
         public Builder keyVaultCertificateId(String keyVaultCertificateId) {
             return keyVaultCertificateId(Output.of(keyVaultCertificateId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
-            $.keyVaultId = keyVaultId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder keyVaultId(String keyVaultId) {
-            return keyVaultId(Output.of(keyVaultId));
         }
 
         /**

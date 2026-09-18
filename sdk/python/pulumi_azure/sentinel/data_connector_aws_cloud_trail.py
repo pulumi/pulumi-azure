@@ -162,6 +162,13 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
             aws_role_arn="arn:aws:iam::000000000000:role/role1")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
         ## Import
 
         AWS CloudTrail Data Connectors can be imported using the `resource id`, e.g.
@@ -206,6 +213,13 @@ class DataConnectorAwsCloudTrail(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             aws_role_arn="arn:aws:iam::000000000000:role/role1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
 
         ## Import
 

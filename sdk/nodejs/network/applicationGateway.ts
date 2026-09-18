@@ -142,10 +142,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     */
-    declare public readonly authenticationCertificates: pulumi.Output<outputs.network.ApplicationGatewayAuthenticationCertificate[] | undefined>;
-    /**
      * An `autoscaleConfiguration` block as defined below.
      */
     declare public readonly autoscaleConfiguration: pulumi.Output<outputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
@@ -169,10 +165,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     declare public readonly customErrorConfigurations: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
-    /**
-     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly enableHttp2: pulumi.Output<boolean>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */
@@ -204,7 +196,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
-    declare public readonly http2Enabled: pulumi.Output<boolean>;
+    declare public readonly http2Enabled: pulumi.Output<boolean | undefined>;
     /**
      * One or more `httpListener` blocks as defined below.
      *
@@ -321,13 +313,11 @@ export class ApplicationGateway extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationGatewayState | undefined;
-            resourceInputs["authenticationCertificates"] = state?.authenticationCertificates;
             resourceInputs["autoscaleConfiguration"] = state?.autoscaleConfiguration;
             resourceInputs["backendAddressPools"] = state?.backendAddressPools;
             resourceInputs["backendHttpSettings"] = state?.backendHttpSettings;
             resourceInputs["backends"] = state?.backends;
             resourceInputs["customErrorConfigurations"] = state?.customErrorConfigurations;
-            resourceInputs["enableHttp2"] = state?.enableHttp2;
             resourceInputs["fipsEnabled"] = state?.fipsEnabled;
             resourceInputs["firewallPolicyId"] = state?.firewallPolicyId;
             resourceInputs["forceFirewallPolicyAssociation"] = state?.forceFirewallPolicyAssociation;
@@ -379,13 +369,11 @@ export class ApplicationGateway extends pulumi.CustomResource {
             if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["authenticationCertificates"] = args?.authenticationCertificates;
             resourceInputs["autoscaleConfiguration"] = args?.autoscaleConfiguration;
             resourceInputs["backendAddressPools"] = args?.backendAddressPools;
             resourceInputs["backendHttpSettings"] = args?.backendHttpSettings;
             resourceInputs["backends"] = args?.backends;
             resourceInputs["customErrorConfigurations"] = args?.customErrorConfigurations;
-            resourceInputs["enableHttp2"] = args?.enableHttp2;
             resourceInputs["fipsEnabled"] = args?.fipsEnabled;
             resourceInputs["firewallPolicyId"] = args?.firewallPolicyId;
             resourceInputs["forceFirewallPolicyAssociation"] = args?.forceFirewallPolicyAssociation;
@@ -428,10 +416,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
  */
 export interface ApplicationGatewayState {
     /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     */
-    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[] | undefined>;
-    /**
      * An `autoscaleConfiguration` block as defined below.
      */
     autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
@@ -455,10 +439,6 @@ export interface ApplicationGatewayState {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[] | undefined>;
-    /**
-     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableHttp2?: pulumi.Input<boolean | undefined>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */
@@ -600,10 +580,6 @@ export interface ApplicationGatewayState {
  */
 export interface ApplicationGatewayArgs {
     /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     */
-    authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[] | undefined>;
-    /**
      * An `autoscaleConfiguration` block as defined below.
      */
     autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
@@ -627,10 +603,6 @@ export interface ApplicationGatewayArgs {
      * One or more `customErrorConfiguration` blocks as defined below.
      */
     customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[] | undefined>;
-    /**
-     * @deprecated the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableHttp2?: pulumi.Input<boolean | undefined>;
     /**
      * Is FIPS enabled on the Application Gateway?
      */

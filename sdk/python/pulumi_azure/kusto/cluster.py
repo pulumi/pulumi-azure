@@ -29,7 +29,6 @@ class ClusterArgs:
                  disk_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['ClusterIdentityArgs']] = None,
-                 language_extension: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  language_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -41,7 +40,6 @@ class ClusterArgs:
                  streaming_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trusted_external_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_configuration: pulumi.Input[Optional['ClusterVirtualNetworkConfigurationArgs']] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
@@ -54,7 +52,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extension: A `language_extension` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -83,11 +81,6 @@ class ClusterArgs:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if language_extension is not None:
-            pulumi.set(__self__, "language_extension", language_extension)
-        if language_extensions is not None:
-            warnings.warn("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""language_extensions is deprecated: `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
         if language_extensions is not None:
             pulumi.set(__self__, "language_extensions", language_extensions)
         if location is not None:
@@ -110,11 +103,6 @@ class ClusterArgs:
             pulumi.set(__self__, "tags", tags)
         if trusted_external_tenants is not None:
             pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
-        if virtual_network_configuration is not None:
-            warnings.warn("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""", DeprecationWarning)
-            pulumi.log.warn("""virtual_network_configuration is deprecated: The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
-        if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -215,21 +203,11 @@ class ClusterArgs:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
-    @pulumi.getter(name="languageExtension")
-    def language_extension(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
+    @pulumi.getter(name="languageExtensions")
+    def language_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         """
         A `language_extension` block as defined below.
         """
-        return pulumi.get(self, "language_extension")
-
-    @language_extension.setter
-    def language_extension(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]):
-        pulumi.set(self, "language_extension", value)
-
-    @_builtins.property
-    @pulumi.getter(name="languageExtensions")
-    @_utilities.deprecated("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
-    def language_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         return pulumi.get(self, "language_extensions")
 
     @language_extensions.setter
@@ -359,16 +337,6 @@ class ClusterArgs:
         pulumi.set(self, "trusted_external_tenants", value)
 
     @_builtins.property
-    @pulumi.getter(name="virtualNetworkConfiguration")
-    @_utilities.deprecated("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
-    def virtual_network_configuration(self) -> pulumi.Input[Optional['ClusterVirtualNetworkConfigurationArgs']]:
-        return pulumi.get(self, "virtual_network_configuration")
-
-    @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: pulumi.Input[Optional['ClusterVirtualNetworkConfigurationArgs']]):
-        pulumi.set(self, "virtual_network_configuration", value)
-
-    @_builtins.property
     @pulumi.getter
     def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -391,7 +359,6 @@ class _ClusterState:
                  disk_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['ClusterIdentityArgs']] = None,
-                 language_extension: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  language_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -406,7 +373,6 @@ class _ClusterState:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trusted_external_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_configuration: pulumi.Input[Optional['ClusterVirtualNetworkConfigurationArgs']] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
@@ -418,7 +384,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extension: A `language_extension` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -450,11 +416,6 @@ class _ClusterState:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if language_extension is not None:
-            pulumi.set(__self__, "language_extension", language_extension)
-        if language_extensions is not None:
-            warnings.warn("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""language_extensions is deprecated: `language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
         if language_extensions is not None:
             pulumi.set(__self__, "language_extensions", language_extensions)
         if location is not None:
@@ -483,11 +444,6 @@ class _ClusterState:
             pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
-        if virtual_network_configuration is not None:
-            warnings.warn("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""", DeprecationWarning)
-            pulumi.log.warn("""virtual_network_configuration is deprecated: The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
-        if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -576,21 +532,11 @@ class _ClusterState:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
-    @pulumi.getter(name="languageExtension")
-    def language_extension(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
+    @pulumi.getter(name="languageExtensions")
+    def language_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         """
         A `language_extension` block as defined below.
         """
-        return pulumi.get(self, "language_extension")
-
-    @language_extension.setter
-    def language_extension(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]):
-        pulumi.set(self, "language_extension", value)
-
-    @_builtins.property
-    @pulumi.getter(name="languageExtensions")
-    @_utilities.deprecated("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
-    def language_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]]]:
         return pulumi.get(self, "language_extensions")
 
     @language_extensions.setter
@@ -756,16 +702,6 @@ class _ClusterState:
         pulumi.set(self, "uri", value)
 
     @_builtins.property
-    @pulumi.getter(name="virtualNetworkConfiguration")
-    @_utilities.deprecated("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
-    def virtual_network_configuration(self) -> pulumi.Input[Optional['ClusterVirtualNetworkConfigurationArgs']]:
-        return pulumi.get(self, "virtual_network_configuration")
-
-    @virtual_network_configuration.setter
-    def virtual_network_configuration(self, value: pulumi.Input[Optional['ClusterVirtualNetworkConfigurationArgs']]):
-        pulumi.set(self, "virtual_network_configuration", value)
-
-    @_builtins.property
     @pulumi.getter
     def zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -790,7 +726,6 @@ class Cluster(pulumi.CustomResource):
                  disk_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-                 language_extension: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  language_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -804,7 +739,6 @@ class Cluster(pulumi.CustomResource):
                  streaming_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trusted_external_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_configuration: pulumi.Input[Optional[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -856,7 +790,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extension: A `language_extension` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -941,7 +875,6 @@ class Cluster(pulumi.CustomResource):
                  disk_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-                 language_extension: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  language_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -955,7 +888,6 @@ class Cluster(pulumi.CustomResource):
                  streaming_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  trusted_external_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_configuration: pulumi.Input[Optional[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -972,7 +904,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["language_extension"] = language_extension
             __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -990,7 +921,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["streaming_ingestion_enabled"] = streaming_ingestion_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
-            __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["data_ingestion_uri"] = None
             __props__.__dict__["uri"] = None
@@ -1011,7 +941,6 @@ class Cluster(pulumi.CustomResource):
             disk_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             identity: pulumi.Input[Optional[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
-            language_extension: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
             language_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1026,7 +955,6 @@ class Cluster(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             trusted_external_tenants: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             uri: pulumi.Input[Optional[_builtins.str]] = None,
-            virtual_network_configuration: pulumi.Input[Optional[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']]] = None,
             zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -1042,7 +970,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extension: A `language_extension` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: A `language_extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -1071,7 +999,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
         __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
         __props__.__dict__["identity"] = identity
-        __props__.__dict__["language_extension"] = language_extension
         __props__.__dict__["language_extensions"] = language_extensions
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -1086,7 +1013,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
         __props__.__dict__["uri"] = uri
-        __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
         __props__.__dict__["zones"] = zones
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
@@ -1147,17 +1073,11 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @_builtins.property
-    @pulumi.getter(name="languageExtension")
-    def language_extension(self) -> pulumi.Output[Sequence['outputs.ClusterLanguageExtension']]:
+    @pulumi.getter(name="languageExtensions")
+    def language_extensions(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterLanguageExtension']]]:
         """
         A `language_extension` block as defined below.
         """
-        return pulumi.get(self, "language_extension")
-
-    @_builtins.property
-    @pulumi.getter(name="languageExtensions")
-    @_utilities.deprecated("""`language_extensions` has been deprecated in favour of `language_extension` and will be removed in v5.0 of the AzureRM provider""")
-    def language_extensions(self) -> pulumi.Output[Sequence['outputs.ClusterLanguageExtension']]:
         return pulumi.get(self, "language_extensions")
 
     @_builtins.property
@@ -1265,12 +1185,6 @@ class Cluster(pulumi.CustomResource):
         The FQDN of the Azure Kusto Cluster.
         """
         return pulumi.get(self, "uri")
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkConfiguration")
-    @_utilities.deprecated("""The `virtual_network_configuration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192""")
-    def virtual_network_configuration(self) -> pulumi.Output[Optional['outputs.ClusterVirtualNetworkConfiguration']]:
-        return pulumi.get(self, "virtual_network_configuration")
 
     @_builtins.property
     @pulumi.getter

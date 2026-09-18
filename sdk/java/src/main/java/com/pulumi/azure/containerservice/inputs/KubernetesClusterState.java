@@ -808,7 +808,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
@@ -817,7 +817,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     private @Nullable Output<Boolean> oidcIssuerEnabled;
 
     /**
-     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
@@ -2477,7 +2477,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
          * 
          * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
@@ -2490,7 +2490,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
          * 
          * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 

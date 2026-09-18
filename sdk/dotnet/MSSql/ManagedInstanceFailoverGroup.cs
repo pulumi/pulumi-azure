@@ -61,8 +61,7 @@ namespace Pulumi.Azure.MSSql
     ///     var primaryZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("primary", new()
     ///     {
     ///         Name = "primary-link",
-    ///         ResourceGroupName = primary.Name,
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = primaryVirtualNetwork.Id,
     ///     });
     /// 
@@ -162,8 +161,7 @@ namespace Pulumi.Azure.MSSql
     ///     var failoverZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("failover", new()
     ///     {
     ///         Name = "failover-link",
-    ///         ResourceGroupName = exampleZone.ResourceGroupName,
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = failoverVirtualNetwork.Id,
     ///     });
     /// 

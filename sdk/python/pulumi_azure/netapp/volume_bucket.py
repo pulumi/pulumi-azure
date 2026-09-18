@@ -428,7 +428,7 @@ class VolumeBucket(pulumi.CustomResource):
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
             })
         # Subsequent bucket - reuses the server configured by the first bucket.
         example_volume_bucket = azure.netapp.VolumeBucket("example",
@@ -564,7 +564,7 @@ class VolumeBucket(pulumi.CustomResource):
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
             })
         # Subsequent bucket - reuses the server configured by the first bucket.
         example_volume_bucket = azure.netapp.VolumeBucket("example",

@@ -77,7 +77,6 @@ import * as frontdoor from "./frontdoor";
 import * as graph from "./graph";
 import * as hdinsight from "./hdinsight";
 import * as healthcare from "./healthcare";
-import * as hpc from "./hpc";
 import * as hsm from "./hsm";
 import * as iot from "./iot";
 import * as iotcentral from "./iotcentral";
@@ -111,9 +110,9 @@ import * as nginx from "./nginx";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
 import * as oracle from "./oracle";
-import * as orbital from "./orbital";
 import * as paloalto from "./paloalto";
 import * as pim from "./pim";
+import * as playwright from "./playwright";
 import * as policy from "./policy";
 import * as portal from "./portal";
 import * as postgresql from "./postgresql";
@@ -214,7 +213,6 @@ export {
     graph,
     hdinsight,
     healthcare,
-    hpc,
     hsm,
     iot,
     iotcentral,
@@ -248,9 +246,9 @@ export {
     notificationhub,
     operationalinsights,
     oracle,
-    orbital,
     paloalto,
     pim,
+    playwright,
     policy,
     portal,
     postgresql,

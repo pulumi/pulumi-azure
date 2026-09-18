@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     data: std.filebase64({
  *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *
@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "example_cert.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "terraform",
  *     },
  *     certificatePolicy: {

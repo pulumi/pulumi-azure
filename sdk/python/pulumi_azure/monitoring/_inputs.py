@@ -17,8 +17,6 @@ from .. import _utilities
 __all__ = [
     'AadDiagnosticSettingEnabledLogArgs',
     'AadDiagnosticSettingEnabledLogArgsDict',
-    'AadDiagnosticSettingEnabledLogRetentionPolicyArgs',
-    'AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict',
     'ActionGroupArmRoleReceiverArgs',
     'ActionGroupArmRoleReceiverArgsDict',
     'ActionGroupAutomationRunbookReceiverArgs',
@@ -207,14 +205,8 @@ __all__ = [
     'DataCollectionRuleStreamDeclarationColumnArgsDict',
     'DiagnosticSettingEnabledLogArgs',
     'DiagnosticSettingEnabledLogArgsDict',
-    'DiagnosticSettingEnabledLogRetentionPolicyArgs',
-    'DiagnosticSettingEnabledLogRetentionPolicyArgsDict',
     'DiagnosticSettingEnabledMetricArgs',
     'DiagnosticSettingEnabledMetricArgsDict',
-    'DiagnosticSettingMetricArgs',
-    'DiagnosticSettingMetricArgsDict',
-    'DiagnosticSettingMetricRetentionPolicyArgs',
-    'DiagnosticSettingMetricRetentionPolicyArgsDict',
     'MetricAlertActionArgs',
     'MetricAlertActionArgsDict',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs',
@@ -256,22 +248,15 @@ class AadDiagnosticSettingEnabledLogArgsDict(TypedDict):
     """
     The log category for the Azure Active Directory Diagnostic.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class AadDiagnosticSettingEnabledLogArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input[_builtins.str],
-                 retention_policy: pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
+                 category: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] category: The log category for the Azure Active Directory Diagnostic.
         """
         pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            warnings.warn("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -284,49 +269,6 @@ class AadDiagnosticSettingEnabledLogArgs:
     @category.setter
     def category(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
-    def retention_policy(self) -> pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]:
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-class AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
-    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-
-@pulumi.input_type
-class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 days: pulumi.Input[Optional[_builtins.int]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "days", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 class ActionGroupArmRoleReceiverArgsDict(TypedDict):
@@ -7504,14 +7446,12 @@ class DiagnosticSettingEnabledLogArgsDict(TypedDict):
 
     > **NOTE:** Exactly one of `category` or `category_group` must be specified.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class DiagnosticSettingEnabledLogArgs:
     def __init__(__self__, *,
                  category: pulumi.Input[Optional[_builtins.str]] = None,
-                 category_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_policy: pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']] = None):
+                 category_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] category: The name of a Diagnostic Log Category for this Resource.
                
@@ -7526,11 +7466,6 @@ class DiagnosticSettingEnabledLogArgs:
             pulumi.set(__self__, "category", category)
         if category_group is not None:
             pulumi.set(__self__, "category_group", category_group)
-        if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -7561,48 +7496,6 @@ class DiagnosticSettingEnabledLogArgs:
     @category_group.setter
     def category_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "category_group", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']]:
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-class DiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
-    enabled: pulumi.Input[_builtins.bool]
-    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-
-@pulumi.input_type
-class DiagnosticSettingEnabledLogRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 days: pulumi.Input[Optional[_builtins.int]] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "days", value)
 
 
 class DiagnosticSettingEnabledMetricArgsDict(TypedDict):
@@ -7637,87 +7530,6 @@ class DiagnosticSettingEnabledMetricArgs:
     @category.setter
     def category(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "category", value)
-
-
-class DiagnosticSettingMetricArgsDict(TypedDict):
-    category: pulumi.Input[_builtins.str]
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgsDict']]]
-
-@pulumi.input_type
-class DiagnosticSettingMetricArgs:
-    def __init__(__self__, *,
-                 category: pulumi.Input[_builtins.str],
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 retention_policy: pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']] = None):
-        pulumi.set(__self__, "category", category)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "category")
-
-    @category.setter
-    def category(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "category", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']]:
-        return pulumi.get(self, "retention_policy")
-
-    @retention_policy.setter
-    def retention_policy(self, value: pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']]):
-        pulumi.set(self, "retention_policy", value)
-
-
-class DiagnosticSettingMetricRetentionPolicyArgsDict(TypedDict):
-    enabled: pulumi.Input[_builtins.bool]
-    days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-
-@pulumi.input_type
-class DiagnosticSettingMetricRetentionPolicyArgs:
-    def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 days: pulumi.Input[Optional[_builtins.int]] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[_builtins.bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "days")
-
-    @days.setter
-    def days(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "days", value)
 
 
 class MetricAlertActionArgsDict(TypedDict):

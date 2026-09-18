@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AccountRaiPolicyContentFilter {
@@ -29,8 +31,10 @@ public final class AccountRaiPolicyContentFilter {
     /**
      * @return The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
      * 
+     * &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
+     * 
      */
-    private String severityThreshold;
+    private @Nullable String severityThreshold;
     /**
      * @return Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
      * 
@@ -62,9 +66,11 @@ public final class AccountRaiPolicyContentFilter {
     /**
      * @return The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
      * 
+     * &gt; **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
+     * 
      */
-    public String severityThreshold() {
-        return this.severityThreshold;
+    public Optional<String> severityThreshold() {
+        return Optional.ofNullable(this.severityThreshold);
     }
     /**
      * @return Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
@@ -86,7 +92,7 @@ public final class AccountRaiPolicyContentFilter {
         private Boolean blockEnabled;
         private Boolean filterEnabled;
         private String name;
-        private String severityThreshold;
+        private @Nullable String severityThreshold;
         private String source;
         public Builder() {}
         public Builder(AccountRaiPolicyContentFilter defaults) {
@@ -123,10 +129,8 @@ public final class AccountRaiPolicyContentFilter {
             return this;
         }
         @CustomType.Setter
-        public Builder severityThreshold(String severityThreshold) {
-            if (severityThreshold == null) {
-              throw new MissingRequiredPropertyException("AccountRaiPolicyContentFilter", "severityThreshold");
-            }
+        public Builder severityThreshold(@Nullable String severityThreshold) {
+
             this.severityThreshold = severityThreshold;
             return this;
         }

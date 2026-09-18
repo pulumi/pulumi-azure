@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appinsights"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/monitoring"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -86,8 +86,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
-//				Input: `let a=requests
+//			invokeFormat, err := std.Format(ctx, map[string]interface{}{
+//				"input": `let a=requests
 //	  | where toint(resultCode) >= 500
 //	  | extend fail=1; let b=app('%s').requests
 //	  | where toint(resultCode) >= 500 | extend fail=1; a
@@ -95,7 +95,7 @@ import (
 //
 // `,
 //
-//				Args: pulumi.IDArray{
+//				"args": pulumi.IDArray{
 //					example2.ID(),
 //				},
 //			}, nil)
@@ -118,7 +118,7 @@ import (
 //				DataSourceId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("Query may access data within multiple resources"),
 //				Enabled:      pulumi.Bool(true),
-//				Query:        pulumi.String(invokeFormat.Result),
+//				Query:        invokeFormat.Result,
 //				Severity:     pulumi.Int(1),
 //				Frequency:    pulumi.Int(5),
 //				TimeWindow:   pulumi.Int(30),

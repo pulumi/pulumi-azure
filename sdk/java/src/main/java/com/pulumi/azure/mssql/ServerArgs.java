@@ -146,9 +146,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-     * 
-     * &gt; **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it&#39;s not possible to revert to `Disabled`.
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -157,9 +155,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-     * 
-     * &gt; **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it&#39;s not possible to revert to `Disabled`.
+     * @return The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -513,9 +509,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-         * 
-         * &gt; **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it&#39;s not possible to revert to `Disabled`.
+         * @param minimumTlsVersion The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -528,9 +522,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param minimumTlsVersion The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-         * 
-         * &gt; **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it&#39;s not possible to revert to `Disabled`.
+         * @param minimumTlsVersion The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 

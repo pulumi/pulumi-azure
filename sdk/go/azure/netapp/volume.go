@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,8 +62,8 @@ type Volume struct {
 	LargeVolumeEnabled pulumi.BoolPtrOutput `pulumi:"largeVolumeEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// A list of IPv4 Addresses which should be used to mount the volume.
-	MountIpAddresses pulumi.StringArrayOutput `pulumi:"mountIpAddresses"`
+	// One or more `mountTarget` blocks as defined below.
+	MountTargets VolumeMountTargetArrayOutput `pulumi:"mountTargets"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
@@ -197,8 +197,8 @@ type volumeState struct {
 	LargeVolumeEnabled *bool `pulumi:"largeVolumeEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// A list of IPv4 Addresses which should be used to mount the volume.
-	MountIpAddresses []string `pulumi:"mountIpAddresses"`
+	// One or more `mountTarget` blocks as defined below.
+	MountTargets []VolumeMountTarget `pulumi:"mountTargets"`
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
@@ -282,8 +282,8 @@ type VolumeState struct {
 	LargeVolumeEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// A list of IPv4 Addresses which should be used to mount the volume.
-	MountIpAddresses pulumi.StringArrayInput
+	// One or more `mountTarget` blocks as defined below.
+	MountTargets VolumeMountTargetArrayInput
 	// The name of the NetApp Volume. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
@@ -671,9 +671,9 @@ func (o VolumeOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// A list of IPv4 Addresses which should be used to mount the volume.
-func (o VolumeOutput) MountIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringArrayOutput { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+// One or more `mountTarget` blocks as defined below.
+func (o VolumeOutput) MountTargets() VolumeMountTargetArrayOutput {
+	return o.ApplyT(func(v *Volume) VolumeMountTargetArrayOutput { return v.MountTargets }).(VolumeMountTargetArrayOutput)
 }
 
 // The name of the NetApp Volume. Changing this forces a new resource to be created.

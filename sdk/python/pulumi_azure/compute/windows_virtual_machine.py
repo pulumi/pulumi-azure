@@ -41,7 +41,6 @@ class WindowsVirtualMachineArgs:
                  dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
@@ -71,7 +70,6 @@ class WindowsVirtualMachineArgs:
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None):
@@ -163,7 +161,6 @@ class WindowsVirtualMachineArgs:
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
                > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[_builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
@@ -204,11 +201,6 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_automatic_updates is not None:
-            warnings.warn("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_automatic_updates is deprecated: this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-        if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
             pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
@@ -267,11 +259,6 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
-        if vm_agent_platform_updates_enabled is not None:
-            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
-            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
-        if vm_agent_platform_updates_enabled is not None:
-            pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if winrm_listeners is not None:
@@ -526,16 +513,6 @@ class WindowsVirtualMachineArgs:
     @edge_zone.setter
     def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_automatic_updates")
-
-    @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
@@ -914,19 +891,6 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
-    def vm_agent_platform_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-        """
-        return pulumi.get(self, "vm_agent_platform_updates_enabled")
-
-    @vm_agent_platform_updates_enabled.setter
-    def vm_agent_platform_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "vm_agent_platform_updates_enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
     def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -982,7 +946,6 @@ class _WindowsVirtualMachineState:
                  dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1155,11 +1118,6 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "disk_controller_type", disk_controller_type)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_automatic_updates is not None:
-            warnings.warn("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_automatic_updates is deprecated: this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-        if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
             pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
@@ -1236,9 +1194,6 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
-        if vm_agent_platform_updates_enabled is not None:
-            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
-            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
         if vm_agent_platform_updates_enabled is not None:
             pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
@@ -1447,16 +1402,6 @@ class _WindowsVirtualMachineState:
     @edge_zone.setter
     def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_automatic_updates")
-
-    @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
@@ -1944,7 +1889,6 @@ class _WindowsVirtualMachineState:
 
     @_builtins.property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
@@ -2014,7 +1958,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2048,7 +1991,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2221,7 +2163,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
                > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[_builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: * `zones` - (Optional) Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created.
@@ -2344,7 +2285,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2378,7 +2318,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  winrm_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineWinrmListenerArgs', 'WindowsVirtualMachineWinrmListenerArgsDict']]]]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2407,7 +2346,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["dedicated_host_id"] = dedicated_host_id
             __props__.__dict__["disk_controller_type"] = disk_controller_type
             __props__.__dict__["edge_zone"] = edge_zone
-            __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
@@ -2449,7 +2387,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["timezone"] = timezone
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
-            __props__.__dict__["vm_agent_platform_updates_enabled"] = vm_agent_platform_updates_enabled
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["winrm_listeners"] = winrm_listeners
             __props__.__dict__["zone"] = zone
@@ -2458,6 +2395,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["public_ip_address"] = None
             __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["virtual_machine_id"] = None
+            __props__.__dict__["vm_agent_platform_updates_enabled"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword", "customData"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(WindowsVirtualMachine, __self__).__init__(
@@ -2486,7 +2424,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             dedicated_host_id: pulumi.Input[Optional[_builtins.str]] = None,
             disk_controller_type: pulumi.Input[Optional[_builtins.str]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
             encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
             extensions_time_budget: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2651,7 +2588,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["dedicated_host_id"] = dedicated_host_id
         __props__.__dict__["disk_controller_type"] = disk_controller_type
         __props__.__dict__["edge_zone"] = edge_zone
-        __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
@@ -2831,12 +2767,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine should exist. Changing this forces a new Windows Virtual Machine to be created.
         """
         return pulumi.get(self, "edge_zone")
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    @_utilities.deprecated("""this property has been deprecated in favour of automatic_updates_enabled and will be removed in 5.0 of the provider.""")
-    def enable_automatic_updates(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_automatic_updates")
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
@@ -3172,7 +3102,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.

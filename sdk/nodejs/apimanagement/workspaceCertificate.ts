@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     apiManagementWorkspaceId: exampleWorkspace.id,
  *     certificateDataBase64: std.filebase64({
  *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     password: "terraform",
  * });
  * ```

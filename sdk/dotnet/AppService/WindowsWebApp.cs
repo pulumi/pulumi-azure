@@ -276,12 +276,12 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> VirtualNetworkBackupRestoreEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Whether traffic for the image pull should be routed over the virtual network.
+        /// Whether traffic for the image pull should be routed over the virtual network. Defaults to `False`.
         /// 
         /// &gt; **Note:** `VirtualNetworkImagePullEnabled` must be set to `True` when running in an App Service Environment.
         /// </summary>
         [Output("virtualNetworkImagePullEnabled")]
-        public Output<bool> VirtualNetworkImagePullEnabled { get; private set; } = null!;
+        public Output<bool?> VirtualNetworkImagePullEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -539,7 +539,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
         /// <summary>
-        /// Whether traffic for the image pull should be routed over the virtual network.
+        /// Whether traffic for the image pull should be routed over the virtual network. Defaults to `False`.
         /// 
         /// &gt; **Note:** `VirtualNetworkImagePullEnabled` must be set to `True` when running in an App Service Environment.
         /// </summary>
@@ -845,7 +845,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? VirtualNetworkBackupRestoreEnabled { get; set; }
 
         /// <summary>
-        /// Whether traffic for the image pull should be routed over the virtual network.
+        /// Whether traffic for the image pull should be routed over the virtual network. Defaults to `False`.
         /// 
         /// &gt; **Note:** `VirtualNetworkImagePullEnabled` must be set to `True` when running in an App Service Environment.
         /// </summary>

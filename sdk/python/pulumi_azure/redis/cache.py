@@ -55,7 +55,7 @@ class CacheArgs:
         :param pulumi.Input[_builtins.bool] access_keys_authentication_enabled: Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
@@ -208,7 +208,7 @@ class CacheArgs:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 
         > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -432,7 +432,7 @@ class _CacheState:
         :param pulumi.Input[_builtins.str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
@@ -599,7 +599,7 @@ class _CacheState:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 
         > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -966,7 +966,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
@@ -1185,7 +1185,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hostname: The Hostname of the Redis Instance
         :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
                
                > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
@@ -1304,7 +1304,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+        The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
 
         > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """

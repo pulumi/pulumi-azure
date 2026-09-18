@@ -758,14 +758,18 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return this.resourceGroupName;
     }
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      * 
      */
     @Export(name="rollingUpgradePolicy", refs={LinuxVirtualMachineScaleSetRollingUpgradePolicy.class}, tree="[0]")
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetRollingUpgradePolicy> rollingUpgradePolicy;
 
     /**
-     * @return A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * @return A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetRollingUpgradePolicy>> rollingUpgradePolicy() {

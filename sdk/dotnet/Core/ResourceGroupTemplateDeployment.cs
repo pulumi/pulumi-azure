@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Core
     ///         ["armExampleOutput"] = Std.Jsondecode.Invoke(new()
     ///         {
     ///             Input = example.OutputContent,
-    ///         }).Apply(invoke =&gt; invoke.Result?.ExampleOutput?.Value),
+    ///         }).Result.ExampleOutput.Value,
     ///     };
     /// });
     /// ```

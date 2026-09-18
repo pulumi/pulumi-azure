@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -869,7 +869,9 @@ func (o ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArrayOutput) Index(i
 type ManagedDevOpsPoolAzureDevopsOrganizationPermission struct {
 	// An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
 	AdministratorAccount *ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccount `pulumi:"administratorAccount"`
-	// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+	// Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
 	Kind string `pulumi:"kind"`
 }
 
@@ -887,7 +889,9 @@ type ManagedDevOpsPoolAzureDevopsOrganizationPermissionInput interface {
 type ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs struct {
 	// An `administratorAccount` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
 	AdministratorAccount ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrInput `pulumi:"administratorAccount"`
-	// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+	// Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
 	Kind pulumi.StringInput `pulumi:"kind"`
 }
 
@@ -975,7 +979,9 @@ func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) AdministratorA
 	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput)
 }
 
-// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+// Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
 func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedDevOpsPoolAzureDevopsOrganizationPermission) string { return v.Kind }).(pulumi.StringOutput)
 }
@@ -1014,7 +1020,9 @@ func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) Administrat
 	}).(ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountPtrOutput)
 }
 
-// Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+// Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+//
+// > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
 func (o ManagedDevOpsPoolAzureDevopsOrganizationPermissionPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDevOpsPoolAzureDevopsOrganizationPermission) *string {
 		if v == nil {

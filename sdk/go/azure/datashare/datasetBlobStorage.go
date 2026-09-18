@@ -8,11 +8,116 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manages a Data Share Blob Storage Dataset.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datashare"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
+//				Name:              pulumi.String("example-dsa"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Identity: &datashare.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleShare, err := datashare.NewShare(ctx, "example", &datashare.ShareArgs{
+//				Name:      pulumi.String("example_ds"),
+//				AccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Kind:      pulumi.String("CopyBased"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount2, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestr"),
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("RAGRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("example-sc"),
+//				StorageAccountName:  exampleAccount2.Name,
+//				ContainerAccessType: pulumi.String("container"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := azuread.ServicePrincipal(ctx, map[string]pulumi.String{
+//				"displayName": exampleAccount.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount2.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
+//				PrincipalId:        pulumi.Any(example.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datashare.NewDatasetBlobStorage(ctx, "example", &datashare.DatasetBlobStorageArgs{
+//				Name:          pulumi.String("example-dsbsds-file"),
+//				DataShareId:   exampleShare.ID().ToIDOutput().ToStringOutput(),
+//				ContainerName: exampleContainer.Name,
+//				StorageAccount: &datashare.DatasetBlobStorageStorageAccountArgs{
+//					Name:              exampleAccount2.Name,
+//					ResourceGroupName: exampleAccount2.ResourceGroupName,
+//					SubscriptionId:    pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				FilePath: pulumi.String("myfile.txt"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DataShare` - 2019-11-01
 //
 // ## Import
 //

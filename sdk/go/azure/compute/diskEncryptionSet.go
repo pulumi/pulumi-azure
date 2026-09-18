@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -148,10 +148,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -286,9 +286,9 @@ type DiskEncryptionSet struct {
 
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` must use the `versionlessId`.
 	//
-	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` field.
 	//
 	// > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
 	AutoKeyRotationEnabled pulumi.BoolPtrOutput `pulumi:"autoKeyRotationEnabled"`
@@ -298,21 +298,17 @@ type DiskEncryptionSet struct {
 	FederatedClientId pulumi.StringPtrOutput `pulumi:"federatedClientId"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityOutput `pulumi:"identity"`
-	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 	//
 	// > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 	//
-	// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// > **Note:** A KeyVault or Managed HSM using rbacAuthorizationEnabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
 	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
 	KeyVaultKeyUrl pulumi.StringOutput `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-	//
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
-	ManagedHsmKeyId pulumi.StringOutput `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -330,6 +326,9 @@ func NewDiskEncryptionSet(ctx *pulumi.Context,
 
 	if args.Identity == nil {
 		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.KeyVaultKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultKeyId'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -359,9 +358,9 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 type diskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` must use the `versionlessId`.
 	//
-	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` field.
 	//
 	// > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
@@ -371,21 +370,17 @@ type diskEncryptionSetState struct {
 	FederatedClientId *string `pulumi:"federatedClientId"`
 	// An `identity` block as defined below.
 	Identity *DiskEncryptionSetIdentity `pulumi:"identity"`
-	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 	//
 	// > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 	//
-	// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// > **Note:** A KeyVault or Managed HSM using rbacAuthorizationEnabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
 	KeyVaultKeyUrl *string `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-	//
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -397,9 +392,9 @@ type diskEncryptionSetState struct {
 type DiskEncryptionSetState struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` must use the `versionlessId`.
 	//
-	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` field.
 	//
 	// > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
@@ -409,21 +404,17 @@ type DiskEncryptionSetState struct {
 	FederatedClientId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityPtrInput
-	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 	//
 	// > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 	//
-	// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// > **Note:** A KeyVault or Managed HSM using rbacAuthorizationEnabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
 	KeyVaultKeyId pulumi.StringPtrInput
 	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
 	KeyVaultKeyUrl pulumi.StringPtrInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-	//
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
-	ManagedHsmKeyId pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -439,9 +430,9 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 type diskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` must use the `versionlessId`.
 	//
-	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` field.
 	//
 	// > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
 	AutoKeyRotationEnabled *bool `pulumi:"autoKeyRotationEnabled"`
@@ -451,19 +442,15 @@ type diskEncryptionSetArgs struct {
 	FederatedClientId *string `pulumi:"federatedClientId"`
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentity `pulumi:"identity"`
-	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 	//
 	// > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 	//
-	// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// > **Note:** A KeyVault or Managed HSM using rbacAuthorizationEnabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
-	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-	//
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -476,9 +463,9 @@ type diskEncryptionSetArgs struct {
 type DiskEncryptionSetArgs struct {
 	// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 	//
-	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+	// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` must use the `versionlessId`.
 	//
-	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+	// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` field.
 	//
 	// > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
 	AutoKeyRotationEnabled pulumi.BoolPtrInput
@@ -488,19 +475,15 @@ type DiskEncryptionSetArgs struct {
 	FederatedClientId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity DiskEncryptionSetIdentityInput
-	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 	//
 	// > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 	//
-	// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+	// > **Note:** A KeyVault or Managed HSM using rbacAuthorizationEnabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
-	KeyVaultKeyId pulumi.StringPtrInput
+	KeyVaultKeyId pulumi.StringInput
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-	//
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
-	ManagedHsmKeyId pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -598,9 +581,9 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx contex
 
 // Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 //
-// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` or `managedHsmKeyId` must use the `versionlessId`.
+// > **Note:** When `autoKeyRotationEnabled` is set to `true` the `keyVaultKeyId` must use the `versionlessId`.
 //
-// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` or `managedHsmKeyId` field.
+// > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `keyVaultKeyUrl` field.
 //
 // > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
 func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
@@ -622,11 +605,11 @@ func (o DiskEncryptionSetOutput) Identity() DiskEncryptionSetIdentityOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) DiskEncryptionSetIdentityOutput { return v.Identity }).(DiskEncryptionSetIdentityOutput)
 }
 
-// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 //
 // > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 //
-// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+// > **Note:** A KeyVault or Managed HSM using rbacAuthorizationEnabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 // In this case, `keyvault.AccessPolicy` is not needed.
 func (o DiskEncryptionSetOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.KeyVaultKeyId }).(pulumi.StringOutput)
@@ -640,13 +623,6 @@ func (o DiskEncryptionSetOutput) KeyVaultKeyUrl() pulumi.StringOutput {
 // Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 func (o DiskEncryptionSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
-}
-
-// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-//
-// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
-func (o DiskEncryptionSetOutput) ManagedHsmKeyId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.ManagedHsmKeyId }).(pulumi.StringOutput)
 }
 
 // The name of the Disk Encryption Set. Changing this forces a new resource to be created.

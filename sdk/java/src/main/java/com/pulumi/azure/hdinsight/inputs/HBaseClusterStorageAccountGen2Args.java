@@ -50,37 +50,37 @@ public final class HBaseClusterStorageAccountGen2Args extends com.pulumi.resourc
     }
 
     /**
-     * The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
-     * 
-     */
-    @Import(name="managedIdentityResourceId", required=true)
-    private Output<String> managedIdentityResourceId;
-
-    /**
-     * @return The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
-     * 
-     */
-    public Output<String> managedIdentityResourceId() {
-        return this.managedIdentityResourceId;
-    }
-
-    /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="storageResourceId", required=true)
-    private Output<String> storageResourceId;
+    @Import(name="storageAccountId", required=true)
+    private Output<String> storageAccountId;
 
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> storageResourceId() {
-        return this.storageResourceId;
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
+    }
+
+    /**
+     * The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * 
+     */
+    @Import(name="userAssignedIdentityId", required=true)
+    private Output<String> userAssignedIdentityId;
+
+    /**
+     * @return The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * 
+     */
+    public Output<String> userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
     }
 
     private HBaseClusterStorageAccountGen2Args() {}
@@ -88,8 +88,8 @@ public final class HBaseClusterStorageAccountGen2Args extends com.pulumi.resourc
     private HBaseClusterStorageAccountGen2Args(HBaseClusterStorageAccountGen2Args $) {
         this.filesystemId = $.filesystemId;
         this.isDefault = $.isDefault;
-        this.managedIdentityResourceId = $.managedIdentityResourceId;
-        this.storageResourceId = $.storageResourceId;
+        this.storageAccountId = $.storageAccountId;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -157,49 +157,49 @@ public final class HBaseClusterStorageAccountGen2Args extends com.pulumi.resourc
         }
 
         /**
-         * @param managedIdentityResourceId The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * @param storageAccountId The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(Output<String> storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountId The ID of the Storage Account. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(String storageAccountId) {
+            return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
+         * @param userAssignedIdentityId The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 
          */
-        public Builder managedIdentityResourceId(Output<String> managedIdentityResourceId) {
-            $.managedIdentityResourceId = managedIdentityResourceId;
+        public Builder userAssignedIdentityId(Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
 
         /**
-         * @param managedIdentityResourceId The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+         * @param userAssignedIdentityId The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 
          */
-        public Builder managedIdentityResourceId(String managedIdentityResourceId) {
-            return managedIdentityResourceId(Output.of(managedIdentityResourceId));
-        }
-
-        /**
-         * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageResourceId(Output<String> storageResourceId) {
-            $.storageResourceId = storageResourceId;
-            return this;
-        }
-
-        /**
-         * @param storageResourceId The ID of the Storage Account. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageResourceId(String storageResourceId) {
-            return storageResourceId(Output.of(storageResourceId));
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public HBaseClusterStorageAccountGen2Args build() {
@@ -209,11 +209,11 @@ public final class HBaseClusterStorageAccountGen2Args extends com.pulumi.resourc
             if ($.isDefault == null) {
                 throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2Args", "isDefault");
             }
-            if ($.managedIdentityResourceId == null) {
-                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2Args", "managedIdentityResourceId");
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2Args", "storageAccountId");
             }
-            if ($.storageResourceId == null) {
-                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2Args", "storageResourceId");
+            if ($.userAssignedIdentityId == null) {
+                throw new MissingRequiredPropertyException("HBaseClusterStorageAccountGen2Args", "userAssignedIdentityId");
             }
             return $;
         }

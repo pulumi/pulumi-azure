@@ -35,34 +35,35 @@ import * as utilities from "../utilities";
  *     name: "example-hdicluster",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     clusterVersion: "3.6",
+ *     clusterVersion: "5.1",
  *     tier: "Standard",
+ *     tlsMinVersion: "1.2",
  *     componentVersion: {
- *         spark: "2.3",
+ *         spark: "3.3",
  *     },
  *     gateway: {
  *         username: "acctestusrgw",
  *         password: "Password123!",
  *     },
  *     storageAccounts: [{
- *         storageContainerId: exampleContainer.id,
+ *         storageContainerUrl: exampleContainer.url,
  *         storageAccountKey: exampleAccount.primaryAccessKey,
  *         isDefault: true,
  *     }],
  *     roles: {
  *         headNode: {
- *             vmSize: "Standard_A3",
+ *             vmSize: "Standard_A4_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *         },
  *         workerNode: {
- *             vmSize: "Standard_A3",
+ *             vmSize: "Standard_A4_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *             targetInstanceCount: 3,
  *         },
  *         zookeeperNode: {
- *             vmSize: "Medium",
+ *             vmSize: "Standard_A4_V2",
  *             username: "acctestusrvm",
  *             password: "AccTestvdSC4daf986!",
  *         },
@@ -203,10 +204,8 @@ export class SparkCluster extends pulumi.CustomResource {
     declare public readonly tier: pulumi.Output<string>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-     *
-     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    declare public readonly tlsMinVersion: pulumi.Output<string | undefined>;
+    declare public readonly tlsMinVersion: pulumi.Output<string>;
     /**
      * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
@@ -268,6 +267,9 @@ export class SparkCluster extends pulumi.CustomResource {
             }
             if (args?.tier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tier'");
+            }
+            if (args?.tlsMinVersion === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tlsMinVersion'");
             }
             resourceInputs["clusterVersion"] = args?.clusterVersion;
             resourceInputs["componentVersion"] = args?.componentVersion;
@@ -393,8 +395,6 @@ export interface SparkClusterState {
     tier?: pulumi.Input<string | undefined>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-     *
-     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
     tlsMinVersion?: pulumi.Input<string | undefined>;
     /**
@@ -489,10 +489,8 @@ export interface SparkClusterArgs {
     tier: pulumi.Input<string>;
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-     *
-     * > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      */
-    tlsMinVersion?: pulumi.Input<string | undefined>;
+    tlsMinVersion: pulumi.Input<string>;
     /**
      * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */

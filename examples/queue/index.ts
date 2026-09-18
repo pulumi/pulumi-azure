@@ -13,12 +13,12 @@ const storageAccount = new azure.storage.Account("storage", {
 
 // And an input queue to send messages into
 const queue1 = new azure.storage.Queue("queue1", {
-   storageAccountName: storageAccount.name,
+   storageAccountId: storageAccount.id,
 });
 
 // And an input queue to send messages into
 const queue2 = new azure.storage.Queue("queue2", {
-    storageAccountName: storageAccount.name,
+    storageAccountId: storageAccount.id,
  });
 
 // HTTP Function will send a message to the first queue on each request

@@ -19,6 +19,7 @@ namespace Pulumi.Azure.DataFactory
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,7 +29,7 @@ namespace Pulumi.Azure.DataFactory
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var example = Azure.AppService.GetFunctionApp.Invoke(new()
+    ///     var example = Azurerm.FunctionApp.Invoke(new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -45,7 +46,7 @@ namespace Pulumi.Azure.DataFactory
     ///     {
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = $"https://{example.Apply(getFunctionAppResult =&gt; getFunctionAppResult.DefaultHostname)}",
+    ///         Url = $"https://{example.DefaultHostname}",
     ///         Key = "foo",
     ///     });
     /// 

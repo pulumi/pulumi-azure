@@ -203,6 +203,13 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
             microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
         ## Import
 
         sentinels can be imported using the `resource id`, e.g.
@@ -250,6 +257,13 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             microsoft_emerging_threat_feed_lookback_date="1970-01-01T00:00:00Z")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
 
         ## Import
 

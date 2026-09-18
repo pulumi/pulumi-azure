@@ -78,9 +78,9 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * The current IP Filter for this CosmosDB account
+     * A list of IP ranges associated with this CosmosDB account.
      */
-    readonly ipRangeFilter: string;
+    readonly ipRangeFilters: string[];
     /**
      * If virtual network filtering is enabled for this Cosmos DB account.
      */

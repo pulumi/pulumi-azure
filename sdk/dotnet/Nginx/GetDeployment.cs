@@ -181,7 +181,6 @@ namespace Pulumi.Azure.Nginx
         /// The dataplane API endpoint of the NGINX Deployment.
         /// </summary>
         public readonly string DataplaneApiEndpoint;
-        public readonly bool DiagnoseSupportEnabled;
         /// <summary>
         /// Preferred email associated with the NGINX Deployment.
         /// </summary>
@@ -210,8 +209,6 @@ namespace Pulumi.Azure.Nginx
         /// The Azure Region where the NGINX Deployment exists.
         /// </summary>
         public readonly string Location;
-        public readonly ImmutableArray<Outputs.GetDeploymentLoggingStorageAccountResult> LoggingStorageAccounts;
-        public readonly string ManagedResourceGroup;
         /// <summary>
         /// Name of the autoscaling profile.
         /// </summary>
@@ -248,8 +245,6 @@ namespace Pulumi.Azure.Nginx
 
             string dataplaneApiEndpoint,
 
-            bool diagnoseSupportEnabled,
-
             string email,
 
             ImmutableArray<Outputs.GetDeploymentFrontendPrivateResult> frontendPrivates,
@@ -263,10 +258,6 @@ namespace Pulumi.Azure.Nginx
             string ipAddress,
 
             string location,
-
-            ImmutableArray<Outputs.GetDeploymentLoggingStorageAccountResult> loggingStorageAccounts,
-
-            string managedResourceGroup,
 
             string name,
 
@@ -286,7 +277,6 @@ namespace Pulumi.Azure.Nginx
             AutomaticUpgradeChannel = automaticUpgradeChannel;
             Capacity = capacity;
             DataplaneApiEndpoint = dataplaneApiEndpoint;
-            DiagnoseSupportEnabled = diagnoseSupportEnabled;
             Email = email;
             FrontendPrivates = frontendPrivates;
             FrontendPublics = frontendPublics;
@@ -294,8 +284,6 @@ namespace Pulumi.Azure.Nginx
             Identities = identities;
             IpAddress = ipAddress;
             Location = location;
-            LoggingStorageAccounts = loggingStorageAccounts;
-            ManagedResourceGroup = managedResourceGroup;
             Name = name;
             NetworkInterfaces = networkInterfaces;
             NginxVersion = nginxVersion;

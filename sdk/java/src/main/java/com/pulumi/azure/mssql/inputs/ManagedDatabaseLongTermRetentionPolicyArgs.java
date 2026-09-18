@@ -5,7 +5,6 @@ package com.pulumi.azure.mssql.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -16,25 +15,6 @@ import javax.annotation.Nullable;
 public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ManagedDatabaseLongTermRetentionPolicyArgs Empty = new ManagedDatabaseLongTermRetentionPolicyArgs();
-
-    /**
-     * @deprecated
-     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-     * 
-     */
-    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
-    @Import(name="immutableBackupsEnabled")
-    private @Nullable Output<Boolean> immutableBackupsEnabled;
-
-    /**
-     * @deprecated
-     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-     * 
-     */
-    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
-    public Optional<Output<Boolean>> immutableBackupsEnabled() {
-        return Optional.ofNullable(this.immutableBackupsEnabled);
-    }
 
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
@@ -99,7 +79,6 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
     private ManagedDatabaseLongTermRetentionPolicyArgs() {}
 
     private ManagedDatabaseLongTermRetentionPolicyArgs(ManagedDatabaseLongTermRetentionPolicyArgs $) {
-        this.immutableBackupsEnabled = $.immutableBackupsEnabled;
         this.monthlyRetention = $.monthlyRetention;
         this.weekOfYear = $.weekOfYear;
         this.weeklyRetention = $.weeklyRetention;
@@ -122,31 +101,6 @@ public final class ManagedDatabaseLongTermRetentionPolicyArgs extends com.pulumi
 
         public Builder(ManagedDatabaseLongTermRetentionPolicyArgs defaults) {
             $ = new ManagedDatabaseLongTermRetentionPolicyArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-         * 
-         */
-        @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
-        public Builder immutableBackupsEnabled(@Nullable Output<Boolean> immutableBackupsEnabled) {
-            $.immutableBackupsEnabled = immutableBackupsEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-         * 
-         */
-        @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
-        public Builder immutableBackupsEnabled(Boolean immutableBackupsEnabled) {
-            return immutableBackupsEnabled(Output.of(immutableBackupsEnabled));
         }
 
         /**

@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.network.inputs;
 
-import com.pulumi.azure.network.inputs.ApplicationGatewayAuthenticationCertificateArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayAutoscaleConfigurationArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayBackendAddressPoolArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayBackendArgs;
@@ -45,21 +44,6 @@ import javax.annotation.Nullable;
 public final class ApplicationGatewayState extends com.pulumi.resources.ResourceArgs {
 
     public static final ApplicationGatewayState Empty = new ApplicationGatewayState();
-
-    /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    @Import(name="authenticationCertificates")
-    private @Nullable Output<List<ApplicationGatewayAuthenticationCertificateArgs>> authenticationCertificates;
-
-    /**
-     * @return One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    public Optional<Output<List<ApplicationGatewayAuthenticationCertificateArgs>>> authenticationCertificates() {
-        return Optional.ofNullable(this.authenticationCertificates);
-    }
 
     /**
      * An `autoscaleConfiguration` block as defined below.
@@ -142,25 +126,6 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
      */
     public Optional<Output<List<ApplicationGatewayCustomErrorConfigurationArgs>>> customErrorConfigurations() {
         return Optional.ofNullable(this.customErrorConfigurations);
-    }
-
-    /**
-     * @deprecated
-     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="enableHttp2")
-    private @Nullable Output<Boolean> enableHttp2;
-
-    /**
-     * @deprecated
-     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableHttp2() {
-        return Optional.ofNullable(this.enableHttp2);
     }
 
     /**
@@ -651,13 +616,11 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
     private ApplicationGatewayState() {}
 
     private ApplicationGatewayState(ApplicationGatewayState $) {
-        this.authenticationCertificates = $.authenticationCertificates;
         this.autoscaleConfiguration = $.autoscaleConfiguration;
         this.backendAddressPools = $.backendAddressPools;
         this.backendHttpSettings = $.backendHttpSettings;
         this.backends = $.backends;
         this.customErrorConfigurations = $.customErrorConfigurations;
-        this.enableHttp2 = $.enableHttp2;
         this.fipsEnabled = $.fipsEnabled;
         this.firewallPolicyId = $.firewallPolicyId;
         this.forceFirewallPolicyAssociation = $.forceFirewallPolicyAssociation;
@@ -707,37 +670,6 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
 
         public Builder(ApplicationGatewayState defaults) {
             $ = new ApplicationGatewayState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param authenticationCertificates One or more `authenticationCertificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationCertificates(@Nullable Output<List<ApplicationGatewayAuthenticationCertificateArgs>> authenticationCertificates) {
-            $.authenticationCertificates = authenticationCertificates;
-            return this;
-        }
-
-        /**
-         * @param authenticationCertificates One or more `authenticationCertificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationCertificates(List<ApplicationGatewayAuthenticationCertificateArgs> authenticationCertificates) {
-            return authenticationCertificates(Output.of(authenticationCertificates));
-        }
-
-        /**
-         * @param authenticationCertificates One or more `authenticationCertificate` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationCertificates(ApplicationGatewayAuthenticationCertificateArgs... authenticationCertificates) {
-            return authenticationCertificates(List.of(authenticationCertificates));
         }
 
         /**
@@ -895,31 +827,6 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
          */
         public Builder customErrorConfigurations(ApplicationGatewayCustomErrorConfigurationArgs... customErrorConfigurations) {
             return customErrorConfigurations(List.of(customErrorConfigurations));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableHttp2(@Nullable Output<Boolean> enableHttp2) {
-            $.enableHttp2 = enableHttp2;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableHttp2(Boolean enableHttp2) {
-            return enableHttp2(Output.of(enableHttp2));
         }
 
         /**

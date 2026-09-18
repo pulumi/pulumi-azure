@@ -37,14 +37,14 @@ class AssignmentArgs:
                
                > **Note:** The Principal ID is also known as the Object ID (i.e. not the "Application ID" for applications).
         :param pulumi.Input[_builtins.str] scope: The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to.
+        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`.
                
                > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
                > **Note:** This field is only used in cross tenant scenarios.
-        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
         :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         :param pulumi.Input[_builtins.str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
@@ -106,7 +106,7 @@ class AssignmentArgs:
     @pulumi.getter
     def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        The condition that limits the resources that the role can be assigned to.
         """
         return pulumi.get(self, "condition")
 
@@ -118,7 +118,7 @@ class AssignmentArgs:
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        The version of the condition. Possible values are `1.0` or `2.0`.
 
         > **Note:** `condition` is required when `condition_version` is set.
         """
@@ -146,7 +146,7 @@ class AssignmentArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description for this Role Assignment. Changing this forces a new resource to be created.
+        The description for this Role Assignment.
         """
         return pulumi.get(self, "description")
 
@@ -236,14 +236,14 @@ class _AssignmentState:
         """
         Input properties used for looking up and filtering Assignment resources.
 
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to.
+        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`.
                
                > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
                > **Note:** This field is only used in cross tenant scenarios.
-        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
         :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
@@ -285,7 +285,7 @@ class _AssignmentState:
     @pulumi.getter
     def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        The condition that limits the resources that the role can be assigned to.
         """
         return pulumi.get(self, "condition")
 
@@ -297,7 +297,7 @@ class _AssignmentState:
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        The version of the condition. Possible values are `1.0` or `2.0`.
 
         > **Note:** `condition` is required when `condition_version` is set.
         """
@@ -325,7 +325,7 @@ class _AssignmentState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description for this Role Assignment. Changing this forces a new resource to be created.
+        The description for this Role Assignment.
         """
         return pulumi.get(self, "description")
 
@@ -562,7 +562,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         AND
@@ -572,7 +572,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         \"\"\")
@@ -605,14 +605,14 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to.
+        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`.
                
                > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
                > **Note:** This field is only used in cross tenant scenarios.
-        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
         :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
@@ -748,7 +748,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         AND
@@ -758,7 +758,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         \"\"\")
@@ -868,14 +868,14 @@ class Assignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] condition: The condition that limits the resources that the role can be assigned to.
+        :param pulumi.Input[_builtins.str] condition_version: The version of the condition. Possible values are `1.0` or `2.0`.
                
                > **Note:** `condition` is required when `condition_version` is set.
         :param pulumi.Input[_builtins.str] delegated_managed_identity_resource_id: The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
                
                > **Note:** This field is only used in cross tenant scenarios.
-        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] description: The description for this Role Assignment.
         :param pulumi.Input[_builtins.str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
                
@@ -911,7 +911,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def condition(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        The condition that limits the resources that the role can be assigned to.
         """
         return pulumi.get(self, "condition")
 
@@ -919,7 +919,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter(name="conditionVersion")
     def condition_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        The version of the condition. Possible values are `1.0` or `2.0`.
 
         > **Note:** `condition` is required when `condition_version` is set.
         """
@@ -939,7 +939,7 @@ class Assignment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The description for this Role Assignment. Changing this forces a new resource to be created.
+        The description for this Role Assignment.
         """
         return pulumi.get(self, "description")
 

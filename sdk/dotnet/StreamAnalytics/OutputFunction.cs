@@ -19,6 +19,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -37,26 +38,29 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "exampleappserviceplan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "FunctionApp",
     ///         Reserved = true,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Dynamic",
-    ///             Size = "Y1",
+    ///             
+    ///             {
+    ///                 { "tier", "Dynamic" },
+    ///                 { "size", "Y1" },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azurerm.FunctionApp("example", new()
     ///     {
     ///         Name = "examplefunctionapp",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         OsType = "linux",

@@ -224,7 +224,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
      */
-    declare public readonly bgpEnabled: pulumi.Output<boolean>;
+    declare public readonly bgpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
      */
@@ -248,10 +248,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * A list of the egress NAT Rule Ids.
      */
     declare public readonly egressNatRuleIds: pulumi.Output<string[] | undefined>;
-    /**
-     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly enableBgp: pulumi.Output<boolean>;
     /**
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */
@@ -349,7 +345,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["customBgpAddresses"] = state?.customBgpAddresses;
             resourceInputs["dpdTimeoutSeconds"] = state?.dpdTimeoutSeconds;
             resourceInputs["egressNatRuleIds"] = state?.egressNatRuleIds;
-            resourceInputs["enableBgp"] = state?.enableBgp;
             resourceInputs["expressRouteCircuitId"] = state?.expressRouteCircuitId;
             resourceInputs["expressRouteGatewayBypass"] = state?.expressRouteGatewayBypass;
             resourceInputs["ingressNatRuleIds"] = state?.ingressNatRuleIds;
@@ -386,7 +381,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["customBgpAddresses"] = args?.customBgpAddresses;
             resourceInputs["dpdTimeoutSeconds"] = args?.dpdTimeoutSeconds;
             resourceInputs["egressNatRuleIds"] = args?.egressNatRuleIds;
-            resourceInputs["enableBgp"] = args?.enableBgp;
             resourceInputs["expressRouteCircuitId"] = args?.expressRouteCircuitId;
             resourceInputs["expressRouteGatewayBypass"] = args?.expressRouteGatewayBypass;
             resourceInputs["ingressNatRuleIds"] = args?.ingressNatRuleIds;
@@ -448,10 +442,6 @@ export interface VirtualNetworkGatewayConnectionState {
      * A list of the egress NAT Rule Ids.
      */
     egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */
@@ -565,10 +555,6 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * A list of the egress NAT Rule Ids.
      */
     egressNatRuleIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      */

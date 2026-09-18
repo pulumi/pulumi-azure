@@ -204,7 +204,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         example_gateway_certificate_authority = azure.apimanagement.GatewayCertificateAuthority("example",
             api_management_id=example_service.id,
             certificate_name=example_certificate.name,
@@ -275,7 +275,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         example_gateway_certificate_authority = azure.apimanagement.GatewayCertificateAuthority("example",
             api_management_id=example_service.id,
             certificate_name=example_certificate.name,

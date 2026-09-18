@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class LinkedStorageAccountArgs extends com.pulumi.resources.ResourceArgs {
@@ -66,22 +64,15 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
      * The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    @Import(name="workspaceId")
-    private @Nullable Output<String> workspaceId;
+    @Import(name="workspaceId", required=true)
+    private Output<String> workspaceId;
 
     /**
      * @return The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
-    public Optional<Output<String>> workspaceId() {
-        return Optional.ofNullable(this.workspaceId);
-    }
-
-    @Import(name="workspaceResourceId")
-    private @Nullable Output<String> workspaceResourceId;
-
-    public Optional<Output<String>> workspaceResourceId() {
-        return Optional.ofNullable(this.workspaceResourceId);
+    public Output<String> workspaceId() {
+        return this.workspaceId;
     }
 
     private LinkedStorageAccountArgs() {}
@@ -91,7 +82,6 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
         this.resourceGroupName = $.resourceGroupName;
         this.storageAccountIds = $.storageAccountIds;
         this.workspaceId = $.workspaceId;
-        this.workspaceResourceId = $.workspaceResourceId;
     }
 
     public static Builder builder() {
@@ -191,7 +181,7 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder workspaceId(@Nullable Output<String> workspaceId) {
+        public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
@@ -206,15 +196,6 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
             return workspaceId(Output.of(workspaceId));
         }
 
-        public Builder workspaceResourceId(@Nullable Output<String> workspaceResourceId) {
-            $.workspaceResourceId = workspaceResourceId;
-            return this;
-        }
-
-        public Builder workspaceResourceId(String workspaceResourceId) {
-            return workspaceResourceId(Output.of(workspaceResourceId));
-        }
-
         public LinkedStorageAccountArgs build() {
             if ($.dataSourceType == null) {
                 throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "dataSourceType");
@@ -224,6 +205,9 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
             }
             if ($.storageAccountIds == null) {
                 throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "storageAccountIds");
+            }
+            if ($.workspaceId == null) {
+                throw new MissingRequiredPropertyException("LinkedStorageAccountArgs", "workspaceId");
             }
             return $;
         }

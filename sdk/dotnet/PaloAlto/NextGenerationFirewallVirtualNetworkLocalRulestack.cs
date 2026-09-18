@@ -228,9 +228,7 @@ namespace Pulumi.Azure.PaloAlto
         public Output<Outputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-        /// 
-        /// &gt; **Note:** The former `PlanId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `PlanId` to `panw-cngfw-payg` when creating new resources.
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         /// </summary>
         [Output("planId")]
         public Output<string?> PlanId { get; private set; } = null!;
@@ -336,9 +334,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs> NetworkProfile { get; set; } = null!;
 
         /// <summary>
-        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-        /// 
-        /// &gt; **Note:** The former `PlanId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `PlanId` to `panw-cngfw-payg` when creating new resources.
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }
@@ -412,9 +408,7 @@ namespace Pulumi.Azure.PaloAlto
         public Input<Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileGetArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-        /// 
-        /// &gt; **Note:** The former `PlanId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `PlanId` to `panw-cngfw-payg` when creating new resources.
+        /// The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         /// </summary>
         [Input("planId")]
         public Input<string>? PlanId { get; set; }

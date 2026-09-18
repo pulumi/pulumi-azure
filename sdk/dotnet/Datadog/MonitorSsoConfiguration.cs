@@ -109,9 +109,6 @@ namespace Pulumi.Azure.Datadog
         [Output("singleSignOn")]
         public Output<string> SingleSignOn { get; private set; } = null!;
 
-        [Output("singleSignOnEnabled")]
-        public Output<string> SingleSignOnEnabled { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a MonitorSsoConfiguration resource with the given unique name, arguments, and options.
@@ -179,11 +176,8 @@ namespace Pulumi.Azure.Datadog
         /// <summary>
         /// The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         /// </summary>
-        [Input("singleSignOn")]
-        public Input<string>? SingleSignOn { get; set; }
-
-        [Input("singleSignOnEnabled")]
-        public Input<string>? SingleSignOnEnabled { get; set; }
+        [Input("singleSignOn", required: true)]
+        public Input<string> SingleSignOn { get; set; } = null!;
 
         public MonitorSsoConfigurationArgs()
         {
@@ -222,9 +216,6 @@ namespace Pulumi.Azure.Datadog
         /// </summary>
         [Input("singleSignOn")]
         public Input<string>? SingleSignOn { get; set; }
-
-        [Input("singleSignOnEnabled")]
-        public Input<string>? SingleSignOnEnabled { get; set; }
 
         public MonitorSsoConfigurationState()
         {

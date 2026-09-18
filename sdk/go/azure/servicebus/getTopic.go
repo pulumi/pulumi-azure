@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupTopic(ctx, &servicebus.LookupTopicArgs{
 //				Name:        "existing",
-//				NamespaceId: pulumi.StringRef("existing"),
+//				NamespaceId: "existing",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -62,11 +62,7 @@ type LookupTopicArgs struct {
 	// The name of this Service Bus Topic.
 	Name string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	NamespaceId string `pulumi:"namespaceId"`
 }
 
 // A collection of values returned by getTopic.
@@ -79,25 +75,18 @@ type LookupTopicResult struct {
 	DefaultMessageTtl string `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected.
 	DuplicateDetectionHistoryTimeWindow string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	EnableBatchedOperations             bool   `pulumi:"enableBatchedOperations"`
-	EnableExpress                       bool   `pulumi:"enableExpress"`
-	EnablePartitioning                  bool   `pulumi:"enablePartitioning"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 	ExpressEnabled bool `pulumi:"expressEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
-	Name               string  `pulumi:"name"`
-	NamespaceId        *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-	NamespaceName *string `pulumi:"namespaceName"`
+	MaxSizeInMegabytes int    `pulumi:"maxSizeInMegabytes"`
+	Name               string `pulumi:"name"`
+	NamespaceId        string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
 	PartitioningEnabled bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection.
 	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
 	Status string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic supports ordering.
@@ -114,11 +103,7 @@ type LookupTopicOutputArgs struct {
 	// The name of this Service Bus Topic.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
-	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
 }
 
 func (LookupTopicOutputArgs) ElementType() reflect.Type {
@@ -160,18 +145,6 @@ func (o LookupTopicResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.St
 	return o.ApplyT(func(v LookupTopicResult) string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringOutput)
 }
 
-func (o LookupTopicResultOutput) EnableBatchedOperations() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
-}
-
-func (o LookupTopicResultOutput) EnableExpress() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnableExpress }).(pulumi.BoolOutput)
-}
-
-func (o LookupTopicResultOutput) EnablePartitioning() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupTopicResult) bool { return v.EnablePartitioning }).(pulumi.BoolOutput)
-}
-
 // Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
 func (o LookupTopicResultOutput) ExpressEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.ExpressEnabled }).(pulumi.BoolOutput)
@@ -191,13 +164,8 @@ func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupTopicResultOutput) NamespaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: `namespaceName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-func (o LookupTopicResultOutput) NamespaceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTopicResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+func (o LookupTopicResultOutput) NamespaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
 // Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
@@ -208,11 +176,6 @@ func (o LookupTopicResultOutput) PartitioningEnabled() pulumi.BoolOutput {
 // Boolean flag which controls whether the Topic requires duplicate detection.
 func (o LookupTopicResultOutput) RequiresDuplicateDetection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTopicResult) bool { return v.RequiresDuplicateDetection }).(pulumi.BoolOutput)
-}
-
-// Deprecated: `resourceGroupName` will be removed in favour of the `namespaceId` property in v5.0 of the AzureRM Provider.
-func (o LookupTopicResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupTopicResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The Status of the Service Bus Topic. Acceptable values are Active or Disabled.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = storage.GetStorageContainer(ctx, &storage.GetStorageContainerArgs{
 //				Name:             "example-container-name",
-//				StorageAccountId: pulumi.StringRef(example.Id),
+//				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -69,12 +69,8 @@ type GetStorageContainerArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the Container.
 	Name string `pulumi:"name"`
-	// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-	//
-	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The ID of the Storage Account where the Container exists.
+	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 // A collection of values returned by getStorageContainer.
@@ -92,12 +88,9 @@ type GetStorageContainerResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A mapping of MetaData for this Container.
-	Metadata map[string]string `pulumi:"metadata"`
-	Name     string            `pulumi:"name"`
-	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-	ResourceManagerId  string  `pulumi:"resourceManagerId"`
-	StorageAccountId   *string `pulumi:"storageAccountId"`
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	Metadata         map[string]string `pulumi:"metadata"`
+	Name             string            `pulumi:"name"`
+	StorageAccountId string            `pulumi:"storageAccountId"`
 	// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
 	Url string `pulumi:"url"`
 }
@@ -113,12 +106,8 @@ type GetStorageContainerOutputArgs struct {
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// The name of the Container.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-	//
-	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	// The ID of the Storage Account where the Container exists.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
 func (GetStorageContainerOutputArgs) ElementType() reflect.Type {
@@ -179,17 +168,8 @@ func (o GetStorageContainerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStorageContainerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-func (o GetStorageContainerResultOutput) ResourceManagerId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetStorageContainerResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
-}
-
-func (o GetStorageContainerResultOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStorageContainerResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-func (o GetStorageContainerResultOutput) StorageAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetStorageContainerResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+func (o GetStorageContainerResultOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 // The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.

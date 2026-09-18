@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *             keyData: std.file({
  *                 input: "~/.ssh/demo_key.pub",
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *         }],
  *     },
  *     networkProfiles: [{
@@ -198,7 +198,7 @@ import * as utilities from "../utilities";
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *             keyData: std.file({
  *                 input: "~/.ssh/demo_key.pub",
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *         }],
  *     },
  *     networkProfiles: [{

@@ -138,7 +138,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
      */
-    declare public readonly bgpEnabled: pulumi.Output<boolean>;
+    declare public readonly bgpEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
      */
@@ -163,10 +163,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      */
     declare public readonly edgeZone: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly enableBgp: pulumi.Output<boolean>;
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      *
@@ -271,7 +267,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["defaultLocalNetworkGatewayId"] = state?.defaultLocalNetworkGatewayId;
             resourceInputs["dnsForwardingEnabled"] = state?.dnsForwardingEnabled;
             resourceInputs["edgeZone"] = state?.edgeZone;
-            resourceInputs["enableBgp"] = state?.enableBgp;
             resourceInputs["generation"] = state?.generation;
             resourceInputs["ipConfigurations"] = state?.ipConfigurations;
             resourceInputs["ipSecReplayProtectionEnabled"] = state?.ipSecReplayProtectionEnabled;
@@ -311,7 +306,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["defaultLocalNetworkGatewayId"] = args?.defaultLocalNetworkGatewayId;
             resourceInputs["dnsForwardingEnabled"] = args?.dnsForwardingEnabled;
             resourceInputs["edgeZone"] = args?.edgeZone;
-            resourceInputs["enableBgp"] = args?.enableBgp;
             resourceInputs["generation"] = args?.generation;
             resourceInputs["ipConfigurations"] = args?.ipConfigurations;
             resourceInputs["ipSecReplayProtectionEnabled"] = args?.ipSecReplayProtectionEnabled;
@@ -371,10 +365,6 @@ export interface VirtualNetworkGatewayState {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      */
     edgeZone?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      *
@@ -495,10 +485,6 @@ export interface VirtualNetworkGatewayArgs {
      * Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
      */
     edgeZone?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    enableBgp?: pulumi.Input<boolean | undefined>;
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      *

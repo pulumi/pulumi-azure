@@ -44,7 +44,6 @@ __all__ = [
     'KeyRotationPolicy',
     'KeyRotationPolicyAutomatic',
     'KeyVaultAccessPolicy',
-    'KeyVaultContact',
     'KeyVaultNetworkAcls',
     'ManagedHardwareSecurityModuleNetworkAcls',
     'ManagedHardwareSecurityModuleRoleDefinitionPermission',
@@ -1760,40 +1759,6 @@ class KeyVaultAccessPolicy(dict):
         List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         """
         return pulumi.get(self, "storage_permissions")
-
-
-@pulumi.output_type
-class KeyVaultContact(dict):
-    def __init__(__self__, *,
-                 email: _builtins.str,
-                 name: Optional[_builtins.str] = None,
-                 phone: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        """
-        pulumi.set(__self__, "email", email)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if phone is not None:
-            pulumi.set(__self__, "phone", phone)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> _builtins.str:
-        return pulumi.get(self, "email")
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter
-    def phone(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "phone")
 
 
 @pulumi.output_type

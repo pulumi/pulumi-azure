@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `Source` is defined.
+        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `Source` is defined, or the md5 function when `SourceContent` is defined.
         /// </summary>
         [Output("contentMd5")]
         public Output<string?> ContentMd5 { get; private set; } = null!;
@@ -118,15 +118,22 @@ namespace Pulumi.Azure.Storage
         public Output<string?> Path { get; private set; } = null!;
 
         /// <summary>
-        /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `SourceContent`.
         /// 
         /// &gt; **Note:** The file specified with `Source` can not be empty.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
 
-        [Output("storageShareId")]
-        public Output<string> StorageShareId { get; private set; } = null!;
+        /// <summary>
+        /// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `Source`.
+        /// 
+        /// &gt; **Note:** The content specified with `SourceContent` can not be empty.
+        /// 
+        /// &gt; **Note:** The content specified with `SourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+        /// </summary>
+        [Output("sourceContent")]
+        public Output<string?> SourceContent { get; private set; } = null!;
 
         /// <summary>
         /// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
@@ -142,7 +149,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ShareFile(string name, ShareFileArgs? args = null, CustomResourceOptions? options = null)
+        public ShareFile(string name, ShareFileArgs args, CustomResourceOptions? options = null)
             : base("azure:storage/shareFile:ShareFile", name, args ?? new ShareFileArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -195,7 +202,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `Source` is defined.
+        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `Source` is defined, or the md5 function when `SourceContent` is defined.
         /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
@@ -231,21 +238,28 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `SourceContent`.
         /// 
         /// &gt; **Note:** The file specified with `Source` can not be empty.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
-        [Input("storageShareId")]
-        public Input<string>? StorageShareId { get; set; }
+        /// <summary>
+        /// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `Source`.
+        /// 
+        /// &gt; **Note:** The content specified with `SourceContent` can not be empty.
+        /// 
+        /// &gt; **Note:** The content specified with `SourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+        /// </summary>
+        [Input("sourceContent")]
+        public Input<string>? SourceContent { get; set; }
 
         /// <summary>
         /// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageShareUrl")]
-        public Input<string>? StorageShareUrl { get; set; }
+        [Input("storageShareUrl", required: true)]
+        public Input<string> StorageShareUrl { get; set; } = null!;
 
         public ShareFileArgs()
         {
@@ -276,7 +290,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `Source` is defined.
+        /// &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `Source` is defined, or the md5 function when `SourceContent` is defined.
         /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
@@ -312,15 +326,22 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Path { get; set; }
 
         /// <summary>
-        /// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        /// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `SourceContent`.
         /// 
         /// &gt; **Note:** The file specified with `Source` can not be empty.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
-        [Input("storageShareId")]
-        public Input<string>? StorageShareId { get; set; }
+        /// <summary>
+        /// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `Source`.
+        /// 
+        /// &gt; **Note:** The content specified with `SourceContent` can not be empty.
+        /// 
+        /// &gt; **Note:** The content specified with `SourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+        /// </summary>
+        [Input("sourceContent")]
+        public Input<string>? SourceContent { get; set; }
 
         /// <summary>
         /// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.

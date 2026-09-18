@@ -27,7 +27,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, accept_grow_capacity_pool_for_short_term_clone_split=None, account_name=None, data_protection_advanced_ransomwares=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_ip_addresses=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
+    def __init__(__self__, accept_grow_capacity_pool_for_short_term_clone_split=None, account_name=None, data_protection_advanced_ransomwares=None, data_protection_backup_policies=None, data_protection_replications=None, encryption_key_source=None, id=None, key_vault_private_endpoint_id=None, large_volume_enabled=None, location=None, mount_targets=None, name=None, network_features=None, pool_name=None, protocols=None, resource_group_name=None, security_style=None, service_level=None, smb_access_based_enumeration_enabled=None, smb_non_browsable_enabled=None, storage_quota_in_gb=None, subnet_id=None, volume_path=None, zone=None):
         if accept_grow_capacity_pool_for_short_term_clone_split and not isinstance(accept_grow_capacity_pool_for_short_term_clone_split, str):
             raise TypeError("Expected argument 'accept_grow_capacity_pool_for_short_term_clone_split' to be a str")
         pulumi.set(__self__, "accept_grow_capacity_pool_for_short_term_clone_split", accept_grow_capacity_pool_for_short_term_clone_split)
@@ -58,9 +58,9 @@ class GetVolumeResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if mount_ip_addresses and not isinstance(mount_ip_addresses, list):
-            raise TypeError("Expected argument 'mount_ip_addresses' to be a list")
-        pulumi.set(__self__, "mount_ip_addresses", mount_ip_addresses)
+        if mount_targets and not isinstance(mount_targets, list):
+            raise TypeError("Expected argument 'mount_targets' to be a list")
+        pulumi.set(__self__, "mount_targets", mount_targets)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -173,12 +173,12 @@ class GetVolumeResult:
         return pulumi.get(self, "location")
 
     @_builtins.property
-    @pulumi.getter(name="mountIpAddresses")
-    def mount_ip_addresses(self) -> Sequence[_builtins.str]:
+    @pulumi.getter(name="mountTargets")
+    def mount_targets(self) -> Sequence['outputs.GetVolumeMountTargetResult']:
         """
-        A list of IPv4 Addresses which should be used to mount the volume.
+        One or more `mount_target` blocks as defined below.
         """
-        return pulumi.get(self, "mount_ip_addresses")
+        return pulumi.get(self, "mount_targets")
 
     @_builtins.property
     @pulumi.getter
@@ -292,7 +292,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             key_vault_private_endpoint_id=self.key_vault_private_endpoint_id,
             large_volume_enabled=self.large_volume_enabled,
             location=self.location,
-            mount_ip_addresses=self.mount_ip_addresses,
+            mount_targets=self.mount_targets,
             name=self.name,
             network_features=self.network_features,
             pool_name=self.pool_name,
@@ -364,7 +364,7 @@ def get_volume(account_name: Optional[_builtins.str] = None,
         key_vault_private_endpoint_id=pulumi.get(__ret__, 'key_vault_private_endpoint_id'),
         large_volume_enabled=pulumi.get(__ret__, 'large_volume_enabled'),
         location=pulumi.get(__ret__, 'location'),
-        mount_ip_addresses=pulumi.get(__ret__, 'mount_ip_addresses'),
+        mount_targets=pulumi.get(__ret__, 'mount_targets'),
         name=pulumi.get(__ret__, 'name'),
         network_features=pulumi.get(__ret__, 'network_features'),
         pool_name=pulumi.get(__ret__, 'pool_name'),
@@ -433,7 +433,7 @@ def get_volume_output(account_name: pulumi.Input[Optional[_builtins.str]] = None
         key_vault_private_endpoint_id=pulumi.get(__response__, 'key_vault_private_endpoint_id'),
         large_volume_enabled=pulumi.get(__response__, 'large_volume_enabled'),
         location=pulumi.get(__response__, 'location'),
-        mount_ip_addresses=pulumi.get(__response__, 'mount_ip_addresses'),
+        mount_targets=pulumi.get(__response__, 'mount_targets'),
         name=pulumi.get(__response__, 'name'),
         network_features=pulumi.get(__response__, 'network_features'),
         pool_name=pulumi.get(__response__, 'pool_name'),

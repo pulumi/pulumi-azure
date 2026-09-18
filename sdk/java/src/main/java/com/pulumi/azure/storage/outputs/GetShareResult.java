@@ -11,7 +11,6 @@ import java.lang.String;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -42,15 +41,7 @@ public final class GetShareResult {
      * 
      */
     private String rbacScopeId;
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
-    private String resourceManagerId;
-    private @Nullable String storageAccountId;
-    private @Nullable String storageAccountName;
+    private String storageAccountId;
 
     private GetShareResult() {}
     /**
@@ -91,20 +82,8 @@ public final class GetShareResult {
     public String rbacScopeId() {
         return this.rbacScopeId;
     }
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider. */
-    public String resourceManagerId() {
-        return this.resourceManagerId;
-    }
-    public Optional<String> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-    public Optional<String> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public String storageAccountId() {
+        return this.storageAccountId;
     }
 
     public static Builder builder() {
@@ -122,9 +101,7 @@ public final class GetShareResult {
         private String name;
         private Integer quota;
         private String rbacScopeId;
-        private String resourceManagerId;
-        private @Nullable String storageAccountId;
-        private @Nullable String storageAccountName;
+        private String storageAccountId;
         public Builder() {}
         public Builder(GetShareResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -134,9 +111,7 @@ public final class GetShareResult {
     	      this.name = defaults.name;
     	      this.quota = defaults.quota;
     	      this.rbacScopeId = defaults.rbacScopeId;
-    	      this.resourceManagerId = defaults.resourceManagerId;
     	      this.storageAccountId = defaults.storageAccountId;
-    	      this.storageAccountName = defaults.storageAccountName;
         }
 
         @CustomType.Setter
@@ -189,23 +164,11 @@ public final class GetShareResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceManagerId(String resourceManagerId) {
-            if (resourceManagerId == null) {
-              throw new MissingRequiredPropertyException("GetShareResult", "resourceManagerId");
+        public Builder storageAccountId(String storageAccountId) {
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetShareResult", "storageAccountId");
             }
-            this.resourceManagerId = resourceManagerId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageAccountId(@Nullable String storageAccountId) {
-
             this.storageAccountId = storageAccountId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageAccountName(@Nullable String storageAccountName) {
-
-            this.storageAccountName = storageAccountName;
             return this;
         }
         public GetShareResult build() {
@@ -216,9 +179,7 @@ public final class GetShareResult {
             _resultValue.name = name;
             _resultValue.quota = quota;
             _resultValue.rbacScopeId = rbacScopeId;
-            _resultValue.resourceManagerId = resourceManagerId;
             _resultValue.storageAccountId = storageAccountId;
-            _resultValue.storageAccountName = storageAccountName;
             return _resultValue;
         }
     }

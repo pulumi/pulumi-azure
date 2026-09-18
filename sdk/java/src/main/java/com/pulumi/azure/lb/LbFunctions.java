@@ -74,7 +74,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args) {
@@ -130,7 +130,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args) {
@@ -186,7 +186,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOptions options) {
@@ -242,7 +242,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetBackendAddressPoolResult> getBackendAddressPool(GetBackendAddressPoolArgs args, InvokeOutputOptions options) {
@@ -298,7 +298,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetBackendAddressPoolResult> getBackendAddressPoolPlain(GetBackendAddressPoolPlainArgs args, InvokeOptions options) {
@@ -347,7 +347,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args) {
@@ -396,7 +396,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args) {
@@ -445,7 +445,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args, InvokeOptions options) {
@@ -494,7 +494,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBResult> getLB(GetLBArgs args, InvokeOutputOptions options) {
@@ -543,7 +543,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetLBResult> getLBPlain(GetLBPlainArgs args, InvokeOptions options) {
@@ -592,7 +592,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args) {
@@ -641,7 +641,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args) {
@@ -690,7 +690,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args, InvokeOptions options) {
@@ -739,7 +739,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBOutboundRuleResult> getLBOutboundRule(GetLBOutboundRuleArgs args, InvokeOutputOptions options) {
@@ -788,7 +788,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetLBOutboundRuleResult> getLBOutboundRulePlain(GetLBOutboundRulePlainArgs args, InvokeOptions options) {
@@ -804,7 +804,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args) {
@@ -820,7 +820,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args) {
@@ -836,7 +836,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOptions options) {
@@ -852,7 +852,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static Output<GetLBRuleResult> getLBRule(GetLBRuleArgs args, InvokeOutputOptions options) {
@@ -868,7 +868,7 @@ public final class LbFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Network` - 2023-09-01
+     * * `Microsoft.Network` - 2025-01-01
      * 
      */
     public static CompletableFuture<GetLBRuleResult> getLBRulePlain(GetLBRulePlainArgs args, InvokeOptions options) {

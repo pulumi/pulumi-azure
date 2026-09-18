@@ -45,7 +45,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// &gt; **Note:** Setting this field requires the `Identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         /// </summary>
         public readonly string? KeyVaultCertificateId;
-        public readonly string? KeyVaultId;
         /// <summary>
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `False`.
         /// </summary>
@@ -81,8 +80,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? keyVaultCertificateId,
 
-            string? keyVaultId,
-
             bool? negotiateClientCertificate,
 
             string? sslKeyvaultIdentityClientId,
@@ -98,7 +95,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             Expiry = expiry;
             HostName = hostName;
             KeyVaultCertificateId = keyVaultCertificateId;
-            KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
             SslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
             Subject = subject;

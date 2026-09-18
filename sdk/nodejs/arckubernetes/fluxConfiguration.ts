@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     agentPublicKeyCertificate: std.filebase64({
  *         input: "testdata/public.cer",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     identity: {
  *         type: "SystemAssigned",
  *     },

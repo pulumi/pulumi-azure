@@ -80,25 +80,6 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="dailyDataCapNotificationsDisabled")
-    private @Nullable Output<Boolean> dailyDataCapNotificationsDisabled;
-
-    /**
-     * @deprecated
-     * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> dailyDataCapNotificationsDisabled() {
-        return Optional.ofNullable(this.dailyDataCapNotificationsDisabled);
-    }
-
-    /**
      * Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
      * 
      */
@@ -111,25 +92,6 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> dailyDataCapNotificationsEnabled() {
         return Optional.ofNullable(this.dailyDataCapNotificationsEnabled);
-    }
-
-    /**
-     * @deprecated
-     * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="disableIpMasking")
-    private @Nullable Output<Boolean> disableIpMasking;
-
-    /**
-     * @deprecated
-     * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> disableIpMasking() {
-        return Optional.ofNullable(this.disableIpMasking);
     }
 
     /**
@@ -205,25 +167,6 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> ipMaskingEnabled() {
         return Optional.ofNullable(this.ipMaskingEnabled);
-    }
-
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="localAuthenticationDisabled")
-    private @Nullable Output<Boolean> localAuthenticationDisabled;
-
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> localAuthenticationDisabled() {
-        return Optional.ofNullable(this.localAuthenticationDisabled);
     }
 
     /**
@@ -357,15 +300,12 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
         this.applicationType = $.applicationType;
         this.connectionString = $.connectionString;
         this.dailyDataCapInGb = $.dailyDataCapInGb;
-        this.dailyDataCapNotificationsDisabled = $.dailyDataCapNotificationsDisabled;
         this.dailyDataCapNotificationsEnabled = $.dailyDataCapNotificationsEnabled;
-        this.disableIpMasking = $.disableIpMasking;
         this.forceCustomerStorageForProfiler = $.forceCustomerStorageForProfiler;
         this.instrumentationKey = $.instrumentationKey;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
         this.internetQueryEnabled = $.internetQueryEnabled;
         this.ipMaskingEnabled = $.ipMaskingEnabled;
-        this.localAuthenticationDisabled = $.localAuthenticationDisabled;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.name = $.name;
@@ -479,31 +419,6 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder dailyDataCapNotificationsDisabled(@Nullable Output<Boolean> dailyDataCapNotificationsDisabled) {
-            $.dailyDataCapNotificationsDisabled = dailyDataCapNotificationsDisabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder dailyDataCapNotificationsDisabled(Boolean dailyDataCapNotificationsDisabled) {
-            return dailyDataCapNotificationsDisabled(Output.of(dailyDataCapNotificationsDisabled));
-        }
-
-        /**
          * @param dailyDataCapNotificationsEnabled Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
          * 
          * @return builder
@@ -522,31 +437,6 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dailyDataCapNotificationsEnabled(Boolean dailyDataCapNotificationsEnabled) {
             return dailyDataCapNotificationsEnabled(Output.of(dailyDataCapNotificationsEnabled));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder disableIpMasking(@Nullable Output<Boolean> disableIpMasking) {
-            $.disableIpMasking = disableIpMasking;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder disableIpMasking(Boolean disableIpMasking) {
-            return disableIpMasking(Output.of(disableIpMasking));
         }
 
         /**
@@ -652,31 +542,6 @@ public final class InsightsState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ipMaskingEnabled(Boolean ipMaskingEnabled) {
             return ipMaskingEnabled(Output.of(ipMaskingEnabled));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
-            $.localAuthenticationDisabled = localAuthenticationDisabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
-            return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
         }
 
         /**

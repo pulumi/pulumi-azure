@@ -19,6 +19,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -29,24 +30,27 @@ namespace Pulumi.Azure.AppService
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "appserviceplan",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Premium",
-    ///             Size = "P1",
+    ///             
+    ///             {
+    ///                 { "tier", "Premium" },
+    ///                 { "size", "P1" },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azurerm.AppService("example", new()
     ///     {
     ///         Name = "mywebapp",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///     });
     /// 
     ///     var example = Azure.Dns.GetZone.Invoke(new()
@@ -85,7 +89,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Input = exampleCNameRecord.Fqdn,
     ///             Cutset = ".",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     }, new CustomResourceOptions

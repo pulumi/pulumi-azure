@@ -24,7 +24,7 @@ public final class GetFrontdoorProfileResult {
      * @return An `identity` block as defined below.
      * 
      */
-    private GetFrontdoorProfileIdentity identity;
+    private List<GetFrontdoorProfileIdentity> identities;
     /**
      * @return One or more `logScrubbingRule` blocks as defined below.
      * 
@@ -65,8 +65,8 @@ public final class GetFrontdoorProfileResult {
      * @return An `identity` block as defined below.
      * 
      */
-    public GetFrontdoorProfileIdentity identity() {
-        return this.identity;
+    public List<GetFrontdoorProfileIdentity> identities() {
+        return this.identities;
     }
     /**
      * @return One or more `logScrubbingRule` blocks as defined below.
@@ -120,7 +120,7 @@ public final class GetFrontdoorProfileResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private GetFrontdoorProfileIdentity identity;
+        private List<GetFrontdoorProfileIdentity> identities;
         private List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules;
         private String name;
         private String resourceGroupName;
@@ -132,7 +132,7 @@ public final class GetFrontdoorProfileResult {
         public Builder(GetFrontdoorProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
-    	      this.identity = defaults.identity;
+    	      this.identities = defaults.identities;
     	      this.logScrubbingRules = defaults.logScrubbingRules;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -151,12 +151,15 @@ public final class GetFrontdoorProfileResult {
             return this;
         }
         @CustomType.Setter
-        public Builder identity(GetFrontdoorProfileIdentity identity) {
-            if (identity == null) {
-              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "identity");
+        public Builder identities(List<GetFrontdoorProfileIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorProfileResult", "identities");
             }
-            this.identity = identity;
+            this.identities = identities;
             return this;
+        }
+        public Builder identities(GetFrontdoorProfileIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder logScrubbingRules(List<GetFrontdoorProfileLogScrubbingRule> logScrubbingRules) {
@@ -220,7 +223,7 @@ public final class GetFrontdoorProfileResult {
         public GetFrontdoorProfileResult build() {
             final var _resultValue = new GetFrontdoorProfileResult();
             _resultValue.id = id;
-            _resultValue.identity = identity;
+            _resultValue.identities = identities;
             _resultValue.logScrubbingRules = logScrubbingRules;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;

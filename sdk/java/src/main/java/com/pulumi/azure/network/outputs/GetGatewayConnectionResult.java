@@ -23,6 +23,11 @@ public final class GetGatewayConnectionResult {
      * 
      */
     private String authorizationKey;
+    /**
+     * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+     * 
+     */
+    private Boolean bgpEnabled;
     private String connectionProtocol;
     /**
      * @return The dead peer detection timeout of this connection in seconds.
@@ -30,12 +35,6 @@ public final class GetGatewayConnectionResult {
      */
     private Integer dpdTimeoutSeconds;
     private Integer egressBytesTransferred;
-    /**
-     * @return If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection.
-     * 
-     */
-    private Boolean enableBgp;
     /**
      * @return The ID of the Express Route Circuit
      * (i.e. when `type` is `ExpressRoute`).
@@ -145,6 +144,13 @@ public final class GetGatewayConnectionResult {
     public String authorizationKey() {
         return this.authorizationKey;
     }
+    /**
+     * @return If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+     * 
+     */
+    public Boolean bgpEnabled() {
+        return this.bgpEnabled;
+    }
     public String connectionProtocol() {
         return this.connectionProtocol;
     }
@@ -157,14 +163,6 @@ public final class GetGatewayConnectionResult {
     }
     public Integer egressBytesTransferred() {
         return this.egressBytesTransferred;
-    }
-    /**
-     * @return If `true`, BGP (Border Gateway Protocol) is enabled
-     * for this connection.
-     * 
-     */
-    public Boolean enableBgp() {
-        return this.enableBgp;
     }
     /**
      * @return The ID of the Express Route Circuit
@@ -315,10 +313,10 @@ public final class GetGatewayConnectionResult {
     @CustomType.Builder
     public static final class Builder {
         private String authorizationKey;
+        private Boolean bgpEnabled;
         private String connectionProtocol;
         private Integer dpdTimeoutSeconds;
         private Integer egressBytesTransferred;
-        private Boolean enableBgp;
         private String expressRouteCircuitId;
         private Boolean expressRouteGatewayBypass;
         private String id;
@@ -343,10 +341,10 @@ public final class GetGatewayConnectionResult {
         public Builder(GetGatewayConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationKey = defaults.authorizationKey;
+    	      this.bgpEnabled = defaults.bgpEnabled;
     	      this.connectionProtocol = defaults.connectionProtocol;
     	      this.dpdTimeoutSeconds = defaults.dpdTimeoutSeconds;
     	      this.egressBytesTransferred = defaults.egressBytesTransferred;
-    	      this.enableBgp = defaults.enableBgp;
     	      this.expressRouteCircuitId = defaults.expressRouteCircuitId;
     	      this.expressRouteGatewayBypass = defaults.expressRouteGatewayBypass;
     	      this.id = defaults.id;
@@ -378,6 +376,14 @@ public final class GetGatewayConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder bgpEnabled(Boolean bgpEnabled) {
+            if (bgpEnabled == null) {
+              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "bgpEnabled");
+            }
+            this.bgpEnabled = bgpEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder connectionProtocol(String connectionProtocol) {
             if (connectionProtocol == null) {
               throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "connectionProtocol");
@@ -399,14 +405,6 @@ public final class GetGatewayConnectionResult {
               throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "egressBytesTransferred");
             }
             this.egressBytesTransferred = egressBytesTransferred;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableBgp(Boolean enableBgp) {
-            if (enableBgp == null) {
-              throw new MissingRequiredPropertyException("GetGatewayConnectionResult", "enableBgp");
-            }
-            this.enableBgp = enableBgp;
             return this;
         }
         @CustomType.Setter
@@ -578,10 +576,10 @@ public final class GetGatewayConnectionResult {
         public GetGatewayConnectionResult build() {
             final var _resultValue = new GetGatewayConnectionResult();
             _resultValue.authorizationKey = authorizationKey;
+            _resultValue.bgpEnabled = bgpEnabled;
             _resultValue.connectionProtocol = connectionProtocol;
             _resultValue.dpdTimeoutSeconds = dpdTimeoutSeconds;
             _resultValue.egressBytesTransferred = egressBytesTransferred;
-            _resultValue.enableBgp = enableBgp;
             _resultValue.expressRouteCircuitId = expressRouteCircuitId;
             _resultValue.expressRouteGatewayBypass = expressRouteGatewayBypass;
             _resultValue.id = id;

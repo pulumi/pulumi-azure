@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -3100,8 +3100,6 @@ type VolumeExportPolicyRule struct {
 	Kerberos5pReadWriteEnabled *bool `pulumi:"kerberos5pReadWriteEnabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	Protocol *string `pulumi:"protocol"`
-	// Deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-	ProtocolsEnabled *string `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
 	RootAccessEnabled *bool `pulumi:"rootAccessEnabled"`
 	// The index number of the rule.
@@ -3140,8 +3138,6 @@ type VolumeExportPolicyRuleArgs struct {
 	Kerberos5pReadWriteEnabled pulumi.BoolPtrInput `pulumi:"kerberos5pReadWriteEnabled"`
 	// A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// Deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-	ProtocolsEnabled pulumi.StringPtrInput `pulumi:"protocolsEnabled"`
 	// Is root access permitted to this volume?
 	RootAccessEnabled pulumi.BoolPtrInput `pulumi:"rootAccessEnabled"`
 	// The index number of the rule.
@@ -3241,11 +3237,6 @@ func (o VolumeExportPolicyRuleOutput) Kerberos5pReadWriteEnabled() pulumi.BoolPt
 // A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only a single element is supported at this time. This replaces the previous arguments: `cifsEnabled`, `nfsv3Enabled` and `nfsv4Enabled`.
 func (o VolumeExportPolicyRuleOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.Protocol }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-func (o VolumeExportPolicyRuleOutput) ProtocolsEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumeExportPolicyRule) *string { return v.ProtocolsEnabled }).(pulumi.StringPtrOutput)
 }
 
 // Is root access permitted to this volume?
@@ -4844,6 +4835,112 @@ func (o VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupSapHanaVolumeExportPolicyRule {
 		return vs[0].([]VolumeGroupSapHanaVolumeExportPolicyRule)[vs[1].(int)]
 	}).(VolumeGroupSapHanaVolumeExportPolicyRuleOutput)
+}
+
+type VolumeMountTarget struct {
+	// The IP address of the mount target.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+	SmbServerFqdn *string `pulumi:"smbServerFqdn"`
+}
+
+// VolumeMountTargetInput is an input type that accepts VolumeMountTargetArgs and VolumeMountTargetOutput values.
+// You can construct a concrete instance of `VolumeMountTargetInput` via:
+//
+//	VolumeMountTargetArgs{...}
+type VolumeMountTargetInput interface {
+	pulumi.Input
+
+	ToVolumeMountTargetOutput() VolumeMountTargetOutput
+	ToVolumeMountTargetOutputWithContext(context.Context) VolumeMountTargetOutput
+}
+
+type VolumeMountTargetArgs struct {
+	// The IP address of the mount target.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+	SmbServerFqdn pulumi.StringPtrInput `pulumi:"smbServerFqdn"`
+}
+
+func (VolumeMountTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeMountTarget)(nil)).Elem()
+}
+
+func (i VolumeMountTargetArgs) ToVolumeMountTargetOutput() VolumeMountTargetOutput {
+	return i.ToVolumeMountTargetOutputWithContext(context.Background())
+}
+
+func (i VolumeMountTargetArgs) ToVolumeMountTargetOutputWithContext(ctx context.Context) VolumeMountTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeMountTargetOutput)
+}
+
+// VolumeMountTargetArrayInput is an input type that accepts VolumeMountTargetArray and VolumeMountTargetArrayOutput values.
+// You can construct a concrete instance of `VolumeMountTargetArrayInput` via:
+//
+//	VolumeMountTargetArray{ VolumeMountTargetArgs{...} }
+type VolumeMountTargetArrayInput interface {
+	pulumi.Input
+
+	ToVolumeMountTargetArrayOutput() VolumeMountTargetArrayOutput
+	ToVolumeMountTargetArrayOutputWithContext(context.Context) VolumeMountTargetArrayOutput
+}
+
+type VolumeMountTargetArray []VolumeMountTargetInput
+
+func (VolumeMountTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeMountTarget)(nil)).Elem()
+}
+
+func (i VolumeMountTargetArray) ToVolumeMountTargetArrayOutput() VolumeMountTargetArrayOutput {
+	return i.ToVolumeMountTargetArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeMountTargetArray) ToVolumeMountTargetArrayOutputWithContext(ctx context.Context) VolumeMountTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeMountTargetArrayOutput)
+}
+
+type VolumeMountTargetOutput struct{ *pulumi.OutputState }
+
+func (VolumeMountTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeMountTarget)(nil)).Elem()
+}
+
+func (o VolumeMountTargetOutput) ToVolumeMountTargetOutput() VolumeMountTargetOutput {
+	return o
+}
+
+func (o VolumeMountTargetOutput) ToVolumeMountTargetOutputWithContext(ctx context.Context) VolumeMountTargetOutput {
+	return o
+}
+
+// The IP address of the mount target.
+func (o VolumeMountTargetOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeMountTarget) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+func (o VolumeMountTargetOutput) SmbServerFqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeMountTarget) *string { return v.SmbServerFqdn }).(pulumi.StringPtrOutput)
+}
+
+type VolumeMountTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeMountTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeMountTarget)(nil)).Elem()
+}
+
+func (o VolumeMountTargetArrayOutput) ToVolumeMountTargetArrayOutput() VolumeMountTargetArrayOutput {
+	return o
+}
+
+func (o VolumeMountTargetArrayOutput) ToVolumeMountTargetArrayOutputWithContext(ctx context.Context) VolumeMountTargetArrayOutput {
+	return o
+}
+
+func (o VolumeMountTargetArrayOutput) Index(i pulumi.IntInput) VolumeMountTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeMountTarget {
+		return vs[0].([]VolumeMountTarget)[vs[1].(int)]
+	}).(VolumeMountTargetOutput)
 }
 
 type GetAccountIdentity struct {
@@ -7720,6 +7817,112 @@ func (o GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput) Index(i pulumi.I
 	}).(GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput)
 }
 
+type GetVolumeMountTarget struct {
+	// The IP address of the mount target.
+	IpAddress string `pulumi:"ipAddress"`
+	// The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+	SmbServerFqdn string `pulumi:"smbServerFqdn"`
+}
+
+// GetVolumeMountTargetInput is an input type that accepts GetVolumeMountTargetArgs and GetVolumeMountTargetOutput values.
+// You can construct a concrete instance of `GetVolumeMountTargetInput` via:
+//
+//	GetVolumeMountTargetArgs{...}
+type GetVolumeMountTargetInput interface {
+	pulumi.Input
+
+	ToGetVolumeMountTargetOutput() GetVolumeMountTargetOutput
+	ToGetVolumeMountTargetOutputWithContext(context.Context) GetVolumeMountTargetOutput
+}
+
+type GetVolumeMountTargetArgs struct {
+	// The IP address of the mount target.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+	SmbServerFqdn pulumi.StringInput `pulumi:"smbServerFqdn"`
+}
+
+func (GetVolumeMountTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeMountTarget)(nil)).Elem()
+}
+
+func (i GetVolumeMountTargetArgs) ToGetVolumeMountTargetOutput() GetVolumeMountTargetOutput {
+	return i.ToGetVolumeMountTargetOutputWithContext(context.Background())
+}
+
+func (i GetVolumeMountTargetArgs) ToGetVolumeMountTargetOutputWithContext(ctx context.Context) GetVolumeMountTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeMountTargetOutput)
+}
+
+// GetVolumeMountTargetArrayInput is an input type that accepts GetVolumeMountTargetArray and GetVolumeMountTargetArrayOutput values.
+// You can construct a concrete instance of `GetVolumeMountTargetArrayInput` via:
+//
+//	GetVolumeMountTargetArray{ GetVolumeMountTargetArgs{...} }
+type GetVolumeMountTargetArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeMountTargetArrayOutput() GetVolumeMountTargetArrayOutput
+	ToGetVolumeMountTargetArrayOutputWithContext(context.Context) GetVolumeMountTargetArrayOutput
+}
+
+type GetVolumeMountTargetArray []GetVolumeMountTargetInput
+
+func (GetVolumeMountTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeMountTarget)(nil)).Elem()
+}
+
+func (i GetVolumeMountTargetArray) ToGetVolumeMountTargetArrayOutput() GetVolumeMountTargetArrayOutput {
+	return i.ToGetVolumeMountTargetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeMountTargetArray) ToGetVolumeMountTargetArrayOutputWithContext(ctx context.Context) GetVolumeMountTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeMountTargetArrayOutput)
+}
+
+type GetVolumeMountTargetOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeMountTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeMountTarget)(nil)).Elem()
+}
+
+func (o GetVolumeMountTargetOutput) ToGetVolumeMountTargetOutput() GetVolumeMountTargetOutput {
+	return o
+}
+
+func (o GetVolumeMountTargetOutput) ToGetVolumeMountTargetOutputWithContext(ctx context.Context) GetVolumeMountTargetOutput {
+	return o
+}
+
+// The IP address of the mount target.
+func (o GetVolumeMountTargetOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeMountTarget) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The SMB server's Fully Qualified Domain Name (FQDN). This value is populated when the volume's `protocols` include `CIFS`; otherwise, it is empty.
+func (o GetVolumeMountTargetOutput) SmbServerFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeMountTarget) string { return v.SmbServerFqdn }).(pulumi.StringOutput)
+}
+
+type GetVolumeMountTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeMountTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeMountTarget)(nil)).Elem()
+}
+
+func (o GetVolumeMountTargetArrayOutput) ToGetVolumeMountTargetArrayOutput() GetVolumeMountTargetArrayOutput {
+	return o
+}
+
+func (o GetVolumeMountTargetArrayOutput) ToGetVolumeMountTargetArrayOutputWithContext(ctx context.Context) GetVolumeMountTargetArrayOutput {
+	return o
+}
+
+func (o GetVolumeMountTargetArrayOutput) Index(i pulumi.IntInput) GetVolumeMountTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeMountTarget {
+		return vs[0].([]GetVolumeMountTarget)[vs[1].(int)]
+	}).(GetVolumeMountTargetOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountActiveDirectoryPtrInput)(nil)).Elem(), AccountActiveDirectoryArgs{})
@@ -7771,6 +7974,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrInput)(nil)).Elem(), VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRuleInput)(nil)).Elem(), VolumeGroupSapHanaVolumeExportPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeGroupSapHanaVolumeExportPolicyRuleArrayInput)(nil)).Elem(), VolumeGroupSapHanaVolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeMountTargetInput)(nil)).Elem(), VolumeMountTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeMountTargetArrayInput)(nil)).Elem(), VolumeMountTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityPtrInput)(nil)).Elem(), GetAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyDailyScheduleInput)(nil)).Elem(), GetSnapshotPolicyDailyScheduleArgs{})
@@ -7813,6 +8018,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRuleInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeExportPolicyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayInput)(nil)).Elem(), GetVolumeGroupSapHanaVolumeExportPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeMountTargetInput)(nil)).Elem(), GetVolumeMountTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeMountTargetArrayInput)(nil)).Elem(), GetVolumeMountTargetArray{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AccountActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
@@ -7863,6 +8070,8 @@ func init() {
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(VolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(VolumeMountTargetOutput{})
+	pulumi.RegisterOutputType(VolumeMountTargetArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyDailyScheduleOutput{})
@@ -7905,4 +8114,6 @@ func init() {
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(GetVolumeGroupSapHanaVolumeExportPolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeMountTargetOutput{})
+	pulumi.RegisterOutputType(GetVolumeMountTargetArrayOutput{})
 }

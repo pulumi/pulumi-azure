@@ -152,6 +152,13 @@ def get_frontdoor_origin_group(name: Optional[_builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-12-01
+
 
     :param _builtins.str name: Specifies the name of the Front Door Origin Group.
     :param _builtins.str profile_name: The name of the Front Door Profile within which Front Door Origin Group exists.
@@ -191,6 +198,13 @@ def get_frontdoor_origin_group_output(name: pulumi.Input[Optional[_builtins.str]
         profile_name="example-profile",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Origin Group.

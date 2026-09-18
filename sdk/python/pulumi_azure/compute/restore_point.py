@@ -213,7 +213,7 @@ class RestorePoint(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
             }],
             os_disk={
                 "caching": "ReadWrite",
@@ -305,7 +305,7 @@ class RestorePoint(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
             }],
             os_disk={
                 "caching": "ReadWrite",

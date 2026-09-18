@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,11 +21,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/maintenance"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/maintenance"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -198,8 +198,8 @@ import (
 //					},
 //				},
 //				AutomaticOsUpgradePolicy: &compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{
-//					DisableAutomaticRollback: pulumi.Bool(true),
-//					EnableAutomaticOsUpgrade: pulumi.Bool(true),
+//					AutomaticRollbackEnabled:  pulumi.Bool(false),
+//					AutomaticOsUpgradeEnabled: pulumi.Bool(true),
 //				},
 //				RollingUpgradePolicy: &compute.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{
 //					MaxBatchInstancePercent:             pulumi.Int(20),

@@ -80,25 +80,6 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
     }
 
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="verifyClientCertIssuerDn")
-    private @Nullable Output<Boolean> verifyClientCertIssuerDn;
-
-    /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<Boolean>> verifyClientCertIssuerDn() {
-        return Optional.ofNullable(this.verifyClientCertIssuerDn);
-    }
-
-    /**
      * Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
@@ -135,7 +116,6 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
         this.name = $.name;
         this.sslPolicy = $.sslPolicy;
         this.trustedClientCertificateNames = $.trustedClientCertificateNames;
-        this.verifyClientCertIssuerDn = $.verifyClientCertIssuerDn;
         this.verifyClientCertificateIssuerDn = $.verifyClientCertificateIssuerDn;
         this.verifyClientCertificateRevocation = $.verifyClientCertificateRevocation;
     }
@@ -250,31 +230,6 @@ public final class ApplicationGatewaySslProfileArgs extends com.pulumi.resources
          */
         public Builder trustedClientCertificateNames(String... trustedClientCertificateNames) {
             return trustedClientCertificateNames(List.of(trustedClientCertificateNames));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
-        public Builder verifyClientCertIssuerDn(@Nullable Output<Boolean> verifyClientCertIssuerDn) {
-            $.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
-        public Builder verifyClientCertIssuerDn(Boolean verifyClientCertIssuerDn) {
-            return verifyClientCertIssuerDn(Output.of(verifyClientCertIssuerDn));
         }
 
         /**

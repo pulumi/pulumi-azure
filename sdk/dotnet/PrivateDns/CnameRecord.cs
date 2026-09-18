@@ -37,8 +37,7 @@ namespace Pulumi.Azure.PrivateDns
     ///     var exampleCnameRecord = new Azure.PrivateDns.CnameRecord("example", new()
     ///     {
     ///         Name = "test",
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = example.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         Ttl = 300,
     ///         Record = "contoso.com",
     ///     });
@@ -77,16 +76,16 @@ namespace Pulumi.Azure.PrivateDns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("privateDnsZoneId")]
+        public Output<string> PrivateDnsZoneId { get; private set; } = null!;
+
+        /// <summary>
         /// The target of the CNAME.
         /// </summary>
         [Output("record")]
         public Output<string> Record { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -99,12 +98,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Output("zoneName")]
-        public Output<string> ZoneName { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,16 +152,16 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("privateDnsZoneId", required: true)]
+        public Input<string> PrivateDnsZoneId { get; set; } = null!;
+
+        /// <summary>
         /// The target of the CNAME.
         /// </summary>
         [Input("record", required: true)]
         public Input<string> Record { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -187,12 +180,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("zoneName", required: true)]
-        public Input<string> ZoneName { get; set; } = null!;
 
         public CnameRecordArgs()
         {
@@ -215,16 +202,16 @@ namespace Pulumi.Azure.PrivateDns
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
+
+        /// <summary>
         /// The target of the CNAME.
         /// </summary>
         [Input("record")]
         public Input<string>? Record { get; set; }
-
-        /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -243,12 +230,6 @@ namespace Pulumi.Azure.PrivateDns
         /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }
-
-        /// <summary>
-        /// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("zoneName")]
-        public Input<string>? ZoneName { get; set; }
 
         public CnameRecordState()
         {

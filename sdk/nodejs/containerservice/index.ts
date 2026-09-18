@@ -45,6 +45,11 @@ export type FluxConfiguration = import("./fluxConfiguration").FluxConfiguration;
 export const FluxConfiguration: typeof import("./fluxConfiguration").FluxConfiguration = null as any;
 utilities.lazyLoad(exports, ["FluxConfiguration"], () => require("./fluxConfiguration"));
 
+export { GetAutomaticClusterArgs, GetAutomaticClusterResult, GetAutomaticClusterOutputArgs } from "./getAutomaticCluster";
+export const getAutomaticCluster: typeof import("./getAutomaticCluster").getAutomaticCluster = null as any;
+export const getAutomaticClusterOutput: typeof import("./getAutomaticCluster").getAutomaticClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getAutomaticCluster","getAutomaticClusterOutput"], () => require("./getAutomaticCluster"));
+
 export { GetClusterNodePoolArgs, GetClusterNodePoolResult, GetClusterNodePoolOutputArgs } from "./getClusterNodePool";
 export const getClusterNodePool: typeof import("./getClusterNodePool").getClusterNodePool = null as any;
 export const getClusterNodePoolOutput: typeof import("./getClusterNodePool").getClusterNodePoolOutput = null as any;

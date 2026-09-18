@@ -65,34 +65,15 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
      * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      * 
      */
-    @Import(name="singleSignOn")
-    private @Nullable Output<String> singleSignOn;
+    @Import(name="singleSignOn", required=true)
+    private Output<String> singleSignOn;
 
     /**
      * @return The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      * 
      */
-    public Optional<Output<String>> singleSignOn() {
-        return Optional.ofNullable(this.singleSignOn);
-    }
-
-    /**
-     * @deprecated
-     * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="singleSignOnEnabled")
-    private @Nullable Output<String> singleSignOnEnabled;
-
-    /**
-     * @deprecated
-     * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> singleSignOnEnabled() {
-        return Optional.ofNullable(this.singleSignOnEnabled);
+    public Output<String> singleSignOn() {
+        return this.singleSignOn;
     }
 
     private MonitorSsoConfigurationArgs() {}
@@ -102,7 +83,6 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
         this.enterpriseApplicationId = $.enterpriseApplicationId;
         this.name = $.name;
         this.singleSignOn = $.singleSignOn;
-        this.singleSignOnEnabled = $.singleSignOnEnabled;
     }
 
     public static Builder builder() {
@@ -192,7 +172,7 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder singleSignOn(@Nullable Output<String> singleSignOn) {
+        public Builder singleSignOn(Output<String> singleSignOn) {
             $.singleSignOn = singleSignOn;
             return this;
         }
@@ -207,37 +187,15 @@ public final class MonitorSsoConfigurationArgs extends com.pulumi.resources.Reso
             return singleSignOn(Output.of(singleSignOn));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder singleSignOnEnabled(@Nullable Output<String> singleSignOnEnabled) {
-            $.singleSignOnEnabled = singleSignOnEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder singleSignOnEnabled(String singleSignOnEnabled) {
-            return singleSignOnEnabled(Output.of(singleSignOnEnabled));
-        }
-
         public MonitorSsoConfigurationArgs build() {
             if ($.datadogMonitorId == null) {
                 throw new MissingRequiredPropertyException("MonitorSsoConfigurationArgs", "datadogMonitorId");
             }
             if ($.enterpriseApplicationId == null) {
                 throw new MissingRequiredPropertyException("MonitorSsoConfigurationArgs", "enterpriseApplicationId");
+            }
+            if ($.singleSignOn == null) {
+                throw new MissingRequiredPropertyException("MonitorSsoConfigurationArgs", "singleSignOn");
             }
             return $;
         }

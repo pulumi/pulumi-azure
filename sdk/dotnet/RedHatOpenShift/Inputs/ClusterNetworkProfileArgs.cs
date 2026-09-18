@@ -13,6 +13,12 @@ namespace Pulumi.Azure.RedHatOpenShift.Inputs
     public sealed class ClusterNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `LoadBalancerProfile` block as defined above. Only applicable when `OutboundType` is set to `Loadbalancer`.
+        /// </summary>
+        [Input("loadBalancerProfile")]
+        public Input<Inputs.ClusterNetworkProfileLoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
+
+        /// <summary>
         /// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("outboundType")]

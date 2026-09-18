@@ -83,14 +83,14 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
     }
 
     /**
-     * The description of the Threat Intelligence Indicator.
+     * The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Threat Intelligence Indicator.
+     * @return The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> description() {
@@ -98,14 +98,14 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
     }
 
     /**
-     * The display name of the Threat Intelligence Indicator.
+     * The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return The display name of the Threat Intelligence Indicator.
+     * @return The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -398,14 +398,14 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
     }
 
     /**
-     * The start of validate date in RFC3339.
+     * The start of validate date in RFC3339. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="validateFromUtc")
     private @Nullable Output<String> validateFromUtc;
 
     /**
-     * @return The start of validate date in RFC3339.
+     * @return The start of validate date in RFC3339. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> validateFromUtc() {
@@ -578,7 +578,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param description The description of the Threat Intelligence Indicator.
+         * @param description The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param description The description of the Threat Intelligence Indicator.
+         * @param description The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -599,7 +599,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param displayName The display name of the Threat Intelligence Indicator.
+         * @param displayName The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param displayName The display name of the Threat Intelligence Indicator.
+         * @param displayName The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1099,7 +1099,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param validateFromUtc The start of validate date in RFC3339.
+         * @param validateFromUtc The start of validate date in RFC3339. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1110,7 +1110,7 @@ public final class ThreatIntelligenceIndicatorState extends com.pulumi.resources
         }
 
         /**
-         * @param validateFromUtc The start of validate date in RFC3339.
+         * @param validateFromUtc The start of validate date in RFC3339. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

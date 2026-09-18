@@ -27,7 +27,7 @@ class GetDeploymentResult:
     """
     A collection of values returned by getDeployment.
     """
-    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, dataplane_api_endpoint=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None, web_application_firewalls=None):
+    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, dataplane_api_endpoint=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None, web_application_firewalls=None):
         if auto_scale_profiles and not isinstance(auto_scale_profiles, list):
             raise TypeError("Expected argument 'auto_scale_profiles' to be a list")
         pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
@@ -40,9 +40,6 @@ class GetDeploymentResult:
         if dataplane_api_endpoint and not isinstance(dataplane_api_endpoint, str):
             raise TypeError("Expected argument 'dataplane_api_endpoint' to be a str")
         pulumi.set(__self__, "dataplane_api_endpoint", dataplane_api_endpoint)
-        if diagnose_support_enabled and not isinstance(diagnose_support_enabled, bool):
-            raise TypeError("Expected argument 'diagnose_support_enabled' to be a bool")
-        pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
@@ -64,12 +61,6 @@ class GetDeploymentResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if logging_storage_accounts and not isinstance(logging_storage_accounts, list):
-            raise TypeError("Expected argument 'logging_storage_accounts' to be a list")
-        pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
-        if managed_resource_group and not isinstance(managed_resource_group, str):
-            raise TypeError("Expected argument 'managed_resource_group' to be a str")
-        pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -123,12 +114,6 @@ class GetDeploymentResult:
         The dataplane API endpoint of the NGINX Deployment.
         """
         return pulumi.get(self, "dataplane_api_endpoint")
-
-    @_builtins.property
-    @pulumi.getter(name="diagnoseSupportEnabled")
-    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-    def diagnose_support_enabled(self) -> _builtins.bool:
-        return pulumi.get(self, "diagnose_support_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -185,18 +170,6 @@ class GetDeploymentResult:
         The Azure Region where the NGINX Deployment exists.
         """
         return pulumi.get(self, "location")
-
-    @_builtins.property
-    @pulumi.getter(name="loggingStorageAccounts")
-    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def logging_storage_accounts(self) -> Sequence['outputs.GetDeploymentLoggingStorageAccountResult']:
-        return pulumi.get(self, "logging_storage_accounts")
-
-    @_builtins.property
-    @pulumi.getter(name="managedResourceGroup")
-    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_resource_group(self) -> _builtins.str:
-        return pulumi.get(self, "managed_resource_group")
 
     @_builtins.property
     @pulumi.getter
@@ -262,7 +235,6 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             automatic_upgrade_channel=self.automatic_upgrade_channel,
             capacity=self.capacity,
             dataplane_api_endpoint=self.dataplane_api_endpoint,
-            diagnose_support_enabled=self.diagnose_support_enabled,
             email=self.email,
             frontend_privates=self.frontend_privates,
             frontend_publics=self.frontend_publics,
@@ -270,8 +242,6 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             identities=self.identities,
             ip_address=self.ip_address,
             location=self.location,
-            logging_storage_accounts=self.logging_storage_accounts,
-            managed_resource_group=self.managed_resource_group,
             name=self.name,
             network_interfaces=self.network_interfaces,
             nginx_version=self.nginx_version,
@@ -320,7 +290,6 @@ def get_deployment(name: Optional[_builtins.str] = None,
         automatic_upgrade_channel=pulumi.get(__ret__, 'automatic_upgrade_channel'),
         capacity=pulumi.get(__ret__, 'capacity'),
         dataplane_api_endpoint=pulumi.get(__ret__, 'dataplane_api_endpoint'),
-        diagnose_support_enabled=pulumi.get(__ret__, 'diagnose_support_enabled'),
         email=pulumi.get(__ret__, 'email'),
         frontend_privates=pulumi.get(__ret__, 'frontend_privates'),
         frontend_publics=pulumi.get(__ret__, 'frontend_publics'),
@@ -328,8 +297,6 @@ def get_deployment(name: Optional[_builtins.str] = None,
         identities=pulumi.get(__ret__, 'identities'),
         ip_address=pulumi.get(__ret__, 'ip_address'),
         location=pulumi.get(__ret__, 'location'),
-        logging_storage_accounts=pulumi.get(__ret__, 'logging_storage_accounts'),
-        managed_resource_group=pulumi.get(__ret__, 'managed_resource_group'),
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         nginx_version=pulumi.get(__ret__, 'nginx_version'),
@@ -375,7 +342,6 @@ def get_deployment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         automatic_upgrade_channel=pulumi.get(__response__, 'automatic_upgrade_channel'),
         capacity=pulumi.get(__response__, 'capacity'),
         dataplane_api_endpoint=pulumi.get(__response__, 'dataplane_api_endpoint'),
-        diagnose_support_enabled=pulumi.get(__response__, 'diagnose_support_enabled'),
         email=pulumi.get(__response__, 'email'),
         frontend_privates=pulumi.get(__response__, 'frontend_privates'),
         frontend_publics=pulumi.get(__response__, 'frontend_publics'),
@@ -383,8 +349,6 @@ def get_deployment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         identities=pulumi.get(__response__, 'identities'),
         ip_address=pulumi.get(__response__, 'ip_address'),
         location=pulumi.get(__response__, 'location'),
-        logging_storage_accounts=pulumi.get(__response__, 'logging_storage_accounts'),
-        managed_resource_group=pulumi.get(__response__, 'managed_resource_group'),
         name=pulumi.get(__response__, 'name'),
         network_interfaces=pulumi.get(__response__, 'network_interfaces'),
         nginx_version=pulumi.get(__response__, 'nginx_version'),

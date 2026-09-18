@@ -61,12 +61,6 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<int> Port { get; set; } = null!;
 
         /// <summary>
-        /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        /// </summary>
-        [Input("terminationGracePeriodSeconds")]
-        public Input<int>? TerminationGracePeriodSeconds { get; set; }
-
-        /// <summary>
         /// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         /// </summary>
         [Input("timeout")]

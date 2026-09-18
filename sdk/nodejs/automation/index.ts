@@ -160,11 +160,6 @@ export type Schedule = import("./schedule").Schedule;
 export const Schedule: typeof import("./schedule").Schedule = null as any;
 utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
 
-export { SoftwareUpdateConfigurationArgs, SoftwareUpdateConfigurationState } from "./softwareUpdateConfiguration";
-export type SoftwareUpdateConfiguration = import("./softwareUpdateConfiguration").SoftwareUpdateConfiguration;
-export const SoftwareUpdateConfiguration: typeof import("./softwareUpdateConfiguration").SoftwareUpdateConfiguration = null as any;
-utilities.lazyLoad(exports, ["SoftwareUpdateConfiguration"], () => require("./softwareUpdateConfiguration"));
-
 export { SourceControlArgs, SourceControlState } from "./sourceControl";
 export type SourceControl = import("./sourceControl").SourceControl;
 export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
@@ -241,8 +236,6 @@ const _module = {
                 return new RuntimeEnvironmentPackage(name, <any>undefined, { urn })
             case "azure:automation/schedule:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
-            case "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration":
-                return new SoftwareUpdateConfiguration(name, <any>undefined, { urn })
             case "azure:automation/sourceControl:SourceControl":
                 return new SourceControl(name, <any>undefined, { urn })
             case "azure:automation/stringVariable:StringVariable":
@@ -281,7 +274,6 @@ pulumi.runtime.registerResourceModule("azure", "automation/runBook", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runtimeEnvironment", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runtimeEnvironmentPackage", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)
-pulumi.runtime.registerResourceModule("azure", "automation/softwareUpdateConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/sourceControl", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/stringVariable", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/variableObject", _module)

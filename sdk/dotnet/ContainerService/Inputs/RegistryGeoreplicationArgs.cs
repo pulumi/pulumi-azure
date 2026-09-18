@@ -13,16 +13,16 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class RegistryGeoreplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+        /// </summary>
+        [Input("globalEndpointRoutingEnabled", required: true)]
+        public Input<bool> GlobalEndpointRoutingEnabled { get; set; } = null!;
+
+        /// <summary>
         /// A location where the container registry should be geo-replicated.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
-
-        /// <summary>
-        /// Whether regional endpoint is enabled for this Container Registry?
-        /// </summary>
-        [Input("regionalEndpointEnabled")]
-        public Input<bool>? RegionalEndpointEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

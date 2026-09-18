@@ -329,9 +329,6 @@ namespace Pulumi.Azure
         [Input("disableTerraformPartnerId", json: true)]
         public Input<bool>? DisableTerraformPartnerId { get; set; }
 
-        [Input("enhancedValidation", json: true)]
-        public Input<Inputs.ProviderEnhancedValidationArgs>? EnhancedValidation { get; set; }
-
         /// <summary>
         /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `MetadataHost` is specified.
         /// </summary>
@@ -438,12 +435,6 @@ namespace Pulumi.Azure
         }
 
         /// <summary>
-        /// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-        /// </summary>
-        [Input("skipProviderRegistration", json: true)]
-        public Input<bool>? SkipProviderRegistration { get; set; }
-
-        /// <summary>
         /// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         /// </summary>
         [Input("storageUseAzuread", json: true)]
@@ -509,7 +500,6 @@ namespace Pulumi.Azure
         {
             Environment = Utilities.GetEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") ?? "public";
             MetadataHost = Utilities.GetEnv("ARM_METADATA_HOSTNAME");
-            SkipProviderRegistration = Utilities.GetEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") ?? false;
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";
         }

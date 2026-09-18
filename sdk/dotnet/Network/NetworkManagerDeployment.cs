@@ -227,7 +227,7 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 Separator = ",",
     ///                 Input = exampleNetworkManagerAdminRule.SourcePortRanges,
-    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///             }).Result },
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

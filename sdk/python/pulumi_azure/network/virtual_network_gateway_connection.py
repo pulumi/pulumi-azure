@@ -31,7 +31,6 @@ class VirtualNetworkGatewayConnectionArgs:
                  custom_bgp_addresses: pulumi.Input[Optional['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -100,11 +99,6 @@ class VirtualNetworkGatewayConnectionArgs:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
             pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
-        if enable_bgp is not None:
-            warnings.warn("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_bgp is deprecated: the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
             pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
@@ -258,16 +252,6 @@ class VirtualNetworkGatewayConnectionArgs:
     @egress_nat_rule_ids.setter
     def egress_nat_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "egress_nat_rule_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_bgp")
-
-    @enable_bgp.setter
-    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")
@@ -464,7 +448,6 @@ class _VirtualNetworkGatewayConnectionState:
                  custom_bgp_addresses: pulumi.Input[Optional['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs']] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -533,11 +516,6 @@ class _VirtualNetworkGatewayConnectionState:
             pulumi.set(__self__, "dpd_timeout_seconds", dpd_timeout_seconds)
         if egress_nat_rule_ids is not None:
             pulumi.set(__self__, "egress_nat_rule_ids", egress_nat_rule_ids)
-        if enable_bgp is not None:
-            warnings.warn("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_bgp is deprecated: the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id is not None:
             pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
         if express_route_gateway_bypass is not None:
@@ -661,16 +639,6 @@ class _VirtualNetworkGatewayConnectionState:
     @egress_nat_rule_ids.setter
     def egress_nat_rule_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "egress_nat_rule_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_bgp")
-
-    @enable_bgp.setter
-    def enable_bgp(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_bgp", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")
@@ -906,7 +874,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict']]] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1319,7 +1286,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict']]] = None,
                  dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
                  ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1354,7 +1320,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
             __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
             __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
-            __props__.__dict__["enable_bgp"] = enable_bgp
             __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
             __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
             __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
@@ -1398,7 +1363,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             custom_bgp_addresses: pulumi.Input[Optional[Union['VirtualNetworkGatewayConnectionCustomBgpAddressesArgs', 'VirtualNetworkGatewayConnectionCustomBgpAddressesArgsDict']]] = None,
             dpd_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             egress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            enable_bgp: pulumi.Input[Optional[_builtins.bool]] = None,
             express_route_circuit_id: pulumi.Input[Optional[_builtins.str]] = None,
             express_route_gateway_bypass: pulumi.Input[Optional[_builtins.bool]] = None,
             ingress_nat_rule_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1468,7 +1432,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__.__dict__["custom_bgp_addresses"] = custom_bgp_addresses
         __props__.__dict__["dpd_timeout_seconds"] = dpd_timeout_seconds
         __props__.__dict__["egress_nat_rule_ids"] = egress_nat_rule_ids
-        __props__.__dict__["enable_bgp"] = enable_bgp
         __props__.__dict__["express_route_circuit_id"] = express_route_circuit_id
         __props__.__dict__["express_route_gateway_bypass"] = express_route_gateway_bypass
         __props__.__dict__["ingress_nat_rule_ids"] = ingress_nat_rule_ids
@@ -1499,7 +1462,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="bgpEnabled")
-    def bgp_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def bgp_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`.
         """
@@ -1547,12 +1510,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         A list of the egress NAT Rule Ids.
         """
         return pulumi.get(self, "egress_nat_rule_ids")
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    @_utilities.deprecated("""the `enable_bgp` property has been deprecated in favour of the `bgp_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_bgp(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_bgp")
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")

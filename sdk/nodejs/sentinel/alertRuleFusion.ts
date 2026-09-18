@@ -88,10 +88,6 @@ export class AlertRuleFusion extends pulumi.CustomResource {
      */
     declare public readonly logAnalyticsWorkspaceId: pulumi.Output<string>;
     /**
-     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
-     */
-    declare public readonly name: pulumi.Output<string>;
-    /**
      * One or more `source` blocks as defined below.
      */
     declare public readonly sources: pulumi.Output<outputs.sentinel.AlertRuleFusionSource[]>;
@@ -112,7 +108,6 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             resourceInputs["alertRuleTemplateGuid"] = state?.alertRuleTemplateGuid;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["logAnalyticsWorkspaceId"] = state?.logAnalyticsWorkspaceId;
-            resourceInputs["name"] = state?.name;
             resourceInputs["sources"] = state?.sources;
         } else {
             const args = argsOrState as AlertRuleFusionArgs | undefined;
@@ -125,7 +120,6 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             resourceInputs["alertRuleTemplateGuid"] = args?.alertRuleTemplateGuid;
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["logAnalyticsWorkspaceId"] = args?.logAnalyticsWorkspaceId;
-            resourceInputs["name"] = args?.name;
             resourceInputs["sources"] = args?.sources;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,10 +144,6 @@ export interface AlertRuleFusionState {
      */
     logAnalyticsWorkspaceId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
-     */
-    name?: pulumi.Input<string | undefined>;
-    /**
      * One or more `source` blocks as defined below.
      */
     sources?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleFusionSource>[] | undefined>;
@@ -175,10 +165,6 @@ export interface AlertRuleFusionArgs {
      * The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
      */
     logAnalyticsWorkspaceId: pulumi.Input<string>;
-    /**
-     * @deprecated the `name` is deprecated and will be removed in v5.0 version of the provider.
-     */
-    name?: pulumi.Input<string | undefined>;
     /**
      * One or more `source` blocks as defined below.
      */

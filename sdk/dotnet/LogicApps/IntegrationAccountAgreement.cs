@@ -78,7 +78,7 @@ namespace Pulumi.Azure.LogicApps
     ///         Content = Std.File.Invoke(new()
     ///         {
     ///             Input = "testdata/integration_account_agreement_content_as2.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         HostIdentity = new Azure.LogicApps.Inputs.IntegrationAccountAgreementHostIdentityArgs
     ///         {
     ///             Qualifier = "AS2Identity",

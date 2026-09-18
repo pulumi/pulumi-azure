@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,12 +21,12 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/siterecovery"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -271,9 +271,14 @@ import (
 //				},
 //				NetworkInterfaces: siterecovery.ReplicatedVMNetworkInterfaceArray{
 //					&siterecovery.ReplicatedVMNetworkInterfaceArgs{
-//						SourceNetworkInterfaceId:  vmNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//						TargetSubnetName:          secondarySubnet.Name,
-//						RecoveryPublicIpAddressId: secondaryPublicIp.ID().ToIDOutput().ToStringOutput(),
+//						SourceNetworkInterfaceId: vmNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//						IpConfigurations: siterecovery.ReplicatedVMNetworkInterfaceIpConfigurationArray{
+//							&siterecovery.ReplicatedVMNetworkInterfaceIpConfigurationArgs{
+//								Name:                      pulumi.String("vm"),
+//								TargetSubnetName:          secondarySubnet.Name,
+//								RecoveryPublicIpAddressId: secondaryPublicIp.ID().ToIDOutput().ToStringOutput(),
+//							},
+//						},
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

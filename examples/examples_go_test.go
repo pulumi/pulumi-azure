@@ -27,7 +27,7 @@ func getGoBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
-			fmt.Sprintf("github.com/pulumi/pulumi-azure/sdk/v6=%s", rootSdkPath),
+			fmt.Sprintf("github.com/pulumi/pulumi-azure/sdk/v7=%s", rootSdkPath),
 		},
 		Env: []string{
 			fmt.Sprintf("PULUMI_GO_DEP_ROOT=%s", goDepRoot),

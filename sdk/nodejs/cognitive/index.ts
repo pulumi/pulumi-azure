@@ -55,11 +55,6 @@ export type AccountRaiPolicy = import("./accountRaiPolicy").AccountRaiPolicy;
 export const AccountRaiPolicy: typeof import("./accountRaiPolicy").AccountRaiPolicy = null as any;
 utilities.lazyLoad(exports, ["AccountRaiPolicy"], () => require("./accountRaiPolicy"));
 
-export { AIServicesArgs, AIServicesState } from "./aiservices";
-export type AIServices = import("./aiservices").AIServices;
-export const AIServices: typeof import("./aiservices").AIServices = null as any;
-utilities.lazyLoad(exports, ["AIServices"], () => require("./aiservices"));
-
 export { DeploymentArgs, DeploymentState } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
@@ -80,8 +75,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure:cognitive/aIServices:AIServices":
-                return new AIServices(name, <any>undefined, { urn })
             case "azure:cognitive/account:Account":
                 return new Account(name, <any>undefined, { urn })
             case "azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey":
@@ -109,7 +102,6 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("azure", "cognitive/aIServices", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/account", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountConnectionAccountKey", _module)
 pulumi.runtime.registerResourceModule("azure", "cognitive/accountConnectionAccountManagedIdentity", _module)

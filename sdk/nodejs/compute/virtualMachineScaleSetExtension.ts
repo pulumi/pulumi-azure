@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Compute` - 2025-04-01, 2024-03-01
+ * * `Microsoft.Compute` - 2025-04-01
  *
  * ## Import
  *

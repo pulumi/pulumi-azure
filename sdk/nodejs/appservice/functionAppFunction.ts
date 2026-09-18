@@ -123,7 +123,7 @@ import * as utilities from "../utilities";
  *         name: "run.csx",
  *         content: std.file({
  *             input: "exampledata/run.csx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *     }],
  *     testData: JSON.stringify({
  *         name: "Azure",

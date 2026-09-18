@@ -67,35 +67,16 @@ public final class GetShareArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The ID of the storage account in which the share exists.
      * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-     * 
      */
-    @Import(name="storageAccountId")
-    private @Nullable Output<String> storageAccountId;
+    @Import(name="storageAccountId", required=true)
+    private Output<String> storageAccountId;
 
     /**
      * @return The ID of the storage account in which the share exists.
      * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-     * 
      */
-    public Optional<Output<String>> storageAccountId() {
-        return Optional.ofNullable(this.storageAccountId);
-    }
-
-    /**
-     * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-     * 
-     */
-    @Import(name="storageAccountName")
-    private @Nullable Output<String> storageAccountName;
-
-    /**
-     * @return The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-     * 
-     */
-    public Optional<Output<String>> storageAccountName() {
-        return Optional.ofNullable(this.storageAccountName);
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
     }
 
     private GetShareArgs() {}
@@ -105,7 +86,6 @@ public final class GetShareArgs extends com.pulumi.resources.InvokeArgs {
         this.metadata = $.metadata;
         this.name = $.name;
         this.storageAccountId = $.storageAccountId;
-        this.storageAccountName = $.storageAccountName;
     }
 
     public static Builder builder() {
@@ -202,20 +182,16 @@ public final class GetShareArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param storageAccountId The ID of the storage account in which the share exists.
          * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-         * 
          * @return builder
          * 
          */
-        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+        public Builder storageAccountId(Output<String> storageAccountId) {
             $.storageAccountId = storageAccountId;
             return this;
         }
 
         /**
          * @param storageAccountId The ID of the storage account in which the share exists.
-         * 
-         * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
          * 
          * @return builder
          * 
@@ -224,30 +200,12 @@ public final class GetShareArgs extends com.pulumi.resources.InvokeArgs {
             return storageAccountId(Output.of(storageAccountId));
         }
 
-        /**
-         * @param storageAccountName The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
-            $.storageAccountName = storageAccountName;
-            return this;
-        }
-
-        /**
-         * @param storageAccountName The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder storageAccountName(String storageAccountName) {
-            return storageAccountName(Output.of(storageAccountName));
-        }
-
         public GetShareArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetShareArgs", "name");
+            }
+            if ($.storageAccountId == null) {
+                throw new MissingRequiredPropertyException("GetShareArgs", "storageAccountId");
             }
             return $;
         }

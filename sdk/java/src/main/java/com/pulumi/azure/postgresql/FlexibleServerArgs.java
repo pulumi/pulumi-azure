@@ -28,7 +28,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
      * 
      * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
@@ -39,7 +39,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
      * 
      * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
@@ -559,7 +559,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
-         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
          * 
          * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 
@@ -574,7 +574,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param administratorLogin The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
          * 
-         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+         * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
          * 
          * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
          * 

@@ -30,10 +30,17 @@ namespace Pulumi.Azure.KeyVault
         ///         KeyVaultId = existing.Id,
         ///     });
         /// 
-        ///     var exampleGetSecret = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = example.Apply(getSecretsResult =&gt; getSecretsResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     var exampleGetSecret = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __key = item.Key;
+        ///         return Azure.KeyVault.GetSecret.Invoke(new()
+        ///         {
+        ///             Name = __key,
+        ///             KeyVaultId = existing.Id,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```
@@ -60,10 +67,17 @@ namespace Pulumi.Azure.KeyVault
         ///         KeyVaultId = existing.Id,
         ///     });
         /// 
-        ///     var exampleGetSecret = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = example.Apply(getSecretsResult =&gt; getSecretsResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     var exampleGetSecret = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __key = item.Key;
+        ///         return Azure.KeyVault.GetSecret.Invoke(new()
+        ///         {
+        ///             Name = __key,
+        ///             KeyVaultId = existing.Id,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```
@@ -90,10 +104,17 @@ namespace Pulumi.Azure.KeyVault
         ///         KeyVaultId = existing.Id,
         ///     });
         /// 
-        ///     var exampleGetSecret = Std.Toset.Invoke(new()
-        ///     {
-        ///         Input = example.Apply(getSecretsResult =&gt; getSecretsResult.Names),
-        ///     }).Apply(invoke =&gt; );
+        ///     var exampleGetSecret = .ToDictionary(item =&gt; {
+        ///         var __key = item.Key;
+        ///         return __key;
+        ///     }, item =&gt; {
+        ///         var __key = item.Key;
+        ///         return Azure.KeyVault.GetSecret.Invoke(new()
+        ///         {
+        ///             Name = __key,
+        ///             KeyVaultId = existing.Id,
+        ///         });
+        ///     });
         /// 
         /// });
         /// ```

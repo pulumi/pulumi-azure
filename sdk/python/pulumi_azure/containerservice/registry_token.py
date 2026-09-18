@@ -224,9 +224,11 @@ class RegistryToken(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
+                    "global_endpoint_routing_enabled": True,
                 },
                 {
                     "location": "West Europe",
+                    "global_endpoint_routing_enabled": True,
                 },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
@@ -295,9 +297,11 @@ class RegistryToken(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
+                    "global_endpoint_routing_enabled": True,
                 },
                 {
                     "location": "West Europe",
+                    "global_endpoint_routing_enabled": True,
                 },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",

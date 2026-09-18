@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertActionArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertTriggerArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FormatArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -118,16 +117,16 @@ import javax.annotation.Nullable;
  *             .dataSourceId(exampleInsights.id())
  *             .description("Query may access data within multiple resources")
  *             .enabled(true)
- *             .query(StdFunctions.format(FormatArgs.builder()
- *                 .input("""
+ *             .query(StdFunctions.format(Map.ofEntries(
+ *                 Map.entry("input", """
  * let a=requests
  *   | where toint(resultCode) >= 500
  *   | extend fail=1; let b=app('%s').requests
  *   | where toint(resultCode) >= 500 | extend fail=1; a
  *   | join b on fail
- *                 """)
- *                 .args(example2.id())
- *                 .build()).result())
+ *                 """),
+ *                 Map.entry("args", Arrays.asList(example2.id()))
+ *             )).result())
  *             .severity(1)
  *             .frequency(5)
  *             .timeWindow(30)

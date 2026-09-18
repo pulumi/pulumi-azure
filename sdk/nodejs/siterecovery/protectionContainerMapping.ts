@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+ * Manages an Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
  *
  * ## Example Usage
  *
@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const primary = new azure.core.ResourceGroup("primary", {
- *     name: "tfex-network-mapping-primary",
+ *     name: "example-network-mapping-primary",
  *     location: "West US",
  * });
  * const secondary = new azure.core.ResourceGroup("secondary", {
- *     name: "tfex-network-mapping-secondary",
+ *     name: "example-network-mapping-secondary",
  *     location: "East US",
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
@@ -115,15 +115,15 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
     }
 
     /**
-     * a `automaticUpdate` block defined as below.
+     * An `automaticUpdate` block defined as below.
      */
-    declare public readonly automaticUpdate: pulumi.Output<outputs.siterecovery.ProtectionContainerMappingAutomaticUpdate>;
+    declare public readonly automaticUpdate: pulumi.Output<outputs.siterecovery.ProtectionContainerMappingAutomaticUpdate | undefined>;
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      */
     declare public readonly recoveryFabricName: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export class ProtectionContainerMapping extends pulumi.CustomResource {
  */
 export interface ProtectionContainerMappingState {
     /**
-     * a `automaticUpdate` block defined as below.
+     * An `automaticUpdate` block defined as below.
      */
     automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface ProtectionContainerMappingState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      */
     recoveryFabricName?: pulumi.Input<string | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface ProtectionContainerMappingState {
  */
 export interface ProtectionContainerMappingArgs {
     /**
-     * a `automaticUpdate` block defined as below.
+     * An `automaticUpdate` block defined as below.
      */
     automaticUpdate?: pulumi.Input<inputs.siterecovery.ProtectionContainerMappingAutomaticUpdate | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface ProtectionContainerMappingArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      */
     recoveryFabricName: pulumi.Input<string>;
     /**

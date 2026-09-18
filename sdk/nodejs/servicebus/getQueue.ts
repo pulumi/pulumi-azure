@@ -32,8 +32,6 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("azure:servicebus/getQueue:getQueue", {
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -48,15 +46,7 @@ export interface GetQueueArgs {
     /**
      * The ID of the ServiceBus Namespace where the Service Bus Queue exists.
      */
-    namespaceId?: string;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    namespaceName?: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: string;
+    namespaceId: string;
 }
 
 /**
@@ -83,9 +73,6 @@ export interface GetQueueResult {
      * The ISO 8601 timespan duration during which duplicates can be detected.
      */
     readonly duplicateDetectionHistoryTimeWindow: string;
-    readonly enableBatchedOperations: boolean;
-    readonly enableExpress: boolean;
-    readonly enablePartitioning: boolean;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
      */
@@ -115,11 +102,7 @@ export interface GetQueueResult {
      */
     readonly maxSizeInMegabytes: number;
     readonly name: string;
-    readonly namespaceId?: string;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly namespaceName?: string;
+    readonly namespaceId: string;
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
      */
@@ -132,10 +115,6 @@ export interface GetQueueResult {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
      */
     readonly requiresSession: boolean;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly resourceGroupName?: string;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
      */
@@ -169,8 +148,6 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("azure:servicebus/getQueue:getQueue", {
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -185,13 +162,5 @@ export interface GetQueueOutputArgs {
     /**
      * The ID of the ServiceBus Namespace where the Service Bus Queue exists.
      */
-    namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
+    namespaceId: pulumi.Input<string>;
 }

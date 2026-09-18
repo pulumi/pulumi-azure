@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -24,22 +25,22 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "exampleappserviceplan",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "FunctionApp",
  *     reserved: true,
- *     sku: {
+ *     sku: [{
  *         tier: "Dynamic",
  *         size: "Y1",
- *     },
+ *     }],
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ * const exampleFunctionApp = new azurerm.index.FunctionApp("example", {
  *     name: "examplefunctionapp",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     osType: "linux",

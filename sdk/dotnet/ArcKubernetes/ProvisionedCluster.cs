@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleGroup = new AzureAD.Group("example", new()
+    ///     var exampleGroup = new Azuread.Group("example", new()
     ///     {
     ///         DisplayName = "example-adg",
     ///         Owners = new[]

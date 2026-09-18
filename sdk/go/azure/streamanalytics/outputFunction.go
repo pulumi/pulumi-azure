@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,29 +48,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("exampleappserviceplan"),
+//			exampleAppServicePlan, err := azurerm.NewAppServicePlan(ctx, "example", &azurerm.AppServicePlanArgs{
+//				Name:              "exampleappserviceplan",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("FunctionApp"),
-//				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Dynamic"),
-//					Size: pulumi.String("Y1"),
+//				Kind:              "FunctionApp",
+//				Reserved:          true,
+//				Sku: []map[string]string{
+//					{
+//						"tier": "Dynamic",
+//						"size": "Y1",
+//					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "example", &appservice.FunctionAppArgs{
-//				Name:                    pulumi.String("examplefunctionapp"),
+//			exampleFunctionApp, err := azurerm.NewFunctionApp(ctx, "example", &azurerm.FunctionAppArgs{
+//				Name:                    "examplefunctionapp",
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:        exampleAppServicePlan.Id,
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				OsType:                  pulumi.String("linux"),
-//				Version:                 pulumi.String("~3"),
+//				OsType:                  "linux",
+//				Version:                 "~3",
 //			})
 //			if err != nil {
 //				return err

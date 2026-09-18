@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const example = new azuread.Application("example", {displayName: "example-app"});
+ * const example = new azuread.index.Application("example", {displayName: "example-app"});
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",

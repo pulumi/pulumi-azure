@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetSubnetResult',
@@ -137,9 +138,9 @@ class GetSubnetResult:
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Sequence[_builtins.str]:
+    def service_endpoints(self) -> Sequence['outputs.GetSubnetServiceEndpointResult']:
         """
-        A list of Service Endpoints within this subnet.
+        A `service_endpoint` block as defined below.
         """
         return pulumi.get(self, "service_endpoints")
 

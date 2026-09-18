@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.network.outputs;
 
-import com.pulumi.azure.network.outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackendHttpSettingConnectionDraining;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -22,11 +21,6 @@ public final class ApplicationGatewayBackendHttpSetting {
      * 
      */
     private @Nullable String affinityCookieName;
-    /**
-     * @return One or more `authenticationCertificateBackend` blocks as defined below.
-     * 
-     */
-    private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
     /**
      * @return Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
      * 
@@ -58,7 +52,7 @@ public final class ApplicationGatewayBackendHttpSetting {
      */
     private @Nullable String id;
     /**
-     * @return The name of the Authentication Certificate.
+     * @return The name of the Backend HTTP Settings Collection.
      * 
      */
     private String name;
@@ -124,13 +118,6 @@ public final class ApplicationGatewayBackendHttpSetting {
         return Optional.ofNullable(this.affinityCookieName);
     }
     /**
-     * @return One or more `authenticationCertificateBackend` blocks as defined below.
-     * 
-     */
-    public List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates() {
-        return this.authenticationCertificates == null ? List.of() : this.authenticationCertificates;
-    }
-    /**
      * @return Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
      * 
      */
@@ -173,7 +160,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The name of the Authentication Certificate.
+     * @return The name of the Backend HTTP Settings Collection.
      * 
      */
     public String name() {
@@ -262,7 +249,6 @@ public final class ApplicationGatewayBackendHttpSetting {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String affinityCookieName;
-        private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
         private @Nullable Boolean certificateChainValidationEnabled;
         private @Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining;
         private String cookieBasedAffinity;
@@ -284,7 +270,6 @@ public final class ApplicationGatewayBackendHttpSetting {
         public Builder(ApplicationGatewayBackendHttpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affinityCookieName = defaults.affinityCookieName;
-    	      this.authenticationCertificates = defaults.authenticationCertificates;
     	      this.certificateChainValidationEnabled = defaults.certificateChainValidationEnabled;
     	      this.connectionDraining = defaults.connectionDraining;
     	      this.cookieBasedAffinity = defaults.cookieBasedAffinity;
@@ -309,15 +294,6 @@ public final class ApplicationGatewayBackendHttpSetting {
 
             this.affinityCookieName = affinityCookieName;
             return this;
-        }
-        @CustomType.Setter
-        public Builder authenticationCertificates(@Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates) {
-
-            this.authenticationCertificates = authenticationCertificates;
-            return this;
-        }
-        public Builder authenticationCertificates(ApplicationGatewayBackendHttpSettingAuthenticationCertificate... authenticationCertificates) {
-            return authenticationCertificates(List.of(authenticationCertificates));
         }
         @CustomType.Setter
         public Builder certificateChainValidationEnabled(@Nullable Boolean certificateChainValidationEnabled) {
@@ -435,7 +411,6 @@ public final class ApplicationGatewayBackendHttpSetting {
         public ApplicationGatewayBackendHttpSetting build() {
             final var _resultValue = new ApplicationGatewayBackendHttpSetting();
             _resultValue.affinityCookieName = affinityCookieName;
-            _resultValue.authenticationCertificates = authenticationCertificates;
             _resultValue.certificateChainValidationEnabled = certificateChainValidationEnabled;
             _resultValue.connectionDraining = connectionDraining;
             _resultValue.cookieBasedAffinity = cookieBasedAffinity;

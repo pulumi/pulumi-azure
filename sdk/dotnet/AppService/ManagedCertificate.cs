@@ -21,6 +21,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -37,26 +38,29 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "example-plan",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Kind = "Linux",
     ///         Reserved = true,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Basic",
-    ///             Size = "B1",
+    ///             
+    ///             {
+    ///                 { "tier", "Basic" },
+    ///                 { "size", "B1" },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azurerm.AppService("example", new()
     ///     {
     ///         Name = "example-app",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///     });
     /// 
     ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
@@ -93,7 +97,7 @@ namespace Pulumi.Azure.AppService
     ///                 exampleCNameRecord.Name,
     ///                 exampleCNameRecord.ZoneName,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });

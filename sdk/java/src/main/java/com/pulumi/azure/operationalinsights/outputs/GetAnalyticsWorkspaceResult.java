@@ -23,6 +23,16 @@ public final class GetAnalyticsWorkspaceResult {
      * 
      */
     private String id;
+    /**
+     * @return The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+     * 
+     */
+    private String internetIngestionAccessType;
+    /**
+     * @return The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+     * 
+     */
+    private String internetQueryAccessType;
     private String location;
     private String name;
     /**
@@ -71,6 +81,20 @@ public final class GetAnalyticsWorkspaceResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+     * 
+     */
+    public String internetIngestionAccessType() {
+        return this.internetIngestionAccessType;
+    }
+    /**
+     * @return The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+     * 
+     */
+    public String internetQueryAccessType() {
+        return this.internetQueryAccessType;
     }
     public String location() {
         return this.location;
@@ -135,6 +159,8 @@ public final class GetAnalyticsWorkspaceResult {
     public static final class Builder {
         private Double dailyQuotaGb;
         private String id;
+        private String internetIngestionAccessType;
+        private String internetQueryAccessType;
         private String location;
         private String name;
         private String primarySharedKey;
@@ -149,6 +175,8 @@ public final class GetAnalyticsWorkspaceResult {
     	      Objects.requireNonNull(defaults);
     	      this.dailyQuotaGb = defaults.dailyQuotaGb;
     	      this.id = defaults.id;
+    	      this.internetIngestionAccessType = defaults.internetIngestionAccessType;
+    	      this.internetQueryAccessType = defaults.internetQueryAccessType;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.primarySharedKey = defaults.primarySharedKey;
@@ -174,6 +202,22 @@ public final class GetAnalyticsWorkspaceResult {
               throw new MissingRequiredPropertyException("GetAnalyticsWorkspaceResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder internetIngestionAccessType(String internetIngestionAccessType) {
+            if (internetIngestionAccessType == null) {
+              throw new MissingRequiredPropertyException("GetAnalyticsWorkspaceResult", "internetIngestionAccessType");
+            }
+            this.internetIngestionAccessType = internetIngestionAccessType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder internetQueryAccessType(String internetQueryAccessType) {
+            if (internetQueryAccessType == null) {
+              throw new MissingRequiredPropertyException("GetAnalyticsWorkspaceResult", "internetQueryAccessType");
+            }
+            this.internetQueryAccessType = internetQueryAccessType;
             return this;
         }
         @CustomType.Setter
@@ -252,6 +296,8 @@ public final class GetAnalyticsWorkspaceResult {
             final var _resultValue = new GetAnalyticsWorkspaceResult();
             _resultValue.dailyQuotaGb = dailyQuotaGb;
             _resultValue.id = id;
+            _resultValue.internetIngestionAccessType = internetIngestionAccessType;
+            _resultValue.internetQueryAccessType = internetQueryAccessType;
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.primarySharedKey = primarySharedKey;

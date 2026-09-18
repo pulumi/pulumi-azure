@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/arckubernetes"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/arckubernetes"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -39,8 +39,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "testdata/public.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "testdata/public.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -49,7 +49,7 @@ import (
 //				Name:                      pulumi.String("example-akcc"),
 //				ResourceGroupName:         example.Name,
 //				Location:                  pulumi.String("West Europe"),
-//				AgentPublicKeyCertificate: pulumi.String(invokeFilebase64.Result),
+//				AgentPublicKeyCertificate: invokeFilebase64.Result,
 //				Identity: &arckubernetes.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

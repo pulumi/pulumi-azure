@@ -15,40 +15,40 @@ public final class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs exten
     public static final LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs Empty = new LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs();
 
     /**
-     * Should automatic rollbacks be disabled?
+     * Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
      * 
      */
-    @Import(name="disableAutomaticRollback", required=true)
-    private Output<Boolean> disableAutomaticRollback;
+    @Import(name="automaticOsUpgradeEnabled", required=true)
+    private Output<Boolean> automaticOsUpgradeEnabled;
 
     /**
-     * @return Should automatic rollbacks be disabled?
+     * @return Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
      * 
      */
-    public Output<Boolean> disableAutomaticRollback() {
-        return this.disableAutomaticRollback;
+    public Output<Boolean> automaticOsUpgradeEnabled() {
+        return this.automaticOsUpgradeEnabled;
     }
 
     /**
-     * Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+     * Whether automatic rollbacks are enabled.
      * 
      */
-    @Import(name="enableAutomaticOsUpgrade", required=true)
-    private Output<Boolean> enableAutomaticOsUpgrade;
+    @Import(name="automaticRollbackEnabled", required=true)
+    private Output<Boolean> automaticRollbackEnabled;
 
     /**
-     * @return Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+     * @return Whether automatic rollbacks are enabled.
      * 
      */
-    public Output<Boolean> enableAutomaticOsUpgrade() {
-        return this.enableAutomaticOsUpgrade;
+    public Output<Boolean> automaticRollbackEnabled() {
+        return this.automaticRollbackEnabled;
     }
 
     private LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs() {}
 
     private LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs $) {
-        this.disableAutomaticRollback = $.disableAutomaticRollback;
-        this.enableAutomaticOsUpgrade = $.enableAutomaticOsUpgrade;
+        this.automaticOsUpgradeEnabled = $.automaticOsUpgradeEnabled;
+        this.automaticRollbackEnabled = $.automaticRollbackEnabled;
     }
 
     public static Builder builder() {
@@ -70,53 +70,53 @@ public final class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs exten
         }
 
         /**
-         * @param disableAutomaticRollback Should automatic rollbacks be disabled?
+         * @param automaticOsUpgradeEnabled Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
          * 
          * @return builder
          * 
          */
-        public Builder disableAutomaticRollback(Output<Boolean> disableAutomaticRollback) {
-            $.disableAutomaticRollback = disableAutomaticRollback;
+        public Builder automaticOsUpgradeEnabled(Output<Boolean> automaticOsUpgradeEnabled) {
+            $.automaticOsUpgradeEnabled = automaticOsUpgradeEnabled;
             return this;
         }
 
         /**
-         * @param disableAutomaticRollback Should automatic rollbacks be disabled?
+         * @param automaticOsUpgradeEnabled Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
          * 
          * @return builder
          * 
          */
-        public Builder disableAutomaticRollback(Boolean disableAutomaticRollback) {
-            return disableAutomaticRollback(Output.of(disableAutomaticRollback));
+        public Builder automaticOsUpgradeEnabled(Boolean automaticOsUpgradeEnabled) {
+            return automaticOsUpgradeEnabled(Output.of(automaticOsUpgradeEnabled));
         }
 
         /**
-         * @param enableAutomaticOsUpgrade Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+         * @param automaticRollbackEnabled Whether automatic rollbacks are enabled.
          * 
          * @return builder
          * 
          */
-        public Builder enableAutomaticOsUpgrade(Output<Boolean> enableAutomaticOsUpgrade) {
-            $.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+        public Builder automaticRollbackEnabled(Output<Boolean> automaticRollbackEnabled) {
+            $.automaticRollbackEnabled = automaticRollbackEnabled;
             return this;
         }
 
         /**
-         * @param enableAutomaticOsUpgrade Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+         * @param automaticRollbackEnabled Whether automatic rollbacks are enabled.
          * 
          * @return builder
          * 
          */
-        public Builder enableAutomaticOsUpgrade(Boolean enableAutomaticOsUpgrade) {
-            return enableAutomaticOsUpgrade(Output.of(enableAutomaticOsUpgrade));
+        public Builder automaticRollbackEnabled(Boolean automaticRollbackEnabled) {
+            return automaticRollbackEnabled(Output.of(automaticRollbackEnabled));
         }
 
         public LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs build() {
-            if ($.disableAutomaticRollback == null) {
-                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "disableAutomaticRollback");
+            if ($.automaticOsUpgradeEnabled == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "automaticOsUpgradeEnabled");
             }
-            if ($.enableAutomaticOsUpgrade == null) {
-                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "enableAutomaticOsUpgrade");
+            if ($.automaticRollbackEnabled == null) {
+                throw new MissingRequiredPropertyException("LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs", "automaticRollbackEnabled");
             }
             return $;
         }

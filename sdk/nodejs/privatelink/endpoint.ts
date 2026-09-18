@@ -165,8 +165,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
  *     name: "example-link",
- *     resourceGroupName: example.name,
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
  * ```

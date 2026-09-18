@@ -24,11 +24,9 @@ class ExpressRouteConnectionArgs:
                  express_route_circuit_peering_id: pulumi.Input[_builtins.str],
                  express_route_gateway_id: pulumi.Input[_builtins.str],
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_gateway_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  routing: pulumi.Input[Optional['ExpressRouteConnectionRoutingArgs']] = None,
                  routing_weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
@@ -47,22 +45,12 @@ class ExpressRouteConnectionArgs:
         pulumi.set(__self__, "express_route_gateway_id", express_route_gateway_id)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if enable_internet_security is not None:
-            warnings.warn("""the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_internet_security is deprecated: the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
         if express_route_gateway_bypass_enabled is not None:
             pulumi.set(__self__, "express_route_gateway_bypass_enabled", express_route_gateway_bypass_enabled)
         if internet_security_enabled is not None:
             pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if private_link_fast_path_enabled is not None:
-            warnings.warn("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_link_fast_path_enabled is deprecated: `private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
-        if private_link_fast_path_enabled is not None:
-            pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if routing_weight is not None:
@@ -105,16 +93,6 @@ class ExpressRouteConnectionArgs:
         pulumi.set(self, "authorization_key", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableInternetSecurity")
-    @_utilities.deprecated("""the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_internet_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_internet_security")
-
-    @enable_internet_security.setter
-    def enable_internet_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_internet_security", value)
-
-    @_builtins.property
     @pulumi.getter(name="expressRouteGatewayBypassEnabled")
     def express_route_gateway_bypass_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -151,16 +129,6 @@ class ExpressRouteConnectionArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="privateLinkFastPathEnabled")
-    @_utilities.deprecated("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
-    def private_link_fast_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "private_link_fast_path_enabled")
-
-    @private_link_fast_path_enabled.setter
-    def private_link_fast_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "private_link_fast_path_enabled", value)
-
-    @_builtins.property
     @pulumi.getter
     def routing(self) -> pulumi.Input[Optional['ExpressRouteConnectionRoutingArgs']]:
         """
@@ -189,13 +157,11 @@ class ExpressRouteConnectionArgs:
 class _ExpressRouteConnectionState:
     def __init__(__self__, *,
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  routing: pulumi.Input[Optional['ExpressRouteConnectionRoutingArgs']] = None,
                  routing_weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
@@ -212,11 +178,6 @@ class _ExpressRouteConnectionState:
         """
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
-        if enable_internet_security is not None:
-            warnings.warn("""the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_internet_security is deprecated: the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_internet_security is not None:
-            pulumi.set(__self__, "enable_internet_security", enable_internet_security)
         if express_route_circuit_peering_id is not None:
             pulumi.set(__self__, "express_route_circuit_peering_id", express_route_circuit_peering_id)
         if express_route_gateway_bypass_enabled is not None:
@@ -227,11 +188,6 @@ class _ExpressRouteConnectionState:
             pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if private_link_fast_path_enabled is not None:
-            warnings.warn("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_link_fast_path_enabled is deprecated: `private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
-        if private_link_fast_path_enabled is not None:
-            pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if routing_weight is not None:
@@ -248,16 +204,6 @@ class _ExpressRouteConnectionState:
     @authorization_key.setter
     def authorization_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authorization_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableInternetSecurity")
-    @_utilities.deprecated("""the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_internet_security(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_internet_security")
-
-    @enable_internet_security.setter
-    def enable_internet_security(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_internet_security", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitPeeringId")
@@ -320,16 +266,6 @@ class _ExpressRouteConnectionState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="privateLinkFastPathEnabled")
-    @_utilities.deprecated("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
-    def private_link_fast_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "private_link_fast_path_enabled")
-
-    @private_link_fast_path_enabled.setter
-    def private_link_fast_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "private_link_fast_path_enabled", value)
-
-    @_builtins.property
     @pulumi.getter
     def routing(self) -> pulumi.Input[Optional['ExpressRouteConnectionRoutingArgs']]:
         """
@@ -361,13 +297,11 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
                  routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -560,13 +494,11 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_circuit_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_gateway_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
                  routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -579,7 +511,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
-            __props__.__dict__["enable_internet_security"] = enable_internet_security
             if express_route_circuit_peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_peering_id'")
             __props__.__dict__["express_route_circuit_peering_id"] = express_route_circuit_peering_id
@@ -589,7 +520,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
             __props__.__dict__["internet_security_enabled"] = internet_security_enabled
             __props__.__dict__["name"] = name
-            __props__.__dict__["private_link_fast_path_enabled"] = private_link_fast_path_enabled
             __props__.__dict__["routing"] = routing
             __props__.__dict__["routing_weight"] = routing_weight
         super(ExpressRouteConnection, __self__).__init__(
@@ -603,13 +533,11 @@ class ExpressRouteConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-            enable_internet_security: pulumi.Input[Optional[_builtins.bool]] = None,
             express_route_circuit_peering_id: pulumi.Input[Optional[_builtins.str]] = None,
             express_route_gateway_bypass_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             express_route_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
             routing_weight: pulumi.Input[Optional[_builtins.int]] = None) -> 'ExpressRouteConnection':
         """
@@ -633,13 +561,11 @@ class ExpressRouteConnection(pulumi.CustomResource):
         __props__ = _ExpressRouteConnectionState.__new__(_ExpressRouteConnectionState)
 
         __props__.__dict__["authorization_key"] = authorization_key
-        __props__.__dict__["enable_internet_security"] = enable_internet_security
         __props__.__dict__["express_route_circuit_peering_id"] = express_route_circuit_peering_id
         __props__.__dict__["express_route_gateway_bypass_enabled"] = express_route_gateway_bypass_enabled
         __props__.__dict__["express_route_gateway_id"] = express_route_gateway_id
         __props__.__dict__["internet_security_enabled"] = internet_security_enabled
         __props__.__dict__["name"] = name
-        __props__.__dict__["private_link_fast_path_enabled"] = private_link_fast_path_enabled
         __props__.__dict__["routing"] = routing
         __props__.__dict__["routing_weight"] = routing_weight
         return ExpressRouteConnection(resource_name, opts=opts, __props__=__props__)
@@ -651,12 +577,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
         The authorization key to establish the Express Route Connection.
         """
         return pulumi.get(self, "authorization_key")
-
-    @_builtins.property
-    @pulumi.getter(name="enableInternetSecurity")
-    @_utilities.deprecated("""the `enable_internet_security` property has been deprecated in favour of the `internet_security_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_internet_security(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_internet_security")
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitPeeringId")
@@ -684,7 +604,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="internetSecurityEnabled")
-    def internet_security_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def internet_security_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Is Internet security enabled for this Express Route Connection? Defaults to `false`.
         """
@@ -697,12 +617,6 @@ class ExpressRouteConnection(pulumi.CustomResource):
         The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkFastPathEnabled")
-    @_utilities.deprecated("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
-    def private_link_fast_path_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        return pulumi.get(self, "private_link_fast_path_enabled")
 
     @_builtins.property
     @pulumi.getter

@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Nginx
     ///     }
     /// }
     /// ",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///                 VirtualPath = "/etc/nginx/nginx.conf",
     ///             },
     ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
@@ -140,7 +140,7 @@ namespace Pulumi.Azure.Nginx
     ///  &lt;/body&gt;&lt;/html&gt;';
     /// }
     /// ",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///                 VirtualPath = "/etc/nginx/site/b.conf",
     ///             },
     ///         },

@@ -104,9 +104,9 @@ export interface GetVolumeResult {
      */
     readonly location: string;
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      */
-    readonly mountIpAddresses: string[];
+    readonly mountTargets: outputs.netapp.GetVolumeMountTarget[];
     readonly name: string;
     /**
      * Network features in use `Basic` or `Standard`.

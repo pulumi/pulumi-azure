@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,9 +70,13 @@ type LookupAnalyticsWorkspaceResult struct {
 	// The workspace daily quota for ingestion in GB.
 	DailyQuotaGb float64 `pulumi:"dailyQuotaGb"`
 	// The provider-assigned unique ID for this managed resource.
-	Id       string `pulumi:"id"`
-	Location string `pulumi:"location"`
-	Name     string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+	InternetIngestionAccessType string `pulumi:"internetIngestionAccessType"`
+	// The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+	InternetQueryAccessType string `pulumi:"internetQueryAccessType"`
+	Location                string `pulumi:"location"`
+	Name                    string `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey  string `pulumi:"primarySharedKey"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -128,6 +132,16 @@ func (o LookupAnalyticsWorkspaceResultOutput) DailyQuotaGb() pulumi.Float64Outpu
 // The provider-assigned unique ID for this managed resource.
 func (o LookupAnalyticsWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+func (o LookupAnalyticsWorkspaceResultOutput) InternetIngestionAccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.InternetIngestionAccessType }).(pulumi.StringOutput)
+}
+
+// The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+func (o LookupAnalyticsWorkspaceResultOutput) InternetQueryAccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAnalyticsWorkspaceResult) string { return v.InternetQueryAccessType }).(pulumi.StringOutput)
 }
 
 func (o LookupAnalyticsWorkspaceResultOutput) Location() pulumi.StringOutput {

@@ -239,8 +239,8 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
      * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
-    @Import(name="microsoftAppType")
-    private @Nullable Output<String> microsoftAppType;
+    @Import(name="microsoftAppType", required=true)
+    private Output<String> microsoftAppType;
 
     /**
      * @return The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
@@ -248,8 +248,8 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
      * &gt; **Note:** Creation of `azure.bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
-    public Optional<Output<String>> microsoftAppType() {
-        return Optional.ofNullable(this.microsoftAppType);
+    public Output<String> microsoftAppType() {
+        return this.microsoftAppType;
     }
 
     /**
@@ -702,7 +702,7 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder microsoftAppType(@Nullable Output<String> microsoftAppType) {
+        public Builder microsoftAppType(Output<String> microsoftAppType) {
             $.microsoftAppType = microsoftAppType;
             return this;
         }
@@ -848,6 +848,9 @@ public final class ServiceAzureBotArgs extends com.pulumi.resources.ResourceArgs
         public ServiceAzureBotArgs build() {
             if ($.microsoftAppId == null) {
                 throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "microsoftAppId");
+            }
+            if ($.microsoftAppType == null) {
+                throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "microsoftAppType");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ServiceAzureBotArgs", "resourceGroupName");

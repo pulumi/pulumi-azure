@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  * 
  * ## Import
  * 
@@ -120,7 +120,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enclaveType", refs={String.class}, tree="[0]")
-    private Output<String> enclaveType;
+    private Output</* @Nullable */ String> enclaveType;
 
     /**
      * @return Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the elastic pool. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
@@ -132,8 +132,8 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The default value for `enclaveType` field is unset not `Default`.
      * 
      */
-    public Output<String> enclaveType() {
-        return this.enclaveType;
+    public Output<Optional<String>> enclaveType() {
+        return Codegen.optional(this.enclaveType);
     }
     /**
      * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.

@@ -95,7 +95,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account used by this Log Analytics Storage Insights.
+        /// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string> StorageAccountId { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Storage Account used by this Log Analytics Storage Insights.
+        /// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the Storage Account used by this Log Analytics Storage Insights.
+        /// The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

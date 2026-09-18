@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/postgresql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/postgresql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,10 @@ import (
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Storage"),
+//				ServiceEndpoints: network.SubnetServiceEndpointArray{
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Storage"),
+//					},
 //				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
@@ -82,10 +84,9 @@ import (
 //				return err
 //			}
 //			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("exampleVnetZone.com"),
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//				ResourceGroupName:  example.Name,
+//				Name:             pulumi.String("exampleVnetZone.com"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleSubnet,
 //			}))
@@ -158,7 +159,7 @@ type FlexibleServer struct {
 
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringOutput `pulumi:"administratorLogin"`
@@ -288,7 +289,7 @@ func GetFlexibleServer(ctx *pulumi.Context,
 type flexibleServerState struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
@@ -379,7 +380,7 @@ type flexibleServerState struct {
 type FlexibleServerState struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringPtrInput
@@ -474,7 +475,7 @@ func (FlexibleServerState) ElementType() reflect.Type {
 type flexibleServerArgs struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
@@ -564,7 +565,7 @@ type flexibleServerArgs struct {
 type FlexibleServerArgs struct {
 	// The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 	//
-	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+	// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 	//
 	// > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 	AdministratorLogin pulumi.StringPtrInput
@@ -739,7 +740,7 @@ func (o FlexibleServerOutput) ToFlexibleServerOutputWithContext(ctx context.Cont
 
 // The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
 //
-// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+// > **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
 //
 // > **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
 func (o FlexibleServerOutput) AdministratorLogin() pulumi.StringOutput {

@@ -478,7 +478,6 @@ class _FlexibleServerState:
                  point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  replication_role: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -576,8 +575,6 @@ class _FlexibleServerState:
             pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
-        if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if replica_capacity is not None:
             pulumi.set(__self__, "replica_capacity", replica_capacity)
         if replication_role is not None:
@@ -816,15 +813,6 @@ class _FlexibleServerState:
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
-    @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "public_network_access_enabled")
-
-    @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "public_network_access_enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -996,7 +984,9 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }],
             delegations=[{
                 "name": "fs",
                 "service_delegation": {
@@ -1009,9 +999,8 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name)
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="exampleVnetZone.com",
-            private_dns_zone_name=example_zone.name,
-            virtual_network_id=example_virtual_network.id,
-            resource_group_name=example.name)
+            private_dns_zone_id=example_zone.id,
+            virtual_network_id=example_virtual_network.id)
         example_flexible_server = azure.mysql.FlexibleServer("example",
             name="example-fs",
             resource_group_name=example.name,
@@ -1120,7 +1109,9 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }],
             delegations=[{
                 "name": "fs",
                 "service_delegation": {
@@ -1133,9 +1124,8 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name)
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="exampleVnetZone.com",
-            private_dns_zone_name=example_zone.name,
-            virtual_network_id=example_virtual_network.id,
-            resource_group_name=example.name)
+            private_dns_zone_id=example_zone.id,
+            virtual_network_id=example_virtual_network.id)
         example_flexible_server = azure.mysql.FlexibleServer("example",
             name="example-fs",
             resource_group_name=example.name,
@@ -1240,7 +1230,6 @@ class FlexibleServer(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["zone"] = zone
             __props__.__dict__["fqdn"] = None
-            __props__.__dict__["public_network_access_enabled"] = None
             __props__.__dict__["replica_capacity"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -1271,7 +1260,6 @@ class FlexibleServer(pulumi.CustomResource):
             point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
             private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
-            public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             replica_capacity: pulumi.Input[Optional[_builtins.int]] = None,
             replication_role: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1360,7 +1348,6 @@ class FlexibleServer(pulumi.CustomResource):
         __props__.__dict__["point_in_time_restore_time_in_utc"] = point_in_time_restore_time_in_utc
         __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["public_network_access"] = public_network_access
-        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["replica_capacity"] = replica_capacity
         __props__.__dict__["replication_role"] = replication_role
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -1521,11 +1508,6 @@ class FlexibleServer(pulumi.CustomResource):
         > **Note:** `public_network_access` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegated_subnet_id` and `private_dns_zone_id`").
         """
         return pulumi.get(self, "public_network_access")
-
-    @_builtins.property
-    @pulumi.getter(name="publicNetworkAccessEnabled")
-    def public_network_access_enabled(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "public_network_access_enabled")
 
     @_builtins.property
     @pulumi.getter(name="replicaCapacity")

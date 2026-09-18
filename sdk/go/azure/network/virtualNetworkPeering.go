@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,8 +92,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
@@ -150,10 +150,10 @@ import (
 // }
 // vnet = append(vnet, __res)
 // }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: vnet[val0].AddressSpace[val0],
-// Newbits: 13,
-// Netnum: 0,
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, map[string]interface{}{
+// "input": vnet[val0].AddressSpace[val0],
+// "newbits": 13,
+// "netnum": 0,
 // }, nil)
 // if err != nil {
 // return err
@@ -210,8 +210,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -248,18 +248,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ",",
+//				"input":     example_2.AddressSpaces,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = network.NewVirtualNetworkPeering(ctx, "example-1", &network.VirtualNetworkPeeringArgs{
 //				Name:                   pulumi.String("peer1to2"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_1.Name,
 //				RemoteVirtualNetworkId: example_2.ID().ToIDOutput().ToStringOutput(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
-//						Separator: pulumi.String(","),
-//						Input:     example_2.AddressSpaces,
-//					}, nil).Result(),
+//					"remote_address_space": invokeJoin.Result,
 //				},
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeJoin1, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ",",
+//				"input":     example_1.AddressSpaces,
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -269,10 +280,7 @@ import (
 //				VirtualNetworkName:     example_2.Name,
 //				RemoteVirtualNetworkId: example_1.ID().ToIDOutput().ToStringOutput(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
-//						Separator: pulumi.String(","),
-//						Input:     example_1.AddressSpaces,
-//					}, nil).Result(),
+//					"remote_address_space": invokeJoin1.Result,
 //				},
 //			})
 //			if err != nil {

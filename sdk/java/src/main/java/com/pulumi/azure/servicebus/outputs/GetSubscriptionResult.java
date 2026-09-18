@@ -9,8 +9,6 @@ import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSubscriptionResult {
@@ -39,7 +37,6 @@ public final class GetSubscriptionResult {
      * 
      */
     private String defaultMessageTtl;
-    private Boolean enableBatchedOperations;
     /**
      * @return The name of a Queue or Topic to automatically forward Dead Letter messages to.
      * 
@@ -67,32 +64,11 @@ public final class GetSubscriptionResult {
     private Integer maxDeliveryCount;
     private String name;
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    private @Nullable String namespaceName;
-    /**
      * @return Whether this ServiceBus Subscription supports session.
      * 
      */
     private Boolean requiresSession;
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    private @Nullable String resourceGroupName;
-    private @Nullable String topicId;
-    /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    private @Nullable String topicName;
+    private String topicId;
 
     private GetSubscriptionResult() {}
     /**
@@ -129,9 +105,6 @@ public final class GetSubscriptionResult {
      */
     public String defaultMessageTtl() {
         return this.defaultMessageTtl;
-    }
-    public Boolean enableBatchedOperations() {
-        return this.enableBatchedOperations;
     }
     /**
      * @return The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -172,41 +145,14 @@ public final class GetSubscriptionResult {
         return this.name;
     }
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
-    }
-    /**
      * @return Whether this ServiceBus Subscription supports session.
      * 
      */
     public Boolean requiresSession() {
         return this.requiresSession;
     }
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-    public Optional<String> topicId() {
-        return Optional.ofNullable(this.topicId);
-    }
-    /**
-     * @deprecated
-     * `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider. */
-    public Optional<String> topicName() {
-        return Optional.ofNullable(this.topicName);
+    public String topicId() {
+        return this.topicId;
     }
 
     public static Builder builder() {
@@ -223,18 +169,14 @@ public final class GetSubscriptionResult {
         private Boolean deadLetteringOnFilterEvaluationError;
         private Boolean deadLetteringOnMessageExpiration;
         private String defaultMessageTtl;
-        private Boolean enableBatchedOperations;
         private String forwardDeadLetteredMessagesTo;
         private String forwardTo;
         private String id;
         private String lockDuration;
         private Integer maxDeliveryCount;
         private String name;
-        private @Nullable String namespaceName;
         private Boolean requiresSession;
-        private @Nullable String resourceGroupName;
-        private @Nullable String topicId;
-        private @Nullable String topicName;
+        private String topicId;
         public Builder() {}
         public Builder(GetSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -243,18 +185,14 @@ public final class GetSubscriptionResult {
     	      this.deadLetteringOnFilterEvaluationError = defaults.deadLetteringOnFilterEvaluationError;
     	      this.deadLetteringOnMessageExpiration = defaults.deadLetteringOnMessageExpiration;
     	      this.defaultMessageTtl = defaults.defaultMessageTtl;
-    	      this.enableBatchedOperations = defaults.enableBatchedOperations;
     	      this.forwardDeadLetteredMessagesTo = defaults.forwardDeadLetteredMessagesTo;
     	      this.forwardTo = defaults.forwardTo;
     	      this.id = defaults.id;
     	      this.lockDuration = defaults.lockDuration;
     	      this.maxDeliveryCount = defaults.maxDeliveryCount;
     	      this.name = defaults.name;
-    	      this.namespaceName = defaults.namespaceName;
     	      this.requiresSession = defaults.requiresSession;
-    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.topicId = defaults.topicId;
-    	      this.topicName = defaults.topicName;
         }
 
         @CustomType.Setter
@@ -295,14 +233,6 @@ public final class GetSubscriptionResult {
               throw new MissingRequiredPropertyException("GetSubscriptionResult", "defaultMessageTtl");
             }
             this.defaultMessageTtl = defaultMessageTtl;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
-            if (enableBatchedOperations == null) {
-              throw new MissingRequiredPropertyException("GetSubscriptionResult", "enableBatchedOperations");
-            }
-            this.enableBatchedOperations = enableBatchedOperations;
             return this;
         }
         @CustomType.Setter
@@ -354,12 +284,6 @@ public final class GetSubscriptionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceName(@Nullable String namespaceName) {
-
-            this.namespaceName = namespaceName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder requiresSession(Boolean requiresSession) {
             if (requiresSession == null) {
               throw new MissingRequiredPropertyException("GetSubscriptionResult", "requiresSession");
@@ -368,21 +292,11 @@ public final class GetSubscriptionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-
-            this.resourceGroupName = resourceGroupName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder topicId(@Nullable String topicId) {
-
+        public Builder topicId(String topicId) {
+            if (topicId == null) {
+              throw new MissingRequiredPropertyException("GetSubscriptionResult", "topicId");
+            }
             this.topicId = topicId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder topicName(@Nullable String topicName) {
-
-            this.topicName = topicName;
             return this;
         }
         public GetSubscriptionResult build() {
@@ -392,18 +306,14 @@ public final class GetSubscriptionResult {
             _resultValue.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
             _resultValue.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             _resultValue.defaultMessageTtl = defaultMessageTtl;
-            _resultValue.enableBatchedOperations = enableBatchedOperations;
             _resultValue.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             _resultValue.forwardTo = forwardTo;
             _resultValue.id = id;
             _resultValue.lockDuration = lockDuration;
             _resultValue.maxDeliveryCount = maxDeliveryCount;
             _resultValue.name = name;
-            _resultValue.namespaceName = namespaceName;
             _resultValue.requiresSession = requiresSession;
-            _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.topicId = topicId;
-            _resultValue.topicName = topicName;
             return _resultValue;
         }
     }

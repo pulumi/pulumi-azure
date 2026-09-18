@@ -261,14 +261,14 @@ public class ExadataInfrastructure extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> zones;
+    private Output</* @Nullable */ List<String>> zones;
 
     /**
      * @return Cloud Exadata Infrastructure zones. Changing this forces a new Cloud Exadata Infrastructure to be created.
      * 
      */
-    public Output<List<String>> zones() {
-        return this.zones;
+    public Output<Optional<List<String>>> zones() {
+        return Codegen.optional(this.zones);
     }
 
     /**

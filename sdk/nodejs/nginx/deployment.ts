@@ -127,10 +127,6 @@ export class Deployment extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dataplaneApiEndpoint: pulumi.Output<string>;
     /**
-     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     */
-    declare public readonly diagnoseSupportEnabled: pulumi.Output<boolean | undefined>;
-    /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      */
     declare public readonly email: pulumi.Output<string | undefined>;
@@ -154,14 +150,6 @@ export class Deployment extends pulumi.CustomResource {
      * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     declare public readonly location: pulumi.Output<string>;
-    /**
-     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-     */
-    declare public readonly loggingStorageAccounts: pulumi.Output<outputs.nginx.DeploymentLoggingStorageAccount[] | undefined>;
-    /**
-     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     */
-    declare public readonly managedResourceGroup: pulumi.Output<string>;
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      */
@@ -212,15 +200,12 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["automaticUpgradeChannel"] = state?.automaticUpgradeChannel;
             resourceInputs["capacity"] = state?.capacity;
             resourceInputs["dataplaneApiEndpoint"] = state?.dataplaneApiEndpoint;
-            resourceInputs["diagnoseSupportEnabled"] = state?.diagnoseSupportEnabled;
             resourceInputs["email"] = state?.email;
             resourceInputs["frontendPrivates"] = state?.frontendPrivates;
             resourceInputs["frontendPublic"] = state?.frontendPublic;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["ipAddress"] = state?.ipAddress;
             resourceInputs["location"] = state?.location;
-            resourceInputs["loggingStorageAccounts"] = state?.loggingStorageAccounts;
-            resourceInputs["managedResourceGroup"] = state?.managedResourceGroup;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkInterfaces"] = state?.networkInterfaces;
             resourceInputs["nginxVersion"] = state?.nginxVersion;
@@ -239,14 +224,11 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["autoScaleProfiles"] = args?.autoScaleProfiles;
             resourceInputs["automaticUpgradeChannel"] = args?.automaticUpgradeChannel;
             resourceInputs["capacity"] = args?.capacity;
-            resourceInputs["diagnoseSupportEnabled"] = args?.diagnoseSupportEnabled;
             resourceInputs["email"] = args?.email;
             resourceInputs["frontendPrivates"] = args?.frontendPrivates;
             resourceInputs["frontendPublic"] = args?.frontendPublic;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["loggingStorageAccounts"] = args?.loggingStorageAccounts;
-            resourceInputs["managedResourceGroup"] = args?.managedResourceGroup;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkInterfaces"] = args?.networkInterfaces;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -285,10 +267,6 @@ export interface DeploymentState {
      */
     dataplaneApiEndpoint?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     */
-    diagnoseSupportEnabled?: pulumi.Input<boolean | undefined>;
-    /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      */
     email?: pulumi.Input<string | undefined>;
@@ -312,14 +290,6 @@ export interface DeploymentState {
      * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     location?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-     */
-    loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[] | undefined>;
-    /**
-     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     */
-    managedResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      */
@@ -373,10 +343,6 @@ export interface DeploymentArgs {
      */
     capacity?: pulumi.Input<number | undefined>;
     /**
-     * @deprecated this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-     */
-    diagnoseSupportEnabled?: pulumi.Input<boolean | undefined>;
-    /**
      * Specify the preferred support contact email address for receiving alerts and notifications.
      */
     email?: pulumi.Input<string | undefined>;
@@ -396,14 +362,6 @@ export interface DeploymentArgs {
      * The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
      */
     location?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `azure.monitoring.DiagnosticSetting` resource instead.
-     */
-    loggingStorageAccounts?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentLoggingStorageAccount>[] | undefined>;
-    /**
-     * @deprecated The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-     */
-    managedResourceGroup?: pulumi.Input<string | undefined>;
     /**
      * The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      */

@@ -243,7 +243,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -252,7 +252,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     private @Nullable Output<String> minimumTlsVersion;
 
     /**
-     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * @return The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -277,14 +277,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
      * 
      */
     @Import(name="proxyOverride")
     private @Nullable Output<String> proxyOverride;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+     * @return Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
      * 
      */
     public Optional<Output<String>> proxyOverride() {
@@ -842,7 +842,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * @param minimumTlsVersion The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -855,7 +855,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param minimumTlsVersion The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+         * @param minimumTlsVersion The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -888,7 +888,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
          * 
          * @return builder
          * 
@@ -899,7 +899,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+         * @param proxyOverride Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
          * 
          * @return builder
          * 

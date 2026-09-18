@@ -73,10 +73,6 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly defaultLocalNetworkGatewayId: string;
     /**
-     * @deprecated  the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in 5.0 of the AzureRM provider
-     */
-    readonly enableBgp: boolean;
-    /**
      * The Generation of the Virtual Network Gateway.
      */
     readonly generation: string;

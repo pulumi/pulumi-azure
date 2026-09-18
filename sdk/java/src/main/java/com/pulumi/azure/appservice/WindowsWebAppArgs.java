@@ -412,7 +412,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether traffic for the image pull should be routed over the virtual network.
+     * Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
      * 
      * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
      * 
@@ -421,7 +421,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> virtualNetworkImagePullEnabled;
 
     /**
-     * @return Whether traffic for the image pull should be routed over the virtual network.
+     * @return Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
      * 
      * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
      * 
@@ -1099,7 +1099,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkImagePullEnabled Whether traffic for the image pull should be routed over the virtual network.
+         * @param virtualNetworkImagePullEnabled Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
          * 
          * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
          * 
@@ -1112,7 +1112,7 @@ public final class WindowsWebAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkImagePullEnabled Whether traffic for the image pull should be routed over the virtual network.
+         * @param virtualNetworkImagePullEnabled Whether traffic for the image pull should be routed over the virtual network. Defaults to `false`.
          * 
          * &gt; **Note:** `virtualNetworkImagePullEnabled` must be set to `true` when running in an App Service Environment.
          * 
