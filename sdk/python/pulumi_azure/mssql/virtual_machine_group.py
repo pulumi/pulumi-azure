@@ -268,7 +268,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
                  sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
                  sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None,
+                 wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict', 'outputs.VirtualMachineGroupWsfcDomainProfile']]] = None,
                  __props__=None):
         """
         Manages a Microsoft SQL Virtual Machine Group.
@@ -318,7 +318,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sql_image_offer: The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sql_image_sku: The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
-        :param pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']] wsfc_domain_profile: A `wsfc_domain_profile` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict', 'outputs.VirtualMachineGroupWsfcDomainProfile']] wsfc_domain_profile: A `wsfc_domain_profile` block as defined below.
         """
         ...
     @overload
@@ -387,7 +387,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
                  sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
                  sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None,
+                 wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict', 'outputs.VirtualMachineGroupWsfcDomainProfile']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,7 +428,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
             sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
             sql_image_sku: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']]] = None) -> 'VirtualMachineGroup':
+            wsfc_domain_profile: pulumi.Input[Optional[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict', 'outputs.VirtualMachineGroupWsfcDomainProfile']]] = None) -> 'VirtualMachineGroup':
         """
         Get an existing VirtualMachineGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -442,7 +442,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sql_image_offer: The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sql_image_sku: The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group.
-        :param pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict']] wsfc_domain_profile: A `wsfc_domain_profile` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineGroupWsfcDomainProfileArgs', 'VirtualMachineGroupWsfcDomainProfileArgsDict', 'outputs.VirtualMachineGroupWsfcDomainProfile']] wsfc_domain_profile: A `wsfc_domain_profile` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

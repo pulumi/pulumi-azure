@@ -399,14 +399,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict', 'outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]]]] = None,
                  connected_group_address_overlap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  connected_group_private_endpoints_scale: pulumi.Input[Optional[_builtins.str]] = None,
                  connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
+                 hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict', 'outputs.NetworkManagerConnectivityConfigurationHub']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -488,7 +488,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict', 'outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[_builtins.bool] connected_group_address_overlap_enabled: Whether connected group address overlap is enabled. Defaults to `true`.
                
                > **Note:** Changing `connected_group_address_overlap_enabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
@@ -497,7 +497,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[_builtins.str] description: A description of the Connectivity Configuration.
         :param pulumi.Input[_builtins.bool] global_mesh_enabled: Indicates whether to global mesh is supported. Possible values are `true` and `false`.
-        :param pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']] hub: A `hub` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict', 'outputs.NetworkManagerConnectivityConfigurationHub']] hub: A `hub` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[_builtins.bool] peering_enforcement_enabled: Whether peering enforcement is enabled. Defaults to `false`.
@@ -598,14 +598,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
+                 applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict', 'outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]]]] = None,
                  connected_group_address_overlap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  connected_group_private_endpoints_scale: pulumi.Input[Optional[_builtins.str]] = None,
                  connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
+                 hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict', 'outputs.NetworkManagerConnectivityConfigurationHub']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -645,14 +645,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
+            applies_to_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict', 'outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]]]] = None,
             connected_group_address_overlap_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             connected_group_private_endpoints_scale: pulumi.Input[Optional[_builtins.str]] = None,
             connectivity_topology: pulumi.Input[Optional[_builtins.str]] = None,
             delete_existing_peering_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             global_mesh_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
+            hub: pulumi.Input[Optional[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict', 'outputs.NetworkManagerConnectivityConfigurationHub']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
             peering_enforcement_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'NetworkManagerConnectivityConfiguration':
@@ -663,7 +663,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict', 'outputs.NetworkManagerConnectivityConfigurationAppliesToGroup']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[_builtins.bool] connected_group_address_overlap_enabled: Whether connected group address overlap is enabled. Defaults to `true`.
                
                > **Note:** Changing `connected_group_address_overlap_enabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
@@ -672,7 +672,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[_builtins.str] description: A description of the Connectivity Configuration.
         :param pulumi.Input[_builtins.bool] global_mesh_enabled: Indicates whether to global mesh is supported. Possible values are `true` and `false`.
-        :param pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']] hub: A `hub` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict', 'outputs.NetworkManagerConnectivityConfigurationHub']] hub: A `hub` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[_builtins.str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[_builtins.bool] peering_enforcement_enabled: Whether peering enforcement is enabled. Defaults to `false`.

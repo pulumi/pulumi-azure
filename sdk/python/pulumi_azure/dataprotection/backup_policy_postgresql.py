@@ -266,7 +266,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict', 'outputs.BackupPolicyPostgresqlRetentionRule']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -353,7 +353,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict', 'outputs.BackupPolicyPostgresqlRetentionRule']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
@@ -459,7 +459,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict', 'outputs.BackupPolicyPostgresqlRetentionRule']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -500,7 +500,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict', 'outputs.BackupPolicyPostgresqlRetentionRule']]]]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None,
             vault_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicyPostgresql':
         """
@@ -514,7 +514,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict', 'outputs.BackupPolicyPostgresqlRetentionRule']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[_builtins.str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """

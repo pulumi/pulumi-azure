@@ -614,7 +614,7 @@ class HostPool(pulumi.CustomResource):
                  preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
+                 scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict', 'outputs.HostPoolScheduledAgentUpdates']]] = None,
                  start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -684,7 +684,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[_builtins.str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        :param pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict', 'outputs.HostPoolScheduledAgentUpdates']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[_builtins.bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
@@ -768,7 +768,7 @@ class HostPool(pulumi.CustomResource):
                  preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
+                 scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict', 'outputs.HostPoolScheduledAgentUpdates']]] = None,
                  start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -827,7 +827,7 @@ class HostPool(pulumi.CustomResource):
             preferred_app_group_type: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
+            scheduled_agent_updates: pulumi.Input[Optional[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict', 'outputs.HostPoolScheduledAgentUpdates']]] = None,
             start_vm_on_connect: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -856,7 +856,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[_builtins.str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        :param pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict', 'outputs.HostPoolScheduledAgentUpdates']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[_builtins.bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.

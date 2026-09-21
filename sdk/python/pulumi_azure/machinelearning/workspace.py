@@ -872,21 +872,21 @@ class Workspace(pulumi.CustomResource):
                  application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict']]] = None,
-                 feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict', 'outputs.WorkspaceEncryption']]] = None,
+                 feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict', 'outputs.WorkspaceFeatureStore']]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_business_impact: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
                  image_build_compute_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']]] = None,
+                 managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict', 'outputs.WorkspaceManagedNetwork']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
+                 serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict', 'outputs.WorkspaceServerlessCompute']]] = None,
                  service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1030,23 +1030,23 @@ class Workspace(pulumi.CustomResource):
                
                > **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[_builtins.str] description: The description of this Machine Learning Workspace.
-        :param pulumi.Input[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict']] feature_store: A `feature_store` block as defined below.
+        :param pulumi.Input[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict', 'outputs.WorkspaceEncryption']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict', 'outputs.WorkspaceFeatureStore']] feature_store: A `feature_store` block as defined below.
         :param pulumi.Input[_builtins.str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[_builtins.bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kind: The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']] managed_network: A `managed_network` block as defined below.
+        :param pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict', 'outputs.WorkspaceManagedNetwork']] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
                
                > **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']] serverless_compute: A `serverless_compute` block as defined below.
+        :param pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict', 'outputs.WorkspaceServerlessCompute']] serverless_compute: A `serverless_compute` block as defined below.
         :param pulumi.Input[_builtins.bool] service_side_encryption_enabled: Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
                
                > **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
@@ -1211,21 +1211,21 @@ class Workspace(pulumi.CustomResource):
                  application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict']]] = None,
-                 feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict', 'outputs.WorkspaceEncryption']]] = None,
+                 feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict', 'outputs.WorkspaceFeatureStore']]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_business_impact: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
                  image_build_compute_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']]] = None,
+                 managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict', 'outputs.WorkspaceManagedNetwork']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
+                 serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict', 'outputs.WorkspaceServerlessCompute']]] = None,
                  service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1291,21 +1291,21 @@ class Workspace(pulumi.CustomResource):
             container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict']]] = None,
-            feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict', 'outputs.WorkspaceEncryption']]] = None,
+            feature_store: pulumi.Input[Optional[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict', 'outputs.WorkspaceFeatureStore']]] = None,
             friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
             high_business_impact: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
             image_build_compute_name: pulumi.Input[Optional[_builtins.str]] = None,
             key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']]] = None,
+            managed_network: pulumi.Input[Optional[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict', 'outputs.WorkspaceManagedNetwork']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
+            serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict', 'outputs.WorkspaceServerlessCompute']]] = None,
             service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1326,23 +1326,23 @@ class Workspace(pulumi.CustomResource):
                > **Note:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[_builtins.str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[_builtins.str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
-        :param pulumi.Input[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict']] feature_store: A `feature_store` block as defined below.
+        :param pulumi.Input[Union['WorkspaceEncryptionArgs', 'WorkspaceEncryptionArgsDict', 'outputs.WorkspaceEncryption']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['WorkspaceFeatureStoreArgs', 'WorkspaceFeatureStoreArgsDict', 'outputs.WorkspaceFeatureStore']] feature_store: A `feature_store` block as defined below.
         :param pulumi.Input[_builtins.str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[_builtins.bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kind: The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict']] managed_network: A `managed_network` block as defined below.
+        :param pulumi.Input[Union['WorkspaceManagedNetworkArgs', 'WorkspaceManagedNetworkArgsDict', 'outputs.WorkspaceManagedNetwork']] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet. Defaults to `true`.
                
                > **Note:** `public_access_behind_virtual_network_enabled` is deprecated and will be removed in favour of the property `public_network_access_enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']] serverless_compute: A `serverless_compute` block as defined below.
+        :param pulumi.Input[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict', 'outputs.WorkspaceServerlessCompute']] serverless_compute: A `serverless_compute` block as defined below.
         :param pulumi.Input[_builtins.bool] service_side_encryption_enabled: Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
                
                > **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.

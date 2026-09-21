@@ -361,12 +361,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict']]] = None,
-                 key_vault: pulumi.Input[Optional[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict']]] = None,
+                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict', 'outputs.VolumeBucketWithServerFileSystemNfsUser']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict', 'outputs.VolumeBucketWithServerKeyVault']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
-                 server: pulumi.Input[Optional[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict']]] = None,
+                 server: pulumi.Input[Optional[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict', 'outputs.VolumeBucketWithServerServer']]] = None,
                  volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -663,12 +663,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_cifs_username: The CIFS username used by the bucket when accessing volume data over SMB. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict']] key_vault: A `key_vault` block as defined below. Used to source the server certificate and to store generated credentials in Azure Key Vault. Mutually exclusive with `server.0.certificate_pem`.
+        :param pulumi.Input[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict', 'outputs.VolumeBucketWithServerFileSystemNfsUser']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
+        :param pulumi.Input[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict', 'outputs.VolumeBucketWithServerKeyVault']] key_vault: A `key_vault` block as defined below. Used to source the server certificate and to store generated credentials in Azure Key Vault. Mutually exclusive with `server.0.certificate_pem`.
         :param pulumi.Input[_builtins.str] name: The S3-compatible name of the bucket. Must be 3-63 characters long, DNS-compliant (lowercase letters, digits, hyphens or periods), must start and end with a letter or number and must not look like an IPv4 address. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The volume sub-path mounted inside the bucket. Defaults to `/`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] permissions: The bucket permission level. Possible values are `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
-        :param pulumi.Input[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict']] server: A `server` block as defined below. Used to provide the bucket server FQDN and a directly uploaded PEM certificate. The certificate source (`server.0.certificate_pem`) is mutually exclusive with `key_vault`.
+        :param pulumi.Input[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict', 'outputs.VolumeBucketWithServerServer']] server: A `server` block as defined below. Used to provide the bucket server FQDN and a directly uploaded PEM certificate. The certificate source (`server.0.certificate_pem`) is mutually exclusive with `key_vault`.
         :param pulumi.Input[_builtins.str] volume_id: The ARM ID of the parent NetApp Volume the bucket attaches to. Changing this forces a new resource to be created.
         """
         ...
@@ -984,12 +984,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict']]] = None,
-                 key_vault: pulumi.Input[Optional[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict']]] = None,
+                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict', 'outputs.VolumeBucketWithServerFileSystemNfsUser']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict', 'outputs.VolumeBucketWithServerKeyVault']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
-                 server: pulumi.Input[Optional[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict']]] = None,
+                 server: pulumi.Input[Optional[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict', 'outputs.VolumeBucketWithServerServer']]] = None,
                  volume_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1027,12 +1027,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
-            file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict']]] = None,
-            key_vault: pulumi.Input[Optional[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict']]] = None,
+            file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict', 'outputs.VolumeBucketWithServerFileSystemNfsUser']]] = None,
+            key_vault: pulumi.Input[Optional[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict', 'outputs.VolumeBucketWithServerKeyVault']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             path: pulumi.Input[Optional[_builtins.str]] = None,
             permissions: pulumi.Input[Optional[_builtins.str]] = None,
-            server: pulumi.Input[Optional[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict']]] = None,
+            server: pulumi.Input[Optional[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict', 'outputs.VolumeBucketWithServerServer']]] = None,
             server_certificate_common_name: pulumi.Input[Optional[_builtins.str]] = None,
             server_certificate_expiry_date: pulumi.Input[Optional[_builtins.str]] = None,
             server_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1046,12 +1046,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_cifs_username: The CIFS username used by the bucket when accessing volume data over SMB. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict']] key_vault: A `key_vault` block as defined below. Used to source the server certificate and to store generated credentials in Azure Key Vault. Mutually exclusive with `server.0.certificate_pem`.
+        :param pulumi.Input[Union['VolumeBucketWithServerFileSystemNfsUserArgs', 'VolumeBucketWithServerFileSystemNfsUserArgsDict', 'outputs.VolumeBucketWithServerFileSystemNfsUser']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
+        :param pulumi.Input[Union['VolumeBucketWithServerKeyVaultArgs', 'VolumeBucketWithServerKeyVaultArgsDict', 'outputs.VolumeBucketWithServerKeyVault']] key_vault: A `key_vault` block as defined below. Used to source the server certificate and to store generated credentials in Azure Key Vault. Mutually exclusive with `server.0.certificate_pem`.
         :param pulumi.Input[_builtins.str] name: The S3-compatible name of the bucket. Must be 3-63 characters long, DNS-compliant (lowercase letters, digits, hyphens or periods), must start and end with a letter or number and must not look like an IPv4 address. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The volume sub-path mounted inside the bucket. Defaults to `/`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] permissions: The bucket permission level. Possible values are `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
-        :param pulumi.Input[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict']] server: A `server` block as defined below. Used to provide the bucket server FQDN and a directly uploaded PEM certificate. The certificate source (`server.0.certificate_pem`) is mutually exclusive with `key_vault`.
+        :param pulumi.Input[Union['VolumeBucketWithServerServerArgs', 'VolumeBucketWithServerServerArgsDict', 'outputs.VolumeBucketWithServerServer']] server: A `server` block as defined below. Used to provide the bucket server FQDN and a directly uploaded PEM certificate. The certificate source (`server.0.certificate_pem`) is mutually exclusive with `key_vault`.
         :param pulumi.Input[_builtins.str] server_certificate_common_name: The Common Name (CN) of the bucket server certificate.
         :param pulumi.Input[_builtins.str] server_certificate_expiry_date: The expiry date of the bucket server certificate, in RFC3339 format.
         :param pulumi.Input[_builtins.str] server_ip_address: The IP address that backs the bucket endpoint.

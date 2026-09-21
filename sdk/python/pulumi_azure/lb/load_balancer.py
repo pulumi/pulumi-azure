@@ -410,7 +410,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]]] = None,
+                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict', 'outputs.LoadBalancerFrontendIpConfiguration']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -466,7 +466,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict', 'outputs.LoadBalancerFrontendIpConfiguration']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
                
                > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontend_ip_configuration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.
@@ -545,7 +545,7 @@ class LoadBalancer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]]] = None,
+                 frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict', 'outputs.LoadBalancerFrontendIpConfiguration']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -588,7 +588,7 @@ class LoadBalancer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]]] = None,
+            frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict', 'outputs.LoadBalancerFrontendIpConfiguration']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             private_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
@@ -607,7 +607,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerFrontendIpConfigurationArgs', 'LoadBalancerFrontendIpConfigurationArgsDict', 'outputs.LoadBalancerFrontendIpConfiguration']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as documented below.
                
                > **Note:** Azure Load Balancer does not allow the complete removal of all previously attached frontend configurations. If you have previously applied with one or more `frontend_ip_configuration` arguments, the removal of them all will result in a replacement  (destroy/create) of the Load Balancer.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created.

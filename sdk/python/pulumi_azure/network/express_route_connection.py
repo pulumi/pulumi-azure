@@ -368,7 +368,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
+                 routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict', 'outputs.ExpressRouteConnectionRouting']]] = None,
                  routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -457,7 +457,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Is Internet security enabled for this Express Route Connection? Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict', 'outputs.ExpressRouteConnectionRouting']] routing: A `routing` block as defined below.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         ...
@@ -567,7 +567,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
+                 routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict', 'outputs.ExpressRouteConnectionRouting']]] = None,
                  routing_weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -610,7 +610,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             internet_security_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             private_link_fast_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
+            routing: pulumi.Input[Optional[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict', 'outputs.ExpressRouteConnectionRouting']]] = None,
             routing_weight: pulumi.Input[Optional[_builtins.int]] = None) -> 'ExpressRouteConnection':
         """
         Get an existing ExpressRouteConnection resource's state with the given name, id, and optional extra
@@ -625,7 +625,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] internet_security_enabled: Is Internet security enabled for this Express Route Connection? Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict', 'outputs.ExpressRouteConnectionRouting']] routing: A `routing` block as defined below.
         :param pulumi.Input[_builtins.int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

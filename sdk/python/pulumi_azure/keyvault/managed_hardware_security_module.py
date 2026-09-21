@@ -489,7 +489,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
+                 network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict', 'outputs.ManagedHardwareSecurityModuleNetworkAcls']]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -550,7 +550,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_object_ids: Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict', 'outputs.ManagedHardwareSecurityModuleNetworkAcls']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
@@ -630,7 +630,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
                  admin_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
+                 network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict', 'outputs.ManagedHardwareSecurityModuleNetworkAcls']]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -688,7 +688,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
             hsm_uri: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']]] = None,
+            network_acls: pulumi.Input[Optional[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict', 'outputs.ManagedHardwareSecurityModuleNetworkAcls']]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -710,7 +710,7 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] hsm_uri: The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
+        :param pulumi.Input[Union['ManagedHardwareSecurityModuleNetworkAclsArgs', 'ManagedHardwareSecurityModuleNetworkAclsArgsDict', 'outputs.ManagedHardwareSecurityModuleNetworkAcls']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether traffic from public networks is permitted. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created.

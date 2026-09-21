@@ -1045,18 +1045,18 @@ class Standard(pulumi.CustomResource):
                  bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict', 'outputs.StandardConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict', 'outputs.StandardIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict', 'outputs.StandardSiteConfig']]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1169,11 +1169,11 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict', 'outputs.StandardConnectionString']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict', 'outputs.StandardIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets.
                
                > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1184,7 +1184,7 @@ class Standard(pulumi.CustomResource):
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
-        :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict', 'outputs.StandardSiteConfig']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
@@ -1326,18 +1326,18 @@ class Standard(pulumi.CustomResource):
                  bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict', 'outputs.StandardConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict', 'outputs.StandardIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict', 'outputs.StandardSiteConfig']]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1409,13 +1409,13 @@ class Standard(pulumi.CustomResource):
             bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
             client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict', 'outputs.StandardConnectionString']]]]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict', 'outputs.StandardIdentity']]] = None,
             key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1425,8 +1425,8 @@ class Standard(pulumi.CustomResource):
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict', 'outputs.StandardSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict', 'outputs.StandardSiteCredential']]]]] = None,
             storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1450,13 +1450,13 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict', 'outputs.StandardConnectionString']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict', 'outputs.StandardIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets.
                
                > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
@@ -1470,8 +1470,8 @@ class Standard(pulumi.CustomResource):
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
-        :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict', 'outputs.StandardSiteConfig']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict', 'outputs.StandardSiteCredential']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.

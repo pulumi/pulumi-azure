@@ -391,13 +391,13 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict']]]]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict']]] = None,
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings']]] = None,
+                 identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile']]] = None,
                  plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  strata_cloud_manager_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -496,13 +496,13 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
         :param pulumi.Input[_builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
         :param pulumi.Input[_builtins.str] strata_cloud_manager_tenant_name: Strata Cloud Manager name which is intended to manage the policy for this firewall.
@@ -620,13 +620,13 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict']]]]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict']]] = None,
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings']]] = None,
+                 identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile']]] = None,
                  plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  strata_cloud_manager_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -667,13 +667,13 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict']]]]] = None,
-            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict']]] = None,
+            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]]] = None,
+            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings']]] = None,
+            identity: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict']]] = None,
+            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile']]] = None,
             plan_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             strata_cloud_manager_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -685,13 +685,13 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManager(pulumi.CustomResour
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNat']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerDnsSettings']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentityArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
         :param pulumi.Input[_builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Strata Cloud Manager to be created.
         :param pulumi.Input[_builtins.str] strata_cloud_manager_tenant_name: Strata Cloud Manager name which is intended to manage the policy for this firewall.

@@ -1130,25 +1130,25 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict', 'outputs.LinuxWebAppSlotAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppSlotAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict', 'outputs.LinuxWebAppSlotBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict', 'outputs.LinuxWebAppSlotConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict', 'outputs.LinuxWebAppSlotIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict', 'outputs.LinuxWebAppSlotLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict', 'outputs.LinuxWebAppSlotSiteConfig']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict', 'outputs.LinuxWebAppSlotStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1206,22 +1206,22 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict', 'outputs.LinuxWebAppSlotAuthSettings']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppSlotAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict', 'outputs.LinuxWebAppSlotBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict', 'outputs.LinuxWebAppSlotConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict', 'outputs.LinuxWebAppSlotIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
-        :param pulumi.Input[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict', 'outputs.LinuxWebAppSlotLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
                
                > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
@@ -1229,8 +1229,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
                
                > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
-        :param pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict', 'outputs.LinuxWebAppSlotSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict', 'outputs.LinuxWebAppSlotStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -1317,25 +1317,25 @@ class LinuxWebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict', 'outputs.LinuxWebAppSlotAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppSlotAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict', 'outputs.LinuxWebAppSlotBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict', 'outputs.LinuxWebAppSlotConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict', 'outputs.LinuxWebAppSlotIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict', 'outputs.LinuxWebAppSlotLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict', 'outputs.LinuxWebAppSlotSiteConfig']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict', 'outputs.LinuxWebAppSlotStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1407,24 +1407,24 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             app_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict']]] = None,
-            backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict']]] = None,
+            auth_settings: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict', 'outputs.LinuxWebAppSlotAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppSlotAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict', 'outputs.LinuxWebAppSlotBackup']]] = None,
             client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
             client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict', 'outputs.LinuxWebAppSlotConnectionString']]]]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict', 'outputs.LinuxWebAppSlotIdentity']]] = None,
             key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
-            logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']]] = None,
+            logs: pulumi.Input[Optional[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict', 'outputs.LinuxWebAppSlotLogs']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1432,9 +1432,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
             possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict']]]]] = None,
-            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict', 'outputs.LinuxWebAppSlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict', 'outputs.LinuxWebAppSlotSiteCredential']]]]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict', 'outputs.LinuxWebAppSlotStorageAccount']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1451,26 +1451,26 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_metadata: A `app_metadata`.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Linux Web App this Deployment Slot will be part of.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsArgs', 'LinuxWebAppSlotAuthSettingsArgsDict', 'outputs.LinuxWebAppSlotAuthSettings']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotAuthSettingsV2Args', 'LinuxWebAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppSlotAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotBackupArgs', 'LinuxWebAppSlotBackupArgsDict', 'outputs.LinuxWebAppSlotBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict', 'outputs.LinuxWebAppSlotConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotIdentityArgs', 'LinuxWebAppSlotIdentityArgsDict', 'outputs.LinuxWebAppSlotIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Web App.
-        :param pulumi.Input[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotLogsArgs', 'LinuxWebAppSlotLogsArgsDict', 'outputs.LinuxWebAppSlotLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
                
                > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
@@ -1482,9 +1482,9 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
                
                > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
-        :param pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSlotSiteConfigArgs', 'LinuxWebAppSlotSiteConfigArgsDict', 'outputs.LinuxWebAppSlotSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotSiteCredentialArgs', 'LinuxWebAppSlotSiteCredentialArgsDict', 'outputs.LinuxWebAppSlotSiteCredential']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotStorageAccountArgs', 'LinuxWebAppSlotStorageAccountArgsDict', 'outputs.LinuxWebAppSlotStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).

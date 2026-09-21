@@ -431,7 +431,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  auto_key_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
                  federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict', 'outputs.DiskEncryptionSetIdentity']]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -628,7 +628,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
-        :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict', 'outputs.DiskEncryptionSetIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
                
                > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
@@ -843,7 +843,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  auto_key_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
                  federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict', 'outputs.DiskEncryptionSetIdentity']]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -887,7 +887,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             auto_key_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
             federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict', 'outputs.DiskEncryptionSetIdentity']]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -911,7 +911,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
-        :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict', 'outputs.DiskEncryptionSetIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
                
                > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).

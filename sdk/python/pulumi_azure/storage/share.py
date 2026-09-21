@@ -406,7 +406,7 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: pulumi.Input[Optional[_builtins.str]] = None,
-                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict', 'outputs.ShareAcl']]]]] = None,
                  enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -471,7 +471,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
                > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict', 'outputs.ShareAcl']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
                > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.
@@ -563,7 +563,7 @@ class Share(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_tier: pulumi.Input[Optional[_builtins.str]] = None,
-                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict', 'outputs.ShareAcl']]]]] = None,
                  enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -603,7 +603,7 @@ class Share(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_tier: pulumi.Input[Optional[_builtins.str]] = None,
-            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]]] = None,
+            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict', 'outputs.ShareAcl']]]]] = None,
             enabled_protocol: pulumi.Input[Optional[_builtins.str]] = None,
             metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -623,7 +623,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_tier: The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
                
                > **Note:** The `FileStorage` `account_kind` of the `storage.Account` requires `Premium` `access_tier`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ShareAclArgs', 'ShareAclArgsDict', 'outputs.ShareAcl']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] enabled_protocol: The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
                
                > **Note:** The `FileStorage` `account_kind` of the `storage.Account` is required for the `NFS` protocol.

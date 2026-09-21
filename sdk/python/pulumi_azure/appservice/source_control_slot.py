@@ -338,7 +338,7 @@ class SourceControlSlot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict']]] = None,
+                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict', 'outputs.SourceControlSlotGithubActionConfiguration']]] = None,
                  repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  slot_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -399,7 +399,7 @@ class SourceControlSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The URL for the repository. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict']] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict', 'outputs.SourceControlSlotGithubActionConfiguration']] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] slot_id: The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
@@ -481,7 +481,7 @@ class SourceControlSlot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict']]] = None,
+                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict', 'outputs.SourceControlSlotGithubActionConfiguration']]] = None,
                  repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  slot_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -520,7 +520,7 @@ class SourceControlSlot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             branch: pulumi.Input[Optional[_builtins.str]] = None,
-            github_action_configuration: pulumi.Input[Optional[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict']]] = None,
+            github_action_configuration: pulumi.Input[Optional[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict', 'outputs.SourceControlSlotGithubActionConfiguration']]] = None,
             repo_url: pulumi.Input[Optional[_builtins.str]] = None,
             rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             scm_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -537,7 +537,7 @@ class SourceControlSlot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] branch: The URL for the repository. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict']] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SourceControlSlotGithubActionConfigurationArgs', 'SourceControlSlotGithubActionConfigurationArgsDict', 'outputs.SourceControlSlotGithubActionConfiguration']] github_action_configuration: A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] repo_url: The branch name to use for deployments. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scm_type: The SCM Type in use. This value is decoded by the service from the repository information supplied.

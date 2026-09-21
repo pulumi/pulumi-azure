@@ -355,7 +355,7 @@ class HciCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automanage_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict', 'outputs.HciClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -378,7 +378,7 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict', 'outputs.HciClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
@@ -422,7 +422,7 @@ class HciCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automanage_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict', 'outputs.HciClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -463,7 +463,7 @@ class HciCluster(pulumi.CustomResource):
             automanage_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
             client_id: pulumi.Input[Optional[_builtins.str]] = None,
             cloud_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict', 'outputs.HciClusterIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -481,7 +481,7 @@ class HciCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] automanage_configuration_id: The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
         :param pulumi.Input[_builtins.str] client_id: The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cloud_id: An immutable UUID for the Azure Stack HCI Cluster.
-        :param pulumi.Input[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['HciClusterIdentityArgs', 'HciClusterIdentityArgsDict', 'outputs.HciClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Stack HCI Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Cluster should exist. Changing this forces a new resource to be created.

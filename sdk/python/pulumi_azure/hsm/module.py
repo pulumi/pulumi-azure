@@ -336,9 +336,9 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
+                 management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict', 'outputs.ModuleManagementNetworkProfile']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict', 'outputs.ModuleNetworkProfile']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -447,11 +447,11 @@ class Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']] management_network_profile: A `management_network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict', 'outputs.ModuleManagementNetworkProfile']] management_network_profile: A `management_network_profile` block as defined below.
                
                > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict', 'outputs.ModuleNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[_builtins.str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -579,9 +579,9 @@ class Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
+                 management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict', 'outputs.ModuleManagementNetworkProfile']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict', 'outputs.ModuleNetworkProfile']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -622,9 +622,9 @@ class Module(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']]] = None,
+            management_network_profile: pulumi.Input[Optional[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict', 'outputs.ModuleManagementNetworkProfile']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']]] = None,
+            network_profile: pulumi.Input[Optional[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict', 'outputs.ModuleNetworkProfile']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -638,11 +638,11 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict']] management_network_profile: A `management_network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleManagementNetworkProfileArgs', 'ModuleManagementNetworkProfileArgsDict', 'outputs.ModuleManagementNetworkProfile']] management_network_profile: A `management_network_profile` block as defined below.
                
                > **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created.
-        :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['ModuleNetworkProfileArgs', 'ModuleNetworkProfileArgsDict', 'outputs.ModuleNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[_builtins.str] stamp_id: The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created.

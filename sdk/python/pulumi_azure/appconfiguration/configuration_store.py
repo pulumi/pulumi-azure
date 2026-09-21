@@ -611,14 +611,14 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict', 'outputs.ConfigurationStoreEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict', 'outputs.ConfigurationStoreIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict', 'outputs.ConfigurationStoreReplica']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -771,8 +771,8 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
                
                > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
-        :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']] encryption: An `encryption` block as defined below.
-        :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict', 'outputs.ConfigurationStoreEncryption']] encryption: An `encryption` block as defined below.
+        :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict', 'outputs.ConfigurationStoreIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
@@ -782,7 +782,7 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]] replicas: One or more `replica` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict', 'outputs.ConfigurationStoreReplica']]]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
                
@@ -956,14 +956,14 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict', 'outputs.ConfigurationStoreEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict', 'outputs.ConfigurationStoreIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
+                 replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict', 'outputs.ConfigurationStoreReplica']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1010,20 +1010,20 @@ class ConfigurationStore(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             data_plane_proxy_authentication_mode: pulumi.Input[Optional[_builtins.str]] = None,
             data_plane_proxy_private_link_delegation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict', 'outputs.ConfigurationStoreEncryption']]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict', 'outputs.ConfigurationStoreIdentity']]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            primary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict']]]]] = None,
-            primary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict']]]]] = None,
+            primary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict', 'outputs.ConfigurationStorePrimaryReadKey']]]]] = None,
+            primary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict', 'outputs.ConfigurationStorePrimaryWriteKey']]]]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             purge_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]]] = None,
+            replicas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict', 'outputs.ConfigurationStoreReplica']]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            secondary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict']]]]] = None,
-            secondary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict']]]]] = None,
+            secondary_read_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict', 'outputs.ConfigurationStoreSecondaryReadKey']]]]] = None,
+            secondary_write_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict', 'outputs.ConfigurationStoreSecondaryWriteKey']]]]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
             soft_delete_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ConfigurationStore':
@@ -1038,24 +1038,24 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_plane_proxy_private_link_delegation_enabled: Whether data plane proxy private link delegation is enabled. Defaults to `false`.
                
                > **Note:** `data_plane_proxy_private_link_delegation_enabled` cannot be set to `true` when `data_plane_proxy_authentication_mode` is set to `Local`.
-        :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict']] encryption: An `encryption` block as defined below.
+        :param pulumi.Input[Union['ConfigurationStoreEncryptionArgs', 'ConfigurationStoreEncryptionArgsDict', 'outputs.ConfigurationStoreEncryption']] encryption: An `encryption` block as defined below.
         :param pulumi.Input[_builtins.str] endpoint: The URL of the App Configuration Replica.
-        :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ConfigurationStoreIdentityArgs', 'ConfigurationStoreIdentityArgsDict', 'outputs.ConfigurationStoreIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict']]]] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict']]]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryReadKeyArgs', 'ConfigurationStorePrimaryReadKeyArgsDict', 'outputs.ConfigurationStorePrimaryReadKey']]]] primary_read_keys: A `primary_read_key` block as defined below containing the primary read access key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStorePrimaryWriteKeyArgs', 'ConfigurationStorePrimaryWriteKeyArgsDict', 'outputs.ConfigurationStorePrimaryWriteKey']]]] primary_write_keys: A `primary_write_key` block as defined below containing the primary write access key.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
                
                > **Note:** If `public_network_access` is not specified, the App Configuration will be created as  `Automatic`. However, once a different value is defined, can not be set again as automatic.
         :param pulumi.Input[_builtins.bool] purge_protection_enabled: Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
                
                > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]] replicas: One or more `replica` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict', 'outputs.ConfigurationStoreReplica']]]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict', 'outputs.ConfigurationStoreSecondaryReadKey']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict', 'outputs.ConfigurationStoreSecondaryWriteKey']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
                
                > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.

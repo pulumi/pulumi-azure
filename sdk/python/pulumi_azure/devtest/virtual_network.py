@@ -252,7 +252,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
+                 subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -306,7 +306,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']] subnet: A `subnet` block as defined below.
+        :param pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -379,7 +379,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
+                 subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -415,7 +415,7 @@ class VirtualNetwork(pulumi.CustomResource):
             lab_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]] = None,
+            subnet: pulumi.Input[Optional[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             unique_identifier: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualNetwork':
         """
@@ -429,7 +429,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lab_name: Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']] subnet: A `subnet` block as defined below.
+        :param pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']] subnet: A `subnet` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] unique_identifier: The unique immutable identifier of the Dev Test Virtual Network.
         """

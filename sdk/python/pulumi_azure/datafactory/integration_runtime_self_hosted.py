@@ -236,7 +236,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
+                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict', 'outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]]] = None,
                  self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -281,7 +281,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict', 'outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] self_contained_interactive_authoring_enabled: Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         """
         ...
@@ -345,7 +345,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
+                 rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict', 'outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]]] = None,
                  self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -379,7 +379,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
-            rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]]] = None,
+            rbac_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict', 'outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]]] = None,
             secondary_authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
             self_contained_interactive_authoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'IntegrationRuntimeSelfHosted':
         """
@@ -393,7 +393,7 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created.
         :param pulumi.Input[_builtins.str] primary_authorization_key: The primary integration runtime authentication key.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict']]]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationRuntimeSelfHostedRbacAuthorizationArgs', 'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict', 'outputs.IntegrationRuntimeSelfHostedRbacAuthorization']]]] rbac_authorizations: A `rbac_authorization` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] secondary_authorization_key: The secondary integration runtime authentication key.
         :param pulumi.Input[_builtins.bool] self_contained_interactive_authoring_enabled: Specifies whether enable interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         """

@@ -366,9 +366,9 @@ class DataFlow(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  script: pulumi.Input[Optional[_builtins.str]] = None,
                  script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]]] = None,
-                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict', 'outputs.DataFlowSink']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict', 'outputs.DataFlowSource']]]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict', 'outputs.DataFlowTransformation']]]]] = None,
                  __props__=None):
         """
         Manages a Data Flow inside an Azure Data Factory.
@@ -540,9 +540,9 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script: The script for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] script_lines: The script lines for the Data Factory Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict', 'outputs.DataFlowSink']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict', 'outputs.DataFlowSource']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict', 'outputs.DataFlowTransformation']]]] transformations: One or more `transformation` blocks as defined below.
         """
         ...
     @overload
@@ -733,9 +733,9 @@ class DataFlow(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  script: pulumi.Input[Optional[_builtins.str]] = None,
                  script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]]] = None,
-                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict', 'outputs.DataFlowSink']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict', 'outputs.DataFlowSource']]]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict', 'outputs.DataFlowTransformation']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -778,9 +778,9 @@ class DataFlow(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             script: pulumi.Input[Optional[_builtins.str]] = None,
             script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]]] = None,
-            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]]] = None,
-            transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]]] = None) -> 'DataFlow':
+            sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict', 'outputs.DataFlowSink']]]]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict', 'outputs.DataFlowSource']]]]] = None,
+            transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict', 'outputs.DataFlowTransformation']]]]] = None) -> 'DataFlow':
         """
         Get an existing DataFlow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -795,9 +795,9 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script: The script for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] script_lines: The script lines for the Data Factory Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict', 'outputs.DataFlowSink']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict', 'outputs.DataFlowSource']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict', 'outputs.DataFlowTransformation']]]] transformations: One or more `transformation` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

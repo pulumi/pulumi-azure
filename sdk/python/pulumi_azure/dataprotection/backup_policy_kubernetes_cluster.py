@@ -263,10 +263,10 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict']]] = None,
+                 default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterDefaultRetentionRule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict']]]]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterRetentionRule']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -333,10 +333,10 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterDefaultRetentionRule']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterRetentionRule']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_name: The name of the Backup Vault where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """
@@ -422,10 +422,10 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict']]] = None,
+                 default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterDefaultRetentionRule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict']]]]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterRetentionRule']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -463,10 +463,10 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict']]] = None,
+            default_retention_rule: pulumi.Input[Optional[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterDefaultRetentionRule']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict']]]]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterRetentionRule']]]]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None,
             vault_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicyKubernetesCluster':
         """
@@ -477,10 +477,10 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackupPolicyKubernetesClusterDefaultRetentionRuleArgs', 'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterDefaultRetentionRule']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyKubernetesClusterRetentionRuleArgs', 'BackupPolicyKubernetesClusterRetentionRuleArgsDict', 'outputs.BackupPolicyKubernetesClusterRetentionRule']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] vault_name: The name of the Backup Vault where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         """

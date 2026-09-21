@@ -442,16 +442,16 @@ class DatasetJson(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict']]] = None,
+                 azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict', 'outputs.DatasetJsonAzureBlobStorageLocation']]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encoding: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 http_server_location: pulumi.Input[Optional[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict']]] = None,
+                 http_server_location: pulumi.Input[Optional[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict', 'outputs.DatasetJsonHttpServerLocation']]] = None,
                  linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict']]]]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict', 'outputs.DatasetJsonSchemaColumn']]]]] = None,
                  __props__=None):
         """
         Manages an Azure JSON Dataset inside an Azure Data Factory.
@@ -501,18 +501,18 @@ class DatasetJson(pulumi.CustomResource):
                
                The following supported arguments are specific to JSON Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict', 'outputs.DatasetJsonAzureBlobStorageLocation']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] encoding: The encoding format for the file.
         :param pulumi.Input[_builtins.str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict', 'outputs.DatasetJsonHttpServerLocation']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[_builtins.str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict', 'outputs.DatasetJsonSchemaColumn']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
@@ -579,16 +579,16 @@ class DatasetJson(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict']]] = None,
+                 azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict', 'outputs.DatasetJsonAzureBlobStorageLocation']]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encoding: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 http_server_location: pulumi.Input[Optional[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict']]] = None,
+                 http_server_location: pulumi.Input[Optional[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict', 'outputs.DatasetJsonHttpServerLocation']]] = None,
                  linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict']]]]] = None,
+                 schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict', 'outputs.DatasetJsonSchemaColumn']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -626,16 +626,16 @@ class DatasetJson(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict']]] = None,
+            azure_blob_storage_location: pulumi.Input[Optional[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict', 'outputs.DatasetJsonAzureBlobStorageLocation']]] = None,
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             encoding: pulumi.Input[Optional[_builtins.str]] = None,
             folder: pulumi.Input[Optional[_builtins.str]] = None,
-            http_server_location: pulumi.Input[Optional[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict']]] = None,
+            http_server_location: pulumi.Input[Optional[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict', 'outputs.DatasetJsonHttpServerLocation']]] = None,
             linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict']]]]] = None) -> 'DatasetJson':
+            schema_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict', 'outputs.DatasetJsonSchemaColumn']]]]] = None) -> 'DatasetJson':
         """
         Get an existing DatasetJson resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -647,18 +647,18 @@ class DatasetJson(pulumi.CustomResource):
                
                The following supported arguments are specific to JSON Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[Union['DatasetJsonAzureBlobStorageLocationArgs', 'DatasetJsonAzureBlobStorageLocationArgsDict', 'outputs.DatasetJsonAzureBlobStorageLocation']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] encoding: The encoding format for the file.
         :param pulumi.Input[_builtins.str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetJsonHttpServerLocationArgs', 'DatasetJsonHttpServerLocationArgsDict', 'outputs.DatasetJsonHttpServerLocation']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[_builtins.str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetJsonSchemaColumnArgs', 'DatasetJsonSchemaColumnArgsDict', 'outputs.DatasetJsonSchemaColumn']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

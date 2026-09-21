@@ -574,12 +574,12 @@ class SparkPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict']]] = None,
-                 auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict']]] = None,
+                 auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict', 'outputs.SparkPoolAutoPause']]] = None,
+                 auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict', 'outputs.SparkPoolAutoScale']]] = None,
                  cache_size: pulumi.Input[Optional[_builtins.int]] = None,
                  compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  dynamic_executor_allocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict']]] = None,
+                 library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict', 'outputs.SparkPoolLibraryRequirement']]] = None,
                  max_executors: pulumi.Input[Optional[_builtins.int]] = None,
                  min_executors: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -587,7 +587,7 @@ class SparkPool(pulumi.CustomResource):
                  node_size: pulumi.Input[Optional[_builtins.str]] = None,
                  node_size_family: pulumi.Input[Optional[_builtins.str]] = None,
                  session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict']]] = None,
+                 spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict', 'outputs.SparkPoolSparkConfig']]] = None,
                  spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
                  spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
                  spark_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -667,8 +667,8 @@ class SparkPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict']] auto_pause: An `auto_pause` block as defined below.
-        :param pulumi.Input[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict', 'outputs.SparkPoolAutoPause']] auto_pause: An `auto_pause` block as defined below.
+        :param pulumi.Input[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict', 'outputs.SparkPoolAutoScale']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[_builtins.int] cache_size: The cache size in the Spark Pool.
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.
@@ -770,12 +770,12 @@ class SparkPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict']]] = None,
-                 auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict']]] = None,
+                 auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict', 'outputs.SparkPoolAutoPause']]] = None,
+                 auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict', 'outputs.SparkPoolAutoScale']]] = None,
                  cache_size: pulumi.Input[Optional[_builtins.int]] = None,
                  compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  dynamic_executor_allocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict']]] = None,
+                 library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict', 'outputs.SparkPoolLibraryRequirement']]] = None,
                  max_executors: pulumi.Input[Optional[_builtins.int]] = None,
                  min_executors: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -783,7 +783,7 @@ class SparkPool(pulumi.CustomResource):
                  node_size: pulumi.Input[Optional[_builtins.str]] = None,
                  node_size_family: pulumi.Input[Optional[_builtins.str]] = None,
                  session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict']]] = None,
+                 spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict', 'outputs.SparkPoolSparkConfig']]] = None,
                  spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
                  spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
                  spark_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -835,12 +835,12 @@ class SparkPool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict']]] = None,
-            auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict']]] = None,
+            auto_pause: pulumi.Input[Optional[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict', 'outputs.SparkPoolAutoPause']]] = None,
+            auto_scale: pulumi.Input[Optional[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict', 'outputs.SparkPoolAutoScale']]] = None,
             cache_size: pulumi.Input[Optional[_builtins.int]] = None,
             compute_isolation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             dynamic_executor_allocation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict']]] = None,
+            library_requirement: pulumi.Input[Optional[Union['SparkPoolLibraryRequirementArgs', 'SparkPoolLibraryRequirementArgsDict', 'outputs.SparkPoolLibraryRequirement']]] = None,
             max_executors: pulumi.Input[Optional[_builtins.int]] = None,
             min_executors: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -848,7 +848,7 @@ class SparkPool(pulumi.CustomResource):
             node_size: pulumi.Input[Optional[_builtins.str]] = None,
             node_size_family: pulumi.Input[Optional[_builtins.str]] = None,
             session_level_packages_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict']]] = None,
+            spark_config: pulumi.Input[Optional[Union['SparkPoolSparkConfigArgs', 'SparkPoolSparkConfigArgsDict', 'outputs.SparkPoolSparkConfig']]] = None,
             spark_events_folder: pulumi.Input[Optional[_builtins.str]] = None,
             spark_log_folder: pulumi.Input[Optional[_builtins.str]] = None,
             spark_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -861,8 +861,8 @@ class SparkPool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict']] auto_pause: An `auto_pause` block as defined below.
-        :param pulumi.Input[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
+        :param pulumi.Input[Union['SparkPoolAutoPauseArgs', 'SparkPoolAutoPauseArgsDict', 'outputs.SparkPoolAutoPause']] auto_pause: An `auto_pause` block as defined below.
+        :param pulumi.Input[Union['SparkPoolAutoScaleArgs', 'SparkPoolAutoScaleArgsDict', 'outputs.SparkPoolAutoScale']] auto_scale: An `auto_scale` block as defined below. Exactly one of `node_count` or `auto_scale` must be specified.
         :param pulumi.Input[_builtins.int] cache_size: The cache size in the Spark Pool.
         :param pulumi.Input[_builtins.bool] compute_isolation_enabled: Indicates whether compute isolation is enabled or not. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created.

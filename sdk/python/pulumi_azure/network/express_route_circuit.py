@@ -523,7 +523,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  rate_limiting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -589,7 +589,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] rate_limiting_enabled: Enable [rate limiting](https://learn.microsoft.com/en-us/azure/expressroute/rate-limit) for the circuit. Only works with ExpressRoute Ports. Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -668,7 +668,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  rate_limiting_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -723,7 +723,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             service_key: pulumi.Input[Optional[_builtins.str]] = None,
             service_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_provider_provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'ExpressRouteCircuit':
         """
         Get an existing ExpressRouteCircuit resource's state with the given name, id, and optional extra
@@ -751,7 +751,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
         :param pulumi.Input[_builtins.str] service_provider_name: The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
-        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict']] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[Union['ExpressRouteCircuitSkuArgs', 'ExpressRouteCircuitSkuArgsDict', 'outputs.ExpressRouteCircuitSku']] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

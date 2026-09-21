@@ -154,7 +154,7 @@ class FrontdoorSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secret: pulumi.Input[Optional[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict']]] = None,
+                 secret: pulumi.Input[Optional[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict', 'outputs.FrontdoorSecretSecret']]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Secret.
@@ -188,7 +188,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
-        :param pulumi.Input[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict', 'outputs.FrontdoorSecretSecret']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         ...
     @overload
@@ -241,7 +241,7 @@ class FrontdoorSecret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secret: pulumi.Input[Optional[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict']]] = None,
+                 secret: pulumi.Input[Optional[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict', 'outputs.FrontdoorSecretSecret']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -272,7 +272,7 @@ class FrontdoorSecret(pulumi.CustomResource):
             cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
             cdn_frontdoor_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            secret: pulumi.Input[Optional[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict']]] = None) -> 'FrontdoorSecret':
+            secret: pulumi.Input[Optional[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict', 'outputs.FrontdoorSecretSecret']]] = None) -> 'FrontdoorSecret':
         """
         Get an existing FrontdoorSecret resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -283,7 +283,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_name: The name of the Front Door Profile containing this Front Door Secret.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
-        :param pulumi.Input[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param pulumi.Input[Union['FrontdoorSecretSecretArgs', 'FrontdoorSecretSecretArgsDict', 'outputs.FrontdoorSecretSecret']] secret: A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

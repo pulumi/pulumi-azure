@@ -593,13 +593,13 @@ class Hub(pulumi.CustomResource):
                  application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict', 'outputs.HubEncryption']]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict', 'outputs.HubIdentity']]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict']]] = None,
+                 managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict', 'outputs.HubManagedNetwork']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -680,15 +680,15 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_insights_id: The Application Insights ID that should be used by this AI Foundry Hub.
         :param pulumi.Input[_builtins.str] container_registry_id: The Container Registry ID that should be used by this AI Foundry Hub.
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Hub.
-        :param pulumi.Input[Union['HubEncryptionArgs', 'HubEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
+        :param pulumi.Input[Union['HubEncryptionArgs', 'HubEncryptionArgsDict', 'outputs.HubEncryption']] encryption: An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] friendly_name: The display name of this AI Foundry Hub.
         :param pulumi.Input[_builtins.bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
                
                > **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
-        :param pulumi.Input[Union['HubIdentityArgs', 'HubIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['HubIdentityArgs', 'HubIdentityArgsDict', 'outputs.HubIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The Key Vault ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
-        :param pulumi.Input[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict']] managed_network: A `managed_network` block as defined below.
+        :param pulumi.Input[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict', 'outputs.HubManagedNetwork']] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         :param pulumi.Input[_builtins.str] public_network_access: Whether public network access for this AI Service Hub should be enabled. Possible values include `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -788,13 +788,13 @@ class Hub(pulumi.CustomResource):
                  application_insights_id: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict', 'outputs.HubEncryption']]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict', 'outputs.HubIdentity']]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict']]] = None,
+                 managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict', 'outputs.HubManagedNetwork']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -850,13 +850,13 @@ class Hub(pulumi.CustomResource):
             container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['HubEncryptionArgs', 'HubEncryptionArgsDict', 'outputs.HubEncryption']]] = None,
             friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
             high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['HubIdentityArgs', 'HubIdentityArgsDict', 'outputs.HubIdentity']]] = None,
             key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict']]] = None,
+            managed_network: pulumi.Input[Optional[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict', 'outputs.HubManagedNetwork']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -875,15 +875,15 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_registry_id: The Container Registry ID that should be used by this AI Foundry Hub.
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Hub.
         :param pulumi.Input[_builtins.str] discovery_url: The URL for the discovery service to identify regional endpoints for AI Foundry Hub services.
-        :param pulumi.Input[Union['HubEncryptionArgs', 'HubEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
+        :param pulumi.Input[Union['HubEncryptionArgs', 'HubEncryptionArgsDict', 'outputs.HubEncryption']] encryption: An `encryption` block as defined below. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] friendly_name: The display name of this AI Foundry Hub.
         :param pulumi.Input[_builtins.bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Hub to be created. Defaults to `false`.
                
                > **Note:** `high_business_impact_enabled` will be enabled by default when creating an AI Foundry Hub with `encryption` enabled.
-        :param pulumi.Input[Union['HubIdentityArgs', 'HubIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['HubIdentityArgs', 'HubIdentityArgsDict', 'outputs.HubIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The Key Vault ID that should be used by this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the AI Foundry Hub should exist. Changing this forces a new AI Foundry Hub to be created.
-        :param pulumi.Input[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict']] managed_network: A `managed_network` block as defined below.
+        :param pulumi.Input[Union['HubManagedNetworkArgs', 'HubManagedNetworkArgsDict', 'outputs.HubManagedNetwork']] managed_network: A `managed_network` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this AI Foundry Hub. Changing this forces a new AI Foundry Hub to be created.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
         :param pulumi.Input[_builtins.str] public_network_access: Whether public network access for this AI Service Hub should be enabled. Possible values include `Enabled` and `Disabled`. Defaults to `Enabled`.

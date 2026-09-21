@@ -168,7 +168,7 @@ class ChannelLine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
+                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict', 'outputs.ChannelLineLineChannel']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -215,7 +215,7 @@ class ChannelLine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]] line_channels: One or more `line_channel` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict', 'outputs.ChannelLineLineChannel']]]] line_channels: One or more `line_channel` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         """
@@ -281,7 +281,7 @@ class ChannelLine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
+                 line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict', 'outputs.ChannelLineLineChannel']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -314,7 +314,7 @@ class ChannelLine(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bot_name: pulumi.Input[Optional[_builtins.str]] = None,
-            line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]]] = None,
+            line_channels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict', 'outputs.ChannelLineLineChannel']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelLine':
         """
@@ -325,7 +325,7 @@ class ChannelLine(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict']]]] line_channels: One or more `line_channel` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelLineLineChannelArgs', 'ChannelLineLineChannelArgsDict', 'outputs.ChannelLineLineChannel']]]] line_channels: One or more `line_channel` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created.
         """

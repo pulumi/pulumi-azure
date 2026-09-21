@@ -614,17 +614,17 @@ class ManagedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict', 'outputs.ManagedClusterAuthentication']]] = None,
                  backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
+                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict', 'outputs.ManagedClusterCustomFabricSetting']]]]] = None,
                  dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
+                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict', 'outputs.ManagedClusterLbRule']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
+                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict', 'outputs.ManagedClusterNodeType']]]]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -688,17 +688,17 @@ class ManagedCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
+        :param pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict', 'outputs.ManagedClusterAuthentication']] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] backup_service_enabled: If true, backup service is enabled.
         :param pulumi.Input[_builtins.int] client_connection_port: Port to use when connecting to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]] custom_fabric_settings: One or more `custom_fabric_setting` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict', 'outputs.ManagedClusterCustomFabricSetting']]]] custom_fabric_settings: One or more `custom_fabric_setting` blocks as defined below.
         :param pulumi.Input[_builtins.str] dns_name: Hostname for the cluster. If unset the cluster's name will be used..
         :param pulumi.Input[_builtins.bool] dns_service_enabled: If true, DNS service is enabled.
         :param pulumi.Input[_builtins.int] http_gateway_port: Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]] lb_rules: One or more `lb_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict', 'outputs.ManagedClusterLbRule']]]] lb_rules: One or more `lb_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]] node_types: One or more `node_type` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict', 'outputs.ManagedClusterNodeType']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[_builtins.str] password: Administrator password for the VMs that will be created as part of this cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.
@@ -781,17 +781,17 @@ class ManagedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict', 'outputs.ManagedClusterAuthentication']]] = None,
                  backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
+                 custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict', 'outputs.ManagedClusterCustomFabricSetting']]]]] = None,
                  dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
-                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
+                 lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict', 'outputs.ManagedClusterLbRule']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
+                 node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict', 'outputs.ManagedClusterNodeType']]]]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -846,17 +846,17 @@ class ManagedCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']]] = None,
+            authentication: pulumi.Input[Optional[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict', 'outputs.ManagedClusterAuthentication']]] = None,
             backup_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_connection_port: pulumi.Input[Optional[_builtins.int]] = None,
-            custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]]] = None,
+            custom_fabric_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict', 'outputs.ManagedClusterCustomFabricSetting']]]]] = None,
             dns_name: pulumi.Input[Optional[_builtins.str]] = None,
             dns_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             http_gateway_port: pulumi.Input[Optional[_builtins.int]] = None,
-            lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]]] = None,
+            lb_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict', 'outputs.ManagedClusterLbRule']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]]] = None,
+            node_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict', 'outputs.ManagedClusterNodeType']]]]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -871,17 +871,17 @@ class ManagedCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict']] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
+        :param pulumi.Input[Union['ManagedClusterAuthenticationArgs', 'ManagedClusterAuthenticationArgsDict', 'outputs.ManagedClusterAuthentication']] authentication: Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] backup_service_enabled: If true, backup service is enabled.
         :param pulumi.Input[_builtins.int] client_connection_port: Port to use when connecting to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict']]]] custom_fabric_settings: One or more `custom_fabric_setting` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterCustomFabricSettingArgs', 'ManagedClusterCustomFabricSettingArgsDict', 'outputs.ManagedClusterCustomFabricSetting']]]] custom_fabric_settings: One or more `custom_fabric_setting` blocks as defined below.
         :param pulumi.Input[_builtins.str] dns_name: Hostname for the cluster. If unset the cluster's name will be used..
         :param pulumi.Input[_builtins.bool] dns_service_enabled: If true, DNS service is enabled.
         :param pulumi.Input[_builtins.int] http_gateway_port: Port that should be used by the Service Fabric Explorer to visualize applications and cluster status.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict']]]] lb_rules: One or more `lb_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterLbRuleArgs', 'ManagedClusterLbRuleArgsDict', 'outputs.ManagedClusterLbRule']]]] lb_rules: One or more `lb_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict']]]] node_types: One or more `node_type` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedClusterNodeTypeArgs', 'ManagedClusterNodeTypeArgsDict', 'outputs.ManagedClusterNodeType']]]] node_types: One or more `node_type` blocks as defined below.
         :param pulumi.Input[_builtins.str] password: Administrator password for the VMs that will be created as part of this cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created.
         :param pulumi.Input[_builtins.str] sku: SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`.

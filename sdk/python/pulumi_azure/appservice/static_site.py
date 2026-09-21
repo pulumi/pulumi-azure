@@ -330,7 +330,7 @@ class StaticSite(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict', 'outputs.StaticSiteIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -372,7 +372,7 @@ class StaticSite(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict', 'outputs.StaticSiteIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -433,7 +433,7 @@ class StaticSite(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict', 'outputs.StaticSiteIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -476,7 +476,7 @@ class StaticSite(pulumi.CustomResource):
             api_key: pulumi.Input[Optional[_builtins.str]] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             default_host_name: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict', 'outputs.StaticSiteIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -493,7 +493,7 @@ class StaticSite(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[_builtins.str] default_host_name: The default host name of the Static Web App.
-        :param pulumi.Input[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StaticSiteIdentityArgs', 'StaticSiteIdentityArgsDict', 'outputs.StaticSiteIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created.

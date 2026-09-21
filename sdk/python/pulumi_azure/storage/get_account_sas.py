@@ -148,9 +148,9 @@ def get_account_sas(connection_string: Optional[_builtins.str] = None,
                     expiry: Optional[_builtins.str] = None,
                     https_only: Optional[_builtins.bool] = None,
                     ip_addresses: Optional[_builtins.str] = None,
-                    permissions: Optional[Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict']] = None,
-                    resource_types: Optional[Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict']] = None,
-                    services: Optional[Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict']] = None,
+                    permissions: Optional[Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict', 'outputs.GetAccountSASPermissionsResult']] = None,
+                    resource_types: Optional[Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict', 'outputs.GetAccountSASResourceTypesResult']] = None,
+                    services: Optional[Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict', 'outputs.GetAccountSASServicesResult']] = None,
                     signed_version: Optional[_builtins.str] = None,
                     start: Optional[_builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountSASResult:
@@ -218,9 +218,9 @@ def get_account_sas(connection_string: Optional[_builtins.str] = None,
            > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param _builtins.bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param _builtins.str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
-    :param Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
-    :param Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict'] resource_types: A `resource_types` block as defined below.
-    :param Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict'] services: A `services` block as defined below.
+    :param Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict', 'outputs.GetAccountSASPermissionsResult'] permissions: A `permissions` block as defined below.
+    :param Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict', 'outputs.GetAccountSASResourceTypesResult'] resource_types: A `resource_types` block as defined below.
+    :param Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict', 'outputs.GetAccountSASServicesResult'] services: A `services` block as defined below.
     :param _builtins.str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
     :param _builtins.str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """
@@ -253,9 +253,9 @@ def get_account_sas_output(connection_string: pulumi.Input[Optional[_builtins.st
                            expiry: pulumi.Input[Optional[_builtins.str]] = None,
                            https_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                            ip_addresses: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                           permissions: pulumi.Input[Optional[Optional[Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict']]]] = None,
-                           resource_types: pulumi.Input[Optional[Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict']]] = None,
-                           services: pulumi.Input[Optional[Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict']]] = None,
+                           permissions: pulumi.Input[Optional[Optional[Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict', 'outputs.GetAccountSASPermissionsResult']]]] = None,
+                           resource_types: pulumi.Input[Optional[Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict', 'outputs.GetAccountSASResourceTypesResult']]] = None,
+                           services: pulumi.Input[Optional[Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict', 'outputs.GetAccountSASServicesResult']]] = None,
                            signed_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            start: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountSASResult]:
@@ -323,9 +323,9 @@ def get_account_sas_output(connection_string: pulumi.Input[Optional[_builtins.st
            > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param _builtins.bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param _builtins.str ip_addresses: IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
-    :param Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
-    :param Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict'] resource_types: A `resource_types` block as defined below.
-    :param Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict'] services: A `services` block as defined below.
+    :param Union['GetAccountSASPermissionsArgs', 'GetAccountSASPermissionsArgsDict', 'outputs.GetAccountSASPermissionsResult'] permissions: A `permissions` block as defined below.
+    :param Union['GetAccountSASResourceTypesArgs', 'GetAccountSASResourceTypesArgsDict', 'outputs.GetAccountSASResourceTypesResult'] resource_types: A `resource_types` block as defined below.
+    :param Union['GetAccountSASServicesArgs', 'GetAccountSASServicesArgsDict', 'outputs.GetAccountSASServicesResult'] services: A `services` block as defined below.
     :param _builtins.str signed_version: Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2022-11-02`.
     :param _builtins.str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
     """

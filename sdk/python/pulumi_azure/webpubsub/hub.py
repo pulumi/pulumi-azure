@@ -222,8 +222,8 @@ class Hub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
-                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
+                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict', 'outputs.HubEventHandler']]]]] = None,
+                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict', 'outputs.HubEventListener']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -317,10 +317,10 @@ class Hub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict', 'outputs.HubEventHandler']]]] event_handlers: An `event_handler` block as defined below.
                
                > **Note:** User can change the order of `event_handler` to change the priority accordingly.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]] event_listeners: An `event_listener` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict', 'outputs.HubEventListener']]]] event_listeners: An `event_listener` block as defined below.
                
                > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[_builtins.str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
@@ -434,8 +434,8 @@ class Hub(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
-                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
+                 event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict', 'outputs.HubEventHandler']]]]] = None,
+                 event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict', 'outputs.HubEventListener']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -465,8 +465,8 @@ class Hub(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             anonymous_connections_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]]] = None,
-            event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]]] = None,
+            event_handlers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict', 'outputs.HubEventHandler']]]]] = None,
+            event_listeners: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict', 'outputs.HubEventListener']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             web_pubsub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Hub':
         """
@@ -478,10 +478,10 @@ class Hub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] anonymous_connections_enabled: Is anonymous connections are allowed for this hub? Defaults to `false`.
                Possible values are `true`, `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict']]]] event_handlers: An `event_handler` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventHandlerArgs', 'HubEventHandlerArgsDict', 'outputs.HubEventHandler']]]] event_handlers: An `event_handler` block as defined below.
                
                > **Note:** User can change the order of `event_handler` to change the priority accordingly.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict']]]] event_listeners: An `event_listener` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HubEventListenerArgs', 'HubEventListenerArgsDict', 'outputs.HubEventListener']]]] event_listeners: An `event_listener` block as defined below.
                
                > **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[_builtins.str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.

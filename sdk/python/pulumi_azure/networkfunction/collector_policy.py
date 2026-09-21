@@ -231,8 +231,8 @@ class CollectorPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
-                 ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
+                 ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict', 'outputs.CollectorPolicyIpfxEmission']]] = None,
+                 ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict', 'outputs.CollectorPolicyIpfxIngestion']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -316,8 +316,8 @@ class CollectorPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
-        :param pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict', 'outputs.CollectorPolicyIpfxEmission']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict', 'outputs.CollectorPolicyIpfxIngestion']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Network Function Collector Policy.
@@ -420,8 +420,8 @@ class CollectorPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
-                 ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
+                 ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict', 'outputs.CollectorPolicyIpfxEmission']]] = None,
+                 ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict', 'outputs.CollectorPolicyIpfxIngestion']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -457,8 +457,8 @@ class CollectorPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
-            ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
+            ipfx_emission: pulumi.Input[Optional[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict', 'outputs.CollectorPolicyIpfxEmission']]] = None,
+            ipfx_ingestion: pulumi.Input[Optional[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict', 'outputs.CollectorPolicyIpfxIngestion']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -470,8 +470,8 @@ class CollectorPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
-        :param pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict', 'outputs.CollectorPolicyIpfxEmission']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict', 'outputs.CollectorPolicyIpfxIngestion']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Network Function Collector Policy.

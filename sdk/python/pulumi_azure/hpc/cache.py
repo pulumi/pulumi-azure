@@ -624,12 +624,12 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
-                 default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
-                 directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
-                 directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
-                 directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
-                 dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+                 default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict', 'outputs.CacheDefaultAccessPolicy']]] = None,
+                 directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict', 'outputs.CacheDirectoryActiveDirectory']]] = None,
+                 directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict', 'outputs.CacheDirectoryFlatFile']]] = None,
+                 directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict', 'outputs.CacheDirectoryLdap']]] = None,
+                 dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict', 'outputs.CacheDns']]] = None,
+                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
@@ -697,14 +697,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
                > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
-        :param pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']] default_access_policy: A `default_access_policy` block as defined below.
-        :param pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']] directory_active_directory: A `directory_active_directory` block as defined below.
-        :param pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']] directory_flat_file: A `directory_flat_file` block as defined below.
-        :param pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']] directory_ldap: A `directory_ldap` block as defined below.
+        :param pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict', 'outputs.CacheDefaultAccessPolicy']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict', 'outputs.CacheDirectoryActiveDirectory']] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict', 'outputs.CacheDirectoryFlatFile']] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict', 'outputs.CacheDirectoryLdap']] directory_ldap: A `directory_ldap` block as defined below.
                
                > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        :param pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict']] dns: A `dns` block as defined below.
-        :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict', 'outputs.CacheDns']] dns: A `dns` block as defined below.
+        :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] mtu: The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`.
@@ -791,12 +791,12 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
-                 default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
-                 directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
-                 directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
-                 directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
-                 dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+                 default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict', 'outputs.CacheDefaultAccessPolicy']]] = None,
+                 directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict', 'outputs.CacheDirectoryActiveDirectory']]] = None,
+                 directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict', 'outputs.CacheDirectoryFlatFile']]] = None,
+                 directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict', 'outputs.CacheDirectoryLdap']]] = None,
+                 dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict', 'outputs.CacheDns']]] = None,
+                 identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
@@ -853,12 +853,12 @@ class Cache(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             automatically_rotate_key_to_latest_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cache_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
-            default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']]] = None,
-            directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']]] = None,
-            directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']]] = None,
-            directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']]] = None,
-            dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']]] = None,
+            default_access_policy: pulumi.Input[Optional[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict', 'outputs.CacheDefaultAccessPolicy']]] = None,
+            directory_active_directory: pulumi.Input[Optional[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict', 'outputs.CacheDirectoryActiveDirectory']]] = None,
+            directory_flat_file: pulumi.Input[Optional[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict', 'outputs.CacheDirectoryFlatFile']]] = None,
+            directory_ldap: pulumi.Input[Optional[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict', 'outputs.CacheDirectoryLdap']]] = None,
+            dns: pulumi.Input[Optional[Union['CacheDnsArgs', 'CacheDnsArgsDict', 'outputs.CacheDns']]] = None,
+            identity: pulumi.Input[Optional[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             mount_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -880,14 +880,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
                > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
-        :param pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']] default_access_policy: A `default_access_policy` block as defined below.
-        :param pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']] directory_active_directory: A `directory_active_directory` block as defined below.
-        :param pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']] directory_flat_file: A `directory_flat_file` block as defined below.
-        :param pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict']] directory_ldap: A `directory_ldap` block as defined below.
+        :param pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict', 'outputs.CacheDefaultAccessPolicy']] default_access_policy: A `default_access_policy` block as defined below.
+        :param pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict', 'outputs.CacheDirectoryActiveDirectory']] directory_active_directory: A `directory_active_directory` block as defined below.
+        :param pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict', 'outputs.CacheDirectoryFlatFile']] directory_flat_file: A `directory_flat_file` block as defined below.
+        :param pulumi.Input[Union['CacheDirectoryLdapArgs', 'CacheDirectoryLdapArgsDict', 'outputs.CacheDirectoryLdap']] directory_ldap: A `directory_ldap` block as defined below.
                
                > **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set.
-        :param pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict']] dns: A `dns` block as defined below.
-        :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['CacheDnsArgs', 'CacheDnsArgsDict', 'outputs.CacheDns']] dns: A `dns` block as defined below.
+        :param pulumi.Input[Union['CacheIdentityArgs', 'CacheIdentityArgsDict', 'outputs.CacheIdentity']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] mount_addresses: A list of IP Addresses where the HPC Cache can be mounted.

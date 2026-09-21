@@ -640,9 +640,9 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_types_to_compresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]]] = None,
-                 geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]]] = None,
-                 global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict']]] = None,
+                 delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]]] = None,
+                 geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]]] = None,
+                 global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']]] = None,
                  is_compression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_http_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_https_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -651,7 +651,7 @@ class Endpoint(pulumi.CustomResource):
                  optimization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]]] = None,
                  probe_path: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  querystring_caching_behaviour: pulumi.Input[Optional[_builtins.str]] = None,
@@ -706,9 +706,9 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
-        :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] is_https_allowed: Specifies if https allowed. Defaults to `true`.
@@ -717,7 +717,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[_builtins.str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
                
                > **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
@@ -793,9 +793,9 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_types_to_compresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]]] = None,
-                 geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]]] = None,
-                 global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict']]] = None,
+                 delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]]] = None,
+                 geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]]] = None,
+                 global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']]] = None,
                  is_compression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_http_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_https_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -804,7 +804,7 @@ class Endpoint(pulumi.CustomResource):
                  optimization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
                  origin_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict']]]]] = None,
+                 origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]]] = None,
                  probe_path: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  querystring_caching_behaviour: pulumi.Input[Optional[_builtins.str]] = None,
@@ -855,10 +855,10 @@ class Endpoint(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             content_types_to_compresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]]] = None,
+            delivery_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]]] = None,
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
-            geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]]] = None,
-            global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict']]] = None,
+            geo_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]]] = None,
+            global_delivery_rule: pulumi.Input[Optional[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']]] = None,
             is_compression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             is_http_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
             is_https_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -867,7 +867,7 @@ class Endpoint(pulumi.CustomResource):
             optimization_type: pulumi.Input[Optional[_builtins.str]] = None,
             origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
             origin_path: pulumi.Input[Optional[_builtins.str]] = None,
-            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict']]]]] = None,
+            origins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]]] = None,
             probe_path: pulumi.Input[Optional[_builtins.str]] = None,
             profile_name: pulumi.Input[Optional[_builtins.str]] = None,
             querystring_caching_behaviour: pulumi.Input[Optional[_builtins.str]] = None,
@@ -881,10 +881,10 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict', 'outputs.EndpointDeliveryRule']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
-        :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict', 'outputs.EndpointGeoFilter']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict', 'outputs.EndpointGlobalDeliveryRule']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
         :param pulumi.Input[_builtins.bool] is_compression_enabled: Indicates whether compression is to be enabled.
         :param pulumi.Input[_builtins.bool] is_http_allowed: Specifies if http allowed. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] is_https_allowed: Specifies if https allowed. Defaults to `true`.
@@ -893,7 +893,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header CDN provider will send along with content requests to origins.
         :param pulumi.Input[_builtins.str] origin_path: The path used at for origin requests.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointOriginArgs', 'EndpointOriginArgsDict', 'outputs.EndpointOrigin']]]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
                
                > **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.

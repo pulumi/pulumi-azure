@@ -2605,17 +2605,17 @@ class Account(pulumi.CustomResource):
                  account_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
-                 blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
+                 azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']]] = None,
+                 blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']]] = None,
                  cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
                  default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+                 immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict', 'outputs.AccountImmutabilityPolicy']]] = None,
                  infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2623,19 +2623,19 @@ class Account(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
+                 network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']]] = None,
                  nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
+                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
-                 sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
+                 routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']]] = None,
+                 sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']]] = None,
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
+                 share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
+                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -2731,11 +2731,11 @@ class Account(pulumi.CustomResource):
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
-        :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']] azure_files_authentication: A `azure_files_authentication` block as defined below.
-        :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']] azure_files_authentication: A `azure_files_authentication` block as defined below.
+        :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
-        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
                
                > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         :param pulumi.Input[_builtins.bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
@@ -2744,8 +2744,8 @@ class Account(pulumi.CustomResource):
                > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[_builtins.bool] https_traffic_only_enabled: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict', 'outputs.AccountImmutabilityPolicy']] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
@@ -2763,29 +2763,29 @@ class Account(pulumi.CustomResource):
                
                > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
         :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
-        :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']] queue_properties: A `queue_properties` block as defined below.
+        :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']] queue_properties: A `queue_properties` block as defined below.
                
                > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']] routing: A `routing` block as defined below.
-        :param pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']] sas_policy: A `sas_policy` block as defined below.
+        :param pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[_builtins.bool] sftp_enabled: Boolean, enable SFTP for the storage account
                
                > **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
-        :param pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']] share_properties: A `share_properties` block as defined below.
+        :param pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']] share_properties: A `share_properties` block as defined below.
                
                > **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
-        :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']] static_website: A `static_website` block as defined below.
                
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
                
@@ -2900,17 +2900,17 @@ class Account(pulumi.CustomResource):
                  account_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
                  allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
-                 blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
+                 azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']]] = None,
+                 blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']]] = None,
                  cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
                  default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+                 immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict', 'outputs.AccountImmutabilityPolicy']]] = None,
                  infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2918,19 +2918,19 @@ class Account(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
+                 network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']]] = None,
                  nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
+                 queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
-                 sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
+                 routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']]] = None,
+                 sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']]] = None,
                  sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
+                 share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
                  shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
+                 static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']]] = None,
                  table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -3077,17 +3077,17 @@ class Account(pulumi.CustomResource):
             account_tier: pulumi.Input[Optional[_builtins.str]] = None,
             allow_nested_items_to_be_public: pulumi.Input[Optional[_builtins.bool]] = None,
             allowed_copy_scope: pulumi.Input[Optional[_builtins.str]] = None,
-            azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']]] = None,
-            blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']]] = None,
+            azure_files_authentication: pulumi.Input[Optional[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']]] = None,
+            blob_properties: pulumi.Input[Optional[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']]] = None,
             cross_tenant_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+            custom_domain: pulumi.Input[Optional[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
             default_to_oauth_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
             dns_endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
             https_traffic_only_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            immutability_policy: pulumi.Input[Optional[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict', 'outputs.AccountImmutabilityPolicy']]] = None,
             infrastructure_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             is_hns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             large_file_share_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -3095,7 +3095,7 @@ class Account(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']]] = None,
+            network_rules: pulumi.Input[Optional[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']]] = None,
             nfsv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             primary_blob_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3136,10 +3136,10 @@ class Account(pulumi.CustomResource):
             provisioned_billing_model_version: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             queue_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
-            queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']]] = None,
+            queue_properties: pulumi.Input[Optional[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']]] = None,
-            sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']]] = None,
+            routing: pulumi.Input[Optional[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']]] = None,
+            sas_policy: pulumi.Input[Optional[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']]] = None,
             secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_blob_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_blob_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3177,9 +3177,9 @@ class Account(pulumi.CustomResource):
             secondary_web_microsoft_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_web_microsoft_host: pulumi.Input[Optional[_builtins.str]] = None,
             sftp_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']]] = None,
+            share_properties: pulumi.Input[Optional[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']]] = None,
             shared_access_key_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']]] = None,
+            static_website: pulumi.Input[Optional[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']]] = None,
             table_encryption_key_type: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
@@ -3201,11 +3201,11 @@ class Account(pulumi.CustomResource):
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
-        :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']] azure_files_authentication: A `azure_files_authentication` block as defined below.
-        :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']] blob_properties: A `blob_properties` block as defined below.
+        :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict', 'outputs.AccountAzureFilesAuthentication']] azure_files_authentication: A `azure_files_authentication` block as defined below.
+        :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict', 'outputs.AccountBlobProperties']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
-        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict']] custom_domain: A `custom_domain` block as documented below.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomDomainArgs', 'AccountCustomDomainArgsDict', 'outputs.AccountCustomDomain']] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
                
                > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         :param pulumi.Input[_builtins.bool] default_to_oauth_authentication: Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
@@ -3214,8 +3214,8 @@ class Account(pulumi.CustomResource):
                > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         :param pulumi.Input[_builtins.bool] https_traffic_only_enabled: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict']] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountImmutabilityPolicyArgs', 'AccountImmutabilityPolicyArgsDict', 'outputs.AccountImmutabilityPolicy']] immutability_policy: An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] infrastructure_encryption_enabled: Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
@@ -3233,7 +3233,7 @@ class Account(pulumi.CustomResource):
                
                > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
-        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict']] network_rules: A `network_rules` block as documented below.
+        :param pulumi.Input[Union['AccountNetworkRulesArgs', 'AccountNetworkRulesArgsDict', 'outputs.AccountNetworkRules']] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[_builtins.bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
                
                > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
@@ -3276,12 +3276,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] provisioned_billing_model_version: Specifies the version of the **provisioned** billing model (e.g. when `account_kind = "FileStorage"` for Storage File). Possible value is `V2`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
-        :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict']] queue_properties: A `queue_properties` block as defined below.
+        :param pulumi.Input[Union['AccountQueuePropertiesArgs', 'AccountQueuePropertiesArgsDict', 'outputs.AccountQueueProperties']] queue_properties: A `queue_properties` block as defined below.
                
                > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict']] routing: A `routing` block as defined below.
-        :param pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict']] sas_policy: A `sas_policy` block as defined below.
+        :param pulumi.Input[Union['AccountRoutingArgs', 'AccountRoutingArgsDict', 'outputs.AccountRouting']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['AccountSasPolicyArgs', 'AccountSasPolicyArgsDict', 'outputs.AccountSasPolicy']] sas_policy: A `sas_policy` block as defined below.
         :param pulumi.Input[_builtins.str] secondary_access_key: The secondary access key for the storage account.
         :param pulumi.Input[_builtins.str] secondary_blob_connection_string: The connection string associated with the secondary blob location.
         :param pulumi.Input[_builtins.str] secondary_blob_endpoint: The endpoint URL for blob storage in the secondary location.
@@ -3321,13 +3321,13 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] sftp_enabled: Boolean, enable SFTP for the storage account
                
                > **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
-        :param pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict']] share_properties: A `share_properties` block as defined below.
+        :param pulumi.Input[Union['AccountSharePropertiesArgs', 'AccountSharePropertiesArgsDict', 'outputs.AccountShareProperties']] share_properties: A `share_properties` block as defined below.
                
                > **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         :param pulumi.Input[_builtins.bool] shared_access_key_enabled: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). Defaults to `true`.
                
                > **Note:** Terraform uses Shared Key Authorisation to provision Storage Containers, Blobs and other items - when Shared Key Access is disabled, you will need to enable the `storage_use_azuread` flag in the Provider block to use Azure AD for authentication, however not all Azure Storage services support Active Directory authentication.
-        :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict']] static_website: A `static_website` block as defined below.
+        :param pulumi.Input[Union['AccountStaticWebsiteArgs', 'AccountStaticWebsiteArgsDict', 'outputs.AccountStaticWebsite']] static_website: A `static_website` block as defined below.
                
                > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
                

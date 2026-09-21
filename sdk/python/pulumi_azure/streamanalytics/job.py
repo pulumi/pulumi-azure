@@ -654,8 +654,8 @@ class Job(pulumi.CustomResource):
                  events_late_arrival_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict']]] = None,
-                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']]] = None,
+                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict', 'outputs.JobJobStorageAccount']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -726,8 +726,8 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
         :param pulumi.Input[_builtins.int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         :param pulumi.Input[_builtins.str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
-        :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+        :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict', 'outputs.JobJobStorageAccount']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
                
                > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -819,8 +819,8 @@ class Job(pulumi.CustomResource):
                  events_late_arrival_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict']]] = None,
-                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']]] = None,
+                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict', 'outputs.JobJobStorageAccount']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -879,9 +879,9 @@ class Job(pulumi.CustomResource):
             events_late_arrival_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']]] = None,
             job_id: pulumi.Input[Optional[_builtins.str]] = None,
-            job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]]] = None,
+            job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict', 'outputs.JobJobStorageAccount']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -907,9 +907,9 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] events_late_arrival_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`.
         :param pulumi.Input[_builtins.int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         :param pulumi.Input[_builtins.str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
-        :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict', 'outputs.JobIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] job_id: The Job ID assigned by the Stream Analytics Job.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict', 'outputs.JobJobStorageAccount']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
                
                > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.

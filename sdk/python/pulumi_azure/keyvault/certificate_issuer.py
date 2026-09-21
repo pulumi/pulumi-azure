@@ -265,7 +265,7 @@ class CertificateIssuer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict']]]]] = None,
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict', 'outputs.CertificateIssuerAdmin']]]]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  org_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -313,7 +313,7 @@ class CertificateIssuer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account number with the third-party Certificate Issuer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict']]]] admins: One or more `admin` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict', 'outputs.CertificateIssuerAdmin']]]] admins: One or more `admin` blocks as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         :param pulumi.Input[_builtins.str] org_id: The ID of the organization as provided to the issuer.
@@ -380,7 +380,7 @@ class CertificateIssuer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict']]]]] = None,
+                 admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict', 'outputs.CertificateIssuerAdmin']]]]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  org_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -419,7 +419,7 @@ class CertificateIssuer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict']]]]] = None,
+            admins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict', 'outputs.CertificateIssuerAdmin']]]]] = None,
             key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             org_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -433,7 +433,7 @@ class CertificateIssuer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: The account number with the third-party Certificate Issuer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict']]]] admins: One or more `admin` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateIssuerAdminArgs', 'CertificateIssuerAdminArgsDict', 'outputs.CertificateIssuerAdmin']]]] admins: One or more `admin` blocks as defined below.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         :param pulumi.Input[_builtins.str] org_id: The ID of the organization as provided to the issuer.

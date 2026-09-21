@@ -441,9 +441,9 @@ class ExpressRoutePort(pulumi.CustomResource):
                  bandwidth_in_gbps: pulumi.Input[Optional[_builtins.int]] = None,
                  billing_type: pulumi.Input[Optional[_builtins.str]] = None,
                  encapsulation: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict']]] = None,
-                 link1: pulumi.Input[Optional[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict']]] = None,
-                 link2: pulumi.Input[Optional[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict', 'outputs.ExpressRoutePortIdentity']]] = None,
+                 link1: pulumi.Input[Optional[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict', 'outputs.ExpressRoutePortLink1']]] = None,
+                 link2: pulumi.Input[Optional[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict', 'outputs.ExpressRoutePortLink2']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -492,9 +492,9 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] bandwidth_in_gbps: Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[_builtins.str] billing_type: The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         :param pulumi.Input[_builtins.str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
-        :param pulumi.Input[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict']] link1: A list of `link` blocks as defined below.
-        :param pulumi.Input[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict']] link2: A list of `link` blocks as defined below.
+        :param pulumi.Input[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict', 'outputs.ExpressRoutePortIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict', 'outputs.ExpressRoutePortLink1']] link1: A list of `link` blocks as defined below.
+        :param pulumi.Input[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict', 'outputs.ExpressRoutePortLink2']] link2: A list of `link` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[_builtins.str] peering_location: The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
@@ -562,9 +562,9 @@ class ExpressRoutePort(pulumi.CustomResource):
                  bandwidth_in_gbps: pulumi.Input[Optional[_builtins.int]] = None,
                  billing_type: pulumi.Input[Optional[_builtins.str]] = None,
                  encapsulation: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict']]] = None,
-                 link1: pulumi.Input[Optional[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict']]] = None,
-                 link2: pulumi.Input[Optional[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict', 'outputs.ExpressRoutePortIdentity']]] = None,
+                 link1: pulumi.Input[Optional[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict', 'outputs.ExpressRoutePortLink1']]] = None,
+                 link2: pulumi.Input[Optional[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict', 'outputs.ExpressRoutePortLink2']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -616,9 +616,9 @@ class ExpressRoutePort(pulumi.CustomResource):
             encapsulation: pulumi.Input[Optional[_builtins.str]] = None,
             ethertype: pulumi.Input[Optional[_builtins.str]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict']]] = None,
-            link1: pulumi.Input[Optional[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict']]] = None,
-            link2: pulumi.Input[Optional[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict', 'outputs.ExpressRoutePortIdentity']]] = None,
+            link1: pulumi.Input[Optional[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict', 'outputs.ExpressRoutePortLink1']]] = None,
+            link2: pulumi.Input[Optional[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict', 'outputs.ExpressRoutePortLink2']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             mtu: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -637,9 +637,9 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encapsulation: The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         :param pulumi.Input[_builtins.str] ethertype: The EtherType of the Express Route Port.
         :param pulumi.Input[_builtins.str] guid: The resource GUID of the Express Route Port.
-        :param pulumi.Input[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict']] link1: A list of `link` blocks as defined below.
-        :param pulumi.Input[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict']] link2: A list of `link` blocks as defined below.
+        :param pulumi.Input[Union['ExpressRoutePortIdentityArgs', 'ExpressRoutePortIdentityArgsDict', 'outputs.ExpressRoutePortIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ExpressRoutePortLink1Args', 'ExpressRoutePortLink1ArgsDict', 'outputs.ExpressRoutePortLink1']] link1: A list of `link` blocks as defined below.
+        :param pulumi.Input[Union['ExpressRoutePortLink2Args', 'ExpressRoutePortLink2ArgsDict', 'outputs.ExpressRoutePortLink2']] link2: A list of `link` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
         :param pulumi.Input[_builtins.str] mtu: The maximum transmission unit of the Express Route Port.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.

@@ -325,8 +325,8 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict']]] = None,
-                 export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+                 export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataOptions']]] = None,
+                 export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataStorageLocation']]] = None,
                  file_format: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -391,8 +391,8 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
-        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataOptions']] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataStorageLocation']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
@@ -476,8 +476,8 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
-                 export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict']]] = None,
-                 export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+                 export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataOptions']]] = None,
+                 export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataStorageLocation']]] = None,
                  file_format: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -525,8 +525,8 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
-            export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict']]] = None,
-            export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+            export_data_options: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataOptions']]] = None,
+            export_data_storage_location: pulumi.Input[Optional[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataStorageLocation']]] = None,
             file_format: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -541,8 +541,8 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
-        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataOptionsArgs', 'ResourceGroupCostManagementExportExportDataOptionsArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataOptions']] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input[Union['ResourceGroupCostManagementExportExportDataStorageLocationArgs', 'ResourceGroupCostManagementExportExportDataStorageLocationArgsDict', 'outputs.ResourceGroupCostManagementExportExportDataStorageLocation']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.

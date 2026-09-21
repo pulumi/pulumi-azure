@@ -234,7 +234,7 @@ class JobAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict', 'outputs.JobAgentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -289,7 +289,7 @@ class JobAgent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict', 'outputs.JobAgentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[_builtins.str] sku: The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
@@ -363,7 +363,7 @@ class JobAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict', 'outputs.JobAgentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -396,7 +396,7 @@ class JobAgent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             database_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict', 'outputs.JobAgentIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -409,7 +409,7 @@ class JobAgent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict', 'outputs.JobAgentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[_builtins.str] sku: The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.

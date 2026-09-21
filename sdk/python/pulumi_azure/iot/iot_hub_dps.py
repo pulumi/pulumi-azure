@@ -410,13 +410,13 @@ class IotHubDps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  data_residency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict']]]]] = None,
-                 linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict']]]]] = None,
+                 ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict', 'outputs.IotHubDpsIpFilterRule']]]]] = None,
+                 linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict', 'outputs.IotHubDpsLinkedHub']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict', 'outputs.IotHubDpsSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -462,13 +462,13 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] allocation_policy: The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         :param pulumi.Input[_builtins.bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict']]]] linked_hubs: A `linked_hub` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict', 'outputs.IotHubDpsIpFilterRule']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict', 'outputs.IotHubDpsLinkedHub']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict', 'outputs.IotHubDpsSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -533,13 +533,13 @@ class IotHubDps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  data_residency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict']]]]] = None,
-                 linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict']]]]] = None,
+                 ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict', 'outputs.IotHubDpsIpFilterRule']]]]] = None,
+                 linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict', 'outputs.IotHubDpsLinkedHub']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict', 'outputs.IotHubDpsSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -581,14 +581,14 @@ class IotHubDps(pulumi.CustomResource):
             data_residency_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             device_provisioning_host_name: pulumi.Input[Optional[_builtins.str]] = None,
             id_scope: pulumi.Input[Optional[_builtins.str]] = None,
-            ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict']]]]] = None,
-            linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict']]]]] = None,
+            ip_filter_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict', 'outputs.IotHubDpsIpFilterRule']]]]] = None,
+            linked_hubs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict', 'outputs.IotHubDpsLinkedHub']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_operations_host_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict', 'outputs.IotHubDpsSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IotHubDps':
         """
         Get an existing IotHubDps resource's state with the given name, id, and optional extra
@@ -601,14 +601,14 @@ class IotHubDps(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] data_residency_enabled: Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] device_provisioning_host_name: The device endpoint of the IoT Device Provisioning Service.
         :param pulumi.Input[_builtins.str] id_scope: The unique identifier of the IoT Device Provisioning Service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict']]]] linked_hubs: A `linked_hub` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsIpFilterRuleArgs', 'IotHubDpsIpFilterRuleArgsDict', 'outputs.IotHubDpsIpFilterRule']]]] ip_filter_rules: An `ip_filter_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IotHubDpsLinkedHubArgs', 'IotHubDpsLinkedHubArgsDict', 'outputs.IotHubDpsLinkedHub']]]] linked_hubs: A `linked_hub` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether requests from Public Network are allowed. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_operations_host_name: The service endpoint of the IoT Device Provisioning Service.
-        :param pulumi.Input[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['IotHubDpsSkuArgs', 'IotHubDpsSkuArgsDict', 'outputs.IotHubDpsSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

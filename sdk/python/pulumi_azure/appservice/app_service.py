@@ -794,23 +794,23 @@ class AppService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict', 'outputs.AppServiceAuthSettings']]] = None,
+                 backup: pulumi.Input[Optional[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict', 'outputs.AppServiceBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict', 'outputs.AppServiceConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict', 'outputs.AppServiceIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict', 'outputs.AppServiceLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict']]] = None,
-                 source_control: pulumi.Input[Optional[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict', 'outputs.AppServiceSiteConfig']]] = None,
+                 source_control: pulumi.Input[Optional[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict', 'outputs.AppServiceSourceControl']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict', 'outputs.AppServiceStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -871,23 +871,23 @@ class AppService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict', 'outputs.AppServiceAuthSettings']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict', 'outputs.AppServiceBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[_builtins.str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict', 'outputs.AppServiceConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the App Service Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict', 'outputs.AppServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict', 'outputs.AppServiceLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict']] source_control: A `source_control` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict', 'outputs.AppServiceSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict', 'outputs.AppServiceSourceControl']] source_control: A `source_control` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict', 'outputs.AppServiceStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -967,23 +967,23 @@ class AppService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict', 'outputs.AppServiceAuthSettings']]] = None,
+                 backup: pulumi.Input[Optional[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict', 'outputs.AppServiceBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict', 'outputs.AppServiceConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict', 'outputs.AppServiceIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict', 'outputs.AppServiceLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict']]] = None,
-                 source_control: pulumi.Input[Optional[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict', 'outputs.AppServiceSiteConfig']]] = None,
+                 source_control: pulumi.Input[Optional[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict', 'outputs.AppServiceSourceControl']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict', 'outputs.AppServiceStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1037,30 +1037,30 @@ class AppService(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict']]] = None,
-            backup: pulumi.Input[Optional[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict']]] = None,
+            auth_settings: pulumi.Input[Optional[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict', 'outputs.AppServiceAuthSettings']]] = None,
+            backup: pulumi.Input[Optional[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict', 'outputs.AppServiceBackup']]] = None,
             client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_cert_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict', 'outputs.AppServiceConnectionString']]]]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_site_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict', 'outputs.AppServiceIdentity']]] = None,
             key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            logs: pulumi.Input[Optional[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict']]] = None,
+            logs: pulumi.Input[Optional[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict', 'outputs.AppServiceLogs']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             possible_outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceSiteCredentialArgs', 'AppServiceSiteCredentialArgsDict']]]]] = None,
-            source_control: pulumi.Input[Optional[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict']]] = None,
-            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict', 'outputs.AppServiceSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceSiteCredentialArgs', 'AppServiceSiteCredentialArgsDict', 'outputs.AppServiceSiteCredential']]]]] = None,
+            source_control: pulumi.Input[Optional[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict', 'outputs.AppServiceSourceControl']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict', 'outputs.AppServiceStorageAccount']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AppService':
         """
         Get an existing AppService resource's state with the given name, id, and optional extra
@@ -1071,30 +1071,30 @@ class AppService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['AppServiceAuthSettingsArgs', 'AppServiceAuthSettingsArgsDict', 'outputs.AppServiceAuthSettings']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['AppServiceBackupArgs', 'AppServiceBackupArgsDict', 'outputs.AppServiceBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[_builtins.str] client_cert_mode: Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceConnectionStringArgs', 'AppServiceConnectionStringArgsDict', 'outputs.AppServiceConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
         :param pulumi.Input[_builtins.bool] enabled: Is the App Service Enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AppServiceIdentityArgs', 'AppServiceIdentityArgsDict', 'outputs.AppServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['AppServiceLogsArgs', 'AppServiceLogsArgsDict', 'outputs.AppServiceLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] possible_outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
         :param pulumi.Input[_builtins.str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceSiteCredentialArgs', 'AppServiceSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict']] source_control: A `source_control` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['AppServiceSiteConfigArgs', 'AppServiceSiteConfigArgsDict', 'outputs.AppServiceSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceSiteCredentialArgs', 'AppServiceSiteCredentialArgsDict', 'outputs.AppServiceSiteCredential']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[Union['AppServiceSourceControlArgs', 'AppServiceSourceControlArgsDict', 'outputs.AppServiceSourceControl']] source_control: A `source_control` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppServiceStorageAccountArgs', 'AppServiceStorageAccountArgsDict', 'outputs.AppServiceStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

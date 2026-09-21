@@ -138,7 +138,7 @@ class RouteMap(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict', 'outputs.RouteMapRule']]]]] = None,
                  virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -201,7 +201,7 @@ class RouteMap(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict', 'outputs.RouteMapRule']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         ...
@@ -283,7 +283,7 @@ class RouteMap(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict', 'outputs.RouteMapRule']]]]] = None,
                  virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -310,7 +310,7 @@ class RouteMap(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict', 'outputs.RouteMapRule']]]]] = None,
             virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RouteMap':
         """
         Get an existing RouteMap resource's state with the given name, id, and optional extra
@@ -320,7 +320,7 @@ class RouteMap(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict', 'outputs.RouteMapRule']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

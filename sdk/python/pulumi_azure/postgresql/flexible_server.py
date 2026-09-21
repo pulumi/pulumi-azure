@@ -1076,18 +1076,18 @@ class FlexibleServer(pulumi.CustomResource):
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict', 'outputs.FlexibleServerAuthentication']]] = None,
                  auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']]] = None,
+                 cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict', 'outputs.FlexibleServerCluster']]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
                  delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1204,18 +1204,18 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         :param pulumi.Input[_builtins.int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
-        :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict', 'outputs.FlexibleServerAuthentication']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']] cluster: A `cluster` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict', 'outputs.FlexibleServerCluster']] cluster: A `cluster` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
-        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
-        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']] high_availability: A `high_availability` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** This must be unique across the entire Azure service, not just within the resource group.
@@ -1373,18 +1373,18 @@ class FlexibleServer(pulumi.CustomResource):
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict', 'outputs.FlexibleServerAuthentication']]] = None,
                  auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']]] = None,
+                 cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict', 'outputs.FlexibleServerCluster']]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
                  delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1453,19 +1453,19 @@ class FlexibleServer(pulumi.CustomResource):
             administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
             administrator_password: pulumi.Input[Optional[_builtins.str]] = None,
             administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-            authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']]] = None,
+            authentication: pulumi.Input[Optional[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict', 'outputs.FlexibleServerAuthentication']]] = None,
             auto_grow_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
-            cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']]] = None,
+            cluster: pulumi.Input[Optional[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict', 'outputs.FlexibleServerCluster']]] = None,
             create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
             delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+            high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+            identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
             private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1493,19 +1493,19 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** To create with `administrator_login` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_login` for the PostgreSQL Flexible Server.
         :param pulumi.Input[_builtins.int] administrator_password_wo_version: An integer value used to trigger an update for `administrator_password_wo`. This property should be incremented when updating `administrator_password_wo`.
-        :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerAuthenticationArgs', 'FlexibleServerAuthenticationArgsDict', 'outputs.FlexibleServerAuthentication']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.bool] auto_grow_enabled: Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.int] backup_retention_days: The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days.
-        :param pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict']] cluster: A `cluster` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerClusterArgs', 'FlexibleServerClusterArgsDict', 'outputs.FlexibleServerCluster']] cluster: A `cluster` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica`, `ReviveDropped` and `Update`.
-        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the PostgreSQL Flexible Server. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to the PostgreSQL Flexible Server, if not already delegated. Changing this forces a new PostgreSQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the PostgreSQL Flexible Server.
         :param pulumi.Input[_builtins.bool] geo_redundant_backup_enabled: Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
-        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']] high_availability: A `high_availability` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the PostgreSQL Flexible Server should exist. Changing this forces a new PostgreSQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
                
                > **Note:** This must be unique across the entire Azure service, not just within the resource group.

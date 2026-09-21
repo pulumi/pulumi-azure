@@ -310,7 +310,7 @@ class NamedValue(pulumi.CustomResource):
                  secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
-                 value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict', 'outputs.NamedValueValueFromKeyVault']]] = None,
                  __props__=None):
         """
         Manages an API Management Named Value.
@@ -366,7 +366,7 @@ class NamedValue(pulumi.CustomResource):
                > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[_builtins.str] value: The value of this API Management Named Value.
-        :param pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+        :param pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict', 'outputs.NamedValueValueFromKeyVault']] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         """
         ...
     @overload
@@ -439,7 +439,7 @@ class NamedValue(pulumi.CustomResource):
                  secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
-                 value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict', 'outputs.NamedValueValueFromKeyVault']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -482,7 +482,7 @@ class NamedValue(pulumi.CustomResource):
             secret: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             value: pulumi.Input[Optional[_builtins.str]] = None,
-            value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']]] = None) -> 'NamedValue':
+            value_from_key_vault: pulumi.Input[Optional[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict', 'outputs.NamedValueValueFromKeyVault']]] = None) -> 'NamedValue':
         """
         Get an existing NamedValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -499,7 +499,7 @@ class NamedValue(pulumi.CustomResource):
                > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[_builtins.str] value: The value of this API Management Named Value.
-        :param pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
+        :param pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict', 'outputs.NamedValueValueFromKeyVault']] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

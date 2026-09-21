@@ -435,11 +435,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_policy: pulumi.Input[Optional[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict']]] = None,
+                 retention_policy: pulumi.Input[Optional[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict', 'outputs.NetworkWatcherFlowLogRetentionPolicy']]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 traffic_analytics: pulumi.Input[Optional[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']]] = None,
+                 traffic_analytics: pulumi.Input[Optional[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']]] = None,
                  version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -520,13 +520,13 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict']] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict', 'outputs.NetworkWatcherFlowLogRetentionPolicy']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Resource for which to enable flow logs for.
                
                > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
-        :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']] traffic_analytics: A `traffic_analytics` block as documented below.
+        :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']] traffic_analytics: A `traffic_analytics` block as documented below.
         :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         ...
@@ -627,11 +627,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_policy: pulumi.Input[Optional[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict']]] = None,
+                 retention_policy: pulumi.Input[Optional[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict', 'outputs.NetworkWatcherFlowLogRetentionPolicy']]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 traffic_analytics: pulumi.Input[Optional[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']]] = None,
+                 traffic_analytics: pulumi.Input[Optional[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']]] = None,
                  version: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -680,11 +680,11 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            retention_policy: pulumi.Input[Optional[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict']]] = None,
+            retention_policy: pulumi.Input[Optional[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict', 'outputs.NetworkWatcherFlowLogRetentionPolicy']]] = None,
             storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-            traffic_analytics: pulumi.Input[Optional[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']]] = None,
+            traffic_analytics: pulumi.Input[Optional[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']]] = None,
             version: pulumi.Input[Optional[_builtins.int]] = None) -> 'NetworkWatcherFlowLog':
         """
         Get an existing NetworkWatcherFlowLog resource's state with the given name, id, and optional extra
@@ -698,13 +698,13 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Network Watcher Flow Log. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict']] retention_policy: A `retention_policy` block as documented below.
+        :param pulumi.Input[Union['NetworkWatcherFlowLogRetentionPolicyArgs', 'NetworkWatcherFlowLogRetentionPolicyArgsDict', 'outputs.NetworkWatcherFlowLogRetentionPolicy']] retention_policy: A `retention_policy` block as documented below.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account where flow logs are stored.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Network Watcher Flow Log.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Resource for which to enable flow logs for.
                
                > **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
-        :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict']] traffic_analytics: A `traffic_analytics` block as documented below.
+        :param pulumi.Input[Union['NetworkWatcherFlowLogTrafficAnalyticsArgs', 'NetworkWatcherFlowLogTrafficAnalyticsArgsDict', 'outputs.NetworkWatcherFlowLogTrafficAnalytics']] traffic_analytics: A `traffic_analytics` block as documented below.
         :param pulumi.Input[_builtins.int] version: The version (revision) of the flow log. Possible values are `1` and `2`. Defaults to `1`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

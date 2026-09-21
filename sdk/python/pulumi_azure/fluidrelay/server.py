@@ -361,8 +361,8 @@ class Server(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict', 'outputs.ServerCustomerManagedKey']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -405,8 +405,8 @@ class Server(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict', 'outputs.ServerCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
@@ -468,8 +468,8 @@ class Server(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict', 'outputs.ServerCustomerManagedKey']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -511,9 +511,9 @@ class Server(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict', 'outputs.ServerCustomerManagedKey']]] = None,
             frs_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             orderer_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -531,9 +531,9 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ServerCustomerManagedKeyArgs', 'ServerCustomerManagedKeyArgsDict', 'outputs.ServerCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] frs_tenant_id: The Fluid tenantId for this server.
-        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] orderer_endpoints: An array of the Fluid Relay Orderer endpoints. This will be deprecated in future version of fluid relay server and will always be empty, [more details](https://learn.microsoft.com/en-us/azure/azure-fluid-relay/concepts/version-compatibility).

@@ -202,9 +202,9 @@ class FleetUpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
+                 managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict', 'outputs.FleetUpdateRunManagedClusterUpdate']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict', 'outputs.FleetUpdateRunStage']]]]] = None,
                  __props__=None):
         """
         Manages a Kubernetes Fleet Update Run.
@@ -281,9 +281,9 @@ class FleetUpdateRun(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']] managed_cluster_update: A `managed_cluster_update` block as defined below.
+        :param pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict', 'outputs.FleetUpdateRunManagedClusterUpdate']] managed_cluster_update: A `managed_cluster_update` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict', 'outputs.FleetUpdateRunStage']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         """
         ...
     @overload
@@ -379,9 +379,9 @@ class FleetUpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
+                 managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict', 'outputs.FleetUpdateRunManagedClusterUpdate']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict', 'outputs.FleetUpdateRunStage']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -412,9 +412,9 @@ class FleetUpdateRun(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fleet_update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
             kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
+            managed_cluster_update: pulumi.Input[Optional[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict', 'outputs.FleetUpdateRunManagedClusterUpdate']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None) -> 'FleetUpdateRun':
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict', 'outputs.FleetUpdateRunStage']]]]] = None) -> 'FleetUpdateRun':
         """
         Get an existing FleetUpdateRun resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -424,9 +424,9 @@ class FleetUpdateRun(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']] managed_cluster_update: A `managed_cluster_update` block as defined below.
+        :param pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict', 'outputs.FleetUpdateRunManagedClusterUpdate']] managed_cluster_update: A `managed_cluster_update` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict', 'outputs.FleetUpdateRunStage']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

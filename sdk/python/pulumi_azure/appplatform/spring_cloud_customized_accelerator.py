@@ -300,7 +300,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
                  accelerator_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 git_repository: pulumi.Input[Optional[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']]] = None,
+                 git_repository: pulumi.Input[Optional[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict', 'outputs.SpringCloudCustomizedAcceleratorGitRepository']]] = None,
                  icon_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  spring_cloud_accelerator_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -366,7 +366,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accelerator_type: Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Spring Cloud Customized Accelerator.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Spring Cloud Customized Accelerator..
-        :param pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict', 'outputs.SpringCloudCustomizedAcceleratorGitRepository']] git_repository: A `git_repository` block as defined below.
         :param pulumi.Input[_builtins.str] icon_url: Specifies the icon URL of the Spring Cloud Customized Accelerator..
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_accelerator_id: The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
@@ -451,7 +451,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
                  accelerator_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 git_repository: pulumi.Input[Optional[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']]] = None,
+                 git_repository: pulumi.Input[Optional[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict', 'outputs.SpringCloudCustomizedAcceleratorGitRepository']]] = None,
                  icon_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  spring_cloud_accelerator_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -490,7 +490,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             accelerator_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            git_repository: pulumi.Input[Optional[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']]] = None,
+            git_repository: pulumi.Input[Optional[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict', 'outputs.SpringCloudCustomizedAcceleratorGitRepository']]] = None,
             icon_url: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             spring_cloud_accelerator_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudCustomizedAccelerator':
@@ -505,7 +505,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] accelerator_type: Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the Spring Cloud Customized Accelerator.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Spring Cloud Customized Accelerator..
-        :param pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict', 'outputs.SpringCloudCustomizedAcceleratorGitRepository']] git_repository: A `git_repository` block as defined below.
         :param pulumi.Input[_builtins.str] icon_url: Specifies the icon URL of the Spring Cloud Customized Accelerator..
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_accelerator_id: The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
