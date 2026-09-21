@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     algorithm: "RSA",
  *     rsaBits: 4096,
  * });
- * const example = tls.PublicKey({
+ * const example = tls.publicKey({
  *     privateKeyPem: examplePrivateKey.privateKeyPem,
  * });
  * const current = azure.core.getSubscription({});
@@ -66,22 +66,9 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleThreeTierVirtualInstance = new azure.workloadssap.ThreeTierVirtualInstance("example", {
- *     name: "X05",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     environment: "NonProd",
- *     sapProduct: "S4HANA",
- *     managedResourceGroupName: "exampleManagedRG",
- *     appLocation: app.location,
- *     sapFqdn: "sap.bpaas.com",
  *     threeTierConfiguration: {
- *         appResourceGroupName: app.name,
- *         secondaryIpEnabled: true,
  *         applicationServerConfiguration: {
- *             instanceCount: 1,
- *             subnetId: exampleSubnet.id,
  *             virtualMachineConfiguration: {
- *                 virtualMachineSize: "Standard_D16ds_v4",
  *                 image: {
  *                     offer: "RHEL-SAP-HA",
  *                     publisher: "RedHat",
@@ -93,13 +80,13 @@ import * as utilities from "../utilities";
  *                     sshPrivateKey: examplePrivateKey.privateKeyPem,
  *                     sshPublicKey: example.publicKeyOpenssh,
  *                 },
+ *                 virtualMachineSize: "Standard_D16ds_v4",
  *             },
+ *             instanceCount: 1,
+ *             subnetId: exampleSubnet.id,
  *         },
  *         centralServerConfiguration: {
- *             instanceCount: 1,
- *             subnetId: exampleSubnet.id,
  *             virtualMachineConfiguration: {
- *                 virtualMachineSize: "Standard_D16ds_v4",
  *                 image: {
  *                     offer: "RHEL-SAP-HA",
  *                     publisher: "RedHat",
@@ -111,14 +98,13 @@ import * as utilities from "../utilities";
  *                     sshPrivateKey: examplePrivateKey.privateKeyPem,
  *                     sshPublicKey: example.publicKeyOpenssh,
  *                 },
+ *                 virtualMachineSize: "Standard_D16ds_v4",
  *             },
+ *             instanceCount: 1,
+ *             subnetId: exampleSubnet.id,
  *         },
  *         databaseServerConfiguration: {
- *             instanceCount: 1,
- *             subnetId: exampleSubnet.id,
- *             databaseType: "HANA",
  *             virtualMachineConfiguration: {
- *                 virtualMachineSize: "Standard_E16ds_v4",
  *                 image: {
  *                     offer: "RHEL-SAP-HA",
  *                     publisher: "RedHat",
@@ -130,6 +116,7 @@ import * as utilities from "../utilities";
  *                     sshPrivateKey: examplePrivateKey.privateKeyPem,
  *                     sshPublicKey: example.publicKeyOpenssh,
  *                 },
+ *                 virtualMachineSize: "Standard_E16ds_v4",
  *             },
  *             diskVolumeConfigurations: [
  *                 {
@@ -169,23 +156,25 @@ import * as utilities from "../utilities";
  *                     skuName: "StandardSSD_LRS",
  *                 },
  *             ],
+ *             instanceCount: 1,
+ *             subnetId: exampleSubnet.id,
+ *             databaseType: "HANA",
  *         },
  *         resourceNames: {
  *             applicationServer: {
- *                 availabilitySetName: "appAvSet",
  *                 virtualMachines: [{
- *                     hostName: "apphostName0",
- *                     osDiskName: "app0osdisk",
- *                     virtualMachineName: "appvm0",
- *                     networkInterfaceNames: ["appnic0"],
  *                     dataDisks: [{
  *                         volumeName: "default",
  *                         names: ["app0disk0"],
  *                     }],
+ *                     hostName: "apphostName0",
+ *                     osDiskName: "app0osdisk",
+ *                     virtualMachineName: "appvm0",
+ *                     networkInterfaceNames: ["appnic0"],
  *                 }],
+ *                 availabilitySetName: "appAvSet",
  *             },
  *             centralServer: {
- *                 availabilitySetName: "csAvSet",
  *                 loadBalancer: {
  *                     name: "ascslb",
  *                     backendPoolNames: ["ascsBackendPool"],
@@ -193,18 +182,18 @@ import * as utilities from "../utilities";
  *                     healthProbeNames: ["ascsHealthProbe"],
  *                 },
  *                 virtualMachines: [{
- *                     hostName: "ascshostName",
- *                     osDiskName: "ascsosdisk",
- *                     virtualMachineName: "ascsvm",
- *                     networkInterfaceNames: ["ascsnic"],
  *                     dataDisks: [{
  *                         volumeName: "default",
  *                         names: ["ascsdisk"],
  *                     }],
+ *                     hostName: "ascshostName",
+ *                     osDiskName: "ascsosdisk",
+ *                     virtualMachineName: "ascsvm",
+ *                     networkInterfaceNames: ["ascsnic"],
  *                 }],
+ *                 availabilitySetName: "csAvSet",
  *             },
  *             databaseServer: {
- *                 availabilitySetName: "dbAvSet",
  *                 loadBalancer: {
  *                     name: "dblb",
  *                     backendPoolNames: ["dbBackendPool"],
@@ -212,10 +201,6 @@ import * as utilities from "../utilities";
  *                     healthProbeNames: ["dbHealthProbe"],
  *                 },
  *                 virtualMachines: [{
- *                     hostName: "dbprhost",
- *                     osDiskName: "dbprosdisk",
- *                     virtualMachineName: "dbvmpr",
- *                     networkInterfaceNames: ["dbprnic"],
  *                     dataDisks: [
  *                         {
  *                             volumeName: "hanaData",
@@ -244,7 +229,12 @@ import * as utilities from "../utilities";
  *                             ],
  *                         },
  *                     ],
+ *                     hostName: "dbprhost",
+ *                     osDiskName: "dbprosdisk",
+ *                     virtualMachineName: "dbvmpr",
+ *                     networkInterfaceNames: ["dbprnic"],
  *                 }],
+ *                 availabilitySetName: "dbAvSet",
  *             },
  *             sharedStorage: {
  *                 accountName: "sharedexamplesa",
@@ -255,11 +245,21 @@ import * as utilities from "../utilities";
  *             resourceGroupId: app.id,
  *             storageAccountName: "exampletranssa",
  *         },
+ *         appResourceGroupName: app.name,
+ *         secondaryIpEnabled: true,
  *     },
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "X05",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     environment: "NonProd",
+ *     sapProduct: "S4HANA",
+ *     managedResourceGroupName: "exampleManagedRG",
+ *     appLocation: app.location,
+ *     sapFqdn: "sap.bpaas.com",
  *     tags: {
  *         Env: "Test",
  *     },

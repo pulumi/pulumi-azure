@@ -32,11 +32,6 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleHBaseCluster = new azure.hdinsight.HBaseCluster("example", {
- *     name: "example-hdicluster",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     clusterVersion: "3.6",
- *     tier: "Standard",
  *     componentVersion: {
  *         hbase: "1.1",
  *     },
@@ -44,11 +39,6 @@ import * as utilities from "../utilities";
  *         username: "acctestusrgw",
  *         password: "Password123!",
  *     },
- *     storageAccounts: [{
- *         storageContainerId: exampleContainer.id,
- *         storageAccountKey: exampleAccount.primaryAccessKey,
- *         isDefault: true,
- *     }],
  *     roles: {
  *         headNode: {
  *             vmSize: "Standard_D3_V2",
@@ -67,6 +57,16 @@ import * as utilities from "../utilities";
  *             password: "AccTestvdSC4daf986!",
  *         },
  *     },
+ *     storageAccounts: [{
+ *         storageContainerId: exampleContainer.id,
+ *         storageAccountKey: exampleAccount.primaryAccessKey,
+ *         isDefault: true,
+ *     }],
+ *     name: "example-hdicluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     clusterVersion: "3.6",
+ *     tier: "Standard",
  * });
  * ```
  *

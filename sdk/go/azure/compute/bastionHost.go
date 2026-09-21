@@ -72,14 +72,14 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewBastionHost(ctx, "example", &compute.BastionHostArgs{
-//				Name:              pulumi.String("examplebastion"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfiguration: &compute.BastionHostIpConfigurationArgs{
 //					Name:              pulumi.String("configuration"),
 //					SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:              pulumi.String("examplebastion"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -22,11 +22,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-cosmosdb-account",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
  *         maxIntervalInSeconds: 10,
@@ -36,6 +31,11 @@ import * as utilities from "../utilities";
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
  *     name: "cosmos-sql-db",
@@ -56,24 +56,24 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
- *     name: "examplespringcloudapp",
- *     resourceGroupName: example.name,
- *     serviceName: exampleSpringCloudService.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "examplespringcloudapp",
+ *     resourceGroupName: example.name,
+ *     serviceName: exampleSpringCloudService.name,
  * });
  * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("example", {
  *     name: "exampledeployment",
  *     springCloudAppId: exampleSpringCloudApp.id,
  * });
  * const exampleSpringCloudConnection = new azure.appplatform.SpringCloudConnection("example", {
- *     name: "example-serviceconnector",
- *     springCloudId: exampleSpringCloudJavaDeployment.id,
- *     targetResourceId: exampleSqlDatabase.id,
  *     authentication: {
  *         type: "systemAssignedIdentity",
  *     },
+ *     name: "example-serviceconnector",
+ *     springCloudId: exampleSpringCloudJavaDeployment.id,
+ *     targetResourceId: exampleSqlDatabase.id,
  * });
  * ```
  *

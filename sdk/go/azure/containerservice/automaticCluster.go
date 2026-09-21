@@ -41,12 +41,12 @@ import (
 //				return err
 //			}
 //			exampleAutomaticCluster, err := containerservice.NewAutomaticCluster(ctx, "example", &containerservice.AutomaticClusterArgs{
-//				Name:              pulumi.String("example-aks1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &containerservice.AutomaticClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-aks1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},
@@ -111,22 +111,22 @@ import (
 //				return err
 //			}
 //			api, err := network.NewSubnet(ctx, "api", &network.SubnetArgs{
-//				Name:               pulumi.String("example-api-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.1.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("aks-delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //							Name: pulumi.String("Microsoft.ContainerService/managedClusters"),
 //						},
+//						Name: pulumi.String("aks-delegation"),
 //					},
+//				},
+//				Name:               pulumi.String("example-api-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.1.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -139,7 +139,9 @@ import (
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.1.2.0/24"),
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"delegations",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -160,9 +162,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewAutomaticCluster(ctx, "example", &containerservice.AutomaticClusterArgs{
-//				Name:              pulumi.String("example-aks"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				HostedSystem: &containerservice.AutomaticClusterHostedSystemArgs{
 //					NodeSubnetId:       node.ID().ToIDOutput().ToStringOutput(),
 //					SystemNodeSubnetId: systemnode.ID().ToIDOutput().ToStringOutput(),
@@ -176,6 +175,9 @@ import (
 //				ApiServerAccess: &containerservice.AutomaticClusterApiServerAccessArgs{
 //					SubnetId: api.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:              pulumi.String("example-aks"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

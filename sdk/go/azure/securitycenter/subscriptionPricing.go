@@ -60,8 +60,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitycenter.NewSubscriptionPricing(ctx, "example1", &securitycenter.SubscriptionPricingArgs{
-//				Tier:         pulumi.String("Standard"),
-//				ResourceType: pulumi.String("CloudPosture"),
 //				Extensions: securitycenter.SubscriptionPricingExtensionArray{
 //					&securitycenter.SubscriptionPricingExtensionArgs{
 //						Name: pulumi.String("ContainerRegistriesVulnerabilityAssessments"),
@@ -79,6 +77,8 @@ import (
 //						Name: pulumi.String("SensitiveDataDiscovery"),
 //					},
 //				},
+//				Tier:         pulumi.String("Standard"),
+//				ResourceType: pulumi.String("CloudPosture"),
 //			})
 //			if err != nil {
 //				return err

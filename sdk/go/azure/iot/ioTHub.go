@@ -95,13 +95,20 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:                       pulumi.String("Example-IoTHub"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				LocalAuthenticationEnabled: pulumi.Bool(false),
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
+//				},
+//				CloudToDevice: &iot.IoTHubCloudToDeviceArgs{
+//					Feedbacks: iot.IoTHubCloudToDeviceFeedbackArray{
+//						&iot.IoTHubCloudToDeviceFeedbackArgs{
+//							TimeToLive:       pulumi.String("PT1H10M"),
+//							MaxDeliveryCount: pulumi.Int(15),
+//							LockDuration:     pulumi.String("PT30S"),
+//						},
+//					},
+//					MaxDeliveryCount: pulumi.Int(30),
+//					DefaultTtl:       pulumi.String("PT1H"),
 //				},
 //				Endpoints: iot.IoTHubEndpointArray{
 //					&iot.IoTHubEndpointArgs{
@@ -118,6 +125,16 @@ import (
 //						Type:             pulumi.String("AzureIotHub.EventHub"),
 //						ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
 //						Name:             pulumi.String("export2"),
+//					},
+//				},
+//				Enrichments: iot.IoTHubEnrichmentArray{
+//					&iot.IoTHubEnrichmentArgs{
+//						Key:   pulumi.String("tenant"),
+//						Value: pulumi.String("$twin.tags.Tenant"),
+//						EndpointNames: pulumi.StringArray{
+//							pulumi.String("export"),
+//							pulumi.String("export2"),
+//						},
 //					},
 //				},
 //				Routes: iot.IoTHubRouteArray{
@@ -140,27 +157,10 @@ import (
 //						Enabled: pulumi.Bool(true),
 //					},
 //				},
-//				Enrichments: iot.IoTHubEnrichmentArray{
-//					&iot.IoTHubEnrichmentArgs{
-//						Key:   pulumi.String("tenant"),
-//						Value: pulumi.String("$twin.tags.Tenant"),
-//						EndpointNames: pulumi.StringArray{
-//							pulumi.String("export"),
-//							pulumi.String("export2"),
-//						},
-//					},
-//				},
-//				CloudToDevice: &iot.IoTHubCloudToDeviceArgs{
-//					MaxDeliveryCount: pulumi.Int(30),
-//					DefaultTtl:       pulumi.String("PT1H"),
-//					Feedbacks: iot.IoTHubCloudToDeviceFeedbackArray{
-//						&iot.IoTHubCloudToDeviceFeedbackArgs{
-//							TimeToLive:       pulumi.String("PT1H10M"),
-//							MaxDeliveryCount: pulumi.Int(15),
-//							LockDuration:     pulumi.String("PT30S"),
-//						},
-//					},
-//				},
+//				Name:                       pulumi.String("Example-IoTHub"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
+//				LocalAuthenticationEnabled: pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"purpose": pulumi.String("testing"),
 //				},

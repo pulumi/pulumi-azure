@@ -30,21 +30,18 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  * });
  * const exampleSpringCloudBuilder = new azure.appplatform.SpringCloudBuilder("example", {
- *     name: "example",
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     buildPackGroups: [{
- *         name: "mix",
- *         buildPackIds: ["tanzu-Build Packs/java-azure"],
- *     }],
  *     stack: {
  *         id: "io.Build Packs.stacks.bionic",
  *         version: "base",
  *     },
+ *     buildPackGroups: [{
+ *         name: "mix",
+ *         buildPackIds: ["tanzu-Build Packs/java-azure"],
+ *     }],
+ *     name: "example",
+ *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * const exampleSpringCloudBuildPackBinding = new azure.appplatform.SpringCloudBuildPackBinding("example", {
- *     name: "example",
- *     springCloudBuilderId: exampleSpringCloudBuilder.id,
- *     bindingType: "ApplicationInsights",
  *     launch: {
  *         properties: {
  *             abc: "def",
@@ -55,6 +52,9 @@ import * as utilities from "../utilities";
  *             "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
  *         },
  *     },
+ *     name: "example",
+ *     springCloudBuilderId: exampleSpringCloudBuilder.id,
+ *     bindingType: "ApplicationInsights",
  * });
  * ```
  *

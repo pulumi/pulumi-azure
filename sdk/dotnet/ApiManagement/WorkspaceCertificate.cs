@@ -53,7 +53,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         CertificateDataBase64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Password = "terraform",
     ///     });
     /// 

@@ -48,14 +48,14 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * const exampleNextGenerationFirewallVirtualHubLocalRulestack = new azure.paloalto.NextGenerationFirewallVirtualHubLocalRulestack("example", {
- *     name: "example-ngfwvn",
- *     resourceGroupName: example.name,
- *     rulestackId: exampleAzurermPaloAltoLocalRulestack.id,
  *     networkProfile: {
  *         publicIpAddressIds: [examplePublicIp.id],
  *         virtualHubId: exampleVirtualHub.id,
  *         networkVirtualApplianceId: exampleVirtualNetworkAppliance.id,
  *     },
+ *     name: "example-ngfwvn",
+ *     resourceGroupName: example.name,
+ *     rulestackId: exampleAzurermPaloAltoLocalRulestack.id,
  * });
  * ```
  *

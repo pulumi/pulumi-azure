@@ -77,6 +77,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new ReferenceInputBlob("test", ReferenceInputBlobArgs.builder()
+ *             .serialization(ReferenceInputBlobSerializationArgs.builder()
+ *                 .type("Json")
+ *                 .encoding("UTF8")
+ *                 .build())
  *             .name("blob-reference-input")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -86,10 +90,6 @@ import javax.annotation.Nullable;
  *             .pathPattern("some-random-pattern")
  *             .dateFormat("yyyy/MM/dd")
  *             .timeFormat("HH")
- *             .serialization(ReferenceInputBlobSerializationArgs.builder()
- *                 .type("Json")
- *                 .encoding("UTF8")
- *                 .build())
  *             .build());
  * 
  *     }

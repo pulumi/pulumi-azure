@@ -380,12 +380,12 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
             sku="PerGB2018",
             retention_in_days=30)
         example_workspace_table_custom_log = azure.loganalytics.WorkspaceTableCustomLog("example",
-            name="example_CL",
-            workspace_id=example_analytics_workspace.id,
             columns=[{
                 "name": "TimeGenerated",
                 "type": "dateTime",
-            }])
+            }],
+            name="example_CL",
+            workspace_id=example_analytics_workspace.id)
         ```
 
         ## API Providers
@@ -446,12 +446,12 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
             sku="PerGB2018",
             retention_in_days=30)
         example_workspace_table_custom_log = azure.loganalytics.WorkspaceTableCustomLog("example",
-            name="example_CL",
-            workspace_id=example_analytics_workspace.id,
             columns=[{
                 "name": "TimeGenerated",
                 "type": "dateTime",
-            }])
+            }],
+            name="example_CL",
+            workspace_id=example_analytics_workspace.id)
         ```
 
         ## API Providers

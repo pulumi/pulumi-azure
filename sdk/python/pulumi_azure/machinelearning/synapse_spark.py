@@ -341,28 +341,28 @@ class SynapseSpark(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
             name="example",
             storage_account_id=example_account.id)
         example_workspace2 = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sql_administrator_login_password="H@Sh1CoR3!")
         example_spark_pool = azure.synapse.SparkPool("example",
             name="example",
             synapse_workspace_id=example_workspace2.id,
@@ -370,13 +370,13 @@ class SynapseSpark(pulumi.CustomResource):
             node_size="Small",
             node_count=3)
         example_synapse_spark = azure.machinelearning.SynapseSpark("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             machine_learning_workspace_id=example_workspace.id,
             location=example.location,
-            synapse_spark_pool_id=example_spark_pool.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            synapse_spark_pool_id=example_spark_pool.id)
         ```
 
         ## API Providers
@@ -448,28 +448,28 @@ class SynapseSpark(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
             name="example",
             storage_account_id=example_account.id)
         example_workspace2 = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sql_administrator_login_password="H@Sh1CoR3!")
         example_spark_pool = azure.synapse.SparkPool("example",
             name="example",
             synapse_workspace_id=example_workspace2.id,
@@ -477,13 +477,13 @@ class SynapseSpark(pulumi.CustomResource):
             node_size="Small",
             node_count=3)
         example_synapse_spark = azure.machinelearning.SynapseSpark("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             machine_learning_workspace_id=example_workspace.id,
             location=example.location,
-            synapse_spark_pool_id=example_spark_pool.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            synapse_spark_pool_id=example_spark_pool.id)
         ```
 
         ## API Providers

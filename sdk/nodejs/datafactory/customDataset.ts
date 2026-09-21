@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "example",
@@ -50,15 +50,15 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleCustomDataset = new azure.datafactory.CustomDataset("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     type: "Json",
  *     linkedService: {
  *         name: exampleLinkedCustomService.name,
  *         parameters: {
  *             key1: "value1",
  *         },
  *     },
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     type: "Json",
  *     typePropertiesJson: pulumi.interpolate`{
  *   \"location\": {
  *     \"container\":\"${exampleContainer.name}\",

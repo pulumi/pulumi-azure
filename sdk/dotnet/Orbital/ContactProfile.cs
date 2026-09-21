@@ -43,18 +43,10 @@ namespace Pulumi.Azure.Orbital
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "testsubnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "orbitalgateway",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Orbital/orbitalGateways",
@@ -66,17 +58,20 @@ namespace Pulumi.Azure.Orbital
     ///                         "Microsoft.Network/publicIPAddresses/read",
     ///                     },
     ///                 },
+    ///                 Name = "orbitalgateway",
     ///             },
+    ///         },
+    ///         Name = "testsubnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("example", new()
     ///     {
-    ///         Name = "example-contact-profile",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         MinimumVariableContactDuration = "PT1M",
-    ///         AutoTracking = "disabled",
     ///         Links = new[]
     ///         {
     ///             new Azure.Orbital.Inputs.ContactProfileLinkArgs
@@ -85,9 +80,6 @@ namespace Pulumi.Azure.Orbital
     ///                 {
     ///                     new Azure.Orbital.Inputs.ContactProfileLinkChannelArgs
     ///                     {
-    ///                         Name = "channelname",
-    ///                         BandwidthMhz = 100,
-    ///                         CenterFrequencyMhz = 101,
     ///                         EndPoints = new[]
     ///                         {
     ///                             new Azure.Orbital.Inputs.ContactProfileLinkChannelEndPointArgs
@@ -98,6 +90,9 @@ namespace Pulumi.Azure.Orbital
     ///                                 Protocol = "TCP",
     ///                             },
     ///                         },
+    ///                         Name = "channelname",
+    ///                         BandwidthMhz = 100,
+    ///                         CenterFrequencyMhz = 101,
     ///                     },
     ///                 },
     ///                 Direction = "Uplink",
@@ -105,6 +100,11 @@ namespace Pulumi.Azure.Orbital
     ///                 Polarization = "RHCP",
     ///             },
     ///         },
+    ///         Name = "example-contact-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         MinimumVariableContactDuration = "PT1M",
+    ///         AutoTracking = "disabled",
     ///         NetworkConfigurationSubnetId = exampleSubnet.Id,
     ///     });
     /// 

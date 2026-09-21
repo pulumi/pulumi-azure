@@ -37,13 +37,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleMongoCollection = new Azure.CosmosDB.MongoCollection("example", new()
     ///     {
-    ///         Name = "tfex-cosmos-mongo-db",
-    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
-    ///         DatabaseName = exampleMongoDatabase.Name,
-    ///         DefaultTtlSeconds = 777,
-    ///         ShardKey = "uniqueKey",
-    ///         Throughput = 400,
     ///         Indices = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.MongoCollectionIndexArgs
@@ -55,6 +48,13 @@ namespace Pulumi.Azure.CosmosDB
     ///                 Unique = true,
     ///             },
     ///         },
+    ///         Name = "tfex-cosmos-mongo-db",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleMongoDatabase.Name,
+    ///         DefaultTtlSeconds = 777,
+    ///         ShardKey = "uniqueKey",
+    ///         Throughput = 400,
     ///     });
     /// 
     /// });

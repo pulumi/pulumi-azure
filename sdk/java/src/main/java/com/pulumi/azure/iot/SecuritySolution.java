@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example-IoTHub")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example-IoTHub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSecuritySolution = new SecuritySolution("exampleSecuritySolution", SecuritySolutionArgs.builder()

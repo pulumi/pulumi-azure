@@ -319,16 +319,16 @@ class SubscriptionRule(pulumi.CustomResource):
             topic_id=example_topic.id,
             max_delivery_count=1)
         example_subscription_rule = azure.servicebus.SubscriptionRule("example",
-            name="tfex_servicebus_rule",
-            subscription_id=example_subscription.id,
-            filter_type="CorrelationFilter",
             correlation_filter={
                 "correlation_id": "high",
                 "label": "red",
                 "properties": {
                     "customProperty": "value",
                 },
-            })
+            },
+            name="tfex_servicebus_rule",
+            subscription_id=example_subscription.id,
+            filter_type="CorrelationFilter")
         ```
 
         ## API Providers
@@ -425,16 +425,16 @@ class SubscriptionRule(pulumi.CustomResource):
             topic_id=example_topic.id,
             max_delivery_count=1)
         example_subscription_rule = azure.servicebus.SubscriptionRule("example",
-            name="tfex_servicebus_rule",
-            subscription_id=example_subscription.id,
-            filter_type="CorrelationFilter",
             correlation_filter={
                 "correlation_id": "high",
                 "label": "red",
                 "properties": {
                     "customProperty": "value",
                 },
-            })
+            },
+            name="tfex_servicebus_rule",
+            subscription_id=example_subscription.id,
+            filter_type="CorrelationFilter")
         ```
 
         ## API Providers

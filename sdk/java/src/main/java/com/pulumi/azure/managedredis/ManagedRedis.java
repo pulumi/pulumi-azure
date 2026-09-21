@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedRedis = new ManagedRedis("exampleManagedRedis", ManagedRedisArgs.builder()
+ *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
+ *                 .geoReplicationGroupName("myGeoGroup")
+ *                 .build())
  *             .name("example-managed-redis")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName("Balanced_B3")
- *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
- *                 .geoReplicationGroupName("myGeoGroup")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -120,13 +120,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("standard")
- *             .purgeProtectionEnabled(true)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -150,6 +143,13 @@ import javax.annotation.Nullable;
  *                         "WrapKey",
  *                         "UnwrapKey")
  *                     .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
@@ -163,10 +163,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedRedis = new ManagedRedis("exampleManagedRedis", ManagedRedisArgs.builder()
- *             .name("example-managed-redis")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .skuName("Balanced_B3")
  *             .identity(ManagedRedisIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
@@ -178,6 +174,10 @@ import javax.annotation.Nullable;
  *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
  *                 .geoReplicationGroupName("myGeoGroup")
  *                 .build())
+ *             .name("example-managed-redis")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .skuName("Balanced_B3")
  *             .build());
  * 
  *     }

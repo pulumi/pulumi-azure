@@ -40,11 +40,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
 //					MaxIntervalInSeconds: pulumi.Int(10),
@@ -56,6 +51,11 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("example-cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err
@@ -88,12 +88,12 @@ import (
 //				return err
 //			}
 //			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("examplespringcloudapp"),
-//				ResourceGroupName: example.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
 //				Identity: &appplatform.SpringCloudAppIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("examplespringcloudapp"),
+//				ResourceGroupName: example.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -106,12 +106,12 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudConnection(ctx, "example", &appplatform.SpringCloudConnectionArgs{
-//				Name:             pulumi.String("example-serviceconnector"),
-//				SpringCloudId:    exampleSpringCloudJavaDeployment.ID().ToIDOutput().ToStringOutput(),
-//				TargetResourceId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //				Authentication: &appplatform.SpringCloudConnectionAuthenticationArgs{
 //					Type: pulumi.String("systemAssignedIdentity"),
 //				},
+//				Name:             pulumi.String("example-serviceconnector"),
+//				SpringCloudId:    exampleSpringCloudJavaDeployment.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

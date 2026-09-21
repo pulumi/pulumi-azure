@@ -826,11 +826,6 @@ class SparkCluster(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_spark_cluster = azure.hdinsight.SparkCluster("example",
-            name="example-hdicluster",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
             component_version={
                 "spark": "2.3",
             },
@@ -838,11 +833,6 @@ class SparkCluster(pulumi.CustomResource):
                 "username": "acctestusrgw",
                 "password": "Password123!",
             },
-            storage_accounts=[{
-                "storage_container_id": example_container.id,
-                "storage_account_key": example_account.primary_access_key,
-                "is_default": True,
-            }],
             roles={
                 "head_node": {
                     "vm_size": "Standard_A3",
@@ -860,7 +850,17 @@ class SparkCluster(pulumi.CustomResource):
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-            })
+            },
+            storage_accounts=[{
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
+            }],
+            name="example-hdicluster",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_version="3.6",
+            tier="Standard")
         ```
 
         ## API Providers
@@ -935,11 +935,6 @@ class SparkCluster(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_spark_cluster = azure.hdinsight.SparkCluster("example",
-            name="example-hdicluster",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
             component_version={
                 "spark": "2.3",
             },
@@ -947,11 +942,6 @@ class SparkCluster(pulumi.CustomResource):
                 "username": "acctestusrgw",
                 "password": "Password123!",
             },
-            storage_accounts=[{
-                "storage_container_id": example_container.id,
-                "storage_account_key": example_account.primary_access_key,
-                "is_default": True,
-            }],
             roles={
                 "head_node": {
                     "vm_size": "Standard_A3",
@@ -969,7 +959,17 @@ class SparkCluster(pulumi.CustomResource):
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-            })
+            },
+            storage_accounts=[{
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
+            }],
+            name="example-hdicluster",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_version="3.6",
+            tier="Standard")
         ```
 
         ## API Providers

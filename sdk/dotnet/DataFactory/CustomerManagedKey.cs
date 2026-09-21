@@ -83,9 +83,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Name = "example_data_factory",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -94,6 +91,9 @@ namespace Pulumi.Azure.DataFactory
     ///                 exampleAzurermUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example_data_factory",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var datafactory = new Azure.KeyVault.AccessPolicy("datafactory", new()

@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.network.RouteFilter("example", {
- *     name: "example",
- *     resourceGroupName: "example",
- *     location: "East US",
  *     rule: {
  *         name: "rule",
  *         access: "Allow",
  *         ruleType: "Community",
  *         communities: ["12076:52004"],
  *     },
+ *     name: "example",
+ *     resourceGroupName: "example",
+ *     location: "East US",
  * });
  * ```
  *

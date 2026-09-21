@@ -53,11 +53,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistry = new Registry("exampleRegistry", RegistryArgs.builder()
- *             .name("exampleregistry")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("Basic")
- *             .adminEnabled(false)
  *             .georeplications(            
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("East US")
@@ -65,6 +60,11 @@ import javax.annotation.Nullable;
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("West Europe")
  *                     .build())
+ *             .name("exampleregistry")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Basic")
+ *             .adminEnabled(false)
  *             .build());
  * 
  *         var exampleRegistryScopeMap = new RegistryScopeMap("exampleRegistryScopeMap", RegistryScopeMapArgs.builder()

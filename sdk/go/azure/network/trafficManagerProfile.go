@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,9 +47,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewTrafficManagerProfile(ctx, "example", &network.TrafficManagerProfileArgs{
-//				Name:                 server.Hex,
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: server.Hex,
 //					Ttl:          pulumi.Int(100),
@@ -62,6 +59,9 @@ import (
 //					TimeoutInSeconds:          pulumi.Int(9),
 //					ToleratedNumberOfFailures: pulumi.Int(3),
 //				},
+//				Name:                 server.Hex,
+//				ResourceGroupName:    example.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

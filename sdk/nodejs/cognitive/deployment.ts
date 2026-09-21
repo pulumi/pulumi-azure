@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     skuName: "S0",
  * });
  * const exampleDeployment = new azure.cognitive.Deployment("example", {
- *     name: "example-cd",
- *     cognitiveAccountId: exampleAccount.id,
  *     model: {
  *         format: "OpenAI",
  *         name: "text-curie-001",
@@ -37,6 +35,8 @@ import * as utilities from "../utilities";
  *     sku: {
  *         name: "Standard",
  *     },
+ *     name: "example-cd",
+ *     cognitiveAccountId: exampleAccount.id,
  * });
  * ```
  *

@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example-vnet",
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     subnets: [{
  *         name: "subnet1",
  *         addressPrefix: "10.0.1.0/24",
  *     }],
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("example", {
  *     virtualNetworkId: exampleVirtualNetwork.id,

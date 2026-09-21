@@ -25,15 +25,15 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
+ *     sku: {
+ *         tier: "Basic",
+ *         size: "B1",
+ *     },
  *     name: "example-plan",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     kind: "Linux",
  *     reserved: true,
- *     sku: {
- *         tier: "Basic",
- *         size: "B1",
- *     },
  * });
  * const exampleAppService = new azure.appservice.AppService("example", {
  *     name: "example-app",
@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  *     appServicePlanId: examplePlan.id,
  * });
  * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
+ *     records: [{
+ *         value: exampleAppService.customDomainVerificationId,
+ *     }],
  *     name: "asuid.mycustomhost.contoso.com",
  *     zoneName: example.name,
  *     resourceGroupName: example.resourceGroupName,
  *     ttl: 300,
- *     records: [{
- *         value: exampleAppService.customDomainVerificationId,
- *     }],
  * });
  * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
  *     name: "example-adcr",
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *     record: exampleAppService.defaultSiteHostname,
  * });
  * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
- *     hostname: std.joinOutput({
+ *     hostname: std.join({
  *         separator: ".",
  *         input: [
  *             exampleCNameRecord.name,

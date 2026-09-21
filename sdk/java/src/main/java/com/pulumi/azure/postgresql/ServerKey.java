@@ -73,6 +73,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .identity(ServerIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-postgre-server")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -82,9 +85,6 @@ import javax.annotation.Nullable;
  *             .version("11")
  *             .storageMb(51200)
  *             .sslEnforcementEnabled(true)
- *             .identity(ServerIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var server = new AccessPolicy("server", AccessPolicyArgs.builder()

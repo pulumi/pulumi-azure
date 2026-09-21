@@ -16,10 +16,6 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.servicefabric.ManagedCluster("example", {
- *     name: "example",
- *     resourceGroupName: "example",
- *     location: "West Europe",
- *     httpGatewayPort: 4567,
  *     lbRules: [{
  *         backendPort: 38080,
  *         frontendPort: 80,
@@ -27,7 +23,6 @@ import * as utilities from "../utilities";
  *         probeRequestPath: "/test",
  *         protocol: "tcp",
  *     }],
- *     clientConnectionPort: 12345,
  *     nodeTypes: [{
  *         dataDiskSizeGb: 130,
  *         name: "test1",
@@ -41,6 +36,11 @@ import * as utilities from "../utilities";
  *         vmImageVersion: "latest",
  *         vmInstanceCount: 5,
  *     }],
+ *     name: "example",
+ *     resourceGroupName: "example",
+ *     location: "West Europe",
+ *     httpGatewayPort: 4567,
+ *     clientConnectionPort: 12345,
  * });
  * ```
  *

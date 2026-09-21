@@ -87,9 +87,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicyFileShare = new PolicyFileShare("examplePolicyFileShare", PolicyFileShareArgs.builder()
- *             .name("tfex-recovery-vault-policy")
- *             .resourceGroupName(example.name())
- *             .recoveryVaultName(vault.name())
  *             .backup(PolicyFileShareBackupArgs.builder()
  *                 .frequency("Daily")
  *                 .time("23:00")
@@ -97,6 +94,9 @@ import javax.annotation.Nullable;
  *             .retentionDaily(PolicyFileShareRetentionDailyArgs.builder()
  *                 .count(10)
  *                 .build())
+ *             .name("tfex-recovery-vault-policy")
+ *             .resourceGroupName(example.name())
+ *             .recoveryVaultName(vault.name())
  *             .build());
  * 
  *         var share1 = new ProtectedFileShare("share1", ProtectedFileShareArgs.builder()

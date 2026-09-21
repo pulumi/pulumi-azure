@@ -72,6 +72,10 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewStreamInputEventHubV2(ctx, "example", &streamanalytics.StreamInputEventHubV2Args{
+//				Serialization: &streamanalytics.StreamInputEventHubV2SerializationArgs{
+//					Type:     pulumi.String("Json"),
+//					Encoding: pulumi.String("UTF8"),
+//				},
 //				Name:                      pulumi.String("eventhub-stream-input"),
 //				StreamAnalyticsJobId:      example.Id(),
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
@@ -79,10 +83,6 @@ import (
 //				ServicebusNamespace:       exampleEventHubNamespace.Name,
 //				SharedAccessPolicyKey:     exampleEventHubNamespace.DefaultPrimaryKey,
 //				SharedAccessPolicyName:    pulumi.String("RootManageSharedAccessKey"),
-//				Serialization: &streamanalytics.StreamInputEventHubV2SerializationArgs{
-//					Type:     pulumi.String("Json"),
-//					Encoding: pulumi.String("UTF8"),
-//				},
 //			})
 //			if err != nil {
 //				return err

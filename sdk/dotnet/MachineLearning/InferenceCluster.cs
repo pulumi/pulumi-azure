@@ -66,16 +66,16 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-mlw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
-    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
@@ -102,10 +102,6 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-aks",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefixPrivateCluster = "prefix",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -117,6 +113,10 @@ namespace Pulumi.Azure.MachineLearning
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-aks",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefixPrivateCluster = "prefix",
     ///     });
     /// 
     ///     var exampleInferenceCluster = new Azure.MachineLearning.InferenceCluster("example", new()

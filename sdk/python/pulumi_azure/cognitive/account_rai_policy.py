@@ -257,16 +257,16 @@ class AccountRaiPolicy(pulumi.CustomResource):
             kind="OpenAI",
             sku_name="S0")
         example_account_rai_policy = azure.cognitive.AccountRaiPolicy("example",
-            name="example-rai-policy",
-            cognitive_account_id=example_account.id,
-            base_policy_name="Microsoft.Default",
             content_filters=[{
                 "name": "Hate",
                 "filter_enabled": True,
                 "block_enabled": True,
                 "severity_threshold": "High",
                 "source": "Prompt",
-            }])
+            }],
+            name="example-rai-policy",
+            cognitive_account_id=example_account.id,
+            base_policy_name="Microsoft.Default")
         ```
 
         ## API Providers
@@ -319,16 +319,16 @@ class AccountRaiPolicy(pulumi.CustomResource):
             kind="OpenAI",
             sku_name="S0")
         example_account_rai_policy = azure.cognitive.AccountRaiPolicy("example",
-            name="example-rai-policy",
-            cognitive_account_id=example_account.id,
-            base_policy_name="Microsoft.Default",
             content_filters=[{
                 "name": "Hate",
                 "filter_enabled": True,
                 "block_enabled": True,
                 "severity_threshold": "High",
                 "source": "Prompt",
-            }])
+            }],
+            name="example-rai-policy",
+            cognitive_account_id=example_account.id,
+            base_policy_name="Microsoft.Default")
         ```
 
         ## API Providers

@@ -40,23 +40,12 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleManagementPolicy = new Azure.Storage.ManagementPolicy("example", new()
     ///     {
-    ///         StorageAccountId = exampleAccount.Id,
     ///         Rules = new[]
     ///         {
     ///             new Azure.Storage.Inputs.ManagementPolicyRuleArgs
     ///             {
-    ///                 Name = "rule1",
-    ///                 Enabled = true,
     ///                 Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
     ///                 {
-    ///                     PrefixMatches = new[]
-    ///                     {
-    ///                         "container1/prefix1",
-    ///                     },
-    ///                     BlobTypes = new[]
-    ///                     {
-    ///                         "blockBlob",
-    ///                     },
     ///                     MatchBlobIndexTags = new[]
     ///                     {
     ///                         new Azure.Storage.Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs
@@ -65,6 +54,14 @@ namespace Pulumi.Azure.Storage
     ///                             Operation = "==",
     ///                             Value = "val1",
     ///                         },
+    ///                     },
+    ///                     PrefixMatches = new[]
+    ///                     {
+    ///                         "container1/prefix1",
+    ///                     },
+    ///                     BlobTypes = new[]
+    ///                     {
+    ///                         "blockBlob",
     ///                     },
     ///                 },
     ///                 Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
@@ -80,11 +77,11 @@ namespace Pulumi.Azure.Storage
     ///                         DeleteAfterDaysSinceCreationGreaterThan = 30,
     ///                     },
     ///                 },
+    ///                 Name = "rule1",
+    ///                 Enabled = true,
     ///             },
     ///             new Azure.Storage.Inputs.ManagementPolicyRuleArgs
     ///             {
-    ///                 Name = "rule2",
-    ///                 Enabled = false,
     ///                 Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
     ///                 {
     ///                     PrefixMatches = new[]
@@ -118,8 +115,11 @@ namespace Pulumi.Azure.Storage
     ///                         DeleteAfterDaysSinceCreation = 3,
     ///                     },
     ///                 },
+    ///                 Name = "rule2",
+    ///                 Enabled = false,
     ///             },
     ///         },
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

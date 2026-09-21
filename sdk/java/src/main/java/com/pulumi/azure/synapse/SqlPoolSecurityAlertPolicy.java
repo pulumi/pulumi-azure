@@ -76,20 +76,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .aadAdmin(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("login", "AzureAD Admin"),
+ *                 Map.entry("objectId", "00000000-0000-0000-0000-000000000000"),
+ *                 Map.entry("tenantId", "00000000-0000-0000-0000-000000000000")
+ *             )))
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .aadAdmin(Arrays.asList(Map.ofEntries(
- *                 Map.entry("login", "AzureAD Admin"),
- *                 Map.entry("objectId", "00000000-0000-0000-0000-000000000000"),
- *                 Map.entry("tenantId", "00000000-0000-0000-0000-000000000000")
- *             )))
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("Env", "production"))
  *             .build());
  * 

@@ -258,13 +258,13 @@ class Volume(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "Premium_LRS",
+            },
             name="example-es",
             resource_group_name=example.name,
             location=example.location,
-            base_size_in_tib=1,
-            sku={
-                "name": "Premium_LRS",
-            })
+            base_size_in_tib=1)
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -285,13 +285,13 @@ class Volume(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "Premium_LRS",
+            },
             name="example-es",
             resource_group_name=example.name,
             location=example.location,
-            base_size_in_tib=1,
-            sku={
-                "name": "Premium_LRS",
-            })
+            base_size_in_tib=1)
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -309,13 +309,13 @@ class Volume(pulumi.CustomResource):
             create_option="Copy",
             source_uri=example_managed_disk.id)
         example2 = azure.elasticsan.Volume("example2",
-            name="example-esv2",
-            volume_group_id=example_volume_group.id,
-            size_in_gib=2,
             create_source={
                 "source_type": "DiskSnapshot",
                 "source_id": example_snapshot.id,
-            })
+            },
+            name="example-esv2",
+            volume_group_id=example_volume_group.id,
+            size_in_gib=2)
         ```
 
         ## API Providers
@@ -362,13 +362,13 @@ class Volume(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "Premium_LRS",
+            },
             name="example-es",
             resource_group_name=example.name,
             location=example.location,
-            base_size_in_tib=1,
-            sku={
-                "name": "Premium_LRS",
-            })
+            base_size_in_tib=1)
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -389,13 +389,13 @@ class Volume(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "Premium_LRS",
+            },
             name="example-es",
             resource_group_name=example.name,
             location=example.location,
-            base_size_in_tib=1,
-            sku={
-                "name": "Premium_LRS",
-            })
+            base_size_in_tib=1)
         example_volume_group = azure.elasticsan.VolumeGroup("example",
             name="example-esvg",
             elastic_san_id=example_elastic_san.id)
@@ -413,13 +413,13 @@ class Volume(pulumi.CustomResource):
             create_option="Copy",
             source_uri=example_managed_disk.id)
         example2 = azure.elasticsan.Volume("example2",
-            name="example-esv2",
-            volume_group_id=example_volume_group.id,
-            size_in_gib=2,
             create_source={
                 "source_type": "DiskSnapshot",
                 "source_id": example_snapshot.id,
-            })
+            },
+            name="example-esv2",
+            volume_group_id=example_volume_group.id,
+            size_in_gib=2)
         ```
 
         ## API Providers

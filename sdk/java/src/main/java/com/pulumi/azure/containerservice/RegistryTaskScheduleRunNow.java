@@ -61,8 +61,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistryTask = new RegistryTask("exampleRegistryTask", RegistryTaskArgs.builder()
- *             .name("example-task")
- *             .containerRegistryId(exampleRegistry.id())
  *             .platform(RegistryTaskPlatformArgs.builder()
  *                 .os("Linux")
  *                 .build())
@@ -72,6 +70,8 @@ import javax.annotation.Nullable;
  *                 .contextAccessToken("<github personal access token>")
  *                 .imageNames("helloworld:{{.Run.ID}}")
  *                 .build())
+ *             .name("example-task")
+ *             .containerRegistryId(exampleRegistry.id())
  *             .build());
  * 
  *         var exampleRegistryTaskScheduleRunNow = new RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", RegistryTaskScheduleRunNowArgs.builder()

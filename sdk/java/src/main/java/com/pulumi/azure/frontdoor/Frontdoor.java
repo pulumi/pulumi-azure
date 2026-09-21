@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.frontdoor.Frontdoor;
  * import com.pulumi.azure.frontdoor.FrontdoorArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleForwardingConfigurationArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolHealthProbeArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolBackendArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleForwardingConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -82,34 +82,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()
- *             .name("example-FrontDoor")
- *             .resourceGroupName(example.name())
- *             .routingRules(FrontdoorRoutingRuleArgs.builder()
- *                 .name("exampleRoutingRule1")
- *                 .acceptedProtocols(                
- *                     "Http",
- *                     "Https")
- *                 .patternsToMatches("/*")
- *                 .frontendEndpoints("exampleFrontendEndpoint1")
- *                 .forwardingConfiguration(FrontdoorRoutingRuleForwardingConfigurationArgs.builder()
- *                     .forwardingProtocol("MatchRequest")
- *                     .backendPoolName("exampleBackendBing")
- *                     .build())
+ *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
+ *                 .name("exampleHealthProbeSetting1")
  *                 .build())
  *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
  *                 .name("exampleLoadBalancingSettings1")
  *                 .build())
- *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
- *                 .name("exampleHealthProbeSetting1")
- *                 .build())
  *             .backendPools(FrontdoorBackendPoolArgs.builder()
- *                 .name("exampleBackendBing")
  *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
  *                     .hostHeader("www.bing.com")
  *                     .address("www.bing.com")
  *                     .httpPort(80)
  *                     .httpsPort(443)
  *                     .build())
+ *                 .name("exampleBackendBing")
  *                 .loadBalancingName("exampleLoadBalancingSettings1")
  *                 .healthProbeName("exampleHealthProbeSetting1")
  *                 .build())
@@ -117,6 +103,20 @@ import javax.annotation.Nullable;
  *                 .name("exampleFrontendEndpoint1")
  *                 .hostName("example-FrontDoor.azurefd.net")
  *                 .build())
+ *             .routingRules(FrontdoorRoutingRuleArgs.builder()
+ *                 .forwardingConfiguration(FrontdoorRoutingRuleForwardingConfigurationArgs.builder()
+ *                     .forwardingProtocol("MatchRequest")
+ *                     .backendPoolName("exampleBackendBing")
+ *                     .build())
+ *                 .name("exampleRoutingRule1")
+ *                 .acceptedProtocols(                
+ *                     "Http",
+ *                     "Https")
+ *                 .patternsToMatches("/*")
+ *                 .frontendEndpoints("exampleFrontendEndpoint1")
+ *                 .build())
+ *             .name("example-FrontDoor")
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

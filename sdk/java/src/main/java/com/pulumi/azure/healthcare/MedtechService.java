@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()
- *             .name("examplemed")
- *             .workspaceId(exampleWorkspace.id())
- *             .location("east us")
  *             .identity(MedtechServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("examplemed")
+ *             .workspaceId(exampleWorkspace.id())
+ *             .location("east us")
  *             .eventhubNamespaceName("example-eventhub-namespace")
  *             .eventhubName("example-eventhub")
  *             .eventhubConsumerGroupName("$Default")

@@ -671,10 +671,6 @@ class SpringCloudService(pulumi.CustomResource):
             resource_group_name=example.name,
             application_type="web")
         example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
-            resource_group_name=example.name,
-            location=example.location,
-            sku_name="S0",
             config_server_git_setting={
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
                 "label": "config",
@@ -687,6 +683,10 @@ class SpringCloudService(pulumi.CustomResource):
                 "connection_string": example_insights.connection_string,
                 "sample_rate": float(10),
             },
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="S0",
             tags={
                 "Env": "staging",
             })
@@ -747,10 +747,6 @@ class SpringCloudService(pulumi.CustomResource):
             resource_group_name=example.name,
             application_type="web")
         example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
-            name="example-springcloud",
-            resource_group_name=example.name,
-            location=example.location,
-            sku_name="S0",
             config_server_git_setting={
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
                 "label": "config",
@@ -763,6 +759,10 @@ class SpringCloudService(pulumi.CustomResource):
                 "connection_string": example_insights.connection_string,
                 "sample_rate": float(10),
             },
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="S0",
             tags={
                 "Env": "staging",
             })

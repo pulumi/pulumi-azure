@@ -37,15 +37,15 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewVirtualMachineGroup(ctx, "example", &mssql.VirtualMachineGroupArgs{
+//				WsfcDomainProfile: &mssql.VirtualMachineGroupWsfcDomainProfileArgs{
+//					Fqdn:              pulumi.String("testdomain.com"),
+//					ClusterSubnetType: pulumi.String("SingleSubnet"),
+//				},
 //				Name:              pulumi.String("examplegroup"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				SqlImageOffer:     pulumi.String("SQL2017-WS2016"),
 //				SqlImageSku:       pulumi.String("Developer"),
-//				WsfcDomainProfile: &mssql.VirtualMachineGroupWsfcDomainProfileArgs{
-//					Fqdn:              pulumi.String("testdomain.com"),
-//					ClusterSubnetType: pulumi.String("SingleSubnet"),
-//				},
 //			})
 //			if err != nil {
 //				return err

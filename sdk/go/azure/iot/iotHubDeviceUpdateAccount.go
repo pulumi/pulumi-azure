@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewIotHubDeviceUpdateAccount(ctx, "example", &iot.IotHubDeviceUpdateAccountArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Identity: &iot.IotHubDeviceUpdateAccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

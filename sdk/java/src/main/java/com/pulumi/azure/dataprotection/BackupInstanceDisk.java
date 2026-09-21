@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var example1 = new Assignment("example1", AssignmentArgs.builder()

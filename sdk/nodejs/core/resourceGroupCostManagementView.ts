@@ -20,19 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleResourceGroupCostManagementView = new azure.core.ResourceGroupCostManagementView("example", {
- *     name: "example",
- *     displayName: "Cost View per Month",
- *     chartType: "StackedColumn",
- *     accumulated: false,
- *     resourceGroupId: example.id,
- *     reportType: "Usage",
- *     timeframe: "MonthToDate",
  *     dataset: {
- *         granularity: "Monthly",
  *         aggregations: [{
  *             name: "totalCost",
  *             columnName: "Cost",
  *         }],
+ *         granularity: "Monthly",
  *     },
  *     pivots: [
  *         {
@@ -48,6 +41,13 @@ import * as utilities from "../utilities";
  *             name: "ResourceGroupName",
  *         },
  *     ],
+ *     name: "example",
+ *     displayName: "Cost View per Month",
+ *     chartType: "StackedColumn",
+ *     accumulated: false,
+ *     resourceGroupId: example.id,
+ *     reportType: "Usage",
+ *     timeframe: "MonthToDate",
  * });
  * ```
  *

@@ -96,12 +96,6 @@ namespace Pulumi.Azure.Synapse
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///         SqlAdministratorLogin = "sqladminuser",
-    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
     ///         CustomerManagedKey = new Azure.Synapse.Inputs.WorkspaceCustomerManagedKeyArgs
     ///         {
     ///             KeyVersionlessId = exampleKey.VersionlessId,
@@ -111,6 +105,12 @@ namespace Pulumi.Azure.Synapse
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
     ///         Tags = 
     ///         {
     ///             { "Env", "production" },

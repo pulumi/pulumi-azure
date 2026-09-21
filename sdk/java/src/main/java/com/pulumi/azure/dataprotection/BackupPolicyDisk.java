@@ -63,28 +63,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()
+ *             .retentionRules(            
+ *                 BackupPolicyDiskRetentionRuleArgs.builder()
+ *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
+ *                         .absoluteCriteria("FirstOfDay")
+ *                         .build())
+ *                     .name("Daily")
+ *                     .duration("P7D")
+ *                     .priority(25)
+ *                     .build(),
+ *                 BackupPolicyDiskRetentionRuleArgs.builder()
+ *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
+ *                         .absoluteCriteria("FirstOfWeek")
+ *                         .build())
+ *                     .name("Weekly")
+ *                     .duration("P7D")
+ *                     .priority(20)
+ *                     .build())
  *             .name("example-backup-policy")
  *             .vaultId(exampleBackupVault.id())
  *             .backupRepeatingTimeIntervals("R/2021-05-19T06:33:16+00:00/PT4H")
  *             .defaultRetentionDuration("P7D")
  *             .timeZone("W. Europe Standard Time")
- *             .retentionRules(            
- *                 BackupPolicyDiskRetentionRuleArgs.builder()
- *                     .name("Daily")
- *                     .duration("P7D")
- *                     .priority(25)
- *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria("FirstOfDay")
- *                         .build())
- *                     .build(),
- *                 BackupPolicyDiskRetentionRuleArgs.builder()
- *                     .name("Weekly")
- *                     .duration("P7D")
- *                     .priority(20)
- *                     .criteria(BackupPolicyDiskRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria("FirstOfWeek")
- *                         .build())
- *                     .build())
  *             .build());
  * 
  *     }

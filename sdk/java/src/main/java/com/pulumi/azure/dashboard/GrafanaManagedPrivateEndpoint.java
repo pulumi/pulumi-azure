@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGrafana = new Grafana("exampleGrafana", GrafanaArgs.builder()
+ *             .azureMonitorWorkspaceIntegrations(GrafanaAzureMonitorWorkspaceIntegrationArgs.builder()
+ *                 .resourceId(exampleWorkspace.id())
+ *                 .build())
  *             .name("example-dg")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .grafanaMajorVersion("12")
  *             .publicNetworkAccessEnabled(false)
- *             .azureMonitorWorkspaceIntegrations(GrafanaAzureMonitorWorkspaceIntegrationArgs.builder()
- *                 .resourceId(exampleWorkspace.id())
- *                 .build())
  *             .build());
  * 
  *         var exampleGrafanaManagedPrivateEndpoint = new GrafanaManagedPrivateEndpoint("exampleGrafanaManagedPrivateEndpoint", GrafanaManagedPrivateEndpointArgs.builder()

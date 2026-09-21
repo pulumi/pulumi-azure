@@ -40,16 +40,16 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
-    ///         Name = "example-ercircuit",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
-    ///         BandwidthInGbps = 5,
     ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Family = "MeteredData",
     ///         },
+    ///         Name = "example-ercircuit",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
     ///     });
     /// 
     ///     var example2 = new Azure.Network.ExpressRoutePort("example2", new()
@@ -64,16 +64,16 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var example2ExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example2", new()
     ///     {
-    ///         Name = "example-ercircuit2",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ExpressRoutePortId = example2.Id,
-    ///         BandwidthInGbps = 5,
     ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Family = "MeteredData",
     ///         },
+    ///         Name = "example-ercircuit2",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ExpressRoutePortId = example2.Id,
+    ///         BandwidthInGbps = 5,
     ///     });
     /// 
     ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()

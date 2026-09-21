@@ -88,12 +88,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualHubRouteTable = new Azure.Network.VirtualHubRouteTable("example", new()
     ///     {
-    ///         Name = "example-vhubroutetable",
-    ///         VirtualHubId = exampleVirtualHub.Id,
-    ///         Labels = new[]
-    ///         {
-    ///             "label1",
-    ///         },
     ///         Routes = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualHubRouteTableRouteArgs
@@ -107,6 +101,12 @@ namespace Pulumi.Azure.Network
     ///                 NextHopType = "ResourceId",
     ///                 NextHop = exampleVirtualHubConnection.Id,
     ///             },
+    ///         },
+    ///         Name = "example-vhubroutetable",
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         Labels = new[]
+    ///         {
+    ///             "label1",
     ///         },
     ///     });
     /// 

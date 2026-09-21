@@ -435,13 +435,6 @@ class Secret(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -456,7 +449,14 @@ class Secret(pulumi.CustomResource):
                     "Purge",
                     "Recover",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         example_secret = azure.keyvault.Secret("example",
             name="secret-sauce",
             value="szechuan",
@@ -509,13 +509,6 @@ class Secret(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -530,7 +523,14 @@ class Secret(pulumi.CustomResource):
                     "Purge",
                     "Recover",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         example_secret = azure.keyvault.Secret("example",
             name="secret-sauce",
             value="szechuan",

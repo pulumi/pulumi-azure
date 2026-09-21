@@ -58,6 +58,10 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudBuildDeployment(ctx, "example", &appplatform.SpringCloudBuildDeploymentArgs{
+//				Quota: &appplatform.SpringCloudBuildDeploymentQuotaArgs{
+//					Cpu:    pulumi.String("2"),
+//					Memory: pulumi.String("4Gi"),
+//				},
 //				Name:             pulumi.String("example"),
 //				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				BuildResultId:    pulumi.String("<default>"),
@@ -65,10 +69,6 @@ import (
 //				EnvironmentVariables: pulumi.StringMap{
 //					"Foo": pulumi.String("Bar"),
 //					"Env": pulumi.String("Staging"),
-//				},
-//				Quota: &appplatform.SpringCloudBuildDeploymentQuotaArgs{
-//					Cpu:    pulumi.String("2"),
-//					Memory: pulumi.String("4Gi"),
 //				},
 //			})
 //			if err != nil {

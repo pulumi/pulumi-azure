@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *     applicationType: "web",
  * });
  * const exampleStandardWebTest = new azure.appinsights.StandardWebTest("example", {
+ *     request: {
+ *         url: "http://www.example.com",
+ *     },
  *     name: "example-test",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     applicationInsightsId: exampleInsights.id,
  *     geoLocations: ["example"],
- *     request: {
- *         url: "http://www.example.com",
- *     },
  * });
  * ```
  *

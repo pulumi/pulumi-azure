@@ -422,15 +422,15 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             resource_group_name=example.name,
             short_name="example")
         example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("example",
+            action_group={
+                "ids": [example_action_group.id],
+            },
             name="example-smart-detector-alert-rule",
             resource_group_name=example.name,
             severity="Sev0",
             scope_resource_ids=[example_insights.id],
             frequency="PT1M",
-            detector_type="FailureAnomaliesDetector",
-            action_group={
-                "ids": [example_action_group.id],
-            })
+            detector_type="FailureAnomaliesDetector")
         ```
 
         ## API Providers
@@ -491,15 +491,15 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             resource_group_name=example.name,
             short_name="example")
         example_smart_detector_alert_rule = azure.monitoring.SmartDetectorAlertRule("example",
+            action_group={
+                "ids": [example_action_group.id],
+            },
             name="example-smart-detector-alert-rule",
             resource_group_name=example.name,
             severity="Sev0",
             scope_resource_ids=[example_insights.id],
             frequency="PT1M",
-            detector_type="FailureAnomaliesDetector",
-            action_group={
-                "ids": [example_action_group.id],
-            })
+            detector_type="FailureAnomaliesDetector")
         ```
 
         ## API Providers

@@ -47,29 +47,6 @@ import (
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupPolicyKubernetesCluster(ctx, "example", &dataprotection.BackupPolicyKubernetesClusterArgs{
-//				Name:              pulumi.String("example-backup-policy"),
-//				ResourceGroupName: example.Name,
-//				VaultName:         exampleBackupVault.Name,
-//				BackupRepeatingTimeIntervals: pulumi.StringArray{
-//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
-//				},
-//				TimeZone:                 pulumi.String("India Standard Time"),
-//				DefaultRetentionDuration: "P4M",
-//				RetentionRules: dataprotection.BackupPolicyKubernetesClusterRetentionRuleArray{
-//					&dataprotection.BackupPolicyKubernetesClusterRetentionRuleArgs{
-//						Name:     pulumi.String("Daily"),
-//						Priority: pulumi.Int(25),
-//						LifeCycles: dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{
-//							&dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{
-//								Duration:      pulumi.String("P84D"),
-//								DataStoreType: pulumi.String("OperationalStore"),
-//							},
-//						},
-//						Criteria: &dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
-//						},
-//					},
-//				},
 //				DefaultRetentionRule: &dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{
 //					LifeCycles: dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray{
 //						&dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{
@@ -78,6 +55,29 @@ import (
 //						},
 //					},
 //				},
+//				RetentionRules: dataprotection.BackupPolicyKubernetesClusterRetentionRuleArray{
+//					&dataprotection.BackupPolicyKubernetesClusterRetentionRuleArgs{
+//						Criteria: &dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
+//						},
+//						LifeCycles: dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P84D"),
+//								DataStoreType: pulumi.String("OperationalStore"),
+//							},
+//						},
+//						Name:     pulumi.String("Daily"),
+//						Priority: pulumi.Int(25),
+//					},
+//				},
+//				Name:              pulumi.String("example-backup-policy"),
+//				ResourceGroupName: example.Name,
+//				VaultName:         exampleBackupVault.Name,
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
+//				},
+//				TimeZone:                 pulumi.String("India Standard Time"),
+//				DefaultRetentionDuration: "P4M",
 //			})
 //			if err != nil {
 //				return err

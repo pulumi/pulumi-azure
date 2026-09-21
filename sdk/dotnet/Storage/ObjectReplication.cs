@@ -30,16 +30,16 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var srcAccount = new Azure.Storage.Account("src", new()
     ///     {
-    ///         Name = "srcstorageaccount",
-    ///         ResourceGroupName = src.Name,
-    ///         Location = src.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
     ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
     ///         {
     ///             VersioningEnabled = true,
     ///             ChangeFeedEnabled = true,
     ///         },
+    ///         Name = "srcstorageaccount",
+    ///         ResourceGroupName = src.Name,
+    ///         Location = src.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
     ///     });
     /// 
     ///     var srcContainer = new Azure.Storage.Container("src", new()
@@ -57,16 +57,16 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var dstAccount = new Azure.Storage.Account("dst", new()
     ///     {
-    ///         Name = "dststorageaccount",
-    ///         ResourceGroupName = dst.Name,
-    ///         Location = dst.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
     ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
     ///         {
     ///             VersioningEnabled = true,
     ///             ChangeFeedEnabled = true,
     ///         },
+    ///         Name = "dststorageaccount",
+    ///         ResourceGroupName = dst.Name,
+    ///         Location = dst.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
     ///     });
     /// 
     ///     var dstContainer = new Azure.Storage.Container("dst", new()
@@ -78,8 +78,6 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var example = new Azure.Storage.ObjectReplication("example", new()
     ///     {
-    ///         SourceStorageAccountId = srcAccount.Id,
-    ///         DestinationStorageAccountId = dstAccount.Id,
     ///         Rules = new[]
     ///         {
     ///             new Azure.Storage.Inputs.ObjectReplicationRuleArgs
@@ -88,6 +86,8 @@ namespace Pulumi.Azure.Storage
     ///                 DestinationContainerName = dstContainer.Name,
     ///             },
     ///         },
+    ///         SourceStorageAccountId = srcAccount.Id,
+    ///         DestinationStorageAccountId = dstAccount.Id,
     ///     });
     /// 
     /// });

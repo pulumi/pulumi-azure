@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     assemblyName: "TestAssembly",
  *     content: std.filebase64({
  *         input: "testdata/log4net.dll",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

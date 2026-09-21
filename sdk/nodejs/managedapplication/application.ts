@@ -25,6 +25,16 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleDefinition = new azure.managedapplication.Definition("example", {
+ *     authorizations: [{
+ *         servicePrincipalId: current.then(current => current.objectId),
+ *         roleDefinitionId: std.split({
+ *             separator: "/",
+ *             text: builtin.then(builtin => builtin.id),
+ *         }).result[std.split({
+ *             separator: "/",
+ *             text: builtin.then(builtin => builtin.id),
+ *         }).result.length - 1],
+ *     }],
  *     name: "examplemanagedapplicationdefinition",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -32,16 +42,6 @@ import * as utilities from "../utilities";
  *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
  *     displayName: "TestManagedAppDefinition",
  *     description: "Test Managed App Definition",
- *     authorizations: [{
- *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: pulumi.all([builtin.then(builtin => std.split({
- *             separator: "/",
- *             text: builtin.id,
- *         })), builtin.then(builtin => std.split({
- *             separator: "/",
- *             text: builtin.id,
- *         })).then(invoke => invoke.result).length]).apply(([invoke, length]) => invoke.result[length - 1]),
- *     }],
  * });
  * const exampleApplication = new azure.managedapplication.Application("example", {
  *     name: "example-managedapplication",

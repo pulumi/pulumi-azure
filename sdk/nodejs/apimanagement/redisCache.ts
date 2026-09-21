@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     skuName: "Consumption_0",
  * });
  * const exampleCache = new azure.redis.Cache("example", {
+ *     redisConfiguration: {},
  *     name: "example-cache",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -34,7 +35,6 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  *     enableNonSslPort: false,
  *     minimumTlsVersion: "1.2",
- *     redisConfiguration: {},
  * });
  * const exampleRedisCache = new azure.apimanagement.RedisCache("example", {
  *     name: "example-Redis-Cache",

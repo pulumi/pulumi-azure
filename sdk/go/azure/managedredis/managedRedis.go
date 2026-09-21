@@ -37,13 +37,13 @@ import (
 //				return err
 //			}
 //			_, err = managedredis.NewManagedRedis(ctx, "example", &managedredis.ManagedRedisArgs{
+//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
+//					GeoReplicationGroupName: pulumi.String("myGeoGroup"),
+//				},
 //				Name:              pulumi.String("example-managed-redis"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				SkuName:           pulumi.String("Balanced_B3"),
-//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
-//					GeoReplicationGroupName: pulumi.String("myGeoGroup"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -91,13 +91,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("standard"),
-//				PurgeProtectionEnabled:   pulumi.Bool(true),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -124,6 +117,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("standard"),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -142,10 +142,6 @@ import (
 //				return err
 //			}
 //			_, err = managedredis.NewManagedRedis(ctx, "example", &managedredis.ManagedRedisArgs{
-//				Name:              pulumi.String("example-managed-redis"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("Balanced_B3"),
 //				Identity: &managedredis.ManagedRedisIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
@@ -159,6 +155,10 @@ import (
 //				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
 //					GeoReplicationGroupName: pulumi.String("myGeoGroup"),
 //				},
+//				Name:              pulumi.String("example-managed-redis"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SkuName:           pulumi.String("Balanced_B3"),
 //			})
 //			if err != nil {
 //				return err

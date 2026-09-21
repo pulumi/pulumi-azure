@@ -59,11 +59,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ServerId = primary.Id,
-    ///         Databases = new[]
+    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
     ///         {
-    ///             exampleDatabase.Id,
+    ///             Mode = "Automatic",
+    ///             GraceMinutes = 80,
     ///         },
     ///         PartnerServers = new[]
     ///         {
@@ -72,10 +71,11 @@ namespace Pulumi.Azure.MSSql
     ///                 Id = secondary.Id,
     ///             },
     ///         },
-    ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs
+    ///         Name = "example",
+    ///         ServerId = primary.Id,
+    ///         Databases = new[]
     ///         {
-    ///             Mode = "Automatic",
-    ///             GraceMinutes = 80,
+    ///             exampleDatabase.Id,
     ///         },
     ///         Tags = 
     ///         {

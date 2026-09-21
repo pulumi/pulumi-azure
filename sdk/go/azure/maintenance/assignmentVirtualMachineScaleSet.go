@@ -71,15 +71,15 @@ import (
 //				return err
 //			}
 //			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              example.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("internal"),
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              example.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -113,11 +113,6 @@ import (
 //				return err
 //			}
 //			exampleConfiguration, err := maintenance.NewConfiguration(ctx, "example", &maintenance.ConfigurationArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Scope:             pulumi.String("OSImage"),
-//				Visibility:        pulumi.String("Custom"),
 //				Window: &maintenance.ConfigurationWindowArgs{
 //					StartDateTime:      pulumi.String("2021-12-31 00:00"),
 //					ExpirationDateTime: pulumi.String("9999-12-31 00:00"),
@@ -125,25 +120,34 @@ import (
 //					TimeZone:           pulumi.String("Pacific Standard Time"),
 //					RecurEvery:         pulumi.String("1Days"),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Scope:             pulumi.String("OSImage"),
+//				Visibility:        pulumi.String("Custom"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("sample-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("sample-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
 //				Name:              pulumi.String("example-machine"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -152,25 +156,11 @@ import (
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					Caching:            pulumi.String("ReadWrite"),
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:                          pulumi.String("example"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Sku:                           pulumi.String("Standard_D4_v5"),
-//				Instances:                     pulumi.Int(1),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("P@ssword1234!"),
-//				UpgradeMode:                   pulumi.String("Automatic"),
-//				HealthProbeId:                 exampleProbe.ID().ToIDOutput().ToStringOutput(),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -180,22 +170,6 @@ import (
 //				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
 //					StorageAccountType: pulumi.String("Standard_LRS"),
 //					Caching:            pulumi.String("ReadWrite"),
-//				},
-//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
-//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
-//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-//								Name:     pulumi.String("internal"),
-//								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//								LoadBalancerBackendAddressPoolIds: pulumi.StringArray{
-//									exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
-//								},
-//							},
-//						},
-//					},
 //				},
 //				AutomaticOsUpgradePolicy: &compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{
 //					DisableAutomaticRollback: pulumi.Bool(true),
@@ -207,6 +181,32 @@ import (
 //					MaxUnhealthyUpgradedInstancePercent: pulumi.Int(20),
 //					PauseTimeBetweenBatches:             pulumi.String("PT0S"),
 //				},
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name:     pulumi.String("internal"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//								LoadBalancerBackendAddressPoolIds: pulumi.StringArray{
+//									exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
+//								},
+//							},
+//						},
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
+//					},
+//				},
+//				Name:                          pulumi.String("example"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
+//				Sku:                           pulumi.String("Standard_D4_v5"),
+//				Instances:                     pulumi.Int(1),
+//				AdminUsername:                 pulumi.String("adminuser"),
+//				AdminPassword:                 pulumi.String("P@ssword1234!"),
+//				UpgradeMode:                   pulumi.String("Automatic"),
+//				HealthProbeId:                 exampleProbe.ID().ToIDOutput().ToStringOutput(),
+//				DisablePasswordAuthentication: pulumi.Bool(false),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleRule,
 //			}))

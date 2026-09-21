@@ -44,17 +44,12 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
-//				Name:              pulumi.String("example-container"),
-//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
-//				AccountName:       pulumi.String(example.Name),
-//				DatabaseName:      exampleSqlDatabase.Name,
-//				PartitionKeyPaths: pulumi.StringArray{
-//					pulumi.String("/definition/id"),
-//				},
-//				PartitionKeyVersion: pulumi.Int(1),
-//				Throughput:          pulumi.Int(400),
 //				IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
-//					IndexingMode: pulumi.String("consistent"),
+//					ExcludedPaths: cosmosdb.SqlContainerIndexingPolicyExcludedPathArray{
+//						&cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs{
+//							Path: pulumi.String("/excluded/?"),
+//						},
+//					},
 //					IncludedPaths: cosmosdb.SqlContainerIndexingPolicyIncludedPathArray{
 //						&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
 //							Path: pulumi.String("/*"),
@@ -63,11 +58,7 @@ import (
 //							Path: pulumi.String("/included/?"),
 //						},
 //					},
-//					ExcludedPaths: cosmosdb.SqlContainerIndexingPolicyExcludedPathArray{
-//						&cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs{
-//							Path: pulumi.String("/excluded/?"),
-//						},
-//					},
+//					IndexingMode: pulumi.String("consistent"),
 //				},
 //				UniqueKeys: cosmosdb.SqlContainerUniqueKeyArray{
 //					&cosmosdb.SqlContainerUniqueKeyArgs{
@@ -77,6 +68,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example-container"),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
+//				DatabaseName:      exampleSqlDatabase.Name,
+//				PartitionKeyPaths: pulumi.StringArray{
+//					pulumi.String("/definition/id"),
+//				},
+//				PartitionKeyVersion: pulumi.Int(1),
+//				Throughput:          pulumi.Int(400),
 //			})
 //			if err != nil {
 //				return err

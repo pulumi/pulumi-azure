@@ -30,24 +30,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "exampleni",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "exampleni",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "examplevm",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_D4_v5",
- *     adminUsername: "adminuser",
- *     adminPassword: "P@$$w0rd1234!",
- *     disablePasswordAuthentication: false,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -58,6 +50,14 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     name: "examplevm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_D4_v5",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@$$w0rd1234!",
+ *     disablePasswordAuthentication: false,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleConfiguration = new azure.automanage.Configuration("example", {
  *     name: "exampleconfig",

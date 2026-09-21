@@ -63,6 +63,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
+ *             .autoPatching(VirtualMachineAutoPatchingArgs.builder()
+ *                 .dayOfWeek("Sunday")
+ *                 .maintenanceWindowDurationInMinutes(60)
+ *                 .maintenanceWindowStartingHour(2)
+ *                 .build())
  *             .virtualMachineId(example.id())
  *             .sqlLicenseType("PAYG")
  *             .rServicesEnabled(true)
@@ -70,11 +75,6 @@ import javax.annotation.Nullable;
  *             .sqlConnectivityType("PRIVATE")
  *             .sqlConnectivityUpdatePassword("Password1234!")
  *             .sqlConnectivityUpdateUsername("sqllogin")
- *             .autoPatching(VirtualMachineAutoPatchingArgs.builder()
- *                 .dayOfWeek("Sunday")
- *                 .maintenanceWindowDurationInMinutes(60)
- *                 .maintenanceWindowStartingHour(2)
- *                 .build())
  *             .build());
  * 
  *     }

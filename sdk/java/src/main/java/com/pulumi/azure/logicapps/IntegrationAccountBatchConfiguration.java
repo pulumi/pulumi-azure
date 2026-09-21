@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIntegrationAccountBatchConfiguration = new IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration", IntegrationAccountBatchConfigurationArgs.builder()
+ *             .releaseCriteria(IntegrationAccountBatchConfigurationReleaseCriteriaArgs.builder()
+ *                 .messageCount(80)
+ *                 .build())
  *             .name("exampleiabc")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .batchGroupName("TestBatchGroup")
- *             .releaseCriteria(IntegrationAccountBatchConfigurationReleaseCriteriaArgs.builder()
- *                 .messageCount(80)
- *                 .build())
  *             .build());
  * 
  *     }

@@ -48,15 +48,15 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewGateway(ctx, "example", &apimanagement.GatewayArgs{
-//				Name:            pulumi.String("example-gateway"),
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
-//				Description:     pulumi.String("Example API Management gateway"),
 //				LocationData: &apimanagement.GatewayLocationDataArgs{
 //					Name:     pulumi.String("example name"),
 //					City:     pulumi.String("example city"),
 //					District: pulumi.String("example district"),
 //					Region:   pulumi.String("example region"),
 //				},
+//				Name:            pulumi.String("example-gateway"),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				Description:     pulumi.String("Example API Management gateway"),
 //			})
 //			if err != nil {
 //				return err

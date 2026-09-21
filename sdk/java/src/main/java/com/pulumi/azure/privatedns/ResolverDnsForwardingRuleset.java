@@ -68,17 +68,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("outbounddns")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.0.64/28")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("Microsoft.Network.dnsResolvers")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .name("Microsoft.Network/dnsResolvers")
  *                     .build())
+ *                 .name("Microsoft.Network.dnsResolvers")
  *                 .build())
+ *             .name("outbounddns")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.64/28")
  *             .build());
  * 
  *         var exampleResolver = new Resolver("exampleResolver", ResolverArgs.builder()

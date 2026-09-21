@@ -45,6 +45,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("example", {
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
  *     name: "eventhub-stream-input",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -53,10 +57,6 @@ import * as utilities from "../utilities";
  *     servicebusNamespace: exampleEventHubNamespace.name,
  *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     serialization: {
- *         type: "Json",
- *         encoding: "UTF8",
- *     },
  * });
  * ```
  *

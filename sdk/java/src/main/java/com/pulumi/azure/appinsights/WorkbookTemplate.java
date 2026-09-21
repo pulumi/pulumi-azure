@@ -55,11 +55,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkbookTemplate = new WorkbookTemplate("exampleWorkbookTemplate", WorkbookTemplateArgs.builder()
- *             .name("example-aiwt")
- *             .resourceGroupName(example.name())
- *             .location("West Europe")
- *             .author("test author")
- *             .priority(1)
  *             .galleries(WorkbookTemplateGalleryArgs.builder()
  *                 .category("workbook")
  *                 .name("test")
@@ -67,6 +62,11 @@ import javax.annotation.Nullable;
  *                 .resourceType("microsoft.insights/components")
  *                 .type("tsg")
  *                 .build())
+ *             .name("example-aiwt")
+ *             .resourceGroupName(example.name())
+ *             .location("West Europe")
+ *             .author("test author")
+ *             .priority(1)
  *             .templateData(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("version", "Notebook/1.0"),

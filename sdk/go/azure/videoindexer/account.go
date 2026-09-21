@@ -48,15 +48,15 @@ import (
 //				return err
 //			}
 //			_, err = videoindexer.NewAccount(ctx, "example", &videoindexer.AccountArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("West Europe"),
 //				Storage: &videoindexer.AccountStorageArgs{
 //					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Identity: &videoindexer.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err

@@ -60,8 +60,6 @@ import (
 //				return err
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
-//				Name:       pulumi.String("example-certificate"),
-//				KeyVaultId: pulumi.String(example.Id),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 //						Name: pulumi.String("Self"),
@@ -71,6 +69,27 @@ import (
 //						KeySize:    pulumi.Int(2048),
 //						KeyType:    pulumi.String("RSA"),
 //						ReuseKey:   pulumi.Bool(true),
+//					},
+//					SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
+//						ContentType: pulumi.String("application/x-pkcs12"),
+//					},
+//					X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
+//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
+//							DnsNames: pulumi.StringArray{
+//								pulumi.String("api.example.com"),
+//								pulumi.String("portal.example.com"),
+//							},
+//						},
+//						KeyUsages: pulumi.StringArray{
+//							pulumi.String("cRLSign"),
+//							pulumi.String("dataEncipherment"),
+//							pulumi.String("digitalSignature"),
+//							pulumi.String("keyAgreement"),
+//							pulumi.String("keyCertSign"),
+//							pulumi.String("keyEncipherment"),
+//						},
+//						Subject:          pulumi.String("CN=api.example.com"),
+//						ValidityInMonths: pulumi.Int(12),
 //					},
 //					LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
 //						&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
@@ -82,46 +101,27 @@ import (
 //							},
 //						},
 //					},
-//					SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
-//						ContentType: pulumi.String("application/x-pkcs12"),
-//					},
-//					X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
-//						KeyUsages: pulumi.StringArray{
-//							pulumi.String("cRLSign"),
-//							pulumi.String("dataEncipherment"),
-//							pulumi.String("digitalSignature"),
-//							pulumi.String("keyAgreement"),
-//							pulumi.String("keyCertSign"),
-//							pulumi.String("keyEncipherment"),
-//						},
-//						Subject:          pulumi.String("CN=api.example.com"),
-//						ValidityInMonths: pulumi.Int(12),
-//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
-//							DnsNames: pulumi.StringArray{
-//								pulumi.String("api.example.com"),
-//								pulumi.String("portal.example.com"),
-//							},
-//						},
-//					},
 //				},
+//				Name:       pulumi.String("example-certificate"),
+//				KeyVaultId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewCustomDomain(ctx, "example", &apimanagement.CustomDomainArgs{
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
-//				Gateways: apimanagement.CustomDomainGatewayArray{
-//					&apimanagement.CustomDomainGatewayArgs{
-//						HostName:   pulumi.String("api.example.com"),
-//						KeyVaultId: exampleCertificate.VersionlessSecretId,
-//					},
-//				},
 //				DeveloperPortals: apimanagement.CustomDomainDeveloperPortalArray{
 //					&apimanagement.CustomDomainDeveloperPortalArgs{
 //						HostName:   pulumi.String("portal.example.com"),
 //						KeyVaultId: exampleCertificate.VersionlessSecretId,
 //					},
 //				},
+//				Gateways: apimanagement.CustomDomainGatewayArray{
+//					&apimanagement.CustomDomainGatewayArgs{
+//						HostName:   pulumi.String("api.example.com"),
+//						KeyVaultId: exampleCertificate.VersionlessSecretId,
+//					},
+//				},
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

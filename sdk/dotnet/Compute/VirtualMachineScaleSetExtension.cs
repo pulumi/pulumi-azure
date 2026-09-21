@@ -33,12 +33,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "Standard_D4_v5",
-    ///         AdminUsername = "adminuser",
-    ///         Instances = 1,
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -46,11 +40,15 @@ namespace Pulumi.Azure.Compute
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
+    ///         {
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
     ///         NetworkInterfaces = new[]
     ///         {
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 Name = "example",
     ///                 IpConfigurations = new[]
     ///                 {
     ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
@@ -58,13 +56,15 @@ namespace Pulumi.Azure.Compute
     ///                         Name = "internal",
     ///                     },
     ///                 },
+    ///                 Name = "example",
     ///             },
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetOsDiskArgs
-    ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
-    ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard_D4_v5",
+    ///         AdminUsername = "adminuser",
+    ///         Instances = 1,
     ///     });
     /// 
     ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("example", new()

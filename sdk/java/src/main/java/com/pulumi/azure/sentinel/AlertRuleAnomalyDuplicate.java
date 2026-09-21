@@ -80,15 +80,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAlertRuleAnomalyDuplicate = new AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", AlertRuleAnomalyDuplicateArgs.builder()
+ *             .thresholdObservations(AlertRuleAnomalyDuplicateThresholdObservationArgs.builder()
+ *                 .name("Anomaly score threshold")
+ *                 .value("0.6")
+ *                 .build())
  *             .displayName("example duplicated UEBA Anomalous Sign In")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .builtInRuleId(example.applyValue(_example -> _example.id()))
  *             .enabled(true)
  *             .mode("Flighting")
- *             .thresholdObservations(AlertRuleAnomalyDuplicateThresholdObservationArgs.builder()
- *                 .name("Anomaly score threshold")
- *                 .value("0.6")
- *                 .build())
  *             .build());
  * 
  *     }

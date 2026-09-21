@@ -20,6 +20,10 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleServer = new azure.mssql.Server("example", {
+ *     azureadAdministrator: {
+ *         loginUsername: "AzureAD Admin",
+ *         objectId: "00000000-0000-0000-0000-000000000000",
+ *     },
  *     name: "mssqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,10 +31,6 @@ import * as utilities from "../utilities";
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
  *     minimumTlsVersion: "1.2",
- *     azureadAdministrator: {
- *         loginUsername: "AzureAD Admin",
- *         objectId: "00000000-0000-0000-0000-000000000000",
- *     },
  *     tags: {
  *         environment: "production",
  *     },
@@ -55,15 +55,6 @@ import * as utilities from "../utilities";
  * });
  * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "mssqltdeexample",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     enabledForDiskEncryption: true,
- *     tenantId: exampleUserAssignedIdentity.tenantId,
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: true,
- *     skuName: "standard",
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -89,6 +80,15 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "mssqltdeexample",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: exampleUserAssignedIdentity.tenantId,
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: true,
+ *     skuName: "standard",
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "example-key",
@@ -103,13 +103,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleKeyVault],
  * });
  * const exampleServer = new azure.mssql.Server("example", {
- *     name: "example-resource",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     version: "12.0",
- *     administratorLogin: "Example-Administrator",
- *     administratorLoginPassword: "Example_Password!",
- *     minimumTlsVersion: "1.2",
  *     azureadAdministrator: {
  *         loginUsername: exampleUserAssignedIdentity.name,
  *         objectId: exampleUserAssignedIdentity.principalId,
@@ -118,6 +111,13 @@ import * as utilities from "../utilities";
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "example-resource",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     version: "12.0",
+ *     administratorLogin: "Example-Administrator",
+ *     administratorLoginPassword: "Example_Password!",
+ *     minimumTlsVersion: "1.2",
  *     primaryUserAssignedIdentityId: exampleUserAssignedIdentity.id,
  *     transparentDataEncryptionKeyVaultKeyId: exampleKey.id,
  * });

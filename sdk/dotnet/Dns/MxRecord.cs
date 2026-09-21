@@ -38,10 +38,6 @@ namespace Pulumi.Azure.Dns
     /// 
     ///     var exampleMxRecord = new Azure.Dns.MxRecord("example", new()
     ///     {
-    ///         Name = "test",
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.MxRecordRecordArgs
@@ -55,6 +51,10 @@ namespace Pulumi.Azure.Dns
     ///                 Exchange = "mail2.contoso.com",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Ttl = 300,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

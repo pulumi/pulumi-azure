@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.servicebus.NamespaceArgs;
  * import com.pulumi.azure.connections.ApiConnection;
  * import com.pulumi.azure.connections.ApiConnectionArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -72,7 +73,9 @@ import javax.annotation.Nullable;
  *             .displayName("Example 1")
  *             .parameterValues(Map.of("connectionString", exampleNamespace.defaultPrimaryConnectionString()))
  *             .tags(Map.of("Hello", "World"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("parameterValues")
+ *                 .build());
  * 
  *     }
  * }

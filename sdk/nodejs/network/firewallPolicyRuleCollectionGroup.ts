@@ -25,15 +25,8 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleFirewallPolicyRuleCollectionGroup = new azure.network.FirewallPolicyRuleCollectionGroup("example", {
- *     name: "example-fwpolicy-rcg",
- *     firewallPolicyId: exampleFirewallPolicy.id,
- *     priority: 500,
  *     applicationRuleCollections: [{
- *         name: "app_rule_collection1",
- *         priority: 500,
- *         action: "Deny",
  *         rules: [{
- *             name: "app_rule_collection1_rule1",
  *             protocols: [
  *                 {
  *                     type: "Http",
@@ -44,14 +37,35 @@ import * as utilities from "../utilities";
  *                     port: 443,
  *                 },
  *             ],
+ *             name: "app_rule_collection1_rule1",
  *             sourceAddresses: ["10.0.0.1"],
  *             destinationFqdns: ["*.microsoft.com"],
  *         }],
+ *         name: "app_rule_collection1",
+ *         priority: 500,
+ *         action: "Deny",
+ *     }],
+ *     natRuleCollections: [{
+ *         rules: [{
+ *             name: "nat_rule_collection1_rule1",
+ *             protocols: [
+ *                 "TCP",
+ *                 "UDP",
+ *             ],
+ *             sourceAddresses: [
+ *                 "10.0.0.1",
+ *                 "10.0.0.2",
+ *             ],
+ *             destinationAddress: "192.168.1.1",
+ *             destinationPorts: "80",
+ *             translatedAddress: "192.168.0.1",
+ *             translatedPort: 8080,
+ *         }],
+ *         name: "nat_rule_collection1",
+ *         priority: 300,
+ *         action: "Dnat",
  *     }],
  *     networkRuleCollections: [{
- *         name: "network_rule_collection1",
- *         priority: 400,
- *         action: "Deny",
  *         rules: [{
  *             name: "network_rule_collection1_rule1",
  *             protocols: [
@@ -68,27 +82,13 @@ import * as utilities from "../utilities";
  *                 "1000-2000",
  *             ],
  *         }],
+ *         name: "network_rule_collection1",
+ *         priority: 400,
+ *         action: "Deny",
  *     }],
- *     natRuleCollections: [{
- *         name: "nat_rule_collection1",
- *         priority: 300,
- *         action: "Dnat",
- *         rules: [{
- *             name: "nat_rule_collection1_rule1",
- *             protocols: [
- *                 "TCP",
- *                 "UDP",
- *             ],
- *             sourceAddresses: [
- *                 "10.0.0.1",
- *                 "10.0.0.2",
- *             ],
- *             destinationAddress: "192.168.1.1",
- *             destinationPorts: "80",
- *             translatedAddress: "192.168.0.1",
- *             translatedPort: 8080,
- *         }],
- *     }],
+ *     name: "example-fwpolicy-rcg",
+ *     firewallPolicyId: exampleFirewallPolicy.id,
+ *     priority: 500,
  * });
  * ```
  *

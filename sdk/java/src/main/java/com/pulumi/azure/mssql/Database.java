@@ -156,15 +156,6 @@ import javax.annotation.Nullable;
  * 
  *         // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("mssqltdeexample")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .enabledForDiskEncryption(true)
- *             .tenantId(exampleUserAssignedIdentity.tenantId())
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(true)
- *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -187,6 +178,15 @@ import javax.annotation.Nullable;
  *                         "WrapKey",
  *                         "UnwrapKey")
  *                     .build())
+ *             .name("mssqltdeexample")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(exampleUserAssignedIdentity.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(true)
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
@@ -202,6 +202,10 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
+ *             .identity(DatabaseIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("example-db")
  *             .serverId(exampleServer.id())
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
@@ -212,10 +216,6 @@ import javax.annotation.Nullable;
  *             .zoneRedundant(true)
  *             .enclaveType("VBS")
  *             .tags(Map.of("foo", "bar"))
- *             .identity(DatabaseIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
  *             .build());
  * 

@@ -2686,16 +2686,16 @@ class Account(pulumi.CustomResource):
                 "Microsoft.Storage",
             ])
         example_account = azure.storage.Account("example",
-            name="storageaccountname",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
             network_rules={
                 "default_action": "Deny",
                 "ip_rules": ["100.0.0.1"],
                 "virtual_network_subnet_ids": [example_subnet.id],
             },
+            name="storageaccountname",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
@@ -2848,16 +2848,16 @@ class Account(pulumi.CustomResource):
                 "Microsoft.Storage",
             ])
         example_account = azure.storage.Account("example",
-            name="storageaccountname",
-            resource_group_name=example.name,
-            location=example.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
             network_rules={
                 "default_action": "Deny",
                 "ip_rules": ["100.0.0.1"],
                 "virtual_network_subnet_ids": [example_subnet.id],
             },
+            name="storageaccountname",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })

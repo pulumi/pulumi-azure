@@ -175,12 +175,12 @@ class JobTargetGroup(pulumi.CustomResource):
             username="testusername",
             password="testpassword")
         example_job_target_group = azure.mssql.JobTargetGroup("example",
-            name="example-target-group",
-            job_agent_id=example_job_agent.id,
             job_targets=[{
                 "server_name": example_server.name,
                 "job_credential_id": example_job_credential.id,
-            }])
+            }],
+            name="example-target-group",
+            job_agent_id=example_job_agent.id)
         ```
 
         ## API Providers
@@ -245,12 +245,12 @@ class JobTargetGroup(pulumi.CustomResource):
             username="testusername",
             password="testpassword")
         example_job_target_group = azure.mssql.JobTargetGroup("example",
-            name="example-target-group",
-            job_agent_id=example_job_agent.id,
             job_targets=[{
                 "server_name": example_server.name,
                 "job_credential_id": example_job_credential.id,
-            }])
+            }],
+            name="example-target-group",
+            job_agent_id=example_job_agent.id)
         ```
 
         ## API Providers

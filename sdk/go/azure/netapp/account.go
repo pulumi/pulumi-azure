@@ -52,9 +52,6 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String("netappaccount"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				ActiveDirectory: &netapp.AccountActiveDirectoryArgs{
 //					Username:      pulumi.String("aduser"),
 //					Password:      pulumi.String("aduserpwd"),
@@ -71,6 +68,9 @@ import (
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -304,14 +304,14 @@ class BackupInstanceDisk(pulumi.CustomResource):
             create_option="Empty",
             disk_size_gb=1)
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example1 = azure.authorization.Assignment("example1",
             scope=example.id,
             role_definition_name="Disk Snapshot Contributor",
@@ -386,14 +386,14 @@ class BackupInstanceDisk(pulumi.CustomResource):
             create_option="Empty",
             disk_size_gb=1)
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example1 = azure.authorization.Assignment("example1",
             scope=example.id,
             role_definition_name="Disk Snapshot Contributor",

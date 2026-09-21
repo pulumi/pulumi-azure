@@ -25,6 +25,10 @@ import * as utilities from "../utilities";
  *     accountName: example.then(example => example.name),
  * });
  * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("example", {
+ *     indices: [{
+ *         keys: ["_id"],
+ *         unique: true,
+ *     }],
  *     name: "tfex-cosmos-mongo-db",
  *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     accountName: example.then(example => example.name),
@@ -32,10 +36,6 @@ import * as utilities from "../utilities";
  *     defaultTtlSeconds: 777,
  *     shardKey: "uniqueKey",
  *     throughput: 400,
- *     indices: [{
- *         keys: ["_id"],
- *         unique: true,
- *     }],
  * });
  * ```
  *

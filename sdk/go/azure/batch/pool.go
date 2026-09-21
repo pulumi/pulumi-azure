@@ -62,12 +62,6 @@ import (
 //				return err
 //			}
 //			_, err = batch.NewPool(ctx, "example", &batch.PoolArgs{
-//				Name:              pulumi.String("testaccpool"),
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount2.Name,
-//				DisplayName:       pulumi.String("Test Acc Pool Auto"),
-//				VmSize:            pulumi.String("STANDARD_A1_V2"),
-//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
 //				AutoScale: &batch.PoolAutoScaleArgs{
 //					EvaluationInterval: pulumi.String("PT15M"),
 //					Formula: pulumi.String(`      startingNumberOfVMs = 1;
@@ -86,7 +80,6 @@ import (
 //					Version:   pulumi.String("latest"),
 //				},
 //				ContainerConfiguration: &batch.PoolContainerConfigurationArgs{
-//					Type: pulumi.String("DockerCompatible"),
 //					ContainerRegistries: batch.PoolContainerConfigurationContainerRegistryArray{
 //						&batch.PoolContainerConfigurationContainerRegistryArgs{
 //							RegistryServer: pulumi.String("docker.io"),
@@ -94,21 +87,28 @@ import (
 //							Password:       pulumi.String("apassword"),
 //						},
 //					},
+//					Type: pulumi.String("DockerCompatible"),
 //				},
 //				StartTask: &batch.PoolStartTaskArgs{
-//					CommandLine:      pulumi.String("echo 'Hello World from $env'"),
-//					TaskRetryMaximum: pulumi.Int(1),
-//					WaitForSuccess:   pulumi.Bool(true),
-//					CommonEnvironmentProperties: pulumi.StringMap{
-//						"env": pulumi.String("TEST"),
-//					},
 //					UserIdentity: &batch.PoolStartTaskUserIdentityArgs{
 //						AutoUser: &batch.PoolStartTaskUserIdentityAutoUserArgs{
 //							ElevationLevel: pulumi.String("NonAdmin"),
 //							Scope:          pulumi.String("Task"),
 //						},
 //					},
+//					CommandLine:      pulumi.String("echo 'Hello World from $env'"),
+//					TaskRetryMaximum: pulumi.Int(1),
+//					WaitForSuccess:   pulumi.Bool(true),
+//					CommonEnvironmentProperties: pulumi.StringMap{
+//						"env": pulumi.String("TEST"),
+//					},
 //				},
+//				Name:              pulumi.String("testaccpool"),
+//				ResourceGroupName: example.Name,
+//				AccountName:       exampleAccount2.Name,
+//				DisplayName:       pulumi.String("Test Acc Pool Auto"),
+//				VmSize:            pulumi.String("STANDARD_A1_V2"),
+//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
 //			})
 //			if err != nil {
 //				return err

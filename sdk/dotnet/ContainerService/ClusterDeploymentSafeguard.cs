@@ -30,24 +30,24 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-aks",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "exampleaks",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
-    ///             Name = "default",
-    ///             NodeCount = 1,
-    ///             VmSize = "Standard_DS2_v2",
     ///             UpgradeSettings = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs
     ///             {
     ///                 MaxSurge = "10%",
     ///             },
+    ///             Name = "default",
+    ///             NodeCount = 1,
+    ///             VmSize = "Standard_DS2_v2",
     ///         },
     ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-aks",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "exampleaks",
     ///         AzurePolicyEnabled = true,
     ///     });
     /// 

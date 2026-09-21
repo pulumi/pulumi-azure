@@ -53,12 +53,6 @@ namespace Pulumi.Azure.Batch
     /// 
     ///     var examplePool = new Azure.Batch.Pool("example", new()
     ///     {
-    ///         Name = "testaccpool",
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount2.Name,
-    ///         DisplayName = "Test Acc Pool Auto",
-    ///         VmSize = "STANDARD_A1_V2",
-    ///         NodeAgentSkuId = "batch.node.ubuntu 20.04",
     ///         AutoScale = new Azure.Batch.Inputs.PoolAutoScaleArgs
     ///         {
     ///             EvaluationInterval = "PT15M",
@@ -78,7 +72,6 @@ namespace Pulumi.Azure.Batch
     ///         },
     ///         ContainerConfiguration = new Azure.Batch.Inputs.PoolContainerConfigurationArgs
     ///         {
-    ///             Type = "DockerCompatible",
     ///             ContainerRegistries = new[]
     ///             {
     ///                 new Azure.Batch.Inputs.PoolContainerConfigurationContainerRegistryArgs
@@ -88,16 +81,10 @@ namespace Pulumi.Azure.Batch
     ///                     Password = "apassword",
     ///                 },
     ///             },
+    ///             Type = "DockerCompatible",
     ///         },
     ///         StartTask = new Azure.Batch.Inputs.PoolStartTaskArgs
     ///         {
-    ///             CommandLine = "echo 'Hello World from $env'",
-    ///             TaskRetryMaximum = 1,
-    ///             WaitForSuccess = true,
-    ///             CommonEnvironmentProperties = 
-    ///             {
-    ///                 { "env", "TEST" },
-    ///             },
     ///             UserIdentity = new Azure.Batch.Inputs.PoolStartTaskUserIdentityArgs
     ///             {
     ///                 AutoUser = new Azure.Batch.Inputs.PoolStartTaskUserIdentityAutoUserArgs
@@ -106,7 +93,20 @@ namespace Pulumi.Azure.Batch
     ///                     Scope = "Task",
     ///                 },
     ///             },
+    ///             CommandLine = "echo 'Hello World from $env'",
+    ///             TaskRetryMaximum = 1,
+    ///             WaitForSuccess = true,
+    ///             CommonEnvironmentProperties = 
+    ///             {
+    ///                 { "env", "TEST" },
+    ///             },
     ///         },
+    ///         Name = "testaccpool",
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount2.Name,
+    ///         DisplayName = "Test Acc Pool Auto",
+    ///         VmSize = "STANDARD_A1_V2",
+    ///         NodeAgentSkuId = "batch.node.ubuntu 20.04",
     ///     });
     /// 
     /// });

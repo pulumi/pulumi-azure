@@ -53,9 +53,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleDiagnosticSetting = new Azure.Monitoring.DiagnosticSetting("example", new()
     ///     {
-    ///         Name = "example",
-    ///         TargetResourceId = exampleKeyVault.Id,
-    ///         StorageAccountId = exampleAccount.Id,
     ///         EnabledLogs = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.DiagnosticSettingEnabledLogArgs
@@ -70,6 +67,9 @@ namespace Pulumi.Azure.Monitoring
     ///                 Category = "AllMetrics",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         TargetResourceId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

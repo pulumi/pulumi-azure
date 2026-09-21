@@ -53,16 +53,16 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleOutputSynapse = new Azure.StreamAnalytics.OutputSynapse("example", new()

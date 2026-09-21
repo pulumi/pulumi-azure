@@ -59,11 +59,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-cosmosdb")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Strong")
  *                 .build())
@@ -71,17 +66,22 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-cosmosdb")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlRoleDefinition = new SqlRoleDefinition("exampleSqlRoleDefinition", SqlRoleDefinitionArgs.builder()
+ *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
+ *                 .dataActions("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read")
+ *                 .build())
  *             .roleDefinitionId("84cf3a8b-4122-4448-bce2-fa423cfe0a15")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .name("acctestsqlrole")
  *             .assignableScopes(exampleAccount.id().applyValue(_id -> String.format("%s/dbs/sales", _id)))
- *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
- *                 .dataActions("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read")
- *                 .build())
  *             .build());
  * 
  *     }

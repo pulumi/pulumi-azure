@@ -110,6 +110,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
+    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-sqlserver",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
@@ -117,10 +121,6 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "AdminPassword123!",
     ///         MinimumTlsVersion = "1.2",
-    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
@@ -149,13 +149,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Name = "examplesa",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
-    ///         AccountKind = "StorageV2",
-    ///         AllowNestedItemsToBePublic = false,
     ///         NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
     ///         {
     ///             DefaultAction = "Deny",
@@ -176,6 +169,13 @@ namespace Pulumi.Azure.MSSql
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         AllowNestedItemsToBePublic = false,
     ///     });
     /// 
     ///     var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("example", new()

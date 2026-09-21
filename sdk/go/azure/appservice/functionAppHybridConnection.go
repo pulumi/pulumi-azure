@@ -76,23 +76,23 @@ import (
 //				return err
 //			}
 //			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

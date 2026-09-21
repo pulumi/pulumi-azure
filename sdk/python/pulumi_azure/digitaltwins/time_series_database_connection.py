@@ -377,12 +377,12 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-DT",
+            resource_group_name=example.name,
+            location=example.location)
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
             name="exampleEventHubNamespace",
             location=example.location,
@@ -399,13 +399,13 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name)
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name)
         example_database = azure.kusto.Database("example",
             name="example-kusto-database",
             resource_group_name=example.name,
@@ -494,12 +494,12 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_instance = azure.digitaltwins.Instance("example",
-            name="example-DT",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-DT",
+            resource_group_name=example.name,
+            location=example.location)
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
             name="exampleEventHubNamespace",
             location=example.location,
@@ -516,13 +516,13 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             resource_group_name=example.name)
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name)
         example_database = azure.kusto.Database("example",
             name="example-kusto-database",
             resource_group_name=example.name,

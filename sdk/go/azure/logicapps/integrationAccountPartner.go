@@ -46,15 +46,15 @@ import (
 //				return err
 //			}
 //			_, err = logicapps.NewIntegrationAccountPartner(ctx, "example", &logicapps.IntegrationAccountPartnerArgs{
-//				Name:                   pulumi.String("example-iap"),
-//				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
 //					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
 //						Qualifier: pulumi.String("ZZ"),
 //						Value:     pulumi.String("AA"),
 //					},
 //				},
+//				Name:                   pulumi.String("example-iap"),
+//				ResourceGroupName:      example.Name,
+//				IntegrationAccountName: exampleIntegrationAccount.Name,
 //			})
 //			if err != nil {
 //				return err

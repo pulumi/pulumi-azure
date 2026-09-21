@@ -51,15 +51,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("testsubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("orbitalgateway"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Orbital/orbitalGateways"),
 //							Actions: pulumi.StringArray{
@@ -69,25 +62,24 @@ import (
 //								pulumi.String("Microsoft.Network/publicIPAddresses/read"),
 //							},
 //						},
+//						Name: pulumi.String("orbitalgateway"),
 //					},
+//				},
+//				Name:               pulumi.String("testsubnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = orbital.NewContactProfile(ctx, "example", &orbital.ContactProfileArgs{
-//				Name:                           pulumi.String("example-contact-profile"),
-//				ResourceGroupName:              example.Name,
-//				Location:                       example.Location,
-//				MinimumVariableContactDuration: pulumi.String("PT1M"),
-//				AutoTracking:                   pulumi.String("disabled"),
 //				Links: orbital.ContactProfileLinkArray{
 //					&orbital.ContactProfileLinkArgs{
 //						Channels: orbital.ContactProfileLinkChannelArray{
 //							&orbital.ContactProfileLinkChannelArgs{
-//								Name:               pulumi.String("channelname"),
-//								BandwidthMhz:       pulumi.Float64(100),
-//								CenterFrequencyMhz: pulumi.Float64(101),
 //								EndPoints: orbital.ContactProfileLinkChannelEndPointArray{
 //									&orbital.ContactProfileLinkChannelEndPointArgs{
 //										EndPointName: pulumi.String("AQUA_command"),
@@ -96,6 +88,9 @@ import (
 //										Protocol:     pulumi.String("TCP"),
 //									},
 //								},
+//								Name:               pulumi.String("channelname"),
+//								BandwidthMhz:       pulumi.Float64(100),
+//								CenterFrequencyMhz: pulumi.Float64(101),
 //							},
 //						},
 //						Direction:    pulumi.String("Uplink"),
@@ -103,7 +98,12 @@ import (
 //						Polarization: pulumi.String("RHCP"),
 //					},
 //				},
-//				NetworkConfigurationSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				Name:                           pulumi.String("example-contact-profile"),
+//				ResourceGroupName:              example.Name,
+//				Location:                       example.Location,
+//				MinimumVariableContactDuration: pulumi.String("PT1M"),
+//				AutoTracking:                   pulumi.String("disabled"),
+//				NetworkConfigurationSubnetId:   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -415,12 +415,12 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -437,6 +437,20 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
             network_group_ids=[example_network_manager_network_group.id])
         example_network_manager_admin_rule = azure.network.NetworkManagerAdminRule("example",
+            destinations=[
+                {
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.1.0.1",
+                },
+                {
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.0.0.0/24",
+                },
+            ],
+            sources=[{
+                "address_prefix_type": "ServiceTag",
+                "address_prefix": "Internet",
+            }],
             name="example-admin-rule",
             admin_rule_collection_id=example_network_manager_admin_rule_collection.id,
             action="Deny",
@@ -448,20 +462,6 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
                 "1024-65535",
             ],
             destination_port_ranges=["80"],
-            sources=[{
-                "address_prefix_type": "ServiceTag",
-                "address_prefix": "Internet",
-            }],
-            destinations=[
-                {
-                    "address_prefix_type": "IPPrefix",
-                    "address_prefix": "10.1.0.1",
-                },
-                {
-                    "address_prefix_type": "IPPrefix",
-                    "address_prefix": "10.0.0.0/24",
-                },
-            ],
             description="example admin rule")
         ```
 
@@ -515,12 +515,12 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -537,6 +537,20 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
             network_group_ids=[example_network_manager_network_group.id])
         example_network_manager_admin_rule = azure.network.NetworkManagerAdminRule("example",
+            destinations=[
+                {
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.1.0.1",
+                },
+                {
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.0.0.0/24",
+                },
+            ],
+            sources=[{
+                "address_prefix_type": "ServiceTag",
+                "address_prefix": "Internet",
+            }],
             name="example-admin-rule",
             admin_rule_collection_id=example_network_manager_admin_rule_collection.id,
             action="Deny",
@@ -548,20 +562,6 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
                 "1024-65535",
             ],
             destination_port_ranges=["80"],
-            sources=[{
-                "address_prefix_type": "ServiceTag",
-                "address_prefix": "Internet",
-            }],
-            destinations=[
-                {
-                    "address_prefix_type": "IPPrefix",
-                    "address_prefix": "10.1.0.1",
-                },
-                {
-                    "address_prefix_type": "IPPrefix",
-                    "address_prefix": "10.0.0.0/24",
-                },
-            ],
             description="example admin rule")
         ```
 

@@ -36,10 +36,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
- *     name: "example-originGroup",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     sessionAffinityEnabled: true,
- *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  *     healthProbe: {
  *         intervalInSeconds: 240,
  *         path: "/healthProbe",
@@ -51,6 +47,10 @@ import * as utilities from "../utilities";
  *         sampleSize: 16,
  *         successfulSamplesRequired: 3,
  *     },
+ *     name: "example-originGroup",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     sessionAffinityEnabled: true,
+ *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
  *     name: "example-origin",
@@ -69,10 +69,6 @@ import * as utilities from "../utilities";
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const exampleFrontdoorRule = new azure.cdn.FrontdoorRule("example", {
- *     name: "examplerule",
- *     cdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.id,
- *     order: 1,
- *     behaviorOnMatch: "Continue",
  *     actions: {
  *         routeConfigurationOverrideAction: {
  *             cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
@@ -139,6 +135,10 @@ import * as utilities from "../utilities";
  *             ],
  *         }],
  *     },
+ *     name: "examplerule",
+ *     cdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.id,
+ *     order: 1,
+ *     behaviorOnMatch: "Continue",
  * }, {
  *     dependsOn: [
  *         exampleFrontdoorOriginGroup,

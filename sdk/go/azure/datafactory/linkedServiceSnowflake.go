@@ -113,13 +113,13 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
-//				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //				KeyVaultPassword: &datafactory.LinkedServiceSnowflakeKeyVaultPasswordArgs{
 //					LinkedServiceName: exampleLinkedServiceKeyVault.Name,
 //					SecretName:        pulumi.String("secret"),
 //				},
+//				Name:             pulumi.String("example"),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //			})
 //			if err != nil {
 //				return err

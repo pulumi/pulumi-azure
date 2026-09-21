@@ -1979,25 +1979,15 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-machine",
-            resource_group_name=example.name,
-            location=example.location,
-            size="Standard_D4_v5",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -2007,7 +1997,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+            }],
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_D4_v5",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id])
         ```
 
         ## API Providers
@@ -2164,25 +2164,15 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-machine",
-            resource_group_name=example.name,
-            location=example.location,
-            size="Standard_D4_v5",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -2192,7 +2182,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+            }],
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_D4_v5",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id])
         ```
 
         ## API Providers

@@ -55,13 +55,13 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudCustomizedAccelerator(ctx, "example", &appplatform.SpringCloudCustomizedAcceleratorArgs{
-//				Name:                     pulumi.String("example"),
-//				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID().ToIDOutput().ToStringOutput(),
 //				GitRepository: &appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs{
 //					Url:               pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
 //					GitTag:            pulumi.String("spring.version.2.0.3"),
 //					IntervalInSeconds: pulumi.Int(100),
 //				},
+//				Name:                     pulumi.String("example"),
+//				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID().ToIDOutput().ToStringOutput(),
 //				AcceleratorTags: pulumi.StringArray{
 //					pulumi.String("tag-a"),
 //					pulumi.String("tag-b"),

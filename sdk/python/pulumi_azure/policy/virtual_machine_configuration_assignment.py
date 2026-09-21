@@ -198,22 +198,15 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            resource_group_name=example.name,
-            location=example.location,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
-            name="examplevm",
+            }],
+            name="example-nic",
             resource_group_name=example.name,
-            location=example.location,
-            size="Standard_D4_v5",
-            admin_username="adminuser",
-            admin_password="P@$$w0rd1234!",
-            network_interface_ids=[example_network_interface.id],
+            location=example.location)
+        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
             identity={
                 "type": "SystemAssigned",
             },
@@ -226,7 +219,14 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                 "offer": "WindowsServer",
                 "sku": "2019-Datacenter",
                 "version": "latest",
-            })
+            },
+            name="examplevm",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_D4_v5",
+            admin_username="adminuser",
+            admin_password="P@$$w0rd1234!",
+            network_interface_ids=[example_network_interface.id])
         example_extension = azure.compute.Extension("example",
             name="AzurePolicyforWindows",
             virtual_machine_id=example_windows_virtual_machine.id,
@@ -235,12 +235,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             type_handler_version="1.29",
             auto_upgrade_minor_version=True)
         example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("example",
-            name="AzureWindowsBaseline",
-            location=example_windows_virtual_machine.location,
-            virtual_machine_id=example_windows_virtual_machine.id,
             configuration={
-                "assignment_type": "ApplyAndMonitor",
-                "version": "1.*",
                 "parameters": [
                     {
                         "name": "Minimum Password Length;ExpectedValue",
@@ -263,7 +258,12 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                         "value": "1",
                     },
                 ],
-            })
+                "assignment_type": "ApplyAndMonitor",
+                "version": "1.*",
+            },
+            name="AzureWindowsBaseline",
+            location=example_windows_virtual_machine.location,
+            virtual_machine_id=example_windows_virtual_machine.id)
         ```
 
         ## API Providers
@@ -320,22 +320,15 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            resource_group_name=example.name,
-            location=example.location,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
-            name="examplevm",
+            }],
+            name="example-nic",
             resource_group_name=example.name,
-            location=example.location,
-            size="Standard_D4_v5",
-            admin_username="adminuser",
-            admin_password="P@$$w0rd1234!",
-            network_interface_ids=[example_network_interface.id],
+            location=example.location)
+        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
             identity={
                 "type": "SystemAssigned",
             },
@@ -348,7 +341,14 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                 "offer": "WindowsServer",
                 "sku": "2019-Datacenter",
                 "version": "latest",
-            })
+            },
+            name="examplevm",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_D4_v5",
+            admin_username="adminuser",
+            admin_password="P@$$w0rd1234!",
+            network_interface_ids=[example_network_interface.id])
         example_extension = azure.compute.Extension("example",
             name="AzurePolicyforWindows",
             virtual_machine_id=example_windows_virtual_machine.id,
@@ -357,12 +357,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             type_handler_version="1.29",
             auto_upgrade_minor_version=True)
         example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("example",
-            name="AzureWindowsBaseline",
-            location=example_windows_virtual_machine.location,
-            virtual_machine_id=example_windows_virtual_machine.id,
             configuration={
-                "assignment_type": "ApplyAndMonitor",
-                "version": "1.*",
                 "parameters": [
                     {
                         "name": "Minimum Password Length;ExpectedValue",
@@ -385,7 +380,12 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                         "value": "1",
                     },
                 ],
-            })
+                "assignment_type": "ApplyAndMonitor",
+                "version": "1.*",
+            },
+            name="AzureWindowsBaseline",
+            location=example_windows_virtual_machine.location,
+            virtual_machine_id=example_windows_virtual_machine.id)
         ```
 
         ## API Providers

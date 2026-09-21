@@ -39,10 +39,6 @@ namespace Pulumi.Azure.Consumption
     /// 
     ///     var exampleBudgetSubscription = new Azure.Consumption.BudgetSubscription("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         Amount = 1000,
-    ///         TimeGrain = "Monthly",
     ///         TimePeriod = new Azure.Consumption.Inputs.BudgetSubscriptionTimePeriodArgs
     ///         {
     ///             StartDate = "2022-06-01T00:00:00Z",
@@ -108,6 +104,10 @@ namespace Pulumi.Azure.Consumption
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Amount = 1000,
+    ///         TimeGrain = "Monthly",
     ///     });
     /// 
     /// });

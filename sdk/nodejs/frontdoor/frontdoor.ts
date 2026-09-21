@@ -36,35 +36,20 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
- *     name: "example-FrontDoor",
- *     resourceGroupName: example.name,
- *     routingRules: [{
- *         name: "exampleRoutingRule1",
- *         acceptedProtocols: [
- *             "Http",
- *             "Https",
- *         ],
- *         patternsToMatches: ["/*"],
- *         frontendEndpoints: ["exampleFrontendEndpoint1"],
- *         forwardingConfiguration: {
- *             forwardingProtocol: "MatchRequest",
- *             backendPoolName: "exampleBackendBing",
- *         },
+ *     backendPoolHealthProbes: [{
+ *         name: "exampleHealthProbeSetting1",
  *     }],
  *     backendPoolLoadBalancings: [{
  *         name: "exampleLoadBalancingSettings1",
  *     }],
- *     backendPoolHealthProbes: [{
- *         name: "exampleHealthProbeSetting1",
- *     }],
  *     backendPools: [{
- *         name: "exampleBackendBing",
  *         backends: [{
  *             hostHeader: "www.bing.com",
  *             address: "www.bing.com",
  *             httpPort: 80,
  *             httpsPort: 443,
  *         }],
+ *         name: "exampleBackendBing",
  *         loadBalancingName: "exampleLoadBalancingSettings1",
  *         healthProbeName: "exampleHealthProbeSetting1",
  *     }],
@@ -72,6 +57,21 @@ import * as utilities from "../utilities";
  *         name: "exampleFrontendEndpoint1",
  *         hostName: "example-FrontDoor.azurefd.net",
  *     }],
+ *     routingRules: [{
+ *         forwardingConfiguration: {
+ *             forwardingProtocol: "MatchRequest",
+ *             backendPoolName: "exampleBackendBing",
+ *         },
+ *         name: "exampleRoutingRule1",
+ *         acceptedProtocols: [
+ *             "Http",
+ *             "Https",
+ *         ],
+ *         patternsToMatches: ["/*"],
+ *         frontendEndpoints: ["exampleFrontendEndpoint1"],
+ *     }],
+ *     name: "example-FrontDoor",
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

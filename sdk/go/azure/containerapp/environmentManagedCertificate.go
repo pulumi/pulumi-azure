@@ -57,10 +57,6 @@ import (
 //				return err
 //			}
 //			exampleApp, err := containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
-//				Name:                      pulumi.String("example-app"),
-//				ResourceGroupName:         example.Name,
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
 //					Containers: containerapp.AppTemplateContainerArray{
 //						&containerapp.AppTemplateContainerArgs{
@@ -72,16 +68,20 @@ import (
 //					},
 //				},
 //				Ingress: &containerapp.AppIngressArgs{
-//					ExternalEnabled: pulumi.Bool(true),
-//					TargetPort:      pulumi.Int(80),
-//					Transport:       pulumi.String("http"),
 //					TrafficWeights: containerapp.AppIngressTrafficWeightArray{
 //						&containerapp.AppIngressTrafficWeightArgs{
 //							LatestRevision: pulumi.Bool(true),
 //							Percentage:     pulumi.Int(100),
 //						},
 //					},
+//					ExternalEnabled: pulumi.Bool(true),
+//					TargetPort:      pulumi.Int(80),
+//					Transport:       pulumi.String("http"),
 //				},
+//				Name:                      pulumi.String("example-app"),
+//				ResourceGroupName:         example.Name,
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				RevisionMode:              pulumi.String("Single"),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +89,10 @@ import (
 //			exampleCustomDomain, err := containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
 //				Name:           pulumi.String("example.com"),
 //				ContainerAppId: exampleApp.ID().ToIDOutput().ToStringOutput(),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"certificateBindingType",
+//				"containerAppEnvironmentCertificateId",
+//			}))
 //			if err != nil {
 //				return err
 //			}

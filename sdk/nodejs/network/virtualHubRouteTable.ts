@@ -58,9 +58,6 @@ import * as utilities from "../utilities";
  *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
  * });
  * const exampleVirtualHubRouteTable = new azure.network.VirtualHubRouteTable("example", {
- *     name: "example-vhubroutetable",
- *     virtualHubId: exampleVirtualHub.id,
- *     labels: ["label1"],
  *     routes: [{
  *         name: "example-route",
  *         destinationsType: "CIDR",
@@ -68,6 +65,9 @@ import * as utilities from "../utilities";
  *         nextHopType: "ResourceId",
  *         nextHop: exampleVirtualHubConnection.id,
  *     }],
+ *     name: "example-vhubroutetable",
+ *     virtualHubId: exampleVirtualHub.id,
+ *     labels: ["label1"],
  * });
  * ```
  *

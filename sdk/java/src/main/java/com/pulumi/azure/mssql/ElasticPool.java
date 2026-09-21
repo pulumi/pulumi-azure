@@ -68,12 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticPool = new ElasticPool("exampleElasticPool", ElasticPoolArgs.builder()
- *             .name("test-epool")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .serverName(exampleServer.name())
- *             .licenseType("LicenseIncluded")
- *             .maxSizeGb(756.0)
  *             .sku(ElasticPoolSkuArgs.builder()
  *                 .name("BasicPool")
  *                 .tier("Basic")
@@ -84,6 +78,12 @@ import javax.annotation.Nullable;
  *                 .minCapacity(0.25)
  *                 .maxCapacity(4.0)
  *                 .build())
+ *             .name("test-epool")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .serverName(exampleServer.name())
+ *             .licenseType("LicenseIncluded")
+ *             .maxSizeGb(756.0)
  *             .build());
  * 
  *     }

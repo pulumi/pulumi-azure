@@ -55,6 +55,11 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewSmartDetectorAlertRule(ctx, "example", &monitoring.SmartDetectorAlertRuleArgs{
+//				ActionGroup: &monitoring.SmartDetectorAlertRuleActionGroupArgs{
+//					Ids: pulumi.StringArray{
+//						exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:              pulumi.String("example-smart-detector-alert-rule"),
 //				ResourceGroupName: example.Name,
 //				Severity:          pulumi.String("Sev0"),
@@ -63,11 +68,6 @@ import (
 //				},
 //				Frequency:    pulumi.String("PT1M"),
 //				DetectorType: pulumi.String("FailureAnomaliesDetector"),
-//				ActionGroup: &monitoring.SmartDetectorAlertRuleActionGroupArgs{
-//					Ids: pulumi.StringArray{
-//						exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

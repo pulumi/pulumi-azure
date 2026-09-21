@@ -25,17 +25,17 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resources",
  * });
  * const example = new azure.compute.SharedImageVersion("example", {
+ *     targetRegions: [{
+ *         name: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.location),
+ *         regionalReplicaCount: 5,
+ *         storageAccountType: "Standard_LRS",
+ *     }],
  *     name: "0.0.1",
  *     galleryName: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.galleryName),
  *     imageName: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.name),
  *     resourceGroupName: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.resourceGroupName),
  *     location: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.location),
  *     managedImageId: existing.then(existing => existing.id),
- *     targetRegions: [{
- *         name: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.location),
- *         regionalReplicaCount: 5,
- *         storageAccountType: "Standard_LRS",
- *     }],
  * });
  * ```
  *

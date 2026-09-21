@@ -20,23 +20,23 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleDevCenter = new azure.devcenter.DevCenter("example", {
- *     location: example.location,
- *     name: "example",
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
  * });
  * const exampleCatalog = new azure.devcenter.Catalog("example", {
- *     name: "example",
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     devCenterId: test.id,
  *     catalogGithub: {
  *         branch: "foo",
  *         path: "",
  *         uri: "example URI",
  *         keyVaultKeyUrl: "secret",
  *     },
+ *     name: "example",
+ *     resourceGroupName: test.name,
+ *     devCenterId: testAzurermDevCenter.id,
  * });
  * ```
  *

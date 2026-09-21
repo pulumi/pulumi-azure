@@ -37,6 +37,9 @@ import * as utilities from "../utilities";
  *     messageRetention: 1,
  * });
  * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("example", {
+ *     serialization: {
+ *         type: "Avro",
+ *     },
  *     name: "output-to-eventhub",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -44,9 +47,6 @@ import * as utilities from "../utilities";
  *     servicebusNamespace: exampleEventHubNamespace.name,
  *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     serialization: {
- *         type: "Avro",
- *     },
  * });
  * ```
  *

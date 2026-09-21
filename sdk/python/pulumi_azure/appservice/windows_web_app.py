@@ -1216,11 +1216,11 @@ class WindowsWebApp(pulumi.CustomResource):
             sku_name="P1v2",
             os_type="Windows")
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         ```
 
         ## API Providers
@@ -1310,11 +1310,11 @@ class WindowsWebApp(pulumi.CustomResource):
             sku_name="P1v2",
             os_type="Windows")
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         ```
 
         ## API Providers

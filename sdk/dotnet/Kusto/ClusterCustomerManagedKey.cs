@@ -43,9 +43,6 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "kustocluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
@@ -55,6 +52,9 @@ namespace Pulumi.Azure.Kusto
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "kustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var cluster = new Azure.KeyVault.AccessPolicy("cluster", new()

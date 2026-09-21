@@ -218,16 +218,16 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id)
         example_virtual_hub_route_table = azure.network.VirtualHubRouteTable("example",
-            name="example-vhubroutetable",
-            virtual_hub_id=example_virtual_hub.id,
-            labels=["label1"],
             routes=[{
                 "name": "example-route",
                 "destinations_type": "CIDR",
                 "destinations": ["10.0.0.0/16"],
                 "next_hop_type": "ResourceId",
                 "next_hop": example_virtual_hub_connection.id,
-            }])
+            }],
+            name="example-vhubroutetable",
+            virtual_hub_id=example_virtual_hub.id,
+            labels=["label1"])
         ```
 
         ## API Providers
@@ -303,16 +303,16 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             remote_virtual_network_id=example_virtual_network.id)
         example_virtual_hub_route_table = azure.network.VirtualHubRouteTable("example",
-            name="example-vhubroutetable",
-            virtual_hub_id=example_virtual_hub.id,
-            labels=["label1"],
             routes=[{
                 "name": "example-route",
                 "destinations_type": "CIDR",
                 "destinations": ["10.0.0.0/16"],
                 "next_hop_type": "ResourceId",
                 "next_hop": example_virtual_hub_connection.id,
-            }])
+            }],
+            name="example-vhubroutetable",
+            virtual_hub_id=example_virtual_hub.id,
+            labels=["label1"])
         ```
 
         ## API Providers

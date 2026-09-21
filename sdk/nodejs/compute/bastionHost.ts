@@ -41,14 +41,14 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const exampleBastionHost = new azure.compute.BastionHost("example", {
- *     name: "examplebastion",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfiguration: {
  *         name: "configuration",
  *         subnetId: exampleSubnet.id,
  *         publicIpAddressId: examplePublicIp.id,
  *     },
+ *     name: "examplebastion",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

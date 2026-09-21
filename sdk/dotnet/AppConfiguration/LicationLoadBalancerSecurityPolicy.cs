@@ -37,9 +37,6 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     ///     var examplePolicy = new Azure.Waf.Policy("example", new()
     ///     {
-    ///         Name = "example-wafpolicy",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         ManagedRules = new Azure.Waf.Inputs.PolicyManagedRulesArgs
     ///         {
     ///             ManagedRuleSets = new[]
@@ -56,6 +53,9 @@ namespace Pulumi.Azure.AppConfiguration
     ///             Enabled = true,
     ///             Mode = "Detection",
     ///         },
+    ///         Name = "example-wafpolicy",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleLicationLoadBalancerSecurityPolicy = new Azure.AppConfiguration.LicationLoadBalancerSecurityPolicy("example", new()

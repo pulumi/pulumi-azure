@@ -48,13 +48,13 @@ import (
 //				return err
 //			}
 //			_, err = devtest.NewVirtualNetwork(ctx, "example", &devtest.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-network"),
-//				LabName:           exampleLab.Name,
-//				ResourceGroupName: example.Name,
 //				Subnet: &devtest.VirtualNetworkSubnetArgs{
 //					UsePublicIpAddress:          pulumi.String("Allow"),
 //					UseInVirtualMachineCreation: pulumi.String("Allow"),
 //				},
+//				Name:              pulumi.String("example-network"),
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

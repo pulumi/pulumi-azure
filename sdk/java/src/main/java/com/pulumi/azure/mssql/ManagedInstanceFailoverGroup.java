@@ -110,12 +110,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var primarySubnet = new Subnet("primarySubnet", SubnetArgs.builder()
- *             .name(primaryName)
- *             .resourceGroupName(primary.name())
- *             .virtualNetworkName(primaryVirtualNetwork.name())
- *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .actions(                    
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -123,7 +118,12 @@ import javax.annotation.Nullable;
  *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .name("Microsoft.Sql/managedInstances")
  *                     .build())
+ *                 .name("delegation")
  *                 .build())
+ *             .name(primaryName)
+ *             .resourceGroupName(primary.name())
+ *             .virtualNetworkName(primaryVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
  *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup("primaryNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
@@ -186,12 +186,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var failoverSubnet = new Subnet("failoverSubnet", SubnetArgs.builder()
- *             .name("ManagedInstance")
- *             .resourceGroupName(failover.name())
- *             .virtualNetworkName(failoverVirtualNetwork.name())
- *             .addressPrefixes("10.1.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .actions(                    
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -199,7 +194,12 @@ import javax.annotation.Nullable;
  *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .name("Microsoft.Sql/managedInstances")
  *                     .build())
+ *                 .name("delegation")
  *                 .build())
+ *             .name("ManagedInstance")
+ *             .resourceGroupName(failover.name())
+ *             .virtualNetworkName(failoverVirtualNetwork.name())
+ *             .addressPrefixes("10.1.1.0/24")
  *             .build());
  * 
  *         var failoverNetworkSecurityGroup = new NetworkSecurityGroup("failoverNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
@@ -243,15 +243,15 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var example = new ManagedInstanceFailoverGroup("example", ManagedInstanceFailoverGroupArgs.builder()
+ *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
+ *                 .mode("Automatic")
+ *                 .graceMinutes(60)
+ *                 .build())
  *             .name("example-failover-group")
  *             .location(primaryManagedInstance.location())
  *             .managedInstanceId(primaryManagedInstance.id())
  *             .partnerManagedInstanceId(failoverManagedInstance.id())
  *             .secondaryType("Geo")
- *             .readWriteEndpointFailoverPolicy(ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
- *                 .mode("Automatic")
- *                 .graceMinutes(60)
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     primaryZoneVirtualNetworkLink,

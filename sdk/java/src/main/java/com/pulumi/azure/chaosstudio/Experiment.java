@@ -95,25 +95,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("example")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_F2")
- *             .adminUsername("adminuser")
- *             .adminPassword("example")
- *             .disablePasswordAuthentication(false)
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
@@ -124,6 +116,14 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("example")
+ *             .disablePasswordAuthentication(false)
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleTarget = new Target("exampleTarget", TargetArgs.builder()
@@ -138,9 +138,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExperiment = new Experiment("exampleExperiment", ExperimentArgs.builder()
- *             .location(example.location())
- *             .name("example")
- *             .resourceGroupName(example.name())
  *             .identity(ExperimentIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -149,9 +146,7 @@ import javax.annotation.Nullable;
  *                 .chaosStudioTargetIds(exampleTarget.id())
  *                 .build())
  *             .steps(ExperimentStepArgs.builder()
- *                 .name("example")
  *                 .branches(ExperimentStepBranchArgs.builder()
- *                     .name("example")
  *                     .actions(ExperimentStepBranchActionArgs.builder()
  *                         .urn(exampleCapability.capabilityUrn())
  *                         .selectorName("Selector1")
@@ -159,8 +154,13 @@ import javax.annotation.Nullable;
  *                         .actionType("continuous")
  *                         .duration("PT10M")
  *                         .build())
+ *                     .name("example")
  *                     .build())
+ *                 .name("example")
  *                 .build())
+ *             .location(example.location())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

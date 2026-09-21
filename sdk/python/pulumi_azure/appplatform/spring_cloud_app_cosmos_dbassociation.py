@@ -390,18 +390,18 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("example",
             name="example-bind",
             spring_cloud_app_id=example_spring_cloud_app.id,
@@ -461,18 +461,18 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name)
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_spring_cloud_app_cosmos_dbassociation = azure.appplatform.SpringCloudAppCosmosDBAssociation("example",
             name="example-bind",
             spring_cloud_app_id=example_spring_cloud_app.id,

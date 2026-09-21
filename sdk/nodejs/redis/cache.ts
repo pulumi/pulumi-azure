@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
  * const exampleCache = new azure.redis.Cache("example", {
+ *     redisConfiguration: {},
  *     name: "example-cache",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -33,7 +34,6 @@ import * as utilities from "../utilities";
  *     skuName: "Standard",
  *     nonSslPortEnabled: false,
  *     minimumTlsVersion: "1.2",
- *     redisConfiguration: {},
  * });
  * ```
  *

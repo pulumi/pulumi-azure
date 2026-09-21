@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.webpubsub.CustomCertificate;
  * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -62,23 +61,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWebPubsubService = new WebPubsubService("exampleWebPubsubService", WebPubsubServiceArgs.builder()
- *             .name("example-webpubsub")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .identity(Arrays.asList(Map.of("type", "SystemAssigned")))
  *             .sku(Arrays.asList(Map.ofEntries(
  *                 Map.entry("name", "Premium_P1"),
  *                 Map.entry("capacity", 1)
  *             )))
- *             .identity(Arrays.asList(Map.of("type", "SystemAssigned")))
+ *             .name("example-webpubsub")
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -102,17 +95,21 @@ import javax.annotation.Nullable;
  *                         "Get",
  *                         "List")
  *                     .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("imported-cert")
- *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("certificate-to-import.pfx")
- *                     .build()).result())
+ *                 .contents(StdFunctions.filebase64(Map.of("input", "certificate-to-import.pfx")).result())
  *                 .password("")
  *                 .build())
+ *             .name("imported-cert")
+ *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
  *         var test = new CustomCertificate("test", CustomCertificateArgs.builder()

@@ -84,16 +84,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewall = new Firewall("exampleFirewall", FirewallArgs.builder()
- *             .name("testfirewall")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName("AZFW_VNet")
- *             .skuTier("Standard")
  *             .ipConfigurations(FirewallIpConfigurationArgs.builder()
  *                 .name("configuration")
  *                 .subnetId(exampleSubnet.id())
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("testfirewall")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .skuName("AZFW_VNet")
+ *             .skuTier("Standard")
  *             .build());
  * 
  *     }

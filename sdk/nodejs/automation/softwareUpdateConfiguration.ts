@@ -44,8 +44,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("example", {
- *     name: "example",
- *     automationAccountId: exampleAccount.id,
  *     linux: {
  *         classificationsIncludeds: "Security",
  *         excludedPackages: ["apt"],
@@ -58,6 +56,8 @@ import * as utilities from "../utilities";
  *             COMPUTER_NAME: "Foo",
  *         },
  *     },
+ *     name: "example",
+ *     automationAccountId: exampleAccount.id,
  *     duration: "PT2H2M2S",
  * });
  * ```

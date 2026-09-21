@@ -74,18 +74,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
+ *             .sku(ExpressRouteCircuitSkuArgs.builder()
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
+ *                 .build())
  *             .name("example-erc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(1.0)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier("Standard")
- *                 .family("MeteredData")
- *                 .build())
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()
+ *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
+ *                 .advertisedPublicPrefixes("123.6.0.0/24")
+ *                 .build())
  *             .peeringType("MicrosoftPeering")
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
  *             .resourceGroupName(example.name())
@@ -93,9 +96,6 @@ import javax.annotation.Nullable;
  *             .primaryPeerAddressPrefix("192.168.199.0/30")
  *             .secondaryPeerAddressPrefix("192.168.200.0/30")
  *             .vlanId(300)
- *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
- *                 .advertisedPublicPrefixes("123.6.0.0/24")
- *                 .build())
  *             .build());
  * 
  *         var exampleAzureTrafficCollector = new AzureTrafficCollector("exampleAzureTrafficCollector", AzureTrafficCollectorArgs.builder()
@@ -107,15 +107,15 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleCollectorPolicy = new CollectorPolicy("exampleCollectorPolicy", CollectorPolicyArgs.builder()
- *             .name("example-nfcp")
- *             .trafficCollectorId(exampleAzureTrafficCollector.id())
- *             .location(example.location())
  *             .ipfxEmission(CollectorPolicyIpfxEmissionArgs.builder()
  *                 .destinationTypes("AzureMonitor")
  *                 .build())
  *             .ipfxIngestion(CollectorPolicyIpfxIngestionArgs.builder()
  *                 .sourceResourceIds(exampleExpressRouteCircuit.id())
  *                 .build())
+ *             .name("example-nfcp")
+ *             .trafficCollectorId(exampleAzureTrafficCollector.id())
+ *             .location(example.location())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

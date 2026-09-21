@@ -80,9 +80,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("examplekc")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
@@ -90,6 +87,9 @@ import javax.annotation.Nullable;
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("examplekc")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
@@ -99,11 +99,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-ca")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Session")
  *                 .maxIntervalInSeconds(5)
@@ -113,6 +108,11 @@ import javax.annotation.Nullable;
  *                 .location(exampleResourceGroup.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-ca")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()

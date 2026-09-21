@@ -32,13 +32,13 @@ import * as utilities from "../utilities";
  *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
  * });
  * const basicAuth = new azure.datafactory.LinkedServiceOdata("basic_auth", {
- *     name: "basic_auth",
- *     dataFactoryId: exampleFactory.id,
- *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
  *     basicAuthentication: {
  *         username: "emma",
  *         password: "Ch4ngeM3!",
  *     },
+ *     name: "basic_auth",
+ *     dataFactoryId: exampleFactory.id,
+ *     url: "https://services.odata.org/v4/TripPinServiceRW/People",
  * });
  * ```
  *

@@ -24,10 +24,6 @@ namespace Pulumi.Azure.ServiceFabric
     /// {
     ///     var example = new Azure.ServiceFabric.ManagedCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = "example",
-    ///         Location = "West Europe",
-    ///         HttpGatewayPort = 4567,
     ///         LbRules = new[]
     ///         {
     ///             new Azure.ServiceFabric.Inputs.ManagedClusterLbRuleArgs
@@ -39,7 +35,6 @@ namespace Pulumi.Azure.ServiceFabric
     ///                 Protocol = "tcp",
     ///             },
     ///         },
-    ///         ClientConnectionPort = 12345,
     ///         NodeTypes = new[]
     ///         {
     ///             new Azure.ServiceFabric.Inputs.ManagedClusterNodeTypeArgs
@@ -57,6 +52,11 @@ namespace Pulumi.Azure.ServiceFabric
     ///                 VmInstanceCount = 5,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
+    ///         HttpGatewayPort = 4567,
+    ///         ClientConnectionPort = 12345,
     ///     });
     /// 
     /// });

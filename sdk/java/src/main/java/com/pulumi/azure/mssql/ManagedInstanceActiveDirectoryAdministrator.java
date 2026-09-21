@@ -82,6 +82,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
+ *             .identity(ManagedInstanceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("managedsqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -92,9 +95,6 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .administratorLogin("msadministrator")
  *             .administratorLoginPassword("thisIsDog11")
- *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var reader = new DirectoryRole("reader", DirectoryRoleArgs.builder()
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()
  *             .roleObjectId(reader.objectId())
- *             .memberObjectId(exampleManagedInstance.identity().applyValue(_identity -> _identity.principalId()))
+ *             .memberObjectId(exampleManagedInstance.identity().principalId())
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()

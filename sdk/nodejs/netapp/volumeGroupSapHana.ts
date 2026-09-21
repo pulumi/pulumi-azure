@@ -35,12 +35,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.88.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: `${prefix}-delegated-subnet`,
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.88.2.0/24"],
  *     delegations: [{
- *         name: "testdelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -48,7 +43,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "testdelegation",
  *     }],
+ *     name: `${prefix}-delegated-subnet`,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.88.2.0/24"],
  * });
  * const example1 = new azure.network.Subnet("example1", {
  *     name: `${prefix}-hosts-subnet`,
@@ -68,26 +68,16 @@ import * as utilities from "../utilities";
  *     proximityPlacementGroupId: examplePlacementGroup.id,
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: `${prefix}-nic`,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: example1.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: `${prefix}-vm`,
+ *     name: `${prefix}-nic`,
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     size: "Standard_M8ms",
- *     adminUsername: adminUsername,
- *     adminPassword: adminPassword,
- *     disablePasswordAuthentication: false,
- *     proximityPlacementGroupId: examplePlacementGroup.id,
- *     availabilitySetId: exampleAvailabilitySet.id,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -98,6 +88,16 @@ import * as utilities from "../utilities";
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
+ *     name: `${prefix}-vm`,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_M8ms",
+ *     adminUsername: adminUsername,
+ *     adminPassword: adminPassword,
+ *     disablePasswordAuthentication: false,
+ *     proximityPlacementGroupId: examplePlacementGroup.id,
+ *     availabilitySetId: exampleAvailabilitySet.id,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     name: `${prefix}-netapp-account`,
@@ -119,14 +119,17 @@ import * as utilities from "../utilities";
  *     qosType: "Manual",
  * });
  * const exampleVolumeGroupSapHana = new azure.netapp.VolumeGroupSapHana("example", {
- *     name: `${prefix}-netapp-volumegroup`,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleAccount.name,
- *     groupDescription: "Test volume group",
- *     applicationIdentifier: "TST",
  *     volumes: [
  *         {
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
  *             name: `${prefix}-netapp-volume-1`,
  *             volumePath: "my-unique-file-path-1",
  *             serviceLevel: "Standard",
@@ -139,6 +142,11 @@ import * as utilities from "../utilities";
  *             protocols: "NFSv4.1",
  *             securityStyle: "unix",
  *             snapshotDirectoryVisible: false,
+ *             tags: {
+ *                 foo: "bar",
+ *             },
+ *         },
+ *         {
  *             exportPolicyRules: [{
  *                 ruleIndex: 1,
  *                 allowedClients: "0.0.0.0/0",
@@ -148,11 +156,6 @@ import * as utilities from "../utilities";
  *                 unixReadWrite: true,
  *                 rootAccessEnabled: false,
  *             }],
- *             tags: {
- *                 foo: "bar",
- *             },
- *         },
- *         {
  *             name: `${prefix}-netapp-volume-2`,
  *             volumePath: "my-unique-file-path-2",
  *             serviceLevel: "Standard",
@@ -165,6 +168,11 @@ import * as utilities from "../utilities";
  *             protocols: "NFSv4.1",
  *             securityStyle: "unix",
  *             snapshotDirectoryVisible: false,
+ *             tags: {
+ *                 foo: "bar",
+ *             },
+ *         },
+ *         {
  *             exportPolicyRules: [{
  *                 ruleIndex: 1,
  *                 allowedClients: "0.0.0.0/0",
@@ -174,11 +182,6 @@ import * as utilities from "../utilities";
  *                 unixReadWrite: true,
  *                 rootAccessEnabled: false,
  *             }],
- *             tags: {
- *                 foo: "bar",
- *             },
- *         },
- *         {
  *             name: `${prefix}-netapp-volume-3`,
  *             volumePath: "my-unique-file-path-3",
  *             serviceLevel: "Standard",
@@ -191,17 +194,14 @@ import * as utilities from "../utilities";
  *             protocols: "NFSv4.1",
  *             securityStyle: "unix",
  *             snapshotDirectoryVisible: false,
- *             exportPolicyRules: [{
- *                 ruleIndex: 1,
- *                 allowedClients: "0.0.0.0/0",
- *                 nfsv3Enabled: false,
- *                 nfsv41Enabled: true,
- *                 unixReadOnly: false,
- *                 unixReadWrite: true,
- *                 rootAccessEnabled: false,
- *             }],
  *         },
  *     ],
+ *     name: `${prefix}-netapp-volumegroup`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     groupDescription: "Test volume group",
+ *     applicationIdentifier: "TST",
  * }, {
  *     dependsOn: [
  *         exampleLinuxVirtualMachine,
@@ -230,12 +230,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.88.0.0/16"],
  * });
  * const exampleDelegated = new azure.network.Subnet("example_delegated", {
- *     name: `${prefix}-delegated-subnet`,
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.88.1.0/24"],
  *     delegations: [{
- *         name: "netapp",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -243,7 +238,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "netapp",
  *     }],
+ *     name: `${prefix}-delegated-subnet`,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.88.1.0/24"],
  * });
  * const examplePrivateEndpoint = new azure.network.Subnet("example_private_endpoint", {
  *     name: `${prefix}-pe-subnet`,
@@ -252,25 +252,14 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.88.2.0/24"],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
- *     name: `${prefix}-netapp-account`,
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
- * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: `${prefix}kv`,
+ *     name: `${prefix}-netapp-account`,
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     purgeProtectionEnabled: true,
- *     softDeleteRetentionDays: 7,
- *     enabledForDiskEncryption: true,
- *     enabledForDeployment: true,
- *     enabledForTemplateDeployment: true,
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -295,6 +284,17 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: `${prefix}kv`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ *     softDeleteRetentionDays: 7,
+ *     enabledForDiskEncryption: true,
+ *     enabledForDeployment: true,
+ *     enabledForTemplateDeployment: true,
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: `${prefix}-key`,
@@ -316,16 +316,16 @@ import * as utilities from "../utilities";
  *     encryptionKey: exampleKey.versionlessId,
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: `${prefix}-pe-kv`,
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     subnetId: examplePrivateEndpoint.id,
  *     privateServiceConnection: {
  *         name: `${prefix}-pe-sc-kv`,
  *         privateConnectionResourceId: exampleKeyVault.id,
  *         isManualConnection: false,
  *         subresourceNames: ["Vault"],
  *     },
+ *     name: `${prefix}-pe-kv`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     subnetId: examplePrivateEndpoint.id,
  * });
  * const examplePool = new azure.netapp.Pool("example", {
  *     name: `${prefix}-netapp-pool`,
@@ -339,14 +339,17 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleAccountEncryption],
  * });
  * const exampleVolumeGroupSapHana = new azure.netapp.VolumeGroupSapHana("example", {
- *     name: `${prefix}-netapp-volumegroup`,
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     accountName: exampleAccount.name,
- *     groupDescription: "Test volume group with zone and CMK",
- *     applicationIdentifier: "TST",
  *     volumes: [
  *         {
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
  *             name: `${prefix}-netapp-volume-data`,
  *             volumePath: "my-unique-file-path-data",
  *             serviceLevel: "Standard",
@@ -362,6 +365,8 @@ import * as utilities from "../utilities";
  *             networkFeatures: "Standard",
  *             encryptionKeySource: "Microsoft.KeyVault",
  *             keyVaultPrivateEndpointId: exampleEndpoint.id,
+ *         },
+ *         {
  *             exportPolicyRules: [{
  *                 ruleIndex: 1,
  *                 allowedClients: "0.0.0.0/0",
@@ -371,8 +376,6 @@ import * as utilities from "../utilities";
  *                 unixReadWrite: true,
  *                 rootAccessEnabled: false,
  *             }],
- *         },
- *         {
  *             name: `${prefix}-netapp-volume-log`,
  *             volumePath: "my-unique-file-path-log",
  *             serviceLevel: "Standard",
@@ -388,6 +391,8 @@ import * as utilities from "../utilities";
  *             networkFeatures: "Standard",
  *             encryptionKeySource: "Microsoft.KeyVault",
  *             keyVaultPrivateEndpointId: exampleEndpoint.id,
+ *         },
+ *         {
  *             exportPolicyRules: [{
  *                 ruleIndex: 1,
  *                 allowedClients: "0.0.0.0/0",
@@ -397,8 +402,6 @@ import * as utilities from "../utilities";
  *                 unixReadWrite: true,
  *                 rootAccessEnabled: false,
  *             }],
- *         },
- *         {
  *             name: `${prefix}-netapp-volume-shared`,
  *             volumePath: "my-unique-file-path-shared",
  *             serviceLevel: "Standard",
@@ -414,17 +417,14 @@ import * as utilities from "../utilities";
  *             networkFeatures: "Standard",
  *             encryptionKeySource: "Microsoft.KeyVault",
  *             keyVaultPrivateEndpointId: exampleEndpoint.id,
- *             exportPolicyRules: [{
- *                 ruleIndex: 1,
- *                 allowedClients: "0.0.0.0/0",
- *                 nfsv3Enabled: false,
- *                 nfsv41Enabled: true,
- *                 unixReadOnly: false,
- *                 unixReadWrite: true,
- *                 rootAccessEnabled: false,
- *             }],
  *         },
  *     ],
+ *     name: `${prefix}-netapp-volumegroup`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount.name,
+ *     groupDescription: "Test volume group with zone and CMK",
+ *     applicationIdentifier: "TST",
  * });
  * ```
  *

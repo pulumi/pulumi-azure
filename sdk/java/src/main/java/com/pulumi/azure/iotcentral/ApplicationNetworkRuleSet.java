@@ -65,7 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplicationNetworkRuleSet = new ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", ApplicationNetworkRuleSetArgs.builder()
- *             .iotcentralApplicationId(exampleApplication.id())
  *             .ipRules(            
  *                 ApplicationNetworkRuleSetIpRuleArgs.builder()
  *                     .name("rule1")
@@ -75,6 +74,7 @@ import javax.annotation.Nullable;
  *                     .name("rule2")
  *                     .ipMask("10.1.1.0/24")
  *                     .build())
+ *             .iotcentralApplicationId(exampleApplication.id())
  *             .build());
  * 
  *     }

@@ -32,9 +32,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Name = "example-nm",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -42,6 +39,9 @@ namespace Pulumi.Azure.Network
     ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
+    ///         Name = "example-nm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ScopeAccesses = new[]
     ///         {
     ///             "Connectivity",
@@ -79,9 +79,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -91,21 +88,13 @@ namespace Pulumi.Azure.Network
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "example-machine",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_B1ls",
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "P@ssw0rd1234!",
-    ///         DisablePasswordAuthentication = false,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -118,15 +107,21 @@ namespace Pulumi.Azure.Network
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
+    ///         Name = "example-machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_B1ls",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@ssw0rd1234!",
+    ///         DisablePasswordAuthentication = false,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
     ///     });
     /// 
     ///     var exampleNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent = new Azure.Network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent("example", new()
     ///     {
-    ///         Name = "example-intent",
-    ///         VerifierWorkspaceId = exampleNetworkManagerVerifierWorkspace.Id,
-    ///         SourceResourceId = exampleLinuxVirtualMachine.Id,
-    ///         DestinationResourceId = exampleLinuxVirtualMachine.Id,
-    ///         Description = "example",
     ///         IpTraffic = new Azure.Network.Inputs.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs
     ///         {
     ///             SourceIps = new[]
@@ -150,6 +145,11 @@ namespace Pulumi.Azure.Network
     ///                 "Any",
     ///             },
     ///         },
+    ///         Name = "example-intent",
+    ///         VerifierWorkspaceId = exampleNetworkManagerVerifierWorkspace.Id,
+    ///         SourceResourceId = exampleLinuxVirtualMachine.Id,
+    ///         DestinationResourceId = exampleLinuxVirtualMachine.Id,
+    ///         Description = "example",
     ///     });
     /// 
     /// });

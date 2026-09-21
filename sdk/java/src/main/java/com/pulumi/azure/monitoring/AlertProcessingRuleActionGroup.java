@@ -70,10 +70,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAlertProcessingRuleActionGroup = new AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup", AlertProcessingRuleActionGroupArgs.builder()
- *             .name("example")
- *             .resourceGroupName("example")
- *             .scopes(example.id())
- *             .addActionGroupIds(exampleActionGroup.id())
  *             .condition(AlertProcessingRuleActionGroupConditionArgs.builder()
  *                 .targetResourceType(AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs.builder()
  *                     .operator("Equals")
@@ -88,9 +84,6 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .schedule(AlertProcessingRuleActionGroupScheduleArgs.builder()
- *                 .effectiveFrom("2022-01-01T01:02:03")
- *                 .effectiveUntil("2022-02-02T01:02:03")
- *                 .timeZone("Pacific Standard Time")
  *                 .recurrence(AlertProcessingRuleActionGroupScheduleRecurrenceArgs.builder()
  *                     .dailies(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs.builder()
  *                         .startTime("17:00:00")
@@ -102,7 +95,14 @@ import javax.annotation.Nullable;
  *                             "Sunday")
  *                         .build())
  *                     .build())
+ *                 .effectiveFrom("2022-01-01T01:02:03")
+ *                 .effectiveUntil("2022-02-02T01:02:03")
+ *                 .timeZone("Pacific Standard Time")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .scopes(example.id())
+ *             .addActionGroupIds(exampleActionGroup.id())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

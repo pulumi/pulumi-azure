@@ -302,12 +302,12 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "key": "value",
             })
@@ -358,12 +358,12 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_iot_hub_device_update_account = azure.iot.IotHubDeviceUpdateAccount("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "key": "value",
             })

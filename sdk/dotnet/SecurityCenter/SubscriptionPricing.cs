@@ -47,8 +47,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var example1 = new Azure.SecurityCenter.SubscriptionPricing("example1", new()
     ///     {
-    ///         Tier = "Standard",
-    ///         ResourceType = "CloudPosture",
     ///         Extensions = new[]
     ///         {
     ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
@@ -72,6 +70,8 @@ namespace Pulumi.Azure.SecurityCenter
     ///                 Name = "SensitiveDataDiscovery",
     ///             },
     ///         },
+    ///         Tier = "Standard",
+    ///         ResourceType = "CloudPosture",
     ///     });
     /// 
     /// });

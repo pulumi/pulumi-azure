@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertActionArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertTriggerArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FormatArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -78,14 +77,18 @@ import javax.annotation.Nullable;
  * 
  *         // Example: Alerting Action with result count trigger
  *         var exampleScheduledQueryRulesAlert = new ScheduledQueryRulesAlert("exampleScheduledQueryRulesAlert", ScheduledQueryRulesAlertArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .action(ScheduledQueryRulesAlertActionArgs.builder()
  *                 .actionGroups()
  *                 .emailSubject("Email Header")
  *                 .customWebhookPayload("{}")
  *                 .build())
+ *             .trigger(ScheduledQueryRulesAlertTriggerArgs.builder()
+ *                 .operator("GreaterThan")
+ *                 .threshold(3.0)
+ *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .dataSourceId(exampleInsights.id())
  *             .description("Alert when total results cross threshold")
  *             .enabled(true)
@@ -97,44 +100,40 @@ import javax.annotation.Nullable;
  *             .severity(1)
  *             .frequency(5)
  *             .timeWindow(30)
- *             .trigger(ScheduledQueryRulesAlertTriggerArgs.builder()
- *                 .operator("GreaterThan")
- *                 .threshold(3.0)
- *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *         // Example: Alerting Action Cross-Resource
  *         var example2ScheduledQueryRulesAlert = new ScheduledQueryRulesAlert("example2ScheduledQueryRulesAlert", ScheduledQueryRulesAlertArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .authorizedResourceIds(example2.id())
  *             .action(ScheduledQueryRulesAlertActionArgs.builder()
  *                 .actionGroups()
  *                 .emailSubject("Email Header")
  *                 .customWebhookPayload("{}")
  *                 .build())
+ *             .trigger(ScheduledQueryRulesAlertTriggerArgs.builder()
+ *                 .operator("GreaterThan")
+ *                 .threshold(3.0)
+ *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .authorizedResourceIds(example2.id())
  *             .dataSourceId(exampleInsights.id())
  *             .description("Query may access data within multiple resources")
  *             .enabled(true)
- *             .query(StdFunctions.format(FormatArgs.builder()
- *                 .input("""
+ *             .query(StdFunctions.format(Map.ofEntries(
+ *                 Map.entry("input", """
  * let a=requests
  *   | where toint(resultCode) >= 500
  *   | extend fail=1; let b=app('%s').requests
  *   | where toint(resultCode) >= 500 | extend fail=1; a
  *   | join b on fail
- *                 """)
- *                 .args(example2.id())
- *                 .build()).result())
+ *                 """),
+ *                 Map.entry("args", Arrays.asList(example2.id()))
+ *             )).result())
  *             .severity(1)
  *             .frequency(5)
  *             .timeWindow(30)
- *             .trigger(ScheduledQueryRulesAlertTriggerArgs.builder()
- *                 .operator("GreaterThan")
- *                 .threshold(3.0)
- *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

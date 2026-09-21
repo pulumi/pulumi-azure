@@ -54,14 +54,14 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewDatasetParquet(ctx, "example", &datafactory.DatasetParquetArgs{
-//				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				LinkedServiceName: exampleLinkedServiceWeb.Name,
 //				HttpServerLocation: &datafactory.DatasetParquetHttpServerLocationArgs{
 //					RelativeUrl: pulumi.String("http://www.bing.com"),
 //					Path:        pulumi.String("foo/bar/"),
 //					Filename:    pulumi.String("fizz.txt"),
 //				},
+//				Name:              pulumi.String("example"),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceName: exampleLinkedServiceWeb.Name,
 //			})
 //			if err != nil {
 //				return err

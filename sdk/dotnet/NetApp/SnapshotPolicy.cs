@@ -37,11 +37,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("example", new()
     ///     {
-    ///         Name = "snapshotpolicy-01",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount.Name,
-    ///         Enabled = true,
     ///         HourlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyHourlyScheduleArgs
     ///         {
     ///             SnapshotsToKeep = 4,
@@ -77,6 +72,11 @@ namespace Pulumi.Azure.NetApp
     ///             Hour = 5,
     ///             Minute = 45,
     ///         },
+    ///         Name = "snapshotpolicy-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         Enabled = true,
     ///     });
     /// 
     /// });

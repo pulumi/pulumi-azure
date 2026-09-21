@@ -87,21 +87,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example-privateendpoint")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .subnetId(exampleSubnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name("psc-sig-test")
  *                 .isManualConnection(false)
  *                 .privateConnectionResourceId(exampleService.id())
  *                 .subresourceNames("webpubsub")
  *                 .build())
+ *             .name("example-privateendpoint")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *         var exampleNetworkAcl = new NetworkAcl("exampleNetworkAcl", NetworkAclArgs.builder()
- *             .webPubsubId(exampleService.id())
- *             .defaultAction("Allow")
  *             .publicNetwork(NetworkAclPublicNetworkArgs.builder()
  *                 .deniedRequestTypes("ClientConnection")
  *                 .build())
@@ -111,6 +109,8 @@ import javax.annotation.Nullable;
  *                     "RESTAPI",
  *                     "ClientConnection")
  *                 .build())
+ *             .webPubsubId(exampleService.id())
+ *             .defaultAction("Allow")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleEndpoint)
  *                 .build());

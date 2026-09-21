@@ -67,18 +67,6 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:              pulumi.String("example-vmss"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Standard_D4_v5"),
-//				Instances:         pulumi.Int(1),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
-//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
-//						Username:  pulumi.String("adminuser"),
-//						PublicKey: pulumi.String(firstPublicKey),
-//					},
-//				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -89,10 +77,14 @@ import (
 //					StorageAccountType: pulumi.String("Standard_LRS"),
 //					Caching:            pulumi.String("ReadWrite"),
 //				},
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: pulumi.String(firstPublicKey),
+//					},
+//				},
 //				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
 //					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
 //						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
@@ -100,8 +92,16 @@ import (
 //								SubnetId: internal.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
 //					},
 //				},
+//				Name:              pulumi.String("example-vmss"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Standard_D4_v5"),
+//				Instances:         pulumi.Int(1),
+//				AdminUsername:     pulumi.String("adminuser"),
 //			})
 //			if err != nil {
 //				return err

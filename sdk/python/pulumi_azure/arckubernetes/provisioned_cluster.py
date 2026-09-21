@@ -432,21 +432,21 @@ class ProvisionedCluster(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_client_config()
         example_group = azuread.Group("example",
-            display_name="example-adg",
+            display_name=example-adg,
             owners=[current.object_id],
             security_enabled=True)
         example_provisioned_cluster = azure.arckubernetes.ProvisionedCluster("example",
-            name="example-akpc",
-            resource_group_name=example.name,
-            location=example.location,
             azure_active_directory={
                 "azure_rbac_enabled": True,
-                "admin_group_object_ids": [example_group.id],
+                "admin_group_object_ids": [example_group["id"]],
                 "tenant_id": current.tenant_id,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-akpc",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers
@@ -497,21 +497,21 @@ class ProvisionedCluster(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_client_config()
         example_group = azuread.Group("example",
-            display_name="example-adg",
+            display_name=example-adg,
             owners=[current.object_id],
             security_enabled=True)
         example_provisioned_cluster = azure.arckubernetes.ProvisionedCluster("example",
-            name="example-akpc",
-            resource_group_name=example.name,
-            location=example.location,
             azure_active_directory={
                 "azure_rbac_enabled": True,
-                "admin_group_object_ids": [example_group.id],
+                "admin_group_object_ids": [example_group["id"]],
                 "tenant_id": current.tenant_id,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-akpc",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers

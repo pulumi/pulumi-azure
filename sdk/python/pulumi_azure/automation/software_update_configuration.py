@@ -479,8 +479,6 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                 "ENV": "runbook_test",
             })
         example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("example",
-            name="example",
-            automation_account_id=example_account.id,
             linux={
                 "classifications_includeds": "Security",
                 "excluded_packages": ["apt"],
@@ -493,6 +491,8 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                     "COMPUTER_NAME": "Foo",
                 },
             },
+            name="example",
+            automation_account_id=example_account.id,
             duration="PT2H2M2S")
         ```
 
@@ -569,8 +569,6 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                 "ENV": "runbook_test",
             })
         example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("example",
-            name="example",
-            automation_account_id=example_account.id,
             linux={
                 "classifications_includeds": "Security",
                 "excluded_packages": ["apt"],
@@ -583,6 +581,8 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                     "COMPUTER_NAME": "Foo",
                 },
             },
+            name="example",
+            automation_account_id=example_account.id,
             duration="PT2H2M2S")
         ```
 

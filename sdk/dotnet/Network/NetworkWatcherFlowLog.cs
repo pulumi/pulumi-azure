@@ -65,12 +65,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("test", new()
     ///     {
-    ///         NetworkWatcherName = testNetworkWatcher.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Name = "example-log",
-    ///         TargetResourceId = test.Id,
-    ///         StorageAccountId = testAccount.Id,
-    ///         Enabled = true,
     ///         RetentionPolicy = new Azure.Network.Inputs.NetworkWatcherFlowLogRetentionPolicyArgs
     ///         {
     ///             Enabled = true,
@@ -84,6 +78,12 @@ namespace Pulumi.Azure.Network
     ///             WorkspaceResourceId = testAnalyticsWorkspace.Id,
     ///             IntervalInMinutes = 10,
     ///         },
+    ///         NetworkWatcherName = testNetworkWatcher.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Name = "example-log",
+    ///         TargetResourceId = test.Id,
+    ///         StorageAccountId = testAccount.Id,
+    ///         Enabled = true,
     ///     });
     /// 
     /// });

@@ -58,12 +58,12 @@ import * as utilities from "../utilities";
  *     labels: ["label1"],
  * });
  * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("example", {
- *     name: "example-vhubconn",
- *     virtualHubId: exampleVirtualHub.id,
- *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
  *     routing: {
  *         associatedRouteTableId: exampleVirtualHubRouteTable.id,
  *     },
+ *     name: "example-vhubconn",
+ *     virtualHubId: exampleVirtualHub.id,
+ *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
  * });
  * const exampleVirtualHubRouteTableRoute = new azure.network.VirtualHubRouteTableRoute("example", {
  *     routeTableId: exampleVirtualHubRouteTable.id,

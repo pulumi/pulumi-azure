@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scopeAccesses: [
  *         "Connectivity",
  *         "SecurityAdmin",
@@ -45,17 +45,17 @@ import * as utilities from "../utilities";
  *     flowTimeoutInMinutes: 10,
  * });
  * const exampleNetworkManagerConnectivityConfiguration = new azure.network.NetworkManagerConnectivityConfiguration("example", {
- *     name: "example-connectivity-conf",
- *     networkManagerId: exampleNetworkManager.id,
- *     connectivityTopology: "HubAndSpoke",
- *     appliesToGroups: [{
- *         groupConnectivity: "None",
- *         networkGroupId: exampleNetworkManagerNetworkGroup.id,
- *     }],
  *     hub: {
  *         resourceId: exampleVirtualNetwork.id,
  *         resourceType: "Microsoft.Network/virtualNetworks",
  *     },
+ *     appliesToGroups: [{
+ *         groupConnectivity: "None",
+ *         networkGroupId: exampleNetworkManagerNetworkGroup.id,
+ *     }],
+ *     name: "example-connectivity-conf",
+ *     networkManagerId: exampleNetworkManager.id,
+ *     connectivityTopology: "HubAndSpoke",
  * });
  * const exampleNetworkManagerDeployment = new azure.network.NetworkManagerDeployment("example", {
  *     networkManagerId: exampleNetworkManager.id,
@@ -78,12 +78,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scopeAccesses: [
  *         "Connectivity",
  *         "SecurityAdmin",
@@ -111,6 +111,14 @@ import * as utilities from "../utilities";
  *     networkGroupIds: [exampleNetworkManagerNetworkGroup.id],
  * });
  * const exampleNetworkManagerAdminRule = new azure.network.NetworkManagerAdminRule("example", {
+ *     destinations: [{
+ *         addressPrefixType: "IPPrefix",
+ *         addressPrefix: "*",
+ *     }],
+ *     sources: [{
+ *         addressPrefixType: "ServiceTag",
+ *         addressPrefix: "Internet",
+ *     }],
  *     name: "example-nmar",
  *     adminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.id,
  *     action: "Deny",
@@ -120,14 +128,6 @@ import * as utilities from "../utilities";
  *     protocol: "Tcp",
  *     sourcePortRanges: ["80"],
  *     destinationPortRanges: ["80"],
- *     sources: [{
- *         addressPrefixType: "ServiceTag",
- *         addressPrefix: "Internet",
- *     }],
- *     destinations: [{
- *         addressPrefixType: "IPPrefix",
- *         addressPrefix: "*",
- *     }],
  * });
  * const exampleNetworkManagerDeployment = new azure.network.NetworkManagerDeployment("example", {
  *     networkManagerId: exampleNetworkManager.id,
@@ -135,7 +135,7 @@ import * as utilities from "../utilities";
  *     scopeAccess: "SecurityAdmin",
  *     configurationIds: [exampleNetworkManagerSecurityAdminConfiguration.id],
  *     triggers: {
- *         source_port_ranges: std.joinOutput({
+ *         source_port_ranges: std.join({
  *             separator: ",",
  *             input: exampleNetworkManagerAdminRule.sourcePortRanges,
  *         }).result,

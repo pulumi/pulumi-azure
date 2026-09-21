@@ -69,9 +69,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -79,18 +76,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String("example-vm"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				VmSize: pulumi.String("Standard_D4_v5"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -111,6 +104,13 @@ import (
 //				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
 //					DisablePasswordAuthentication: pulumi.Bool(false),
 //				},
+//				Name:              pulumi.String("example-vm"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				VmSize: pulumi.String("Standard_D4_v5"),
 //			})
 //			if err != nil {
 //				return err
@@ -137,12 +137,12 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewPacketCapture(ctx, "example", &compute.PacketCaptureArgs{
-//				Name:             pulumi.String("example-pc"),
-//				NetworkWatcherId: exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
-//				VirtualMachineId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				StorageLocation: &compute.PacketCaptureStorageLocationArgs{
 //					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:             pulumi.String("example-pc"),
+//				NetworkWatcherId: exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleExtension,
 //			}))

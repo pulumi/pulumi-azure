@@ -39,18 +39,18 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-windows-web-app",
     ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-slot",
     ///         AppServiceId = exampleWindowsWebApp.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     /// });

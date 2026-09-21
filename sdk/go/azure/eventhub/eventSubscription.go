@@ -58,12 +58,12 @@ import (
 //				return err
 //			}
 //			_, err = eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
-//				Name:  pulumi.String("example-aees"),
-//				Scope: example.ID().ToIDOutput().ToStringOutput(),
 //				StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
 //					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //					QueueName:        exampleQueue.Name,
 //				},
+//				Name:  pulumi.String("example-aees"),
+//				Scope: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

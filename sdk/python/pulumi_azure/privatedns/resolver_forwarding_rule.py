@@ -256,17 +256,17 @@ class ResolverForwardingRule(pulumi.CustomResource):
             location=example.location,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="outbounddns",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.64/28"],
             delegations=[{
-                "name": "Microsoft.Network.dnsResolvers",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
-            }])
+                "name": "Microsoft.Network.dnsResolvers",
+            }],
+            name="outbounddns",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.64/28"])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,
@@ -286,14 +286,14 @@ class ResolverForwardingRule(pulumi.CustomResource):
             location=example.location,
             private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id])
         example_resolver_forwarding_rule = azure.privatedns.ResolverForwardingRule("example",
-            name="example-rule",
-            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
-            domain_name="onprem.local.",
-            enabled=True,
             target_dns_servers=[{
                 "ip_address": "10.10.0.1",
                 "port": 53,
             }],
+            name="example-rule",
+            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
+            domain_name="onprem.local.",
+            enabled=True,
             metadata={
                 "key": "value",
             })
@@ -348,17 +348,17 @@ class ResolverForwardingRule(pulumi.CustomResource):
             location=example.location,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="outbounddns",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.64/28"],
             delegations=[{
-                "name": "Microsoft.Network.dnsResolvers",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
-            }])
+                "name": "Microsoft.Network.dnsResolvers",
+            }],
+            name="outbounddns",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.64/28"])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,
@@ -378,14 +378,14 @@ class ResolverForwardingRule(pulumi.CustomResource):
             location=example.location,
             private_dns_resolver_outbound_endpoint_ids=[example_resolver_outbound_endpoint.id])
         example_resolver_forwarding_rule = azure.privatedns.ResolverForwardingRule("example",
-            name="example-rule",
-            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
-            domain_name="onprem.local.",
-            enabled=True,
             target_dns_servers=[{
                 "ip_address": "10.10.0.1",
                 "port": 53,
             }],
+            name="example-rule",
+            dns_forwarding_ruleset_id=example_resolver_dns_forwarding_ruleset.id,
+            domain_name="onprem.local.",
+            enabled=True,
             metadata={
                 "key": "value",
             })

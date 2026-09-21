@@ -61,18 +61,10 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var trust = new Azure.Network.Subnet("trust", new()
     ///     {
-    ///         Name = "example-trust-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "trusted",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
@@ -81,7 +73,15 @@ namespace Pulumi.Azure.PaloAlto
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "trusted",
     ///             },
+    ///         },
+    ///         Name = "example-trust-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
@@ -93,18 +93,10 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var untrust = new Azure.Network.Subnet("untrust", new()
     ///     {
-    ///         Name = "example-untrust-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "untrusted",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
@@ -113,7 +105,15 @@ namespace Pulumi.Azure.PaloAlto
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "untrusted",
     ///             },
+    ///         },
+    ///         Name = "example-untrust-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
@@ -125,23 +125,23 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var exampleNextGenerationFirewallVirtualNetworkPanorama = new Azure.PaloAlto.NextGenerationFirewallVirtualNetworkPanorama("example", new()
     ///     {
-    ///         Name = "example-ngfwvh",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         PanoramaBase64Config = "e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
     ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs
     ///         {
-    ///             PublicIpAddressIds = new[]
-    ///             {
-    ///                 examplePublicIp.Id,
-    ///             },
     ///             VnetConfiguration = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs
     ///             {
     ///                 VirtualNetworkId = exampleVirtualNetwork.Id,
     ///                 TrustedSubnetId = trust.Id,
     ///                 UntrustedSubnetId = untrust.Id,
     ///             },
+    ///             PublicIpAddressIds = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
     ///         },
+    ///         Name = "example-ngfwvh",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         PanoramaBase64Config = "e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
     ///     });
     /// 
     /// });

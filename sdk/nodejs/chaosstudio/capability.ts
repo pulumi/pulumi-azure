@@ -18,10 +18,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const example = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     dnsPrefix: "acctestaksexample",
  *     defaultNodePool: {
  *         name: "example-value",
  *         nodeCount: Number("example-value"),
@@ -30,6 +26,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "example-value",
  *     },
+ *     name: "example",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "acctestaksexample",
  * });
  * const exampleTarget = new azure.chaosstudio.Target("example", {
  *     location: exampleResourceGroup.location,

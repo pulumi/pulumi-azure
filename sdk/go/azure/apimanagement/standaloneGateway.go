@@ -49,37 +49,37 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("apim-delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Web/serverFarms"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
 //						},
+//						Name: pulumi.String("apim-delegation"),
 //					},
+//				},
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewStandaloneGateway(ctx, "example", &apimanagement.StandaloneGatewayArgs{
+//				Sku: &apimanagement.StandaloneGatewaySkuArgs{
+//					Capacity: pulumi.Int(1),
+//					Name:     pulumi.String("WorkspaceGatewayPremium"),
+//				},
 //				Name:               pulumi.String("example-gateway-flexible"),
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
 //				VirtualNetworkType: pulumi.String("External"),
 //				BackendSubnetId:    exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//				Sku: &apimanagement.StandaloneGatewaySkuArgs{
-//					Capacity: pulumi.Int(1),
-//					Name:     pulumi.String("WorkspaceGatewayPremium"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Hello": pulumi.String("World"),
 //				},

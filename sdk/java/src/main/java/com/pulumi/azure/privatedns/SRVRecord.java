@@ -61,10 +61,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSRVRecord = new SRVRecord("exampleSRVRecord", SRVRecordArgs.builder()
- *             .name("test")
- *             .resourceGroupName(example.name())
- *             .zoneName(exampleZone.name())
- *             .ttl(300)
  *             .records(            
  *                 SRVRecordRecordArgs.builder()
  *                     .priority(1)
@@ -78,6 +74,10 @@ import javax.annotation.Nullable;
  *                     .port(8080)
  *                     .target("target2.contoso.com")
  *                     .build())
+ *             .name("test")
+ *             .resourceGroupName(example.name())
+ *             .zoneName(exampleZone.name())
+ *             .ttl(300)
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

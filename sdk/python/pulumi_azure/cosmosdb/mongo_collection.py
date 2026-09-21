@@ -410,17 +410,17 @@ class MongoCollection(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             account_name=example.name)
         example_mongo_collection = azure.cosmosdb.MongoCollection("example",
+            indices=[{
+                "keys": ["_id"],
+                "unique": True,
+            }],
             name="tfex-cosmos-mongo-db",
             resource_group_name=example.resource_group_name,
             account_name=example.name,
             database_name=example_mongo_database.name,
             default_ttl_seconds=777,
             shard_key="uniqueKey",
-            throughput=400,
-            indices=[{
-                "keys": ["_id"],
-                "unique": True,
-            }])
+            throughput=400)
         ```
 
         ## API Providers
@@ -476,17 +476,17 @@ class MongoCollection(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             account_name=example.name)
         example_mongo_collection = azure.cosmosdb.MongoCollection("example",
+            indices=[{
+                "keys": ["_id"],
+                "unique": True,
+            }],
             name="tfex-cosmos-mongo-db",
             resource_group_name=example.resource_group_name,
             account_name=example.name,
             database_name=example_mongo_database.name,
             default_ttl_seconds=777,
             shard_key="uniqueKey",
-            throughput=400,
-            indices=[{
-                "keys": ["_id"],
-                "unique": True,
-            }])
+            throughput=400)
         ```
 
         ## API Providers

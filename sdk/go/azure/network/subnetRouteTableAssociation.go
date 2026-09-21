@@ -59,9 +59,6 @@ import (
 //				return err
 //			}
 //			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
-//				Name:              pulumi.String("example-routetable"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Routes: network.RouteTableRouteArray{
 //					&network.RouteTableRouteArgs{
 //						Name:               pulumi.String("example"),
@@ -70,6 +67,9 @@ import (
 //						NextHopInIpAddress: pulumi.String("10.10.1.1"),
 //					},
 //				},
+//				Name:              pulumi.String("example-routetable"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

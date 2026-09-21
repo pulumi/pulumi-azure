@@ -37,12 +37,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var example = new Azure.Compute.SharedImageVersion("example", new()
     ///     {
-    ///         Name = "0.0.1",
-    ///         GalleryName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.GalleryName),
-    ///         ImageName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Name),
-    ///         ResourceGroupName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.ResourceGroupName),
-    ///         Location = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
-    ///         ManagedImageId = existing.Apply(getImageResult =&gt; getImageResult.Id),
     ///         TargetRegions = new[]
     ///         {
     ///             new Azure.Compute.Inputs.SharedImageVersionTargetRegionArgs
@@ -52,6 +46,12 @@ namespace Pulumi.Azure.Compute
     ///                 StorageAccountType = "Standard_LRS",
     ///             },
     ///         },
+    ///         Name = "0.0.1",
+    ///         GalleryName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.GalleryName),
+    ///         ImageName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Name),
+    ///         ResourceGroupName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.ResourceGroupName),
+    ///         Location = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
+    ///         ManagedImageId = existing.Apply(getImageResult =&gt; getImageResult.Id),
     ///     });
     /// 
     /// });

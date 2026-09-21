@@ -39,27 +39,27 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
     ///     {
-    ///         Name = "example-springcloudapp",
-    ///         ResourceGroupName = example.Name,
-    ///         ServiceName = exampleSpringCloudService.Name,
     ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-springcloudapp",
+    ///         ResourceGroupName = example.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
     ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("example", new()
     ///     {
-    ///         Name = "deploy1",
-    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         InstanceCount = 2,
-    ///         JvmOptions = "-XX:+PrintGC",
-    ///         RuntimeVersion = "Java_11",
     ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
     ///         {
     ///             Cpu = "2",
     ///             Memory = "4Gi",
     ///         },
+    ///         Name = "deploy1",
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         InstanceCount = 2,
+    ///         JvmOptions = "-XX:+PrintGC",
+    ///         RuntimeVersion = "Java_11",
     ///         EnvironmentVariables = 
     ///         {
     ///             { "Env", "Staging" },

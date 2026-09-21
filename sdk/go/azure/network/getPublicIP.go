@@ -103,9 +103,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("test-nic"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -115,6 +112,9 @@ import (
 //						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("test-nic"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err

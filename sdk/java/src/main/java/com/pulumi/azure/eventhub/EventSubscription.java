@@ -80,12 +80,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()
- *             .name("example-aees")
- *             .scope(example.id())
  *             .storageQueueEndpoint(EventSubscriptionStorageQueueEndpointArgs.builder()
  *                 .storageAccountId(exampleAccount.id())
  *                 .queueName(exampleQueue.name())
  *                 .build())
+ *             .name("example-aees")
+ *             .scope(example.id())
  *             .build());
  * 
  *     }

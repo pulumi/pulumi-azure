@@ -98,15 +98,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
+ *             .sku(ExpressRouteCircuitSkuArgs.builder()
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
+ *                 .build())
  *             .name("example-erc")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(5.0)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier("Standard")
- *                 .family("MeteredData")
- *                 .build())
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()

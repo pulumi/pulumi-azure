@@ -55,15 +55,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnet1-mssql"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("managedinstancedelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Sql/managedInstances"),
 //							Actions: pulumi.StringArray{
@@ -72,13 +65,23 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
 //							},
 //						},
+//						Name: pulumi.String("managedinstancedelegation"),
 //					},
+//				},
+//				Name:               pulumi.String("subnet1-mssql"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
+//				Identity: &mssql.ManagedInstanceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                       pulumi.String("mssqlinstance"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
@@ -89,9 +92,6 @@ import (
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
-//				Identity: &mssql.ManagedInstanceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -148,15 +148,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("subnet1-mssql"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("managedinstancedelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Sql/managedInstances"),
 //							Actions: pulumi.StringArray{
@@ -165,13 +158,23 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"),
 //							},
 //						},
+//						Name: pulumi.String("managedinstancedelegation"),
 //					},
+//				},
+//				Name:               pulumi.String("subnet1-mssql"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
+//				Identity: &mssql.ManagedInstanceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                       pulumi.String("mssqlinstance"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
@@ -182,24 +185,12 @@ import (
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
-//				Identity: &mssql.ManagedInstanceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(false),
-//				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -225,6 +216,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(false),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err

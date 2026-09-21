@@ -32,13 +32,13 @@ namespace Pulumi.Azure.DevCenter
     /// 
     ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("example", new()
     ///     {
-    ///         Name = "example-dc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-dc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleEnvironmentType = new Azure.DevCenter.EnvironmentType("example", new()
@@ -63,14 +63,14 @@ namespace Pulumi.Azure.DevCenter
     /// 
     ///     var exampleProjectEnvironmentType = new Azure.DevCenter.ProjectEnvironmentType("example", new()
     ///     {
-    ///         Name = "example-et",
-    ///         Location = example.Location,
-    ///         DevCenterProjectId = exampleProject.Id,
-    ///         DeploymentTargetId = $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}",
     ///         Identity = new Azure.DevCenter.Inputs.ProjectEnvironmentTypeIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-et",
+    ///         Location = example.Location,
+    ///         DevCenterProjectId = exampleProject.Id,
+    ///         DeploymentTargetId = $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}",
     ///     });
     /// 
     /// });

@@ -67,16 +67,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
- *             .name("example-network")
- *             .labName(exampleLab.name())
- *             .resourceGroupName(example.name())
  *             .subnet(VirtualNetworkSubnetArgs.builder()
  *                 .usePublicIpAddress("Allow")
  *                 .useInVirtualMachineCreation("Allow")
  *                 .build())
+ *             .name("example-network")
+ *             .labName(exampleLab.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()
+ *             .galleryImageReference(WindowsVirtualMachineGalleryImageReferenceArgs.builder()
+ *                 .offer("WindowsServer")
+ *                 .publisher("MicrosoftWindowsServer")
+ *                 .sku("2019-Datacenter")
+ *                 .version("latest")
+ *                 .build())
  *             .name("example-vm03")
  *             .labName(exampleLab.name())
  *             .resourceGroupName(example.name())
@@ -88,12 +94,6 @@ import javax.annotation.Nullable;
  *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(_subnet -> _subnet.name()))
  *             .storageType("Premium")
  *             .notes("Some notes about this Virtual Machine.")
- *             .galleryImageReference(WindowsVirtualMachineGalleryImageReferenceArgs.builder()
- *                 .offer("WindowsServer")
- *                 .publisher("MicrosoftWindowsServer")
- *                 .sku("2019-Datacenter")
- *                 .version("latest")
- *                 .build())
  *             .build());
  * 
  *     }

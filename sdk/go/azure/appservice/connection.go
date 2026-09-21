@@ -38,11 +38,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
 //					MaxIntervalInSeconds: pulumi.Int(10),
@@ -54,6 +49,11 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("example-cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err
@@ -88,22 +88,22 @@ import (
 //				return err
 //			}
 //			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //				Location:          example.Location,
 //				Name:              pulumi.String("example-linuxwebapp"),
 //				ResourceGroupName: example.Name,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewConnection(ctx, "example", &appservice.ConnectionArgs{
-//				Name:             pulumi.String("example-serviceconnector"),
-//				AppServiceId:     exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
-//				TargetResourceId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //				Authentication: &appservice.ConnectionAuthenticationArgs{
 //					Type: pulumi.String("systemAssignedIdentity"),
 //				},
+//				Name:             pulumi.String("example-serviceconnector"),
+//				AppServiceId:     exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

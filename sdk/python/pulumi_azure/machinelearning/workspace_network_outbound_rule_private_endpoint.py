@@ -271,18 +271,18 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_workspace = azure.machinelearning.Workspace("example",
-            name="example-workspace",
-            location=example.location,
-            resource_group_name=example.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
             managed_network={
                 "isolation_mode": "AllowOnlyApprovedOutbound",
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id)
         example2 = azure.storage.Account("example2",
             name="example-sa",
             location=test["location"],
@@ -367,18 +367,18 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_workspace = azure.machinelearning.Workspace("example",
-            name="example-workspace",
-            location=example.location,
-            resource_group_name=example.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
             managed_network={
                 "isolation_mode": "AllowOnlyApprovedOutbound",
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id)
         example2 = azure.storage.Account("example2",
             name="example-sa",
             location=test["location"],

@@ -73,12 +73,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *     }

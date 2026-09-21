@@ -382,14 +382,14 @@ class NextGenerationFirewallVirtualHubLocalRulestack(pulumi.CustomResource):
             name="example-appliance",
             virtual_hub_id=example_virtual_hub.id)
         example_next_generation_firewall_virtual_hub_local_rulestack = azure.paloalto.NextGenerationFirewallVirtualHubLocalRulestack("example",
-            name="example-ngfwvn",
-            resource_group_name=example.name,
-            rulestack_id=example_azurerm_palo_alto_local_rulestack["id"],
             network_profile={
                 "public_ip_address_ids": [example_public_ip.id],
                 "virtual_hub_id": example_virtual_hub.id,
                 "network_virtual_appliance_id": example_virtual_network_appliance.id,
-            })
+            },
+            name="example-ngfwvn",
+            resource_group_name=example.name,
+            rulestack_id=example_azurerm_palo_alto_local_rulestack["id"])
         ```
 
         ## API Providers
@@ -465,14 +465,14 @@ class NextGenerationFirewallVirtualHubLocalRulestack(pulumi.CustomResource):
             name="example-appliance",
             virtual_hub_id=example_virtual_hub.id)
         example_next_generation_firewall_virtual_hub_local_rulestack = azure.paloalto.NextGenerationFirewallVirtualHubLocalRulestack("example",
-            name="example-ngfwvn",
-            resource_group_name=example.name,
-            rulestack_id=example_azurerm_palo_alto_local_rulestack["id"],
             network_profile={
                 "public_ip_address_ids": [example_public_ip.id],
                 "virtual_hub_id": example_virtual_hub.id,
                 "network_virtual_appliance_id": example_virtual_network_appliance.id,
-            })
+            },
+            name="example-ngfwvn",
+            resource_group_name=example.name,
+            rulestack_id=example_azurerm_palo_alto_local_rulestack["id"])
         ```
 
         ## API Providers

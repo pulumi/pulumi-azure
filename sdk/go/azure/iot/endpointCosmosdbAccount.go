@@ -40,13 +40,13 @@ import (
 //				return err
 //			}
 //			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("exampleIothub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("exampleIothub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Tags: pulumi.StringMap{
 //					"purpose": pulumi.String("example"),
 //				},
@@ -55,11 +55,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel: pulumi.String("Strong"),
 //				},
@@ -69,6 +64,11 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err

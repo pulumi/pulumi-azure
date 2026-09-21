@@ -41,18 +41,10 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "apim-delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Web/serverFarms",
@@ -61,22 +53,30 @@ namespace Pulumi.Azure.ApiManagement
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
+    ///                 Name = "apim-delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleStandaloneGateway = new Azure.ApiManagement.StandaloneGateway("example", new()
     ///     {
-    ///         Name = "example-gateway-flexible",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         VirtualNetworkType = "External",
-    ///         BackendSubnetId = exampleSubnet.Id,
     ///         Sku = new Azure.ApiManagement.Inputs.StandaloneGatewaySkuArgs
     ///         {
     ///             Capacity = 1,
     ///             Name = "WorkspaceGatewayPremium",
     ///         },
+    ///         Name = "example-gateway-flexible",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VirtualNetworkType = "External",
+    ///         BackendSubnetId = exampleSubnet.Id,
     ///         Tags = 
     ///         {
     ///             { "Hello", "World" },

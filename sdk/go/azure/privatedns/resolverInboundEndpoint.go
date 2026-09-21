@@ -58,35 +58,35 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("inbounddns"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/28"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //							Name: pulumi.String("Microsoft.Network/dnsResolvers"),
 //						},
+//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
 //					},
+//				},
+//				Name:               pulumi.String("inbounddns"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/28"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = privatedns.NewResolverInboundEndpoint(ctx, "example", &privatedns.ResolverInboundEndpointArgs{
-//				Name:                 pulumi.String("example-drie"),
-//				PrivateDnsResolverId: exampleResolver.ID().ToIDOutput().ToStringOutput(),
-//				Location:             exampleResolver.Location,
 //				IpConfigurations: &privatedns.ResolverInboundEndpointIpConfigurationsArgs{
 //					PrivateIpAllocationMethod: pulumi.String("Dynamic"),
 //					SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:                 pulumi.String("example-drie"),
+//				PrivateDnsResolverId: exampleResolver.ID().ToIDOutput().ToStringOutput(),
+//				Location:             exampleResolver.Location,
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

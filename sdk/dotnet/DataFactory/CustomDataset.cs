@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
@@ -69,9 +69,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleCustomDataset = new Azure.DataFactory.CustomDataset("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Type = "Json",
     ///         LinkedService = new Azure.DataFactory.Inputs.CustomDatasetLinkedServiceArgs
     ///         {
     ///             Name = exampleLinkedCustomService.Name,
@@ -80,6 +77,9 @@ namespace Pulumi.Azure.DataFactory
     ///                 { "key1", "value1" },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Type = "Json",
     ///         TypePropertiesJson = exampleContainer.Name.Apply(name =&gt; @$"{{
     ///   \""location\"": {{
     ///     \""container\"":\""{name}\"",

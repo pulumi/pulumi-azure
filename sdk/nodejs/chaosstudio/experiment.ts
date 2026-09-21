@@ -37,24 +37,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "example",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_F2",
- *     adminUsername: "adminuser",
- *     adminPassword: "example",
- *     disablePasswordAuthentication: false,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -65,6 +57,14 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "example",
+ *     disablePasswordAuthentication: false,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleTarget = new azure.chaosstudio.Target("example", {
  *     location: example.location,
@@ -76,9 +76,6 @@ import * as utilities from "../utilities";
  *     capabilityType: "Shutdown-1.0",
  * });
  * const exampleExperiment = new azure.chaosstudio.Experiment("example", {
- *     location: example.location,
- *     name: "example",
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -87,9 +84,7 @@ import * as utilities from "../utilities";
  *         chaosStudioTargetIds: [exampleTarget.id],
  *     }],
  *     steps: [{
- *         name: "example",
  *         branches: [{
- *             name: "example",
  *             actions: [{
  *                 urn: exampleCapability.capabilityUrn,
  *                 selectorName: "Selector1",
@@ -99,8 +94,13 @@ import * as utilities from "../utilities";
  *                 actionType: "continuous",
  *                 duration: "PT10M",
  *             }],
+ *             name: "example",
  *         }],
+ *         name: "example",
  *     }],
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

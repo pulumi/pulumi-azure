@@ -34,9 +34,6 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
-//				Name:        pulumi.String("my-custom-role"),
-//				Scope:       pulumi.String(primary.Id),
-//				Description: pulumi.String("This is a custom role created"),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -45,6 +42,9 @@ import (
 //						NotActions: pulumi.StringArray{},
 //					},
 //				},
+//				Name:        pulumi.String("my-custom-role"),
+//				Scope:       pulumi.String(primary.Id),
+//				Description: pulumi.String("This is a custom role created"),
 //				AssignableScopes: pulumi.StringArray{
 //					pulumi.String(primary.Id),
 //				},
@@ -87,9 +87,6 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
-//				Name:        pulumi.String("example-mg-role"),
-//				Scope:       example.ID().ToIDOutput().ToStringOutput(),
-//				Description: pulumi.String("Example custom role scoped to a management group."),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -98,6 +95,9 @@ import (
 //						NotActions: pulumi.StringArray{},
 //					},
 //				},
+//				Name:        pulumi.String("example-mg-role"),
+//				Scope:       example.ID().ToIDOutput().ToStringOutput(),
+//				Description: pulumi.String("Example custom role scoped to a management group."),
 //				AssignableScopes: pulumi.StringArray{
 //					example.ID().ToIDOutput().ToStringOutput(),
 //				},

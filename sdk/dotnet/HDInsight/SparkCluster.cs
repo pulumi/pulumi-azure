@@ -46,11 +46,6 @@ namespace Pulumi.Azure.HDInsight
     /// 
     ///     var exampleSparkCluster = new Azure.HDInsight.SparkCluster("example", new()
     ///     {
-    ///         Name = "example-hdicluster",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ClusterVersion = "3.6",
-    ///         Tier = "Standard",
     ///         ComponentVersion = new Azure.HDInsight.Inputs.SparkClusterComponentVersionArgs
     ///         {
     ///             Spark = "2.3",
@@ -59,15 +54,6 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             Username = "acctestusrgw",
     ///             Password = "Password123!",
-    ///         },
-    ///         StorageAccounts = new[]
-    ///         {
-    ///             new Azure.HDInsight.Inputs.SparkClusterStorageAccountArgs
-    ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
-    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                 IsDefault = true,
-    ///             },
     ///         },
     ///         Roles = new Azure.HDInsight.Inputs.SparkClusterRolesArgs
     ///         {
@@ -91,6 +77,20 @@ namespace Pulumi.Azure.HDInsight
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
     ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.SparkClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Name = "example-hdicluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
     ///     });
     /// 
     /// });

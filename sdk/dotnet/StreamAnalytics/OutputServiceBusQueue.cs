@@ -51,6 +51,11 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Format = "Array",
+    ///         },
     ///         Name = "blob-storage-output",
     ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
     ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
@@ -58,11 +63,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         ServicebusNamespace = exampleNamespace.Name,
     ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,
     ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServiceBusQueueSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Format = "Array",
-    ///         },
     ///     });
     /// 
     /// });

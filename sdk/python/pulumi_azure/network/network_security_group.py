@@ -232,9 +232,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="acceptanceTestSecurityGroup1",
-            location=example.location,
-            resource_group_name=example.name,
             security_rules=[{
                 "name": "test123",
                 "priority": 100,
@@ -246,6 +243,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 "source_address_prefix": "*",
                 "destination_address_prefix": "*",
             }],
+            name="acceptanceTestSecurityGroup1",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "environment": "Production",
             })
@@ -300,9 +300,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="acceptanceTestSecurityGroup1",
-            location=example.location,
-            resource_group_name=example.name,
             security_rules=[{
                 "name": "test123",
                 "priority": 100,
@@ -314,6 +311,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 "source_address_prefix": "*",
                 "destination_address_prefix": "*",
             }],
+            name="acceptanceTestSecurityGroup1",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "environment": "Production",
             })

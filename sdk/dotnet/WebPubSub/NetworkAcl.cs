@@ -62,10 +62,6 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
     ///     {
-    ///         Name = "example-privateendpoint",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SubnetId = exampleSubnet.Id,
     ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///         {
     ///             Name = "psc-sig-test",
@@ -76,12 +72,14 @@ namespace Pulumi.Azure.WebPubSub
     ///                 "webpubsub",
     ///             },
     ///         },
+    ///         Name = "example-privateendpoint",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SubnetId = exampleSubnet.Id,
     ///     });
     /// 
     ///     var exampleNetworkAcl = new Azure.WebPubSub.NetworkAcl("example", new()
     ///     {
-    ///         WebPubsubId = exampleService.Id,
-    ///         DefaultAction = "Allow",
     ///         PublicNetwork = new Azure.WebPubSub.Inputs.NetworkAclPublicNetworkArgs
     ///         {
     ///             DeniedRequestTypes = new[]
@@ -101,6 +99,8 @@ namespace Pulumi.Azure.WebPubSub
     ///                 },
     ///             },
     ///         },
+    ///         WebPubsubId = exampleService.Id,
+    ///         DefaultAction = "Allow",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

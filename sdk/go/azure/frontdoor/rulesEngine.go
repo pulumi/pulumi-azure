@@ -41,23 +41,6 @@ import (
 //				return err
 //			}
 //			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
-//					&frontdoor.FrontdoorBackendPoolArgs{
-//						Name:              pulumi.String("exampleBackendBing"),
-//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
-//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
-//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
-//							&frontdoor.FrontdoorBackendPoolBackendArgs{
-//								HostHeader: pulumi.String("www.bing.com"),
-//								Address:    pulumi.String("www.bing.com"),
-//								HttpPort:   pulumi.Int(80),
-//								HttpsPort:  pulumi.Int(443),
-//							},
-//						},
-//					},
-//				},
 //				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
 //					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
 //						Name: pulumi.String("exampleHealthProbeSetting1"),
@@ -66,6 +49,21 @@ import (
 //				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
 //					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
 //						Name: pulumi.String("exampleLoadBalancingSettings1"),
+//					},
+//				},
+//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
+//					&frontdoor.FrontdoorBackendPoolArgs{
+//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
+//							&frontdoor.FrontdoorBackendPoolBackendArgs{
+//								HostHeader: pulumi.String("www.bing.com"),
+//								Address:    pulumi.String("www.bing.com"),
+//								HttpPort:   pulumi.Int(80),
+//								HttpsPort:  pulumi.Int(443),
+//							},
+//						},
+//						Name:              pulumi.String("exampleBackendBing"),
+//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
+//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
 //					},
 //				},
 //				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
@@ -89,18 +87,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = frontdoor.NewRulesEngine(ctx, "example_rules_engine", &frontdoor.RulesEngineArgs{
-//				Name:              pulumi.String("exampleRulesEngineConfig1"),
-//				FrontdoorName:     exampleFrontdoor.Name,
-//				ResourceGroupName: exampleFrontdoor.ResourceGroupName,
 //				Rules: frontdoor.RulesEngineRuleArray{
 //					&frontdoor.RulesEngineRuleArgs{
-//						Name:     pulumi.String("debuggingoutput"),
-//						Priority: pulumi.Int(1),
 //						Action: &frontdoor.RulesEngineRuleActionArgs{
 //							ResponseHeaders: frontdoor.RulesEngineRuleActionResponseHeaderArray{
 //								&frontdoor.RulesEngineRuleActionResponseHeaderArgs{
@@ -110,20 +105,10 @@ import (
 //								},
 //							},
 //						},
+//						Name:     pulumi.String("debuggingoutput"),
+//						Priority: pulumi.Int(1),
 //					},
 //					&frontdoor.RulesEngineRuleArgs{
-//						Name:     pulumi.String("overwriteorigin"),
-//						Priority: pulumi.Int(2),
-//						MatchConditions: frontdoor.RulesEngineRuleMatchConditionArray{
-//							&frontdoor.RulesEngineRuleMatchConditionArgs{
-//								Variable: pulumi.String("RequestMethod"),
-//								Operator: pulumi.String("Equal"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("GET"),
-//									pulumi.String("POST"),
-//								},
-//							},
-//						},
 //						Action: &frontdoor.RulesEngineRuleActionArgs{
 //							ResponseHeaders: frontdoor.RulesEngineRuleActionResponseHeaderArray{
 //								&frontdoor.RulesEngineRuleActionResponseHeaderArgs{
@@ -138,8 +123,23 @@ import (
 //								},
 //							},
 //						},
+//						MatchConditions: frontdoor.RulesEngineRuleMatchConditionArray{
+//							&frontdoor.RulesEngineRuleMatchConditionArgs{
+//								Variable: pulumi.String("RequestMethod"),
+//								Operator: pulumi.String("Equal"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("GET"),
+//									pulumi.String("POST"),
+//								},
+//							},
+//						},
+//						Name:     pulumi.String("overwriteorigin"),
+//						Priority: pulumi.Int(2),
 //					},
 //				},
+//				Name:              pulumi.String("exampleRulesEngineConfig1"),
+//				FrontdoorName:     exampleFrontdoor.Name,
+//				ResourceGroupName: exampleFrontdoor.ResourceGroupName,
 //			})
 //			if err != nil {
 //				return err

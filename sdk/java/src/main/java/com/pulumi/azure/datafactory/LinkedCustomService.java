@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()

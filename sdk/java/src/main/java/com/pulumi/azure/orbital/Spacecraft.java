@@ -55,10 +55,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpacecraft = new Spacecraft("exampleSpacecraft", SpacecraftArgs.builder()
- *             .name("example-spacecraft")
- *             .resourceGroupName(example.name())
- *             .location("westeurope")
- *             .noradId("12345")
  *             .links(SpacecraftLinkArgs.builder()
  *                 .bandwidthMhz(30.0)
  *                 .centerFrequencyMhz(2050.0)
@@ -66,6 +62,10 @@ import javax.annotation.Nullable;
  *                 .polarization("LHCP")
  *                 .name("examplename")
  *                 .build())
+ *             .name("example-spacecraft")
+ *             .resourceGroupName(example.name())
+ *             .location("westeurope")
+ *             .noradId("12345")
  *             .twoLineElements(            
  *                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
  *                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495")

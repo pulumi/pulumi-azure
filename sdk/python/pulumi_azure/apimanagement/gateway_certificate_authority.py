@@ -191,20 +191,20 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
         example_gateway = azure.apimanagement.Gateway("example",
-            name="example-gateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
             location_data={
                 "name": "example name",
                 "city": "example city",
                 "district": "example district",
                 "region": "example region",
-            })
+            },
+            name="example-gateway",
+            api_management_id=example_service.id,
+            description="Example API Management gateway")
         example_certificate = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         example_gateway_certificate_authority = azure.apimanagement.GatewayCertificateAuthority("example",
             api_management_id=example_service.id,
             certificate_name=example_certificate.name,
@@ -262,20 +262,20 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
         example_gateway = azure.apimanagement.Gateway("example",
-            name="example-gateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
             location_data={
                 "name": "example name",
                 "city": "example city",
                 "district": "example district",
                 "region": "example region",
-            })
+            },
+            name="example-gateway",
+            api_management_id=example_service.id,
+            description="Example API Management gateway")
         example_certificate = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         example_gateway_certificate_authority = azure.apimanagement.GatewayCertificateAuthority("example",
             api_management_id=example_service.id,
             certificate_name=example_certificate.name,

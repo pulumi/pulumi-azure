@@ -43,6 +43,14 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewFunctionJavascriptUda(ctx, "example", &streamanalytics.FunctionJavascriptUdaArgs{
+//				Output: &streamanalytics.FunctionJavascriptUdaOutputTypeArgs{
+//					Type: pulumi.String("bigint"),
+//				},
+//				Inputs: streamanalytics.FunctionJavascriptUdaInputTypeArray{
+//					&streamanalytics.FunctionJavascriptUdaInputTypeArgs{
+//						Type: pulumi.String("bigint"),
+//					},
+//				},
 //				Name:                 pulumi.String("example-javascript-function"),
 //				StreamAnalyticsJobId: pulumi.String(exampleGetJob.Id),
 //				Script: pulumi.String(`function main() {
@@ -61,14 +69,6 @@ import (
 //
 // `),
 //
-//				Inputs: streamanalytics.FunctionJavascriptUdaInputTypeArray{
-//					&streamanalytics.FunctionJavascriptUdaInputTypeArgs{
-//						Type: pulumi.String("bigint"),
-//					},
-//				},
-//				Output: &streamanalytics.FunctionJavascriptUdaOutputTypeArgs{
-//					Type: pulumi.String("bigint"),
-//				},
 //			})
 //			if err != nil {
 //				return err

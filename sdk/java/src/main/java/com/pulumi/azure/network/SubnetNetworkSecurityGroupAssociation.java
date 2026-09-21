@@ -69,9 +69,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
- *             .name("example-nsg")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .securityRules(NetworkSecurityGroupSecurityRuleArgs.builder()
  *                 .name("test123")
  *                 .priority(100)
@@ -83,6 +80,9 @@ import javax.annotation.Nullable;
  *                 .sourceAddressPrefix("*")
  *                 .destinationAddressPrefix("*")
  *                 .build())
+ *             .name("example-nsg")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()

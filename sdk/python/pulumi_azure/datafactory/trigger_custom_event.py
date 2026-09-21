@@ -426,6 +426,12 @@ class TriggerCustomEvent(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("example",
+            pipelines=[{
+                "name": example_pipeline.name,
+                "parameters": {
+                    "Env": "Prod",
+                },
+            }],
             name="example",
             data_factory_id=example_factory.id,
             eventgrid_topic_id=example_topic.id,
@@ -441,12 +447,6 @@ class TriggerCustomEvent(pulumi.CustomResource):
                 "example3",
             ],
             description="example description",
-            pipelines=[{
-                "name": example_pipeline.name,
-                "parameters": {
-                    "Env": "Prod",
-                },
-            }],
             additional_properties={
                 "foo": "foo1",
                 "bar": "bar2",
@@ -506,6 +506,12 @@ class TriggerCustomEvent(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("example",
+            pipelines=[{
+                "name": example_pipeline.name,
+                "parameters": {
+                    "Env": "Prod",
+                },
+            }],
             name="example",
             data_factory_id=example_factory.id,
             eventgrid_topic_id=example_topic.id,
@@ -521,12 +527,6 @@ class TriggerCustomEvent(pulumi.CustomResource):
                 "example3",
             ],
             description="example description",
-            pipelines=[{
-                "name": example_pipeline.name,
-                "parameters": {
-                    "Env": "Prod",
-                },
-            }],
             additional_properties={
                 "foo": "foo1",
                 "bar": "bar2",

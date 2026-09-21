@@ -25,14 +25,14 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-backup-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleAccount.id,

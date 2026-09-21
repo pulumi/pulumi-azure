@@ -85,10 +85,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpnSite = new VpnSite("exampleVpnSite", VpnSiteArgs.builder()
- *             .name("example-vpn-site")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .virtualWanId(exampleVirtualWan.id())
  *             .links(            
  *                 VpnSiteLinkArgs.builder()
  *                     .name("link1")
@@ -98,12 +94,13 @@ import javax.annotation.Nullable;
  *                     .name("link2")
  *                     .ipAddress("10.2.0.0")
  *                     .build())
+ *             .name("example-vpn-site")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .virtualWanId(exampleVirtualWan.id())
  *             .build());
  * 
  *         var exampleVpnGatewayConnection = new VpnGatewayConnection("exampleVpnGatewayConnection", VpnGatewayConnectionArgs.builder()
- *             .name("example")
- *             .vpnGatewayId(exampleVpnGateway.id())
- *             .remoteVpnSiteId(exampleVpnSite.id())
  *             .vpnLinks(            
  *                 VpnGatewayConnectionVpnLinkArgs.builder()
  *                     .name("link1")
@@ -113,6 +110,9 @@ import javax.annotation.Nullable;
  *                     .name("link2")
  *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(_links -> _links[1].id()))
  *                     .build())
+ *             .name("example")
+ *             .vpnGatewayId(exampleVpnGateway.id())
+ *             .remoteVpnSiteId(exampleVpnSite.id())
  *             .build());
  * 
  *     }

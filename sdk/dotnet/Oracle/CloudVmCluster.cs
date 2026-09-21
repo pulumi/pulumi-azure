@@ -57,18 +57,10 @@ namespace Pulumi.Azure.Oracle
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -78,7 +70,15 @@ namespace Pulumi.Azure.Oracle
     ///                     },
     ///                     Name = "Oracle.Database/networkAttachments",
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
@@ -90,6 +90,14 @@ namespace Pulumi.Azure.Oracle
     /// 
     ///     var exampleCloudVmCluster = new Azure.Oracle.CloudVmCluster("example", new()
     ///     {
+    ///         FileSystemConfigurations = new[]
+    ///         {
+    ///             new Azure.Oracle.Inputs.CloudVmClusterFileSystemConfigurationArgs
+    ///             {
+    ///                 MountPoint = "/var",
+    ///                 SizeInGb = 32,
+    ///             },
+    ///         },
     ///         Name = "example-cloud-vm-cluster",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
@@ -105,7 +113,7 @@ namespace Pulumi.Azure.Oracle
     ///             Std.File.Invoke(new()
     ///             {
     ///                 Input = "~/.ssh/id_rsa.pub",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///         },
     ///         DisplayName = "example-cloud-vm-cluster",
     ///         CloudExadataInfrastructureId = exampleExadataInfrastructure.Id,
@@ -113,14 +121,6 @@ namespace Pulumi.Azure.Oracle
     ///         Hostname = "hostname",
     ///         SubnetId = exampleSubnet.Id,
     ///         SystemVersion = "23.1.19.0.0.241015",
-    ///         FileSystemConfigurations = new[]
-    ///         {
-    ///             new Azure.Oracle.Inputs.CloudVmClusterFileSystemConfigurationArgs
-    ///             {
-    ///                 MountPoint = "/var",
-    ///                 SizeInGb = 32,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

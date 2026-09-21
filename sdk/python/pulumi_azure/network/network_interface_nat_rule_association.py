@@ -165,13 +165,13 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "primary",
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="example-lb",
+            location=example.location,
+            resource_group_name=example.name)
         example_nat_rule = azure.lb.NatRule("example",
             resource_group_name=example.name,
             loadbalancer_id=example_load_balancer.id,
@@ -181,14 +181,14 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             backend_port=3389,
             frontend_ip_configuration_name="primary")
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
         example_network_interface_nat_rule_association = azure.network.NetworkInterfaceNatRuleAssociation("example",
             network_interface_id=example_network_interface.id,
             ip_configuration_name="testconfiguration1",
@@ -253,13 +253,13 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "primary",
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="example-lb",
+            location=example.location,
+            resource_group_name=example.name)
         example_nat_rule = azure.lb.NatRule("example",
             resource_group_name=example.name,
             loadbalancer_id=example_load_balancer.id,
@@ -269,14 +269,14 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             backend_port=3389,
             frontend_ip_configuration_name="primary")
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
         example_network_interface_nat_rule_association = azure.network.NetworkInterfaceNatRuleAssociation("example",
             network_interface_id=example_network_interface.id,
             ip_configuration_name="testconfiguration1",

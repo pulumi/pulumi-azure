@@ -30,8 +30,6 @@ namespace Pulumi.Azure.EventGrid
     /// 
     ///     var examplePartnerConfiguration = new Azure.EventGrid.PartnerConfiguration("example", new()
     ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         DefaultMaximumExpirationTimeInDays = 14,
     ///         PartnerAuthorizations = new[]
     ///         {
     ///             new Azure.EventGrid.Inputs.PartnerConfigurationPartnerAuthorizationArgs
@@ -41,6 +39,8 @@ namespace Pulumi.Azure.EventGrid
     ///                 AuthorizationExpirationTimeInUtc = "2025-02-05T00:00:00Z",
     ///             },
     ///         },
+    ///         ResourceGroupName = example.Name,
+    ///         DefaultMaximumExpirationTimeInDays = 14,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

@@ -126,15 +126,15 @@ import (
 //				return err
 //			}
 //			_, err = logicapps.NewStandard(ctx, "example", &logicapps.StandardArgs{
+//				SiteConfig: &logicapps.StandardSiteConfigArgs{
+//					LinuxFxVersion: pulumi.String("DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice"),
+//				},
 //				Name:                    pulumi.String("example-logic-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				AppServicePlanId:        exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig: &logicapps.StandardSiteConfigArgs{
-//					LinuxFxVersion: pulumi.String("DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice"),
-//				},
 //				AppSettings: pulumi.StringMap{
 //					"DOCKER_REGISTRY_SERVER_URL":      pulumi.String("https://<server-name>.azurecr.io"),
 //					"DOCKER_REGISTRY_SERVER_USERNAME": pulumi.String("username"),

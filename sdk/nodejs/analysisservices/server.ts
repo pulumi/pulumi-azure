@@ -20,17 +20,17 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const server = new azure.analysisservices.Server("server", {
+ *     ipv4FirewallRules: [{
+ *         name: "myRule1",
+ *         rangeStart: "210.117.252.0",
+ *         rangeEnd: "210.117.252.255",
+ *     }],
  *     name: "analysisservicesserver",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "S0",
  *     adminUsers: ["myuser@domain.tld"],
  *     powerBiServiceEnabled: true,
- *     ipv4FirewallRules: [{
- *         name: "myRule1",
- *         rangeStart: "210.117.252.0",
- *         rangeEnd: "210.117.252.255",
- *     }],
  *     tags: {
  *         abc: "123",
  *     },

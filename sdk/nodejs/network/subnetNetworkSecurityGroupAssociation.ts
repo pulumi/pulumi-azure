@@ -30,9 +30,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
- *     name: "example-nsg",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     securityRules: [{
  *         name: "test123",
  *         priority: 100,
@@ -44,6 +41,9 @@ import * as utilities from "../utilities";
  *         sourceAddressPrefix: "*",
  *         destinationAddressPrefix: "*",
  *     }],
+ *     name: "example-nsg",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
  *     subnetId: exampleSubnet.id,

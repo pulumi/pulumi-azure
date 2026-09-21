@@ -79,6 +79,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -86,9 +89,6 @@ import javax.annotation.Nullable;
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .managedVirtualNetworkEnabled(true)
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule("exampleFirewallRule", FirewallRuleArgs.builder()
@@ -105,6 +105,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkedService = new LinkedService("exampleLinkedService", LinkedServiceArgs.builder()
+ *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
+ *                 .name(exampleIntegrationRuntimeAzure.name())
+ *                 .build())
  *             .name("example")
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .type("AzureBlobStorage")
@@ -113,9 +116,6 @@ import javax.annotation.Nullable;
  *   \"connectionString\": \"%s\"
  * }}{@code
  * ", _primaryConnectionString)))
- *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
- *                 .name(exampleIntegrationRuntimeAzure.name())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFirewallRule)
  *                 .build());

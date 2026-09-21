@@ -31,14 +31,14 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "B1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleCertificate = new Azure.Iot.Certificate("example", new()
@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Iot
     ///         CertificateContent = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

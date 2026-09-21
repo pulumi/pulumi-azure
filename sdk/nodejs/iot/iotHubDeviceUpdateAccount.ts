@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "East US",
  * });
  * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     tags: {
  *         key: "value",
  *     },

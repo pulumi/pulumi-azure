@@ -64,6 +64,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRunBook = new RunBook("exampleRunBook", RunBookArgs.builder()
+ *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
+ *                 .uri("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1")
+ *                 .build())
  *             .name("Get-AzureVMTutorial")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,9 +75,6 @@ import javax.annotation.Nullable;
  *             .logProgress(true)
  *             .description("This is an example runbook")
  *             .runbookType("PowerShellWorkflow")
- *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
- *                 .uri("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1")
- *                 .build())
  *             .build());
  * 
  *         var exampleWebhook = new Webhook("exampleWebhook", WebhookArgs.builder()

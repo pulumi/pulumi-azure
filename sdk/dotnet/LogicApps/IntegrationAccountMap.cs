@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogicApps
     ///         Content = Std.File.Invoke(new()
     ///         {
     ///             Input = "testdata/integration_account_map_content.xsd",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

@@ -37,11 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("containerRegistry1"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Premium"),
-//				AdminEnabled:      pulumi.Bool(false),
 //				Georeplications: containerservice.RegistryGeoreplicationArray{
 //					&containerservice.RegistryGeoreplicationArgs{
 //						Location:              pulumi.String("East US"),
@@ -54,6 +49,11 @@ import (
 //						Tags:                  pulumi.StringMap{},
 //					},
 //				},
+//				Name:              pulumi.String("containerRegistry1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Premium"),
+//				AdminEnabled:      pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -104,10 +104,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("containerRegistry1"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				Sku:               pulumi.String("Premium"),
 //				Identity: &containerservice.RegistryIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
@@ -118,6 +114,10 @@ import (
 //					KeyVaultKeyId:    pulumi.String(example.Id),
 //					IdentityClientId: exampleUserAssignedIdentity.ClientId,
 //				},
+//				Name:              pulumi.String("containerRegistry1"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
 //			})
 //			if err != nil {
 //				return err
@@ -161,10 +161,6 @@ import (
 //				return err
 //			}
 //			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-aks1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("exampleaks1"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
 //					NodeCount: pulumi.Int(1),
@@ -173,6 +169,10 @@ import (
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-aks1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DnsPrefix:         pulumi.String("exampleaks1"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

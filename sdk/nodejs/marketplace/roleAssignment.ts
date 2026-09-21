@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  * const exampleRoleAssignment = new azure.marketplace.RoleAssignment("example", {
  *     roleDefinitionName: "Marketplace Admin",
  *     principalId: example.then(example => example.objectId),
+ * }, {
+ *     ignoreChanges: [
+ *         "name",
+ *         "roleDefinitionId",
+ *     ],
  * });
  * ```
  *
@@ -35,6 +40,8 @@ import * as utilities from "../utilities";
  * const exampleRoleAssignment = new azure.marketplace.RoleAssignment("example", {
  *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
  *     principalId: example.then(example => example.objectId),
+ * }, {
+ *     ignoreChanges: ["roleDefinitionName"],
  * });
  * ```
  *

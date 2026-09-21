@@ -54,14 +54,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
+ *             .sku(ElasticSanSkuArgs.builder()
+ *                 .name("example-value")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
  *             .extendedSizeInTib(2)
- *             .sku(ElasticSanSkuArgs.builder()
- *                 .name("example-value")
- *                 .build())
  *             .build());
  * 
  *     }

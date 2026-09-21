@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleConfiguration = new azure.automanage.Configuration("example", {
- *     name: "example-acmp",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     antimalware: {
  *         exclusions: {
  *             extensions: "exe;dll",
@@ -38,11 +35,7 @@ import * as utilities from "../utilities";
  *     azureSecurityBaseline: {
  *         assignmentType: "ApplyAndAutoCorrect",
  *     },
- *     automationAccountEnabled: true,
  *     backup: {
- *         policyName: "acctest-backup-policy-%d",
- *         timeZone: "UTC",
- *         instantRpRetentionRangeInDays: 2,
  *         schedulePolicy: {
  *             scheduleRunFrequency: "Daily",
  *             scheduleRunDays: [
@@ -53,23 +46,30 @@ import * as utilities from "../utilities";
  *             schedulePolicyType: "SimpleSchedulePolicy",
  *         },
  *         retentionPolicy: {
- *             retentionPolicyType: "LongTermRetentionPolicy",
  *             dailySchedule: {
- *                 retentionTimes: ["12:00"],
  *                 retentionDuration: {
  *                     count: 7,
  *                     durationType: "Days",
  *                 },
+ *                 retentionTimes: ["12:00"],
  *             },
  *             weeklySchedule: {
- *                 retentionTimes: ["14:00"],
  *                 retentionDuration: {
  *                     count: 4,
  *                     durationType: "Weeks",
  *                 },
+ *                 retentionTimes: ["14:00"],
  *             },
+ *             retentionPolicyType: "LongTermRetentionPolicy",
  *         },
+ *         policyName: "acctest-backup-policy-%d",
+ *         timeZone: "UTC",
+ *         instantRpRetentionRangeInDays: 2,
  *     },
+ *     name: "example-acmp",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     automationAccountEnabled: true,
  *     bootDiagnosticsEnabled: true,
  *     defenderForCloudEnabled: true,
  *     guestConfigurationEnabled: true,

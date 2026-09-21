@@ -101,6 +101,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
+ *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .subnetId(exampleSubnet.id())
+ *                 .build())
  *             .name("test")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -109,11 +114,6 @@ import javax.annotation.Nullable;
  *             .activeActive(false)
  *             .bgpEnabled(false)
  *             .sku("Basic")
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation("Dynamic")
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
  *             .build());
  * 
  *         var onpremiseVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()
@@ -196,17 +196,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var usVirtualNetworkGateway = new VirtualNetworkGateway("usVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
+ *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
+ *                 .publicIpAddressId(usPublicIp.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .subnetId(usGateway.id())
+ *                 .build())
  *             .name("us-gateway")
  *             .location(us.location())
  *             .resourceGroupName(us.name())
  *             .type("Vpn")
  *             .vpnType("RouteBased")
  *             .sku("Basic")
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(usPublicIp.id())
- *                 .privateIpAddressAllocation("Dynamic")
- *                 .subnetId(usGateway.id())
- *                 .build())
  *             .build());
  * 
  *         var europe = new ResourceGroup("europe", ResourceGroupArgs.builder()
@@ -236,17 +236,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var europeVirtualNetworkGateway = new VirtualNetworkGateway("europeVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
+ *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
+ *                 .publicIpAddressId(europePublicIp.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .subnetId(europeGateway.id())
+ *                 .build())
  *             .name("europe-gateway")
  *             .location(europe.location())
  *             .resourceGroupName(europe.name())
  *             .type("Vpn")
  *             .vpnType("RouteBased")
  *             .sku("Basic")
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(europePublicIp.id())
- *                 .privateIpAddressAllocation("Dynamic")
- *                 .subnetId(europeGateway.id())
- *                 .build())
  *             .build());
  * 
  *         var usToEurope = new VirtualNetworkGatewayConnection("usToEurope", VirtualNetworkGatewayConnectionArgs.builder()

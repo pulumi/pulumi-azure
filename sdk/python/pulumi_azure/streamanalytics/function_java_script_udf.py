@@ -249,19 +249,19 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         example_get_job = azure.streamanalytics.get_job(name="example-job",
             resource_group_name=example.name)
         example_function_java_script_udf = azure.streamanalytics.FunctionJavaScriptUDF("example",
+            output={
+                "type": "bigint",
+            },
+            inputs=[{
+                "type": "bigint",
+            }],
             name="example-javascript-function",
             stream_analytics_job_name=example_get_job.name,
             resource_group_name=example_get_job.resource_group_name,
             script=\"\"\"function getRandomNumber(in) {
           return in;
         }
-        \"\"\",
-            inputs=[{
-                "type": "bigint",
-            }],
-            output={
-                "type": "bigint",
-            })
+        \"\"\")
         ```
 
         ## API Providers
@@ -308,19 +308,19 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         example_get_job = azure.streamanalytics.get_job(name="example-job",
             resource_group_name=example.name)
         example_function_java_script_udf = azure.streamanalytics.FunctionJavaScriptUDF("example",
+            output={
+                "type": "bigint",
+            },
+            inputs=[{
+                "type": "bigint",
+            }],
             name="example-javascript-function",
             stream_analytics_job_name=example_get_job.name,
             resource_group_name=example_get_job.resource_group_name,
             script=\"\"\"function getRandomNumber(in) {
           return in;
         }
-        \"\"\",
-            inputs=[{
-                "type": "bigint",
-            }],
-            output={
-                "type": "bigint",
-            })
+        \"\"\")
         ```
 
         ## API Providers

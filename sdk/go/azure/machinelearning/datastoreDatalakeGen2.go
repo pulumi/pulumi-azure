@@ -74,15 +74,15 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &machinelearning.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

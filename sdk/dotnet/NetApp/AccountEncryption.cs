@@ -41,16 +41,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "anfcmkakv",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         EnabledForDiskEncryption = true,
-    ///         EnabledForDeployment = true,
-    ///         EnabledForTemplateDeployment = true,
-    ///         PurgeProtectionEnabled = true,
-    ///         TenantId = "00000000-0000-0000-0000-000000000000",
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -80,6 +70,16 @@ namespace Pulumi.Azure.NetApp
     ///                 },
     ///             },
     ///         },
+    ///         Name = "anfcmkakv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         EnabledForDiskEncryption = true,
+    ///         EnabledForDeployment = true,
+    ///         EnabledForTemplateDeployment = true,
+    ///         PurgeProtectionEnabled = true,
+    ///         TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
@@ -101,9 +101,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleAccount = new Azure.NetApp.Account("example", new()
     ///     {
-    ///         Name = "netappaccount",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -112,6 +109,9 @@ namespace Pulumi.Azure.NetApp
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "netappaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAccountEncryption = new Azure.NetApp.AccountEncryption("example", new()

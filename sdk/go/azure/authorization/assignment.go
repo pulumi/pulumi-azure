@@ -77,9 +77,6 @@ import (
 //				return err
 //			}
 //			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
-//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Name:             pulumi.String("my-custom-role-definition"),
-//				Scope:            pulumi.String(primary.Id),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -88,6 +85,9 @@ import (
 //						NotActions: pulumi.StringArray{},
 //					},
 //				},
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Name:             pulumi.String("my-custom-role-definition"),
+//				Scope:            pulumi.String(primary.Id),
 //				AssignableScopes: pulumi.StringArray{
 //					pulumi.String(primary.Id),
 //				},
@@ -134,9 +134,6 @@ import (
 //				return err
 //			}
 //			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
-//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Name:             pulumi.String("my-custom-role-definition"),
-//				Scope:            pulumi.String(primary.Id),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -145,6 +142,9 @@ import (
 //						NotActions: pulumi.StringArray{},
 //					},
 //				},
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Name:             pulumi.String("my-custom-role-definition"),
+//				Scope:            pulumi.String(primary.Id),
 //				AssignableScopes: pulumi.StringArray{
 //					pulumi.String(primary.Id),
 //				},
@@ -198,9 +198,6 @@ import (
 //				return err
 //			}
 //			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
-//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				Name:             pulumi.String("my-custom-role-definition"),
-//				Scope:            pulumi.String(primary.Id),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -209,6 +206,9 @@ import (
 //						NotActions: pulumi.StringArray{},
 //					},
 //				},
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Name:             pulumi.String("my-custom-role-definition"),
+//				Scope:            pulumi.String(primary.Id),
 //				AssignableScopes: pulumi.StringArray{
 //					pulumi.String(primary.Id),
 //				},
@@ -261,14 +261,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBasename, err := std.Basename(ctx, &std.BasenameArgs{
-//				Input: builtin.RoleDefinitionId,
+//			invokeBasename, err := std.Basename(ctx, map[string]interface{}{
+//				"input": builtin.RoleDefinitionId,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeBasename1, err := std.Basename(ctx, &std.BasenameArgs{
-//				Input: builtin.RoleDefinitionId,
+//			invokeBasename1, err := std.Basename(ctx, map[string]interface{}{
+//				"input": builtin.RoleDefinitionId,
 //			}, nil)
 //			if err != nil {
 //				return err

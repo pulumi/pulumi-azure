@@ -62,17 +62,17 @@ import (
 //				return err
 //			}
 //			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "example", &appservice.LinuxFunctionAppArgs{
+//				SiteConfig: &appservice.LinuxFunctionAppSiteConfigArgs{
+//					ApplicationStack: &appservice.LinuxFunctionAppSiteConfigApplicationStackArgs{
+//						PythonVersion: pulumi.String("3.9"),
+//					},
+//				},
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig: &appservice.LinuxFunctionAppSiteConfigArgs{
-//					ApplicationStack: &appservice.LinuxFunctionAppSiteConfigApplicationStackArgs{
-//						PythonVersion: pulumi.String("3.9"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -170,23 +170,23 @@ import (
 //				return err
 //			}
 //			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
+//					ApplicationStack: &appservice.WindowsFunctionAppSiteConfigApplicationStackArgs{
+//						DotnetVersion: pulumi.String("6"),
+//					},
+//				},
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
-//					ApplicationStack: &appservice.WindowsFunctionAppSiteConfigApplicationStackArgs{
-//						DotnetVersion: pulumi.String("6"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "exampledata/run.csx",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "exampledata/run.csx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -222,17 +222,17 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
-//				Name:          pulumi.String("example-function-app-function"),
-//				FunctionAppId: exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
-//				Language:      pulumi.String("CSharp"),
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{
 //						Name:    pulumi.String("run.csx"),
-//						Content: pulumi.String(invokeFile.Result),
+//						Content: invokeFile.Result,
 //					},
 //				},
-//				TestData:   pulumi.String(json0),
-//				ConfigJson: pulumi.String(json1),
+//				Name:          pulumi.String("example-function-app-function"),
+//				FunctionAppId: exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
+//				Language:      pulumi.String("CSharp"),
+//				TestData:      pulumi.String(json0),
+//				ConfigJson:    pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

@@ -90,6 +90,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppFlexConsumption = new AppFlexConsumption("exampleAppFlexConsumption", AppFlexConsumptionArgs.builder()
+ *             .siteConfig(AppFlexConsumptionSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -106,8 +108,6 @@ import javax.annotation.Nullable;
  *             .runtimeVersion("20")
  *             .maximumInstanceCount(50)
  *             .instanceMemoryInMb(2048)
- *             .siteConfig(AppFlexConsumptionSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *     }

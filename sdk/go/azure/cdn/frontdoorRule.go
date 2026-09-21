@@ -59,10 +59,6 @@ import (
 //				return err
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
-//				Name:                   pulumi.String("example-originGroup"),
-//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
-//				SessionAffinityEnabled: pulumi.Bool(true),
-//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
 //					IntervalInSeconds: pulumi.Int(240),
 //					Path:              pulumi.String("/healthProbe"),
@@ -74,6 +70,10 @@ import (
 //					SampleSize:                      pulumi.Int(16),
 //					SuccessfulSamplesRequired:       pulumi.Int(3),
 //				},
+//				Name:                   pulumi.String("example-originGroup"),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				SessionAffinityEnabled: pulumi.Bool(true),
+//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
@@ -101,10 +101,6 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorRule(ctx, "example", &cdn.FrontdoorRuleArgs{
-//				Name:                  pulumi.String("examplerule"),
-//				CdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.ID().ToIDOutput().ToStringOutput(),
-//				Order:                 pulumi.Int(1),
-//				BehaviorOnMatch:       pulumi.String("Continue"),
 //				Actions: &cdn.FrontdoorRuleActionsArgs{
 //					RouteConfigurationOverrideAction: &cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{
 //						CdnFrontdoorOriginGroupId:  exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
@@ -187,6 +183,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:                  pulumi.String("examplerule"),
+//				CdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.ID().ToIDOutput().ToStringOutput(),
+//				Order:                 pulumi.Int(1),
+//				BehaviorOnMatch:       pulumi.String("Continue"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFrontdoorOriginGroup,
 //				exampleFrontdoorOrigin,

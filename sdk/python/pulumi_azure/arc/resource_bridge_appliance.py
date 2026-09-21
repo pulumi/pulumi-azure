@@ -316,14 +316,14 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_resource_bridge_appliance = azure.arc.ResourceBridgeAppliance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-appliance",
             location=example.location,
             resource_group_name=example.name,
             distro="AKSEdge",
             infrastructure_provider="VMWare",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "hello": "world",
             })
@@ -375,14 +375,14 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_resource_bridge_appliance = azure.arc.ResourceBridgeAppliance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-appliance",
             location=example.location,
             resource_group_name=example.name,
             distro="AKSEdge",
             infrastructure_provider="VMWare",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "hello": "world",
             })

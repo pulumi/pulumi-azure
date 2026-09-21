@@ -27,29 +27,29 @@ import * as utilities from "../utilities";
  *     redundancy: "LocallyRedundant",
  * });
  * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("example", {
+ *     retentionRules: [
+ *         {
+ *             criteria: {
+ *                 absoluteCriteria: "FirstOfDay",
+ *             },
+ *             name: "Daily",
+ *             duration: "P7D",
+ *             priority: 25,
+ *         },
+ *         {
+ *             criteria: {
+ *                 absoluteCriteria: "FirstOfWeek",
+ *             },
+ *             name: "Weekly",
+ *             duration: "P7D",
+ *             priority: 20,
+ *         },
+ *     ],
  *     name: "example-backup-policy",
  *     vaultId: exampleBackupVault.id,
  *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
  *     defaultRetentionDuration: "P7D",
  *     timeZone: "W. Europe Standard Time",
- *     retentionRules: [
- *         {
- *             name: "Daily",
- *             duration: "P7D",
- *             priority: 25,
- *             criteria: {
- *                 absoluteCriteria: "FirstOfDay",
- *             },
- *         },
- *         {
- *             name: "Weekly",
- *             duration: "P7D",
- *             priority: 20,
- *             criteria: {
- *                 absoluteCriteria: "FirstOfWeek",
- *             },
- *         },
- *     ],
  * });
  * ```
  *

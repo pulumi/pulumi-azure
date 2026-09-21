@@ -886,13 +886,13 @@ class FunctionApp(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="azure-functions-test-service-plan",
+            location=example.location,
+            resource_group_name=example.name)
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,
@@ -918,14 +918,14 @@ class FunctionApp(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="FunctionApp",
             sku={
                 "tier": "Dynamic",
                 "size": "Y1",
-            })
+            },
+            name="azure-functions-test-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
+            kind="FunctionApp")
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,
@@ -951,15 +951,15 @@ class FunctionApp(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            },
             name="azure-functions-test-service-plan",
             location=example.location,
             resource_group_name=example.name,
             kind="Linux",
-            reserved=True,
-            sku={
-                "tier": "Dynamic",
-                "size": "Y1",
-            })
+            reserved=True)
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,
@@ -1050,13 +1050,13 @@ class FunctionApp(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="azure-functions-test-service-plan",
+            location=example.location,
+            resource_group_name=example.name)
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,
@@ -1082,14 +1082,14 @@ class FunctionApp(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="FunctionApp",
             sku={
                 "tier": "Dynamic",
                 "size": "Y1",
-            })
+            },
+            name="azure-functions-test-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
+            kind="FunctionApp")
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,
@@ -1115,15 +1115,15 @@ class FunctionApp(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            },
             name="azure-functions-test-service-plan",
             location=example.location,
             resource_group_name=example.name,
             kind="Linux",
-            reserved=True,
-            sku={
-                "tier": "Dynamic",
-                "size": "Y1",
-            })
+            reserved=True)
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,

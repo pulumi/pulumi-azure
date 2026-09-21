@@ -38,16 +38,16 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
-    ///         SolutionName = "SecurityInsights",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
     ///         {
     ///             Publisher = "Microsoft",
     ///             Product = "OMSGallery/SecurityInsights",
     ///         },
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///     });
     /// 
     ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt("example", new()

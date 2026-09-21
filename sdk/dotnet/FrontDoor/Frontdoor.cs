@@ -46,12 +46,56 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("example", new()
     ///     {
-    ///         Name = "example-FrontDoor",
-    ///         ResourceGroupName = example.Name,
+    ///         BackendPoolHealthProbes = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
+    ///             {
+    ///                 Name = "exampleHealthProbeSetting1",
+    ///             },
+    ///         },
+    ///         BackendPoolLoadBalancings = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolLoadBalancingArgs
+    ///             {
+    ///                 Name = "exampleLoadBalancingSettings1",
+    ///             },
+    ///         },
+    ///         BackendPools = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
+    ///             {
+    ///                 Backends = new[]
+    ///                 {
+    ///                     new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
+    ///                     {
+    ///                         HostHeader = "www.bing.com",
+    ///                         Address = "www.bing.com",
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                     },
+    ///                 },
+    ///                 Name = "exampleBackendBing",
+    ///                 LoadBalancingName = "exampleLoadBalancingSettings1",
+    ///                 HealthProbeName = "exampleHealthProbeSetting1",
+    ///             },
+    ///         },
+    ///         FrontendEndpoints = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorFrontendEndpointArgs
+    ///             {
+    ///                 Name = "exampleFrontendEndpoint1",
+    ///                 HostName = "example-FrontDoor.azurefd.net",
+    ///             },
+    ///         },
     ///         RoutingRules = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
     ///             {
+    ///                 ForwardingConfiguration = new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleForwardingConfigurationArgs
+    ///                 {
+    ///                     ForwardingProtocol = "MatchRequest",
+    ///                     BackendPoolName = "exampleBackendBing",
+    ///                 },
     ///                 Name = "exampleRoutingRule1",
     ///                 AcceptedProtocols = new[]
     ///                 {
@@ -66,54 +110,10 @@ namespace Pulumi.Azure.FrontDoor
     ///                 {
     ///                     "exampleFrontendEndpoint1",
     ///                 },
-    ///                 ForwardingConfiguration = new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleForwardingConfigurationArgs
-    ///                 {
-    ///                     ForwardingProtocol = "MatchRequest",
-    ///                     BackendPoolName = "exampleBackendBing",
-    ///                 },
     ///             },
     ///         },
-    ///         BackendPoolLoadBalancings = new[]
-    ///         {
-    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolLoadBalancingArgs
-    ///             {
-    ///                 Name = "exampleLoadBalancingSettings1",
-    ///             },
-    ///         },
-    ///         BackendPoolHealthProbes = new[]
-    ///         {
-    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
-    ///             {
-    ///                 Name = "exampleHealthProbeSetting1",
-    ///             },
-    ///         },
-    ///         BackendPools = new[]
-    ///         {
-    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
-    ///             {
-    ///                 Name = "exampleBackendBing",
-    ///                 Backends = new[]
-    ///                 {
-    ///                     new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
-    ///                     {
-    ///                         HostHeader = "www.bing.com",
-    ///                         Address = "www.bing.com",
-    ///                         HttpPort = 80,
-    ///                         HttpsPort = 443,
-    ///                     },
-    ///                 },
-    ///                 LoadBalancingName = "exampleLoadBalancingSettings1",
-    ///                 HealthProbeName = "exampleHealthProbeSetting1",
-    ///             },
-    ///         },
-    ///         FrontendEndpoints = new[]
-    ///         {
-    ///             new Azure.FrontDoor.Inputs.FrontdoorFrontendEndpointArgs
-    ///             {
-    ///                 Name = "exampleFrontendEndpoint1",
-    ///                 HostName = "example-FrontDoor.azurefd.net",
-    ///             },
-    ///         },
+    ///         Name = "example-FrontDoor",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

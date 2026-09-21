@@ -26,10 +26,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleMxRecord = new azure.dns.MxRecord("example", {
- *     name: "test",
- *     zoneName: exampleZone.name,
- *     resourceGroupName: example.name,
- *     ttl: 300,
  *     records: [
  *         {
  *             preference: "10",
@@ -40,6 +36,10 @@ import * as utilities from "../utilities";
  *             exchange: "mail2.contoso.com",
  *         },
  *     ],
+ *     name: "test",
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: example.name,
+ *     ttl: 300,
  *     tags: {
  *         Environment: "Production",
  *     },

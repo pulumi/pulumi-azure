@@ -310,11 +310,11 @@ class WebAppHybridConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name)
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example-web-app",
             location=example.location,
             resource_group_name=example.name,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("example",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -382,11 +382,11 @@ class WebAppHybridConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             relay_namespace_name=example_namespace.name)
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example-web-app",
             location=example.location,
             resource_group_name=example.name,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("example",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,

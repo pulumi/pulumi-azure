@@ -41,18 +41,25 @@ namespace Pulumi.Azure.DevTest
     /// 
     ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("example", new()
     ///     {
-    ///         Name = "example-network",
-    ///         LabName = exampleLab.Name,
-    ///         ResourceGroupName = example.Name,
     ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
     ///         {
     ///             UsePublicIpAddress = "Allow",
     ///             UseInVirtualMachineCreation = "Allow",
     ///         },
+    ///         Name = "example-network",
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleWindowsVirtualMachine = new Azure.DevTest.WindowsVirtualMachine("example", new()
     ///     {
+    ///         GalleryImageReference = new Azure.DevTest.Inputs.WindowsVirtualMachineGalleryImageReferenceArgs
+    ///         {
+    ///             Offer = "WindowsServer",
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Sku = "2019-Datacenter",
+    ///             Version = "latest",
+    ///         },
     ///         Name = "example-vm03",
     ///         LabName = exampleLab.Name,
     ///         ResourceGroupName = example.Name,
@@ -64,13 +71,6 @@ namespace Pulumi.Azure.DevTest
     ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
     ///         StorageType = "Premium",
     ///         Notes = "Some notes about this Virtual Machine.",
-    ///         GalleryImageReference = new Azure.DevTest.Inputs.WindowsVirtualMachineGalleryImageReferenceArgs
-    ///         {
-    ///             Offer = "WindowsServer",
-    ///             Publisher = "MicrosoftWindowsServer",
-    ///             Sku = "2019-Datacenter",
-    ///             Version = "latest",
-    ///         },
     ///     });
     /// 
     /// });

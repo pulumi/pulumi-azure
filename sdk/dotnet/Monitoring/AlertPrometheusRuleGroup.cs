@@ -44,10 +44,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-cluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "example-aks",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -59,21 +55,14 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-cluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "example-aks",
     ///     });
     /// 
     ///     var exampleAlertPrometheusRuleGroup = new Azure.Monitoring.AlertPrometheusRuleGroup("example", new()
     ///     {
-    ///         Name = "example-amprg",
-    ///         Location = "West Europe",
-    ///         ResourceGroupName = example.Name,
-    ///         ClusterName = exampleKubernetesCluster.Name,
-    ///         Description = "This is the description of the following rule group",
-    ///         RuleGroupEnabled = false,
-    ///         Interval = "PT1M",
-    ///         Scopes = new[]
-    ///         {
-    ///             exampleWorkspace.Id,
-    ///         },
     ///         Rules = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
@@ -89,12 +78,11 @@ namespace Pulumi.Azure.Monitoring
     ///             },
     ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
     ///             {
-    ///                 Alert = "Billing_Processing_Very_Slow",
-    ///                 Enabled = true,
-    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\""billing-processing\""}[5m])) by (job_type))
-    /// ",
-    ///                 For = "PT5M",
-    ///                 Severity = 2,
+    ///                 AlertResolution = new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs
+    ///                 {
+    ///                     AutoResolved = true,
+    ///                     TimeToResolve = "PT10M",
+    ///                 },
     ///                 Actions = new[]
     ///                 {
     ///                     new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleActionArgs
@@ -102,11 +90,12 @@ namespace Pulumi.Azure.Monitoring
     ///                         ActionGroupId = exampleActionGroup.Id,
     ///                     },
     ///                 },
-    ///                 AlertResolution = new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs
-    ///                 {
-    ///                     AutoResolved = true,
-    ///                     TimeToResolve = "PT10M",
-    ///                 },
+    ///                 Alert = "Billing_Processing_Very_Slow",
+    ///                 Enabled = true,
+    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\""billing-processing\""}[5m])) by (job_type))
+    /// ",
+    ///                 For = "PT5M",
+    ///                 Severity = 2,
     ///                 Annotations = 
     ///                 {
     ///                     { "annotationName", "annotationValue" },
@@ -116,6 +105,17 @@ namespace Pulumi.Azure.Monitoring
     ///                     { "team", "prod" },
     ///                 },
     ///             },
+    ///         },
+    ///         Name = "example-amprg",
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = example.Name,
+    ///         ClusterName = exampleKubernetesCluster.Name,
+    ///         Description = "This is the description of the following rule group",
+    ///         RuleGroupEnabled = false,
+    ///         Interval = "PT1M",
+    ///         Scopes = new[]
+    ///         {
+    ///             exampleWorkspace.Id,
     ///         },
     ///         Tags = 
     ///         {

@@ -74,18 +74,18 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
-//				Name:                  pulumi.String("example-workspace"),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				ManagedNetwork: &machinelearning.WorkspaceManagedNetworkArgs{
 //					IsolationMode: pulumi.String("AllowOnlyApprovedOutbound"),
 //				},
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                  pulumi.String("example-workspace"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

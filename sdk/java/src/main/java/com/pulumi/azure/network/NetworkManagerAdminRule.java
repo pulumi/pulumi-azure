@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.NetworkManagerAdminRuleCollectionArgs;
  * import com.pulumi.azure.network.NetworkManagerAdminRule;
  * import com.pulumi.azure.network.NetworkManagerAdminRuleArgs;
- * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleSourceArgs;
  * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleDestinationArgs;
+ * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleSourceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-network-manager")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-network-manager")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scopeAccesses(            
  *                 "Connectivity",
  *                 "SecurityAdmin")
@@ -98,6 +98,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule("exampleNetworkManagerAdminRule", NetworkManagerAdminRuleArgs.builder()
+ *             .destinations(            
+ *                 NetworkManagerAdminRuleDestinationArgs.builder()
+ *                     .addressPrefixType("IPPrefix")
+ *                     .addressPrefix("10.1.0.1")
+ *                     .build(),
+ *                 NetworkManagerAdminRuleDestinationArgs.builder()
+ *                     .addressPrefixType("IPPrefix")
+ *                     .addressPrefix("10.0.0.0/24")
+ *                     .build())
+ *             .sources(NetworkManagerAdminRuleSourceArgs.builder()
+ *                 .addressPrefixType("ServiceTag")
+ *                 .addressPrefix("Internet")
+ *                 .build())
  *             .name("example-admin-rule")
  *             .adminRuleCollectionId(exampleNetworkManagerAdminRuleCollection.id())
  *             .action("Deny")
@@ -108,19 +121,6 @@ import javax.annotation.Nullable;
  *                 "80",
  *                 "1024-65535")
  *             .destinationPortRanges("80")
- *             .sources(NetworkManagerAdminRuleSourceArgs.builder()
- *                 .addressPrefixType("ServiceTag")
- *                 .addressPrefix("Internet")
- *                 .build())
- *             .destinations(            
- *                 NetworkManagerAdminRuleDestinationArgs.builder()
- *                     .addressPrefixType("IPPrefix")
- *                     .addressPrefix("10.1.0.1")
- *                     .build(),
- *                 NetworkManagerAdminRuleDestinationArgs.builder()
- *                     .addressPrefixType("IPPrefix")
- *                     .addressPrefix("10.0.0.0/24")
- *                     .build())
  *             .description("example admin rule")
  *             .build());
  * 

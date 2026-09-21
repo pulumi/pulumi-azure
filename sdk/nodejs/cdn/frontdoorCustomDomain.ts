@@ -35,9 +35,9 @@ import * as utilities from "../utilities";
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     loadBalancing: {},
  *     name: "example-cdn-frontdoor-origin-group",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     loadBalancing: {},
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
  *     name: "example-cdn-frontdoor-origin",
@@ -46,14 +46,14 @@ import * as utilities from "../utilities";
  *     certificateNameCheckEnabled: false,
  * });
  * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
- *     name: "example-cdn-frontdoor-custom-domain",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     dnsZoneId: exampleZone.id,
- *     hostName: exampleFrontdoorOrigin.hostName,
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumVersion: "TLS12",
  *     },
+ *     name: "example-cdn-frontdoor-custom-domain",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     dnsZoneId: exampleZone.id,
+ *     hostName: exampleFrontdoorOrigin.hostName,
  * });
  * const exampleFrontdoorRoute = new azure.cdn.FrontdoorRoute("example", {
  *     name: "example-cdn-frontdoor-route",
@@ -74,19 +74,19 @@ import * as utilities from "../utilities";
  *     mode: "Prevention",
  * });
  * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("example", {
- *     name: "example-cdn-frontdoor-security-policy",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     securityPolicies: {
  *         firewall: {
- *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *             association: {
  *                 domains: [{
  *                     cdnFrontdoorDomainId: exampleFrontdoorCustomDomain.id,
  *                 }],
  *                 patternsToMatch: "/*",
  *             },
+ *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *         },
  *     },
+ *     name: "example-cdn-frontdoor-security-policy",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * ```
  *
@@ -104,22 +104,22 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new azure.dns.TxtRecord("example", {
- *     name: std.split({
- *         separator: ".",
- *         text: exampleAzurermCdnFrontdoorCustomDomain.hostName,
- *     }).then(invoke => std.join({
- *         separator: ".",
- *         input: [
- *             "_dnsauth",
- *             invoke.result?.[0],
- *         ],
- *     })).then(invoke => invoke.result),
- *     zoneName: exampleAzurermDnsZone.name,
- *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     ttl: 3600,
  *     records: [{
  *         value: exampleAzurermCdnFrontdoorCustomDomain.validationToken,
  *     }],
+ *     name: std.join({
+ *         separator: ".",
+ *         input: [
+ *             "_dnsauth",
+ *             std.split({
+ *                 separator: ".",
+ *                 text: exampleAzurermCdnFrontdoorCustomDomain.hostName,
+ *             }).result[0],
+ *         ],
+ *     }).result,
+ *     zoneName: exampleAzurermDnsZone.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     ttl: 3600,
  * });
  * ```
  *
@@ -136,7 +136,7 @@ import * as utilities from "../utilities";
  *     name: std.split({
  *         separator: ".",
  *         text: exampleAzurermCdnFrontdoorCustomDomain.hostName,
- *     }).then(invoke => invoke.result?.[0]),
+ *     }).result[0],
  *     zoneName: exampleAzurermDnsZone.name,
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  *     ttl: 3600,

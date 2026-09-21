@@ -50,6 +50,11 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Dynamic",
  * });
  * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
+ *     ipConfigurations: [{
+ *         publicIpAddressId: examplePublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: exampleSubnet.id,
+ *     }],
  *     name: "test",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -58,11 +63,6 @@ import * as utilities from "../utilities";
  *     activeActive: false,
  *     bgpEnabled: false,
  *     sku: "Basic",
- *     ipConfigurations: [{
- *         publicIpAddressId: examplePublicIp.id,
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: exampleSubnet.id,
- *     }],
  * });
  * const onpremiseVirtualNetworkGatewayConnection = new azure.network.VirtualNetworkGatewayConnection("onpremise", {
  *     name: "onpremise",
@@ -107,17 +107,17 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Dynamic",
  * });
  * const usVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("us", {
+ *     ipConfigurations: [{
+ *         publicIpAddressId: usPublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: usGateway.id,
+ *     }],
  *     name: "us-gateway",
  *     location: us.location,
  *     resourceGroupName: us.name,
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
- *     ipConfigurations: [{
- *         publicIpAddressId: usPublicIp.id,
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: usGateway.id,
- *     }],
  * });
  * const europe = new azure.core.ResourceGroup("europe", {
  *     name: "europe",
@@ -142,17 +142,17 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Dynamic",
  * });
  * const europeVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("europe", {
+ *     ipConfigurations: [{
+ *         publicIpAddressId: europePublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: europeGateway.id,
+ *     }],
  *     name: "europe-gateway",
  *     location: europe.location,
  *     resourceGroupName: europe.name,
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
- *     ipConfigurations: [{
- *         publicIpAddressId: europePublicIp.id,
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: europeGateway.id,
- *     }],
  * });
  * const usToEurope = new azure.network.VirtualNetworkGatewayConnection("us_to_europe", {
  *     name: "us-to-europe",

@@ -43,10 +43,6 @@ import (
 //				return err
 //			}
 //			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-aks1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("exampleaks1"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
 //					NodeCount: pulumi.Int(1),
@@ -56,6 +52,10 @@ import (
 //					ClientId:     pulumi.String("00000000-0000-0000-0000-000000000000"),
 //					ClientSecret: pulumi.String("00000000000000000000000000000000"),
 //				},
+//				Name:              pulumi.String("example-aks1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DnsPrefix:         pulumi.String("exampleaks1"),
 //			})
 //			if err != nil {
 //				return err

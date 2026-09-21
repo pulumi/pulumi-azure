@@ -56,6 +56,9 @@ import (
 //				return err
 //			}
 //			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
+//				Identity: &postgresql.ServerIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                       pulumi.String("example-postgre-server"),
 //				Location:                   example.Location,
 //				ResourceGroupName:          example.Name,
@@ -65,9 +68,6 @@ import (
 //				Version:                    pulumi.String("11"),
 //				StorageMb:                  pulumi.Int(51200),
 //				SslEnforcementEnabled:      pulumi.Bool(true),
-//				Identity: &postgresql.ServerIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

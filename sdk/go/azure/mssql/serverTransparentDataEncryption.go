@@ -45,6 +45,10 @@ import (
 //				return err
 //			}
 //			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+//					LoginUsername: pulumi.String("AzureAD Admin"),
+//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
 //				Name:                       pulumi.String("mssqlserver"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
@@ -52,10 +56,6 @@ import (
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
 //				MinimumTlsVersion:          pulumi.String("1.2"),
-//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
-//					LoginUsername: pulumi.String("AzureAD Admin"),
-//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("production"),
 //				},
@@ -103,6 +103,13 @@ import (
 //				return err
 //			}
 //			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+//					LoginUsername: pulumi.String("AzureAD Admin"),
+//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				Identity: &mssql.ServerIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                       pulumi.String("mssqlserver"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
@@ -110,31 +117,17 @@ import (
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
 //				MinimumTlsVersion:          pulumi.String("1.2"),
-//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
-//					LoginUsername: pulumi.String("AzureAD Admin"),
-//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("production"),
 //				},
-//				Identity: &mssql.ServerIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"transparentDataEncryptionKeyVaultKeyId",
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			// Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(false),
-//				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -160,6 +153,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(false),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err

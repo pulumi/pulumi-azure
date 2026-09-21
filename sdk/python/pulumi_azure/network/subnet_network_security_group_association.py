@@ -128,9 +128,6 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example-nsg",
-            location=example.location,
-            resource_group_name=example.name,
             security_rules=[{
                 "name": "test123",
                 "priority": 100,
@@ -141,7 +138,10 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
                 "destination_port_range": "*",
                 "source_address_prefix": "*",
                 "destination_address_prefix": "*",
-            }])
+            }],
+            name="example-nsg",
+            location=example.location,
+            resource_group_name=example.name)
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -197,9 +197,6 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_security_group = azure.network.NetworkSecurityGroup("example",
-            name="example-nsg",
-            location=example.location,
-            resource_group_name=example.name,
             security_rules=[{
                 "name": "test123",
                 "priority": 100,
@@ -210,7 +207,10 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
                 "destination_port_range": "*",
                 "source_address_prefix": "*",
                 "destination_address_prefix": "*",
-            }])
+            }],
+            name="example-nsg",
+            location=example.location,
+            resource_group_name=example.name)
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)

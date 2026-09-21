@@ -27,17 +27,12 @@ import * as utilities from "../utilities";
  *     softDeleteEnabled: false,
  * });
  * const examplePolicyVMWorkload = new azure.backup.PolicyVMWorkload("example", {
- *     name: "example-bpvmw",
- *     resourceGroupName: example.name,
- *     recoveryVaultName: exampleVault.name,
- *     workloadType: "SQLDataBase",
  *     settings: {
  *         timeZone: "UTC",
  *         compressionEnabled: false,
  *     },
  *     protectionPolicies: [
  *         {
- *             policyType: "Full",
  *             backup: {
  *                 frequency: "Daily",
  *                 time: "15:00",
@@ -45,17 +40,22 @@ import * as utilities from "../utilities";
  *             retentionDaily: {
  *                 count: 8,
  *             },
+ *             policyType: "Full",
  *         },
  *         {
- *             policyType: "Log",
  *             backup: {
  *                 frequencyInMinutes: 15,
  *             },
  *             simpleRetention: {
  *                 count: 8,
  *             },
+ *             policyType: "Log",
  *         },
  *     ],
+ *     name: "example-bpvmw",
+ *     resourceGroupName: example.name,
+ *     recoveryVaultName: exampleVault.name,
+ *     workloadType: "SQLDataBase",
  * });
  * ```
  *

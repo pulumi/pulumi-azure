@@ -52,14 +52,14 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleHub = new azure.aifoundry.Hub("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "exampleaihub",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountId: exampleAccount.id,
  *     keyVaultId: exampleKeyVault.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleProject = new azure.aifoundry.Project("example", {
  *     name: "example",

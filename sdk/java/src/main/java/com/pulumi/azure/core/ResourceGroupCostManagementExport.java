@@ -71,12 +71,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceGroupCostManagementExport = new ResourceGroupCostManagementExport("exampleResourceGroupCostManagementExport", ResourceGroupCostManagementExportArgs.builder()
- *             .name("example")
- *             .resourceGroupId(example.id())
- *             .recurrenceType("Monthly")
- *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
- *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
- *             .fileFormat("Csv")
  *             .exportDataStorageLocation(ResourceGroupCostManagementExportExportDataStorageLocationArgs.builder()
  *                 .containerId(exampleContainer.id())
  *                 .rootFolderPath("/root/updated")
@@ -85,6 +79,12 @@ import javax.annotation.Nullable;
  *                 .type("Usage")
  *                 .timeFrame("WeekToDate")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupId(example.id())
+ *             .recurrenceType("Monthly")
+ *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
+ *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
+ *             .fileFormat("Csv")
  *             .build());
  * 
  *     }

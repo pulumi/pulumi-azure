@@ -58,12 +58,6 @@ import (
 //				return err
 //			}
 //			_, err = core.NewSubscriptionCostManagementExport(ctx, "example", &core.SubscriptionCostManagementExportArgs{
-//				Name:                      pulumi.String("example"),
-//				SubscriptionId:            pulumi.String(example.Id),
-//				RecurrenceType:            pulumi.String("Monthly"),
-//				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
-//				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
-//				FileFormat:                pulumi.String("Csv"),
 //				ExportDataStorageLocation: &core.SubscriptionCostManagementExportExportDataStorageLocationArgs{
 //					ContainerId:    exampleContainer.ID().ToIDOutput().ToStringOutput(),
 //					RootFolderPath: pulumi.String("/root/updated"),
@@ -72,6 +66,12 @@ import (
 //					Type:      pulumi.String("Usage"),
 //					TimeFrame: pulumi.String("WeekToDate"),
 //				},
+//				Name:                      pulumi.String("example"),
+//				SubscriptionId:            pulumi.String(example.Id),
+//				RecurrenceType:            pulumi.String("Monthly"),
+//				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
+//				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
+//				FileFormat:                pulumi.String("Csv"),
 //			})
 //			if err != nil {
 //				return err

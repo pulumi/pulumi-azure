@@ -87,8 +87,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSoftwareUpdateConfiguration = new SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", SoftwareUpdateConfigurationArgs.builder()
- *             .name("example")
- *             .automationAccountId(exampleAccount.id())
  *             .linux(SoftwareUpdateConfigurationLinuxArgs.builder()
  *                 .classificationsIncludeds("Security")
  *                 .excludedPackages("apt")
@@ -99,6 +97,8 @@ import javax.annotation.Nullable;
  *                 .source(exampleRunBook.name())
  *                 .parameters(Map.of("COMPUTER_NAME", "Foo"))
  *                 .build())
+ *             .name("example")
+ *             .automationAccountId(exampleAccount.id())
  *             .duration("PT2H2M2S")
  *             .build());
  * 

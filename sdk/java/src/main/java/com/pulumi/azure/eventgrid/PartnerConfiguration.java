@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePartnerConfiguration = new PartnerConfiguration("examplePartnerConfiguration", PartnerConfigurationArgs.builder()
- *             .resourceGroupName(example.name())
- *             .defaultMaximumExpirationTimeInDays(14)
  *             .partnerAuthorizations(PartnerConfigurationPartnerAuthorizationArgs.builder()
  *                 .partnerRegistrationId("804a11ca-ce9b-4158-8e94-3c8dc7a072ec")
  *                 .partnerName("Auth0")
  *                 .authorizationExpirationTimeInUtc("2025-02-05T00:00:00Z")
  *                 .build())
+ *             .resourceGroupName(example.name())
+ *             .defaultMaximumExpirationTimeInDays(14)
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

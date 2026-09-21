@@ -46,10 +46,6 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewCaaRecord(ctx, "example", &dns.CaaRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: dns.CaaRecordRecordArray{
 //					&dns.CaaRecordRecordArgs{
 //						Flags: pulumi.Int(0),
@@ -72,6 +68,10 @@ import (
 //						Value: pulumi.String("mailto:user@nonexisting.tld"),
 //					},
 //				},
+//				Name:              pulumi.String("test"),
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: example.Name,
+//				Ttl:               pulumi.Int(300),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

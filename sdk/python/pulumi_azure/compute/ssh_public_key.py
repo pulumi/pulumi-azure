@@ -218,7 +218,7 @@ class SshPublicKey(pulumi.CustomResource):
             name="example",
             resource_group_name="example",
             location="West Europe",
-            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
+            public_key=std.file(input="~/.ssh/id_rsa.pub")["result"])
         ```
 
         ## API Providers
@@ -265,7 +265,7 @@ class SshPublicKey(pulumi.CustomResource):
             name="example",
             resource_group_name="example",
             location="West Europe",
-            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
+            public_key=std.file(input="~/.ssh/id_rsa.pub")["result"])
         ```
 
         ## API Providers

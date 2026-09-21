@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("some-app-service-plan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("some-app-service-plan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()

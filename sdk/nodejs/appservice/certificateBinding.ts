@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "appserviceplan",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         tier: "Premium",
  *         size: "P1",
  *     },
+ *     name: "appserviceplan",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAppService = new azure.appservice.AppService("example", {
  *     name: "mywebapp",
@@ -45,16 +45,16 @@ import * as utilities from "../utilities";
  *     record: exampleAppService.defaultSiteHostname,
  * });
  * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
+ *     records: [{
+ *         value: exampleAppService.customDomainVerificationId,
+ *     }],
  *     name: pulumi.interpolate`asuid.${exampleCNameRecord.name}`,
  *     zoneName: example.name,
  *     resourceGroupName: example.resourceGroupName,
  *     ttl: 300,
- *     records: [{
- *         value: exampleAppService.customDomainVerificationId,
- *     }],
  * });
  * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
- *     hostname: std.trimOutput({
+ *     hostname: std.trim({
  *         input: exampleCNameRecord.fqdn,
  *         cutset: ".",
  *     }).result,
@@ -62,6 +62,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * }, {
  *     dependsOn: [exampleTxtRecord],
+ *     ignoreChanges: [
+ *         "sslState",
+ *         "thumbprint",
+ *     ],
  * });
  * const exampleManagedCertificate = new azure.appservice.ManagedCertificate("example", {customHostnameBindingId: exampleCustomHostnameBinding.id});
  * const exampleCertificateBinding = new azure.appservice.CertificateBinding("example", {

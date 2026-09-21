@@ -1065,12 +1065,6 @@ class Pool(pulumi.CustomResource):
                 "env": "test",
             })
         example_pool = azure.batch.Pool("example",
-            name="testaccpool",
-            resource_group_name=example.name,
-            account_name=example_account2.name,
-            display_name="Test Acc Pool Auto",
-            vm_size="STANDARD_A1_V2",
-            node_agent_sku_id="batch.node.ubuntu 20.04",
             auto_scale={
                 "evaluation_interval": "PT15M",
                 "formula": \"\"\"      startingNumberOfVMs = 1;
@@ -1087,27 +1081,33 @@ class Pool(pulumi.CustomResource):
                 "version": "latest",
             },
             container_configuration={
-                "type": "DockerCompatible",
                 "container_registries": [{
                     "registry_server": "docker.io",
                     "user_name": "login",
                     "password": "apassword",
                 }],
+                "type": "DockerCompatible",
             },
             start_task={
-                "command_line": "echo 'Hello World from $env'",
-                "task_retry_maximum": 1,
-                "wait_for_success": True,
-                "common_environment_properties": {
-                    "env": "TEST",
-                },
                 "user_identity": {
                     "auto_user": {
                         "elevation_level": "NonAdmin",
                         "scope": "Task",
                     },
                 },
-            })
+                "command_line": "echo 'Hello World from $env'",
+                "task_retry_maximum": 1,
+                "wait_for_success": True,
+                "common_environment_properties": {
+                    "env": "TEST",
+                },
+            },
+            name="testaccpool",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
+            display_name="Test Acc Pool Auto",
+            vm_size="STANDARD_A1_V2",
+            node_agent_sku_id="batch.node.ubuntu 20.04")
         ```
 
         ## API Providers
@@ -1195,12 +1195,6 @@ class Pool(pulumi.CustomResource):
                 "env": "test",
             })
         example_pool = azure.batch.Pool("example",
-            name="testaccpool",
-            resource_group_name=example.name,
-            account_name=example_account2.name,
-            display_name="Test Acc Pool Auto",
-            vm_size="STANDARD_A1_V2",
-            node_agent_sku_id="batch.node.ubuntu 20.04",
             auto_scale={
                 "evaluation_interval": "PT15M",
                 "formula": \"\"\"      startingNumberOfVMs = 1;
@@ -1217,27 +1211,33 @@ class Pool(pulumi.CustomResource):
                 "version": "latest",
             },
             container_configuration={
-                "type": "DockerCompatible",
                 "container_registries": [{
                     "registry_server": "docker.io",
                     "user_name": "login",
                     "password": "apassword",
                 }],
+                "type": "DockerCompatible",
             },
             start_task={
-                "command_line": "echo 'Hello World from $env'",
-                "task_retry_maximum": 1,
-                "wait_for_success": True,
-                "common_environment_properties": {
-                    "env": "TEST",
-                },
                 "user_identity": {
                     "auto_user": {
                         "elevation_level": "NonAdmin",
                         "scope": "Task",
                     },
                 },
-            })
+                "command_line": "echo 'Hello World from $env'",
+                "task_retry_maximum": 1,
+                "wait_for_success": True,
+                "common_environment_properties": {
+                    "env": "TEST",
+                },
+            },
+            name="testaccpool",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
+            display_name="Test Acc Pool Auto",
+            vm_size="STANDARD_A1_V2",
+            node_agent_sku_id="batch.node.ubuntu 20.04")
         ```
 
         ## API Providers

@@ -43,11 +43,6 @@ namespace Pulumi.Azure.Bot
     /// 
     ///     var exampleChannelFacebook = new Azure.Bot.ChannelFacebook("example", new()
     ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         FacebookApplicationId = "563490254873576",
-    ///         FacebookApplicationSecret = "8976d2536445ad5b976dee8437b9beb0",
     ///         Pages = new[]
     ///         {
     ///             new Azure.Bot.Inputs.ChannelFacebookPageArgs
@@ -56,6 +51,11 @@ namespace Pulumi.Azure.Bot
     ///                 AccessToken = "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
     ///             },
     ///         },
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         FacebookApplicationId = "563490254873576",
+    ///         FacebookApplicationSecret = "8976d2536445ad5b976dee8437b9beb0",
     ///     });
     /// 
     /// });

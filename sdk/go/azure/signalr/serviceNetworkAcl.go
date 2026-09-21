@@ -39,13 +39,13 @@ import (
 //				return err
 //			}
 //			exampleService, err := signalr.NewService(ctx, "example", &signalr.ServiceArgs{
-//				Name:              pulumi.String("example-signalr"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &signalr.ServiceSkuArgs{
 //					Name:     pulumi.String("Standard_S1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example-signalr"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -74,10 +74,6 @@ import (
 //				return err
 //			}
 //			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
-//				Name:              pulumi.String("example-privateendpoint"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.String("psc-sig-test"),
 //					IsManualConnection:          pulumi.Bool(false),
@@ -86,13 +82,15 @@ import (
 //						pulumi.String("signalr"),
 //					},
 //				},
+//				Name:              pulumi.String("example-privateendpoint"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = signalr.NewServiceNetworkAcl(ctx, "example", &signalr.ServiceNetworkAclArgs{
-//				SignalrServiceId: exampleService.ID().ToIDOutput().ToStringOutput(),
-//				DefaultAction:    pulumi.String("Deny"),
 //				PublicNetwork: &signalr.ServiceNetworkAclPublicNetworkArgs{
 //					AllowedRequestTypes: pulumi.StringArray{
 //						pulumi.String("ClientConnection"),
@@ -106,6 +104,8 @@ import (
 //						},
 //					},
 //				},
+//				SignalrServiceId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				DefaultAction:    pulumi.String("Deny"),
 //			})
 //			if err != nil {
 //				return err

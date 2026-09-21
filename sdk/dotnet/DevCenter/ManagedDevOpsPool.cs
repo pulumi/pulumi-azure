@@ -45,11 +45,6 @@ namespace Pulumi.Azure.DevCenter
     /// 
     ///     var exampleManagedDevOpsPool = new Azure.DevCenter.ManagedDevOpsPool("example", new()
     ///     {
-    ///         Name = "example-manageddevopspools",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         DevCenterProjectId = exampleProject.Id,
-    ///         MaximumConcurrency = 1,
     ///         AzureDevopsOrganization = new Azure.DevCenter.Inputs.ManagedDevOpsPoolAzureDevopsOrganizationArgs
     ///         {
     ///             Organizations = new[]
@@ -64,7 +59,6 @@ namespace Pulumi.Azure.DevCenter
     ///         StatelessAgent = null,
     ///         VirtualMachineScaleSetFabric = new Azure.DevCenter.Inputs.ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs
     ///         {
-    ///             SkuName = "Standard_D2ads_v5",
     ///             Images = new[]
     ///             {
     ///                 new Azure.DevCenter.Inputs.ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs
@@ -72,7 +66,13 @@ namespace Pulumi.Azure.DevCenter
     ///                     WellKnownImageName = "ubuntu-24.04/buffer",
     ///                 },
     ///             },
+    ///             SkuName = "Standard_D2ads_v5",
     ///         },
+    ///         Name = "example-manageddevopspools",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         DevCenterProjectId = exampleProject.Id,
+    ///         MaximumConcurrency = 1,
     ///     });
     /// 
     /// });

@@ -70,26 +70,19 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -129,6 +122,13 @@ namespace Pulumi.Azure.DataProtection
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var exampleSecret = new Azure.KeyVault.Secret("example", new()

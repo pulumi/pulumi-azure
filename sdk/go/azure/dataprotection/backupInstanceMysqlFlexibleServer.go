@@ -52,15 +52,15 @@ import (
 //				return err
 //			}
 //			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Identity: &dataprotection.BackupVaultIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example-backupvault"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
 //				SoftDelete:        pulumi.String("Off"),
-//				Identity: &dataprotection.BackupVaultIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -82,11 +82,6 @@ import (
 //				return err
 //			}
 //			exampleBackupPolicyMysqlFlexibleServer, err := dataprotection.NewBackupPolicyMysqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyMysqlFlexibleServerArgs{
-//				Name:    pulumi.String("example-dp"),
-//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				BackupRepeatingTimeIntervals: pulumi.StringArray{
-//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
-//				},
 //				DefaultRetentionRule: &dataprotection.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs{
 //					LifeCycles: dataprotection.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArray{
 //						&dataprotection.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{
@@ -94,6 +89,11 @@ import (
 //							DataStoreType: pulumi.String("VaultStore"),
 //						},
 //					},
+//				},
+//				Name:    pulumi.String("example-dp"),
+//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAssignment,

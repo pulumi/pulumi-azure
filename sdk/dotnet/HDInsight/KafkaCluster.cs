@@ -46,11 +46,6 @@ namespace Pulumi.Azure.HDInsight
     /// 
     ///     var exampleKafkaCluster = new Azure.HDInsight.KafkaCluster("example", new()
     ///     {
-    ///         Name = "example-hdicluster",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ClusterVersion = "4.0",
-    ///         Tier = "Standard",
     ///         ComponentVersion = new Azure.HDInsight.Inputs.KafkaClusterComponentVersionArgs
     ///         {
     ///             Kafka = "2.1",
@@ -59,15 +54,6 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             Username = "acctestusrgw",
     ///             Password = "Password123!",
-    ///         },
-    ///         StorageAccounts = new[]
-    ///         {
-    ///             new Azure.HDInsight.Inputs.KafkaClusterStorageAccountArgs
-    ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
-    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                 IsDefault = true,
-    ///             },
     ///         },
     ///         Roles = new Azure.HDInsight.Inputs.KafkaClusterRolesArgs
     ///         {
@@ -92,6 +78,20 @@ namespace Pulumi.Azure.HDInsight
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
     ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.KafkaClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Name = "example-hdicluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterVersion = "4.0",
+    ///         Tier = "Standard",
     ///     });
     /// 
     /// });

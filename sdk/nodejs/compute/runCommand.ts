@@ -32,14 +32,14 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example-nic",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
  *     name: "example-uai",
@@ -47,14 +47,6 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "example-VM",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     size: "Standard_B2s",
- *     adminUsername: "adminuser",
- *     adminPassword: "P@$$w0rd1234!",
- *     disablePasswordAuthentication: false,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Premium_LRS",
@@ -69,6 +61,14 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned, UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "example-VM",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_B2s",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@$$w0rd1234!",
+ *     disablePasswordAuthentication: false,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "exampleaccount",
@@ -107,11 +107,6 @@ import * as utilities from "../utilities";
  *     type: "Append",
  * });
  * const example = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     signedVersion: "2019-10-10",
- *     start: "2023-04-01T00:00:00Z",
- *     expiry: "2024-04-01T00:00:00Z",
  *     resourceTypes: {
  *         service: false,
  *         container: false,
@@ -135,30 +130,28 @@ import * as utilities from "../utilities";
  *         tag: false,
  *         filter: false,
  *     },
+ *     connectionString: exampleAccount.primaryConnectionString,
+ *     httpsOnly: true,
+ *     signedVersion: "2019-10-10",
+ *     start: "2023-04-01T00:00:00Z",
+ *     expiry: "2024-04-01T00:00:00Z",
  * });
  * // basic example
  * const exampleRunCommand = new azure.compute.RunCommand("example", {
- *     name: "example-vmrc",
- *     location: exampleResourceGroup.location,
- *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     source: {
  *         script: "echo 'hello world'",
  *     },
+ *     name: "example-vmrc",
+ *     location: exampleResourceGroup.location,
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
  * });
  * // authorize to storage blob using user assigned identity
  * const example2RunCommand = new azure.compute.RunCommand("example2", {
- *     location: exampleResourceGroup.location,
- *     name: "example2-vmrc",
- *     virtualMachineId: exampleLinuxVirtualMachine.id,
- *     outputBlobUri: example2.id,
- *     errorBlobUri: example3.id,
- *     runAsPassword: "P@$$w0rd1234!",
- *     runAsUser: "adminuser",
  *     source: {
- *         scriptUri: example1.id,
  *         scriptUriManagedIdentity: {
  *             clientId: exampleUserAssignedIdentity.clientId,
  *         },
+ *         scriptUri: example1.id,
  *     },
  *     errorBlobManagedIdentity: {
  *         clientId: exampleUserAssignedIdentity.clientId,
@@ -174,6 +167,13 @@ import * as utilities from "../utilities";
  *         name: "examplev2",
  *         value: "val2",
  *     }],
+ *     location: exampleResourceGroup.location,
+ *     name: "example2-vmrc",
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
+ *     outputBlobUri: example2.id,
+ *     errorBlobUri: example3.id,
+ *     runAsPassword: "P@$$w0rd1234!",
+ *     runAsUser: "adminuser",
  *     tags: {
  *         environment: "terraform-examples",
  *         some_key: "some-value",
@@ -183,13 +183,6 @@ import * as utilities from "../utilities";
  * });
  * // authorize to storage blob using SAS token
  * const example3RunCommand = new azure.compute.RunCommand("example3", {
- *     location: exampleResourceGroup.location,
- *     name: "example3-vmrc",
- *     virtualMachineId: exampleLinuxVirtualMachine.id,
- *     runAsPassword: "P@$$w0rd1234!",
- *     runAsUser: "adminuser",
- *     errorBlobUri: pulumi.interpolate`${example3.id}${example.sas}`,
- *     outputBlobUri: pulumi.interpolate`${example2.id}${example.sas}`,
  *     source: {
  *         scriptUri: pulumi.interpolate`${example1.id}${example.sas}`,
  *     },
@@ -197,6 +190,13 @@ import * as utilities from "../utilities";
  *         name: "example-vm1",
  *         value: "val1",
  *     }],
+ *     location: exampleResourceGroup.location,
+ *     name: "example3-vmrc",
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
+ *     runAsPassword: "P@$$w0rd1234!",
+ *     runAsUser: "adminuser",
+ *     errorBlobUri: pulumi.interpolate`${example3.id}${example.sas}`,
+ *     outputBlobUri: pulumi.interpolate`${example2.id}${example.sas}`,
  *     tags: {
  *         environment: "terraform-example-s",
  *         some_key: "some-value",

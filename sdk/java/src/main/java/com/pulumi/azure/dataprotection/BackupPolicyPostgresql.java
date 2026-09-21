@@ -65,34 +65,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql("exampleBackupPolicyPostgresql", BackupPolicyPostgresqlArgs.builder()
- *             .name("example-backup-policy")
- *             .resourceGroupName(example.name())
- *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
- *             .timeZone("India Standard Time")
- *             .defaultRetentionDuration("P4M")
  *             .retentionRules(            
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name("weekly")
- *                     .duration("P6M")
- *                     .priority(20)
  *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
  *                         .absoluteCriteria("FirstOfWeek")
  *                         .build())
+ *                     .name("weekly")
+ *                     .duration("P6M")
+ *                     .priority(20)
  *                     .build(),
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name("thursday")
- *                     .duration("P1W")
- *                     .priority(25)
  *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
  *                         .daysOfWeeks("Thursday")
  *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
+ *                     .name("thursday")
+ *                     .duration("P1W")
+ *                     .priority(25)
  *                     .build(),
  *                 BackupPolicyPostgresqlRetentionRuleArgs.builder()
- *                     .name("monthly")
- *                     .duration("P1D")
- *                     .priority(15)
  *                     .criteria(BackupPolicyPostgresqlRetentionRuleCriteriaArgs.builder()
  *                         .weeksOfMonths(                        
  *                             "First",
@@ -100,7 +91,16 @@ import javax.annotation.Nullable;
  *                         .daysOfWeeks("Tuesday")
  *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
+ *                     .name("monthly")
+ *                     .duration("P1D")
+ *                     .priority(15)
  *                     .build())
+ *             .name("example-backup-policy")
+ *             .resourceGroupName(example.name())
+ *             .vaultName(exampleBackupVault.name())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
  *             .build());
  * 
  *     }

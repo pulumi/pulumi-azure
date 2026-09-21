@@ -103,7 +103,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.CidrsubnetArgs;
  * import com.pulumi.azure.network.VirtualNetworkPeering;
  * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
@@ -150,11 +149,11 @@ import javax.annotation.Nullable;
  *                 .name("nva")
  *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])
  *                 .virtualNetworkName(vnet.stream().map(element -> element.name()).collect(toList())[range.value()])
- *                 .addressPrefix(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
- *                     .input(vnet[range.value()].addressSpace()[range.value()])
- *                     .newbits(13)
- *                     .netnum(0)
- *                     .build()).result())
+ *                 .addressPrefix(StdFunctions.cidrsubnet(Map.ofEntries(
+ *                     Map.entry("input", vnet[range.value()].addressSpace()[range.value()]),
+ *                     Map.entry("newbits", 13),
+ *                     Map.entry("netnum", 0)
+ *                 )).result())
  *                 .build());
  * 
  *         
@@ -194,7 +193,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkPeering;
  * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -232,10 +230,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
  *             .remoteVirtualNetworkId(example_2.id())
- *             .triggers(Map.of("remote_address_space", StdFunctions.join(JoinArgs.builder()
- *                 .separator(",")
- *                 .input(example_2.addressSpaces())
- *                 .build()).applyValue(_invoke -> _invoke.result())))
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", ","),
+ *                 Map.entry("input", example_2.addressSpaces())
+ *             )).result()))
  *             .build());
  * 
  *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
@@ -243,10 +241,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())
  *             .remoteVirtualNetworkId(example_1.id())
- *             .triggers(Map.of("remote_address_space", StdFunctions.join(JoinArgs.builder()
- *                 .separator(",")
- *                 .input(example_1.addressSpaces())
- *                 .build()).applyValue(_invoke -> _invoke.result())))
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", ","),
+ *                 Map.entry("input", example_1.addressSpaces())
+ *             )).result()))
  *             .build());
  * 
  *     }

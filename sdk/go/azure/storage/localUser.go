@@ -56,21 +56,6 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewLocalUser(ctx, "example", &storage.LocalUserArgs{
-//				Name:               pulumi.String("user1"),
-//				StorageAccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				SshKeyEnabled:      pulumi.Bool(true),
-//				SshPasswordEnabled: pulumi.Bool(true),
-//				HomeDirectory:      pulumi.String("example_path"),
-//				SshAuthorizedKeys: storage.LocalUserSshAuthorizedKeyArray{
-//					&storage.LocalUserSshAuthorizedKeyArgs{
-//						Description: pulumi.String("key1"),
-//						Key:         pulumi.Any(firstPublicKey),
-//					},
-//					&storage.LocalUserSshAuthorizedKeyArgs{
-//						Description: pulumi.String("key2"),
-//						Key:         pulumi.Any(secondPublicKey),
-//					},
-//				},
 //				PermissionScopes: storage.LocalUserPermissionScopeArray{
 //					&storage.LocalUserPermissionScopeArgs{
 //						Permissions: &storage.LocalUserPermissionScopePermissionsArgs{
@@ -81,6 +66,21 @@ import (
 //						ResourceName: exampleContainer.Name,
 //					},
 //				},
+//				SshAuthorizedKeys: storage.LocalUserSshAuthorizedKeyArray{
+//					&storage.LocalUserSshAuthorizedKeyArgs{
+//						Description: pulumi.String("key1"),
+//						Key:         pulumi.Any(firstPublicKey),
+//					},
+//					&storage.LocalUserSshAuthorizedKeyArgs{
+//						Description: pulumi.String("key2"),
+//						Key:         pulumi.Any(secondPublicKey),
+//					},
+//				},
+//				Name:               pulumi.String("user1"),
+//				StorageAccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				SshKeyEnabled:      pulumi.Bool(true),
+//				SshPasswordEnabled: pulumi.Bool(true),
+//				HomeDirectory:      pulumi.String("example_path"),
 //			})
 //			if err != nil {
 //				return err

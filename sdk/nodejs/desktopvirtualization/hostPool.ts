@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleHostPool = new azure.desktopvirtualization.HostPool("example", {
+ *     scheduledAgentUpdates: {
+ *         schedules: [{
+ *             dayOfWeek: "Saturday",
+ *             hourOfDay: 2,
+ *         }],
+ *         enabled: true,
+ *     },
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     name: "pooleddepthfirst",
@@ -31,13 +38,6 @@ import * as utilities from "../utilities";
  *     type: "Pooled",
  *     maximumSessionsAllowed: 50,
  *     loadBalancerType: "DepthFirst",
- *     scheduledAgentUpdates: {
- *         enabled: true,
- *         schedules: [{
- *             dayOfWeek: "Saturday",
- *             hourOfDay: 2,
- *         }],
- *     },
  * });
  * ```
  *

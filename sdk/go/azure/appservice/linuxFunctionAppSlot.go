@@ -58,21 +58,21 @@ import (
 //				return err
 //			}
 //			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "example", &appservice.LinuxFunctionAppArgs{
+//				SiteConfig:         &appservice.LinuxFunctionAppSiteConfigArgs{},
 //				Name:               pulumi.String("example-linux-function-app"),
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
 //				ServicePlanId:      exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName: exampleAccount.Name,
-//				SiteConfig:         &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewLinuxFunctionAppSlot(ctx, "example", &appservice.LinuxFunctionAppSlotArgs{
+//				SiteConfig:         &appservice.LinuxFunctionAppSlotSiteConfigArgs{},
 //				Name:               pulumi.String("example-linux-function-app-slot"),
 //				FunctionAppId:      exampleLinuxFunctionApp.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName: exampleAccount.Name,
-//				SiteConfig:         &appservice.LinuxFunctionAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

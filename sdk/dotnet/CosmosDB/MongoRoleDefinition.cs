@@ -30,11 +30,10 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "example-ca",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "MongoDB",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
     ///         Capabilities = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
@@ -46,10 +45,6 @@ namespace Pulumi.Azure.CosmosDB
     ///                 Name = "EnableMongoRoleBasedAccessControl",
     ///             },
     ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "Strong",
-    ///         },
     ///         GeoLocations = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
@@ -58,6 +53,11 @@ namespace Pulumi.Azure.CosmosDB
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "example-ca",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "MongoDB",
     ///     });
     /// 
     ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("example", new()

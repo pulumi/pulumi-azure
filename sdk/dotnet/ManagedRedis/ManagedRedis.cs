@@ -30,14 +30,14 @@ namespace Pulumi.Azure.ManagedRedis
     /// 
     ///     var exampleManagedRedis = new Azure.ManagedRedis.ManagedRedis("example", new()
     ///     {
-    ///         Name = "example-managed-redis",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SkuName = "Balanced_B3",
     ///         DefaultDatabase = new Azure.ManagedRedis.Inputs.ManagedRedisDefaultDatabaseArgs
     ///         {
     ///             GeoReplicationGroupName = "myGeoGroup",
     ///         },
+    ///         Name = "example-managed-redis",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "Balanced_B3",
     ///     });
     /// 
     /// });
@@ -70,13 +70,6 @@ namespace Pulumi.Azure.ManagedRedis
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         PurgeProtectionEnabled = true,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -108,6 +101,13 @@ namespace Pulumi.Azure.ManagedRedis
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
@@ -125,10 +125,6 @@ namespace Pulumi.Azure.ManagedRedis
     /// 
     ///     var exampleManagedRedis = new Azure.ManagedRedis.ManagedRedis("example", new()
     ///     {
-    ///         Name = "example-managed-redis",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SkuName = "Balanced_B3",
     ///         Identity = new Azure.ManagedRedis.Inputs.ManagedRedisIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -146,6 +142,10 @@ namespace Pulumi.Azure.ManagedRedis
     ///         {
     ///             GeoReplicationGroupName = "myGeoGroup",
     ///         },
+    ///         Name = "example-managed-redis",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "Balanced_B3",
     ///     });
     /// 
     /// });

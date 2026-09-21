@@ -21,6 +21,10 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleDefinition = new azure.managedapplication.Definition("example", {
+ *     authorizations: [{
+ *         servicePrincipalId: current.then(current => current.objectId),
+ *         roleDefinitionId: "a094b430-dad3-424d-ae58-13f72fd72591",
+ *     }],
  *     name: "examplemanagedapplicationdefinition",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -28,10 +32,6 @@ import * as utilities from "../utilities";
  *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
  *     displayName: "TestManagedApplicationDefinition",
  *     description: "Test Managed Application Definition",
- *     authorizations: [{
- *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: "a094b430-dad3-424d-ae58-13f72fd72591",
- *     }],
  * });
  * ```
  *

@@ -264,15 +264,15 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="example-ercircuit",
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=float(5),
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            })
+            bandwidth_in_gbps=float(5))
         example2 = azure.network.ExpressRoutePort("example2",
             name="example-erport2",
             resource_group_name=example.name,
@@ -281,15 +281,15 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         example2_express_route_circuit = azure.network.ExpressRouteCircuit("example2",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="example-ercircuit2",
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example2.id,
-            bandwidth_in_gbps=float(5),
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            })
+            bandwidth_in_gbps=float(5))
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
@@ -369,15 +369,15 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="example-ercircuit",
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=float(5),
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            })
+            bandwidth_in_gbps=float(5))
         example2 = azure.network.ExpressRoutePort("example2",
             name="example-erport2",
             resource_group_name=example.name,
@@ -386,15 +386,15 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         example2_express_route_circuit = azure.network.ExpressRouteCircuit("example2",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="example-ercircuit2",
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example2.id,
-            bandwidth_in_gbps=float(5),
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            })
+            bandwidth_in_gbps=float(5))
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,

@@ -67,10 +67,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBudgetResourceGroup = new BudgetResourceGroup("exampleBudgetResourceGroup", BudgetResourceGroupArgs.builder()
- *             .name("example")
- *             .resourceGroupId(example.id())
- *             .amount(1000.0)
- *             .timeGrain("Monthly")
  *             .timePeriod(BudgetResourceGroupTimePeriodArgs.builder()
  *                 .startDate("2022-06-01T00:00:00Z")
  *                 .endDate("2022-07-01T00:00:00Z")
@@ -107,6 +103,10 @@ import javax.annotation.Nullable;
  *                         "foo}{@literal @}{@code example.com",
  *                         "bar}{@literal @}{@code example.com")
  *                     .build())
+ *             .name("example")
+ *             .resourceGroupId(example.id())
+ *             .amount(1000.0)
+ *             .timeGrain("Monthly")
  *             .build());
  * 
  *     }}{@code

@@ -45,12 +45,12 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewCapacityReservation(ctx, "example", &compute.CapacityReservationArgs{
-//				Name:                       pulumi.String("example-capacity-reservation"),
-//				CapacityReservationGroupId: exampleCapacityReservationGroup.ID().ToIDOutput().ToStringOutput(),
 //				Sku: &compute.CapacityReservationSkuArgs{
 //					Name:     pulumi.String("Standard_D2s_v3"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:                       pulumi.String("example-capacity-reservation"),
+//				CapacityReservationGroupId: exampleCapacityReservationGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

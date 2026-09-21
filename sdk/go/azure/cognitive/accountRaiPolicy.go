@@ -47,9 +47,6 @@ import (
 //				return err
 //			}
 //			_, err = cognitive.NewAccountRaiPolicy(ctx, "example", &cognitive.AccountRaiPolicyArgs{
-//				Name:               pulumi.String("example-rai-policy"),
-//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				BasePolicyName:     pulumi.String("Microsoft.Default"),
 //				ContentFilters: cognitive.AccountRaiPolicyContentFilterArray{
 //					&cognitive.AccountRaiPolicyContentFilterArgs{
 //						Name:              pulumi.String("Hate"),
@@ -59,6 +56,9 @@ import (
 //						Source:            pulumi.String("Prompt"),
 //					},
 //				},
+//				Name:               pulumi.String("example-rai-policy"),
+//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				BasePolicyName:     pulumi.String("Microsoft.Default"),
 //			})
 //			if err != nil {
 //				return err

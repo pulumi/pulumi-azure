@@ -750,15 +750,15 @@ class Metadata(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="pergb2018")
         example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/SecurityInsights",
+            },
             solution_name="SecurityInsights",
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan={
-                "publisher": "Microsoft",
-                "product": "OMSGallery/SecurityInsights",
-            })
+            workspace_name=example_analytics_workspace.name)
         example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("example",
             name="example",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
@@ -841,15 +841,15 @@ class Metadata(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="pergb2018")
         example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/SecurityInsights",
+            },
             solution_name="SecurityInsights",
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan={
-                "publisher": "Microsoft",
-                "product": "OMSGallery/SecurityInsights",
-            })
+            workspace_name=example_analytics_workspace.name)
         example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("example",
             name="example",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,

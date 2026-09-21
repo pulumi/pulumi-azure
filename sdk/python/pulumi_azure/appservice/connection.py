@@ -268,11 +268,6 @@ class Connection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
                 "max_interval_in_seconds": 10,
@@ -281,7 +276,12 @@ class Connection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -300,18 +300,18 @@ class Connection(pulumi.CustomResource):
             sku_name="P1v2",
             os_type="Linux")
         example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            site_config={},
             location=example.location,
             name="example-linuxwebapp",
             resource_group_name=example.name,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_connection = azure.appservice.Connection("example",
-            name="example-serviceconnector",
-            app_service_id=example_linux_web_app.id,
-            target_resource_id=example_sql_database.id,
             authentication={
                 "type": "systemAssignedIdentity",
-            })
+            },
+            name="example-serviceconnector",
+            app_service_id=example_linux_web_app.id,
+            target_resource_id=example_sql_database.id)
         ```
 
         ## API Providers
@@ -358,11 +358,6 @@ class Connection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
                 "max_interval_in_seconds": 10,
@@ -371,7 +366,12 @@ class Connection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -390,18 +390,18 @@ class Connection(pulumi.CustomResource):
             sku_name="P1v2",
             os_type="Linux")
         example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            site_config={},
             location=example.location,
             name="example-linuxwebapp",
             resource_group_name=example.name,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_connection = azure.appservice.Connection("example",
-            name="example-serviceconnector",
-            app_service_id=example_linux_web_app.id,
-            target_resource_id=example_sql_database.id,
             authentication={
                 "type": "systemAssignedIdentity",
-            })
+            },
+            name="example-serviceconnector",
+            app_service_id=example_linux_web_app.id,
+            target_resource_id=example_sql_database.id)
         ```
 
         ## API Providers

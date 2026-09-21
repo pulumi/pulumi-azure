@@ -254,13 +254,13 @@ class CustomHostnameBinding(pulumi.CustomResource):
             name="some-resource-group",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="some-app-service-plan",
+            location=example.location,
+            resource_group_name=example.name)
         example_app_service = azure.appservice.AppService("example",
             name=server["hex"],
             location=example.location,
@@ -325,13 +325,13 @@ class CustomHostnameBinding(pulumi.CustomResource):
             name="some-resource-group",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="some-app-service-plan",
+            location=example.location,
+            resource_group_name=example.name)
         example_app_service = azure.appservice.AppService("example",
             name=server["hex"],
             location=example.location,

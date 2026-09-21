@@ -222,17 +222,17 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
             location=example.location,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="outbounddns",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.64/28"],
             delegations=[{
-                "name": "Microsoft.Network.dnsResolvers",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
-            }])
+                "name": "Microsoft.Network.dnsResolvers",
+            }],
+            name="outbounddns",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.64/28"])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,
@@ -304,17 +304,17 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
             location=example.location,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="outbounddns",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.64/28"],
             delegations=[{
-                "name": "Microsoft.Network.dnsResolvers",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
-            }])
+                "name": "Microsoft.Network.dnsResolvers",
+            }],
+            name="outbounddns",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.64/28"])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,

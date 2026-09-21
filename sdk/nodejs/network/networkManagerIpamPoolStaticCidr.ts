@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-nm",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-nm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleNetworkManagerIpamPool = new azure.network.NetworkManagerIpamPool("example", {
  *     name: "example-ipampool",

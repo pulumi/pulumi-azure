@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Data = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });
@@ -76,16 +76,16 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
+    ///         Identity = new Azure.ApiManagement.Inputs.ServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-apim",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
-    ///         Identity = new Azure.ApiManagement.Inputs.ServiceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
@@ -115,14 +115,12 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "example-cert",
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "example_cert.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "terraform",
     ///         },
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
@@ -143,6 +141,8 @@ namespace Pulumi.Azure.ApiManagement
     ///                 ContentType = "application/x-pkcs12",
     ///             },
     ///         },
+    ///         Name = "example-cert",
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
     ///     var exampleCertificate2 = new Azure.ApiManagement.Certificate("example", new()

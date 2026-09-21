@@ -57,8 +57,6 @@ import * as utilities from "../utilities";
  *     systemCenterVirtualMachineManagerServerInventoryItemId: example2.apply(example2 => example2.inventoryItems?.[0]?.id),
  * });
  * const exampleVirtualMachineManagerVirtualMachineInstance = new azure.systemcenter.VirtualMachineManagerVirtualMachineInstance("example", {
- *     scopedResourceId: exampleArcMachine.id,
- *     customLocationId: exampleVirtualMachineManagerServer.customLocationId,
  *     infrastructure: {
  *         systemCenterVirtualMachineManagerCloudId: exampleVirtualMachineManagerCloud.id,
  *         systemCenterVirtualMachineManagerTemplateId: exampleVirtualMachineManagerVirtualMachineTemplate.id,
@@ -71,6 +69,10 @@ import * as utilities from "../utilities";
  *         cpuCount: 1,
  *         memoryInMb: 1024,
  *     },
+ *     scopedResourceId: exampleArcMachine.id,
+ *     customLocationId: exampleVirtualMachineManagerServer.customLocationId,
+ * }, {
+ *     ignoreChanges: ["storageDisks"],
  * });
  * ```
  *

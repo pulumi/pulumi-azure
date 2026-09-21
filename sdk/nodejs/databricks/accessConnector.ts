@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccessConnector = new azure.databricks.AccessConnector("example", {
- *     name: "example-resource",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-resource",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     tags: {
  *         Environment: "Production",
  *     },

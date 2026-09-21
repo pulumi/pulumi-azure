@@ -41,13 +41,13 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("api-appserviceplan-pro"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
 //				},
+//				Name:              pulumi.String("api-appserviceplan-pro"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -81,14 +81,14 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("api-appserviceplan-pro"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("FunctionApp"),
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Dynamic"),
 //					Size: pulumi.String("Y1"),
 //				},
+//				Name:              pulumi.String("api-appserviceplan-pro"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Kind:              pulumi.Any("FunctionApp"),
 //			})
 //			if err != nil {
 //				return err
@@ -122,15 +122,15 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
 //				Name:              pulumi.String("api-appserviceplan-pro"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("Linux"),
 //				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -164,15 +164,15 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("PremiumContainer"),
+//					Size: pulumi.String("PC2"),
+//				},
 //				Name:              pulumi.String("api-appserviceplan-pro"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("xenon"),
 //				IsXenon:           pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("PremiumContainer"),
-//					Size: pulumi.String("PC2"),
-//				},
 //			})
 //			if err != nil {
 //				return err

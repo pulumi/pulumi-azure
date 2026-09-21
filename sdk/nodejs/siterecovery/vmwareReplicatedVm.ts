@@ -57,6 +57,11 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["192.168.2.0/24"],
  * });
  * const exampleVmwareReplicatedVm = new azure.siterecovery.VmwareReplicatedVm("example", {
+ *     networkInterfaces: [{
+ *         sourceMacAddress: "00:00:00:00:00:00",
+ *         targetSubnetName: exampleSubnet.name,
+ *         isPrimary: true,
+ *     }],
  *     name: "example-vmware-vm",
  *     recoveryVaultId: exampleVault.id,
  *     sourceVmName: "example-vm",
@@ -70,11 +75,6 @@ import * as utilities from "../utilities";
  *     defaultLogStorageAccountId: exampleAccount.id,
  *     defaultRecoveryDiskType: "Standard_LRS",
  *     targetNetworkId: exampleVirtualNetwork.id,
- *     networkInterfaces: [{
- *         sourceMacAddress: "00:00:00:00:00:00",
- *         targetSubnetName: exampleSubnet.name,
- *         isPrimary: true,
- *     }],
  * });
  * ```
  *

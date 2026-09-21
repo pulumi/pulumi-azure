@@ -30,13 +30,13 @@ namespace Pulumi.Azure.Purview
     /// 
     ///     var exampleAccount = new Azure.Purview.Account("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.Purview.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

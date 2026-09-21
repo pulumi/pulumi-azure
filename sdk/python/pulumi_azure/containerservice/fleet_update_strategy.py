@@ -157,15 +157,15 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
-            name="example",
-            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
             stages=[{
-                "name": "example-stage-1",
                 "groups": [{
                     "name": "example-group-1",
                 }],
+                "name": "example-stage-1",
                 "after_stage_wait_in_seconds": 21,
-            }])
+            }],
+            name="example",
+            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id)
         ```
 
         ## API Providers
@@ -213,15 +213,15 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
-            name="example",
-            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
             stages=[{
-                "name": "example-stage-1",
                 "groups": [{
                     "name": "example-group-1",
                 }],
+                "name": "example-stage-1",
                 "after_stage_wait_in_seconds": 21,
-            }])
+            }],
+            name="example",
+            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id)
         ```
 
         ## API Providers

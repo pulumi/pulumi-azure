@@ -55,21 +55,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new KubernetesCluster("example", KubernetesClusterArgs.builder()
- *             .name("example")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .dnsPrefix("acctestaksexample")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name("example-value")
- *                 .nodeCount("example-value")
- *                 .vmSize("example-value")
  *                 .upgradeSettings(KubernetesClusterDefaultNodePoolUpgradeSettingsArgs.builder()
  *                     .maxSurge("example-value")
  *                     .build())
+ *                 .name("example-value")
+ *                 .nodeCount("example-value")
+ *                 .vmSize("example-value")
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("example-value")
  *                 .build())
+ *             .name("example")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .dnsPrefix("acctestaksexample")
  *             .build());
  * 
  *         var exampleTarget = new Target("exampleTarget", TargetArgs.builder()

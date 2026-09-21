@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -60,21 +60,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleBackupPolicyMysqlFlexibleServer = new BackupPolicyMysqlFlexibleServer("exampleBackupPolicyMysqlFlexibleServer", BackupPolicyMysqlFlexibleServerArgs.builder()
- *             .name("example-backup-policy")
- *             .vaultId(exampleBackupVault.id())
- *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
- *             .timeZone("India Standard Time")
  *             .defaultRetentionRule(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs.builder()
  *                     .duration("P4M")
@@ -83,35 +79,29 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .retentionRules(            
  *                 BackupPolicyMysqlFlexibleServerRetentionRuleArgs.builder()
- *                     .name("weekly")
+ *                     .criteria(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs.builder()
+ *                         .absoluteCriteria("FirstOfWeek")
+ *                         .build())
  *                     .lifeCycles(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
  *                         .duration("P6M")
  *                         .dataStoreType("VaultStore")
  *                         .build())
+ *                     .name("weekly")
  *                     .priority(20)
- *                     .criteria(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria("FirstOfWeek")
- *                         .build())
  *                     .build(),
  *                 BackupPolicyMysqlFlexibleServerRetentionRuleArgs.builder()
- *                     .name("thursday")
- *                     .lifeCycles(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
- *                         .duration("P1W")
- *                         .dataStoreType("VaultStore")
- *                         .build())
- *                     .priority(25)
  *                     .criteria(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs.builder()
  *                         .daysOfWeeks("Thursday")
  *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
- *                     .build(),
- *                 BackupPolicyMysqlFlexibleServerRetentionRuleArgs.builder()
- *                     .name("monthly")
  *                     .lifeCycles(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
- *                         .duration("P1D")
+ *                         .duration("P1W")
  *                         .dataStoreType("VaultStore")
  *                         .build())
- *                     .priority(15)
+ *                     .name("thursday")
+ *                     .priority(25)
+ *                     .build(),
+ *                 BackupPolicyMysqlFlexibleServerRetentionRuleArgs.builder()
  *                     .criteria(BackupPolicyMysqlFlexibleServerRetentionRuleCriteriaArgs.builder()
  *                         .weeksOfMonths(                        
  *                             "First",
@@ -119,7 +109,17 @@ import javax.annotation.Nullable;
  *                         .daysOfWeeks("Tuesday")
  *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
+ *                     .lifeCycles(BackupPolicyMysqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
+ *                         .duration("P1D")
+ *                         .dataStoreType("VaultStore")
+ *                         .build())
+ *                     .name("monthly")
+ *                     .priority(15)
  *                     .build())
+ *             .name("example-backup-policy")
+ *             .vaultId(exampleBackupVault.id())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
  *             .build());
  * 
  *     }

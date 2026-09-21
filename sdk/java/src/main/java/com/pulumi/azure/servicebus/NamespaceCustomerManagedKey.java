@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.servicebus.NamespaceCustomerManagedKey;
  * import com.pulumi.azure.servicebus.NamespaceCustomerManagedKeyArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -63,29 +64,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
+ *             .identity(NamespaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-servicebus-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Premium")
  *             .premiumMessagingPartitions(1)
  *             .capacity(1)
- *             .identity(NamespaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("customerManagedKey")
+ *                 .build());
  * 
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example-key-vault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .enabledForDiskEncryption(true)
- *             .tenantId(current.tenantId())
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(true)
- *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -121,6 +115,15 @@ import javax.annotation.Nullable;
  *                         "GetRotationPolicy")
  *                     .secretPermissions("Set")
  *                     .build())
+ *             .name("example-key-vault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(current.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(true)
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()

@@ -32,6 +32,9 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -39,9 +42,6 @@ import * as utilities from "../utilities";
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
  *     managedVirtualNetworkEnabled: true,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
  *     name: "allowAll",
@@ -55,6 +55,9 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleLinkedService = new azure.synapse.LinkedService("example", {
+ *     integrationRuntime: {
+ *         name: exampleIntegrationRuntimeAzure.name,
+ *     },
  *     name: "example",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     type: "AzureBlobStorage",
@@ -62,9 +65,6 @@ import * as utilities from "../utilities";
  *   \"connectionString\": \"${exampleAccount.primaryConnectionString}\"
  * }
  * `,
- *     integrationRuntime: {
- *         name: exampleIntegrationRuntimeAzure.name,
- *     },
  * }, {
  *     dependsOn: [exampleFirewallRule],
  * });

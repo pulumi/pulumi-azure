@@ -70,15 +70,15 @@ namespace Pulumi.Azure.AIFoundry
     /// 
     ///     var exampleHub = new Azure.AIFoundry.Hub("example", new()
     ///     {
+    ///         Identity = new Azure.AIFoundry.Inputs.HubIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "exampleaihub",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountId = exampleAccount.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
-    ///         Identity = new Azure.AIFoundry.Inputs.HubIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     /// });

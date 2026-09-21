@@ -488,12 +488,12 @@ class SpringCloudApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
-            resource_group_name=example.name,
-            service_name=example_spring_cloud_service.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-springcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
         ```
 
         ## Import
@@ -545,12 +545,12 @@ class SpringCloudApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
-            resource_group_name=example.name,
-            service_name=example_spring_cloud_service.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-springcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
         ```
 
         ## Import

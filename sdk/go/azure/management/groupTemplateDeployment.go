@@ -116,14 +116,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "templates/example-deploy-template.json",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "templates/example-deploy-template.json",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "templates/example-deploy-params.json",
+//			invokeFile1, err := std.File(ctx, map[string]string{
+//				"input": "templates/example-deploy-params.json",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -132,8 +132,8 @@ import (
 //				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
 //				ManagementGroupId: pulumi.String(example.Id),
-//				TemplateContent:   pulumi.String(invokeFile.Result),
-//				ParametersContent: pulumi.String(invokeFile1.Result),
+//				TemplateContent:   invokeFile.Result,
+//				ParametersContent: invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err

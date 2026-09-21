@@ -224,13 +224,13 @@ class ChannelDirectLine(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_direct_line = azure.bot.ChannelDirectLine("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
             sites=[{
                 "name": "default",
                 "enabled": True,
-            }])
+            }],
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -275,13 +275,13 @@ class ChannelDirectLine(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_direct_line = azure.bot.ChannelDirectLine("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
             sites=[{
                 "name": "default",
                 "enabled": True,
-            }])
+            }],
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example.name)
         ```
 
         ## Import

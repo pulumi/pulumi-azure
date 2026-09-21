@@ -30,11 +30,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "example-cosmosdb-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
     ///             ConsistencyLevel = "BoundedStaleness",
@@ -49,6 +44,11 @@ namespace Pulumi.Azure.AppService
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
     ///     });
     /// 
     ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
@@ -94,17 +94,23 @@ namespace Pulumi.Azure.AppService
     ///         AppServicePlanId = testAzurermAppServicePlan.Id,
     ///         StorageAccountName = testAzurermStorageAccount.Name,
     ///         StorageAccountAccessKey = testAzurermStorageAccount.PrimaryAccessKey,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "identity",
+    ///         },
     ///     });
     /// 
     ///     var exampleAppConnection = new Azure.AppService.AppConnection("example", new()
     ///     {
-    ///         Name = "example-serviceconnector",
-    ///         FunctionAppId = exampleAzurermFunctionApp.Id,
-    ///         TargetResourceId = testAzurermCosmosdbAccount.Id,
     ///         Authentication = new Azure.AppService.Inputs.AppConnectionAuthenticationArgs
     ///         {
     ///             Type = "systemAssignedIdentity",
     ///         },
+    ///         Name = "example-serviceconnector",
+    ///         FunctionAppId = exampleAzurermFunctionApp.Id,
+    ///         TargetResourceId = testAzurermCosmosdbAccount.Id,
     ///     });
     /// 
     /// });

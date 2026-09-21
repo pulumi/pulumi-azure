@@ -194,16 +194,16 @@ class SpringCloudBuilder(pulumi.CustomResource):
             location=example.location,
             sku_name="E0")
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
-            name="example",
-            spring_cloud_service_id=example_spring_cloud_service.id,
+            stack={
+                "id": "io.buildpacks.stacks.bionic",
+                "version": "base",
+            },
             build_pack_groups=[{
                 "name": "mix",
                 "build_pack_ids": ["tanzu-buildpacks/java-azure"],
             }],
-            stack={
-                "id": "io.buildpacks.stacks.bionic",
-                "version": "base",
-            })
+            name="example",
+            spring_cloud_service_id=example_spring_cloud_service.id)
         ```
 
         ## Import
@@ -250,16 +250,16 @@ class SpringCloudBuilder(pulumi.CustomResource):
             location=example.location,
             sku_name="E0")
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
-            name="example",
-            spring_cloud_service_id=example_spring_cloud_service.id,
+            stack={
+                "id": "io.buildpacks.stacks.bionic",
+                "version": "base",
+            },
             build_pack_groups=[{
                 "name": "mix",
                 "build_pack_ids": ["tanzu-buildpacks/java-azure"],
             }],
-            stack={
-                "id": "io.buildpacks.stacks.bionic",
-                "version": "base",
-            })
+            name="example",
+            spring_cloud_service_id=example_spring_cloud_service.id)
         ```
 
         ## Import

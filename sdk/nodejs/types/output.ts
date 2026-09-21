@@ -29752,9 +29752,6 @@ export namespace compute {
          * import * as azure from "@pulumi/azure";
          *
          * const example = new azure.compute.ScaleSet("example", {
-         *     name: "vm-scaleset",
-         *     resourceGroupName: exampleAzurermResourceGroup.name,
-         *     location: exampleAzurermResourceGroup.location,
          *     sku: {
          *         name: vmSku,
          *         tier: "Standard",
@@ -29770,6 +29767,9 @@ export namespace compute {
          *         typeHandlerVersion: "1.0",
          *         settings: "{\"port\": 50342}",
          *     }],
+         *     name: "vm-scaleset",
+         *     resourceGroupName: exampleAzurermResourceGroup.name,
+         *     location: exampleAzurermResourceGroup.location,
          * });
          * export const principalId = example.identity.apply(identity => identity?.principalId);
          * ```
@@ -35596,11 +35596,11 @@ export namespace containerservice {
          * import * as azure from "@pulumi/azure";
          *
          * const virtual = new azure.network.Subnet("virtual", {delegations: [{
-         *     name: "aciDelegation",
          *     serviceDelegation: {
          *         name: "Microsoft.ContainerInstance/containerGroups",
          *         actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
          *     },
+         *     name: "aciDelegation",
          * }]});
          * ```
          */

@@ -45,11 +45,6 @@ import (
 //				return err
 //			}
 //			examplePool, err := batch.NewPool(ctx, "example", &batch.PoolArgs{
-//				Name:              pulumi.String("examplepool"),
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount.Name,
-//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 22.04"),
-//				VmSize:            pulumi.String("STANDARD_A1_V2"),
 //				FixedScale: &batch.PoolFixedScaleArgs{
 //					TargetDedicatedNodes: pulumi.Int(1),
 //				},
@@ -59,6 +54,11 @@ import (
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
+//				Name:              pulumi.String("examplepool"),
+//				ResourceGroupName: example.Name,
+//				AccountName:       exampleAccount.Name,
+//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 22.04"),
+//				VmSize:            pulumi.String("STANDARD_A1_V2"),
 //			})
 //			if err != nil {
 //				return err

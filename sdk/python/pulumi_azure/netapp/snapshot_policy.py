@@ -387,11 +387,6 @@ class SnapshotPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_snapshot_policy = azure.netapp.SnapshotPolicy("example",
-            name="snapshotpolicy-01",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            enabled=True,
             hourly_schedule={
                 "snapshots_to_keep": 4,
                 "minute": 15,
@@ -420,7 +415,12 @@ class SnapshotPolicy(pulumi.CustomResource):
                 ],
                 "hour": 5,
                 "minute": 45,
-            })
+            },
+            name="snapshotpolicy-01",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            enabled=True)
         ```
 
         ## API Providers
@@ -475,11 +475,6 @@ class SnapshotPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_snapshot_policy = azure.netapp.SnapshotPolicy("example",
-            name="snapshotpolicy-01",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            enabled=True,
             hourly_schedule={
                 "snapshots_to_keep": 4,
                 "minute": 15,
@@ -508,7 +503,12 @@ class SnapshotPolicy(pulumi.CustomResource):
                 ],
                 "hour": 5,
                 "minute": 45,
-            })
+            },
+            name="snapshotpolicy-01",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            enabled=True)
         ```
 
         ## API Providers

@@ -841,6 +841,13 @@ class Cluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.servicefabric.Cluster("example",
+            node_types=[{
+                "name": "first",
+                "instance_count": 3,
+                "is_primary": True,
+                "client_endpoint_port": 2020,
+                "http_endpoint_port": 80,
+            }],
             name="example-servicefabric",
             resource_group_name=example.name,
             location=example.location,
@@ -848,14 +855,7 @@ class Cluster(pulumi.CustomResource):
             upgrade_mode="Manual",
             cluster_code_version="7.1.456.959",
             vm_image="Windows",
-            management_endpoint="https://example:80",
-            node_types=[{
-                "name": "first",
-                "instance_count": 3,
-                "is_primary": True,
-                "client_endpoint_port": 2020,
-                "http_endpoint_port": 80,
-            }])
+            management_endpoint="https://example:80")
         ```
 
         ## API Providers
@@ -923,6 +923,13 @@ class Cluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.servicefabric.Cluster("example",
+            node_types=[{
+                "name": "first",
+                "instance_count": 3,
+                "is_primary": True,
+                "client_endpoint_port": 2020,
+                "http_endpoint_port": 80,
+            }],
             name="example-servicefabric",
             resource_group_name=example.name,
             location=example.location,
@@ -930,14 +937,7 @@ class Cluster(pulumi.CustomResource):
             upgrade_mode="Manual",
             cluster_code_version="7.1.456.959",
             vm_image="Windows",
-            management_endpoint="https://example:80",
-            node_types=[{
-                "name": "first",
-                "instance_count": 3,
-                "is_primary": True,
-                "client_endpoint_port": 2020,
-                "http_endpoint_port": 80,
-            }])
+            management_endpoint="https://example:80")
         ```
 
         ## API Providers

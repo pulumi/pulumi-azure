@@ -70,20 +70,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFhirService = new FhirService("exampleFhirService", FhirServiceArgs.builder()
- *             .name("tfexfhir")
- *             .location("east us")
- *             .resourceGroupName("tfex-resource_group")
- *             .workspaceId(exampleWorkspace.id())
- *             .kind("fhir-R4")
  *             .authentication(FhirServiceAuthenticationArgs.builder()
  *                 .authority("https://login.microsoftonline.com/tenantId")
  *                 .audience("https://tfexfhir.fhir.azurehealthcareapis.com")
  *                 .build())
- *             .accessPolicyObjectIds(current.objectId())
  *             .identity(FhirServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
- *             .containerRegistryLoginServerUrls("tfex-container_registry_login_server")
  *             .cors(FhirServiceCorsArgs.builder()
  *                 .allowedOrigins(                
  *                     "https://tfex.com:123",
@@ -96,6 +89,13 @@ import javax.annotation.Nullable;
  *                 .maxAgeInSeconds(3600)
  *                 .credentialsAllowed(true)
  *                 .build())
+ *             .name("tfexfhir")
+ *             .location("east us")
+ *             .resourceGroupName("tfex-resource_group")
+ *             .workspaceId(exampleWorkspace.id())
+ *             .kind("fhir-R4")
+ *             .accessPolicyObjectIds(current.objectId())
+ *             .containerRegistryLoginServerUrls("tfex-container_registry_login_server")
  *             .configurationExportStorageAccountName("storage_account_name")
  *             .build());
  * 

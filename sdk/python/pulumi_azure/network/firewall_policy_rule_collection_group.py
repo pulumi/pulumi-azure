@@ -256,15 +256,8 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_firewall_policy_rule_collection_group = azure.network.FirewallPolicyRuleCollectionGroup("example",
-            name="example-fwpolicy-rcg",
-            firewall_policy_id=example_firewall_policy.id,
-            priority=500,
             application_rule_collections=[{
-                "name": "app_rule_collection1",
-                "priority": 500,
-                "action": "Deny",
                 "rules": [{
-                    "name": "app_rule_collection1_rule1",
                     "protocols": [
                         {
                             "type": "Http",
@@ -275,14 +268,35 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                             "port": 443,
                         },
                     ],
+                    "name": "app_rule_collection1_rule1",
                     "source_addresses": ["10.0.0.1"],
                     "destination_fqdns": ["*.microsoft.com"],
                 }],
+                "name": "app_rule_collection1",
+                "priority": 500,
+                "action": "Deny",
+            }],
+            nat_rule_collections=[{
+                "rules": [{
+                    "name": "nat_rule_collection1_rule1",
+                    "protocols": [
+                        "TCP",
+                        "UDP",
+                    ],
+                    "source_addresses": [
+                        "10.0.0.1",
+                        "10.0.0.2",
+                    ],
+                    "destination_address": "192.168.1.1",
+                    "destination_ports": "80",
+                    "translated_address": "192.168.0.1",
+                    "translated_port": 8080,
+                }],
+                "name": "nat_rule_collection1",
+                "priority": 300,
+                "action": "Dnat",
             }],
             network_rule_collections=[{
-                "name": "network_rule_collection1",
-                "priority": 400,
-                "action": "Deny",
                 "rules": [{
                     "name": "network_rule_collection1_rule1",
                     "protocols": [
@@ -299,27 +313,13 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         "1000-2000",
                     ],
                 }],
+                "name": "network_rule_collection1",
+                "priority": 400,
+                "action": "Deny",
             }],
-            nat_rule_collections=[{
-                "name": "nat_rule_collection1",
-                "priority": 300,
-                "action": "Dnat",
-                "rules": [{
-                    "name": "nat_rule_collection1_rule1",
-                    "protocols": [
-                        "TCP",
-                        "UDP",
-                    ],
-                    "source_addresses": [
-                        "10.0.0.1",
-                        "10.0.0.2",
-                    ],
-                    "destination_address": "192.168.1.1",
-                    "destination_ports": "80",
-                    "translated_address": "192.168.0.1",
-                    "translated_port": 8080,
-                }],
-            }])
+            name="example-fwpolicy-rcg",
+            firewall_policy_id=example_firewall_policy.id,
+            priority=500)
         ```
 
         ## API Providers
@@ -370,15 +370,8 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_firewall_policy_rule_collection_group = azure.network.FirewallPolicyRuleCollectionGroup("example",
-            name="example-fwpolicy-rcg",
-            firewall_policy_id=example_firewall_policy.id,
-            priority=500,
             application_rule_collections=[{
-                "name": "app_rule_collection1",
-                "priority": 500,
-                "action": "Deny",
                 "rules": [{
-                    "name": "app_rule_collection1_rule1",
                     "protocols": [
                         {
                             "type": "Http",
@@ -389,14 +382,35 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                             "port": 443,
                         },
                     ],
+                    "name": "app_rule_collection1_rule1",
                     "source_addresses": ["10.0.0.1"],
                     "destination_fqdns": ["*.microsoft.com"],
                 }],
+                "name": "app_rule_collection1",
+                "priority": 500,
+                "action": "Deny",
+            }],
+            nat_rule_collections=[{
+                "rules": [{
+                    "name": "nat_rule_collection1_rule1",
+                    "protocols": [
+                        "TCP",
+                        "UDP",
+                    ],
+                    "source_addresses": [
+                        "10.0.0.1",
+                        "10.0.0.2",
+                    ],
+                    "destination_address": "192.168.1.1",
+                    "destination_ports": "80",
+                    "translated_address": "192.168.0.1",
+                    "translated_port": 8080,
+                }],
+                "name": "nat_rule_collection1",
+                "priority": 300,
+                "action": "Dnat",
             }],
             network_rule_collections=[{
-                "name": "network_rule_collection1",
-                "priority": 400,
-                "action": "Deny",
                 "rules": [{
                     "name": "network_rule_collection1_rule1",
                     "protocols": [
@@ -413,27 +427,13 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         "1000-2000",
                     ],
                 }],
+                "name": "network_rule_collection1",
+                "priority": 400,
+                "action": "Deny",
             }],
-            nat_rule_collections=[{
-                "name": "nat_rule_collection1",
-                "priority": 300,
-                "action": "Dnat",
-                "rules": [{
-                    "name": "nat_rule_collection1_rule1",
-                    "protocols": [
-                        "TCP",
-                        "UDP",
-                    ],
-                    "source_addresses": [
-                        "10.0.0.1",
-                        "10.0.0.2",
-                    ],
-                    "destination_address": "192.168.1.1",
-                    "destination_ports": "80",
-                    "translated_address": "192.168.0.1",
-                    "translated_port": 8080,
-                }],
-            }])
+            name="example-fwpolicy-rcg",
+            firewall_policy_id=example_firewall_policy.id,
+            priority=500)
         ```
 
         ## API Providers

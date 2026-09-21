@@ -252,13 +252,13 @@ class ArcMachine(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_arc_machine = azure.arcmachine.ArcMachine("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-arcmachine",
             resource_group_name=example.name,
             location=example.location,
             kind="SCVMM",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "environment": "example",
             })
@@ -308,13 +308,13 @@ class ArcMachine(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_arc_machine = azure.arcmachine.ArcMachine("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-arcmachine",
             resource_group_name=example.name,
             location=example.location,
             kind="SCVMM",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "environment": "example",
             })

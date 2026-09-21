@@ -38,6 +38,10 @@ namespace Pulumi.Azure.AppInsights
     /// 
     ///     var exampleStandardWebTest = new Azure.AppInsights.StandardWebTest("example", new()
     ///     {
+    ///         Request = new Azure.AppInsights.Inputs.StandardWebTestRequestArgs
+    ///         {
+    ///             Url = "http://www.example.com",
+    ///         },
     ///         Name = "example-test",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
@@ -45,10 +49,6 @@ namespace Pulumi.Azure.AppInsights
     ///         GeoLocations = new[]
     ///         {
     ///             "example",
-    ///         },
-    ///         Request = new Azure.AppInsights.Inputs.StandardWebTestRequestArgs
-    ///         {
-    ///             Url = "http://www.example.com",
     ///         },
     ///     });
     /// 

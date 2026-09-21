@@ -331,26 +331,20 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             allocation_method="Dynamic")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
+            ip_configurations=[{
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+            }],
             name="example-vnetgw",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             type="Vpn",
             vpn_type="RouteBased",
-            sku="Basic",
-            ip_configurations=[{
-                "public_ip_address_id": example_public_ip.id,
-                "private_ip_address_allocation": "Dynamic",
-                "subnet_id": example_subnet.id,
-            }])
+            sku="Basic")
         example = azure.network.get_virtual_network_gateway_output(name=example_virtual_network_gateway.name,
             resource_group_name=example_virtual_network_gateway.resource_group_name)
         example_virtual_network_gateway_nat_rule = azure.network.VirtualNetworkGatewayNatRule("example",
-            name="example-vnetgwnatrule",
-            resource_group_name=example_resource_group.name,
-            virtual_network_gateway_id=example.id,
-            mode="EgressSnat",
-            type="Dynamic",
-            ip_configuration_id=example.ip_configurations[0].id,
             external_mappings=[{
                 "address_space": "10.2.0.0/26",
                 "port_range": "200",
@@ -358,7 +352,13 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             internal_mappings=[{
                 "address_space": "10.4.0.0/26",
                 "port_range": "400",
-            }])
+            }],
+            name="example-vnetgwnatrule",
+            resource_group_name=example_resource_group.name,
+            virtual_network_gateway_id=example.id,
+            mode="EgressSnat",
+            type="Dynamic",
+            ip_configuration_id=example.ip_configurations[0].id)
         ```
 
         ## API Providers
@@ -422,26 +422,20 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             allocation_method="Dynamic")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
+            ip_configurations=[{
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+            }],
             name="example-vnetgw",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             type="Vpn",
             vpn_type="RouteBased",
-            sku="Basic",
-            ip_configurations=[{
-                "public_ip_address_id": example_public_ip.id,
-                "private_ip_address_allocation": "Dynamic",
-                "subnet_id": example_subnet.id,
-            }])
+            sku="Basic")
         example = azure.network.get_virtual_network_gateway_output(name=example_virtual_network_gateway.name,
             resource_group_name=example_virtual_network_gateway.resource_group_name)
         example_virtual_network_gateway_nat_rule = azure.network.VirtualNetworkGatewayNatRule("example",
-            name="example-vnetgwnatrule",
-            resource_group_name=example_resource_group.name,
-            virtual_network_gateway_id=example.id,
-            mode="EgressSnat",
-            type="Dynamic",
-            ip_configuration_id=example.ip_configurations[0].id,
             external_mappings=[{
                 "address_space": "10.2.0.0/26",
                 "port_range": "200",
@@ -449,7 +443,13 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             internal_mappings=[{
                 "address_space": "10.4.0.0/26",
                 "port_range": "400",
-            }])
+            }],
+            name="example-vnetgwnatrule",
+            resource_group_name=example_resource_group.name,
+            virtual_network_gateway_id=example.id,
+            mode="EgressSnat",
+            type="Dynamic",
+            ip_configuration_id=example.ip_configurations[0].id)
         ```
 
         ## API Providers

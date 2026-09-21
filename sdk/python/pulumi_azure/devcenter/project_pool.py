@@ -388,12 +388,12 @@ class ProjectPool(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.0.0.0/16"],
@@ -485,12 +485,12 @@ class ProjectPool(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.0.0.0/16"],

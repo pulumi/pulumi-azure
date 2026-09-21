@@ -431,13 +431,13 @@ class NatPool(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="TestLoadBalancer",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="TestLoadBalancer",
+            location=example.location,
+            resource_group_name=example.name)
         example_nat_pool = azure.lb.NatPool("example",
             resource_group_name=example.name,
             loadbalancer_id=example_load_balancer.id,
@@ -507,13 +507,13 @@ class NatPool(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="TestLoadBalancer",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="TestLoadBalancer",
+            location=example.location,
+            resource_group_name=example.name)
         example_nat_pool = azure.lb.NatPool("example",
             resource_group_name=example.name,
             loadbalancer_id=example_load_balancer.id,

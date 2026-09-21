@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleJob = new azure.streamanalytics.Job("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-job",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -31,9 +34,6 @@ import * as utilities from "../utilities";
  *     outputErrorPolicy: "Drop",
  *     streamingUnits: 3,
  *     skuName: "StandardV2",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  *     tags: {
  *         environment: "Example",
  *     },
@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     INTO [YourOutputAlias]
  *     FROM [YourInputAlias]
  * `,
+ * }, {
+ *     ignoreChanges: ["jobStorageAccounts"],
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "exampleaccount",

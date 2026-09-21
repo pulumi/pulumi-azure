@@ -607,13 +607,6 @@ class Key(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -628,8 +621,22 @@ class Key(pulumi.CustomResource):
                     "SetRotationPolicy",
                 ],
                 "secret_permissions": ["Set"],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         generated = azure.keyvault.Key("generated",
+            rotation_policy={
+                "automatic": {
+                    "time_before_expiry": "P30D",
+                },
+                "expire_after": "P90D",
+                "notify_before_expiry": "P29D",
+            },
             name="generated-certificate",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
@@ -641,14 +648,7 @@ class Key(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            rotation_policy={
-                "automatic": {
-                    "time_before_expiry": "P30D",
-                },
-                "expire_after": "P90D",
-                "notify_before_expiry": "P29D",
-            })
+            ])
         ```
 
         ## Import
@@ -706,13 +706,6 @@ class Key(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -727,8 +720,22 @@ class Key(pulumi.CustomResource):
                     "SetRotationPolicy",
                 ],
                 "secret_permissions": ["Set"],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         generated = azure.keyvault.Key("generated",
+            rotation_policy={
+                "automatic": {
+                    "time_before_expiry": "P30D",
+                },
+                "expire_after": "P90D",
+                "notify_before_expiry": "P29D",
+            },
             name="generated-certificate",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
@@ -740,14 +747,7 @@ class Key(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            rotation_policy={
-                "automatic": {
-                    "time_before_expiry": "P30D",
-                },
-                "expire_after": "P90D",
-                "notify_before_expiry": "P29D",
-            })
+            ])
         ```
 
         ## Import

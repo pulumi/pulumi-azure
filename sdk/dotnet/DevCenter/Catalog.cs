@@ -30,20 +30,17 @@ namespace Pulumi.Azure.DevCenter
     /// 
     ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("example", new()
     ///     {
-    ///         Location = example.Location,
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Location = example.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleCatalog = new Azure.DevCenter.Catalog("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
-    ///         DevCenterId = test.Id,
     ///         CatalogGithub = new Azure.DevCenter.Inputs.CatalogCatalogGithubArgs
     ///         {
     ///             Branch = "foo",
@@ -51,6 +48,9 @@ namespace Pulumi.Azure.DevCenter
     ///             Uri = "example URI",
     ///             KeyVaultKeyUrl = "secret",
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = test.Name,
+    ///         DevCenterId = testAzurermDevCenter.Id,
     ///     });
     /// 
     /// });

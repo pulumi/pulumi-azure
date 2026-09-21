@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     data: std.filebase64({
  *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *
@@ -51,15 +51,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleService = new azure.apimanagement.Service("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-apim",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     name: "examplekeyvault",
@@ -77,12 +77,10 @@ import * as utilities from "../utilities";
  *     certificatePermissions: ["Get"],
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "example-cert",
- *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "example_cert.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "terraform",
  *     },
  *     certificatePolicy: {
@@ -99,6 +97,8 @@ import * as utilities from "../utilities";
  *             contentType: "application/x-pkcs12",
  *         },
  *     },
+ *     name: "example-cert",
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleCertificate2 = new azure.apimanagement.Certificate("example", {
  *     name: "example-cert",

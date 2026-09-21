@@ -43,22 +43,17 @@ import * as utilities from "../utilities";
  *     sku: "Basic",
  * });
  * const vmNetworkInterface = new azure.network.NetworkInterface("vm", {
- *     name: "vm-nic",
- *     location: primary.location,
- *     resourceGroupName: primary.name,
  *     ipConfigurations: [{
  *         name: "vm",
  *         subnetId: primarySubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *         publicIpAddressId: primaryPublicIp.id,
  *     }],
- * });
- * const vm = new azure.compute.VirtualMachine("vm", {
- *     name: "vm",
+ *     name: "vm-nic",
  *     location: primary.location,
  *     resourceGroupName: primary.name,
- *     vmSize: "Standard_B1s",
- *     networkInterfaceIds: [vmNetworkInterface.id],
+ * });
+ * const vm = new azure.compute.VirtualMachine("vm", {
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -80,6 +75,11 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
+ *     name: "vm",
+ *     location: primary.location,
+ *     resourceGroupName: primary.name,
+ *     vmSize: "Standard_B1s",
+ *     networkInterfaceIds: [vmNetworkInterface.id],
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     name: "example-recovery-vault",
@@ -163,16 +163,6 @@ import * as utilities from "../utilities";
  *     sku: "Basic",
  * });
  * const vm_replication = new azure.siterecovery.ReplicatedVM("vm-replication", {
- *     name: "vm-replication",
- *     resourceGroupName: secondary.name,
- *     recoveryVaultName: vault.name,
- *     sourceRecoveryFabricName: primaryFabric.name,
- *     sourceVmId: vm.id,
- *     recoveryReplicationPolicyId: policy.id,
- *     sourceRecoveryProtectionContainerName: primaryProtectionContainer.name,
- *     targetResourceGroupId: secondary.id,
- *     targetRecoveryFabricId: secondaryFabric.id,
- *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
  *     managedDisks: [{
  *         diskId: vm.storageOsDisk.managedDiskId,
  *         stagingStorageAccountId: primaryAccount.id,
@@ -185,6 +175,16 @@ import * as utilities from "../utilities";
  *         targetSubnetName: secondarySubnet.name,
  *         recoveryPublicIpAddressId: secondaryPublicIp.id,
  *     }],
+ *     name: "vm-replication",
+ *     resourceGroupName: secondary.name,
+ *     recoveryVaultName: vault.name,
+ *     sourceRecoveryFabricName: primaryFabric.name,
+ *     sourceVmId: vm.id,
+ *     recoveryReplicationPolicyId: policy.id,
+ *     sourceRecoveryProtectionContainerName: primaryProtectionContainer.name,
+ *     targetResourceGroupId: secondary.id,
+ *     targetRecoveryFabricId: secondaryFabric.id,
+ *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
  * }, {
  *     dependsOn: [
  *         container_mapping,

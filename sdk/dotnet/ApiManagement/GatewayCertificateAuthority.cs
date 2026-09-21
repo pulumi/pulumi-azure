@@ -41,9 +41,6 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleGateway = new Azure.ApiManagement.Gateway("example", new()
     ///     {
-    ///         Name = "example-gateway",
-    ///         ApiManagementId = exampleService.Id,
-    ///         Description = "Example API Management gateway",
     ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
     ///         {
     ///             Name = "example name",
@@ -51,6 +48,9 @@ namespace Pulumi.Azure.ApiManagement
     ///             District = "example district",
     ///             Region = "example region",
     ///         },
+    ///         Name = "example-gateway",
+    ///         ApiManagementId = exampleService.Id,
+    ///         Description = "Example API Management gateway",
     ///     });
     /// 
     ///     var exampleCertificate = new Azure.ApiManagement.Certificate("example", new()
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Data = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     ///     var exampleGatewayCertificateAuthority = new Azure.ApiManagement.GatewayCertificateAuthority("example", new()

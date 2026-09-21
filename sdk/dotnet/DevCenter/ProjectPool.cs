@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DevCenter
     /// 
     ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("example", new()
     ///     {
-    ///         Name = "example-dc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-dc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()

@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.hdinsight.InteractiveQueryClusterArgs;
  * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterComponentVersionArgs;
  * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterStorageAccountArgs;
  * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesArgs;
  * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesHeadNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesWorkerNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterRolesZookeeperNodeArgs;
+ * import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterStorageAccountArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -90,22 +90,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInteractiveQueryCluster = new InteractiveQueryCluster("exampleInteractiveQueryCluster", InteractiveQueryClusterArgs.builder()
- *             .name("example-hdicluster")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .clusterVersion("3.6")
- *             .tier("Standard")
  *             .componentVersion(InteractiveQueryClusterComponentVersionArgs.builder()
  *                 .interactiveHive("2.1")
  *                 .build())
  *             .gateway(InteractiveQueryClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password!")
- *                 .build())
- *             .storageAccounts(InteractiveQueryClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
  *                 .build())
  *             .roles(InteractiveQueryClusterRolesArgs.builder()
  *                 .headNode(InteractiveQueryClusterRolesHeadNodeArgs.builder()
@@ -125,6 +115,16 @@ import javax.annotation.Nullable;
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
+ *             .storageAccounts(InteractiveQueryClusterStorageAccountArgs.builder()
+ *                 .storageContainerId(exampleContainer.id())
+ *                 .storageAccountKey(exampleAccount.primaryAccessKey())
+ *                 .isDefault(true)
+ *                 .build())
+ *             .name("example-hdicluster")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .clusterVersion("3.6")
+ *             .tier("Standard")
  *             .build());
  * 
  *     }

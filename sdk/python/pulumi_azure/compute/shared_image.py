@@ -1001,16 +1001,16 @@ class SharedImage(pulumi.CustomResource):
                 "World": "Example",
             })
         example_shared_image = azure.compute.SharedImage("example",
-            name="my-image",
-            gallery_name=example_shared_image_gallery.name,
-            resource_group_name=example.name,
-            location=example.location,
-            os_type="Linux",
             identifier={
                 "publisher": "PublisherName",
                 "offer": "OfferName",
                 "sku": "ExampleSku",
-            })
+            },
+            name="my-image",
+            gallery_name=example_shared_image_gallery.name,
+            resource_group_name=example.name,
+            location=example.location,
+            os_type="Linux")
         ```
 
         ## API Providers
@@ -1092,16 +1092,16 @@ class SharedImage(pulumi.CustomResource):
                 "World": "Example",
             })
         example_shared_image = azure.compute.SharedImage("example",
-            name="my-image",
-            gallery_name=example_shared_image_gallery.name,
-            resource_group_name=example.name,
-            location=example.location,
-            os_type="Linux",
             identifier={
                 "publisher": "PublisherName",
                 "offer": "OfferName",
                 "sku": "ExampleSku",
-            })
+            },
+            name="my-image",
+            gallery_name=example_shared_image_gallery.name,
+            resource_group_name=example.name,
+            location=example.location,
+            os_type="Linux")
         ```
 
         ## API Providers

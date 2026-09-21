@@ -22,10 +22,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleSpacecraft = new azure.orbital.Spacecraft("example", {
- *     name: "example-spacecraft",
- *     resourceGroupName: example.name,
- *     location: "westeurope",
- *     noradId: "12345",
  *     links: [{
  *         bandwidthMhz: 30,
  *         centerFrequencyMhz: 2050,
@@ -33,6 +29,10 @@ import * as utilities from "../utilities";
  *         polarization: "LHCP",
  *         name: "examplename",
  *     }],
+ *     name: "example-spacecraft",
+ *     resourceGroupName: example.name,
+ *     location: "westeurope",
+ *     noradId: "12345",
  *     twoLineElements: [
  *         "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
  *         "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",

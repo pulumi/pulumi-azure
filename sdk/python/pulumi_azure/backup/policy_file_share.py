@@ -436,10 +436,6 @@ class PolicyFileShare(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example.name,
-            recovery_vault_name=example_vault.name,
-            timezone="UTC",
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
@@ -472,7 +468,11 @@ class PolicyFileShare(pulumi.CustomResource):
                 "weekdays": ["Sunday"],
                 "weeks": ["Last"],
                 "months": ["January"],
-            })
+            },
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example.name,
+            recovery_vault_name=example_vault.name,
+            timezone="UTC")
         ```
 
         ## Import
@@ -526,10 +526,6 @@ class PolicyFileShare(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example.name,
-            recovery_vault_name=example_vault.name,
-            timezone="UTC",
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
@@ -562,7 +558,11 @@ class PolicyFileShare(pulumi.CustomResource):
                 "weekdays": ["Sunday"],
                 "weeks": ["Last"],
                 "months": ["January"],
-            })
+            },
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example.name,
+            recovery_vault_name=example_vault.name,
+            timezone="UTC")
         ```
 
         ## Import

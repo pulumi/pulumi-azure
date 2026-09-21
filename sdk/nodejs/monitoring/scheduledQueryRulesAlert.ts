@@ -36,14 +36,18 @@ import * as utilities from "../utilities";
  * });
  * // Example: Alerting Action with result count trigger
  * const exampleScheduledQueryRulesAlert = new azure.monitoring.ScheduledQueryRulesAlert("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     action: {
  *         actionGroups: [],
  *         emailSubject: "Email Header",
  *         customWebhookPayload: "{}",
  *     },
+ *     trigger: {
+ *         operator: "GreaterThan",
+ *         threshold: 3,
+ *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     dataSourceId: exampleInsights.id,
  *     description: "Alert when total results cross threshold",
  *     enabled: true,
@@ -54,25 +58,25 @@ import * as utilities from "../utilities";
  *     severity: 1,
  *     frequency: 5,
  *     timeWindow: 30,
- *     trigger: {
- *         operator: "GreaterThan",
- *         threshold: 3,
- *     },
  *     tags: {
  *         foo: "bar",
  *     },
  * });
  * // Example: Alerting Action Cross-Resource
  * const example2ScheduledQueryRulesAlert = new azure.monitoring.ScheduledQueryRulesAlert("example2", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     authorizedResourceIds: [example2.id],
  *     action: {
  *         actionGroups: [],
  *         emailSubject: "Email Header",
  *         customWebhookPayload: "{}",
  *     },
+ *     trigger: {
+ *         operator: "GreaterThan",
+ *         threshold: 3,
+ *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     authorizedResourceIds: [example2.id],
  *     dataSourceId: exampleInsights.id,
  *     description: "Query may access data within multiple resources",
  *     enabled: true,
@@ -84,14 +88,10 @@ import * as utilities from "../utilities";
  *   | join b on fail
  * `,
  *         args: [example2.id],
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     severity: 1,
  *     frequency: 5,
  *     timeWindow: 30,
- *     trigger: {
- *         operator: "GreaterThan",
- *         threshold: 3,
- *     },
  *     tags: {
  *         foo: "bar",
  *     },

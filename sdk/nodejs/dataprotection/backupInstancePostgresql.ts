@@ -51,23 +51,16 @@ import * as utilities from "../utilities";
  *     collation: "English_United States.1252",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -100,6 +93,13 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
  * });
  * const exampleSecret = new azure.keyvault.Secret("example", {
  *     name: "example",

@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     capacity: 1,
  * });
  * const exampleHub = new azure.webpubsub.Hub("example", {
- *     name: "tfex_wpsh",
- *     webPubsubId: exampleService.id,
  *     eventHandlers: [
  *         {
  *             urlTemplate: "https://test.com/api/{hub}/{event}",
@@ -44,12 +42,12 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *         {
- *             urlTemplate: "https://test.com/api/{hub}/{event}",
- *             userEventPattern: "event1, event2",
- *             systemEvents: ["connected"],
  *             auth: {
  *                 managedIdentityId: exampleUserAssignedIdentity.id,
  *             },
+ *             urlTemplate: "https://test.com/api/{hub}/{event}",
+ *             userEventPattern: "event1, event2",
+ *             systemEvents: ["connected"],
  *         },
  *     ],
  *     eventListeners: [
@@ -75,6 +73,8 @@ import * as utilities from "../utilities";
  *             eventhubName: test1.name,
  *         },
  *     ],
+ *     name: "tfex_wpsh",
+ *     webPubsubId: exampleService.id,
  *     anonymousConnectionsEnabled: true,
  * }, {
  *     dependsOn: [exampleService],

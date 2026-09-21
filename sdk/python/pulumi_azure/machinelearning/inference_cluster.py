@@ -384,15 +384,15 @@ class InferenceCluster(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -404,10 +404,6 @@ class InferenceCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix_private_cluster="prefix",
             default_node_pool={
                 "name": "default",
                 "node_count": 3,
@@ -416,7 +412,11 @@ class InferenceCluster(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-aks",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix_private_cluster="prefix")
         example_inference_cluster = azure.machinelearning.InferenceCluster("example",
             name="example",
             location=example.location,
@@ -505,15 +505,15 @@ class InferenceCluster(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -525,10 +525,6 @@ class InferenceCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix_private_cluster="prefix",
             default_node_pool={
                 "name": "default",
                 "node_count": 3,
@@ -537,7 +533,11 @@ class InferenceCluster(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-aks",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix_private_cluster="prefix")
         example_inference_cluster = azure.machinelearning.InferenceCluster("example",
             name="example",
             location=example.location,

@@ -88,9 +88,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("examplenic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -98,6 +95,9 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("examplenic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -117,33 +117,19 @@ import (
 // exportfs -arv
 // `
 //
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: customData,
+//			invokeBase64encode1, err := std.Base64encode(ctx, map[string]string{
+//				"input": customData,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("examplevm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_F2"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
-//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
-//						Username:  pulumi.String("adminuser"),
-//						PublicKey: pulumi.String(invokeFile.Result),
-//					},
-//				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
@@ -154,17 +140,26 @@ import (
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
-//				CustomData: pulumi.String(invokeBase64encode1.Result),
+//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: invokeFile.Result,
+//					},
+//				},
+//				Name:              pulumi.String("examplevm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				CustomData: invokeBase64encode1.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = hpc.NewCacheNfsTarget(ctx, "example", &hpc.CacheNfsTargetArgs{
-//				Name:              pulumi.String("examplehpcnfstarget"),
-//				ResourceGroupName: example.Name,
-//				CacheName:         exampleCache.Name,
-//				TargetHostName:    exampleLinuxVirtualMachine.PrivateIpAddress,
-//				UsageModel:        pulumi.String("READ_HEAVY_INFREQ"),
 //				NamespaceJunctions: hpc.CacheNfsTargetNamespaceJunctionArray{
 //					&hpc.CacheNfsTargetNamespaceJunctionArgs{
 //						NamespacePath: pulumi.String("/nfs/a1"),
@@ -176,6 +171,11 @@ import (
 //						NfsExport:     pulumi.String("/export/b"),
 //					},
 //				},
+//				Name:              pulumi.String("examplehpcnfstarget"),
+//				ResourceGroupName: example.Name,
+//				CacheName:         exampleCache.Name,
+//				TargetHostName:    exampleLinuxVirtualMachine.PrivateIpAddress,
+//				UsageModel:        pulumi.String("READ_HEAVY_INFREQ"),
 //			})
 //			if err != nil {
 //				return err

@@ -119,19 +119,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_client_config()
         example_cluster = azure.loganalytics.Cluster("example",
-            name="example-cluster",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="keyvaultkeyexample",
-            location=example.location,
+            },
+            name="example-cluster",
             resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
+            location=example.location)
+        example_key_vault = azure.keyvault.KeyVault("example",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -153,6 +147,12 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                     ],
                 },
             ],
+            name="keyvaultkeyexample",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
             tags={
                 "environment": "Production",
             })
@@ -215,19 +215,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_client_config()
         example_cluster = azure.loganalytics.Cluster("example",
-            name="example-cluster",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name="keyvaultkeyexample",
-            location=example.location,
+            },
+            name="example-cluster",
             resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
+            location=example.location)
+        example_key_vault = azure.keyvault.KeyVault("example",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -249,6 +243,12 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                     ],
                 },
             ],
+            name="keyvaultkeyexample",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
             tags={
                 "environment": "Production",
             })

@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.arckubernetes.Cluster("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-akcc",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     agentPublicKeyCertificate: std.filebase64({
  *         input: "testdata/public.cer",
- *     }).then(invoke => invoke.result),
- *     identity: {
- *         type: "SystemAssigned",
- *     },
+ *     }).result,
  *     tags: {
  *         ENV: "Test",
  *     },
@@ -40,9 +40,6 @@ import * as utilities from "../utilities";
  *     extensionType: "microsoft.flux",
  * });
  * const exampleFluxConfiguration = new azure.arckubernetes.FluxConfiguration("example", {
- *     name: "example-fc",
- *     clusterId: test.id,
- *     namespace: "flux",
  *     gitRepository: {
  *         url: "https://github.com/Azure/arc-k8s-demo",
  *         referenceType: "branch",
@@ -51,6 +48,9 @@ import * as utilities from "../utilities";
  *     kustomizations: [{
  *         name: "kustomization-1",
  *     }],
+ *     name: "example-fc",
+ *     clusterId: test.id,
+ *     namespace: "flux",
  * }, {
  *     dependsOn: [exampleClusterExtension],
  * });

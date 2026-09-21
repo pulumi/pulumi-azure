@@ -63,22 +63,22 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-function-app",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("example", new()

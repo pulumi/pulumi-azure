@@ -34,15 +34,21 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
+    ///         Identity = new Azure.ServiceBus.Inputs.NamespaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-servicebus-namespace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Premium",
     ///         PremiumMessagingPartitions = 1,
     ///         Capacity = 1,
-    ///         Identity = new Azure.ServiceBus.Inputs.NamespaceIdentityArgs
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             "customerManagedKey",
     ///         },
     ///     });
     /// 
@@ -50,15 +56,6 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example-key-vault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = true,
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -108,6 +105,15 @@ namespace Pulumi.Azure.ServiceBus
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-key-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = true,
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()

@@ -42,8 +42,11 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         {
+    ///             Id = "io.buildpacks.stacks.bionic",
+    ///             Version = "base",
+    ///         },
     ///         BuildPackGroups = new[]
     ///         {
     ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
@@ -55,11 +58,8 @@ namespace Pulumi.Azure.AppPlatform
     ///                 },
     ///             },
     ///         },
-    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
-    ///         {
-    ///             Id = "io.buildpacks.stacks.bionic",
-    ///             Version = "base",
-    ///         },
+    ///         Name = "example",
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
     /// });

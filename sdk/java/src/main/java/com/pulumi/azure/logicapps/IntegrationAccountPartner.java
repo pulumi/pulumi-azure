@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIntegrationAccountPartner = new IntegrationAccountPartner("exampleIntegrationAccountPartner", IntegrationAccountPartnerArgs.builder()
- *             .name("example-iap")
- *             .resourceGroupName(example.name())
- *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .businessIdentities(IntegrationAccountPartnerBusinessIdentityArgs.builder()
  *                 .qualifier("ZZ")
  *                 .value("AA")
  *                 .build())
+ *             .name("example-iap")
+ *             .resourceGroupName(example.name())
+ *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .build());
  * 
  *     }

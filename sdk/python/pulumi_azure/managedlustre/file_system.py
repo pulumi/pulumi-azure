@@ -513,17 +513,17 @@ class FileSystem(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_file_system = azure.managedlustre.FileSystem("example",
+            maintenance_window={
+                "day_of_week": "Friday",
+                "time_of_day_utc": "22:00",
+            },
             name="example-amlfs",
             resource_group_name=example.name,
             location=example.location,
             sku_name="AMLFS-Durable-Premium-250",
             subnet_id=example_subnet.id,
             storage_capacity_in_tb=8,
-            zones=["2"],
-            maintenance_window={
-                "day_of_week": "Friday",
-                "time_of_day_utc": "22:00",
-            })
+            zones=["2"])
         ```
 
         ## API Providers
@@ -589,17 +589,17 @@ class FileSystem(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_file_system = azure.managedlustre.FileSystem("example",
+            maintenance_window={
+                "day_of_week": "Friday",
+                "time_of_day_utc": "22:00",
+            },
             name="example-amlfs",
             resource_group_name=example.name,
             location=example.location,
             sku_name="AMLFS-Durable-Premium-250",
             subnet_id=example_subnet.id,
             storage_capacity_in_tb=8,
-            zones=["2"],
-            maintenance_window={
-                "day_of_week": "Friday",
-                "time_of_day_utc": "22:00",
-            })
+            zones=["2"])
         ```
 
         ## API Providers

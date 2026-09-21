@@ -56,24 +56,12 @@ import (
 //				return err
 //			}
 //			_, err = hdinsight.NewHadoopCluster(ctx, "example", &hdinsight.HadoopClusterArgs{
-//				Name:              pulumi.String("example-hdicluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("3.6"),
-//				Tier:              pulumi.String("Standard"),
 //				ComponentVersion: &hdinsight.HadoopClusterComponentVersionArgs{
 //					Hadoop: pulumi.String("2.7"),
 //				},
 //				Gateway: &hdinsight.HadoopClusterGatewayArgs{
 //					Username: pulumi.String("acctestusrgw"),
 //					Password: pulumi.String("PAssword123!"),
-//				},
-//				StorageAccounts: hdinsight.HadoopClusterStorageAccountArray{
-//					&hdinsight.HadoopClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
-//					},
 //				},
 //				Roles: &hdinsight.HadoopClusterRolesArgs{
 //					HeadNode: &hdinsight.HadoopClusterRolesHeadNodeArgs{
@@ -93,6 +81,18 @@ import (
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
 //				},
+//				StorageAccounts: hdinsight.HadoopClusterStorageAccountArray{
+//					&hdinsight.HadoopClusterStorageAccountArgs{
+//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
+//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+//						IsDefault:          pulumi.Bool(true),
+//					},
+//				},
+//				Name:              pulumi.String("example-hdicluster"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ClusterVersion:    pulumi.String("3.6"),
+//				Tier:              pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err

@@ -1362,15 +1362,6 @@ class Database(pulumi.CustomResource):
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="mssqltdeexample",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=example_user_assigned_identity.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current["tenantId"],
@@ -1395,7 +1386,16 @@ class Database(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="mssqltdeexample",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=example_user_assigned_identity.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="example-key",
             key_vault_id=example_key_vault.id,
@@ -1407,6 +1407,10 @@ class Database(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_database = azure.mssql.Database("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-db",
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
@@ -1418,10 +1422,6 @@ class Database(pulumi.CustomResource):
             enclave_type="VBS",
             tags={
                 "foo": "bar",
-            },
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
             },
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
@@ -1573,15 +1573,6 @@ class Database(pulumi.CustomResource):
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="mssqltdeexample",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=example_user_assigned_identity.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current["tenantId"],
@@ -1606,7 +1597,16 @@ class Database(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="mssqltdeexample",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=example_user_assigned_identity.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="example-key",
             key_vault_id=example_key_vault.id,
@@ -1618,6 +1618,10 @@ class Database(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_key_vault]))
         example_database = azure.mssql.Database("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-db",
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
@@ -1629,10 +1633,6 @@ class Database(pulumi.CustomResource):
             enclave_type="VBS",
             tags={
                 "foo": "bar",
-            },
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
             },
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```

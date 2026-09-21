@@ -46,12 +46,12 @@ import (
 //				return err
 //			}
 //			_, err = automation.NewModule(ctx, "example", &automation.ModuleArgs{
-//				Name:                  pulumi.String("xActiveDirectory"),
-//				ResourceGroupName:     example.Name,
-//				AutomationAccountName: exampleAccount.Name,
 //				ModuleLink: &automation.ModuleModuleLinkArgs{
 //					Uri: pulumi.String("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg"),
 //				},
+//				Name:                  pulumi.String("xActiveDirectory"),
+//				ResourceGroupName:     example.Name,
+//				AutomationAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err

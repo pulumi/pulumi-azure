@@ -61,7 +61,7 @@ namespace Pulumi.Azure.Batch
     ///         BatchCertificate = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "certificate.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Format = "Pfx",
     ///         Password = "password",
     ///         Thumbprint = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",

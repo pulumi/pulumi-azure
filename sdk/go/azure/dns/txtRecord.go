@@ -46,10 +46,6 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
 //						Value: pulumi.String("google-site-authenticator"),
@@ -58,6 +54,10 @@ import (
 //						Value: pulumi.String("more site information here"),
 //					},
 //				},
+//				Name:              pulumi.String("test"),
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: example.Name,
+//				Ttl:               pulumi.Int(300),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

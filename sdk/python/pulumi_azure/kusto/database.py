@@ -268,13 +268,13 @@ class Database(pulumi.CustomResource):
             name="my-kusto-rg",
             location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         database = azure.kusto.Database("database",
             name="my-kusto-database",
             resource_group_name=example.name,
@@ -330,13 +330,13 @@ class Database(pulumi.CustomResource):
             name="my-kusto-rg",
             location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         database = azure.kusto.Database("database",
             name="my-kusto-database",
             resource_group_name=example.name,

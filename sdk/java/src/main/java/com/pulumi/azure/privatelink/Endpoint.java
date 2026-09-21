@@ -103,38 +103,38 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
- *             .name("example-lb")
- *             .sku("Standard")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(examplePublicIp.name())
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("example-lb")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
- *             .name("example-privatelink")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
  *                 .name(examplePublicIp.name())
  *                 .primary(true)
  *                 .subnetId(service.id())
  *                 .build())
+ *             .name("example-privatelink")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example-endpoint")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .subnetId(endpoint.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name("example-privateserviceconnection")
  *                 .privateConnectionResourceId(exampleLinkService.id())
  *                 .isManualConnection(false)
  *                 .build())
+ *             .name("example-endpoint")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(endpoint.id())
  *             .build());
  * 
  *     }
@@ -188,16 +188,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example-endpoint")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .subnetId(subnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name("example-privateserviceconnection")
  *                 .privateConnectionResourceAlias("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice")
  *                 .isManualConnection(true)
  *                 .requestMessage("PL")
  *                 .build())
+ *             .name("example-endpoint")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(subnet.id())
  *             .build());
  * 
  *     }
@@ -276,10 +276,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example-endpoint")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .subnetId(exampleSubnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name("example-privateserviceconnection")
  *                 .privateConnectionResourceId(exampleAccount.id())
@@ -290,6 +286,10 @@ import javax.annotation.Nullable;
  *                 .name("example-dns-zone-group")
  *                 .privateDnsZoneIds(exampleZone.id())
  *                 .build())
+ *             .name("example-endpoint")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()

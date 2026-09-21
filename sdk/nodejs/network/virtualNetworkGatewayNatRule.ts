@@ -38,29 +38,23 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Dynamic",
  * });
  * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
+ *     ipConfigurations: [{
+ *         publicIpAddressId: examplePublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: exampleSubnet.id,
+ *     }],
  *     name: "example-vnetgw",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
- *     ipConfigurations: [{
- *         publicIpAddressId: examplePublicIp.id,
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: exampleSubnet.id,
- *     }],
  * });
  * const example = azure.network.getVirtualNetworkGatewayOutput({
  *     name: exampleVirtualNetworkGateway.name,
  *     resourceGroupName: exampleVirtualNetworkGateway.resourceGroupName,
  * });
  * const exampleVirtualNetworkGatewayNatRule = new azure.network.VirtualNetworkGatewayNatRule("example", {
- *     name: "example-vnetgwnatrule",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkGatewayId: example.id,
- *     mode: "EgressSnat",
- *     type: "Dynamic",
- *     ipConfigurationId: example.apply(example => example.ipConfigurations?.[0]?.id),
  *     externalMappings: [{
  *         addressSpace: "10.2.0.0/26",
  *         portRange: "200",
@@ -69,6 +63,12 @@ import * as utilities from "../utilities";
  *         addressSpace: "10.4.0.0/26",
  *         portRange: "400",
  *     }],
+ *     name: "example-vnetgwnatrule",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkGatewayId: example.id,
+ *     mode: "EgressSnat",
+ *     type: "Dynamic",
+ *     ipConfigurationId: example.apply(example => example.ipConfigurations?.[0]?.id),
  * });
  * ```
  *

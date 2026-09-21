@@ -132,9 +132,6 @@ import (
 //				return err
 //			}
 //			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
-//				Name:           pulumi.String("tfex_servicebus_rule"),
-//				SubscriptionId: exampleSubscription.ID().ToIDOutput().ToStringOutput(),
-//				FilterType:     pulumi.String("CorrelationFilter"),
 //				CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{
 //					CorrelationId: pulumi.String("high"),
 //					Label:         pulumi.String("red"),
@@ -142,6 +139,9 @@ import (
 //						"customProperty": pulumi.String("value"),
 //					},
 //				},
+//				Name:           pulumi.String("tfex_servicebus_rule"),
+//				SubscriptionId: exampleSubscription.ID().ToIDOutput().ToStringOutput(),
+//				FilterType:     pulumi.String("CorrelationFilter"),
 //			})
 //			if err != nil {
 //				return err

@@ -50,8 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "certificate.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				Name:                  pulumi.String("certificate-example"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
-//				Base64:                pulumi.String(invokeFilebase64.Result),
+//				Base64:                invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

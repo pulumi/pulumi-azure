@@ -89,14 +89,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///         KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSnowflakeKeyVaultPasswordArgs
     ///         {
     ///             LinkedServiceName = exampleLinkedServiceKeyVault.Name,
     ///             SecretName = "secret",
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///     });
     /// 
     /// });

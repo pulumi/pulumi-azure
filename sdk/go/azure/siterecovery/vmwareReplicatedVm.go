@@ -99,6 +99,13 @@ import (
 //				return err
 //			}
 //			_, err = siterecovery.NewVmwareReplicatedVm(ctx, "example", &siterecovery.VmwareReplicatedVmArgs{
+//				NetworkInterfaces: siterecovery.VmwareReplicatedVmNetworkInterfaceArray{
+//					&siterecovery.VmwareReplicatedVmNetworkInterfaceArgs{
+//						SourceMacAddress: pulumi.String("00:00:00:00:00:00"),
+//						TargetSubnetName: exampleSubnet.Name,
+//						IsPrimary:        pulumi.Bool(true),
+//					},
+//				},
 //				Name:                                  pulumi.String("example-vmware-vm"),
 //				RecoveryVaultId:                       exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				SourceVmName:                          pulumi.String("example-vm"),
@@ -112,13 +119,6 @@ import (
 //				DefaultLogStorageAccountId:            exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				DefaultRecoveryDiskType:               pulumi.String("Standard_LRS"),
 //				TargetNetworkId:                       exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//				NetworkInterfaces: siterecovery.VmwareReplicatedVmNetworkInterfaceArray{
-//					&siterecovery.VmwareReplicatedVmNetworkInterfaceArgs{
-//						SourceMacAddress: pulumi.String("00:00:00:00:00:00"),
-//						TargetSubnetName: exampleSubnet.Name,
-//						IsPrimary:        pulumi.Bool(true),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

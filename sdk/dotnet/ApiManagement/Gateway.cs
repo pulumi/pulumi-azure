@@ -40,9 +40,6 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleGateway = new Azure.ApiManagement.Gateway("example", new()
     ///     {
-    ///         Name = "example-gateway",
-    ///         ApiManagementId = exampleService.Id,
-    ///         Description = "Example API Management gateway",
     ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
     ///         {
     ///             Name = "example name",
@@ -50,6 +47,9 @@ namespace Pulumi.Azure.ApiManagement
     ///             District = "example district",
     ///             Region = "example region",
     ///         },
+    ///         Name = "example-gateway",
+    ///         ApiManagementId = exampleService.Id,
+    ///         Description = "Example API Management gateway",
     ///     });
     /// 
     /// });

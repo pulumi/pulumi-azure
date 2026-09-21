@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.random.IntegerArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -72,12 +72,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var db = new Account("db", AccountArgs.builder()
- *             .name(String.format("tfex-cosmos-db-%s", ri.result()))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("MongoDB")
- *             .automaticFailoverEnabled(true)
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("BoundedStaleness")
+ *                 .maxIntervalInSeconds(300)
+ *                 .maxStalenessPrefix(100000)
+ *                 .build())
  *             .capabilities(            
  *                 AccountCapabilityArgs.builder()
  *                     .name("EnableAggregationPipeline")
@@ -91,11 +90,6 @@ import javax.annotation.Nullable;
  *                 AccountCapabilityArgs.builder()
  *                     .name("EnableMongo")
  *                     .build())
- *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
- *                 .consistencyLevel("BoundedStaleness")
- *                 .maxIntervalInSeconds(300)
- *                 .maxStalenessPrefix(100000)
- *                 .build())
  *             .geoLocations(            
  *                 AccountGeoLocationArgs.builder()
  *                     .location("eastus")
@@ -105,6 +99,12 @@ import javax.annotation.Nullable;
  *                     .location("westus")
  *                     .failoverPriority(0)
  *                     .build())
+ *             .name(String.format("tfex-cosmos-db-%s", ri.result()))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("MongoDB")
+ *             .automaticFailoverEnabled(true)
  *             .build());
  * 
  *     }
@@ -125,12 +125,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountIdentityArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -151,31 +150,31 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-resource")
- *             .location(exampleAzurermResourceGroup.location())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .defaultIdentityType(StdFunctions.join(JoinArgs.builder()
- *                 .separator("=")
- *                 .input(                
- *                     "UserAssignedIdentity",
- *                     example.id())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
- *             .offerType("Standard")
- *             .kind("MongoDB")
- *             .capabilities(AccountCapabilityArgs.builder()
- *                 .name("EnableMongo")
- *                 .build())
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Strong")
- *                 .build())
- *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location("westus")
- *                 .failoverPriority(0)
  *                 .build())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(example.id())
  *                 .build())
+ *             .capabilities(AccountCapabilityArgs.builder()
+ *                 .name("EnableMongo")
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location("westus")
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .name("example-resource")
+ *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .defaultIdentityType(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "="),
+ *                 Map.entry("input", Arrays.asList(                
+ *                     "UserAssignedIdentity",
+ *                     example.id()))
+ *             )).result())
+ *             .offerType("Standard")
+ *             .kind("MongoDB")
  *             .build());
  * 
  *     }

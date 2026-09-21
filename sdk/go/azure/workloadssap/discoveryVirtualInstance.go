@@ -39,6 +39,12 @@ import (
 //				return err
 //			}
 //			_, err = workloadssap.NewDiscoveryVirtualInstance(ctx, "example", &workloadssap.DiscoveryVirtualInstanceArgs{
+//				Identity: &workloadssap.DiscoveryVirtualInstanceIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"),
+//					},
+//				},
 //				Name:                          pulumi.String("X01"),
 //				ResourceGroupName:             example.Name,
 //				Location:                      example.Location,
@@ -46,13 +52,9 @@ import (
 //				SapProduct:                    pulumi.String("S4HANA"),
 //				CentralServerVirtualMachineId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1"),
 //				ManagedStorageAccountName:     pulumi.String("managedsa"),
-//				Identity: &workloadssap.DiscoveryVirtualInstanceIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"),
-//					},
-//				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"managedResourceGroupName",
+//			}))
 //			if err != nil {
 //				return err
 //			}

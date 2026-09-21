@@ -50,15 +50,15 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewScaleSetStandbyPool(ctx, "example", &compute.ScaleSetStandbyPoolArgs{
+//				ElasticityProfile: &compute.ScaleSetStandbyPoolElasticityProfileArgs{
+//					MaxReadyCapacity: pulumi.Int(10),
+//					MinReadyCapacity: pulumi.Int(5),
+//				},
 //				Name:                             pulumi.String("example-spsvmp"),
 //				ResourceGroupName:                example.Name,
 //				Location:                         pulumi.String("West Europe"),
 //				AttachedVirtualMachineScaleSetId: exampleOrchestratedVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				VirtualMachineState:              pulumi.String("Running"),
-//				ElasticityProfile: &compute.ScaleSetStandbyPoolElasticityProfileArgs{
-//					MaxReadyCapacity: pulumi.Int(10),
-//					MinReadyCapacity: pulumi.Int(5),
-//				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

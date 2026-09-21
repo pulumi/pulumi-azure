@@ -47,25 +47,20 @@ namespace Pulumi.Azure.Synapse
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleSparkPool = new Azure.Synapse.SparkPool("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         NodeSizeFamily = "MemoryOptimized",
-    ///         NodeSize = "Small",
-    ///         CacheSize = 100,
     ///         AutoScale = new Azure.Synapse.Inputs.SparkPoolAutoScaleArgs
     ///         {
     ///             MaxNodeCount = 50,
@@ -88,6 +83,11 @@ namespace Pulumi.Azure.Synapse
     /// ",
     ///             Filename = "config.txt",
     ///         },
+    ///         Name = "example",
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         NodeSizeFamily = "MemoryOptimized",
+    ///         NodeSize = "Small",
+    ///         CacheSize = 100,
     ///         SparkVersion = "3.5",
     ///         Tags = 
     ///         {

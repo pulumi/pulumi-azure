@@ -251,12 +251,12 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-nm",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-nm",
+            resource_group_name=example.name,
+            location=example.location,
             scope_accesses=["Connectivity"])
         example_network_manager_verifier_workspace = azure.network.NetworkManagerVerifierWorkspace("example",
             name="example",
@@ -273,23 +273,15 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-machine",
-            resource_group_name=example.name,
+            }],
+            name="example-nic",
             location=example.location,
-            size="Standard_B1ls",
-            admin_username="adminuser",
-            admin_password="P@ssw0rd1234!",
-            disable_password_authentication=False,
-            network_interface_ids=[example_network_interface.id],
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -299,20 +291,28 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_B1ls",
+            admin_username="adminuser",
+            admin_password="P@ssw0rd1234!",
+            disable_password_authentication=False,
+            network_interface_ids=[example_network_interface.id])
         example_network_manager_verifier_workspace_reachability_analysis_intent = azure.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent("example",
-            name="example-intent",
-            verifier_workspace_id=example_network_manager_verifier_workspace.id,
-            source_resource_id=example_linux_virtual_machine.id,
-            destination_resource_id=example_linux_virtual_machine.id,
-            description="example",
             ip_traffic={
                 "source_ips": ["10.0.2.1"],
                 "source_ports": ["80"],
                 "destination_ips": ["10.0.2.2"],
                 "destination_ports": ["*"],
                 "protocols": ["Any"],
-            })
+            },
+            name="example-intent",
+            verifier_workspace_id=example_network_manager_verifier_workspace.id,
+            source_resource_id=example_linux_virtual_machine.id,
+            destination_resource_id=example_linux_virtual_machine.id,
+            description="example")
         ```
 
         ## API Providers
@@ -360,12 +360,12 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-nm",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-nm",
+            resource_group_name=example.name,
+            location=example.location,
             scope_accesses=["Connectivity"])
         example_network_manager_verifier_workspace = azure.network.NetworkManagerVerifierWorkspace("example",
             name="example",
@@ -382,23 +382,15 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-machine",
-            resource_group_name=example.name,
+            }],
+            name="example-nic",
             location=example.location,
-            size="Standard_B1ls",
-            admin_username="adminuser",
-            admin_password="P@ssw0rd1234!",
-            disable_password_authentication=False,
-            network_interface_ids=[example_network_interface.id],
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -408,20 +400,28 @@ class NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(pulumi.CustomRes
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_B1ls",
+            admin_username="adminuser",
+            admin_password="P@ssw0rd1234!",
+            disable_password_authentication=False,
+            network_interface_ids=[example_network_interface.id])
         example_network_manager_verifier_workspace_reachability_analysis_intent = azure.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent("example",
-            name="example-intent",
-            verifier_workspace_id=example_network_manager_verifier_workspace.id,
-            source_resource_id=example_linux_virtual_machine.id,
-            destination_resource_id=example_linux_virtual_machine.id,
-            description="example",
             ip_traffic={
                 "source_ips": ["10.0.2.1"],
                 "source_ports": ["80"],
                 "destination_ips": ["10.0.2.2"],
                 "destination_ports": ["*"],
                 "protocols": ["Any"],
-            })
+            },
+            name="example-intent",
+            verifier_workspace_id=example_network_manager_verifier_workspace.id,
+            source_resource_id=example_linux_virtual_machine.id,
+            destination_resource_id=example_linux_virtual_machine.id,
+            description="example")
         ```
 
         ## API Providers

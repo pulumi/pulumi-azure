@@ -54,11 +54,6 @@ import (
 //				return err
 //			}
 //			_, err = devcenter.NewManagedDevOpsPool(ctx, "example", &devcenter.ManagedDevOpsPoolArgs{
-//				Name:               pulumi.String("example-manageddevopspools"),
-//				ResourceGroupName:  example.Name,
-//				Location:           example.Location,
-//				DevCenterProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
-//				MaximumConcurrency: pulumi.Int(1),
 //				AzureDevopsOrganization: &devcenter.ManagedDevOpsPoolAzureDevopsOrganizationArgs{
 //					Organizations: devcenter.ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArray{
 //						&devcenter.ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs{
@@ -69,13 +64,18 @@ import (
 //				},
 //				StatelessAgent: &devcenter.ManagedDevOpsPoolStatelessAgentArgs{},
 //				VirtualMachineScaleSetFabric: &devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs{
-//					SkuName: pulumi.String("Standard_D2ads_v5"),
 //					Images: devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArray{
 //						&devcenter.ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs{
 //							WellKnownImageName: pulumi.String("ubuntu-24.04/buffer"),
 //						},
 //					},
+//					SkuName: pulumi.String("Standard_D2ads_v5"),
 //				},
+//				Name:               pulumi.String("example-manageddevopspools"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
+//				DevCenterProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
+//				MaximumConcurrency: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

@@ -49,10 +49,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
     ///     {
-    ///         Name = "example-originGroup",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         SessionAffinityEnabled = true,
-    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
     ///         {
     ///             IntervalInSeconds = 240,
@@ -66,6 +62,10 @@ namespace Pulumi.Azure.Cdn
     ///             SampleSize = 16,
     ///             SuccessfulSamplesRequired = 3,
     ///         },
+    ///         Name = "example-originGroup",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
@@ -84,15 +84,10 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorBatchRuleSet = new Azure.Cdn.FrontdoorBatchRuleSet("example", new()
     ///     {
-    ///         Name = "examplebatchruleset",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         Rules = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleArgs
     ///             {
-    ///                 Name = "examplebatchrule",
-    ///                 Order = 1,
-    ///                 BehaviourOnMatch = "Continue",
     ///                 Actions = new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleActionsArgs
     ///                 {
     ///                     RouteConfigurationOverride = new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs
@@ -118,6 +113,14 @@ namespace Pulumi.Azure.Cdn
     ///                 },
     ///                 Conditions = new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsArgs
     ///                 {
+    ///                     DeviceTypes = new[]
+    ///                     {
+    ///                         new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs
+    ///                         {
+    ///                             Operator = "Equal",
+    ///                             Values = "Mobile",
+    ///                         },
+    ///                     },
     ///                     HostNames = new[]
     ///                     {
     ///                         new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsHostNameArgs
@@ -136,14 +139,6 @@ namespace Pulumi.Azure.Cdn
     ///                             },
     ///                         },
     ///                     },
-    ///                     DeviceTypes = new[]
-    ///                     {
-    ///                         new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs
-    ///                         {
-    ///                             Operator = "Equal",
-    ///                             Values = "Mobile",
-    ///                         },
-    ///                     },
     ///                     PostArguments = new[]
     ///                     {
     ///                         new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs
@@ -158,17 +153,6 @@ namespace Pulumi.Azure.Cdn
     ///                             Transforms = new[]
     ///                             {
     ///                                 "Uppercase",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     RequestMethods = new[]
-    ///                     {
-    ///                         new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs
-    ///                         {
-    ///                             Operator = "Equal",
-    ///                             Values = new[]
-    ///                             {
-    ///                                 "DELETE",
     ///                             },
     ///                         },
     ///                     },
@@ -189,9 +173,25 @@ namespace Pulumi.Azure.Cdn
     ///                             },
     ///                         },
     ///                     },
+    ///                     RequestMethods = new[]
+    ///                     {
+    ///                         new Azure.Cdn.Inputs.FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs
+    ///                         {
+    ///                             Operator = "Equal",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "DELETE",
+    ///                             },
+    ///                         },
+    ///                     },
     ///                 },
+    ///                 Name = "examplebatchrule",
+    ///                 Order = 1,
+    ///                 BehaviourOnMatch = "Continue",
     ///             },
     ///         },
+    ///         Name = "examplebatchruleset",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///     });
     /// 
     ///     var exampleFrontdoorRoute = new Azure.Cdn.FrontdoorRoute("example", new()

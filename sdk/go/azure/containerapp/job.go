@@ -57,12 +57,6 @@ import (
 //				return err
 //			}
 //			_, err = containerapp.NewJob(ctx, "example", &containerapp.JobArgs{
-//				Name:                      pulumi.String("example-container-app-job"),
-//				Location:                  example.Location,
-//				ResourceGroupName:         example.Name,
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				ReplicaTimeoutInSeconds:   pulumi.Int(10),
-//				ReplicaRetryLimit:         pulumi.Int(10),
 //				ManualTriggerConfig: &containerapp.JobManualTriggerConfigArgs{
 //					Parallelism:            pulumi.Int(4),
 //					ReplicaCompletionCount: pulumi.Int(1),
@@ -70,29 +64,27 @@ import (
 //				Template: &containerapp.JobTemplateArgs{
 //					Containers: containerapp.JobTemplateContainerArray{
 //						&containerapp.JobTemplateContainerArgs{
-//							Image: pulumi.String("repo/testcontainerAppsJob0:v1"),
-//							Name:  pulumi.String("testcontainerappsjob0"),
-//							ReadinessProbes: containerapp.JobTemplateContainerReadinessProbeArray{
-//								&containerapp.JobTemplateContainerReadinessProbeArgs{
-//									Transport: pulumi.String("HTTP"),
-//									Port:      pulumi.Int(5000),
-//								},
-//							},
 //							LivenessProbes: containerapp.JobTemplateContainerLivenessProbeArray{
 //								&containerapp.JobTemplateContainerLivenessProbeArgs{
-//									Transport: pulumi.String("HTTP"),
-//									Port:      pulumi.Int(5000),
-//									Path:      pulumi.String("/health"),
 //									Headers: containerapp.JobTemplateContainerLivenessProbeHeaderArray{
 //										&containerapp.JobTemplateContainerLivenessProbeHeaderArgs{
 //											Name:  pulumi.String("Cache-Control"),
 //											Value: pulumi.String("no-cache"),
 //										},
 //									},
+//									Transport:             pulumi.String("HTTP"),
+//									Port:                  pulumi.Int(5000),
+//									Path:                  pulumi.String("/health"),
 //									InitialDelay:          pulumi.Int(5),
 //									IntervalSeconds:       pulumi.Int(20),
 //									Timeout:               pulumi.Int(2),
 //									FailureCountThreshold: pulumi.Int(1),
+//								},
+//							},
+//							ReadinessProbes: containerapp.JobTemplateContainerReadinessProbeArray{
+//								&containerapp.JobTemplateContainerReadinessProbeArgs{
+//									Transport: pulumi.String("HTTP"),
+//									Port:      pulumi.Int(5000),
 //								},
 //							},
 //							StartupProbes: containerapp.JobTemplateContainerStartupProbeArray{
@@ -101,11 +93,19 @@ import (
 //									Port:      pulumi.Int(5000),
 //								},
 //							},
+//							Image:  pulumi.String("repo/testcontainerAppsJob0:v1"),
+//							Name:   pulumi.String("testcontainerappsjob0"),
 //							Cpu:    pulumi.Float64(0.5),
 //							Memory: pulumi.String("1Gi"),
 //						},
 //					},
 //				},
+//				Name:                      pulumi.String("example-container-app-job"),
+//				Location:                  example.Location,
+//				ResourceGroupName:         example.Name,
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ReplicaTimeoutInSeconds:   pulumi.Int(10),
+//				ReplicaRetryLimit:         pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err

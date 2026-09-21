@@ -28,12 +28,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "testsubnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "orbitalgateway",
  *         serviceDelegation: {
  *             name: "Microsoft.Orbital/orbitalGateways",
  *             actions: [
@@ -43,30 +38,35 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/publicIPAddresses/read",
  *             ],
  *         },
+ *         name: "orbitalgateway",
  *     }],
+ *     name: "testsubnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const exampleContactProfile = new azure.orbital.ContactProfile("example", {
- *     name: "example-contact-profile",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     minimumVariableContactDuration: "PT1M",
- *     autoTracking: "disabled",
  *     links: [{
  *         channels: [{
- *             name: "channelname",
- *             bandwidthMhz: 100,
- *             centerFrequencyMhz: 101,
  *             endPoints: [{
  *                 endPointName: "AQUA_command",
  *                 ipAddress: "10.0.1.0",
  *                 port: "49513",
  *                 protocol: "TCP",
  *             }],
+ *             name: "channelname",
+ *             bandwidthMhz: 100,
+ *             centerFrequencyMhz: 101,
  *         }],
  *         direction: "Uplink",
  *         name: "RHCP_UL",
  *         polarization: "RHCP",
  *     }],
+ *     name: "example-contact-profile",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     minimumVariableContactDuration: "PT1M",
+ *     autoTracking: "disabled",
  *     networkConfigurationSubnetId: exampleSubnet.id,
  * });
  * ```

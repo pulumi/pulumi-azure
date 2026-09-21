@@ -77,14 +77,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
     ///     {
-    ///         Name = "test",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Type = "Vpn",
-    ///         VpnType = "RouteBased",
-    ///         ActiveActive = false,
-    ///         BgpEnabled = false,
-    ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
@@ -94,6 +86,14 @@ namespace Pulumi.Azure.Network
     ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         ActiveActive = false,
+    ///         BgpEnabled = false,
+    ///         Sku = "Basic",
     ///     });
     /// 
     ///     var onpremiseVirtualNetworkGatewayConnection = new Azure.Network.VirtualNetworkGatewayConnection("onpremise", new()
@@ -161,12 +161,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var usVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("us", new()
     ///     {
-    ///         Name = "us-gateway",
-    ///         Location = us.Location,
-    ///         ResourceGroupName = us.Name,
-    ///         Type = "Vpn",
-    ///         VpnType = "RouteBased",
-    ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
@@ -176,6 +170,12 @@ namespace Pulumi.Azure.Network
     ///                 SubnetId = usGateway.Id,
     ///             },
     ///         },
+    ///         Name = "us-gateway",
+    ///         Location = us.Location,
+    ///         ResourceGroupName = us.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         Sku = "Basic",
     ///     });
     /// 
     ///     var europe = new Azure.Core.ResourceGroup("europe", new()
@@ -216,12 +216,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var europeVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("europe", new()
     ///     {
-    ///         Name = "europe-gateway",
-    ///         Location = europe.Location,
-    ///         ResourceGroupName = europe.Name,
-    ///         Type = "Vpn",
-    ///         VpnType = "RouteBased",
-    ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
@@ -231,6 +225,12 @@ namespace Pulumi.Azure.Network
     ///                 SubnetId = europeGateway.Id,
     ///             },
     ///         },
+    ///         Name = "europe-gateway",
+    ///         Location = europe.Location,
+    ///         ResourceGroupName = europe.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         Sku = "Basic",
     ///     });
     /// 
     ///     var usToEurope = new Azure.Network.VirtualNetworkGatewayConnection("us_to_europe", new()

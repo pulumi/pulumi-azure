@@ -54,6 +54,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExascaleDatabaseStorageVault = new ExascaleDatabaseStorageVault("exampleExascaleDatabaseStorageVault", ExascaleDatabaseStorageVaultArgs.builder()
+ *             .highCapacityDatabaseStorage(ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs.builder()
+ *                 .totalSizeInGb(300)
+ *                 .build())
  *             .name("example-exascale-db-storage-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,9 +64,6 @@ import javax.annotation.Nullable;
  *             .displayName("example-exascale-db-storage-vault")
  *             .description("description")
  *             .additionalFlashCachePercentage(100)
- *             .highCapacityDatabaseStorage(ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs.builder()
- *                 .totalSizeInGb(300)
- *                 .build())
  *             .timeZone("UTC")
  *             .build());
  * 

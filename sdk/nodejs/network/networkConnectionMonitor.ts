@@ -39,21 +39,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-Nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
- *     name: "example-VM",
+ *     name: "example-Nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     vmSize: "Standard_D2s_v3",
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -74,6 +69,11 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
+ *     name: "example-VM",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     vmSize: "Standard_D2s_v3",
  * });
  * const exampleExtension = new azure.compute.Extension("example", {
  *     name: "example-VMExtension",
@@ -90,13 +90,8 @@ import * as utilities from "../utilities";
  *     sku: "PerGB2018",
  * });
  * const exampleNetworkConnectionMonitor = new azure.network.NetworkConnectionMonitor("example", {
- *     name: "example-Monitor",
- *     networkWatcherId: exampleNetworkWatcher.id,
- *     location: exampleNetworkWatcher.location,
  *     endpoints: [
  *         {
- *             name: "source",
- *             targetResourceId: exampleVirtualMachine.id,
  *             filter: {
  *                 items: [{
  *                     address: exampleVirtualMachine.id,
@@ -104,6 +99,8 @@ import * as utilities from "../utilities";
  *                 }],
  *                 type: "Include",
  *             },
+ *             name: "source",
+ *             targetResourceId: exampleVirtualMachine.id,
  *         },
  *         {
  *             name: "destination",
@@ -111,12 +108,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     testConfigurations: [{
- *         name: "tcpName",
- *         protocol: "Tcp",
- *         testFrequencyInSeconds: 60,
  *         tcpConfiguration: {
  *             port: 80,
  *         },
+ *         name: "tcpName",
+ *         protocol: "Tcp",
+ *         testFrequencyInSeconds: 60,
  *     }],
  *     testGroups: [{
  *         name: "exampletg",
@@ -124,6 +121,9 @@ import * as utilities from "../utilities";
  *         sourceEndpoints: ["source"],
  *         testConfigurationNames: ["tcpName"],
  *     }],
+ *     name: "example-Monitor",
+ *     networkWatcherId: exampleNetworkWatcher.id,
+ *     location: exampleNetworkWatcher.location,
  *     notes: "examplenote",
  *     outputWorkspaceResourceIds: [exampleAnalyticsWorkspace.id],
  * }, {

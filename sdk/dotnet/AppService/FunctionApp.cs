@@ -46,14 +46,14 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "azure-functions-test-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "azure-functions-test-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
@@ -96,15 +96,15 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "azure-functions-test-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "FunctionApp",
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Dynamic",
     ///             Size = "Y1",
     ///         },
+    ///         Name = "azure-functions-test-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "FunctionApp",
     ///     });
     /// 
     ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
@@ -147,16 +147,16 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "azure-functions-test-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "Linux",
-    ///         Reserved = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Dynamic",
     ///             Size = "Y1",
     ///         },
+    ///         Name = "azure-functions-test-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "Linux",
+    ///         Reserved = true,
     ///     });
     /// 
     ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()

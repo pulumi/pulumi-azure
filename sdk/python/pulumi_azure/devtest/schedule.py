@@ -451,11 +451,6 @@ class Schedule(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_schedule = azure.devtest.Schedule("example",
-            name="LabVmAutoStart",
-            location=example.location,
-            resource_group_name=example.name,
-            lab_name=example_lab.name,
-            status="Enabled",
             weekly_recurrence={
                 "time": "1100",
                 "week_days": [
@@ -463,9 +458,14 @@ class Schedule(pulumi.CustomResource):
                     "Tuesday",
                 ],
             },
+            notification_settings={},
+            name="LabVmAutoStart",
+            location=example.location,
+            resource_group_name=example.name,
+            lab_name=example_lab.name,
+            status="Enabled",
             time_zone_id="Pacific Standard Time",
             task_type="LabVmsStartupTask",
-            notification_settings={},
             tags={
                 "environment": "Production",
             })
@@ -525,11 +525,6 @@ class Schedule(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_schedule = azure.devtest.Schedule("example",
-            name="LabVmAutoStart",
-            location=example.location,
-            resource_group_name=example.name,
-            lab_name=example_lab.name,
-            status="Enabled",
             weekly_recurrence={
                 "time": "1100",
                 "week_days": [
@@ -537,9 +532,14 @@ class Schedule(pulumi.CustomResource):
                     "Tuesday",
                 ],
             },
+            notification_settings={},
+            name="LabVmAutoStart",
+            location=example.location,
+            resource_group_name=example.name,
+            lab_name=example_lab.name,
+            status="Enabled",
             time_zone_id="Pacific Standard Time",
             task_type="LabVmsStartupTask",
-            notification_settings={},
             tags={
                 "environment": "Production",
             })

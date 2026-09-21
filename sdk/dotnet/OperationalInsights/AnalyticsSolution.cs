@@ -48,16 +48,16 @@ namespace Pulumi.Azure.OperationalInsights
     /// 
     ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
-    ///         SolutionName = "ContainerInsights",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
     ///         {
     ///             Publisher = "Microsoft",
     ///             Product = "OMSGallery/ContainerInsights",
     ///         },
+    ///         SolutionName = "ContainerInsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///     });
     /// 
     /// });

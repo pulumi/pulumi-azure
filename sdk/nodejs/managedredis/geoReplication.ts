@@ -20,22 +20,22 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const amr1 = new azure.managedredis.ManagedRedis("amr1", {
+ *     defaultDatabase: {
+ *         geoReplicationGroupName: "example-geo-group",
+ *     },
  *     name: "example-managedredis-amr1",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     skuName: "Balanced_B3",
+ * });
+ * const amr2 = new azure.managedredis.ManagedRedis("amr2", {
  *     defaultDatabase: {
  *         geoReplicationGroupName: "example-geo-group",
  *     },
- * });
- * const amr2 = new azure.managedredis.ManagedRedis("amr2", {
  *     name: "example-managedredis-amr2",
  *     resourceGroupName: example.name,
  *     location: "Central US",
  *     skuName: "Balanced_B3",
- *     defaultDatabase: {
- *         geoReplicationGroupName: "example-geo-group",
- *     },
  * });
  * const exampleGeoReplication = new azure.managedredis.GeoReplication("example", {
  *     managedRedisId: amr1.id,

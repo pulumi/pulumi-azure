@@ -64,16 +64,16 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-mlw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
-    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
@@ -84,16 +84,16 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace2 = new Azure.Synapse.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleSparkPool = new Azure.Synapse.SparkPool("example", new()
@@ -107,14 +107,14 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleSynapseSpark = new Azure.MachineLearning.SynapseSpark("example", new()
     ///     {
-    ///         Name = "example",
-    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///         Location = example.Location,
-    ///         SynapseSparkPoolId = exampleSparkPool.Id,
     ///         Identity = new Azure.MachineLearning.Inputs.SynapseSparkIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         Location = example.Location,
+    ///         SynapseSparkPoolId = exampleSparkPool.Id,
     ///     });
     /// 
     /// });

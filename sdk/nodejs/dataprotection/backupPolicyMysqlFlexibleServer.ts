@@ -20,20 +20,16 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-backup-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleBackupPolicyMysqlFlexibleServer = new azure.dataprotection.BackupPolicyMysqlFlexibleServer("example", {
- *     name: "example-backup-policy",
- *     vaultId: exampleBackupVault.id,
- *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
- *     timeZone: "India Standard Time",
  *     defaultRetentionRule: {
  *         lifeCycles: [{
  *             duration: "P4M",
@@ -42,35 +38,29 @@ import * as utilities from "../utilities";
  *     },
  *     retentionRules: [
  *         {
- *             name: "weekly",
+ *             criteria: {
+ *                 absoluteCriteria: "FirstOfWeek",
+ *             },
  *             lifeCycles: [{
  *                 duration: "P6M",
  *                 dataStoreType: "VaultStore",
  *             }],
+ *             name: "weekly",
  *             priority: 20,
- *             criteria: {
- *                 absoluteCriteria: "FirstOfWeek",
- *             },
  *         },
  *         {
- *             name: "thursday",
- *             lifeCycles: [{
- *                 duration: "P1W",
- *                 dataStoreType: "VaultStore",
- *             }],
- *             priority: 25,
  *             criteria: {
  *                 daysOfWeeks: ["Thursday"],
  *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
  *             },
- *         },
- *         {
- *             name: "monthly",
  *             lifeCycles: [{
- *                 duration: "P1D",
+ *                 duration: "P1W",
  *                 dataStoreType: "VaultStore",
  *             }],
- *             priority: 15,
+ *             name: "thursday",
+ *             priority: 25,
+ *         },
+ *         {
  *             criteria: {
  *                 weeksOfMonths: [
  *                     "First",
@@ -79,8 +69,18 @@ import * as utilities from "../utilities";
  *                 daysOfWeeks: ["Tuesday"],
  *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
  *             },
+ *             lifeCycles: [{
+ *                 duration: "P1D",
+ *                 dataStoreType: "VaultStore",
+ *             }],
+ *             name: "monthly",
+ *             priority: 15,
  *         },
  *     ],
+ *     name: "example-backup-policy",
+ *     vaultId: exampleBackupVault.id,
+ *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
+ *     timeZone: "India Standard Time",
  * });
  * ```
  *

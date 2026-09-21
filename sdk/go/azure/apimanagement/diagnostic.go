@@ -58,26 +58,17 @@ import (
 //				return err
 //			}
 //			exampleLogger, err := apimanagement.NewLogger(ctx, "example", &apimanagement.LoggerArgs{
-//				Name:              pulumi.String("example-apimlogger"),
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: example.Name,
 //				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
 //					InstrumentationKey: exampleInsights.InstrumentationKey,
 //				},
+//				Name:              pulumi.String("example-apimlogger"),
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewDiagnostic(ctx, "example", &apimanagement.DiagnosticArgs{
-//				Identifier:              pulumi.String("applicationinsights"),
-//				ResourceGroupName:       example.Name,
-//				ApiManagementName:       exampleService.Name,
-//				ApiManagementLoggerId:   exampleLogger.ID().ToIDOutput().ToStringOutput(),
-//				SamplingPercentage:      pulumi.Float64(5),
-//				AlwaysLogErrors:         pulumi.Bool(true),
-//				LogClientIp:             pulumi.Bool(true),
-//				Verbosity:               pulumi.String("verbose"),
-//				HttpCorrelationProtocol: pulumi.String("W3C"),
 //				FrontendRequest: &apimanagement.DiagnosticFrontendRequestArgs{
 //					BodyBytes: pulumi.Int(32),
 //					HeadersToLogs: pulumi.StringArray{
@@ -110,6 +101,15 @@ import (
 //						pulumi.String("origin"),
 //					},
 //				},
+//				Identifier:              pulumi.String("applicationinsights"),
+//				ResourceGroupName:       example.Name,
+//				ApiManagementName:       exampleService.Name,
+//				ApiManagementLoggerId:   exampleLogger.ID().ToIDOutput().ToStringOutput(),
+//				SamplingPercentage:      pulumi.Float64(5),
+//				AlwaysLogErrors:         pulumi.Bool(true),
+//				LogClientIp:             pulumi.Bool(true),
+//				Verbosity:               pulumi.String("verbose"),
+//				HttpCorrelationProtocol: pulumi.String("W3C"),
 //			})
 //			if err != nil {
 //				return err

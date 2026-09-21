@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
+ *             .sku(ElasticSanSkuArgs.builder()
+ *                 .name("Premium_LRS")
+ *                 .build())
  *             .name("example-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
- *             .sku(ElasticSanSkuArgs.builder()
- *                 .name("Premium_LRS")
- *                 .build())
  *             .build());
  * 
  *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()
@@ -124,13 +124,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
+ *             .sku(ElasticSanSkuArgs.builder()
+ *                 .name("Premium_LRS")
+ *                 .build())
  *             .name("example-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
- *             .sku(ElasticSanSkuArgs.builder()
- *                 .name("Premium_LRS")
- *                 .build())
  *             .build());
  * 
  *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()
@@ -156,13 +156,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example2 = new Volume("example2", VolumeArgs.builder()
- *             .name("example-esv2")
- *             .volumeGroupId(exampleVolumeGroup.id())
- *             .sizeInGib(2)
  *             .createSource(VolumeCreateSourceArgs.builder()
  *                 .sourceType("DiskSnapshot")
  *                 .sourceId(exampleSnapshot.id())
  *                 .build())
+ *             .name("example-esv2")
+ *             .volumeGroupId(exampleVolumeGroup.id())
+ *             .sizeInGib(2)
  *             .build());
  * 
  *     }

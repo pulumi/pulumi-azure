@@ -33,48 +33,48 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "some-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("example", {
- *     name: server.hex,
+ *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleAppService = new azure.appservice.AppService("example", {
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
- *     },
- *     appSettings: {
- *         SOME_KEY: "some-value",
  *     },
  *     connectionStrings: [{
  *         name: "Database",
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
+ *     name: server.hex,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     appServicePlanId: examplePlan.id,
+ *     appSettings: {
+ *         SOME_KEY: "some-value",
+ *     },
  * });
  * const exampleSlot = new azure.appservice.Slot("example", {
+ *     siteConfig: {
+ *         dotnetFrameworkVersion: "v4.0",
+ *     },
+ *     connectionStrings: [{
+ *         name: "Database",
+ *         type: "SQLServer",
+ *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
+ *     }],
  *     name: server.hex,
  *     appServiceName: exampleAppService.name,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
- *     siteConfig: {
- *         dotnetFrameworkVersion: "v4.0",
- *     },
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
- *     connectionStrings: [{
- *         name: "Database",
- *         type: "SQLServer",
- *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
- *     }],
  * });
  * ```
  *
@@ -96,36 +96,36 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "some-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("example", {
- *     name: server.hex,
+ *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleAppService = new azure.appservice.AppService("example", {
  *     siteConfig: {
  *         javaVersion: "1.8",
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",
  *     },
+ *     name: server.hex,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     appServicePlanId: examplePlan.id,
  * });
  * const exampleSlot = new azure.appservice.Slot("example", {
+ *     siteConfig: {
+ *         javaVersion: "1.8",
+ *         javaContainer: "JETTY",
+ *         javaContainerVersion: "9.3",
+ *     },
  *     name: server.hex,
  *     appServiceName: exampleAppService.name,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
- *     siteConfig: {
- *         javaVersion: "1.8",
- *         javaContainer: "JETTY",
- *         javaContainerVersion: "9.3",
- *     },
  * });
  * ```
  *

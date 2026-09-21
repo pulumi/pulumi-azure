@@ -34,9 +34,13 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     ///     var exampleWebPubsubService = new Azurerm.WebPubsubService("example", new()
     ///     {
-    ///         Name = "example-webpubsub",
-    ///         Location = testAzurermResourceGroup.Location,
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         Identity = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "type", "SystemAssigned" },
+    ///             },
+    ///         },
     ///         Sku = new[]
     ///         {
     ///             
@@ -45,23 +49,13 @@ namespace Pulumi.Azure.WebPubSub
     ///                 { "capacity", 1 },
     ///             },
     ///         },
-    ///         Identity = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "type", "SystemAssigned" },
-    ///             },
-    ///         },
+    ///         Name = "example-webpubsub",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "examplekeyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -97,20 +91,26 @@ namespace Pulumi.Azure.WebPubSub
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
     ///     });
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "imported-cert",
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "",
     ///         },
+    ///         Name = "imported-cert",
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
     ///     var test = new Azure.WebPubSub.CustomCertificate("test", new()

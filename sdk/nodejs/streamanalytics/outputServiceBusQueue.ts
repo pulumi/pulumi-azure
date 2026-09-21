@@ -35,6 +35,10 @@ import * as utilities from "../utilities";
  *     enablePartitioning: true,
  * });
  * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("example", {
+ *     serialization: {
+ *         type: "Csv",
+ *         format: "Array",
+ *     },
  *     name: "blob-storage-output",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -42,10 +46,6 @@ import * as utilities from "../utilities";
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     serialization: {
- *         type: "Csv",
- *         format: "Array",
- *     },
  * });
  * ```
  *

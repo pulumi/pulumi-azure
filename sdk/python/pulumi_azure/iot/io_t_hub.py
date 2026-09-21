@@ -768,13 +768,18 @@ class IoTHub(pulumi.CustomResource):
             name="acctest",
             send=True)
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="Example-IoTHub",
-            resource_group_name=example.name,
-            location=example.location,
-            local_authentication_enabled=False,
             sku={
                 "name": "S1",
                 "capacity": 1,
+            },
+            cloud_to_device={
+                "feedbacks": [{
+                    "time_to_live": "PT1H10M",
+                    "max_delivery_count": 15,
+                    "lock_duration": "PT30S",
+                }],
+                "max_delivery_count": 30,
+                "default_ttl": "PT1H",
             },
             endpoints=[
                 {
@@ -793,6 +798,14 @@ class IoTHub(pulumi.CustomResource):
                     "name": "export2",
                 },
             ],
+            enrichments=[{
+                "key": "tenant",
+                "value": "$twin.tags.Tenant",
+                "endpoint_names": [
+                    "export",
+                    "export2",
+                ],
+            }],
             routes=[
                 {
                     "name": "export",
@@ -809,23 +822,10 @@ class IoTHub(pulumi.CustomResource):
                     "enabled": True,
                 },
             ],
-            enrichments=[{
-                "key": "tenant",
-                "value": "$twin.tags.Tenant",
-                "endpoint_names": [
-                    "export",
-                    "export2",
-                ],
-            }],
-            cloud_to_device={
-                "max_delivery_count": 30,
-                "default_ttl": "PT1H",
-                "feedbacks": [{
-                    "time_to_live": "PT1H10M",
-                    "max_delivery_count": 15,
-                    "lock_duration": "PT30S",
-                }],
-            },
+            name="Example-IoTHub",
+            resource_group_name=example.name,
+            location=example.location,
+            local_authentication_enabled=False,
             tags={
                 "purpose": "testing",
             })
@@ -912,13 +912,18 @@ class IoTHub(pulumi.CustomResource):
             name="acctest",
             send=True)
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="Example-IoTHub",
-            resource_group_name=example.name,
-            location=example.location,
-            local_authentication_enabled=False,
             sku={
                 "name": "S1",
                 "capacity": 1,
+            },
+            cloud_to_device={
+                "feedbacks": [{
+                    "time_to_live": "PT1H10M",
+                    "max_delivery_count": 15,
+                    "lock_duration": "PT30S",
+                }],
+                "max_delivery_count": 30,
+                "default_ttl": "PT1H",
             },
             endpoints=[
                 {
@@ -937,6 +942,14 @@ class IoTHub(pulumi.CustomResource):
                     "name": "export2",
                 },
             ],
+            enrichments=[{
+                "key": "tenant",
+                "value": "$twin.tags.Tenant",
+                "endpoint_names": [
+                    "export",
+                    "export2",
+                ],
+            }],
             routes=[
                 {
                     "name": "export",
@@ -953,23 +966,10 @@ class IoTHub(pulumi.CustomResource):
                     "enabled": True,
                 },
             ],
-            enrichments=[{
-                "key": "tenant",
-                "value": "$twin.tags.Tenant",
-                "endpoint_names": [
-                    "export",
-                    "export2",
-                ],
-            }],
-            cloud_to_device={
-                "max_delivery_count": 30,
-                "default_ttl": "PT1H",
-                "feedbacks": [{
-                    "time_to_live": "PT1H10M",
-                    "max_delivery_count": 15,
-                    "lock_duration": "PT30S",
-                }],
-            },
+            name="Example-IoTHub",
+            resource_group_name=example.name,
+            location=example.location,
+            local_authentication_enabled=False,
             tags={
                 "purpose": "testing",
             })

@@ -70,25 +70,12 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
-//				Name:              pulumi.String("test"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("Vpn"),
-//				VpnType:           pulumi.String("RouteBased"),
-//				ActiveActive:      pulumi.Bool(false),
-//				BgpEnabled:        pulumi.Bool(false),
-//				Sku:               pulumi.String("Basic"),
-//				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
-//					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						Name:                       pulumi.String("vnetGatewayConfig"),
-//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
-//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//					},
-//				},
 //				VpnClientConfiguration: &network.VirtualNetworkGatewayVpnClientConfigurationArgs{
-//					AddressSpaces: pulumi.StringArray{
-//						pulumi.String("10.2.0.0/24"),
+//					RevokedCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{
+//						&network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{
+//							Name:       pulumi.String("Verizon-Global-Root-CA"),
+//							Thumbprint: pulumi.String("912198EEF23DCAC40939312FEE97DD560BAE49B1"),
+//						},
 //					},
 //					RootCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{
 //						&network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{
@@ -118,13 +105,26 @@ import (
 //
 //						},
 //					},
-//					RevokedCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{
-//						&network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{
-//							Name:       pulumi.String("Verizon-Global-Root-CA"),
-//							Thumbprint: pulumi.String("912198EEF23DCAC40939312FEE97DD560BAE49B1"),
-//						},
+//					AddressSpaces: pulumi.StringArray{
+//						pulumi.String("10.2.0.0/24"),
 //					},
 //				},
+//				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
+//					&network.VirtualNetworkGatewayIpConfigurationArgs{
+//						Name:                       pulumi.String("vnetGatewayConfig"),
+//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("Vpn"),
+//				VpnType:           pulumi.String("RouteBased"),
+//				ActiveActive:      pulumi.Bool(false),
+//				BgpEnabled:        pulumi.Bool(false),
+//				Sku:               pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err

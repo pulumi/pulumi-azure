@@ -30,10 +30,6 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_AzureFrontDoor",
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
- *     name: "example-origin-group",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     sessionAffinityEnabled: true,
- *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  *     healthProbe: {
  *         intervalInSeconds: 240,
  *         path: "/healthProbe",
@@ -45,6 +41,10 @@ import * as utilities from "../utilities";
  *         sampleSize: 16,
  *         successfulSamplesRequired: 3,
  *     },
+ *     name: "example-origin-group",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     sessionAffinityEnabled: true,
+ *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
  *     name: "example-origin",
@@ -67,20 +67,20 @@ import * as utilities from "../utilities";
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
+ *     tls: {
+ *         certificateType: "ManagedCertificate",
+ *         minimumTlsVersion: "TLS12",
+ *     },
  *     name: "example-customDomain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
- *     hostName: std.joinOutput({
+ *     hostName: std.join({
  *         separator: ".",
  *         input: [
  *             "contoso",
  *             exampleZone.name,
  *         ],
  *     }).result,
- *     tls: {
- *         certificateType: "ManagedCertificate",
- *         minimumTlsVersion: "TLS12",
- *     },
  * });
  * const exampleFrontdoorRoute = new azure.cdn.FrontdoorRoute("example", {
  *     name: "example-route",

@@ -35,11 +35,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupVaultArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesCluster;
  * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesClusterArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -67,29 +67,29 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()
- *             .name("example-backup-policy")
- *             .resourceGroupName(example.name())
- *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
- *             .timeZone("India Standard Time")
- *             .defaultRetentionDuration("P4M")
- *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
- *                 .name("Daily")
- *                 .priority(25)
- *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
- *                     .duration("P84D")
- *                     .dataStoreType("OperationalStore")
- *                     .build())
- *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
- *                     .absoluteCriteria("FirstOfDay")
- *                     .build())
- *                 .build())
  *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
  *                     .duration("P7D")
  *                     .dataStoreType("OperationalStore")
  *                     .build())
  *                 .build())
+ *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
+ *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
+ *                     .absoluteCriteria("FirstOfDay")
+ *                     .build())
+ *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
+ *                     .duration("P84D")
+ *                     .dataStoreType("OperationalStore")
+ *                     .build())
+ *                 .name("Daily")
+ *                 .priority(25)
+ *                 .build())
+ *             .name("example-backup-policy")
+ *             .resourceGroupName(example.name())
+ *             .vaultName(exampleBackupVault.name())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
  *             .build());
  * 
  *     }

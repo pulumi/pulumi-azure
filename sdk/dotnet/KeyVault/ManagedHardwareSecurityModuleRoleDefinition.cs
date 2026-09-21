@@ -24,16 +24,6 @@ namespace Pulumi.Azure.KeyVault
     /// {
     ///     var example = new Azure.KeyVault.ManagedHardwareSecurityModule("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         Location = exampleAzurermResourceGroup.Location,
-    ///         SkuName = "Standard_B1",
-    ///         TenantId = current.TenantId,
-    ///         AdminObjectIds = new[]
-    ///         {
-    ///             current.ObjectId,
-    ///         },
-    ///         PurgeProtectionEnabled = false,
     ///         ActiveConfig = new[]
     ///         {
     ///             
@@ -47,13 +37,20 @@ namespace Pulumi.Azure.KeyVault
     ///                 { "securityDomainQuorum", 2 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+    ///         Location = exampleAzurermResourceGroup.Location,
+    ///         SkuName = "Standard_B1",
+    ///         TenantId = current.TenantId,
+    ///         AdminObjectIds = new[]
+    ///         {
+    ///             current.ObjectId,
+    ///         },
+    ///         PurgeProtectionEnabled = false,
     ///     });
     /// 
     ///     var exampleManagedHardwareSecurityModuleRoleDefinition = new Azure.KeyVault.ManagedHardwareSecurityModuleRoleDefinition("example", new()
     ///     {
-    ///         Name = "7d206142-bf01-11ed-80bc-00155d61ee9e",
-    ///         ManagedHsmId = example.Id,
-    ///         Description = "desc foo",
     ///         Permissions = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs
@@ -64,6 +61,9 @@ namespace Pulumi.Azure.KeyVault
     ///                 },
     ///             },
     ///         },
+    ///         Name = "7d206142-bf01-11ed-80bc-00155d61ee9e",
+    ///         ManagedHsmId = example.Id,
+    ///         Description = "desc foo",
     ///     });
     /// 
     /// });

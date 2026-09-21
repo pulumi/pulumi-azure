@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSharedAccessPolicy = new SharedAccessPolicy("exampleSharedAccessPolicy", SharedAccessPolicyArgs.builder()

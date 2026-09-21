@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-nm",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-nm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     scopeAccesses: ["Connectivity"],
  * });
  * const exampleNetworkManagerVerifierWorkspace = new azure.network.NetworkManagerVerifierWorkspace("example", {
@@ -47,24 +47,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "example-machine",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_B1ls",
- *     adminUsername: "adminuser",
- *     adminPassword: "P@ssw0rd1234!",
- *     disablePasswordAuthentication: false,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -75,13 +67,16 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_B1ls",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@ssw0rd1234!",
+ *     disablePasswordAuthentication: false,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent = new azure.network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent("example", {
- *     name: "example-intent",
- *     verifierWorkspaceId: exampleNetworkManagerVerifierWorkspace.id,
- *     sourceResourceId: exampleLinuxVirtualMachine.id,
- *     destinationResourceId: exampleLinuxVirtualMachine.id,
- *     description: "example",
  *     ipTraffic: {
  *         sourceIps: ["10.0.2.1"],
  *         sourcePorts: ["80"],
@@ -89,6 +84,11 @@ import * as utilities from "../utilities";
  *         destinationPorts: ["*"],
  *         protocols: ["Any"],
  *     },
+ *     name: "example-intent",
+ *     verifierWorkspaceId: exampleNetworkManagerVerifierWorkspace.id,
+ *     sourceResourceId: exampleLinuxVirtualMachine.id,
+ *     destinationResourceId: exampleLinuxVirtualMachine.id,
+ *     description: "example",
  * });
  * ```
  *

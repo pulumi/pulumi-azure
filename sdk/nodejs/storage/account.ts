@@ -58,16 +58,16 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleAccount = new azure.storage.Account("example", {
- *     name: "storageaccountname",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
  *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["100.0.0.1"],
  *         virtualNetworkSubnetIds: [exampleSubnet.id],
  *     },
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
  *     tags: {
  *         environment: "staging",
  *     },

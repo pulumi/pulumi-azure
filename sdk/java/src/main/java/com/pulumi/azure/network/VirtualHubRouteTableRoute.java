@@ -114,12 +114,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualHubConnection = new VirtualHubConnection("exampleVirtualHubConnection", VirtualHubConnectionArgs.builder()
- *             .name("example-vhubconn")
- *             .virtualHubId(exampleVirtualHub.id())
- *             .remoteVirtualNetworkId(exampleVirtualNetwork.id())
  *             .routing(VirtualHubConnectionRoutingArgs.builder()
  *                 .associatedRouteTableId(exampleVirtualHubRouteTable.id())
  *                 .build())
+ *             .name("example-vhubconn")
+ *             .virtualHubId(exampleVirtualHub.id())
+ *             .remoteVirtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
  *         var exampleVirtualHubRouteTableRoute = new VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute", VirtualHubRouteTableRouteArgs.builder()

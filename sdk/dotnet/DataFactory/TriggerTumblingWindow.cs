@@ -43,20 +43,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleTriggerTumblingWindow = new Azure.DataFactory.TriggerTumblingWindow("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         StartTime = "2022-09-21T00:00:00Z",
-    ///         EndTime = "2022-09-21T08:00:00Z",
-    ///         Frequency = "Minute",
-    ///         Interval = 15,
-    ///         Delay = "16:00:00",
-    ///         Annotations = new[]
-    ///         {
-    ///             "example1",
-    ///             "example2",
-    ///             "example3",
-    ///         },
-    ///         Description = "example description",
     ///         Retry = new Azure.DataFactory.Inputs.TriggerTumblingWindowRetryArgs
     ///         {
     ///             Count = 1,
@@ -78,6 +64,20 @@ namespace Pulumi.Azure.DataFactory
     ///                 Offset = "-24:00:00",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         StartTime = "2022-09-21T00:00:00Z",
+    ///         EndTime = "2022-09-21T08:00:00Z",
+    ///         Frequency = "Minute",
+    ///         Interval = 15,
+    ///         Delay = "16:00:00",
+    ///         Annotations = new[]
+    ///         {
+    ///             "example1",
+    ///             "example2",
+    ///             "example3",
+    ///         },
+    ///         Description = "example description",
     ///         AdditionalProperties = 
     ///         {
     ///             { "foo", "value1" },

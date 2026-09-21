@@ -33,18 +33,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "example-vmss",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard_F2",
- *     instances: 1,
- *     adminUsername: "adminuser",
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: std.file({
- *             input: "~/.ssh/id_rsa.pub",
- *         }).then(invoke => invoke.result),
- *     }],
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -55,15 +43,27 @@ import * as utilities from "../utilities";
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: std.file({
+ *             input: "~/.ssh/id_rsa.pub",
+ *         }).result,
+ *     }],
  *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
  *         ipConfigurations: [{
  *             name: "internal",
  *             primary: true,
  *             subnetId: internal.id,
  *         }],
+ *         name: "example",
+ *         primary: true,
  *     }],
+ *     name: "example-vmss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Standard_F2",
+ *     instances: 1,
+ *     adminUsername: "adminuser",
  * });
  * const exampleAssessmentPolicy = new azure.securitycenter.AssessmentPolicy("example", {
  *     displayName: "Test Display Name",
@@ -71,11 +71,11 @@ import * as utilities from "../utilities";
  *     description: "Test Description",
  * });
  * const exampleAssessment = new azure.securitycenter.Assessment("example", {
- *     assessmentPolicyId: exampleAssessmentPolicy.id,
- *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  *     status: {
  *         code: "Healthy",
  *     },
+ *     assessmentPolicyId: exampleAssessmentPolicy.id,
+ *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  * });
  * ```
  *

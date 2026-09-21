@@ -49,36 +49,36 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "example-lb",
- *     sku: "Standard",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
- * });
- * const exampleLinkService = new azure.privatedns.LinkService("example", {
- *     name: "example-privatelink",
+ *     name: "example-lb",
+ *     sku: "Standard",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ * });
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
  *     natIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         primary: true,
  *         subnetId: service.id,
  *     }],
+ *     name: "example-privatelink",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: "example-endpoint",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     subnetId: endpoint.id,
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
  *         privateConnectionResourceId: exampleLinkService.id,
  *         isManualConnection: false,
  *     },
+ *     name: "example-endpoint",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     subnetId: endpoint.id,
  * });
  * ```
  *
@@ -101,16 +101,16 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * }));
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: "example-endpoint",
- *     location: example.then(example => example.location),
- *     resourceGroupName: example.then(example => example.name),
- *     subnetId: subnet.then(subnet => subnet.id),
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
  *         privateConnectionResourceAlias: "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
  *         isManualConnection: true,
  *         requestMessage: "PL",
  *     },
+ *     name: "example-endpoint",
+ *     location: example.then(example => example.location),
+ *     resourceGroupName: example.then(example => example.name),
+ *     subnetId: subnet.then(subnet => subnet.id),
  * });
  * ```
  *
@@ -148,10 +148,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: "example-endpoint",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     subnetId: exampleSubnet.id,
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
  *         privateConnectionResourceId: exampleAccount.id,
@@ -162,6 +158,10 @@ import * as utilities from "../utilities";
  *         name: "example-dns-zone-group",
  *         privateDnsZoneIds: [exampleZone.id],
  *     },
+ *     name: "example-endpoint",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     subnetId: exampleSubnet.id,
  * });
  * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
  *     name: "example-link",

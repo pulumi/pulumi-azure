@@ -55,24 +55,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDevCenter = new DevCenter("exampleDevCenter", DevCenterArgs.builder()
- *             .location(example.location())
- *             .name("example")
- *             .resourceGroupName(example.name())
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .location(example.location())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleCatalog = new Catalog("exampleCatalog", CatalogArgs.builder()
- *             .name("example")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .devCenterId(test.id())
  *             .catalogGithub(CatalogCatalogGithubArgs.builder()
  *                 .branch("foo")
  *                 .path("")
  *                 .uri("example URI")
  *                 .keyVaultKeyUrl("secret")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(test.name())
+ *             .devCenterId(testAzurermDevCenter.id())
  *             .build());
  * 
  *     }

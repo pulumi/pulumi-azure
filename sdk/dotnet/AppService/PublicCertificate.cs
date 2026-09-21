@@ -31,14 +31,14 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "example-app-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "example-app-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAppService = new Azure.AppService.AppService("example", new()
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService
     ///         Blob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "app_service_public_certificate.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

@@ -255,13 +255,13 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard")
         example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("example",
+            release_criteria={
+                "message_count": 80,
+            },
             name="exampleiabc",
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            batch_group_name="TestBatchGroup",
-            release_criteria={
-                "message_count": 80,
-            })
+            batch_group_name="TestBatchGroup")
         ```
 
         ## API Providers
@@ -313,13 +313,13 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard")
         example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("example",
+            release_criteria={
+                "message_count": 80,
+            },
             name="exampleiabc",
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            batch_group_name="TestBatchGroup",
-            release_criteria={
-                "message_count": 80,
-            })
+            batch_group_name="TestBatchGroup")
         ```
 
         ## API Providers

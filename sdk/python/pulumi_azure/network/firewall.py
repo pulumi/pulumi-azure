@@ -572,16 +572,16 @@ class Firewall(pulumi.CustomResource):
             allocation_method="Static",
             sku="Standard")
         example_firewall = azure.network.Firewall("example",
-            name="testfirewall",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="testfirewall",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="AZFW_VNet",
+            sku_tier="Standard")
         ```
 
         ## API Providers
@@ -655,16 +655,16 @@ class Firewall(pulumi.CustomResource):
             allocation_method="Static",
             sku="Standard")
         example_firewall = azure.network.Firewall("example",
-            name="testfirewall",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="testfirewall",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="AZFW_VNet",
+            sku_tier="Standard")
         ```
 
         ## API Providers

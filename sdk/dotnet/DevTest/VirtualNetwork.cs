@@ -41,14 +41,14 @@ namespace Pulumi.Azure.DevTest
     /// 
     ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("example", new()
     ///     {
-    ///         Name = "example-network",
-    ///         LabName = exampleLab.Name,
-    ///         ResourceGroupName = example.Name,
     ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
     ///         {
     ///             UsePublicIpAddress = "Allow",
     ///             UseInVirtualMachineCreation = "Allow",
     ///         },
+    ///         Name = "example-network",
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

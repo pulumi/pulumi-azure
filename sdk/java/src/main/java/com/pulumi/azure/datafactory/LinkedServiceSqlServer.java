@@ -134,13 +134,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkedServiceSqlServer = new LinkedServiceSqlServer("exampleLinkedServiceSqlServer", LinkedServiceSqlServerArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;")
  *             .keyVaultPassword(LinkedServiceSqlServerKeyVaultPasswordArgs.builder()
  *                 .linkedServiceName(exampleLinkedServiceKeyVault.name())
  *                 .secretName("secret")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;")
  *             .build());
  * 
  *     }

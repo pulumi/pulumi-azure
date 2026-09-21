@@ -55,6 +55,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()
+ *             .scheduledAgentUpdates(HostPoolScheduledAgentUpdatesArgs.builder()
+ *                 .schedules(HostPoolScheduledAgentUpdatesScheduleArgs.builder()
+ *                     .dayOfWeek("Saturday")
+ *                     .hourOfDay(2)
+ *                     .build())
+ *                 .enabled(true)
+ *                 .build())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .name("pooleddepthfirst")
@@ -66,13 +73,6 @@ import javax.annotation.Nullable;
  *             .type("Pooled")
  *             .maximumSessionsAllowed(50)
  *             .loadBalancerType("DepthFirst")
- *             .scheduledAgentUpdates(HostPoolScheduledAgentUpdatesArgs.builder()
- *                 .enabled(true)
- *                 .schedules(HostPoolScheduledAgentUpdatesScheduleArgs.builder()
- *                     .dayOfWeek("Saturday")
- *                     .hourOfDay(2)
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

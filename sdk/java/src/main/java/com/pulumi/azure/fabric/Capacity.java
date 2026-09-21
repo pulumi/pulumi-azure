@@ -56,14 +56,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCapacity = new Capacity("exampleCapacity", CapacityArgs.builder()
- *             .name("exampleffc")
- *             .resourceGroupName(example.name())
- *             .location("West Europe")
- *             .administrationMembers(current.objectId())
  *             .sku(CapacitySkuArgs.builder()
  *                 .name("F32")
  *                 .tier("Fabric")
  *                 .build())
+ *             .name("exampleffc")
+ *             .resourceGroupName(example.name())
+ *             .location("West Europe")
+ *             .administrationMembers(current.objectId())
  *             .tags(Map.of("environment", "test"))
  *             .build());
  * 

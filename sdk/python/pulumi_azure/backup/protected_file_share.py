@@ -241,16 +241,16 @@ class ProtectedFileShare(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         example_policy_file_share = azure.backup.PolicyFileShare("example",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example.name,
-            recovery_vault_name=vault.name,
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
             },
             retention_daily={
                 "count": 10,
-            })
+            },
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example.name,
+            recovery_vault_name=vault.name)
         share1 = azure.backup.ProtectedFileShare("share1",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
@@ -318,16 +318,16 @@ class ProtectedFileShare(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             storage_account_id=sa.id)
         example_policy_file_share = azure.backup.PolicyFileShare("example",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example.name,
-            recovery_vault_name=vault.name,
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
             },
             retention_daily={
                 "count": 10,
-            })
+            },
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example.name,
+            recovery_vault_name=vault.name)
         share1 = azure.backup.ProtectedFileShare("share1",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,

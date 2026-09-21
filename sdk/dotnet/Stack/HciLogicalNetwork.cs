@@ -30,6 +30,17 @@ namespace Pulumi.Azure.Stack
     /// 
     ///     var exampleHciLogicalNetwork = new Azure.Stack.HciLogicalNetwork("example", new()
     ///     {
+    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
+    ///         {
+    ///             Route = 
+    ///             {
+    ///                 { "addressPrefix", "0.0.0.0/0" },
+    ///                 { "nextHopIpAddress", "10.0.0.1" },
+    ///             },
+    ///             IpAllocationMethod = "Static",
+    ///             AddressPrefix = "10.0.0.0/24",
+    ///             VlanId = 123,
+    ///         },
     ///         Name = "example-hci-ln",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -39,17 +50,6 @@ namespace Pulumi.Azure.Stack
     ///         {
     ///             "10.0.0.7",
     ///             "10.0.0.8",
-    ///         },
-    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
-    ///         {
-    ///             IpAllocationMethod = "Static",
-    ///             AddressPrefix = "10.0.0.0/24",
-    ///             VlanId = 123,
-    ///             Route = 
-    ///             {
-    ///                 { "addressPrefix", "0.0.0.0/0" },
-    ///                 { "nextHopIpAddress", "10.0.0.1" },
-    ///             },
     ///         },
     ///         Tags = 
     ///         {

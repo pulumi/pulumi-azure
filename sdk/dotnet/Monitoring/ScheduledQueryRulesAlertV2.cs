@@ -59,51 +59,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleScheduledQueryRulesAlertV2 = new Azure.Monitoring.ScheduledQueryRulesAlertV2("example", new()
     ///     {
-    ///         Name = "example-msqrv2",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         EvaluationFrequency = "PT10M",
-    ///         WindowDuration = "PT10M",
-    ///         Scopes = exampleInsights.Id,
-    ///         Severity = 4,
-    ///         Criterias = new[]
-    ///         {
-    ///             new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaArgs
-    ///             {
-    ///                 Query = @"requests
-    ///   | summarize CountByCountry=count() by client_CountryOrRegion
-    /// ",
-    ///                 TimeAggregationMethod = "Maximum",
-    ///                 Threshold = 17.5,
-    ///                 Operator = "LessThan",
-    ///                 ResourceIdColumn = "client_CountryOrRegion",
-    ///                 MetricMeasureColumn = "CountByCountry",
-    ///                 Dimensions = new[]
-    ///                 {
-    ///                     new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs
-    ///                     {
-    ///                         Name = "client_CountryOrRegion",
-    ///                         Operator = "Exclude",
-    ///                         Values = new[]
-    ///                         {
-    ///                             "123",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 FailingPeriods = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs
-    ///                 {
-    ///                     MinimumFailingPeriodsToTriggerAlert = 1,
-    ///                     NumberOfEvaluationPeriods = 1,
-    ///                 },
-    ///             },
-    ///         },
-    ///         AutoMitigationEnabled = true,
-    ///         WorkspaceAlertsStorageEnabled = false,
-    ///         Description = "example sqr",
-    ///         DisplayName = "example-sqr",
-    ///         Enabled = true,
-    ///         QueryTimeRangeOverride = "PT1H",
-    ///         SkipQueryValidation = true,
     ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2ActionArgs
     ///         {
     ///             ActionGroups = new[]
@@ -125,6 +80,51 @@ namespace Pulumi.Azure.Monitoring
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Criterias = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaArgs
+    ///             {
+    ///                 FailingPeriods = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs
+    ///                 {
+    ///                     MinimumFailingPeriodsToTriggerAlert = 1,
+    ///                     NumberOfEvaluationPeriods = 1,
+    ///                 },
+    ///                 Dimensions = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs
+    ///                     {
+    ///                         Name = "client_CountryOrRegion",
+    ///                         Operator = "Exclude",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "123",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Query = @"requests
+    ///   | summarize CountByCountry=count() by client_CountryOrRegion
+    /// ",
+    ///                 TimeAggregationMethod = "Maximum",
+    ///                 Threshold = 17.5,
+    ///                 Operator = "LessThan",
+    ///                 ResourceIdColumn = "client_CountryOrRegion",
+    ///                 MetricMeasureColumn = "CountByCountry",
+    ///             },
+    ///         },
+    ///         Name = "example-msqrv2",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         EvaluationFrequency = "PT10M",
+    ///         WindowDuration = "PT10M",
+    ///         Scopes = exampleInsights.Id,
+    ///         Severity = 4,
+    ///         AutoMitigationEnabled = true,
+    ///         WorkspaceAlertsStorageEnabled = false,
+    ///         Description = "example sqr",
+    ///         DisplayName = "example-sqr",
+    ///         Enabled = true,
+    ///         QueryTimeRangeOverride = "PT1H",
+    ///         SkipQueryValidation = true,
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

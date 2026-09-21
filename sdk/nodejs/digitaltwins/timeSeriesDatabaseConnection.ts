@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleInstance = new azure.digitaltwins.Instance("example", {
- *     name: "example-DT",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-DT",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     name: "exampleEventHubNamespace",
@@ -44,13 +44,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "examplekc",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
+ *     name: "examplekc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleDatabase = new azure.kusto.Database("example", {
  *     name: "example-kusto-database",

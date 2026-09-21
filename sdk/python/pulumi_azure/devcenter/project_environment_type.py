@@ -318,12 +318,12 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_environment_type = azure.devcenter.EnvironmentType("example",
             name="example-et",
             dev_center_id=example_dev_center.id)
@@ -334,13 +334,13 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             dev_center_id=example_dev_center.id,
             opts = pulumi.ResourceOptions(depends_on=[example_environment_type]))
         example_project_environment_type = azure.devcenter.ProjectEnvironmentType("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-et",
             location=example.location,
             dev_center_project_id=example_project.id,
-            deployment_target_id=f"/subscriptions/{current.subscription_id}",
-            identity={
-                "type": "SystemAssigned",
-            })
+            deployment_target_id=f"/subscriptions/{current.subscription_id}")
         ```
 
         ## API Providers
@@ -390,12 +390,12 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_environment_type = azure.devcenter.EnvironmentType("example",
             name="example-et",
             dev_center_id=example_dev_center.id)
@@ -406,13 +406,13 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             dev_center_id=example_dev_center.id,
             opts = pulumi.ResourceOptions(depends_on=[example_environment_type]))
         example_project_environment_type = azure.devcenter.ProjectEnvironmentType("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-et",
             location=example.location,
             dev_center_project_id=example_project.id,
-            deployment_target_id=f"/subscriptions/{current.subscription_id}",
-            identity={
-                "type": "SystemAssigned",
-            })
+            deployment_target_id=f"/subscriptions/{current.subscription_id}")
         ```
 
         ## API Providers

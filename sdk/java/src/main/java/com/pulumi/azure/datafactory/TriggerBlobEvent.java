@@ -79,6 +79,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTriggerBlobEvent = new TriggerBlobEvent("exampleTriggerBlobEvent", TriggerBlobEventArgs.builder()
+ *             .pipelines(TriggerBlobEventPipelineArgs.builder()
+ *                 .name(examplePipeline.name())
+ *                 .parameters(Map.of("Env", "Prod"))
+ *                 .build())
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .storageAccountId(exampleAccount.id())
@@ -93,10 +97,6 @@ import javax.annotation.Nullable;
  *                 "test2",
  *                 "test3")
  *             .description("example description")
- *             .pipelines(TriggerBlobEventPipelineArgs.builder()
- *                 .name(examplePipeline.name())
- *                 .parameters(Map.of("Env", "Prod"))
- *                 .build())
  *             .additionalProperties(Map.ofEntries(
  *                 Map.entry("foo", "foo1"),
  *                 Map.entry("bar", "bar2")

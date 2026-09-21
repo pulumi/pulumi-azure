@@ -58,6 +58,10 @@ import (
 //				return err
 //			}
 //			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
+//				Import: &apimanagement.ApiImportArgs{
+//					ContentFormat: pulumi.String("swagger-link-json"),
+//					ContentValue:  pulumi.String("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json"),
+//				},
 //				Name:              pulumi.String("example-api"),
 //				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
@@ -67,36 +71,22 @@ import (
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("https"),
 //				},
-//				Import: &apimanagement.ApiImportArgs{
-//					ContentFormat: pulumi.String("swagger-link-json"),
-//					ContentValue:  pulumi.String("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLogger, err := apimanagement.NewLogger(ctx, "example", &apimanagement.LoggerArgs{
-//				Name:              pulumi.String("example-apimlogger"),
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: example.Name,
 //				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
 //					InstrumentationKey: exampleInsights.InstrumentationKey,
 //				},
+//				Name:              pulumi.String("example-apimlogger"),
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewApiDiagnostic(ctx, "example", &apimanagement.ApiDiagnosticArgs{
-//				Identifier:              pulumi.String("applicationinsights"),
-//				ResourceGroupName:       example.Name,
-//				ApiManagementName:       exampleService.Name,
-//				ApiName:                 exampleApi.Name,
-//				ApiManagementLoggerId:   exampleLogger.ID().ToIDOutput().ToStringOutput(),
-//				SamplingPercentage:      pulumi.Float64(5),
-//				AlwaysLogErrors:         pulumi.Bool(true),
-//				LogClientIp:             pulumi.Bool(true),
-//				Verbosity:               pulumi.String("verbose"),
-//				HttpCorrelationProtocol: pulumi.String("W3C"),
 //				FrontendRequest: &apimanagement.ApiDiagnosticFrontendRequestArgs{
 //					BodyBytes: pulumi.Int(32),
 //					HeadersToLogs: pulumi.StringArray{
@@ -129,6 +119,16 @@ import (
 //						pulumi.String("origin"),
 //					},
 //				},
+//				Identifier:              pulumi.String("applicationinsights"),
+//				ResourceGroupName:       example.Name,
+//				ApiManagementName:       exampleService.Name,
+//				ApiName:                 exampleApi.Name,
+//				ApiManagementLoggerId:   exampleLogger.ID().ToIDOutput().ToStringOutput(),
+//				SamplingPercentage:      pulumi.Float64(5),
+//				AlwaysLogErrors:         pulumi.Bool(true),
+//				LogClientIp:             pulumi.Bool(true),
+//				Verbosity:               pulumi.String("verbose"),
+//				HttpCorrelationProtocol: pulumi.String("W3C"),
 //			})
 //			if err != nil {
 //				return err

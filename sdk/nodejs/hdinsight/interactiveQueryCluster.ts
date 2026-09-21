@@ -32,11 +32,6 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleInteractiveQueryCluster = new azure.hdinsight.InteractiveQueryCluster("example", {
- *     name: "example-hdicluster",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     clusterVersion: "3.6",
- *     tier: "Standard",
  *     componentVersion: {
  *         interactiveHive: "2.1",
  *     },
@@ -44,11 +39,6 @@ import * as utilities from "../utilities";
  *         username: "acctestusrgw",
  *         password: "Password!",
  *     },
- *     storageAccounts: [{
- *         storageContainerId: exampleContainer.id,
- *         storageAccountKey: exampleAccount.primaryAccessKey,
- *         isDefault: true,
- *     }],
  *     roles: {
  *         headNode: {
  *             vmSize: "Standard_D13_V2",
@@ -67,6 +57,16 @@ import * as utilities from "../utilities";
  *             password: "AccTestvdSC4daf986!",
  *         },
  *     },
+ *     storageAccounts: [{
+ *         storageContainerId: exampleContainer.id,
+ *         storageAccountKey: exampleAccount.primaryAccessKey,
+ *         isDefault: true,
+ *     }],
+ *     name: "example-hdicluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     clusterVersion: "3.6",
+ *     tier: "Standard",
  * });
  * ```
  *

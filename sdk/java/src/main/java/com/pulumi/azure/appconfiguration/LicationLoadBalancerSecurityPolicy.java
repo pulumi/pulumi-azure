@@ -63,9 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicy = new Policy("examplePolicy", PolicyArgs.builder()
- *             .name("example-wafpolicy")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .managedRules(PolicyManagedRulesArgs.builder()
  *                 .managedRuleSets(PolicyManagedRulesManagedRuleSetArgs.builder()
  *                     .type("Microsoft_DefaultRuleSet")
@@ -76,6 +73,9 @@ import javax.annotation.Nullable;
  *                 .enabled(true)
  *                 .mode("Detection")
  *                 .build())
+ *             .name("example-wafpolicy")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleLicationLoadBalancerSecurityPolicy = new LicationLoadBalancerSecurityPolicy("exampleLicationLoadBalancerSecurityPolicy", LicationLoadBalancerSecurityPolicyArgs.builder()

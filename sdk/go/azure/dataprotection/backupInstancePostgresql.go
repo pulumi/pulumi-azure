@@ -87,26 +87,19 @@ import (
 //				return err
 //			}
 //			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Identity: &dataprotection.BackupVaultIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
-//				Identity: &dataprotection.BackupVaultIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -139,6 +132,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err

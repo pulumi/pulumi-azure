@@ -94,19 +94,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name(String.format("%s-delegated-subnet", prefix))
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.88.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("testdelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("testdelegation")
  *                 .build())
+ *             .name(String.format("%s-delegated-subnet", prefix))
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.88.2.0/24")
  *             .build());
  * 
  *         var example1 = new Subnet("example1", SubnetArgs.builder()
@@ -130,27 +130,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name(String.format("%s-nic", prefix))
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(example1.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name(String.format("%s-nic", prefix))
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name(String.format("%s-vm", prefix))
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .size("Standard_M8ms")
- *             .adminUsername(adminUsername)
- *             .adminPassword(adminPassword)
- *             .disablePasswordAuthentication(false)
- *             .proximityPlacementGroupId(examplePlacementGroup.id())
- *             .availabilitySetId(exampleAvailabilitySet.id())
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -161,6 +151,16 @@ import javax.annotation.Nullable;
  *                 .storageAccountType("Standard_LRS")
  *                 .caching("ReadWrite")
  *                 .build())
+ *             .name(String.format("%s-vm", prefix))
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .size("Standard_M8ms")
+ *             .adminUsername(adminUsername)
+ *             .adminPassword(adminPassword)
+ *             .disablePasswordAuthentication(false)
+ *             .proximityPlacementGroupId(examplePlacementGroup.id())
+ *             .availabilitySetId(exampleAvailabilitySet.id())
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -184,14 +184,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVolumeGroupSapHana = new VolumeGroupSapHana("exampleVolumeGroupSapHana", VolumeGroupSapHanaArgs.builder()
- *             .name(String.format("%s-netapp-volumegroup", prefix))
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .accountName(exampleAccount.name())
- *             .groupDescription("Test volume group")
- *             .applicationIdentifier("TST")
  *             .volumes(            
  *                 VolumeGroupSapHanaVolumeArgs.builder()
+ *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
+ *                         .ruleIndex(1)
+ *                         .allowedClients("0.0.0.0/0")
+ *                         .nfsv3Enabled(false)
+ *                         .nfsv41Enabled(true)
+ *                         .unixReadOnly(false)
+ *                         .unixReadWrite(true)
+ *                         .rootAccessEnabled(false)
+ *                         .build())
  *                     .name(String.format("%s-netapp-volume-1", prefix))
  *                     .volumePath("my-unique-file-path-1")
  *                     .serviceLevel("Standard")
@@ -204,6 +207,9 @@ import javax.annotation.Nullable;
  *                     .protocols("NFSv4.1")
  *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
+ *                     .tags(Map.of("foo", "bar"))
+ *                     .build(),
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
  *                         .allowedClients("0.0.0.0/0")
@@ -213,9 +219,6 @@ import javax.annotation.Nullable;
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .tags(Map.of("foo", "bar"))
- *                     .build(),
- *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .name(String.format("%s-netapp-volume-2", prefix))
  *                     .volumePath("my-unique-file-path-2")
  *                     .serviceLevel("Standard")
@@ -228,6 +231,9 @@ import javax.annotation.Nullable;
  *                     .protocols("NFSv4.1")
  *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
+ *                     .tags(Map.of("foo", "bar"))
+ *                     .build(),
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
  *                         .allowedClients("0.0.0.0/0")
@@ -237,9 +243,6 @@ import javax.annotation.Nullable;
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .tags(Map.of("foo", "bar"))
- *                     .build(),
- *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .name(String.format("%s-netapp-volume-3", prefix))
  *                     .volumePath("my-unique-file-path-3")
  *                     .serviceLevel("Standard")
@@ -252,16 +255,13 @@ import javax.annotation.Nullable;
  *                     .protocols("NFSv4.1")
  *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
- *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
- *                         .ruleIndex(1)
- *                         .allowedClients("0.0.0.0/0")
- *                         .nfsv3Enabled(false)
- *                         .nfsv41Enabled(true)
- *                         .unixReadOnly(false)
- *                         .unixReadWrite(true)
- *                         .rootAccessEnabled(false)
- *                         .build())
  *                     .build())
+ *             .name(String.format("%s-netapp-volumegroup", prefix))
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountName(exampleAccount.name())
+ *             .groupDescription("Test volume group")
+ *             .applicationIdentifier("TST")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleLinuxVirtualMachine,
@@ -341,19 +341,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDelegated = new Subnet("exampleDelegated", SubnetArgs.builder()
- *             .name(String.format("%s-delegated-subnet", prefix))
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.88.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("netapp")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("netapp")
  *                 .build())
+ *             .name(String.format("%s-delegated-subnet", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.88.1.0/24")
  *             .build());
  * 
  *         var examplePrivateEndpoint = new Subnet("examplePrivateEndpoint", SubnetArgs.builder()
@@ -364,26 +364,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name(String.format("%s-netapp-account", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name(String.format("%s-netapp-account", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name(String.format("%skv", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("standard")
- *             .purgeProtectionEnabled(true)
- *             .softDeleteRetentionDays(7)
- *             .enabledForDiskEncryption(true)
- *             .enabledForDeployment(true)
- *             .enabledForTemplateDeployment(true)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -405,6 +394,17 @@ import javax.annotation.Nullable;
  *                         "Encrypt",
  *                         "Decrypt")
  *                     .build())
+ *             .name(String.format("%skv", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .purgeProtectionEnabled(true)
+ *             .softDeleteRetentionDays(7)
+ *             .enabledForDiskEncryption(true)
+ *             .enabledForDeployment(true)
+ *             .enabledForTemplateDeployment(true)
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
@@ -428,16 +428,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name(String.format("%s-pe-kv", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .subnetId(examplePrivateEndpoint.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name(String.format("%s-pe-sc-kv", prefix))
  *                 .privateConnectionResourceId(exampleKeyVault.id())
  *                 .isManualConnection(false)
  *                 .subresourceNames("Vault")
  *                 .build())
+ *             .name(String.format("%s-pe-kv", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(examplePrivateEndpoint.id())
  *             .build());
  * 
  *         var examplePool = new Pool("examplePool", PoolArgs.builder()
@@ -453,14 +453,17 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleVolumeGroupSapHana = new VolumeGroupSapHana("exampleVolumeGroupSapHana", VolumeGroupSapHanaArgs.builder()
- *             .name(String.format("%s-netapp-volumegroup", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .accountName(exampleAccount.name())
- *             .groupDescription("Test volume group with zone and CMK")
- *             .applicationIdentifier("TST")
  *             .volumes(            
  *                 VolumeGroupSapHanaVolumeArgs.builder()
+ *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
+ *                         .ruleIndex(1)
+ *                         .allowedClients("0.0.0.0/0")
+ *                         .nfsv3Enabled(false)
+ *                         .nfsv41Enabled(true)
+ *                         .unixReadOnly(false)
+ *                         .unixReadWrite(true)
+ *                         .rootAccessEnabled(false)
+ *                         .build())
  *                     .name(String.format("%s-netapp-volume-data", prefix))
  *                     .volumePath("my-unique-file-path-data")
  *                     .serviceLevel("Standard")
@@ -476,6 +479,8 @@ import javax.annotation.Nullable;
  *                     .networkFeatures("Standard")
  *                     .encryptionKeySource("Microsoft.KeyVault")
  *                     .keyVaultPrivateEndpointId(exampleEndpoint.id())
+ *                     .build(),
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
  *                         .allowedClients("0.0.0.0/0")
@@ -485,8 +490,6 @@ import javax.annotation.Nullable;
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .build(),
- *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .name(String.format("%s-netapp-volume-log", prefix))
  *                     .volumePath("my-unique-file-path-log")
  *                     .serviceLevel("Standard")
@@ -502,6 +505,8 @@ import javax.annotation.Nullable;
  *                     .networkFeatures("Standard")
  *                     .encryptionKeySource("Microsoft.KeyVault")
  *                     .keyVaultPrivateEndpointId(exampleEndpoint.id())
+ *                     .build(),
+ *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
  *                         .allowedClients("0.0.0.0/0")
@@ -511,8 +516,6 @@ import javax.annotation.Nullable;
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .build(),
- *                 VolumeGroupSapHanaVolumeArgs.builder()
  *                     .name(String.format("%s-netapp-volume-shared", prefix))
  *                     .volumePath("my-unique-file-path-shared")
  *                     .serviceLevel("Standard")
@@ -528,16 +531,13 @@ import javax.annotation.Nullable;
  *                     .networkFeatures("Standard")
  *                     .encryptionKeySource("Microsoft.KeyVault")
  *                     .keyVaultPrivateEndpointId(exampleEndpoint.id())
- *                     .exportPolicyRules(VolumeGroupSapHanaVolumeExportPolicyRuleArgs.builder()
- *                         .ruleIndex(1)
- *                         .allowedClients("0.0.0.0/0")
- *                         .nfsv3Enabled(false)
- *                         .nfsv41Enabled(true)
- *                         .unixReadOnly(false)
- *                         .unixReadWrite(true)
- *                         .rootAccessEnabled(false)
- *                         .build())
  *                     .build())
+ *             .name(String.format("%s-netapp-volumegroup", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount.name())
+ *             .groupDescription("Test volume group with zone and CMK")
+ *             .applicationIdentifier("TST")
  *             .build());
  * 
  *     }

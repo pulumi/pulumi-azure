@@ -81,14 +81,24 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "Example-IoTHub",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         LocalAuthenticationEnabled = false,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "S1",
     ///             Capacity = 1,
+    ///         },
+    ///         CloudToDevice = new Azure.Iot.Inputs.IoTHubCloudToDeviceArgs
+    ///         {
+    ///             Feedbacks = new[]
+    ///             {
+    ///                 new Azure.Iot.Inputs.IoTHubCloudToDeviceFeedbackArgs
+    ///                 {
+    ///                     TimeToLive = "PT1H10M",
+    ///                     MaxDeliveryCount = 15,
+    ///                     LockDuration = "PT30S",
+    ///                 },
+    ///             },
+    ///             MaxDeliveryCount = 30,
+    ///             DefaultTtl = "PT1H",
     ///         },
     ///         Endpoints = new[]
     ///         {
@@ -108,6 +118,19 @@ namespace Pulumi.Azure.Iot
     ///                 Type = "AzureIotHub.EventHub",
     ///                 ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///                 Name = "export2",
+    ///             },
+    ///         },
+    ///         Enrichments = new[]
+    ///         {
+    ///             new Azure.Iot.Inputs.IoTHubEnrichmentArgs
+    ///             {
+    ///                 Key = "tenant",
+    ///                 Value = "$twin.tags.Tenant",
+    ///                 EndpointNames = new[]
+    ///                 {
+    ///                     "export",
+    ///                     "export2",
+    ///                 },
     ///             },
     ///         },
     ///         Routes = new[]
@@ -135,33 +158,10 @@ namespace Pulumi.Azure.Iot
     ///                 Enabled = true,
     ///             },
     ///         },
-    ///         Enrichments = new[]
-    ///         {
-    ///             new Azure.Iot.Inputs.IoTHubEnrichmentArgs
-    ///             {
-    ///                 Key = "tenant",
-    ///                 Value = "$twin.tags.Tenant",
-    ///                 EndpointNames = new[]
-    ///                 {
-    ///                     "export",
-    ///                     "export2",
-    ///                 },
-    ///             },
-    ///         },
-    ///         CloudToDevice = new Azure.Iot.Inputs.IoTHubCloudToDeviceArgs
-    ///         {
-    ///             MaxDeliveryCount = 30,
-    ///             DefaultTtl = "PT1H",
-    ///             Feedbacks = new[]
-    ///             {
-    ///                 new Azure.Iot.Inputs.IoTHubCloudToDeviceFeedbackArgs
-    ///                 {
-    ///                     TimeToLive = "PT1H10M",
-    ///                     MaxDeliveryCount = 15,
-    ///                     LockDuration = "PT30S",
-    ///                 },
-    ///             },
-    ///         },
+    ///         Name = "Example-IoTHub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         LocalAuthenticationEnabled = false,
     ///         Tags = 
     ///         {
     ///             { "purpose", "testing" },

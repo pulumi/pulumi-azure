@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePartnerConfiguration = new azure.eventgrid.PartnerConfiguration("example", {
- *     resourceGroupName: example.name,
- *     defaultMaximumExpirationTimeInDays: 14,
  *     partnerAuthorizations: [{
  *         partnerRegistrationId: "804a11ca-ce9b-4158-8e94-3c8dc7a072ec",
  *         partnerName: "Auth0",
  *         authorizationExpirationTimeInUtc: "2025-02-05T00:00:00Z",
  *     }],
+ *     resourceGroupName: example.name,
+ *     defaultMaximumExpirationTimeInDays: 14,
  *     tags: {
  *         environment: "Production",
  *     },

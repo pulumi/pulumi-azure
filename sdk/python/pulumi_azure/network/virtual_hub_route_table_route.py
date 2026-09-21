@@ -281,12 +281,12 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             labels=["label1"])
         example_virtual_hub_connection = azure.network.VirtualHubConnection("example",
-            name="example-vhubconn",
-            virtual_hub_id=example_virtual_hub.id,
-            remote_virtual_network_id=example_virtual_network.id,
             routing={
                 "associated_route_table_id": example_virtual_hub_route_table.id,
-            })
+            },
+            name="example-vhubconn",
+            virtual_hub_id=example_virtual_hub.id,
+            remote_virtual_network_id=example_virtual_network.id)
         example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("example",
             route_table_id=example_virtual_hub_route_table.id,
             name="example-route",
@@ -373,12 +373,12 @@ class VirtualHubRouteTableRoute(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             labels=["label1"])
         example_virtual_hub_connection = azure.network.VirtualHubConnection("example",
-            name="example-vhubconn",
-            virtual_hub_id=example_virtual_hub.id,
-            remote_virtual_network_id=example_virtual_network.id,
             routing={
                 "associated_route_table_id": example_virtual_hub_route_table.id,
-            })
+            },
+            name="example-vhubconn",
+            virtual_hub_id=example_virtual_hub.id,
+            remote_virtual_network_id=example_virtual_network.id)
         example_virtual_hub_route_table_route = azure.network.VirtualHubRouteTableRoute("example",
             route_table_id=example_virtual_hub_route_table.id,
             name="example-route",

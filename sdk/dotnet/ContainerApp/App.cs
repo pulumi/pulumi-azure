@@ -47,10 +47,6 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleApp = new Azure.ContainerApp.App("example", new()
     ///     {
-    ///         Name = "example-app",
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         ResourceGroupName = example.Name,
-    ///         RevisionMode = "Single",
     ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
     ///         {
     ///             Containers = new[]
@@ -64,6 +60,10 @@ namespace Pulumi.Azure.ContainerApp
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-app",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         ResourceGroupName = example.Name,
+    ///         RevisionMode = "Single",
     ///     });
     /// 
     /// });

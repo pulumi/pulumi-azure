@@ -32,14 +32,14 @@ namespace Pulumi.Azure.Avs
     /// 
     ///     var examplePrivateCloud = new Azure.Avs.PrivateCloud("example", new()
     ///     {
-    ///         Name = "example-vmware-private-cloud",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SkuName = "av36",
     ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
     ///         {
     ///             Size = 3,
     ///         },
+    ///         Name = "example-vmware-private-cloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "av36",
     ///         NetworkSubnetCidr = "192.168.48.0/22",
     ///         InternetConnectionEnabled = false,
     ///         NsxtPassword = "QazWsx13$Edc",

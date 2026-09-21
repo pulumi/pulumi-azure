@@ -57,15 +57,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "testacc.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "testacc.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewEnvironmentCustomDomain(ctx, "example", &containerapp.EnvironmentCustomDomainArgs{
 //				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				CertificateBlobBase64:     pulumi.String(invokeFilebase64.Result),
+//				CertificateBlobBase64:     invokeFilebase64.Result,
 //				CertificatePassword:       pulumi.String("TestAcc"),
 //				DnsSuffix:                 pulumi.String("acceptancetest.contoso.com"),
 //			})

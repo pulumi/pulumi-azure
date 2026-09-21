@@ -274,7 +274,8 @@ class ApiConnection(pulumi.CustomResource):
             },
             tags={
                 "Hello": "World",
-            })
+            },
+            opts = pulumi.ResourceOptions(ignore_changes=["parameterValues"]))
         ```
 
         ## API Providers
@@ -339,7 +340,8 @@ class ApiConnection(pulumi.CustomResource):
             },
             tags={
                 "Hello": "World",
-            })
+            },
+            opts = pulumi.ResourceOptions(ignore_changes=["parameterValues"]))
         ```
 
         ## API Providers

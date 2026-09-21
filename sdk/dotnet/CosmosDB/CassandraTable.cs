@@ -30,20 +30,16 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "tfex-cosmosdb-account",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         OfferType = "Standard",
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
     ///         Capabilities = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
     ///             {
     ///                 Name = "EnableCassandra",
     ///             },
-    ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "Strong",
     ///         },
     ///         GeoLocations = new[]
     ///         {
@@ -53,6 +49,10 @@ namespace Pulumi.Azure.CosmosDB
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         OfferType = "Standard",
     ///     });
     /// 
     ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("example", new()
@@ -65,8 +65,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleCassandraTable = new Azure.CosmosDB.CassandraTable("example", new()
     ///     {
-    ///         Name = "testtable",
-    ///         CassandraKeyspaceId = exampleCassandraKeyspace.Id,
     ///         Schema = new Azure.CosmosDB.Inputs.CassandraTableSchemaArgs
     ///         {
     ///             Columns = new[]
@@ -90,6 +88,8 @@ namespace Pulumi.Azure.CosmosDB
     ///                 },
     ///             },
     ///         },
+    ///         Name = "testtable",
+    ///         CassandraKeyspaceId = exampleCassandraKeyspace.Id,
     ///     });
     /// 
     /// });

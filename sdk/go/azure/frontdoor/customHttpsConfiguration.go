@@ -57,25 +57,9 @@ import (
 //				return err
 //			}
 //			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
-//				Name:              pulumi.String("example-FrontDoor"),
-//				ResourceGroupName: example.Name,
-//				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
-//					&frontdoor.FrontdoorRoutingRuleArgs{
-//						Name: pulumi.String("exampleRoutingRule1"),
-//						AcceptedProtocols: pulumi.StringArray{
-//							pulumi.String("Http"),
-//							pulumi.String("Https"),
-//						},
-//						PatternsToMatches: pulumi.StringArray{
-//							pulumi.String("/*"),
-//						},
-//						FrontendEndpoints: pulumi.StringArray{
-//							pulumi.String("exampleFrontendEndpoint1"),
-//						},
-//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
-//							ForwardingProtocol: pulumi.String("MatchRequest"),
-//							BackendPoolName:    pulumi.String("exampleBackendBing"),
-//						},
+//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
+//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
+//						Name: pulumi.String("exampleHealthProbeSetting1"),
 //					},
 //				},
 //				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
@@ -83,14 +67,8 @@ import (
 //						Name: pulumi.String("exampleLoadBalancingSettings1"),
 //					},
 //				},
-//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
-//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
-//						Name: pulumi.String("exampleHealthProbeSetting1"),
-//					},
-//				},
 //				BackendPools: frontdoor.FrontdoorBackendPoolArray{
 //					&frontdoor.FrontdoorBackendPoolArgs{
-//						Name: pulumi.String("exampleBackendBing"),
 //						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
 //							&frontdoor.FrontdoorBackendPoolBackendArgs{
 //								HostHeader: pulumi.String("www.bing.com"),
@@ -99,6 +77,7 @@ import (
 //								HttpsPort:  pulumi.Int(443),
 //							},
 //						},
+//						Name:              pulumi.String("exampleBackendBing"),
 //						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
 //						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
 //					},
@@ -113,6 +92,27 @@ import (
 //						HostName: pulumi.String("examplefd1.examplefd.net"),
 //					},
 //				},
+//				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
+//					&frontdoor.FrontdoorRoutingRuleArgs{
+//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
+//							ForwardingProtocol: pulumi.String("MatchRequest"),
+//							BackendPoolName:    pulumi.String("exampleBackendBing"),
+//						},
+//						Name: pulumi.String("exampleRoutingRule1"),
+//						AcceptedProtocols: pulumi.StringArray{
+//							pulumi.String("Http"),
+//							pulumi.String("Https"),
+//						},
+//						PatternsToMatches: pulumi.StringArray{
+//							pulumi.String("/*"),
+//						},
+//						FrontendEndpoints: pulumi.StringArray{
+//							pulumi.String("exampleFrontendEndpoint1"),
+//						},
+//					},
+//				},
+//				Name:              pulumi.String("example-FrontDoor"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -127,15 +127,15 @@ import (
 //				return err
 //			}
 //			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "example_custom_https_1", &frontdoor.CustomHttpsConfigurationArgs{
-//				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
-//					return frontendEndpointsMap["exampleFrontendEndpoint2"], nil
-//				}).(pulumi.StringOutput),
-//				CustomHttpsProvisioningEnabled: pulumi.Bool(true),
 //				CustomHttpsConfiguration: &frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs{
 //					CertificateSource:                  pulumi.String("AzureKeyVault"),
 //					AzureKeyVaultCertificateSecretName: pulumi.String("examplefd1"),
 //					AzureKeyVaultCertificateVaultId:    pulumi.String(vault.Id),
 //				},
+//				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
+//					return frontendEndpointsMap["exampleFrontendEndpoint2"], nil
+//				}).(pulumi.StringOutput),
+//				CustomHttpsProvisioningEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

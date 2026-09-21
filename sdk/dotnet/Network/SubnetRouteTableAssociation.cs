@@ -52,9 +52,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
     ///     {
-    ///         Name = "example-routetable",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Routes = new[]
     ///         {
     ///             new Azure.Network.Inputs.RouteTableRouteArgs
@@ -65,6 +62,9 @@ namespace Pulumi.Azure.Network
     ///                 NextHopInIpAddress = "10.10.1.1",
     ///             },
     ///         },
+    ///         Name = "example-routetable",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()

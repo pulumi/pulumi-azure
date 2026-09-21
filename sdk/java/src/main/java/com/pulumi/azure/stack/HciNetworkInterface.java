@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.stack.HciNetworkInterface;
  * import com.pulumi.azure.stack.HciNetworkInterfaceArgs;
  * import com.pulumi.azure.stack.inputs.HciNetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -56,6 +57,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHciLogicalNetwork = new HciLogicalNetwork("exampleHciLogicalNetwork", HciLogicalNetworkArgs.builder()
+ *             .subnet(HciLogicalNetworkSubnetArgs.builder()
+ *                 .route(Map.ofEntries(
+ *                     Map.entry("name", "example-route"),
+ *                     Map.entry("addressPrefix", "0.0.0.0/0"),
+ *                     Map.entry("nextHopIpAddress", "10.0.20.1")
+ *                 ))
+ *                 .ipAllocationMethod("Static")
+ *                 .addressPrefix("10.0.0.0/24")
+ *                 .vlanId(123)
+ *                 .build())
  *             .name("example-hci-ln")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,31 +75,23 @@ import javax.annotation.Nullable;
  *             .dnsServers(            
  *                 "10.0.0.7",
  *                 "10.0.0.8")
- *             .subnet(HciLogicalNetworkSubnetArgs.builder()
- *                 .ipAllocationMethod("Static")
- *                 .addressPrefix("10.0.0.0/24")
- *                 .route(Map.ofEntries(
- *                     Map.entry("name", "example-route"),
- *                     Map.entry("addressPrefix", "0.0.0.0/0"),
- *                     Map.entry("nextHopIpAddress", "10.0.20.1")
- *                 ))
- *                 .vlanId(123)
- *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *         var exampleHciNetworkInterface = new HciNetworkInterface("exampleHciNetworkInterface", HciNetworkInterfaceArgs.builder()
+ *             .ipConfiguration(HciNetworkInterfaceIpConfigurationArgs.builder()
+ *                 .privateIpAddress("10.0.0.2")
+ *                 .subnetId(test.id())
+ *                 .build())
  *             .name("example-ni")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .customLocationId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1")
  *             .dnsServers("10.0.0.8")
- *             .ipConfiguration(HciNetworkInterfaceIpConfigurationArgs.builder()
- *                 .privateIpAddress("10.0.0.2")
- *                 .subnetId(test.id())
- *                 .build())
  *             .tags(Map.of("foo", "bar"))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("macAddress")
+ *                 .build());
  * 
  *     }
  * }

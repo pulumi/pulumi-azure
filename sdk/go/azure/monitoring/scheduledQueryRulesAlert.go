@@ -60,25 +60,25 @@ import (
 //			}
 //			// Example: Alerting Action with result count trigger
 //			_, err = monitoring.NewScheduledQueryRulesAlert(ctx, "example", &monitoring.ScheduledQueryRulesAlertArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
 //					ActionGroups:         pulumi.StringArray{},
 //					EmailSubject:         pulumi.String("Email Header"),
 //					CustomWebhookPayload: pulumi.String("{}"),
 //				},
-//				DataSourceId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				Description:  pulumi.String("Alert when total results cross threshold"),
-//				Enabled:      pulumi.Bool(true),
-//				Query:        pulumi.String("requests\n  | where tolong(resultCode) >= 500\n  | summarize count() by bin(timestamp, 5m)\n"),
-//				Severity:     pulumi.Int(1),
-//				Frequency:    pulumi.Int(5),
-//				TimeWindow:   pulumi.Int(30),
 //				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
 //					Operator:  pulumi.String("GreaterThan"),
 //					Threshold: pulumi.Float64(3),
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DataSourceId:      exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				Description:       pulumi.String("Alert when total results cross threshold"),
+//				Enabled:           pulumi.Bool(true),
+//				Query:             pulumi.String("requests\n  | where tolong(resultCode) >= 500\n  | summarize count() by bin(timestamp, 5m)\n"),
+//				Severity:          pulumi.Int(1),
+//				Frequency:         pulumi.Int(5),
+//				TimeWindow:        pulumi.Int(30),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
@@ -86,8 +86,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFormat, err := std.Format(ctx, &std.FormatArgs{
-//				Input: `let a=requests
+//			invokeFormat, err := std.Format(ctx, map[string]interface{}{
+//				"input": `let a=requests
 //	  | where toint(resultCode) >= 500
 //	  | extend fail=1; let b=app('%s').requests
 //	  | where toint(resultCode) >= 500 | extend fail=1; a
@@ -95,7 +95,7 @@ import (
 //
 // `,
 //
-//				Args: pulumi.IDArray{
+//				"args": pulumi.IDArray{
 //					example2.ID(),
 //				},
 //			}, nil)
@@ -104,28 +104,28 @@ import (
 //			}
 //			// Example: Alerting Action Cross-Resource
 //			_, err = monitoring.NewScheduledQueryRulesAlert(ctx, "example2", &monitoring.ScheduledQueryRulesAlertArgs{
+//				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
+//					ActionGroups:         pulumi.StringArray{},
+//					EmailSubject:         pulumi.String("Email Header"),
+//					CustomWebhookPayload: pulumi.String("{}"),
+//				},
+//				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
+//					Operator:  pulumi.String("GreaterThan"),
+//					Threshold: pulumi.Float64(3),
+//				},
 //				Name:              pulumi.String("example"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				AuthorizedResourceIds: pulumi.StringArray{
 //					example2.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
-//					ActionGroups:         pulumi.StringArray{},
-//					EmailSubject:         pulumi.String("Email Header"),
-//					CustomWebhookPayload: pulumi.String("{}"),
-//				},
 //				DataSourceId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("Query may access data within multiple resources"),
 //				Enabled:      pulumi.Bool(true),
-//				Query:        pulumi.String(invokeFormat.Result),
+//				Query:        invokeFormat.Result,
 //				Severity:     pulumi.Int(1),
 //				Frequency:    pulumi.Int(5),
 //				TimeWindow:   pulumi.Int(30),
-//				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
-//					Operator:  pulumi.String("GreaterThan"),
-//					Threshold: pulumi.Float64(3),
-//				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

@@ -44,10 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewMxRecord(ctx, "example", &privatedns.MxRecordArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: privatedns.MxRecordRecordArray{
 //					&privatedns.MxRecordRecordArgs{
 //						Preference: pulumi.Int(10),
@@ -58,6 +54,10 @@ import (
 //						Exchange:   pulumi.String("backupmx.contoso.com"),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

@@ -56,6 +56,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGrafana = new Grafana("exampleGrafana", GrafanaArgs.builder()
+ *             .identity(GrafanaIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-dg")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
@@ -65,9 +68,6 @@ import javax.annotation.Nullable;
  *             .publicNetworkAccessEnabled(false)
  *             .sku("Standard")
  *             .skuSize("X1")
- *             .identity(GrafanaIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

@@ -47,13 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedHardwareSecurityModule("example", ManagedHardwareSecurityModuleArgs.builder()
- *             .name("example")
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
- *             .skuName("Standard_B1")
- *             .tenantId(current.tenantId())
- *             .adminObjectIds(current.objectId())
- *             .purgeProtectionEnabled(false)
  *             .activeConfig(Arrays.asList(Map.ofEntries(
  *                 Map.entry("securityDomainCertificate", Arrays.asList(                
  *                     cert[0].id(),
@@ -61,15 +54,22 @@ import javax.annotation.Nullable;
  *                     cert[2].id())),
  *                 Map.entry("securityDomainQuorum", 2)
  *             )))
+ *             .name("example")
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.location())
+ *             .skuName("Standard_B1")
+ *             .tenantId(current.tenantId())
+ *             .adminObjectIds(current.objectId())
+ *             .purgeProtectionEnabled(false)
  *             .build());
  * 
  *         var exampleManagedHardwareSecurityModuleRoleDefinition = new ManagedHardwareSecurityModuleRoleDefinition("exampleManagedHardwareSecurityModuleRoleDefinition", ManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
- *             .name("7d206142-bf01-11ed-80bc-00155d61ee9e")
- *             .managedHsmId(example.id())
- *             .description("desc foo")
  *             .permissions(ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs.builder()
  *                 .dataActions("Microsoft.KeyVault/managedHsm/keys/read/action")
  *                 .build())
+ *             .name("7d206142-bf01-11ed-80bc-00155d61ee9e")
+ *             .managedHsmId(example.id())
+ *             .description("desc foo")
  *             .build());
  * 
  *     }

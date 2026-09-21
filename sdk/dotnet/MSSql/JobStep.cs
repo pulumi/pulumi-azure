@@ -63,8 +63,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleJobTargetGroup = new Azure.MSSql.JobTargetGroup("example", new()
     ///     {
-    ///         Name = "example-target-group",
-    ///         JobAgentId = exampleJobAgent.Id,
     ///         JobTargets = new[]
     ///         {
     ///             new Azure.MSSql.Inputs.JobTargetGroupJobTargetArgs
@@ -74,6 +72,8 @@ namespace Pulumi.Azure.MSSql
     ///                 JobCredentialId = exampleJobCredential.Id,
     ///             },
     ///         },
+    ///         Name = "example-target-group",
+    ///         JobAgentId = exampleJobAgent.Id,
     ///     });
     /// 
     ///     var exampleJob = new Azure.MSSql.Job("example", new()

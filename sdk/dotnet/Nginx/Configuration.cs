@@ -55,18 +55,10 @@ namespace Pulumi.Azure.Nginx
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
@@ -75,16 +67,20 @@ namespace Pulumi.Azure.Nginx
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleDeployment = new Azure.Nginx.Deployment("example", new()
     ///     {
-    ///         Name = "example-nginx",
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
-    ///         Location = example.Location,
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
     ///         {
     ///             IpAddresses = new[]
@@ -99,12 +95,14 @@ namespace Pulumi.Azure.Nginx
     ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "example-nginx",
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleConfiguration = new Azure.Nginx.Configuration("example", new()
     ///     {
-    ///         NginxDeploymentId = exampleDeployment.Id,
-    ///         RootFile = "/etc/nginx/nginx.conf",
     ///         ConfigFiles = new[]
     ///         {
     ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
@@ -125,7 +123,7 @@ namespace Pulumi.Azure.Nginx
     ///     }
     /// }
     /// ",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///                 VirtualPath = "/etc/nginx/nginx.conf",
     ///             },
     ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
@@ -140,10 +138,12 @@ namespace Pulumi.Azure.Nginx
     ///  &lt;/body&gt;&lt;/html&gt;';
     /// }
     /// ",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///                 VirtualPath = "/etc/nginx/site/b.conf",
     ///             },
     ///         },
+    ///         NginxDeploymentId = exampleDeployment.Id,
+    ///         RootFile = "/etc/nginx/nginx.conf",
     ///     });
     /// 
     /// });

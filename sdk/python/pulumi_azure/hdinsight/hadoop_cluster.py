@@ -760,11 +760,6 @@ class HadoopCluster(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_hadoop_cluster = azure.hdinsight.HadoopCluster("example",
-            name="example-hdicluster",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
             component_version={
                 "hadoop": "2.7",
             },
@@ -772,11 +767,6 @@ class HadoopCluster(pulumi.CustomResource):
                 "username": "acctestusrgw",
                 "password": "PAssword123!",
             },
-            storage_accounts=[{
-                "storage_container_id": example_container.id,
-                "storage_account_key": example_account.primary_access_key,
-                "is_default": True,
-            }],
             roles={
                 "head_node": {
                     "vm_size": "Standard_D3_V2",
@@ -794,7 +784,17 @@ class HadoopCluster(pulumi.CustomResource):
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-            })
+            },
+            storage_accounts=[{
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
+            }],
+            name="example-hdicluster",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_version="3.6",
+            tier="Standard")
         ```
 
         ## API Providers
@@ -867,11 +867,6 @@ class HadoopCluster(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_hadoop_cluster = azure.hdinsight.HadoopCluster("example",
-            name="example-hdicluster",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_version="3.6",
-            tier="Standard",
             component_version={
                 "hadoop": "2.7",
             },
@@ -879,11 +874,6 @@ class HadoopCluster(pulumi.CustomResource):
                 "username": "acctestusrgw",
                 "password": "PAssword123!",
             },
-            storage_accounts=[{
-                "storage_container_id": example_container.id,
-                "storage_account_key": example_account.primary_access_key,
-                "is_default": True,
-            }],
             roles={
                 "head_node": {
                     "vm_size": "Standard_D3_V2",
@@ -901,7 +891,17 @@ class HadoopCluster(pulumi.CustomResource):
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-            })
+            },
+            storage_accounts=[{
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
+            }],
+            name="example-hdicluster",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_version="3.6",
+            tier="Standard")
         ```
 
         ## API Providers

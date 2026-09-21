@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const main = new azure.monitoring.ActionGroup("main", {
- *     name: "example-actiongroup",
- *     resourceGroupName: example.name,
- *     shortName: "p0action",
  *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
+ *     name: "example-actiongroup",
+ *     resourceGroupName: example.name,
+ *     shortName: "p0action",
  * });
  * const toMonitor = new azure.storage.Account("to_monitor", {
  *     name: "examplesa",
@@ -36,11 +36,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "GRS",
  * });
  * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
- *     name: "example-activitylogalert",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     scopes: [example.id],
- *     description: "This alert will monitor a specific storage account updates.",
  *     criteria: {
  *         resourceId: toMonitor.id,
  *         operationName: "Microsoft.Storage/storageAccounts/write",
@@ -52,6 +47,11 @@ import * as utilities from "../utilities";
  *             from: "source",
  *         },
  *     }],
+ *     name: "example-activitylogalert",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     scopes: [example.id],
+ *     description: "This alert will monitor a specific storage account updates.",
  * });
  * ```
  *

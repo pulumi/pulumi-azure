@@ -69,17 +69,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
- *             .name("sharename")
- *             .storageAccountId(exampleAccount.id())
- *             .quota(50)
  *             .acls(ShareAclArgs.builder()
- *                 .id("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI")
  *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
  *                     .permissions("rwdl")
  *                     .start("2019-07-02T09:38:21Z")
  *                     .expiry("2019-07-02T10:38:21Z")
  *                     .build())
+ *                 .id("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI")
  *                 .build())
+ *             .name("sharename")
+ *             .storageAccountId(exampleAccount.id())
+ *             .quota(50)
  *             .build());
  * 
  *     }

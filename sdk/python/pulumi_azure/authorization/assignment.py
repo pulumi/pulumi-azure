@@ -470,13 +470,13 @@ class Assignment(pulumi.CustomResource):
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
         example_role_definition = azure.authorization.RoleDefinition("example",
-            role_definition_id="00000000-0000-0000-0000-000000000000",
-            name="my-custom-role-definition",
-            scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 "not_actions": [],
             }],
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            name="my-custom-role-definition",
+            scope=primary.id,
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -494,13 +494,13 @@ class Assignment(pulumi.CustomResource):
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
         example_role_definition = azure.authorization.RoleDefinition("example",
-            role_definition_id="00000000-0000-0000-0000-000000000000",
-            name="my-custom-role-definition",
-            scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 "not_actions": [],
             }],
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            name="my-custom-role-definition",
+            scope=primary.id,
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -519,13 +519,13 @@ class Assignment(pulumi.CustomResource):
         example = azure.core.get_client_config()
         example_get_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
         example_role_definition = azure.authorization.RoleDefinition("example",
-            role_definition_id="00000000-0000-0000-0000-000000000000",
-            name="my-custom-role-definition",
-            scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 "not_actions": [],
             }],
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            name="my-custom-role-definition",
+            scope=primary.id,
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -557,7 +557,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         AND
@@ -567,7 +567,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         \"\"\")
@@ -656,13 +656,13 @@ class Assignment(pulumi.CustomResource):
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
         example_role_definition = azure.authorization.RoleDefinition("example",
-            role_definition_id="00000000-0000-0000-0000-000000000000",
-            name="my-custom-role-definition",
-            scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 "not_actions": [],
             }],
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            name="my-custom-role-definition",
+            scope=primary.id,
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -680,13 +680,13 @@ class Assignment(pulumi.CustomResource):
         primary = azure.core.get_subscription()
         example = azure.core.get_client_config()
         example_role_definition = azure.authorization.RoleDefinition("example",
-            role_definition_id="00000000-0000-0000-0000-000000000000",
-            name="my-custom-role-definition",
-            scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 "not_actions": [],
             }],
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            name="my-custom-role-definition",
+            scope=primary.id,
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -705,13 +705,13 @@ class Assignment(pulumi.CustomResource):
         example = azure.core.get_client_config()
         example_get_group = azure.management.get_group(name="00000000-0000-0000-0000-000000000000")
         example_role_definition = azure.authorization.RoleDefinition("example",
-            role_definition_id="00000000-0000-0000-0000-000000000000",
-            name="my-custom-role-definition",
-            scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
                 "not_actions": [],
             }],
+            role_definition_id="00000000-0000-0000-0000-000000000000",
+            name="my-custom-role-definition",
+            scope=primary.id,
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -743,7 +743,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         AND
@@ -753,7 +753,7 @@ class Assignment(pulumi.CustomResource):
          )
          OR
          (
-          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id).result}}}
+          @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{std.basename(input=builtin.role_definition_id)["result"]}}}
          )
         )
         \"\"\")

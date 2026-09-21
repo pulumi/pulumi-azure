@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example")
- *             .profileName(exampleProfile.name())
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .origins(EndpointOriginArgs.builder()
  *                 .name("example")
  *                 .hostName("www.contoso.com")
  *                 .build())
+ *             .name("example")
+ *             .profileName(exampleProfile.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

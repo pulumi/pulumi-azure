@@ -32,6 +32,10 @@ namespace Pulumi.Azure.Cognitive
     /// 
     ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
     ///     {
+    ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-aiservices",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -39,23 +43,19 @@ namespace Pulumi.Azure.Cognitive
     ///         SkuName = "S0",
     ///         ProjectManagementEnabled = true,
     ///         CustomSubdomainName = "exampleaiservices",
-    ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var openai = new Azure.Cognitive.Account("openai", new()
     ///     {
+    ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-openai",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Kind = "OpenAI",
     ///         SkuName = "S0",
-    ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleAccountConnectionEntraId = new Azure.Cognitive.AccountConnectionEntraId("example", new()

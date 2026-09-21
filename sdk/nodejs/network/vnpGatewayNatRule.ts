@@ -38,14 +38,14 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * const exampleVnpGatewayNatRule = new azure.network.VnpGatewayNatRule("example", {
- *     name: "example-vpngatewaynatrule",
- *     vpnGatewayId: exampleVpnGateway.id,
  *     externalMappings: [{
  *         addressSpace: "192.168.21.0/26",
  *     }],
  *     internalMappings: [{
  *         addressSpace: "10.4.0.0/26",
  *     }],
+ *     name: "example-vpngatewaynatrule",
+ *     vpnGatewayId: exampleVpnGateway.id,
  * });
  * ```
  *

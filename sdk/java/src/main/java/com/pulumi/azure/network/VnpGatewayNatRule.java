@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVnpGatewayNatRule = new VnpGatewayNatRule("exampleVnpGatewayNatRule", VnpGatewayNatRuleArgs.builder()
- *             .name("example-vpngatewaynatrule")
- *             .vpnGatewayId(exampleVpnGateway.id())
  *             .externalMappings(VnpGatewayNatRuleExternalMappingArgs.builder()
  *                 .addressSpace("192.168.21.0/26")
  *                 .build())
  *             .internalMappings(VnpGatewayNatRuleInternalMappingArgs.builder()
  *                 .addressSpace("10.4.0.0/26")
  *                 .build())
+ *             .name("example-vpngatewaynatrule")
+ *             .vpnGatewayId(exampleVpnGateway.id())
  *             .build());
  * 
  *     }

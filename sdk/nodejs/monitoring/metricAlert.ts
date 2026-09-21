@@ -27,34 +27,34 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const main = new azure.monitoring.ActionGroup("main", {
- *     name: "example-actiongroup",
- *     resourceGroupName: example.name,
- *     shortName: "exampleact",
  *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
+ *     name: "example-actiongroup",
+ *     resourceGroupName: example.name,
+ *     shortName: "exampleact",
  * });
  * const exampleMetricAlert = new azure.monitoring.MetricAlert("example", {
- *     name: "example-metricalert",
- *     resourceGroupName: example.name,
- *     scopes: [toMonitor.id],
- *     description: "Action will be triggered when Transactions count is greater than 50.",
+ *     actions: [{
+ *         actionGroupId: main.id,
+ *     }],
  *     criterias: [{
- *         metricNamespace: "Microsoft.Storage/storageAccounts",
- *         metricName: "Transactions",
- *         aggregation: "Total",
- *         operator: "GreaterThan",
- *         threshold: 50,
  *         dimensions: [{
  *             name: "ApiName",
  *             operator: "Include",
  *             values: ["*"],
  *         }],
+ *         metricNamespace: "Microsoft.Storage/storageAccounts",
+ *         metricName: "Transactions",
+ *         aggregation: "Total",
+ *         operator: "GreaterThan",
+ *         threshold: 50,
  *     }],
- *     actions: [{
- *         actionGroupId: main.id,
- *     }],
+ *     name: "example-metricalert",
+ *     resourceGroupName: example.name,
+ *     scopes: [toMonitor.id],
+ *     description: "Action will be triggered when Transactions count is greater than 50.",
  * });
  * ```
  *

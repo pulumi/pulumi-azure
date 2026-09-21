@@ -73,14 +73,14 @@ import (
 //				return err
 //			}
 //			_, err = hpc.NewCacheAccessPolicy(ctx, "example", &hpc.CacheAccessPolicyArgs{
-//				Name:       pulumi.String("example"),
-//				HpcCacheId: exampleCache.ID().ToIDOutput().ToStringOutput(),
 //				AccessRules: hpc.CacheAccessPolicyAccessRuleArray{
 //					&hpc.CacheAccessPolicyAccessRuleArgs{
 //						Scope:  pulumi.String("default"),
 //						Access: pulumi.String("rw"),
 //					},
 //				},
+//				Name:       pulumi.String("example"),
+//				HpcCacheId: exampleCache.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

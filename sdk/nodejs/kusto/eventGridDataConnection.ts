@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "examplekustocluster",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
+ *     name: "examplekustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleDatabase = new azure.kusto.Database("example", {
  *     name: "example-kusto-database",
@@ -60,6 +60,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleEventSubscription = new azure.eventgrid.EventSubscription("example", {
+ *     retryPolicy: {
+ *         eventTimeToLive: 144,
+ *         maxDeliveryAttempts: 10,
+ *     },
  *     name: "eventgrid-example",
  *     scope: exampleAccount.id,
  *     eventhubEndpointId: exampleEventHub.id,
@@ -68,10 +72,6 @@ import * as utilities from "../utilities";
  *         "Microsoft.Storage.BlobCreated",
  *         "Microsoft.Storage.BlobRenamed",
  *     ],
- *     retryPolicy: {
- *         eventTimeToLive: 144,
- *         maxDeliveryAttempts: 10,
- *     },
  * });
  * const exampleEventGridDataConnection = new azure.kusto.EventGridDataConnection("example", {
  *     name: "my-kusto-eventgrid-data-connection",

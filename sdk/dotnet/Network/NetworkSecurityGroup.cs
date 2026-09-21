@@ -34,9 +34,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
     ///     {
-    ///         Name = "acceptanceTestSecurityGroup1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         SecurityRules = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
@@ -52,6 +49,9 @@ namespace Pulumi.Azure.Network
     ///                 DestinationAddressPrefix = "*",
     ///             },
     ///         },
+    ///         Name = "acceptanceTestSecurityGroup1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

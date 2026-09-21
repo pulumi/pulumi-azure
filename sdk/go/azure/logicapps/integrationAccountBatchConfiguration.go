@@ -46,13 +46,13 @@ import (
 //				return err
 //			}
 //			_, err = logicapps.NewIntegrationAccountBatchConfiguration(ctx, "example", &logicapps.IntegrationAccountBatchConfigurationArgs{
+//				ReleaseCriteria: &logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs{
+//					MessageCount: pulumi.Int(80),
+//				},
 //				Name:                   pulumi.String("exampleiabc"),
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				BatchGroupName:         pulumi.String("TestBatchGroup"),
-//				ReleaseCriteria: &logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs{
-//					MessageCount: pulumi.Int(80),
-//				},
 //			})
 //			if err != nil {
 //				return err

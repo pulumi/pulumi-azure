@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2Args;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs;
- * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2IdentityArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -95,40 +95,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2("exampleScheduledQueryRulesAlertV2", ScheduledQueryRulesAlertV2Args.builder()
- *             .name("example-msqrv2")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .evaluationFrequency("PT10M")
- *             .windowDuration("PT10M")
- *             .scopes(exampleInsights.id())
- *             .severity(4)
- *             .criterias(ScheduledQueryRulesAlertV2CriteriaArgs.builder()
- *                 .query("""
- * requests
- *   | summarize CountByCountry=count() by client_CountryOrRegion
- *                 """)
- *                 .timeAggregationMethod("Maximum")
- *                 .threshold(17.5)
- *                 .operator("LessThan")
- *                 .resourceIdColumn("client_CountryOrRegion")
- *                 .metricMeasureColumn("CountByCountry")
- *                 .dimensions(ScheduledQueryRulesAlertV2CriteriaDimensionArgs.builder()
- *                     .name("client_CountryOrRegion")
- *                     .operator("Exclude")
- *                     .values("123")
- *                     .build())
- *                 .failingPeriods(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs.builder()
- *                     .minimumFailingPeriodsToTriggerAlert(1)
- *                     .numberOfEvaluationPeriods(1)
- *                     .build())
- *                 .build())
- *             .autoMitigationEnabled(true)
- *             .workspaceAlertsStorageEnabled(false)
- *             .description("example sqr")
- *             .displayName("example-sqr")
- *             .enabled(true)
- *             .queryTimeRangeOverride("PT1H")
- *             .skipQueryValidation(true)
  *             .action(ScheduledQueryRulesAlertV2ActionArgs.builder()
  *                 .actionGroups(exampleActionGroup.id())
  *                 .customProperties(Map.ofEntries(
@@ -141,6 +107,40 @@ import javax.annotation.Nullable;
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .criterias(ScheduledQueryRulesAlertV2CriteriaArgs.builder()
+ *                 .failingPeriods(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs.builder()
+ *                     .minimumFailingPeriodsToTriggerAlert(1)
+ *                     .numberOfEvaluationPeriods(1)
+ *                     .build())
+ *                 .dimensions(ScheduledQueryRulesAlertV2CriteriaDimensionArgs.builder()
+ *                     .name("client_CountryOrRegion")
+ *                     .operator("Exclude")
+ *                     .values("123")
+ *                     .build())
+ *                 .query("""
+ * requests
+ *   | summarize CountByCountry=count() by client_CountryOrRegion
+ *                 """)
+ *                 .timeAggregationMethod("Maximum")
+ *                 .threshold(17.5)
+ *                 .operator("LessThan")
+ *                 .resourceIdColumn("client_CountryOrRegion")
+ *                 .metricMeasureColumn("CountByCountry")
+ *                 .build())
+ *             .name("example-msqrv2")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .evaluationFrequency("PT10M")
+ *             .windowDuration("PT10M")
+ *             .scopes(exampleInsights.id())
+ *             .severity(4)
+ *             .autoMitigationEnabled(true)
+ *             .workspaceAlertsStorageEnabled(false)
+ *             .description("example sqr")
+ *             .displayName("example-sqr")
+ *             .enabled(true)
+ *             .queryTimeRangeOverride("PT1H")
+ *             .skipQueryValidation(true)
  *             .tags(Map.ofEntries(
  *                 Map.entry("key", "value"),
  *                 Map.entry("key2", "value2")

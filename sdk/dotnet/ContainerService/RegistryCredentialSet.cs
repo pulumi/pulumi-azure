@@ -42,9 +42,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleRegistryCredentialSet = new Azure.ContainerService.RegistryCredentialSet("example", new()
     ///     {
-    ///         Name = "exampleCredentialSet",
-    ///         ContainerRegistryId = exampleRegistry.Id,
-    ///         LoginServer = "docker.io",
     ///         Identity = new Azure.ContainerService.Inputs.RegistryCredentialSetIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -54,6 +51,9 @@ namespace Pulumi.Azure.ContainerService
     ///             UsernameSecretId = "https://example-keyvault.vault.azure.net/secrets/example-user-name",
     ///             PasswordSecretId = "https://example-keyvault.vault.azure.net/secrets/example-user-password",
     ///         },
+    ///         Name = "exampleCredentialSet",
+    ///         ContainerRegistryId = exampleRegistry.Id,
+    ///         LoginServer = "docker.io",
     ///     });
     /// 
     /// });
@@ -81,13 +81,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "examplekeyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -105,6 +98,13 @@ namespace Pulumi.Azure.ContainerService
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var exampleUser = new Azure.KeyVault.Secret("example_user", new()
@@ -131,9 +131,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleRegistryCredentialSet = new Azure.ContainerService.RegistryCredentialSet("example", new()
     ///     {
-    ///         Name = "exampleCredentialSet",
-    ///         ContainerRegistryId = exampleRegistry.Id,
-    ///         LoginServer = "docker.io",
     ///         Identity = new Azure.ContainerService.Inputs.RegistryCredentialSetIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -143,6 +140,9 @@ namespace Pulumi.Azure.ContainerService
     ///             UsernameSecretId = exampleUser.VersionlessId,
     ///             PasswordSecretId = examplePassword.VersionlessId,
     ///         },
+    ///         Name = "exampleCredentialSet",
+    ///         ContainerRegistryId = exampleRegistry.Id,
+    ///         LoginServer = "docker.io",
     ///     });
     /// 
     ///     var readSecrets = new Azure.KeyVault.AccessPolicy("read_secrets", new()

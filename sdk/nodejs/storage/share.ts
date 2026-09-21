@@ -31,17 +31,17 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleShare = new azure.storage.Share("example", {
- *     name: "sharename",
- *     storageAccountId: exampleAccount.id,
- *     quota: 50,
  *     acls: [{
- *         id: "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
  *         accessPolicies: [{
  *             permissions: "rwdl",
  *             start: "2019-07-02T09:38:21Z",
  *             expiry: "2019-07-02T10:38:21Z",
  *         }],
+ *         id: "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
  *     }],
+ *     name: "sharename",
+ *     storageAccountId: exampleAccount.id,
+ *     quota: 50,
  * });
  * ```
  *

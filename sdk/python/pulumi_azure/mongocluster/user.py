@@ -232,14 +232,14 @@ class User(pulumi.CustomResource):
                 "MicrosoftEntraID",
             ])
         example_user = azure.mongocluster.User("example",
-            object_id=current.object_id,
-            mongo_cluster_id=example_mongo_cluster.id,
-            identity_provider_type="MicrosoftEntraID",
-            principal_type="servicePrincipal",
             roles=[{
                 "database": "admin",
                 "name": "root",
-            }])
+            }],
+            object_id=current.object_id,
+            mongo_cluster_id=example_mongo_cluster.id,
+            identity_provider_type="MicrosoftEntraID",
+            principal_type="servicePrincipal")
         ```
 
         ## API Providers
@@ -301,14 +301,14 @@ class User(pulumi.CustomResource):
                 "MicrosoftEntraID",
             ])
         example_user = azure.mongocluster.User("example",
-            object_id=current.object_id,
-            mongo_cluster_id=example_mongo_cluster.id,
-            identity_provider_type="MicrosoftEntraID",
-            principal_type="servicePrincipal",
             roles=[{
                 "database": "admin",
                 "name": "root",
-            }])
+            }],
+            object_id=current.object_id,
+            mongo_cluster_id=example_mongo_cluster.id,
+            identity_provider_type="MicrosoftEntraID",
+            principal_type="servicePrincipal")
         ```
 
         ## API Providers

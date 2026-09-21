@@ -41,18 +41,10 @@ namespace Pulumi.Azure.Qumulo
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -61,7 +53,15 @@ namespace Pulumi.Azure.Qumulo
     ///                     },
     ///                     Name = "Qumulo.Storage/fileSystems",
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 

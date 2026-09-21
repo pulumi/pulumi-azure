@@ -56,15 +56,17 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Identity: &storage.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                   pulumi.String("examplestor"),
 //				ResourceGroupName:      example.Name,
 //				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
-//				Identity: &storage.AccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"customerManagedKey",
+//			}))
 //			if err != nil {
 //				return err
 //			}

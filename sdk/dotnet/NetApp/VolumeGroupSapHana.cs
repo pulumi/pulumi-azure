@@ -54,18 +54,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = $"{prefix}-delegated-subnet",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.88.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "testdelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -75,7 +67,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "testdelegation",
     ///             },
+    ///         },
+    ///         Name = $"{prefix}-delegated-subnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.88.2.0/24",
     ///         },
     ///     });
     /// 
@@ -107,9 +107,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = $"{prefix}-nic",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -119,10 +116,25 @@ namespace Pulumi.Azure.NetApp
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = $"{prefix}-nic",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         {
+    ///             StorageAccountType = "Standard_LRS",
+    ///             Caching = "ReadWrite",
+    ///         },
     ///         Name = $"{prefix}-vm",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
@@ -135,18 +147,6 @@ namespace Pulumi.Azure.NetApp
     ///         NetworkInterfaceIds = new[]
     ///         {
     ///             exampleNetworkInterface.Id,
-    ///         },
-    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
-    ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
-    ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
-    ///         {
-    ///             StorageAccountType = "Standard_LRS",
-    ///             Caching = "ReadWrite",
     ///         },
     ///     });
     /// 
@@ -177,16 +177,23 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleVolumeGroupSapHana = new Azure.NetApp.VolumeGroupSapHana("example", new()
     ///     {
-    ///         Name = $"{prefix}-netapp-volumegroup",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AccountName = exampleAccount.Name,
-    ///         GroupDescription = "Test volume group",
-    ///         ApplicationIdentifier = "TST",
     ///         Volumes = new[]
     ///         {
     ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
     ///             {
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
     ///                 Name = $"{prefix}-netapp-volume-1",
     ///                 VolumePath = "my-unique-file-path-1",
     ///                 ServiceLevel = "Standard",
@@ -199,6 +206,13 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
+    ///                 Tags = 
+    ///                 {
+    ///                     { "foo", "bar" },
+    ///                 },
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
     ///                 ExportPolicyRules = new[]
     ///                 {
     ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
@@ -212,13 +226,6 @@ namespace Pulumi.Azure.NetApp
     ///                         RootAccessEnabled = false,
     ///                     },
     ///                 },
-    ///                 Tags = 
-    ///                 {
-    ///                     { "foo", "bar" },
-    ///                 },
-    ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
-    ///             {
     ///                 Name = $"{prefix}-netapp-volume-2",
     ///                 VolumePath = "my-unique-file-path-2",
     ///                 ServiceLevel = "Standard",
@@ -231,6 +238,13 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
+    ///                 Tags = 
+    ///                 {
+    ///                     { "foo", "bar" },
+    ///                 },
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
     ///                 ExportPolicyRules = new[]
     ///                 {
     ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
@@ -244,13 +258,6 @@ namespace Pulumi.Azure.NetApp
     ///                         RootAccessEnabled = false,
     ///                     },
     ///                 },
-    ///                 Tags = 
-    ///                 {
-    ///                     { "foo", "bar" },
-    ///                 },
-    ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
-    ///             {
     ///                 Name = $"{prefix}-netapp-volume-3",
     ///                 VolumePath = "my-unique-file-path-3",
     ///                 ServiceLevel = "Standard",
@@ -263,21 +270,14 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
-    ///                 ExportPolicyRules = new[]
-    ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
-    ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
-    ///                     },
-    ///                 },
     ///             },
     ///         },
+    ///         Name = $"{prefix}-netapp-volumegroup",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         GroupDescription = "Test volume group",
+    ///         ApplicationIdentifier = "TST",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -323,18 +323,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleDelegated = new Azure.Network.Subnet("example_delegated", new()
     ///     {
-    ///         Name = $"{prefix}-delegated-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.88.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "netapp",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -344,7 +336,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "netapp",
     ///             },
+    ///         },
+    ///         Name = $"{prefix}-delegated-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.88.1.0/24",
     ///         },
     ///     });
     /// 
@@ -361,28 +361,17 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleAccount = new Azure.NetApp.Account("example", new()
     ///     {
-    ///         Name = $"{prefix}-netapp-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = $"{prefix}-netapp-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = $"{prefix}kv",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         PurgeProtectionEnabled = true,
-    ///         SoftDeleteRetentionDays = 7,
-    ///         EnabledForDiskEncryption = true,
-    ///         EnabledForDeployment = true,
-    ///         EnabledForTemplateDeployment = true,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -412,6 +401,17 @@ namespace Pulumi.Azure.NetApp
     ///                 },
     ///             },
     ///         },
+    ///         Name = $"{prefix}kv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///         SoftDeleteRetentionDays = 7,
+    ///         EnabledForDiskEncryption = true,
+    ///         EnabledForDeployment = true,
+    ///         EnabledForTemplateDeployment = true,
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
@@ -440,10 +440,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
     ///     {
-    ///         Name = $"{prefix}-pe-kv",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SubnetId = examplePrivateEndpoint.Id,
     ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///         {
     ///             Name = $"{prefix}-pe-sc-kv",
@@ -454,6 +450,10 @@ namespace Pulumi.Azure.NetApp
     ///                 "Vault",
     ///             },
     ///         },
+    ///         Name = $"{prefix}-pe-kv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SubnetId = examplePrivateEndpoint.Id,
     ///     });
     /// 
     ///     var examplePool = new Azure.NetApp.Pool("example", new()
@@ -475,16 +475,23 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleVolumeGroupSapHana = new Azure.NetApp.VolumeGroupSapHana("example", new()
     ///     {
-    ///         Name = $"{prefix}-netapp-volumegroup",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount.Name,
-    ///         GroupDescription = "Test volume group with zone and CMK",
-    ///         ApplicationIdentifier = "TST",
     ///         Volumes = new[]
     ///         {
     ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
     ///             {
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
     ///                 Name = $"{prefix}-netapp-volume-data",
     ///                 VolumePath = "my-unique-file-path-data",
     ///                 ServiceLevel = "Standard",
@@ -500,6 +507,9 @@ namespace Pulumi.Azure.NetApp
     ///                 NetworkFeatures = "Standard",
     ///                 EncryptionKeySource = "Microsoft.KeyVault",
     ///                 KeyVaultPrivateEndpointId = exampleEndpoint.Id,
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
     ///                 ExportPolicyRules = new[]
     ///                 {
     ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
@@ -513,9 +523,6 @@ namespace Pulumi.Azure.NetApp
     ///                         RootAccessEnabled = false,
     ///                     },
     ///                 },
-    ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
-    ///             {
     ///                 Name = $"{prefix}-netapp-volume-log",
     ///                 VolumePath = "my-unique-file-path-log",
     ///                 ServiceLevel = "Standard",
@@ -531,6 +538,9 @@ namespace Pulumi.Azure.NetApp
     ///                 NetworkFeatures = "Standard",
     ///                 EncryptionKeySource = "Microsoft.KeyVault",
     ///                 KeyVaultPrivateEndpointId = exampleEndpoint.Id,
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
+    ///             {
     ///                 ExportPolicyRules = new[]
     ///                 {
     ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
@@ -544,9 +554,6 @@ namespace Pulumi.Azure.NetApp
     ///                         RootAccessEnabled = false,
     ///                     },
     ///                 },
-    ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeArgs
-    ///             {
     ///                 Name = $"{prefix}-netapp-volume-shared",
     ///                 VolumePath = "my-unique-file-path-shared",
     ///                 ServiceLevel = "Standard",
@@ -562,21 +569,14 @@ namespace Pulumi.Azure.NetApp
     ///                 NetworkFeatures = "Standard",
     ///                 EncryptionKeySource = "Microsoft.KeyVault",
     ///                 KeyVaultPrivateEndpointId = exampleEndpoint.Id,
-    ///                 ExportPolicyRules = new[]
-    ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupSapHanaVolumeExportPolicyRuleArgs
-    ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
-    ///                     },
-    ///                 },
     ///             },
     ///         },
+    ///         Name = $"{prefix}-netapp-volumegroup",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         GroupDescription = "Test volume group with zone and CMK",
+    ///         ApplicationIdentifier = "TST",
     ///     });
     /// 
     /// });

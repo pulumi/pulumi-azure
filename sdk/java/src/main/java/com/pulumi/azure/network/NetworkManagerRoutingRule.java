@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-network-manager")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-network-manager")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scopeAccesses("Routing")
  *             .build());
  * 
@@ -96,9 +96,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerRoutingRule = new NetworkManagerRoutingRule("exampleNetworkManagerRoutingRule", NetworkManagerRoutingRuleArgs.builder()
- *             .name("example-routing-rule")
- *             .ruleCollectionId(exampleNetworkManagerRoutingRuleCollection.id())
- *             .description("example routing rule")
  *             .destination(NetworkManagerRoutingRuleDestinationArgs.builder()
  *                 .type("AddressPrefix")
  *                 .address("10.0.0.0/24")
@@ -106,6 +103,9 @@ import javax.annotation.Nullable;
  *             .nextHop(NetworkManagerRoutingRuleNextHopArgs.builder()
  *                 .type("VirtualNetworkGateway")
  *                 .build())
+ *             .name("example-routing-rule")
+ *             .ruleCollectionId(exampleNetworkManagerRoutingRuleCollection.id())
+ *             .description("example routing rule")
  *             .build());
  * 
  *     }

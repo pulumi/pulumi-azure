@@ -43,9 +43,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
  * import com.pulumi.azure.monitoring.MetricAlert;
  * import com.pulumi.azure.monitoring.MetricAlertArgs;
+ * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
  * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
  * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaDimensionArgs;
- * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -73,35 +73,35 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new ActionGroup("main", ActionGroupArgs.builder()
- *             .name("example-actiongroup")
- *             .resourceGroupName(example.name())
- *             .shortName("exampleact")
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
  *                 .name("callmyapi")
  *                 .serviceUri("http://example.com/alert")
  *                 .build())
+ *             .name("example-actiongroup")
+ *             .resourceGroupName(example.name())
+ *             .shortName("exampleact")
  *             .build());
  * 
  *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()
- *             .name("example-metricalert")
- *             .resourceGroupName(example.name())
- *             .scopes(toMonitor.id())
- *             .description("Action will be triggered when Transactions count is greater than 50.")
+ *             .actions(MetricAlertActionArgs.builder()
+ *                 .actionGroupId(main.id())
+ *                 .build())
  *             .criterias(MetricAlertCriteriaArgs.builder()
- *                 .metricNamespace("Microsoft.Storage/storageAccounts")
- *                 .metricName("Transactions")
- *                 .aggregation("Total")
- *                 .operator("GreaterThan")
- *                 .threshold(50.0)
  *                 .dimensions(MetricAlertCriteriaDimensionArgs.builder()
  *                     .name("ApiName")
  *                     .operator("Include")
  *                     .values("*")
  *                     .build())
+ *                 .metricNamespace("Microsoft.Storage/storageAccounts")
+ *                 .metricName("Transactions")
+ *                 .aggregation("Total")
+ *                 .operator("GreaterThan")
+ *                 .threshold(50.0)
  *                 .build())
- *             .actions(MetricAlertActionArgs.builder()
- *                 .actionGroupId(main.id())
- *                 .build())
+ *             .name("example-metricalert")
+ *             .resourceGroupName(example.name())
+ *             .scopes(toMonitor.id())
+ *             .description("Action will be triggered when Transactions count is greater than 50.")
  *             .build());
  * 
  *     }

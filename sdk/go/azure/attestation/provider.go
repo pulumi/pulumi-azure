@@ -37,8 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "./example/cert.pem",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "./example/cert.pem",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,7 +47,7 @@ import (
 //				Name:                         pulumi.String("exampleprovider"),
 //				ResourceGroupName:            example.Name,
 //				Location:                     example.Location,
-//				PolicySigningCertificateData: pulumi.String(invokeFile.Result),
+//				PolicySigningCertificateData: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

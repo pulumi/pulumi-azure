@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     skuName: "Standard",
  * });
  * const exampleIntegrationAccountPartner = new azure.logicapps.IntegrationAccountPartner("example", {
- *     name: "example-iap",
- *     resourceGroupName: example.name,
- *     integrationAccountName: exampleIntegrationAccount.name,
  *     businessIdentities: [{
  *         qualifier: "ZZ",
  *         value: "AA",
  *     }],
+ *     name: "example-iap",
+ *     resourceGroupName: example.name,
+ *     integrationAccountName: exampleIntegrationAccount.name,
  * });
  * ```
  *

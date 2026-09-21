@@ -25,10 +25,6 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_AzureFrontDoor",
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
- *     name: "example-origin-group",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     sessionAffinityEnabled: true,
- *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  *     healthProbe: {
  *         intervalInSeconds: 240,
  *         path: "/healthProbe",
@@ -40,6 +36,10 @@ import * as utilities from "../utilities";
  *         sampleSize: 16,
  *         successfulSamplesRequired: 3,
  *     },
+ *     name: "example-origin-group",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     sessionAffinityEnabled: true,
+ *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  * });
  * ```
  *

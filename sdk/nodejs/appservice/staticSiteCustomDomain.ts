@@ -63,13 +63,13 @@ import * as utilities from "../utilities";
  *     validationType: "dns-txt-token",
  * });
  * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
+ *     records: [{
+ *         value: exampleStaticSiteCustomDomain.validationToken,
+ *     }],
  *     name: "_dnsauth.my-domain",
  *     zoneName: "contoso.com",
  *     resourceGroupName: example.name,
  *     ttl: 300,
- *     records: [{
- *         value: exampleStaticSiteCustomDomain.validationToken,
- *     }],
  * });
  * ```
  *

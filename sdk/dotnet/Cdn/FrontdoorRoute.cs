@@ -46,14 +46,14 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
     ///     {
-    ///         Name = "example-originGroup",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
     ///         {
     ///             AdditionalLatencyInMilliseconds = 0,
     ///             SampleSize = 16,
     ///             SuccessfulSamplesRequired = 3,
     ///         },
+    ///         Name = "example-originGroup",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
@@ -84,6 +84,11 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var contoso = new Azure.Cdn.FrontdoorCustomDomain("contoso", new()
     ///     {
+    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         {
+    ///             CertificateType = "ManagedCertificate",
+    ///             MinimumTlsVersion = "TLS12",
+    ///         },
     ///         Name = "contoso-custom-domain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
@@ -95,16 +100,16 @@ namespace Pulumi.Azure.Cdn
     ///                 "contoso",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
+    ///     });
+    /// 
+    ///     var fabrikam = new Azure.Cdn.FrontdoorCustomDomain("fabrikam", new()
+    ///     {
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
     ///             MinimumTlsVersion = "TLS12",
     ///         },
-    ///     });
-    /// 
-    ///     var fabrikam = new Azure.Cdn.FrontdoorCustomDomain("fabrikam", new()
-    ///     {
     ///         Name = "fabrikam-custom-domain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
@@ -116,16 +121,27 @@ namespace Pulumi.Azure.Cdn
     ///                 "fabrikam",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
-    ///         {
-    ///             CertificateType = "ManagedCertificate",
-    ///             MinimumTlsVersion = "TLS12",
-    ///         },
+    ///         }).Result,
     ///     });
     /// 
     ///     var exampleFrontdoorRoute = new Azure.Cdn.FrontdoorRoute("example", new()
     ///     {
+    ///         Cache = new Azure.Cdn.Inputs.FrontdoorRouteCacheArgs
+    ///         {
+    ///             QueryStringCachingBehavior = "IgnoreSpecifiedQueryStrings",
+    ///             QueryStrings = new[]
+    ///             {
+    ///                 "account",
+    ///                 "settings",
+    ///             },
+    ///             CompressionEnabled = true,
+    ///             ContentTypesToCompresses = new[]
+    ///             {
+    ///                 "text/html",
+    ///                 "text/javascript",
+    ///                 "text/xml",
+    ///             },
+    ///         },
     ///         Name = "example-route",
     ///         CdnFrontdoorEndpointId = exampleFrontdoorEndpoint.Id,
     ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
@@ -155,22 +171,6 @@ namespace Pulumi.Azure.Cdn
     ///             fabrikam.Id,
     ///         },
     ///         LinkToDefaultDomain = false,
-    ///         Cache = new Azure.Cdn.Inputs.FrontdoorRouteCacheArgs
-    ///         {
-    ///             QueryStringCachingBehavior = "IgnoreSpecifiedQueryStrings",
-    ///             QueryStrings = new[]
-    ///             {
-    ///                 "account",
-    ///                 "settings",
-    ///             },
-    ///             CompressionEnabled = true,
-    ///             ContentTypesToCompresses = new[]
-    ///             {
-    ///                 "text/html",
-    ///                 "text/javascript",
-    ///                 "text/xml",
-    ///             },
-    ///         },
     ///     });
     /// 
     ///     var contosoFrontdoorCustomDomainAssociation = new Azure.Cdn.FrontdoorCustomDomainAssociation("contoso", new()

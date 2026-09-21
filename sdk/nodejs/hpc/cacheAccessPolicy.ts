@@ -42,12 +42,12 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_2G",
  * });
  * const exampleCacheAccessPolicy = new azure.hpc.CacheAccessPolicy("example", {
- *     name: "example",
- *     hpcCacheId: exampleCache.id,
  *     accessRules: [{
  *         scope: "default",
  *         access: "rw",
  *     }],
+ *     name: "example",
+ *     hpcCacheId: exampleCache.id,
  * });
  * ```
  *

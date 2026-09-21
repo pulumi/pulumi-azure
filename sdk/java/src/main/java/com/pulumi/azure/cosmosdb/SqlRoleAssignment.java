@@ -58,11 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-cosmosdb")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Strong")
  *                 .build())
@@ -70,17 +65,22 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-cosmosdb")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlRoleDefinition = new SqlRoleDefinition("exampleSqlRoleDefinition", SqlRoleDefinitionArgs.builder()
+ *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
+ *                 .dataActions("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read")
+ *                 .build())
  *             .name("examplesqlroledef")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .type("CustomRole")
  *             .assignableScopes(exampleAccount.id())
- *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
- *                 .dataActions("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read")
- *                 .build())
  *             .build());
  * 
  *         var exampleSqlRoleAssignment = new SqlRoleAssignment("exampleSqlRoleAssignment", SqlRoleAssignmentArgs.builder()

@@ -319,15 +319,15 @@ class OutputFunction(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            },
             name="exampleappserviceplan",
             location=example.location,
             resource_group_name=example.name,
             kind="FunctionApp",
-            reserved=True,
-            sku={
-                "tier": "Dynamic",
-                "size": "Y1",
-            })
+            reserved=True)
         example_function_app = azure.appservice.FunctionApp("example",
             name="examplefunctionapp",
             location=example.location,
@@ -407,15 +407,15 @@ class OutputFunction(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            },
             name="exampleappserviceplan",
             location=example.location,
             resource_group_name=example.name,
             kind="FunctionApp",
-            reserved=True,
-            sku={
-                "tier": "Dynamic",
-                "size": "Y1",
-            })
+            reserved=True)
         example_function_app = azure.appservice.FunctionApp("example",
             name="examplefunctionapp",
             location=example.location,

@@ -61,13 +61,18 @@ import * as utilities from "../utilities";
  *     send: true,
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "Example-IoTHub",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     localAuthenticationEnabled: false,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
+ *     },
+ *     cloudToDevice: {
+ *         feedbacks: [{
+ *             timeToLive: "PT1H10M",
+ *             maxDeliveryCount: 15,
+ *             lockDuration: "PT30S",
+ *         }],
+ *         maxDeliveryCount: 30,
+ *         defaultTtl: "PT1H",
  *     },
  *     endpoints: [
  *         {
@@ -86,6 +91,14 @@ import * as utilities from "../utilities";
  *             name: "export2",
  *         },
  *     ],
+ *     enrichments: [{
+ *         key: "tenant",
+ *         value: "$twin.tags.Tenant",
+ *         endpointNames: [
+ *             "export",
+ *             "export2",
+ *         ],
+ *     }],
  *     routes: [
  *         {
  *             name: "export",
@@ -102,23 +115,10 @@ import * as utilities from "../utilities";
  *             enabled: true,
  *         },
  *     ],
- *     enrichments: [{
- *         key: "tenant",
- *         value: "$twin.tags.Tenant",
- *         endpointNames: [
- *             "export",
- *             "export2",
- *         ],
- *     }],
- *     cloudToDevice: {
- *         maxDeliveryCount: 30,
- *         defaultTtl: "PT1H",
- *         feedbacks: [{
- *             timeToLive: "PT1H10M",
- *             maxDeliveryCount: 15,
- *             lockDuration: "PT30S",
- *         }],
- *     },
+ *     name: "Example-IoTHub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     localAuthenticationEnabled: false,
  *     tags: {
  *         purpose: "testing",
  *     },

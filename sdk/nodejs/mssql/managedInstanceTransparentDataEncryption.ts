@@ -30,12 +30,7 @@ import * as utilities from "../utilities";
  *     location: test.location,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "subnet1-mssql",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.0/24"],
  *     delegations: [{
- *         name: "managedinstancedelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Sql/managedInstances",
  *             actions: [
@@ -44,9 +39,17 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
  *             ],
  *         },
+ *         name: "managedinstancedelegation",
  *     }],
+ *     name: "subnet1-mssql",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
  * });
  * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "mssqlinstance",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -57,9 +60,6 @@ import * as utilities from "../utilities";
  *     vcores: 4,
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "NCC-1701-D",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleManagedInstanceTransparentDataEncryption = new azure.mssql.ManagedInstanceTransparentDataEncryption("example", {managedInstanceId: exampleManagedInstance.id});
  * ```
@@ -82,12 +82,7 @@ import * as utilities from "../utilities";
  *     location: test.location,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "subnet1-mssql",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.0/24"],
  *     delegations: [{
- *         name: "managedinstancedelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Sql/managedInstances",
  *             actions: [
@@ -96,9 +91,17 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
  *             ],
  *         },
+ *         name: "managedinstancedelegation",
  *     }],
+ *     name: "subnet1-mssql",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
  * });
  * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "mssqlinstance",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -109,21 +112,9 @@ import * as utilities from "../utilities";
  *     vcores: 4,
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "NCC-1701-D",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * // Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     enabledForDiskEncryption: true,
- *     tenantId: current.then(current => current.tenantId),
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: false,
- *     skuName: "standard",
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -149,6 +140,15 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: current.then(current => current.tenantId),
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: false,
+ *     skuName: "standard",
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "byok",

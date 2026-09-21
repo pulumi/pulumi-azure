@@ -68,12 +68,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .name("example-DT")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .identity(InstanceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-DT")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
@@ -98,13 +98,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("examplekc")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
+ *             .name("examplekc")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()

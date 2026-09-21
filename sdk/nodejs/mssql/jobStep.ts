@@ -45,13 +45,13 @@ import * as utilities from "../utilities";
  *     password: "examplepassword",
  * });
  * const exampleJobTargetGroup = new azure.mssql.JobTargetGroup("example", {
- *     name: "example-target-group",
- *     jobAgentId: exampleJobAgent.id,
  *     jobTargets: [{
  *         serverName: exampleServer.name,
  *         databaseName: exampleDatabase.name,
  *         jobCredentialId: exampleJobCredential.id,
  *     }],
+ *     name: "example-target-group",
+ *     jobAgentId: exampleJobAgent.id,
  * });
  * const exampleJob = new azure.mssql.Job("example", {
  *     name: "example-job",

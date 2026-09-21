@@ -38,7 +38,10 @@ import (
 //			_, err = marketplace.NewRoleAssignment(ctx, "example", &marketplace.RoleAssignmentArgs{
 //				RoleDefinitionName: pulumi.String("Marketplace Admin"),
 //				PrincipalId:        pulumi.String(example.ObjectId),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"name",
+//				"roleDefinitionId",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -77,7 +80,9 @@ import (
 //			_, err = marketplace.NewRoleAssignment(ctx, "example", &marketplace.RoleAssignmentArgs{
 //				RoleDefinitionId: pulumi.String(exampleGetRoleDefinition.Id),
 //				PrincipalId:      pulumi.String(example.ObjectId),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"roleDefinitionName",
+//			}))
 //			if err != nil {
 //				return err
 //			}

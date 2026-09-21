@@ -280,14 +280,14 @@ class RouteTable(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_route_table = azure.network.RouteTable("example",
-            name="example-route-table",
-            location=example.location,
-            resource_group_name=example.name,
             routes=[{
                 "name": "route1",
                 "address_prefix": "10.1.0.0/16",
                 "next_hop_type": "VnetLocal",
             }],
+            name="example-route-table",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "environment": "Production",
             })
@@ -342,14 +342,14 @@ class RouteTable(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_route_table = azure.network.RouteTable("example",
-            name="example-route-table",
-            location=example.location,
-            resource_group_name=example.name,
             routes=[{
                 "name": "route1",
                 "address_prefix": "10.1.0.0/16",
                 "next_hop_type": "VnetLocal",
             }],
+            name="example-route-table",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "environment": "Production",
             })

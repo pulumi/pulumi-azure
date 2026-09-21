@@ -49,15 +49,15 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Dynamic"),
+//					Size: pulumi.String("Y1"),
+//				},
 //				Name:              pulumi.String("exampleappserviceplan"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("FunctionApp"),
 //				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Dynamic"),
-//					Size: pulumi.String("Y1"),
-//				},
 //			})
 //			if err != nil {
 //				return err

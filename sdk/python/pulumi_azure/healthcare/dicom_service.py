@@ -430,12 +430,12 @@ class DicomService(pulumi.CustomResource):
             resource_group_name="tfex-resource_group",
             location="east us")
         test_dicom_service = azure.healthcare.DicomService("test",
-            name="tfexDicom",
-            workspace_id=test.id,
-            location="east us",
             identity={
                 "type": "SystemAssigned",
             },
+            name="tfexDicom",
+            workspace_id=test.id,
+            location="east us",
             tags={
                 "environment": "None",
             })
@@ -490,12 +490,12 @@ class DicomService(pulumi.CustomResource):
             resource_group_name="tfex-resource_group",
             location="east us")
         test_dicom_service = azure.healthcare.DicomService("test",
-            name="tfexDicom",
-            workspace_id=test.id,
-            location="east us",
             identity={
                 "type": "SystemAssigned",
             },
+            name="tfexDicom",
+            workspace_id=test.id,
+            location="east us",
             tags={
                 "environment": "None",
             })

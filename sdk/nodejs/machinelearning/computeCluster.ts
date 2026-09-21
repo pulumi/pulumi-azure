@@ -46,15 +46,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-mlw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     name: "example-vnet",
@@ -69,12 +69,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.1.0.0/24"],
  * });
  * const test = new azure.machinelearning.ComputeCluster("test", {
- *     name: "example",
- *     location: example.location,
- *     vmPriority: "LowPriority",
- *     vmSize: "Standard_DS2_v2",
- *     machineLearningWorkspaceId: exampleWorkspace.id,
- *     subnetResourceId: exampleSubnet.id,
  *     scaleSettings: {
  *         minNodeCount: 0,
  *         maxNodeCount: 1,
@@ -83,6 +77,12 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     vmPriority: "LowPriority",
+ *     vmSize: "Standard_DS2_v2",
+ *     machineLearningWorkspaceId: exampleWorkspace.id,
+ *     subnetResourceId: exampleSubnet.id,
  * });
  * ```
  *

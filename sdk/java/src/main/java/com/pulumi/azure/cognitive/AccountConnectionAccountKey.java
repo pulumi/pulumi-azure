@@ -53,6 +53,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new com.pulumi.azure.cognitive.Account("exampleAccount", com.pulumi.azure.cognitive.AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-aiservices")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -60,9 +63,6 @@ import javax.annotation.Nullable;
  *             .skuName("S0")
  *             .projectManagementEnabled(true)
  *             .customSubdomainName("exampleaiservices")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleAccount2 = new com.pulumi.azure.storage.Account("exampleAccount2", com.pulumi.azure.storage.AccountArgs.builder()

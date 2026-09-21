@@ -66,15 +66,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
+ *             .sku(ExpressRouteCircuitSkuArgs.builder()
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
+ *                 .build())
  *             .name("example-ercircuit")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(5.0)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier("Standard")
- *                 .family("MeteredData")
- *                 .build())
  *             .build());
  * 
  *         var example2 = new ExpressRoutePort("example2", ExpressRoutePortArgs.builder()
@@ -87,15 +87,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example2ExpressRouteCircuit = new ExpressRouteCircuit("example2ExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
+ *             .sku(ExpressRouteCircuitSkuArgs.builder()
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
+ *                 .build())
  *             .name("example-ercircuit2")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(example2.id())
  *             .bandwidthInGbps(5.0)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier("Standard")
- *                 .family("MeteredData")
- *                 .build())
  *             .build());
  * 
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", ExpressRouteCircuitPeeringArgs.builder()

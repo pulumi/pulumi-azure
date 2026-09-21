@@ -64,18 +64,10 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "example-delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Web/serverFarms",
@@ -84,20 +76,28 @@ namespace Pulumi.Azure.AppService
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
+    ///                 Name = "example-delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "example-app-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "example-app-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAppService = new Azure.AppService.AppService("example", new()
@@ -146,18 +146,10 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "example-delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Web/serverFarms",
@@ -166,20 +158,28 @@ namespace Pulumi.Azure.AppService
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
+    ///                 Name = "example-delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "example-app-service-plan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "example-app-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()

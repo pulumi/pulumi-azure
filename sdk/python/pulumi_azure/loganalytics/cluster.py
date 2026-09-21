@@ -278,12 +278,12 @@ class Cluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.loganalytics.Cluster("example",
-            name="example-cluster",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers
@@ -334,12 +334,12 @@ class Cluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.loganalytics.Cluster("example",
-            name="example-cluster",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers

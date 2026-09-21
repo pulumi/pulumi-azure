@@ -31,14 +31,14 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
     ///     {
-    ///         Name = "exampleAssignment",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyDefinitionId = exampleGetPolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
-    ///         Location = "westus",
     ///         Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "exampleAssignment",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         PolicyDefinitionId = exampleGetPolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = "westus",
     ///     });
     /// 
     ///     var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("example", new()

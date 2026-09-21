@@ -76,18 +76,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name("Microsoft.DBforMySQL/flexibleServers")
+ *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
+ *                     .build())
+ *                 .name("fs")
+ *                 .build())
  *             .name("example-sn")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .serviceEndpoints("Microsoft.Storage")
- *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("fs")
- *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
- *                     .name("Microsoft.DBforMySQL/flexibleServers")
- *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()

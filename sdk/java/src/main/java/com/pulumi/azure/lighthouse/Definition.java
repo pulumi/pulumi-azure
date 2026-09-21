@@ -53,15 +53,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Definition("example", DefinitionArgs.builder()
- *             .name("Sample definition")
- *             .description("This is a lighthouse definition created IaC")
- *             .managingTenantId("00000000-0000-0000-0000-000000000000")
- *             .scope("/subscriptions/00000000-0000-0000-0000-000000000000")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
  *                 .principalId("00000000-0000-0000-0000-000000000000")
  *                 .roleDefinitionId(contributor.roleDefinitionId())
  *                 .principalDisplayName("Tier 1 Support")
  *                 .build())
+ *             .name("Sample definition")
+ *             .description("This is a lighthouse definition created IaC")
+ *             .managingTenantId("00000000-0000-0000-0000-000000000000")
+ *             .scope("/subscriptions/00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
  *     }

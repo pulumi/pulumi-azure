@@ -375,10 +375,6 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id)
         example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("example",
-            name="example",
-            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            protocol="HTTPS",
             routes=[{
                 "description": "example description",
                 "filters": [
@@ -395,7 +391,11 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                     "tag1",
                     "tag2",
                 ],
-            }])
+            }],
+            name="example",
+            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            protocol="HTTPS")
         ```
 
         ## Import
@@ -456,10 +456,6 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id)
         example_spring_cloud_gateway_route_config = azure.appplatform.SpringCloudGatewayRouteConfig("example",
-            name="example",
-            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
-            spring_cloud_app_id=example_spring_cloud_app.id,
-            protocol="HTTPS",
             routes=[{
                 "description": "example description",
                 "filters": [
@@ -476,7 +472,11 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                     "tag1",
                     "tag2",
                 ],
-            }])
+            }],
+            name="example",
+            spring_cloud_gateway_id=example_spring_cloud_gateway.id,
+            spring_cloud_app_id=example_spring_cloud_app.id,
+            protocol="HTTPS")
         ```
 
         ## Import

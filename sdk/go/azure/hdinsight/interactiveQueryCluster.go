@@ -56,24 +56,12 @@ import (
 //				return err
 //			}
 //			_, err = hdinsight.NewInteractiveQueryCluster(ctx, "example", &hdinsight.InteractiveQueryClusterArgs{
-//				Name:              pulumi.String("example-hdicluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("3.6"),
-//				Tier:              pulumi.String("Standard"),
 //				ComponentVersion: &hdinsight.InteractiveQueryClusterComponentVersionArgs{
 //					InteractiveHive: pulumi.String("2.1"),
 //				},
 //				Gateway: &hdinsight.InteractiveQueryClusterGatewayArgs{
 //					Username: pulumi.String("acctestusrgw"),
 //					Password: pulumi.String("Password!"),
-//				},
-//				StorageAccounts: hdinsight.InteractiveQueryClusterStorageAccountArray{
-//					&hdinsight.InteractiveQueryClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
-//					},
 //				},
 //				Roles: &hdinsight.InteractiveQueryClusterRolesArgs{
 //					HeadNode: &hdinsight.InteractiveQueryClusterRolesHeadNodeArgs{
@@ -93,6 +81,18 @@ import (
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
 //				},
+//				StorageAccounts: hdinsight.InteractiveQueryClusterStorageAccountArray{
+//					&hdinsight.InteractiveQueryClusterStorageAccountArgs{
+//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
+//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+//						IsDefault:          pulumi.Bool(true),
+//					},
+//				},
+//				Name:              pulumi.String("example-hdicluster"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ClusterVersion:    pulumi.String("3.6"),
+//				Tier:              pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err

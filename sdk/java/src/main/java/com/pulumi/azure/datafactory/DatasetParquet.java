@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatasetParquet = new DatasetParquet("exampleDatasetParquet", DatasetParquetArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .httpServerLocation(DatasetParquetHttpServerLocationArgs.builder()
  *                 .relativeUrl("http://www.bing.com")
  *                 .path("foo/bar/")
  *                 .filename("fizz.txt")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .build());
  * 
  *     }

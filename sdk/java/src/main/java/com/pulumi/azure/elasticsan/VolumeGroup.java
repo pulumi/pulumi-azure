@@ -73,13 +73,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan("exampleElasticSan", ElasticSanArgs.builder()
+ *             .sku(ElasticSanSkuArgs.builder()
+ *                 .name("Premium_LRS")
+ *                 .build())
  *             .name("examplees-es")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .baseSizeInTib(1)
- *             .sku(ElasticSanSkuArgs.builder()
- *                 .name("Premium_LRS")
- *                 .build())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
@@ -169,9 +169,6 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleVolumeGroup = new VolumeGroup("exampleVolumeGroup", VolumeGroupArgs.builder()
- *             .name("example-esvg")
- *             .elasticSanId(exampleElasticSan.id())
- *             .encryptionType("EncryptionAtRestWithCustomerManagedKey")
  *             .encryption(VolumeGroupEncryptionArgs.builder()
  *                 .keyVaultKeyId(exampleKey.versionlessId())
  *                 .userAssignedIdentityId(exampleUserAssignedIdentity.id())
@@ -184,6 +181,9 @@ import javax.annotation.Nullable;
  *                 .subnetId(exampleSubnet.id())
  *                 .action("Allow")
  *                 .build())
+ *             .name("example-esvg")
+ *             .elasticSanId(exampleElasticSan.id())
+ *             .encryptionType("EncryptionAtRestWithCustomerManagedKey")
  *             .build());
  * 
  *     }

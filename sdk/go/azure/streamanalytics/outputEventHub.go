@@ -61,6 +61,9 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputEventHub(ctx, "example", &streamanalytics.OutputEventHubArgs{
+//				Serialization: &streamanalytics.OutputEventHubSerializationArgs{
+//					Type: pulumi.String("Avro"),
+//				},
 //				Name:                   pulumi.String("output-to-eventhub"),
 //				StreamAnalyticsJobName: example.Name(),
 //				ResourceGroupName:      example.ResourceGroupName(),
@@ -68,9 +71,6 @@ import (
 //				ServicebusNamespace:    exampleEventHubNamespace.Name,
 //				SharedAccessPolicyKey:  exampleEventHubNamespace.DefaultPrimaryKey,
 //				SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
-//				Serialization: &streamanalytics.OutputEventHubSerializationArgs{
-//					Type: pulumi.String("Avro"),
-//				},
 //			})
 //			if err != nil {
 //				return err

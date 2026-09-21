@@ -108,9 +108,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGalleryApplicationVersion = new GalleryApplicationVersion("exampleGalleryApplicationVersion", GalleryApplicationVersionArgs.builder()
- *             .name("0.0.1")
- *             .galleryApplicationId(exampleGalleryApplication.id())
- *             .location(exampleGalleryApplication.location())
  *             .manageAction(GalleryApplicationVersionManageActionArgs.builder()
  *                 .install("[install command]")
  *                 .remove("[remove command]")
@@ -122,6 +119,9 @@ import javax.annotation.Nullable;
  *                 .name(exampleGalleryApplication.location())
  *                 .regionalReplicaCount(1)
  *                 .build())
+ *             .name("0.0.1")
+ *             .galleryApplicationId(exampleGalleryApplication.id())
+ *             .location(exampleGalleryApplication.location())
  *             .build());
  * 
  *         var exampleGalleryApplicationAssignment = new GalleryApplicationAssignment("exampleGalleryApplicationAssignment", GalleryApplicationAssignmentArgs.builder()

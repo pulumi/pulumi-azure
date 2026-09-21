@@ -48,14 +48,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleDatasetBinary = new Azure.DataFactory.DatasetBinary("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceSftp.Name,
     ///         SftpServerLocation = new Azure.DataFactory.Inputs.DatasetBinarySftpServerLocationArgs
     ///         {
     ///             Path = "/test/",
     ///             Filename = "**",
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceSftp.Name,
     ///     });
     /// 
     /// });

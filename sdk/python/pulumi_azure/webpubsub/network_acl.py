@@ -203,19 +203,17 @@ class NetworkAcl(pulumi.CustomResource):
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
         example_endpoint = azure.privatelink.Endpoint("example",
-            name="example-privateendpoint",
-            resource_group_name=example.name,
-            location=example.location,
-            subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
                 "is_manual_connection": False,
                 "private_connection_resource_id": example_service.id,
                 "subresource_names": ["webpubsub"],
-            })
+            },
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
+            subnet_id=example_subnet.id)
         example_network_acl = azure.webpubsub.NetworkAcl("example",
-            web_pubsub_id=example_service.id,
-            default_action="Allow",
             public_network={
                 "denied_request_types": ["ClientConnection"],
             },
@@ -226,6 +224,8 @@ class NetworkAcl(pulumi.CustomResource):
                     "ClientConnection",
                 ],
             }],
+            web_pubsub_id=example_service.id,
+            default_action="Allow",
             opts = pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 
@@ -288,19 +288,17 @@ class NetworkAcl(pulumi.CustomResource):
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
         example_endpoint = azure.privatelink.Endpoint("example",
-            name="example-privateendpoint",
-            resource_group_name=example.name,
-            location=example.location,
-            subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
                 "is_manual_connection": False,
                 "private_connection_resource_id": example_service.id,
                 "subresource_names": ["webpubsub"],
-            })
+            },
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
+            subnet_id=example_subnet.id)
         example_network_acl = azure.webpubsub.NetworkAcl("example",
-            web_pubsub_id=example_service.id,
-            default_action="Allow",
             public_network={
                 "denied_request_types": ["ClientConnection"],
             },
@@ -311,6 +309,8 @@ class NetworkAcl(pulumi.CustomResource):
                     "ClientConnection",
                 ],
             }],
+            web_pubsub_id=example_service.id,
+            default_action="Allow",
             opts = pulumi.ResourceOptions(depends_on=[example_endpoint]))
         ```
 

@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.arckubernetes.Cluster("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-akcc",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     agentPublicKeyCertificate: std.filebase64({
  *         input: "testdata/public.cer",
- *     }).then(invoke => invoke.result),
- *     identity: {
- *         type: "SystemAssigned",
- *     },
+ *     }).result,
  *     tags: {
  *         ENV: "Test",
  *     },

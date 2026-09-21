@@ -47,15 +47,15 @@ import (
 //				return err
 //			}
 //			_, err = devcenter.NewDevCenter(ctx, "test", &devcenter.DevCenterArgs{
-//				Name:              pulumi.String("example-devcenter"),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
 //				Identity: &devcenter.DevCenterIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						testUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("example-devcenter"),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
 //			})
 //			if err != nil {
 //				return err

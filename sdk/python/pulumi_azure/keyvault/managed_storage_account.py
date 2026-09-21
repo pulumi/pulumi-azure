@@ -297,12 +297,6 @@ class ManagedStorageAccount(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="keyvaultname",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -320,7 +314,13 @@ class ManagedStorageAccount(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            }])
+            }],
+            name="keyvaultname",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard")
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
@@ -328,6 +328,63 @@ class ManagedStorageAccount(pulumi.CustomResource):
             storage_account_key="key1",
             regenerate_key_automatically=False,
             regeneration_period="P1D")
+        ```
+
+        ### Automatically Regenerate Storage Account Access Key)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        current = azure.core.get_client_config()
+        test = azuread.service_principal(application_id="cfa8b339-82a2-471a-a3c9-0fc0be7a4093")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="storageaccountname",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            access_policies=[{
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "secret_permissions": [
+                    "Get",
+                    "Delete",
+                ],
+                "storage_permissions": [
+                    "Get",
+                    "List",
+                    "Set",
+                    "SetSAS",
+                    "GetSAS",
+                    "DeleteSAS",
+                    "Update",
+                    "RegenerateKey",
+                ],
+            }],
+            name="keyvaultname",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard")
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_account.id,
+            role_definition_name="Storage Account Key Operator Service Role",
+            principal_id=test["id"])
+        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
+            name="examplemanagedstorage",
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            storage_account_key="key1",
+            regenerate_key_automatically=True,
+            regeneration_period="P1D",
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import
@@ -377,12 +434,6 @@ class ManagedStorageAccount(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="keyvaultname",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -400,7 +451,13 @@ class ManagedStorageAccount(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            }])
+            }],
+            name="keyvaultname",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard")
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
@@ -408,6 +465,63 @@ class ManagedStorageAccount(pulumi.CustomResource):
             storage_account_key="key1",
             regenerate_key_automatically=False,
             regeneration_period="P1D")
+        ```
+
+        ### Automatically Regenerate Storage Account Access Key)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        current = azure.core.get_client_config()
+        test = azuread.service_principal(application_id="cfa8b339-82a2-471a-a3c9-0fc0be7a4093")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="storageaccountname",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            access_policies=[{
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "secret_permissions": [
+                    "Get",
+                    "Delete",
+                ],
+                "storage_permissions": [
+                    "Get",
+                    "List",
+                    "Set",
+                    "SetSAS",
+                    "GetSAS",
+                    "DeleteSAS",
+                    "Update",
+                    "RegenerateKey",
+                ],
+            }],
+            name="keyvaultname",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard")
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_account.id,
+            role_definition_name="Storage Account Key Operator Service Role",
+            principal_id=test["id"])
+        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
+            name="examplemanagedstorage",
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id,
+            storage_account_key="key1",
+            regenerate_key_automatically=True,
+            regeneration_period="P1D",
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
         ## Import

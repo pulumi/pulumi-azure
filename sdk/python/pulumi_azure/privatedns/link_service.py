@@ -493,21 +493,15 @@ class LinkService(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
-            sku="Standard",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
                 "public_ip_address_id": example_public_ip.id,
-            }])
-        example_link_service = azure.privatedns.LinkService("example",
-            name="example-privatelink",
-            resource_group_name=example.name,
+            }],
+            name="example-lb",
+            sku="Standard",
             location=example.location,
-            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
-            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
-            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
+            resource_group_name=example.name)
+        example_link_service = azure.privatedns.LinkService("example",
             nat_ip_configurations=[
                 {
                     "name": "primary",
@@ -523,7 +517,13 @@ class LinkService(pulumi.CustomResource):
                     "subnet_id": example_subnet.id,
                     "primary": False,
                 },
-            ])
+            ],
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
+            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
         ```
 
         ## API Providers
@@ -596,21 +596,15 @@ class LinkService(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="example-lb",
-            sku="Standard",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
                 "public_ip_address_id": example_public_ip.id,
-            }])
-        example_link_service = azure.privatedns.LinkService("example",
-            name="example-privatelink",
-            resource_group_name=example.name,
+            }],
+            name="example-lb",
+            sku="Standard",
             location=example.location,
-            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
-            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
-            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
+            resource_group_name=example.name)
+        example_link_service = azure.privatedns.LinkService("example",
             nat_ip_configurations=[
                 {
                     "name": "primary",
@@ -626,7 +620,13 @@ class LinkService(pulumi.CustomResource):
                     "subnet_id": example_subnet.id,
                     "primary": False,
                 },
-            ])
+            ],
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
+            auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
+            load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
         ```
 
         ## API Providers

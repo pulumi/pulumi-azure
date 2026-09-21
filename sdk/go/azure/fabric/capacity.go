@@ -41,15 +41,15 @@ import (
 //				return err
 //			}
 //			_, err = fabric.NewCapacity(ctx, "example", &fabric.CapacityArgs{
+//				Sku: &fabric.CapacitySkuArgs{
+//					Name: pulumi.String("F32"),
+//					Tier: pulumi.String("Fabric"),
+//				},
 //				Name:              pulumi.String("exampleffc"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				AdministrationMembers: pulumi.StringArray{
 //					pulumi.String(current.ObjectId),
-//				},
-//				Sku: &fabric.CapacitySkuArgs{
-//					Name: pulumi.String("F32"),
-//					Tier: pulumi.String("Fabric"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("test"),

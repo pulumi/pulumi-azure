@@ -34,10 +34,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
- *     name: "example-originGroup",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     sessionAffinityEnabled: true,
- *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  *     healthProbe: {
  *         intervalInSeconds: 240,
  *         path: "/healthProbe",
@@ -49,6 +45,10 @@ import * as utilities from "../utilities";
  *         sampleSize: 16,
  *         successfulSamplesRequired: 3,
  *     },
+ *     name: "example-originGroup",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     sessionAffinityEnabled: true,
+ *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
  *     name: "example-origin",
@@ -63,12 +63,7 @@ import * as utilities from "../utilities";
  *     weight: 500,
  * });
  * const exampleFrontdoorBatchRuleSet = new azure.cdn.FrontdoorBatchRuleSet("example", {
- *     name: "examplebatchruleset",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     rules: [{
- *         name: "examplebatchrule",
- *         order: 1,
- *         behaviourOnMatch: "Continue",
  *         actions: {
  *             routeConfigurationOverride: {
  *                 originGroup: {
@@ -88,6 +83,10 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *         conditions: {
+ *             deviceTypes: [{
+ *                 operator: "Equal",
+ *                 values: "Mobile",
+ *             }],
  *             hostNames: [{
  *                 operator: "Equal",
  *                 values: [
@@ -100,10 +99,6 @@ import * as utilities from "../utilities";
  *                     "Trim",
  *                 ],
  *             }],
- *             deviceTypes: [{
- *                 operator: "Equal",
- *                 values: "Mobile",
- *             }],
  *             postArguments: [{
  *                 name: "customerName",
  *                 operator: "BeginsWith",
@@ -112,10 +107,6 @@ import * as utilities from "../utilities";
  *                     "K",
  *                 ],
  *                 transforms: ["Uppercase"],
- *             }],
- *             requestMethods: [{
- *                 operator: "Equal",
- *                 values: ["DELETE"],
  *             }],
  *             requestFilenames: [{
  *                 operator: "Equal",
@@ -126,8 +117,17 @@ import * as utilities from "../utilities";
  *                     "Trim",
  *                 ],
  *             }],
+ *             requestMethods: [{
+ *                 operator: "Equal",
+ *                 values: ["DELETE"],
+ *             }],
  *         },
+ *         name: "examplebatchrule",
+ *         order: 1,
+ *         behaviourOnMatch: "Continue",
  *     }],
+ *     name: "examplebatchruleset",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const exampleFrontdoorRoute = new azure.cdn.FrontdoorRoute("example", {
  *     name: "example-cdn-frontdoor-route",

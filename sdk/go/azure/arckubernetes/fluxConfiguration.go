@@ -37,20 +37,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "testdata/public.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "testdata/public.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = arckubernetes.NewCluster(ctx, "example", &arckubernetes.ClusterArgs{
-//				Name:                      pulumi.String("example-akcc"),
-//				ResourceGroupName:         example.Name,
-//				Location:                  pulumi.String("West Europe"),
-//				AgentPublicKeyCertificate: pulumi.String(invokeFilebase64.Result),
 //				Identity: &arckubernetes.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                      pulumi.String("example-akcc"),
+//				ResourceGroupName:         example.Name,
+//				Location:                  pulumi.String("West Europe"),
+//				AgentPublicKeyCertificate: invokeFilebase64.Result,
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Test"),
 //				},
@@ -67,9 +67,6 @@ import (
 //				return err
 //			}
 //			_, err = arckubernetes.NewFluxConfiguration(ctx, "example", &arckubernetes.FluxConfigurationArgs{
-//				Name:      pulumi.String("example-fc"),
-//				ClusterId: pulumi.Any(test.Id),
-//				Namespace: pulumi.String("flux"),
 //				GitRepository: &arckubernetes.FluxConfigurationGitRepositoryArgs{
 //					Url:            pulumi.String("https://github.com/Azure/arc-k8s-demo"),
 //					ReferenceType:  pulumi.String("branch"),
@@ -80,6 +77,9 @@ import (
 //						Name: pulumi.String("kustomization-1"),
 //					},
 //				},
+//				Name:      pulumi.String("example-fc"),
+//				ClusterId: pulumi.Any(test.Id),
+//				Namespace: pulumi.String("flux"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleClusterExtension,
 //			}))

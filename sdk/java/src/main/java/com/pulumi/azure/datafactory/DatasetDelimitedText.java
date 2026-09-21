@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatasetDelimitedText = new DatasetDelimitedText("exampleDatasetDelimitedText", DatasetDelimitedTextArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .httpServerLocation(DatasetDelimitedTextHttpServerLocationArgs.builder()
  *                 .relativeUrl("http://www.bing.com")
  *                 .path("foo/bar/")
  *                 .filename("fizz.txt")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .columnDelimiter(",")
  *             .rowDelimiter("NEW")
  *             .encoding("UTF-8")

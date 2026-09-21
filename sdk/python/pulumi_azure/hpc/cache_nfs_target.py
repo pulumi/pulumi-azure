@@ -342,14 +342,14 @@ class CacheNfsTarget(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="examplenic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_vm.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="examplenic",
+            location=example.location,
+            resource_group_name=example.name)
         custom_data = \"\"\"#!/bin/bash
         sudo -i 
         apt-get install -y nfs-kernel-server
@@ -364,16 +364,6 @@ class CacheNfsTarget(pulumi.CustomResource):
         exportfs -arv
         \"\"\"
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="examplevm",
-            resource_group_name=example.name,
-            location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
-            }],
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -384,13 +374,18 @@ class CacheNfsTarget(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             },
-            custom_data=std.base64encode(input=custom_data).result)
-        example_cache_nfs_target = azure.hpc.CacheNfsTarget("example",
-            name="examplehpcnfstarget",
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+            }],
+            name="examplevm",
             resource_group_name=example.name,
-            cache_name=example_cache.name,
-            target_host_name=example_linux_virtual_machine.private_ip_address,
-            usage_model="READ_HEAVY_INFREQ",
+            location=example.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            custom_data=std.base64encode(input=custom_data)["result"])
+        example_cache_nfs_target = azure.hpc.CacheNfsTarget("example",
             namespace_junctions=[
                 {
                     "namespace_path": "/nfs/a1",
@@ -401,7 +396,12 @@ class CacheNfsTarget(pulumi.CustomResource):
                     "namespace_path": "/nfs/b",
                     "nfs_export": "/export/b",
                 },
-            ])
+            ],
+            name="examplehpcnfstarget",
+            resource_group_name=example.name,
+            cache_name=example_cache.name,
+            target_host_name=example_linux_virtual_machine.private_ip_address,
+            usage_model="READ_HEAVY_INFREQ")
         ```
 
         ## API Providers
@@ -477,14 +477,14 @@ class CacheNfsTarget(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="examplenic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_vm.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="examplenic",
+            location=example.location,
+            resource_group_name=example.name)
         custom_data = \"\"\"#!/bin/bash
         sudo -i 
         apt-get install -y nfs-kernel-server
@@ -499,16 +499,6 @@ class CacheNfsTarget(pulumi.CustomResource):
         exportfs -arv
         \"\"\"
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="examplevm",
-            resource_group_name=example.name,
-            location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
-            }],
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -519,13 +509,18 @@ class CacheNfsTarget(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             },
-            custom_data=std.base64encode(input=custom_data).result)
-        example_cache_nfs_target = azure.hpc.CacheNfsTarget("example",
-            name="examplehpcnfstarget",
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+            }],
+            name="examplevm",
             resource_group_name=example.name,
-            cache_name=example_cache.name,
-            target_host_name=example_linux_virtual_machine.private_ip_address,
-            usage_model="READ_HEAVY_INFREQ",
+            location=example.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            custom_data=std.base64encode(input=custom_data)["result"])
+        example_cache_nfs_target = azure.hpc.CacheNfsTarget("example",
             namespace_junctions=[
                 {
                     "namespace_path": "/nfs/a1",
@@ -536,7 +531,12 @@ class CacheNfsTarget(pulumi.CustomResource):
                     "namespace_path": "/nfs/b",
                     "nfs_export": "/export/b",
                 },
-            ])
+            ],
+            name="examplehpcnfstarget",
+            resource_group_name=example.name,
+            cache_name=example_cache.name,
+            target_host_name=example_linux_virtual_machine.private_ip_address,
+            usage_model="READ_HEAVY_INFREQ")
         ```
 
         ## API Providers

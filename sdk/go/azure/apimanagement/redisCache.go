@@ -49,6 +49,7 @@ import (
 //				return err
 //			}
 //			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{},
 //				Name:               pulumi.String("example-cache"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
@@ -57,7 +58,6 @@ import (
 //				SkuName:            pulumi.String("Basic"),
 //				EnableNonSslPort:   false,
 //				MinimumTlsVersion:  pulumi.String("1.2"),
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{},
 //			})
 //			if err != nil {
 //				return err

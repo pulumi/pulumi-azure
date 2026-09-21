@@ -77,6 +77,12 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleStreamInputBlob = new Azure.StreamAnalytics.StreamInputBlob("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputBlobSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Encoding = "UTF8",
+    ///             FieldDelimiter = ",",
+    ///         },
     ///         Name = "exampleinput",
     ///         StreamAnalyticsJobName = exampleJob.Name,
     ///         ResourceGroupName = exampleJob.ResourceGroupName,
@@ -86,16 +92,14 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         PathPattern = "",
     ///         DateFormat = "yyyy/MM/dd",
     ///         TimeFormat = "HH",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputBlobSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Encoding = "UTF8",
-    ///             FieldDelimiter = ",",
-    ///         },
     ///     });
     /// 
     ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
+    ///         {
+    ///             Type = "Avro",
+    ///         },
     ///         Name = "exampleoutput",
     ///         StreamAnalyticsJobName = exampleJob.Name,
     ///         ResourceGroupName = exampleJob.ResourceGroupName,
@@ -105,10 +109,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         PathPattern = "example-{date}-{time}",
     ///         DateFormat = "yyyy-MM-dd",
     ///         TimeFormat = "HH",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
-    ///         {
-    ///             Type = "Avro",
-    ///         },
     ///     });
     /// 
     ///     var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("example", new()

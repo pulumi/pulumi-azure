@@ -43,18 +43,18 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "example", &streamanalytics.FunctionJavaScriptUDFArgs{
-//				Name:                   pulumi.String("example-javascript-function"),
-//				StreamAnalyticsJobName: pulumi.String(exampleGetJob.Name),
-//				ResourceGroupName:      pulumi.String(exampleGetJob.ResourceGroupName),
-//				Script:                 pulumi.String("function getRandomNumber(in) {\n  return in;\n}\n"),
+//				Output: &streamanalytics.FunctionJavaScriptUDFOutputTypeArgs{
+//					Type: pulumi.String("bigint"),
+//				},
 //				Inputs: streamanalytics.FunctionJavaScriptUDFInputTypeArray{
 //					&streamanalytics.FunctionJavaScriptUDFInputTypeArgs{
 //						Type: pulumi.String("bigint"),
 //					},
 //				},
-//				Output: &streamanalytics.FunctionJavaScriptUDFOutputTypeArgs{
-//					Type: pulumi.String("bigint"),
-//				},
+//				Name:                   pulumi.String("example-javascript-function"),
+//				StreamAnalyticsJobName: pulumi.String(exampleGetJob.Name),
+//				ResourceGroupName:      pulumi.String(exampleGetJob.ResourceGroupName),
+//				Script:                 pulumi.String("function getRandomNumber(in) {\n  return in;\n}\n"),
 //			})
 //			if err != nil {
 //				return err

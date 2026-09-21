@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DataShare
     /// 
     ///     var exampleAccount = new Azure.DataShare.Account("example", new()
     ///     {
-    ///         Name = "example-dsa",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-dsa",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleShare = new Azure.DataShare.Share("example", new()
@@ -48,14 +48,14 @@ namespace Pulumi.Azure.DataShare
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "examplekc",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "examplekc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleDatabase = new Azure.Kusto.Database("example", new()

@@ -14,6 +14,65 @@ import (
 
 // Manages a Managed Redis Access Policy Assignment.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/managedredis"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := azuread.ClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedRedis, err := managedredis.NewManagedRedis(ctx, "example", &managedredis.ManagedRedisArgs{
+//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
+//					AccessKeysAuthenticationEnabled: pulumi.Bool(true),
+//				},
+//				Name:              pulumi.String("example-managedredis"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SkuName:           pulumi.String("Balanced_B0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = managedredis.NewAccessPolicyAssignment(ctx, "example", &managedredis.AccessPolicyAssignmentArgs{
+//				ManagedRedisId: exampleManagedRedis.ID().ToIDOutput().ToStringOutput(),
+//				ObjectId:       pulumi.Any(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Cache` - 2025-07-01
+//
 // ## Import
 //
 // Managed Redis Access Policy Assignments can be imported using the `resource id`, e.g.

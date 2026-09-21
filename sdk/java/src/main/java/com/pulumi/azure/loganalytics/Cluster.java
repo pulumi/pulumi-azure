@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example-cluster")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-cluster")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *     }

@@ -416,10 +416,6 @@ class KubernetesClusterExtension(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location="West Europe",
-            resource_group_name=example.name,
-            dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -427,7 +423,11 @@ class KubernetesClusterExtension(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-aks",
+            location="West Europe",
+            resource_group_name=example.name,
+            dns_prefix="example-aks")
         example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("example",
             name="example-ext",
             cluster_id=example_kubernetes_cluster.id,
@@ -482,10 +482,6 @@ class KubernetesClusterExtension(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location="West Europe",
-            resource_group_name=example.name,
-            dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -493,7 +489,11 @@ class KubernetesClusterExtension(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-aks",
+            location="West Europe",
+            resource_group_name=example.name,
+            dns_prefix="example-aks")
         example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("example",
             name="example-ext",
             cluster_id=example_kubernetes_cluster.id,

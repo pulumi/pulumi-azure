@@ -620,9 +620,6 @@ class ActionGroup(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_action_group = azure.monitoring.ActionGroup("example",
-            name="CriticalAlertsAction",
-            resource_group_name=example.name,
-            short_name="p0action",
             arm_role_receivers=[{
                 "name": "armroleaction",
                 "role_id": "de139f84-1756-47ae-9be6-808fbbe84772",
@@ -693,7 +690,10 @@ class ActionGroup(pulumi.CustomResource):
                 "name": "callmyapiaswell",
                 "service_uri": "http://example.com/alert",
                 "use_common_alert_schema": True,
-            }])
+            }],
+            name="CriticalAlertsAction",
+            resource_group_name=example.name,
+            short_name="p0action")
         ```
 
         ## API Providers
@@ -756,9 +756,6 @@ class ActionGroup(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_action_group = azure.monitoring.ActionGroup("example",
-            name="CriticalAlertsAction",
-            resource_group_name=example.name,
-            short_name="p0action",
             arm_role_receivers=[{
                 "name": "armroleaction",
                 "role_id": "de139f84-1756-47ae-9be6-808fbbe84772",
@@ -829,7 +826,10 @@ class ActionGroup(pulumi.CustomResource):
                 "name": "callmyapiaswell",
                 "service_uri": "http://example.com/alert",
                 "use_common_alert_schema": True,
-            }])
+            }],
+            name="CriticalAlertsAction",
+            resource_group_name=example.name,
+            short_name="p0action")
         ```
 
         ## API Providers

@@ -31,17 +31,17 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("example", new()
     ///     {
+    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-akcc",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testdata/public.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
+    ///         }).Result,
     ///         Tags = 
     ///         {
     ///             { "ENV", "Test" },
@@ -57,9 +57,6 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var exampleFluxConfiguration = new Azure.ArcKubernetes.FluxConfiguration("example", new()
     ///     {
-    ///         Name = "example-fc",
-    ///         ClusterId = test.Id,
-    ///         Namespace = "flux",
     ///         GitRepository = new Azure.ArcKubernetes.Inputs.FluxConfigurationGitRepositoryArgs
     ///         {
     ///             Url = "https://github.com/Azure/arc-k8s-demo",
@@ -73,6 +70,9 @@ namespace Pulumi.Azure.ArcKubernetes
     ///                 Name = "kustomization-1",
     ///             },
     ///         },
+    ///         Name = "example-fc",
+    ///         ClusterId = test.Id,
+    ///         Namespace = "flux",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

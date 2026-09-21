@@ -184,21 +184,21 @@ class ClusterDeploymentSafeguard(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks",
             default_node_pool={
-                "name": "default",
-                "node_count": 1,
-                "vm_size": "Standard_DS2_v2",
                 "upgrade_settings": {
                     "max_surge": "10%",
                 },
+                "name": "default",
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
             },
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-aks",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="exampleaks",
             azure_policy_enabled=True)
         example_cluster_deployment_safeguard = azure.containerservice.ClusterDeploymentSafeguard("example",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
@@ -252,21 +252,21 @@ class ClusterDeploymentSafeguard(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks",
             default_node_pool={
-                "name": "default",
-                "node_count": 1,
-                "vm_size": "Standard_DS2_v2",
                 "upgrade_settings": {
                     "max_surge": "10%",
                 },
+                "name": "default",
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
             },
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-aks",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="exampleaks",
             azure_policy_enabled=True)
         example_cluster_deployment_safeguard = azure.containerservice.ClusterDeploymentSafeguard("example",
             kubernetes_cluster_id=example_kubernetes_cluster.id,

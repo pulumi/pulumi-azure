@@ -290,15 +290,15 @@ class Account(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_account2 = azure.videoindexer.Account("example",
-            name="example",
-            resource_group_name=example.name,
-            location="West Europe",
             storage={
                 "storage_account_id": example_account.id,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location="West Europe")
         ```
 
         ## API Providers
@@ -352,15 +352,15 @@ class Account(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_account2 = azure.videoindexer.Account("example",
-            name="example",
-            resource_group_name=example.name,
-            location="West Europe",
             storage={
                 "storage_account_id": example_account.id,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location="West Europe")
         ```
 
         ## API Providers

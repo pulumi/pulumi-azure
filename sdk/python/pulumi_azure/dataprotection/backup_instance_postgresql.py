@@ -295,22 +295,15 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             charset="UTF8",
             collation="English_United States.1252")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -342,7 +335,14 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                         "Recover",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         example_secret = azure.keyvault.Secret("example",
             name="example",
             value=pulumi.Output.all(
@@ -444,22 +444,15 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             charset="UTF8",
             collation="English_United States.1252")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -491,7 +484,14 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                         "Recover",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         example_secret = azure.keyvault.Secret("example",
             name="example",
             value=pulumi.Output.all(

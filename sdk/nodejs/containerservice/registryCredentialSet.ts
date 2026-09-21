@@ -30,9 +30,6 @@ import * as utilities from "../utilities";
  *     sku: "Basic",
  * });
  * const exampleRegistryCredentialSet = new azure.containerservice.RegistryCredentialSet("example", {
- *     name: "exampleCredentialSet",
- *     containerRegistryId: exampleRegistry.id,
- *     loginServer: "docker.io",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -40,6 +37,9 @@ import * as utilities from "../utilities";
  *         usernameSecretId: "https://example-keyvault.vault.azure.net/secrets/example-user-name",
  *         passwordSecretId: "https://example-keyvault.vault.azure.net/secrets/example-user-password",
  *     },
+ *     name: "exampleCredentialSet",
+ *     containerRegistryId: exampleRegistry.id,
+ *     loginServer: "docker.io",
  * });
  * ```
  *
@@ -57,13 +57,6 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -76,6 +69,13 @@ import * as utilities from "../utilities";
  *             "Purge",
  *         ],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
  * });
  * const exampleUser = new azure.keyvault.Secret("example_user", {
  *     keyVaultId: exampleKeyVault.id,
@@ -94,9 +94,6 @@ import * as utilities from "../utilities";
  *     sku: "Basic",
  * });
  * const exampleRegistryCredentialSet = new azure.containerservice.RegistryCredentialSet("example", {
- *     name: "exampleCredentialSet",
- *     containerRegistryId: exampleRegistry.id,
- *     loginServer: "docker.io",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -104,6 +101,9 @@ import * as utilities from "../utilities";
  *         usernameSecretId: exampleUser.versionlessId,
  *         passwordSecretId: examplePassword.versionlessId,
  *     },
+ *     name: "exampleCredentialSet",
+ *     containerRegistryId: exampleRegistry.id,
+ *     loginServer: "docker.io",
  * });
  * const readSecrets = new azure.keyvault.AccessPolicy("read_secrets", {
  *     keyVaultId: exampleKeyVault.id,

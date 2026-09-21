@@ -47,7 +47,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.nginx.ConfigurationArgs;
  * import com.pulumi.azure.nginx.inputs.ConfigurationConfigFileArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -83,39 +82,36 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("NGINX.NGINXPLUS/nginxDeployments")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("delegation")
  *                 .build())
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
- *             .name("example-nginx")
- *             .resourceGroupName(example.name())
- *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
- *             .location(example.location())
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
  *                 .build())
  *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
+ *             .name("example-nginx")
+ *             .resourceGroupName(example.name())
+ *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
- *             .nginxDeploymentId(exampleDeployment.id())
- *             .rootFile("/etc/nginx/nginx.conf")
  *             .configFiles(            
  *                 ConfigurationConfigFileArgs.builder()
- *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                         .input("""
+ *                     .content(StdFunctions.base64encode(Map.of("input", """
  * http {
  *     server {
  *         listen 80;
@@ -129,13 +125,11 @@ import javax.annotation.Nullable;
  *         include site/*.conf;
  *     }
  * }
- *                         """)
- *                         .build()).result())
+ *                     """)).result())
  *                     .virtualPath("/etc/nginx/nginx.conf")
  *                     .build(),
  *                 ConfigurationConfigFileArgs.builder()
- *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                         .input("""
+ *                     .content(StdFunctions.base64encode(Map.of("input", """
  * location /bbb {
  *  default_type text/html;
  *  return 200 '<!doctype html><html lang=\"en\"><head></head><body>
@@ -143,10 +137,11 @@ import javax.annotation.Nullable;
  *   <div>at 10:38 am</div>
  *  </body></html>';
  * }
- *                         """)
- *                         .build()).result())
+ *                     """)).result())
  *                     .virtualPath("/etc/nginx/site/b.conf")
  *                     .build())
+ *             .nginxDeploymentId(exampleDeployment.id())
+ *             .rootFile("/etc/nginx/nginx.conf")
  *             .build());
  * 
  *     }

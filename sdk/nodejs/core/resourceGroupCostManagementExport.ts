@@ -31,12 +31,6 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleResourceGroupCostManagementExport = new azure.core.ResourceGroupCostManagementExport("example", {
- *     name: "example",
- *     resourceGroupId: example.id,
- *     recurrenceType: "Monthly",
- *     recurrencePeriodStartDate: "2020-08-18T00:00:00Z",
- *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",
- *     fileFormat: "Csv",
  *     exportDataStorageLocation: {
  *         containerId: exampleContainer.id,
  *         rootFolderPath: "/root/updated",
@@ -45,6 +39,12 @@ import * as utilities from "../utilities";
  *         type: "Usage",
  *         timeFrame: "WeekToDate",
  *     },
+ *     name: "example",
+ *     resourceGroupId: example.id,
+ *     recurrenceType: "Monthly",
+ *     recurrencePeriodStartDate: "2020-08-18T00:00:00Z",
+ *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",
+ *     fileFormat: "Csv",
  * });
  * ```
  *

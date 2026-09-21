@@ -61,7 +61,9 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Hello": pulumi.String("World"),
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"parameterValues",
+//			}))
 //			if err != nil {
 //				return err
 //			}

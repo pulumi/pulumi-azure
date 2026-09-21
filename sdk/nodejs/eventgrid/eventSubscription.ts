@@ -34,12 +34,12 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleEventSubscription = new azure.eventgrid.EventSubscription("example", {
- *     name: "example-aees",
- *     scope: example.id,
  *     storageQueueEndpoint: {
  *         storageAccountId: exampleAccount.id,
  *         queueName: exampleQueue.name,
  *     },
+ *     name: "example-aees",
+ *     scope: example.id,
  * });
  * ```
  *

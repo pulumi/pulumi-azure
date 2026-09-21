@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleArcMachine = new azure.arcmachine.ArcMachine("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-arcmachine",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     kind: "SCVMM",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleVirtualMachineManagerServer = new azure.systemcenter.VirtualMachineManagerServer("example", {
  *     name: "example-scvmmms",
@@ -60,8 +60,6 @@ import * as utilities from "../utilities";
  *     systemCenterVirtualMachineManagerServerInventoryItemId: example2.apply(example2 => example2.inventoryItems?.[0]?.id),
  * });
  * const exampleVirtualMachineManagerVirtualMachineInstance = new azure.systemcenter.VirtualMachineManagerVirtualMachineInstance("example", {
- *     scopedResourceId: exampleArcMachine.id,
- *     customLocationId: exampleVirtualMachineManagerServer.customLocationId,
  *     infrastructure: {
  *         checkpointType: "Standard",
  *         systemCenterVirtualMachineManagerCloudId: exampleVirtualMachineManagerCloud.id,
@@ -71,6 +69,15 @@ import * as utilities from "../utilities";
  *     operatingSystem: {
  *         adminPassword: "AdminPassword123!",
  *     },
+ *     scopedResourceId: exampleArcMachine.id,
+ *     customLocationId: exampleVirtualMachineManagerServer.customLocationId,
+ * }, {
+ *     ignoreChanges: [
+ *         "storageDisks",
+ *         "hardware",
+ *         "networkInterfaces",
+ *         "operatingSystem.computerName",
+ *     ],
  * });
  * const exampleVirtualMachineManagerVirtualMachineInstanceGuestAgent = new azure.systemcenter.VirtualMachineManagerVirtualMachineInstanceGuestAgent("example", {
  *     scopedResourceId: exampleArcMachine.id,

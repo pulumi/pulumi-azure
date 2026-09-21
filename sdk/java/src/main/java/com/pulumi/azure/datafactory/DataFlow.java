@@ -43,18 +43,18 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datafactory.inputs.DatasetJsonAzureBlobStorageLocationArgs;
  * import com.pulumi.azure.datafactory.FlowletDataFlow;
  * import com.pulumi.azure.datafactory.FlowletDataFlowArgs;
- * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceArgs;
- * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceLinkedServiceArgs;
  * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSinkArgs;
  * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSinkLinkedServiceArgs;
+ * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceArgs;
+ * import com.pulumi.azure.datafactory.inputs.FlowletDataFlowSourceLinkedServiceArgs;
  * import com.pulumi.azure.datafactory.DataFlow;
  * import com.pulumi.azure.datafactory.DataFlowArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSourceArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSourceFlowletArgs;
- * import com.pulumi.azure.datafactory.inputs.DataFlowSourceDatasetArgs;
  * import com.pulumi.azure.datafactory.inputs.DataFlowSinkArgs;
  * import com.pulumi.azure.datafactory.inputs.DataFlowSinkFlowletArgs;
  * import com.pulumi.azure.datafactory.inputs.DataFlowSinkDatasetArgs;
+ * import com.pulumi.azure.datafactory.inputs.DataFlowSourceArgs;
+ * import com.pulumi.azure.datafactory.inputs.DataFlowSourceFlowletArgs;
+ * import com.pulumi.azure.datafactory.inputs.DataFlowSourceDatasetArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -99,44 +99,44 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example1 = new DatasetJson("example1", DatasetJsonArgs.builder()
- *             .name("dataset1")
- *             .dataFactoryId(exampleFactory.id())
- *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
  *                 .container("container")
  *                 .path("foo/bar/")
  *                 .filename("foo.txt")
  *                 .build())
+ *             .name("dataset1")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .encoding("UTF-8")
  *             .build());
  * 
  *         var example2 = new DatasetJson("example2", DatasetJsonArgs.builder()
- *             .name("dataset2")
- *             .dataFactoryId(exampleFactory.id())
- *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
  *                 .container("container")
  *                 .path("foo/bar/")
  *                 .filename("bar.txt")
  *                 .build())
+ *             .name("dataset2")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .encoding("UTF-8")
  *             .build());
  * 
  *         var example1FlowletDataFlow = new FlowletDataFlow("example1FlowletDataFlow", FlowletDataFlowArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .sources(FlowletDataFlowSourceArgs.builder()
- *                 .name("source1")
- *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
- *                     .name(exampleLinkedCustomService.name())
- *                     .build())
- *                 .build())
  *             .sinks(FlowletDataFlowSinkArgs.builder()
- *                 .name("sink1")
  *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
  *                     .name(exampleLinkedCustomService.name())
  *                     .build())
+ *                 .name("sink1")
  *                 .build())
+ *             .sources(FlowletDataFlowSourceArgs.builder()
+ *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
+ *                     .name(exampleLinkedCustomService.name())
+ *                     .build())
+ *                 .name("source1")
+ *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
  *             .script("""
  * source(
  *   allowSchemaDrift: true, 
@@ -153,20 +153,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example2FlowletDataFlow = new FlowletDataFlow("example2FlowletDataFlow", FlowletDataFlowArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .sources(FlowletDataFlowSourceArgs.builder()
- *                 .name("source1")
- *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
- *                     .name(exampleLinkedCustomService.name())
- *                     .build())
- *                 .build())
  *             .sinks(FlowletDataFlowSinkArgs.builder()
- *                 .name("sink1")
  *                 .linkedService(FlowletDataFlowSinkLinkedServiceArgs.builder()
  *                     .name(exampleLinkedCustomService.name())
  *                     .build())
+ *                 .name("sink1")
  *                 .build())
+ *             .sources(FlowletDataFlowSourceArgs.builder()
+ *                 .linkedService(FlowletDataFlowSourceLinkedServiceArgs.builder()
+ *                     .name(exampleLinkedCustomService.name())
+ *                     .build())
+ *                 .name("source1")
+ *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
  *             .script("""
  * source(
  *   allowSchemaDrift: true, 
@@ -183,20 +183,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataFlow = new DataFlow("exampleDataFlow", DataFlowArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .sources(DataFlowSourceArgs.builder()
- *                 .name("source1")
- *                 .flowlet(DataFlowSourceFlowletArgs.builder()
- *                     .name(example1FlowletDataFlow.name())
- *                     .parameters(Map.of("Key1", "value1"))
- *                     .build())
- *                 .dataset(DataFlowSourceDatasetArgs.builder()
- *                     .name(example1.name())
- *                     .build())
- *                 .build())
  *             .sinks(DataFlowSinkArgs.builder()
- *                 .name("sink1")
  *                 .flowlet(DataFlowSinkFlowletArgs.builder()
  *                     .name(example2FlowletDataFlow.name())
  *                     .parameters(Map.of("Key1", "value1"))
@@ -204,7 +191,20 @@ import javax.annotation.Nullable;
  *                 .dataset(DataFlowSinkDatasetArgs.builder()
  *                     .name(example2.name())
  *                     .build())
+ *                 .name("sink1")
  *                 .build())
+ *             .sources(DataFlowSourceArgs.builder()
+ *                 .flowlet(DataFlowSourceFlowletArgs.builder()
+ *                     .name(example1FlowletDataFlow.name())
+ *                     .parameters(Map.of("Key1", "value1"))
+ *                     .build())
+ *                 .dataset(DataFlowSourceDatasetArgs.builder()
+ *                     .name(example1.name())
+ *                     .build())
+ *                 .name("source1")
+ *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
  *             .script("""
  * source(
  *   allowSchemaDrift: true, 

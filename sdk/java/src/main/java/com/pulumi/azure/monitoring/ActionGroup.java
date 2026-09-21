@@ -85,9 +85,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
- *             .name("CriticalAlertsAction")
- *             .resourceGroupName(example.name())
- *             .shortName("p0action")
  *             .armRoleReceivers(ActionGroupArmRoleReceiverArgs.builder()
  *                 .name("armroleaction")
  *                 .roleId("de139f84-1756-47ae-9be6-808fbbe84772")
@@ -158,6 +155,9 @@ import javax.annotation.Nullable;
  *                 .serviceUri("http://example.com/alert")
  *                 .useCommonAlertSchema(true)
  *                 .build())
+ *             .name("CriticalAlertsAction")
+ *             .resourceGroupName(example.name())
+ *             .shortName("p0action")
  *             .build());
  * 
  *     }}{@code

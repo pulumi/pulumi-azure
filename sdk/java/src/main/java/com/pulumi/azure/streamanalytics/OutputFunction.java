@@ -68,15 +68,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier("Dynamic")
+ *                 .size("Y1")
+ *                 .build())
  *             .name("exampleappserviceplan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("FunctionApp")
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Dynamic")
- *                 .size("Y1")
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()

@@ -22,9 +22,6 @@ import * as utilities from "../utilities";
  *     location: "West US 2",
  * });
  * const exampleMonitor = new azure.datadog.Monitor("example", {
- *     name: "example-monitor",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     datadogOrganization: {
  *         apiKey: "XXXX",
  *         applicationKey: "XXXX",
@@ -33,10 +30,13 @@ import * as utilities from "../utilities";
  *         name: "Example",
  *         email: "abc@xyz.com",
  *     },
- *     skuName: "Linked",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-monitor",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "Linked",
  * });
  * ```
  *

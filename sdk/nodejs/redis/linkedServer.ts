@@ -18,6 +18,11 @@ import * as utilities from "../utilities";
  *     location: "East US",
  * });
  * const example_primaryCache = new azure.redis.Cache("example-primary", {
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
  *     name: "example-cache1",
  *     location: example_primary.location,
  *     resourceGroupName: example_primary.name,
@@ -25,17 +30,17 @@ import * as utilities from "../utilities";
  *     family: "P",
  *     skuName: "Premium",
  *     enableNonSslPort: false,
- *     redisConfiguration: {
- *         maxmemoryReserved: 2,
- *         maxmemoryDelta: 2,
- *         maxmemoryPolicy: "allkeys-lru",
- *     },
  * });
  * const example_secondary = new azure.core.ResourceGroup("example-secondary", {
  *     name: "example-resources-secondary",
  *     location: "West US",
  * });
  * const example_secondaryCache = new azure.redis.Cache("example-secondary", {
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
  *     name: "example-cache2",
  *     location: example_secondary.location,
  *     resourceGroupName: example_secondary.name,
@@ -43,11 +48,6 @@ import * as utilities from "../utilities";
  *     family: "P",
  *     skuName: "Premium",
  *     enableNonSslPort: false,
- *     redisConfiguration: {
- *         maxmemoryReserved: 2,
- *         maxmemoryDelta: 2,
- *         maxmemoryPolicy: "allkeys-lru",
- *     },
  * });
  * const example_link = new azure.redis.LinkedServer("example-link", {
  *     targetRedisCacheName: example_primaryCache.name,

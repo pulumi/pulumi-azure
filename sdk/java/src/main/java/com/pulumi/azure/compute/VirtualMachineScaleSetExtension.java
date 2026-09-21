@@ -36,9 +36,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
  * import com.pulumi.azure.compute.VirtualMachineScaleSetExtension;
  * import com.pulumi.azure.compute.VirtualMachineScaleSetExtensionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -61,28 +61,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("Standard_D4_v5")
- *             .adminUsername("adminuser")
- *             .instances(1)
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("example")
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name("internal")
- *                     .build())
- *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
  *                 .storageAccountType("Standard_LRS")
  *                 .caching("ReadWrite")
  *                 .build())
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
+ *                     .name("internal")
+ *                     .build())
+ *                 .name("example")
+ *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Standard_D4_v5")
+ *             .adminUsername("adminuser")
+ *             .instances(1)
  *             .build());
  * 
  *         var exampleVirtualMachineScaleSetExtension = new VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", VirtualMachineScaleSetExtensionArgs.builder()

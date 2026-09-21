@@ -38,23 +38,19 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "dns",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -66,6 +62,10 @@ namespace Pulumi.Azure.DataProtection
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "dns",
     ///     });
     /// 
     ///     var aksClusterTrustedAccess = new Azure.ContainerService.ClusterTrustedAccessRoleBinding("aks_cluster_trusted_access", new()
@@ -163,27 +163,21 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupPolicyKubernetesCluster = new Azure.DataProtection.BackupPolicyKubernetesCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         VaultName = exampleBackupVault.Name,
-    ///         BackupRepeatingTimeIntervals = new[]
+    ///         DefaultRetentionRule = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs
     ///         {
-    ///             "R/2023-05-23T02:30:00+00:00/P1W",
+    ///             LifeCycles = new[]
+    ///             {
+    ///                 new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs
+    ///                 {
+    ///                     Duration = "P14D",
+    ///                     DataStoreType = "OperationalStore",
+    ///                 },
+    ///             },
     ///         },
     ///         RetentionRules = new[]
     ///         {
     ///             new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleArgs
     ///             {
-    ///                 Name = "Daily",
-    ///                 Priority = 25,
-    ///                 LifeCycles = new[]
-    ///                 {
-    ///                     new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs
-    ///                     {
-    ///                         Duration = "P84D",
-    ///                         DataStoreType = "OperationalStore",
-    ///                     },
-    ///                 },
     ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs
     ///                 {
     ///                     DaysOfWeeks = new[]
@@ -203,29 +197,29 @@ namespace Pulumi.Azure.DataProtection
     ///                         "2023-05-23T02:30:00Z",
     ///                     },
     ///                 },
+    ///                 LifeCycles = new[]
+    ///                 {
+    ///                     new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs
+    ///                     {
+    ///                         Duration = "P84D",
+    ///                         DataStoreType = "OperationalStore",
+    ///                     },
+    ///                 },
+    ///                 Name = "Daily",
+    ///                 Priority = 25,
     ///             },
     ///         },
-    ///         DefaultRetentionRule = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
     ///         {
-    ///             LifeCycles = new[]
-    ///             {
-    ///                 new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs
-    ///                 {
-    ///                     Duration = "P14D",
-    ///                     DataStoreType = "OperationalStore",
-    ///                 },
-    ///             },
+    ///             "R/2023-05-23T02:30:00+00:00/P1W",
     ///         },
     ///     });
     /// 
     ///     var exampleBackupInstanceKubernetesCluster = new Azure.DataProtection.BackupInstanceKubernetesCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         VaultId = exampleBackupVault.Id,
-    ///         KubernetesClusterId = exampleKubernetesCluster.Id,
-    ///         SnapshotResourceGroupName = snap.Name,
-    ///         BackupPolicyId = exampleBackupPolicyKubernetesCluster.Id,
     ///         BackupDatasourceParameters = new Azure.DataProtection.Inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs
     ///         {
     ///             ExcludedNamespaces = new[]
@@ -251,6 +245,12 @@ namespace Pulumi.Azure.DataProtection
     ///             },
     ///             VolumeSnapshotEnabled = true,
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         VaultId = exampleBackupVault.Id,
+    ///         KubernetesClusterId = exampleKubernetesCluster.Id,
+    ///         SnapshotResourceGroupName = snap.Name,
+    ///         BackupPolicyId = exampleBackupPolicyKubernetesCluster.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

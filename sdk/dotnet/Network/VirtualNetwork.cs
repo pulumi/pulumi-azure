@@ -44,18 +44,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Name = "example-network",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AddressSpaces = new[]
-    ///         {
-    ///             "10.0.0.0/16",
-    ///         },
-    ///         DnsServers = new[]
-    ///         {
-    ///             "10.0.0.4",
-    ///             "10.0.0.5",
-    ///         },
     ///         Subnets = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
@@ -75,6 +63,18 @@ namespace Pulumi.Azure.Network
     ///                 },
     ///                 SecurityGroup = exampleNetworkSecurityGroup.Id,
     ///             },
+    ///         },
+    ///         Name = "example-network",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.0.0.4",
+    ///             "10.0.0.5",
     ///         },
     ///         Tags = 
     ///         {

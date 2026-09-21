@@ -34,6 +34,12 @@ import * as utilities from "../utilities";
  *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * const exampleSpringCloudApiPortal = new azure.appplatform.SpringCloudApiPortal("example", {
+ *     sso: {
+ *         clientId: "test",
+ *         clientSecret: "secret",
+ *         issuerUri: "https://www.example.com/issueToken",
+ *         scopes: ["read"],
+ *     },
  *     name: "default",
  *     springCloudServiceId: exampleSpringCloudService.id,
  *     gatewayIds: [exampleSpringCloudGateway.id],
@@ -41,12 +47,6 @@ import * as utilities from "../utilities";
  *     publicNetworkAccessEnabled: true,
  *     instanceCount: 1,
  *     apiTryOutEnabled: true,
- *     sso: {
- *         clientId: "test",
- *         clientSecret: "secret",
- *         issuerUri: "https://www.example.com/issueToken",
- *         scopes: ["read"],
- *     },
  * });
  * ```
  *

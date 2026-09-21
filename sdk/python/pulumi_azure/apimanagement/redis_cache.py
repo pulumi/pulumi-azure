@@ -257,6 +257,7 @@ class RedisCache(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
         example_cache = azure.redis.Cache("example",
+            redis_configuration={},
             name="example-cache",
             location=example.location,
             resource_group_name=example.name,
@@ -264,8 +265,7 @@ class RedisCache(pulumi.CustomResource):
             family="C",
             sku_name="Basic",
             enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration={})
+            minimum_tls_version="1.2")
         example_redis_cache = azure.apimanagement.RedisCache("example",
             name="example-Redis-Cache",
             api_management_id=example_service.id,
@@ -326,6 +326,7 @@ class RedisCache(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
         example_cache = azure.redis.Cache("example",
+            redis_configuration={},
             name="example-cache",
             location=example.location,
             resource_group_name=example.name,
@@ -333,8 +334,7 @@ class RedisCache(pulumi.CustomResource):
             family="C",
             sku_name="Basic",
             enable_non_ssl_port=False,
-            minimum_tls_version="1.2",
-            redis_configuration={})
+            minimum_tls_version="1.2")
         example_redis_cache = azure.apimanagement.RedisCache("example",
             name="example-Redis-Cache",
             api_management_id=example_service.id,

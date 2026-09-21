@@ -100,11 +100,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVirtualHubRouteTable(ctx, "example", &network.VirtualHubRouteTableArgs{
-//				Name:         pulumi.String("example-vhubroutetable"),
-//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
-//				Labels: pulumi.StringArray{
-//					pulumi.String("label1"),
-//				},
 //				Routes: network.VirtualHubRouteTableRouteTypeArray{
 //					&network.VirtualHubRouteTableRouteTypeArgs{
 //						Name:             pulumi.String("example-route"),
@@ -115,6 +110,11 @@ import (
 //						NextHopType: pulumi.String("ResourceId"),
 //						NextHop:     exampleVirtualHubConnection.ID().ToIDOutput().ToStringOutput(),
 //					},
+//				},
+//				Name:         pulumi.String("example-vhubroutetable"),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				Labels: pulumi.StringArray{
+//					pulumi.String("label1"),
 //				},
 //			})
 //			if err != nil {

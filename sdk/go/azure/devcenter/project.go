@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			example, err := devcenter.NewDevCenter(ctx, "example", &devcenter.DevCenterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
 //				Identity: &devcenter.DevCenterIdentityArgs{
 //					Type: pulumi.String("example-value"),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err

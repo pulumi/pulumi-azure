@@ -377,16 +377,12 @@ class Automation(pulumi.CustomResource):
             send=False,
             manage=False)
         example_automation = azure.securitycenter.Automation("example",
-            name="example-automation",
-            location=example.location,
-            resource_group_name=example.name,
             actions=[{
                 "type": "EventHub",
                 "resource_id": example_event_hub.id,
                 "connection_string": example_authorization_rule.primary_connection_string,
             }],
             sources=[{
-                "event_source": "Alerts",
                 "rule_sets": [{
                     "rules": [{
                         "property_path": "properties.metadata.severity",
@@ -395,7 +391,11 @@ class Automation(pulumi.CustomResource):
                         "property_type": "String",
                     }],
                 }],
+                "event_source": "Alerts",
             }],
+            name="example-automation",
+            location=example.location,
+            resource_group_name=example.name,
             scopes=[f"/subscriptions/{current.subscription_id}"])
         ```
 
@@ -468,16 +468,12 @@ class Automation(pulumi.CustomResource):
             send=False,
             manage=False)
         example_automation = azure.securitycenter.Automation("example",
-            name="example-automation",
-            location=example.location,
-            resource_group_name=example.name,
             actions=[{
                 "type": "EventHub",
                 "resource_id": example_event_hub.id,
                 "connection_string": example_authorization_rule.primary_connection_string,
             }],
             sources=[{
-                "event_source": "Alerts",
                 "rule_sets": [{
                     "rules": [{
                         "property_path": "properties.metadata.severity",
@@ -486,7 +482,11 @@ class Automation(pulumi.CustomResource):
                         "property_type": "String",
                     }],
                 }],
+                "event_source": "Alerts",
             }],
+            name="example-automation",
+            location=example.location,
+            resource_group_name=example.name,
             scopes=[f"/subscriptions/{current.subscription_id}"])
         ```
 

@@ -634,6 +634,13 @@ class HostPool(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_host_pool = azure.desktopvirtualization.HostPool("example",
+            scheduled_agent_updates={
+                "schedules": [{
+                    "day_of_week": "Saturday",
+                    "hour_of_day": 2,
+                }],
+                "enabled": True,
+            },
             location=example.location,
             resource_group_name=example.name,
             name="pooleddepthfirst",
@@ -644,14 +651,7 @@ class HostPool(pulumi.CustomResource):
             description="Acceptance Test: A pooled host pool - pooleddepthfirst",
             type="Pooled",
             maximum_sessions_allowed=50,
-            load_balancer_type="DepthFirst",
-            scheduled_agent_updates={
-                "enabled": True,
-                "schedules": [{
-                    "day_of_week": "Saturday",
-                    "hour_of_day": 2,
-                }],
-            })
+            load_balancer_type="DepthFirst")
         ```
 
         ## API Providers
@@ -710,6 +710,13 @@ class HostPool(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_host_pool = azure.desktopvirtualization.HostPool("example",
+            scheduled_agent_updates={
+                "schedules": [{
+                    "day_of_week": "Saturday",
+                    "hour_of_day": 2,
+                }],
+                "enabled": True,
+            },
             location=example.location,
             resource_group_name=example.name,
             name="pooleddepthfirst",
@@ -720,14 +727,7 @@ class HostPool(pulumi.CustomResource):
             description="Acceptance Test: A pooled host pool - pooleddepthfirst",
             type="Pooled",
             maximum_sessions_allowed=50,
-            load_balancer_type="DepthFirst",
-            scheduled_agent_updates={
-                "enabled": True,
-                "schedules": [{
-                    "day_of_week": "Saturday",
-                    "hour_of_day": 2,
-                }],
-            })
+            load_balancer_type="DepthFirst")
         ```
 
         ## API Providers

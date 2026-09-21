@@ -46,11 +46,6 @@ namespace Pulumi.Azure.HDInsight
     /// 
     ///     var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("example", new()
     ///     {
-    ///         Name = "example-hdicluster",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ClusterVersion = "3.6",
-    ///         Tier = "Standard",
     ///         ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs
     ///         {
     ///             InteractiveHive = "2.1",
@@ -59,15 +54,6 @@ namespace Pulumi.Azure.HDInsight
     ///         {
     ///             Username = "acctestusrgw",
     ///             Password = "Password!",
-    ///         },
-    ///         StorageAccounts = new[]
-    ///         {
-    ///             new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
-    ///             {
-    ///                 StorageContainerId = exampleContainer.Id,
-    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                 IsDefault = true,
-    ///             },
     ///         },
     ///         Roles = new Azure.HDInsight.Inputs.InteractiveQueryClusterRolesArgs
     ///         {
@@ -91,6 +77,20 @@ namespace Pulumi.Azure.HDInsight
     ///                 Password = "AccTestvdSC4daf986!",
     ///             },
     ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.InteractiveQueryClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Name = "example-hdicluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
     ///     });
     /// 
     /// });

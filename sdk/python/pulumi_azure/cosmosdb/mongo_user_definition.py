@@ -191,11 +191,9 @@ class MongoUserDefinition(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="MongoDB",
+            consistency_policy={
+                "consistency_level": "Strong",
+            },
             capabilities=[
                 {
                     "name": "EnableMongo",
@@ -204,13 +202,15 @@ class MongoUserDefinition(pulumi.CustomResource):
                     "name": "EnableMongoRoleBasedAccessControl",
                 },
             ],
-            consistency_policy={
-                "consistency_level": "Strong",
-            },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="MongoDB")
         example_mongo_database = azure.cosmosdb.MongoDatabase("example",
             name="example-mongodb",
             resource_group_name=example_account.resource_group_name,
@@ -265,11 +265,9 @@ class MongoUserDefinition(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="MongoDB",
+            consistency_policy={
+                "consistency_level": "Strong",
+            },
             capabilities=[
                 {
                     "name": "EnableMongo",
@@ -278,13 +276,15 @@ class MongoUserDefinition(pulumi.CustomResource):
                     "name": "EnableMongoRoleBasedAccessControl",
                 },
             ],
-            consistency_policy={
-                "consistency_level": "Strong",
-            },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="MongoDB")
         example_mongo_database = azure.cosmosdb.MongoDatabase("example",
             name="example-mongodb",
             resource_group_name=example_account.resource_group_name,

@@ -149,14 +149,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionRule = new SubscriptionRule("exampleSubscriptionRule", SubscriptionRuleArgs.builder()
- *             .name("tfex_servicebus_rule")
- *             .subscriptionId(exampleSubscription.id())
- *             .filterType("CorrelationFilter")
  *             .correlationFilter(SubscriptionRuleCorrelationFilterArgs.builder()
  *                 .correlationId("high")
  *                 .label("red")
  *                 .properties(Map.of("customProperty", "value"))
  *                 .build())
+ *             .name("tfex_servicebus_rule")
+ *             .subscriptionId(exampleSubscription.id())
+ *             .filterType("CorrelationFilter")
  *             .build());
  * 
  *     }

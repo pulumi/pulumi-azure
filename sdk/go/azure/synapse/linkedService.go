@@ -58,6 +58,9 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
@@ -65,9 +68,6 @@ import (
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -90,15 +90,15 @@ import (
 //				return err
 //			}
 //			_, err = synapse.NewLinkedService(ctx, "example", &synapse.LinkedServiceArgs{
+//				IntegrationRuntime: &synapse.LinkedServiceIntegrationRuntimeArgs{
+//					Name: exampleIntegrationRuntimeAzure.Name,
+//				},
 //				Name:               pulumi.String("example"),
 //				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Type:               pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
 //					return fmt.Sprintf("{\n  \\\"connectionString\\\": \\\"%v\\\"\n}\n", primaryConnectionString), nil
 //				}).(pulumi.StringOutput),
-//				IntegrationRuntime: &synapse.LinkedServiceIntegrationRuntimeArgs{
-//					Name: exampleIntegrationRuntimeAzure.Name,
-//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFirewallRule,
 //			}))

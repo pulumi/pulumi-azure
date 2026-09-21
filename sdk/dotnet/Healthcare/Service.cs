@@ -26,21 +26,9 @@ namespace Pulumi.Azure.Healthcare
     /// 
     ///     var example = new Azure.Healthcare.Service("example", new()
     ///     {
-    ///         Name = "uniquefhirname",
-    ///         ResourceGroupName = "sample-resource-group",
-    ///         Location = "westus2",
-    ///         Kind = "fhir-R4",
-    ///         CosmosdbThroughput = 2000,
     ///         Identity = new Azure.Healthcare.Inputs.ServiceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
-    ///         },
-    ///         AccessPolicyObjectIds = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         ConfigurationExportStorageAccountName = "teststorage",
-    ///         Tags = 
-    ///         {
-    ///             { "environment", "testenv" },
-    ///             { "purpose", "AcceptanceTests" },
     ///         },
     ///         AuthenticationConfiguration = new Azure.Healthcare.Inputs.ServiceAuthenticationConfigurationArgs
     ///         {
@@ -67,6 +55,18 @@ namespace Pulumi.Azure.Healthcare
     ///             },
     ///             MaxAgeInSeconds = 500,
     ///             AllowCredentials = true,
+    ///         },
+    ///         Name = "uniquefhirname",
+    ///         ResourceGroupName = "sample-resource-group",
+    ///         Location = "westus2",
+    ///         Kind = "fhir-R4",
+    ///         CosmosdbThroughput = 2000,
+    ///         AccessPolicyObjectIds = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         ConfigurationExportStorageAccountName = "teststorage",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "testenv" },
+    ///             { "purpose", "AcceptanceTests" },
     ///         },
     ///     });
     /// 

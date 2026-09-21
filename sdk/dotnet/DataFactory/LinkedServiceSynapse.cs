@@ -89,14 +89,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleLinkedServiceSynapse = new Azure.DataFactory.LinkedServiceSynapse("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
     ///         KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSynapseKeyVaultPasswordArgs
     ///         {
     ///             LinkedServiceName = exampleLinkedServiceKeyVault.Name,
     ///             SecretName = "secret",
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
     ///     });
     /// 
     /// });

@@ -49,23 +49,12 @@ import (
 //				return err
 //			}
 //			_, err = healthcare.NewFhirService(ctx, "example", &healthcare.FhirServiceArgs{
-//				Name:              pulumi.String("tfexfhir"),
-//				Location:          pulumi.String("east us"),
-//				ResourceGroupName: pulumi.String("tfex-resource_group"),
-//				WorkspaceId:       exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				Kind:              pulumi.String("fhir-R4"),
 //				Authentication: &healthcare.FhirServiceAuthenticationArgs{
 //					Authority: pulumi.String("https://login.microsoftonline.com/tenantId"),
 //					Audience:  pulumi.String("https://tfexfhir.fhir.azurehealthcareapis.com"),
 //				},
-//				AccessPolicyObjectIds: pulumi.StringArray{
-//					pulumi.String(current.ObjectId),
-//				},
 //				Identity: &healthcare.FhirServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
-//				},
-//				ContainerRegistryLoginServerUrls: pulumi.StringArray{
-//					pulumi.String("tfex-container_registry_login_server"),
 //				},
 //				Cors: &healthcare.FhirServiceCorsArgs{
 //					AllowedOrigins: pulumi.StringArray{
@@ -82,6 +71,17 @@ import (
 //					},
 //					MaxAgeInSeconds:    pulumi.Int(3600),
 //					CredentialsAllowed: pulumi.Bool(true),
+//				},
+//				Name:              pulumi.String("tfexfhir"),
+//				Location:          pulumi.String("east us"),
+//				ResourceGroupName: pulumi.String("tfex-resource_group"),
+//				WorkspaceId:       exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				Kind:              pulumi.String("fhir-R4"),
+//				AccessPolicyObjectIds: pulumi.StringArray{
+//					pulumi.String(current.ObjectId),
+//				},
+//				ContainerRegistryLoginServerUrls: pulumi.StringArray{
+//					pulumi.String("tfex-container_registry_login_server"),
 //				},
 //				ConfigurationExportStorageAccountName: pulumi.String("storage_account_name"),
 //			})

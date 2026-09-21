@@ -47,12 +47,6 @@ import * as utilities from "../utilities";
  *     sku: "PerGB2018",
  * });
  * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("test", {
- *     networkWatcherName: testNetworkWatcher.name,
- *     resourceGroupName: example.name,
- *     name: "example-log",
- *     targetResourceId: test.id,
- *     storageAccountId: testAccount.id,
- *     enabled: true,
  *     retentionPolicy: {
  *         enabled: true,
  *         days: 7,
@@ -64,6 +58,12 @@ import * as utilities from "../utilities";
  *         workspaceResourceId: testAnalyticsWorkspace.id,
  *         intervalInMinutes: 10,
  *     },
+ *     networkWatcherName: testNetworkWatcher.name,
+ *     resourceGroupName: example.name,
+ *     name: "example-log",
+ *     targetResourceId: test.id,
+ *     storageAccountId: testAccount.id,
+ *     enabled: true,
  * });
  * ```
  *

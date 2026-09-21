@@ -56,24 +56,12 @@ import (
 //				return err
 //			}
 //			_, err = hdinsight.NewKafkaCluster(ctx, "example", &hdinsight.KafkaClusterArgs{
-//				Name:              pulumi.String("example-hdicluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("4.0"),
-//				Tier:              pulumi.String("Standard"),
 //				ComponentVersion: &hdinsight.KafkaClusterComponentVersionArgs{
 //					Kafka: pulumi.String("2.1"),
 //				},
 //				Gateway: &hdinsight.KafkaClusterGatewayArgs{
 //					Username: pulumi.String("acctestusrgw"),
 //					Password: pulumi.String("Password123!"),
-//				},
-//				StorageAccounts: hdinsight.KafkaClusterStorageAccountArray{
-//					&hdinsight.KafkaClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
-//					},
 //				},
 //				Roles: &hdinsight.KafkaClusterRolesArgs{
 //					HeadNode: &hdinsight.KafkaClusterRolesHeadNodeArgs{
@@ -94,6 +82,18 @@ import (
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
 //				},
+//				StorageAccounts: hdinsight.KafkaClusterStorageAccountArray{
+//					&hdinsight.KafkaClusterStorageAccountArgs{
+//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
+//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+//						IsDefault:          pulumi.Bool(true),
+//					},
+//				},
+//				Name:              pulumi.String("example-hdicluster"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ClusterVersion:    pulumi.String("4.0"),
+//				Tier:              pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err

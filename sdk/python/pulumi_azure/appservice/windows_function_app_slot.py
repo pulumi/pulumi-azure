@@ -1322,17 +1322,17 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             os_type="Windows",
             sku_name="Y1")
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            site_config={},
             name="example-windows-function-app",
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("example",
+            site_config={},
             name="example-slot",
             function_app_id=example_windows_function_app.id,
-            storage_account_name=example_account.name,
-            site_config={})
+            storage_account_name=example_account.name)
         ```
 
         ## API Providers
@@ -1431,17 +1431,17 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             os_type="Windows",
             sku_name="Y1")
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            site_config={},
             name="example-windows-function-app",
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("example",
+            site_config={},
             name="example-slot",
             function_app_id=example_windows_function_app.id,
-            storage_account_name=example_account.name,
-            site_config={})
+            storage_account_name=example_account.name)
         ```
 
         ## API Providers

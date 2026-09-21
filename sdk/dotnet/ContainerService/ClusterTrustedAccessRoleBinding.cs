@@ -57,24 +57,24 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DnsPrefix = "acctestaksexample",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
-    ///             Name = "example-value",
-    ///             NodeCount = "example-value",
-    ///             VmSize = "example-value",
     ///             UpgradeSettings = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs
     ///             {
     ///                 MaxSurge = "example-value",
     ///             },
+    ///             Name = "example-value",
+    ///             NodeCount = "example-value",
+    ///             VmSize = "example-value",
     ///         },
     ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
     ///         {
     ///             Type = "example-value",
     ///         },
+    ///         Name = "example",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DnsPrefix = "acctestaksexample",
     ///     });
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
@@ -88,16 +88,16 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "example-value",
+    ///         },
     ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
     ///         ApplicationInsightsId = example.Id,
-    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "example-value",
-    ///         },
     ///     });
     /// 
     ///     var exampleClusterTrustedAccessRoleBinding = new Azure.ContainerService.ClusterTrustedAccessRoleBinding("example", new()

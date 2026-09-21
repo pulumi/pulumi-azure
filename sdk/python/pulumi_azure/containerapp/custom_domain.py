@@ -240,10 +240,6 @@ class CustomDomain(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_app = azure.containerapp.App("example",
-            name="example-app",
-            container_app_environment_id=example_environment.id,
-            resource_group_name=example.name,
-            revision_mode="Single",
             template={
                 "containers": [{
                     "name": "examplecontainerapp",
@@ -253,32 +249,36 @@ class CustomDomain(pulumi.CustomResource):
                 }],
             },
             ingress={
-                "allow_insecure_connections": False,
-                "external_enabled": True,
-                "target_port": 5000,
-                "transport": "http",
                 "traffic_weights": [{
                     "latest_revision": True,
                     "percentage": 100,
                 }],
-            })
+                "allow_insecure_connections": False,
+                "external_enabled": True,
+                "target_port": 5000,
+                "transport": "http",
+            },
+            name="example-app",
+            container_app_environment_id=example_environment.id,
+            resource_group_name=example.name,
+            revision_mode="Single")
         example_txt_record = azure.dns.TxtRecord("example",
+            records=[{
+                "value": example_app.custom_domain_verification_id,
+            }],
             name="asuid.example",
             resource_group_name=example_zone.resource_group_name,
             zone_name=example_zone.name,
-            ttl=300,
-            records=[{
-                "value": example_app.custom_domain_verification_id,
-            }])
+            ttl=300)
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         example_custom_domain = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
             container_app_id=example_app.id,
             container_app_environment_certificate_id=example_environment_certificate.id,
             certificate_binding_type="SniEnabled")
@@ -293,9 +293,13 @@ class CustomDomain(pulumi.CustomResource):
 
         example = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
-            container_app_id=example_azurerm_container_app["id"])
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
+            container_app_id=example_azurerm_container_app["id"],
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "certificateBindingType",
+                    "containerAppEnvironmentCertificateId",
+                ]))
         ```
 
         ## API Providers
@@ -361,10 +365,6 @@ class CustomDomain(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_app = azure.containerapp.App("example",
-            name="example-app",
-            container_app_environment_id=example_environment.id,
-            resource_group_name=example.name,
-            revision_mode="Single",
             template={
                 "containers": [{
                     "name": "examplecontainerapp",
@@ -374,32 +374,36 @@ class CustomDomain(pulumi.CustomResource):
                 }],
             },
             ingress={
-                "allow_insecure_connections": False,
-                "external_enabled": True,
-                "target_port": 5000,
-                "transport": "http",
                 "traffic_weights": [{
                     "latest_revision": True,
                     "percentage": 100,
                 }],
-            })
+                "allow_insecure_connections": False,
+                "external_enabled": True,
+                "target_port": 5000,
+                "transport": "http",
+            },
+            name="example-app",
+            container_app_environment_id=example_environment.id,
+            resource_group_name=example.name,
+            revision_mode="Single")
         example_txt_record = azure.dns.TxtRecord("example",
+            records=[{
+                "value": example_app.custom_domain_verification_id,
+            }],
             name="asuid.example",
             resource_group_name=example_zone.resource_group_name,
             zone_name=example_zone.name,
-            ttl=300,
-            records=[{
-                "value": example_app.custom_domain_verification_id,
-            }])
+            ttl=300)
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         example_custom_domain = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
             container_app_id=example_app.id,
             container_app_environment_certificate_id=example_environment_certificate.id,
             certificate_binding_type="SniEnabled")
@@ -414,9 +418,13 @@ class CustomDomain(pulumi.CustomResource):
 
         example = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
-            container_app_id=example_azurerm_container_app["id"])
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
+            container_app_id=example_azurerm_container_app["id"],
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "certificateBindingType",
+                    "containerAppEnvironmentCertificateId",
+                ]))
         ```
 
         ## API Providers

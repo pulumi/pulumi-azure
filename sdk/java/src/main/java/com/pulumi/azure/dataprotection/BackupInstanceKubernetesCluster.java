@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesCluster;
  * import com.pulumi.azure.dataprotection.BackupPolicyKubernetesClusterArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.BackupInstanceKubernetesCluster;
  * import com.pulumi.azure.dataprotection.BackupInstanceKubernetesClusterArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs;
@@ -84,21 +84,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .dnsPrefix("dns")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("default")
  *                 .nodeCount(1)
@@ -108,6 +104,10 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix("dns")
  *             .build());
  * 
  *         var aksClusterTrustedAccess = new ClusterTrustedAccessRoleBinding("aksClusterTrustedAccess", ClusterTrustedAccessRoleBindingArgs.builder()
@@ -189,39 +189,33 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .vaultName(exampleBackupVault.name())
- *             .backupRepeatingTimeIntervals("R/2023-05-23T02:30:00+00:00/P1W")
- *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
- *                 .name("Daily")
- *                 .priority(25)
- *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
- *                     .duration("P84D")
- *                     .dataStoreType("OperationalStore")
- *                     .build())
- *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
- *                     .daysOfWeeks("Thursday")
- *                     .monthsOfYears("November")
- *                     .weeksOfMonths("First")
- *                     .scheduledBackupTimes("2023-05-23T02:30:00Z")
- *                     .build())
- *                 .build())
  *             .defaultRetentionRule(BackupPolicyKubernetesClusterDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs.builder()
  *                     .duration("P14D")
  *                     .dataStoreType("OperationalStore")
  *                     .build())
  *                 .build())
+ *             .retentionRules(BackupPolicyKubernetesClusterRetentionRuleArgs.builder()
+ *                 .criteria(BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs.builder()
+ *                     .daysOfWeeks("Thursday")
+ *                     .monthsOfYears("November")
+ *                     .weeksOfMonths("First")
+ *                     .scheduledBackupTimes("2023-05-23T02:30:00Z")
+ *                     .build())
+ *                 .lifeCycles(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs.builder()
+ *                     .duration("P84D")
+ *                     .dataStoreType("OperationalStore")
+ *                     .build())
+ *                 .name("Daily")
+ *                 .priority(25)
+ *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .vaultName(exampleBackupVault.name())
+ *             .backupRepeatingTimeIntervals("R/2023-05-23T02:30:00+00:00/P1W")
  *             .build());
  * 
  *         var exampleBackupInstanceKubernetesCluster = new BackupInstanceKubernetesCluster("exampleBackupInstanceKubernetesCluster", BackupInstanceKubernetesClusterArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .vaultId(exampleBackupVault.id())
- *             .kubernetesClusterId(exampleKubernetesCluster.id())
- *             .snapshotResourceGroupName(snap.name())
- *             .backupPolicyId(exampleBackupPolicyKubernetesCluster.id())
  *             .backupDatasourceParameters(BackupInstanceKubernetesClusterBackupDatasourceParametersArgs.builder()
  *                 .excludedNamespaces("test-excluded-namespaces")
  *                 .excludedResourceTypes("exvolumesnapshotcontents.snapshot.storage.k8s.io")
@@ -231,6 +225,12 @@ import javax.annotation.Nullable;
  *                 .labelSelectors("kubernetes.io/metadata.name:test")
  *                 .volumeSnapshotEnabled(true)
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .vaultId(exampleBackupVault.id())
+ *             .kubernetesClusterId(exampleKubernetesCluster.id())
+ *             .snapshotResourceGroupName(snap.name())
+ *             .backupPolicyId(exampleBackupPolicyKubernetesCluster.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     testExtensionAndStorageAccountPermission,

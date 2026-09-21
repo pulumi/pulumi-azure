@@ -56,8 +56,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "example.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "example.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -65,7 +65,7 @@ import (
 //			_, err = apimanagement.NewWorkspaceCertificate(ctx, "example", &apimanagement.WorkspaceCertificateArgs{
 //				Name:                     pulumi.String("example-cert"),
 //				ApiManagementWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				CertificateDataBase64:    pulumi.String(invokeFilebase64.Result),
+//				CertificateDataBase64:    invokeFilebase64.Result,
 //				Password:                 pulumi.String("terraform"),
 //			})
 //			if err != nil {

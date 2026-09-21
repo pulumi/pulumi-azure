@@ -38,15 +38,15 @@ import * as utilities from "../utilities";
  *     skuName: "standard",
  * });
  * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("example", {
- *     name: "example",
- *     targetResourceId: exampleKeyVault.id,
- *     storageAccountId: exampleAccount.id,
  *     enabledLogs: [{
  *         category: "AuditEvent",
  *     }],
  *     enabledMetrics: [{
  *         category: "AllMetrics",
  *     }],
+ *     name: "example",
+ *     targetResourceId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

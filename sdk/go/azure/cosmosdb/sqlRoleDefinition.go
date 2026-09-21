@@ -43,11 +43,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel: pulumi.String("Strong"),
 //				},
@@ -57,11 +52,23 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("example-cosmosdb"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cosmosdb.NewSqlRoleDefinition(ctx, "example", &cosmosdb.SqlRoleDefinitionArgs{
+//				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
+//					&cosmosdb.SqlRoleDefinitionPermissionArgs{
+//						DataActions: pulumi.StringArray{
+//							pulumi.String("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"),
+//						},
+//					},
+//				},
 //				RoleDefinitionId:  pulumi.String("84cf3a8b-4122-4448-bce2-fa423cfe0a15"),
 //				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
@@ -70,13 +77,6 @@ import (
 //					exampleAccount.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("%v/dbs/sales", id), nil
 //					}).(pulumi.StringOutput),
-//				},
-//				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
-//					&cosmosdb.SqlRoleDefinitionPermissionArgs{
-//						DataActions: pulumi.StringArray{
-//							pulumi.String("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"),
-//						},
-//					},
 //				},
 //			})
 //			if err != nil {

@@ -39,12 +39,12 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewCluster(ctx, "example", &loganalytics.ClusterArgs{
-//				Name:              pulumi.String("example-cluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Identity: &loganalytics.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-cluster"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

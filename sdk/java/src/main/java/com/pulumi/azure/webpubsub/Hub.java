@@ -75,8 +75,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHub = new Hub("exampleHub", HubArgs.builder()
- *             .name("tfex_wpsh")
- *             .webPubsubId(exampleService.id())
  *             .eventHandlers(            
  *                 HubEventHandlerArgs.builder()
  *                     .urlTemplate("https://test.com/api/{hub}/{event}")
@@ -86,12 +84,12 @@ import javax.annotation.Nullable;
  *                         "connected")
  *                     .build(),
  *                 HubEventHandlerArgs.builder()
- *                     .urlTemplate("https://test.com/api/{hub}/{event}")
- *                     .userEventPattern("event1, event2")
- *                     .systemEvents("connected")
  *                     .auth(HubEventHandlerAuthArgs.builder()
  *                         .managedIdentityId(exampleUserAssignedIdentity.id())
  *                         .build())
+ *                     .urlTemplate("https://test.com/api/{hub}/{event}")
+ *                     .userEventPattern("event1, event2")
+ *                     .systemEvents("connected")
  *                     .build())
  *             .eventListeners(            
  *                 HubEventListenerArgs.builder()
@@ -114,6 +112,8 @@ import javax.annotation.Nullable;
  *                     .eventhubNamespaceName(test.name())
  *                     .eventhubName(test1.name())
  *                     .build())
+ *             .name("tfex_wpsh")
+ *             .webPubsubId(exampleService.id())
  *             .anonymousConnectionsEnabled(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleService)

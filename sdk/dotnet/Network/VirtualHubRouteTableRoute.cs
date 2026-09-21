@@ -93,13 +93,13 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("example", new()
     ///     {
-    ///         Name = "example-vhubconn",
-    ///         VirtualHubId = exampleVirtualHub.Id,
-    ///         RemoteVirtualNetworkId = exampleVirtualNetwork.Id,
     ///         Routing = new Azure.Network.Inputs.VirtualHubConnectionRoutingArgs
     ///         {
     ///             AssociatedRouteTableId = exampleVirtualHubRouteTable.Id,
     ///         },
+    ///         Name = "example-vhubconn",
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         RemoteVirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
     ///     var exampleVirtualHubRouteTableRoute = new Azure.Network.VirtualHubRouteTableRoute("example", new()

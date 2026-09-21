@@ -46,8 +46,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "testdata/log4net.dll",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "testdata/log4net.dll",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				AssemblyName:           pulumi.String("TestAssembly"),
-//				Content:                pulumi.String(invokeFilebase64.Result),
+//				Content:                invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

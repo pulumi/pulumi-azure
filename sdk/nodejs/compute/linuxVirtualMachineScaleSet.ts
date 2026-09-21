@@ -39,16 +39,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "example-vmss",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard_D4_v5",
- *     instances: 1,
- *     adminUsername: "adminuser",
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: firstPublicKey,
- *     }],
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -59,15 +49,25 @@ import * as utilities from "../utilities";
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: firstPublicKey,
+ *     }],
  *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
  *         ipConfigurations: [{
  *             name: "internal",
  *             primary: true,
  *             subnetId: internal.id,
  *         }],
+ *         name: "example",
+ *         primary: true,
  *     }],
+ *     name: "example-vmss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Standard_D4_v5",
+ *     instances: 1,
+ *     adminUsername: "adminuser",
  * });
  * ```
  *

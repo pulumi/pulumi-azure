@@ -20,6 +20,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleHciLogicalNetwork = new azure.stack.HciLogicalNetwork("example", {
+ *     subnet: {
+ *         route: {
+ *             addressPrefix: "0.0.0.0/0",
+ *             nextHopIpAddress: "10.0.0.1",
+ *         },
+ *         ipAllocationMethod: "Static",
+ *         addressPrefix: "10.0.0.0/24",
+ *         vlanId: 123,
+ *     },
  *     name: "example-hci-ln",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -29,15 +38,6 @@ import * as utilities from "../utilities";
  *         "10.0.0.7",
  *         "10.0.0.8",
  *     ],
- *     subnet: {
- *         ipAllocationMethod: "Static",
- *         addressPrefix: "10.0.0.0/24",
- *         vlanId: 123,
- *         route: {
- *             addressPrefix: "0.0.0.0/0",
- *             nextHopIpAddress: "10.0.0.1",
- *         },
- *     },
  *     tags: {
  *         foo: "bar",
  *     },

@@ -61,9 +61,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("tfex-signalr")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ServiceSkuArgs.builder()
  *                 .name("Free_F1")
  *                 .capacity(1)
@@ -71,10 +68,6 @@ import javax.annotation.Nullable;
  *             .cors(ServiceCorArgs.builder()
  *                 .allowedOrigins("http://www.example.com")
  *                 .build())
- *             .publicNetworkAccessEnabled(false)
- *             .connectivityLogsEnabled(true)
- *             .messagingLogsEnabled(true)
- *             .serviceMode("Default")
  *             .upstreamEndpoints(ServiceUpstreamEndpointArgs.builder()
  *                 .categoryPatterns(                
  *                     "connections",
@@ -83,6 +76,13 @@ import javax.annotation.Nullable;
  *                 .hubPatterns("hub1")
  *                 .urlTemplate("http://foo.com")
  *                 .build())
+ *             .name("tfex-signalr")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .publicNetworkAccessEnabled(false)
+ *             .connectivityLogsEnabled(true)
+ *             .messagingLogsEnabled(true)
+ *             .serviceMode("Default")
  *             .build());
  * 
  *     }

@@ -217,18 +217,18 @@ class IotHubCertificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         example_iot_hub_certificate = azure.iot.IotHubCertificate("example",
             name="example",
             resource_group_name=example.name,
             iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=std.filebase64(input="example.cer").result)
+            certificate_content=std.filebase64(input="example.cer")["result"])
         ```
 
         ## API Providers
@@ -275,18 +275,18 @@ class IotHubCertificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         example_iot_hub_certificate = azure.iot.IotHubCertificate("example",
             name="example",
             resource_group_name=example.name,
             iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=std.filebase64(input="example.cer").result)
+            certificate_content=std.filebase64(input="example.cer")["result"])
         ```
 
         ## API Providers

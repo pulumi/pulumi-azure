@@ -45,10 +45,6 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
-//				Name:                   pulumi.String("example-origin-group"),
-//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
-//				SessionAffinityEnabled: pulumi.Bool(true),
-//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
 //					IntervalInSeconds: pulumi.Int(240),
 //					Path:              pulumi.String("/healthProbe"),
@@ -60,6 +56,10 @@ import (
 //					SampleSize:                      pulumi.Int(16),
 //					SuccessfulSamplesRequired:       pulumi.Int(3),
 //				},
+//				Name:                   pulumi.String("example-origin-group"),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				SessionAffinityEnabled: pulumi.Bool(true),
+//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err

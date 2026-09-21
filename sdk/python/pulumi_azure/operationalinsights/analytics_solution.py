@@ -293,15 +293,15 @@ class AnalyticsSolution(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/ContainerInsights",
+            },
             solution_name="ContainerInsights",
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan={
-                "publisher": "Microsoft",
-                "product": "OMSGallery/ContainerInsights",
-            })
+            workspace_name=example_analytics_workspace.name)
         ```
 
         ## API Providers
@@ -360,15 +360,15 @@ class AnalyticsSolution(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/ContainerInsights",
+            },
             solution_name="ContainerInsights",
             location=example.location,
             resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
-            workspace_name=example_analytics_workspace.name,
-            plan={
-                "publisher": "Microsoft",
-                "product": "OMSGallery/ContainerInsights",
-            })
+            workspace_name=example_analytics_workspace.name)
         ```
 
         ## API Providers

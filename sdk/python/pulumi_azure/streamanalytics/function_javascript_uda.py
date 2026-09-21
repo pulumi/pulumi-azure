@@ -217,6 +217,12 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         example_get_job = azure.streamanalytics.get_job(name="example-job",
             resource_group_name=example.name)
         example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("example",
+            output={
+                "type": "bigint",
+            },
+            inputs=[{
+                "type": "bigint",
+            }],
             name="example-javascript-function",
             stream_analytics_job_id=example_get_job.id,
             script=\"\"\"function main() {
@@ -232,13 +238,7 @@ class FunctionJavascriptUda(pulumi.CustomResource):
                 return this.state;
             }
         }
-        \"\"\",
-            inputs=[{
-                "type": "bigint",
-            }],
-            output={
-                "type": "bigint",
-            })
+        \"\"\")
         ```
 
         ## API Providers
@@ -284,6 +284,12 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         example_get_job = azure.streamanalytics.get_job(name="example-job",
             resource_group_name=example.name)
         example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("example",
+            output={
+                "type": "bigint",
+            },
+            inputs=[{
+                "type": "bigint",
+            }],
             name="example-javascript-function",
             stream_analytics_job_id=example_get_job.id,
             script=\"\"\"function main() {
@@ -299,13 +305,7 @@ class FunctionJavascriptUda(pulumi.CustomResource):
                 return this.state;
             }
         }
-        \"\"\",
-            inputs=[{
-                "type": "bigint",
-            }],
-            output={
-                "type": "bigint",
-            })
+        \"\"\")
         ```
 
         ## API Providers

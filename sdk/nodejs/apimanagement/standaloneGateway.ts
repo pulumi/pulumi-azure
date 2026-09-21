@@ -26,28 +26,28 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "apim-delegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Web/serverFarms",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
  *         },
+ *         name: "apim-delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const exampleStandaloneGateway = new azure.apimanagement.StandaloneGateway("example", {
+ *     sku: {
+ *         capacity: 1,
+ *         name: "WorkspaceGatewayPremium",
+ *     },
  *     name: "example-gateway-flexible",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualNetworkType: "External",
  *     backendSubnetId: exampleSubnet.id,
- *     sku: {
- *         capacity: 1,
- *         name: "WorkspaceGatewayPremium",
- *     },
  *     tags: {
  *         Hello: "World",
  *     },

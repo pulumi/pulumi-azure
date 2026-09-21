@@ -441,13 +441,6 @@ class ConfigurationKey(pulumi.CustomResource):
             location=example.location)
         current = azure.core.get_client_config()
         kv = azure.keyvault.KeyVault("kv",
-            name="kv",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -462,7 +455,14 @@ class ConfigurationKey(pulumi.CustomResource):
                     "Purge",
                     "Recover",
                 ],
-            }])
+            }],
+            name="kv",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         kvs = azure.keyvault.Secret("kvs",
             name="kvs",
             value="szechuan",
@@ -568,13 +568,6 @@ class ConfigurationKey(pulumi.CustomResource):
             location=example.location)
         current = azure.core.get_client_config()
         kv = azure.keyvault.KeyVault("kv",
-            name="kv",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -589,7 +582,14 @@ class ConfigurationKey(pulumi.CustomResource):
                     "Purge",
                     "Recover",
                 ],
-            }])
+            }],
+            name="kv",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         kvs = azure.keyvault.Secret("kvs",
             name="kvs",
             value="szechuan",

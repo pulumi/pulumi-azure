@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCustomProvider = new azure.core.CustomProvider("example", {
- *     name: "example_provider",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     resourceTypes: [{
  *         name: "dEf1",
  *         endpoint: "https://testendpoint.com/",
  *     }],
+ *     name: "example_provider",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

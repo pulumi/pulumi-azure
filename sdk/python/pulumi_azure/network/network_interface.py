@@ -596,14 +596,14 @@ class NetworkInterface(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -676,14 +676,14 @@ class NetworkInterface(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

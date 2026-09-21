@@ -42,8 +42,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudConfigurationService = new Azure.AppPlatform.SpringCloudConfigurationService("example", new()
     ///     {
-    ///         Name = "default",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///         Repositories = new[]
     ///         {
     ///             new Azure.AppPlatform.Inputs.SpringCloudConfigurationServiceRepositoryArgs
@@ -65,6 +63,8 @@ namespace Pulumi.Azure.AppPlatform
     ///                 Password = "H@Sh1CoR3!",
     ///             },
     ///         },
+    ///         Name = "default",
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
     /// });

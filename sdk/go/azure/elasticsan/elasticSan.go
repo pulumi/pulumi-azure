@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			_, err = elasticsan.NewElasticSan(ctx, "example", &elasticsan.ElasticSanArgs{
+//				Sku: &elasticsan.ElasticSanSkuArgs{
+//					Name: pulumi.String("example-value"),
+//				},
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				BaseSizeInTib:     pulumi.Int(1),
 //				ExtendedSizeInTib: pulumi.Int(2),
-//				Sku: &elasticsan.ElasticSanSkuArgs{
-//					Name: pulumi.String("example-value"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.cdn.FrontdoorRoute;
  * import com.pulumi.azure.cdn.FrontdoorRouteArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRouteCacheArgs;
@@ -86,13 +85,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-originGroup")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .additionalLatencyInMilliseconds(0)
  *                 .sampleSize(16)
  *                 .successfulSamplesRequired(3)
  *                 .build())
+ *             .name("example-originGroup")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -119,38 +118,49 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var contoso = new FrontdoorCustomDomain("contoso", FrontdoorCustomDomainArgs.builder()
+ *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+ *                 .certificateType("ManagedCertificate")
+ *                 .minimumTlsVersion("TLS12")
+ *                 .build())
  *             .name("contoso-custom-domain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
+ *             .hostName(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
  *                     "contoso",
- *                     exampleZone.name())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
- *             .tls(FrontdoorCustomDomainTlsArgs.builder()
- *                 .certificateType("ManagedCertificate")
- *                 .minimumTlsVersion("TLS12")
- *                 .build())
+ *                     exampleZone.name()))
+ *             )).result())
  *             .build());
  * 
  *         var fabrikam = new FrontdoorCustomDomain("fabrikam", FrontdoorCustomDomainArgs.builder()
- *             .name("fabrikam-custom-domain")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .dnsZoneId(exampleZone.id())
- *             .hostName(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
- *                     "fabrikam",
- *                     exampleZone.name())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumTlsVersion("TLS12")
  *                 .build())
+ *             .name("fabrikam-custom-domain")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .dnsZoneId(exampleZone.id())
+ *             .hostName(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
+ *                     "fabrikam",
+ *                     exampleZone.name()))
+ *             )).result())
  *             .build());
  * 
  *         var exampleFrontdoorRoute = new FrontdoorRoute("exampleFrontdoorRoute", FrontdoorRouteArgs.builder()
+ *             .cache(FrontdoorRouteCacheArgs.builder()
+ *                 .queryStringCachingBehavior("IgnoreSpecifiedQueryStrings")
+ *                 .queryStrings(                
+ *                     "account",
+ *                     "settings")
+ *                 .compressionEnabled(true)
+ *                 .contentTypesToCompresses(                
+ *                     "text/html",
+ *                     "text/javascript",
+ *                     "text/xml")
+ *                 .build())
  *             .name("example-route")
  *             .cdnFrontdoorEndpointId(exampleFrontdoorEndpoint.id())
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
@@ -167,17 +177,6 @@ import javax.annotation.Nullable;
  *                 contoso.id(),
  *                 fabrikam.id())
  *             .linkToDefaultDomain(false)
- *             .cache(FrontdoorRouteCacheArgs.builder()
- *                 .queryStringCachingBehavior("IgnoreSpecifiedQueryStrings")
- *                 .queryStrings(                
- *                     "account",
- *                     "settings")
- *                 .compressionEnabled(true)
- *                 .contentTypesToCompresses(                
- *                     "text/html",
- *                     "text/javascript",
- *                     "text/xml")
- *                 .build())
  *             .build());
  * 
  *         var contosoFrontdoorCustomDomainAssociation = new FrontdoorCustomDomainAssociation("contosoFrontdoorCustomDomainAssociation", FrontdoorCustomDomainAssociationArgs.builder()

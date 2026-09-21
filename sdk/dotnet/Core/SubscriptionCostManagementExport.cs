@@ -47,12 +47,6 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         RecurrenceType = "Monthly",
-    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
-    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Core.Inputs.SubscriptionCostManagementExportExportDataStorageLocationArgs
     ///         {
     ///             ContainerId = exampleContainer.Id,
@@ -63,6 +57,12 @@ namespace Pulumi.Azure.Core
     ///             Type = "Usage",
     ///             TimeFrame = "WeekToDate",
     ///         },
+    ///         Name = "example",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         RecurrenceType = "Monthly",
+    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
+    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         FileFormat = "Csv",
     ///     });
     /// 
     /// });

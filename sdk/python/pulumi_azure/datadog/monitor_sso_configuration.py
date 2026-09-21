@@ -234,9 +234,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             name="example-datadog",
             location="West US 2")
         example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
-            resource_group_name=example.name,
-            location=example.location,
             datadog_organization={
                 "api_key": "XXXX",
                 "application_key": "XXXX",
@@ -245,10 +242,13 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
                 "name": "Example",
                 "email": "abc@xyz.com",
             },
-            sku_name="Linked",
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Linked")
         example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("example",
             datadog_monitor_id=example_monitor.id,
             single_sign_on="Enable",
@@ -298,9 +298,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             name="example-datadog",
             location="West US 2")
         example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
-            resource_group_name=example.name,
-            location=example.location,
             datadog_organization={
                 "api_key": "XXXX",
                 "application_key": "XXXX",
@@ -309,10 +306,13 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
                 "name": "Example",
                 "email": "abc@xyz.com",
             },
-            sku_name="Linked",
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Linked")
         example_monitor_sso_configuration = azure.datadog.MonitorSsoConfiguration("example",
             datadog_monitor_id=example_monitor.id,
             single_sign_on="Enable",

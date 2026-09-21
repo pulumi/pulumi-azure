@@ -90,9 +90,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup("primaryNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
- *             .name("aadds-primary-nsg")
- *             .location(primary.location())
- *             .resourceGroupName(primary.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
  *                     .name("AllowSyncWithAzureAD")
@@ -138,6 +135,9 @@ import javax.annotation.Nullable;
  *                     .sourceAddressPrefix("*")
  *                     .destinationAddressPrefix("*")
  *                     .build())
+ *             .name("aadds-primary-nsg")
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
  *             .build());
  * 
  *         var primarySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
@@ -171,12 +171,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example-aadds")
- *             .location(aadds.location())
- *             .resourceGroupName(aadds.name())
- *             .domainName("widgetslogin.net")
- *             .sku("Enterprise")
- *             .filteredSyncEnabled(false)
  *             .initialReplicaSet(ServiceInitialReplicaSetArgs.builder()
  *                 .location(primaryVirtualNetwork.location())
  *                 .subnetId(primarySubnet.id())
@@ -193,6 +187,12 @@ import javax.annotation.Nullable;
  *                 .syncNtlmPasswords(true)
  *                 .syncOnPremPasswords(true)
  *                 .build())
+ *             .name("example-aadds")
+ *             .location(aadds.location())
+ *             .resourceGroupName(aadds.name())
+ *             .domainName("widgetslogin.net")
+ *             .sku("Enterprise")
+ *             .filteredSyncEnabled(false)
  *             .tags(Map.of("Environment", "prod"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
@@ -220,9 +220,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var aaddsReplicaNetworkSecurityGroup = new NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
- *             .name("aadds-replica-nsg")
- *             .location(replica.location())
- *             .resourceGroupName(replica.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
  *                     .name("AllowSyncWithAzureAD")
@@ -268,6 +265,9 @@ import javax.annotation.Nullable;
  *                     .sourceAddressPrefix("*")
  *                     .destinationAddressPrefix("*")
  *                     .build())
+ *             .name("aadds-replica-nsg")
+ *             .location(replica.location())
+ *             .resourceGroupName(replica.name())
  *             .build());
  * 
  *         var replicaSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()

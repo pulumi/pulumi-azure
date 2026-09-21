@@ -194,13 +194,13 @@ class ChannelLine(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_line = azure.bot.ChannelLine("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
             line_channels=[{
                 "access_token": "asdfdsdfTYUIOIoj1231hkjhk",
                 "secret": "aagfdgfd123567",
-            }])
+            }],
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -247,13 +247,13 @@ class ChannelLine(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_line = azure.bot.ChannelLine("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
             line_channels=[{
                 "access_token": "asdfdsdfTYUIOIoj1231hkjhk",
                 "secret": "aagfdgfd123567",
-            }])
+            }],
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example.name)
         ```
 
         ## Import

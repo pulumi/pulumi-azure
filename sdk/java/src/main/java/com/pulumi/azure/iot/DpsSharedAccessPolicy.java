@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIotHubDps = new IotHubDps("exampleIotHubDps", IotHubDpsArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IotHubDpsSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleDpsSharedAccessPolicy = new DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy", DpsSharedAccessPolicyArgs.builder()

@@ -43,17 +43,17 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleSharedImage = new Azure.Compute.SharedImage("example", new()
     ///     {
-    ///         Name = "my-image",
-    ///         GalleryName = exampleSharedImageGallery.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         OsType = "Linux",
     ///         Identifier = new Azure.Compute.Inputs.SharedImageIdentifierArgs
     ///         {
     ///             Publisher = "PublisherName",
     ///             Offer = "OfferName",
     ///             Sku = "ExampleSku",
     ///         },
+    ///         Name = "my-image",
+    ///         GalleryName = exampleSharedImageGallery.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         OsType = "Linux",
     ///     });
     /// 
     /// });

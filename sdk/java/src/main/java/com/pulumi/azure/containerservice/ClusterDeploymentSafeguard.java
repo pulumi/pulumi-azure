@@ -55,21 +55,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example-aks")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .dnsPrefix("exampleaks")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name("default")
- *                 .nodeCount(1)
- *                 .vmSize("Standard_DS2_v2")
  *                 .upgradeSettings(KubernetesClusterDefaultNodePoolUpgradeSettingsArgs.builder()
  *                     .maxSurge("10%")
  *                     .build())
+ *                 .name("default")
+ *                 .nodeCount(1)
+ *                 .vmSize("Standard_DS2_v2")
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-aks")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix("exampleaks")
  *             .azurePolicyEnabled(true)
  *             .build());
  * 

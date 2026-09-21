@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteFilter("example", RouteFilterArgs.builder()
- *             .name("example")
- *             .resourceGroupName("example")
- *             .location("East US")
  *             .rule(RouteFilterRuleArgs.builder()
  *                 .name("rule")
  *                 .access("Allow")
  *                 .ruleType("Community")
  *                 .communities("12076:52004")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("East US")
  *             .build());
  * 
  *     }

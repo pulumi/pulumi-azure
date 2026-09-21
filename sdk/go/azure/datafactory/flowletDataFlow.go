@@ -69,52 +69,52 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
-//				Name:              pulumi.String("dataset1"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
 //					Container: pulumi.String("container"),
 //					Path:      pulumi.String("foo/bar/"),
 //					Filename:  pulumi.String("foo.txt"),
 //				},
-//				Encoding: pulumi.String("UTF-8"),
+//				Name:              pulumi.String("dataset1"),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceName: exampleLinkedCustomService.Name,
+//				Encoding:          pulumi.String("UTF-8"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
-//				Name:              pulumi.String("dataset2"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
 //					Container: pulumi.String("container"),
 //					Path:      pulumi.String("foo/bar/"),
 //					Filename:  pulumi.String("bar.txt"),
 //				},
-//				Encoding: pulumi.String("UTF-8"),
+//				Name:              pulumi.String("dataset2"),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceName: exampleLinkedCustomService.Name,
+//				Encoding:          pulumi.String("UTF-8"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1", &datafactory.FlowletDataFlowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Sources: datafactory.FlowletDataFlowSourceArray{
-//					&datafactory.FlowletDataFlowSourceArgs{
-//						Name: pulumi.String("source1"),
-//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
 //				Sinks: datafactory.FlowletDataFlowSinkArray{
 //					&datafactory.FlowletDataFlowSinkArgs{
-//						Name: pulumi.String("sink1"),
 //						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
 //							Name: exampleLinkedCustomService.Name,
 //						},
+//						Name: pulumi.String("sink1"),
 //					},
 //				},
+//				Sources: datafactory.FlowletDataFlowSourceArray{
+//					&datafactory.FlowletDataFlowSourceArgs{
+//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
+//							Name: exampleLinkedCustomService.Name,
+//						},
+//						Name: pulumi.String("source1"),
+//					},
+//				},
+//				Name:          pulumi.String("example"),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Script: pulumi.String(`source(
 //	  allowSchemaDrift: true,
 //	  validateSchema: false,
@@ -136,24 +136,24 @@ import (
 //				return err
 //			}
 //			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2", &datafactory.FlowletDataFlowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Sources: datafactory.FlowletDataFlowSourceArray{
-//					&datafactory.FlowletDataFlowSourceArgs{
-//						Name: pulumi.String("source1"),
-//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
 //				Sinks: datafactory.FlowletDataFlowSinkArray{
 //					&datafactory.FlowletDataFlowSinkArgs{
-//						Name: pulumi.String("sink1"),
 //						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
 //							Name: exampleLinkedCustomService.Name,
 //						},
+//						Name: pulumi.String("sink1"),
 //					},
 //				},
+//				Sources: datafactory.FlowletDataFlowSourceArray{
+//					&datafactory.FlowletDataFlowSourceArgs{
+//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
+//							Name: exampleLinkedCustomService.Name,
+//						},
+//						Name: pulumi.String("source1"),
+//					},
+//				},
+//				Name:          pulumi.String("example"),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Script: pulumi.String(`source(
 //	  allowSchemaDrift: true,
 //	  validateSchema: false,
@@ -175,30 +175,30 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewFlowletDataFlow(ctx, "example", &datafactory.FlowletDataFlowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Sources: datafactory.FlowletDataFlowSourceArray{
-//					&datafactory.FlowletDataFlowSourceArgs{
-//						Name: pulumi.String("source1"),
-//						Flowlet: &datafactory.FlowletDataFlowSourceFlowletArgs{
-//							Name: example1FlowletDataFlow.Name,
-//						},
-//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
-//							Name: exampleLinkedCustomService.Name,
-//						},
-//					},
-//				},
 //				Sinks: datafactory.FlowletDataFlowSinkArray{
 //					&datafactory.FlowletDataFlowSinkArgs{
-//						Name: pulumi.String("sink1"),
 //						Flowlet: &datafactory.FlowletDataFlowSinkFlowletArgs{
 //							Name: example2FlowletDataFlow.Name,
 //						},
 //						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
 //							Name: exampleLinkedCustomService.Name,
 //						},
+//						Name: pulumi.String("sink1"),
 //					},
 //				},
+//				Sources: datafactory.FlowletDataFlowSourceArray{
+//					&datafactory.FlowletDataFlowSourceArgs{
+//						Flowlet: &datafactory.FlowletDataFlowSourceFlowletArgs{
+//							Name: example1FlowletDataFlow.Name,
+//						},
+//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
+//							Name: exampleLinkedCustomService.Name,
+//						},
+//						Name: pulumi.String("source1"),
+//					},
+//				},
+//				Name:          pulumi.String("example"),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Script: pulumi.String(`source(
 //	  allowSchemaDrift: true,
 //	  validateSchema: false,

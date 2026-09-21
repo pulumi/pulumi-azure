@@ -28,12 +28,12 @@ import * as utilities from "../utilities";
  *     microsoftAppId: current.then(current => current.clientId),
  * });
  * const exampleChannelWebChat = new azure.bot.ChannelWebChat("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: example.name,
  *     sites: [{
  *         name: "TestSite",
  *     }],
+ *     botName: exampleChannelsRegistration.name,
+ *     location: exampleChannelsRegistration.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

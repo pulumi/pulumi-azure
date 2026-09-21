@@ -38,9 +38,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azure.storage.LocalUser;
  * import com.pulumi.azure.storage.LocalUserArgs;
- * import com.pulumi.azure.storage.inputs.LocalUserSshAuthorizedKeyArgs;
  * import com.pulumi.azure.storage.inputs.LocalUserPermissionScopeArgs;
  * import com.pulumi.azure.storage.inputs.LocalUserPermissionScopePermissionsArgs;
+ * import com.pulumi.azure.storage.inputs.LocalUserSshAuthorizedKeyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -75,11 +75,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLocalUser = new LocalUser("exampleLocalUser", LocalUserArgs.builder()
- *             .name("user1")
- *             .storageAccountId(exampleAccount.id())
- *             .sshKeyEnabled(true)
- *             .sshPasswordEnabled(true)
- *             .homeDirectory("example_path")
+ *             .permissionScopes(LocalUserPermissionScopeArgs.builder()
+ *                 .permissions(LocalUserPermissionScopePermissionsArgs.builder()
+ *                     .read(true)
+ *                     .create(true)
+ *                     .build())
+ *                 .service("blob")
+ *                 .resourceName(exampleContainer.name())
+ *                 .build())
  *             .sshAuthorizedKeys(            
  *                 LocalUserSshAuthorizedKeyArgs.builder()
  *                     .description("key1")
@@ -89,14 +92,11 @@ import javax.annotation.Nullable;
  *                     .description("key2")
  *                     .key(secondPublicKey)
  *                     .build())
- *             .permissionScopes(LocalUserPermissionScopeArgs.builder()
- *                 .permissions(LocalUserPermissionScopePermissionsArgs.builder()
- *                     .read(true)
- *                     .create(true)
- *                     .build())
- *                 .service("blob")
- *                 .resourceName(exampleContainer.name())
- *                 .build())
+ *             .name("user1")
+ *             .storageAccountId(exampleAccount.id())
+ *             .sshKeyEnabled(true)
+ *             .sshPasswordEnabled(true)
+ *             .homeDirectory("example_path")
  *             .build());
  * 
  *     }

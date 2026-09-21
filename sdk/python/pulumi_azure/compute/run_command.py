@@ -505,27 +505,19 @@ class RunCommand(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-VM",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_B2s",
-            admin_username="adminuser",
-            admin_password="P@$$w0rd1234!",
-            disable_password_authentication=False,
-            network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Premium_LRS",
@@ -539,7 +531,15 @@ class RunCommand(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned, UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="example-VM",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_B2s",
+            admin_username="adminuser",
+            admin_password="P@$$w0rd1234!",
+            disable_password_authentication=False,
+            network_interface_ids=[example_network_interface.id])
         example_account = azure.storage.Account("example",
             name="exampleaccount",
             resource_group_name=example_resource_group.name,
@@ -570,12 +570,7 @@ class RunCommand(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Append")
-        example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-            https_only=True,
-            signed_version="2019-10-10",
-            start="2023-04-01T00:00:00Z",
-            expiry="2024-04-01T00:00:00Z",
-            resource_types={
+        example = azure.storage.get_account_sas_output(resource_types={
                 "service": False,
                 "container": False,
                 "object": True,
@@ -597,29 +592,27 @@ class RunCommand(pulumi.CustomResource):
                 "process": False,
                 "tag": False,
                 "filter": False,
-            })
+            },
+            connection_string=example_account.primary_connection_string,
+            https_only=True,
+            signed_version="2019-10-10",
+            start="2023-04-01T00:00:00Z",
+            expiry="2024-04-01T00:00:00Z")
         # basic example
         example_run_command = azure.compute.RunCommand("example",
-            name="example-vmrc",
-            location=example_resource_group.location,
-            virtual_machine_id=example_linux_virtual_machine.id,
             source={
                 "script": "echo 'hello world'",
-            })
+            },
+            name="example-vmrc",
+            location=example_resource_group.location,
+            virtual_machine_id=example_linux_virtual_machine.id)
         # authorize to storage blob using user assigned identity
         example2_run_command = azure.compute.RunCommand("example2",
-            location=example_resource_group.location,
-            name="example2-vmrc",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            output_blob_uri=example2.id,
-            error_blob_uri=example3.id,
-            run_as_password="P@$$w0rd1234!",
-            run_as_user="adminuser",
             source={
-                "script_uri": example1.id,
                 "script_uri_managed_identity": {
                     "client_id": example_user_assigned_identity.client_id,
                 },
+                "script_uri": example1.id,
             },
             error_blob_managed_identity={
                 "client_id": example_user_assigned_identity.client_id,
@@ -635,6 +628,13 @@ class RunCommand(pulumi.CustomResource):
                 "name": "examplev2",
                 "value": "val2",
             }],
+            location=example_resource_group.location,
+            name="example2-vmrc",
+            virtual_machine_id=example_linux_virtual_machine.id,
+            output_blob_uri=example2.id,
+            error_blob_uri=example3.id,
+            run_as_password="P@$$w0rd1234!",
+            run_as_user="adminuser",
             tags={
                 "environment": "terraform-examples",
                 "some_key": "some-value",
@@ -642,6 +642,17 @@ class RunCommand(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         # authorize to storage blob using SAS token
         example3_run_command = azure.compute.RunCommand("example3",
+            source={
+                "script_uri": pulumi.Output.all(
+                    id=example1.id,
+                    example=example
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
+        ,
+            },
+            parameters=[{
+                "name": "example-vm1",
+                "value": "val1",
+            }],
             location=example_resource_group.location,
             name="example3-vmrc",
             virtual_machine_id=example_linux_virtual_machine.id,
@@ -657,17 +668,6 @@ class RunCommand(pulumi.CustomResource):
                 example=example
         ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
-            source={
-                "script_uri": pulumi.Output.all(
-                    id=example1.id,
-                    example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
-            },
-            parameters=[{
-                "name": "example-vm1",
-                "value": "val1",
-            }],
             tags={
                 "environment": "terraform-example-s",
                 "some_key": "some-value",
@@ -735,27 +735,19 @@ class RunCommand(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-VM",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_B2s",
-            admin_username="adminuser",
-            admin_password="P@$$w0rd1234!",
-            disable_password_authentication=False,
-            network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Premium_LRS",
@@ -769,7 +761,15 @@ class RunCommand(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned, UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="example-VM",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_B2s",
+            admin_username="adminuser",
+            admin_password="P@$$w0rd1234!",
+            disable_password_authentication=False,
+            network_interface_ids=[example_network_interface.id])
         example_account = azure.storage.Account("example",
             name="exampleaccount",
             resource_group_name=example_resource_group.name,
@@ -800,12 +800,7 @@ class RunCommand(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Append")
-        example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-            https_only=True,
-            signed_version="2019-10-10",
-            start="2023-04-01T00:00:00Z",
-            expiry="2024-04-01T00:00:00Z",
-            resource_types={
+        example = azure.storage.get_account_sas_output(resource_types={
                 "service": False,
                 "container": False,
                 "object": True,
@@ -827,29 +822,27 @@ class RunCommand(pulumi.CustomResource):
                 "process": False,
                 "tag": False,
                 "filter": False,
-            })
+            },
+            connection_string=example_account.primary_connection_string,
+            https_only=True,
+            signed_version="2019-10-10",
+            start="2023-04-01T00:00:00Z",
+            expiry="2024-04-01T00:00:00Z")
         # basic example
         example_run_command = azure.compute.RunCommand("example",
-            name="example-vmrc",
-            location=example_resource_group.location,
-            virtual_machine_id=example_linux_virtual_machine.id,
             source={
                 "script": "echo 'hello world'",
-            })
+            },
+            name="example-vmrc",
+            location=example_resource_group.location,
+            virtual_machine_id=example_linux_virtual_machine.id)
         # authorize to storage blob using user assigned identity
         example2_run_command = azure.compute.RunCommand("example2",
-            location=example_resource_group.location,
-            name="example2-vmrc",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            output_blob_uri=example2.id,
-            error_blob_uri=example3.id,
-            run_as_password="P@$$w0rd1234!",
-            run_as_user="adminuser",
             source={
-                "script_uri": example1.id,
                 "script_uri_managed_identity": {
                     "client_id": example_user_assigned_identity.client_id,
                 },
+                "script_uri": example1.id,
             },
             error_blob_managed_identity={
                 "client_id": example_user_assigned_identity.client_id,
@@ -865,6 +858,13 @@ class RunCommand(pulumi.CustomResource):
                 "name": "examplev2",
                 "value": "val2",
             }],
+            location=example_resource_group.location,
+            name="example2-vmrc",
+            virtual_machine_id=example_linux_virtual_machine.id,
+            output_blob_uri=example2.id,
+            error_blob_uri=example3.id,
+            run_as_password="P@$$w0rd1234!",
+            run_as_user="adminuser",
             tags={
                 "environment": "terraform-examples",
                 "some_key": "some-value",
@@ -872,6 +872,17 @@ class RunCommand(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         # authorize to storage blob using SAS token
         example3_run_command = azure.compute.RunCommand("example3",
+            source={
+                "script_uri": pulumi.Output.all(
+                    id=example1.id,
+                    example=example
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
+        ,
+            },
+            parameters=[{
+                "name": "example-vm1",
+                "value": "val1",
+            }],
             location=example_resource_group.location,
             name="example3-vmrc",
             virtual_machine_id=example_linux_virtual_machine.id,
@@ -887,17 +898,6 @@ class RunCommand(pulumi.CustomResource):
                 example=example
         ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
         ,
-            source={
-                "script_uri": pulumi.Output.all(
-                    id=example1.id,
-                    example=example
-        ).apply(lambda resolved_outputs: f"{resolved_outputs['id']}{example.sas}")
-        ,
-            },
-            parameters=[{
-                "name": "example-vm1",
-                "value": "val1",
-            }],
             tags={
                 "environment": "terraform-example-s",
                 "some_key": "some-value",

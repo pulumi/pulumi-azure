@@ -69,19 +69,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagementPolicy = new ManagementPolicy("exampleManagementPolicy", ManagementPolicyArgs.builder()
- *             .storageAccountId(exampleAccount.id())
  *             .rules(            
  *                 ManagementPolicyRuleArgs.builder()
- *                     .name("rule1")
- *                     .enabled(true)
  *                     .filters(ManagementPolicyRuleFiltersArgs.builder()
- *                         .prefixMatches("container1/prefix1")
- *                         .blobTypes("blockBlob")
  *                         .matchBlobIndexTags(ManagementPolicyRuleFiltersMatchBlobIndexTagArgs.builder()
  *                             .name("tag1")
  *                             .operation("==")
  *                             .value("val1")
  *                             .build())
+ *                         .prefixMatches("container1/prefix1")
+ *                         .blobTypes("blockBlob")
  *                         .build())
  *                     .actions(ManagementPolicyRuleActionsArgs.builder()
  *                         .baseBlob(ManagementPolicyRuleActionsBaseBlobArgs.builder()
@@ -93,10 +90,10 @@ import javax.annotation.Nullable;
  *                             .deleteAfterDaysSinceCreationGreaterThan(30)
  *                             .build())
  *                         .build())
+ *                     .name("rule1")
+ *                     .enabled(true)
  *                     .build(),
  *                 ManagementPolicyRuleArgs.builder()
- *                     .name("rule2")
- *                     .enabled(false)
  *                     .filters(ManagementPolicyRuleFiltersArgs.builder()
  *                         .prefixMatches(                        
  *                             "container2/prefix1",
@@ -120,7 +117,10 @@ import javax.annotation.Nullable;
  *                             .deleteAfterDaysSinceCreation(3)
  *                             .build())
  *                         .build())
+ *                     .name("rule2")
+ *                     .enabled(false)
  *                     .build())
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

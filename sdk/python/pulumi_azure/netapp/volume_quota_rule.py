@@ -270,12 +270,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -283,7 +278,12 @@ class VolumeQuotaRule(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.netapp.Account("example",
             name="example-netappaccount",
             location=example.location,
@@ -391,12 +391,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -404,7 +399,12 @@ class VolumeQuotaRule(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.netapp.Account("example",
             name="example-netappaccount",
             location=example.location,

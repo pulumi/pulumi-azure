@@ -52,15 +52,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachineGroup = new VirtualMachineGroup("exampleVirtualMachineGroup", VirtualMachineGroupArgs.builder()
+ *             .wsfcDomainProfile(VirtualMachineGroupWsfcDomainProfileArgs.builder()
+ *                 .fqdn("testdomain.com")
+ *                 .clusterSubnetType("SingleSubnet")
+ *                 .build())
  *             .name("examplegroup")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sqlImageOffer("SQL2017-WS2016")
  *             .sqlImageSku("Developer")
- *             .wsfcDomainProfile(VirtualMachineGroupWsfcDomainProfileArgs.builder()
- *                 .fqdn("testdomain.com")
- *                 .clusterSubnetType("SingleSubnet")
- *                 .build())
  *             .build());
  * 
  *     }

@@ -78,9 +78,6 @@ namespace Pulumi.Azure.Hpc
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "examplenic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -90,6 +87,9 @@ namespace Pulumi.Azure.Hpc
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "examplenic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var customData = @"#!/bin/bash
@@ -108,26 +108,6 @@ namespace Pulumi.Azure.Hpc
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "examplevm",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_F2",
-    ///         AdminUsername = "adminuser",
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
-    ///         AdminSshKeys = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
-    ///             {
-    ///                 Username = "adminuser",
-    ///                 PublicKey = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "~/.ssh/id_rsa.pub",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -140,19 +120,34 @@ namespace Pulumi.Azure.Hpc
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "~/.ssh/id_rsa.pub",
+    ///                 }).Result,
+    ///             },
+    ///         },
+    ///         Name = "examplevm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
     ///         CustomData = Std.Base64encode.Invoke(new()
     ///         {
     ///             Input = customData,
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     ///     var exampleCacheNfsTarget = new Azure.Hpc.CacheNfsTarget("example", new()
     ///     {
-    ///         Name = "examplehpcnfstarget",
-    ///         ResourceGroupName = example.Name,
-    ///         CacheName = exampleCache.Name,
-    ///         TargetHostName = exampleLinuxVirtualMachine.PrivateIpAddress,
-    ///         UsageModel = "READ_HEAVY_INFREQ",
     ///         NamespaceJunctions = new[]
     ///         {
     ///             new Azure.Hpc.Inputs.CacheNfsTargetNamespaceJunctionArgs
@@ -167,6 +162,11 @@ namespace Pulumi.Azure.Hpc
     ///                 NfsExport = "/export/b",
     ///             },
     ///         },
+    ///         Name = "examplehpcnfstarget",
+    ///         ResourceGroupName = example.Name,
+    ///         CacheName = exampleCache.Name,
+    ///         TargetHostName = exampleLinuxVirtualMachine.PrivateIpAddress,
+    ///         UsageModel = "READ_HEAVY_INFREQ",
     ///     });
     /// 
     /// });

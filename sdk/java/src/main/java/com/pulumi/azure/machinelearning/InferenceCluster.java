@@ -100,15 +100,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-mlw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
@@ -126,10 +126,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example-aks")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .dnsPrefixPrivateCluster("prefix")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("default")
  *                 .nodeCount(3)
@@ -139,6 +135,10 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-aks")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefixPrivateCluster("prefix")
  *             .build());
  * 
  *         var exampleInferenceCluster = new InferenceCluster("exampleInferenceCluster", InferenceClusterArgs.builder()

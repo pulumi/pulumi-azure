@@ -64,10 +64,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
- *             .name("example-cdn-profile")
- *             .resourceGroupName(example.name())
- *             .skuName("Premium_AzureFrontDoor")
- *             .responseTimeoutSeconds(120)
  *             .identity(FrontdoorProfileIdentityArgs.builder()
  *                 .type("SystemAssigned, UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
@@ -75,6 +71,10 @@ import javax.annotation.Nullable;
  *             .logScrubbingRules(FrontdoorProfileLogScrubbingRuleArgs.builder()
  *                 .matchVariable("RequestIPAddress")
  *                 .build())
+ *             .name("example-cdn-profile")
+ *             .resourceGroupName(example.name())
+ *             .skuName("Premium_AzureFrontDoor")
+ *             .responseTimeoutSeconds(120)
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

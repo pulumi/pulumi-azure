@@ -30,15 +30,15 @@ import * as utilities from "../utilities";
  *     microsoftAppId: current.then(current => current.clientId),
  * });
  * const exampleChannelFacebook = new azure.bot.ChannelFacebook("example", {
+ *     pages: [{
+ *         id: "876248795081953",
+ *         accessToken: "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
+ *     }],
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
  *     resourceGroupName: example.name,
  *     facebookApplicationId: "563490254873576",
  *     facebookApplicationSecret: "8976d2536445ad5b976dee8437b9beb0",
- *     pages: [{
- *         id: "876248795081953",
- *         accessToken: "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
- *     }],
  * });
  * ```
  *

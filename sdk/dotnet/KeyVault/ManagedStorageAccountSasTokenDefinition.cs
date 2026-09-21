@@ -41,8 +41,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///     var exampleGetAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
     ///     {
-    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
-    ///         HttpsOnly = true,
     ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
     ///         {
     ///             Service = true,
@@ -56,8 +54,6 @@ namespace Pulumi.Azure.KeyVault
     ///             Table = false,
     ///             File = false,
     ///         },
-    ///         Start = "2021-04-30T00:00:00Z",
-    ///         Expiry = "2023-04-30T00:00:00Z",
     ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
     ///         {
     ///             Read = true,
@@ -71,16 +67,14 @@ namespace Pulumi.Azure.KeyVault
     ///             Tag = false,
     ///             Filter = false,
     ///         },
+    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///         HttpsOnly = true,
+    ///         Start = "2021-04-30T00:00:00Z",
+    ///         Expiry = "2023-04-30T00:00:00Z",
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example-keyvault",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -105,6 +99,12 @@ namespace Pulumi.Azure.KeyVault
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-keyvault",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleManagedStorageAccount = new Azure.KeyVault.ManagedStorageAccount("example", new()

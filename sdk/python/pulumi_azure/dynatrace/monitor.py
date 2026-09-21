@@ -381,11 +381,6 @@ class Monitor(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_monitor = azure.dynatrace.Monitor("example",
-            name="exmpledynatracemonitor",
-            resource_group_name=example.name,
-            location=test["location"],
-            monitoring_enabled=True,
-            marketplace_subscription_status="Active",
             identity={
                 "type": "SystemAssigned",
             },
@@ -401,7 +396,12 @@ class Monitor(pulumi.CustomResource):
                 "billing_cycle": "MONTHLY",
                 "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
                 "effective_date": "2019-08-30T15:14:33Z",
-            })
+            },
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active")
         ```
 
         ## API Providers
@@ -452,11 +452,6 @@ class Monitor(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_monitor = azure.dynatrace.Monitor("example",
-            name="exmpledynatracemonitor",
-            resource_group_name=example.name,
-            location=test["location"],
-            monitoring_enabled=True,
-            marketplace_subscription_status="Active",
             identity={
                 "type": "SystemAssigned",
             },
@@ -472,7 +467,12 @@ class Monitor(pulumi.CustomResource):
                 "billing_cycle": "MONTHLY",
                 "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
                 "effective_date": "2019-08-30T15:14:33Z",
-            })
+            },
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active")
         ```
 
         ## API Providers

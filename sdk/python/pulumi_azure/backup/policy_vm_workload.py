@@ -255,17 +255,12 @@ class PolicyVMWorkload(pulumi.CustomResource):
             sku="Standard",
             soft_delete_enabled=False)
         example_policy_vm_workload = azure.backup.PolicyVMWorkload("example",
-            name="example-bpvmw",
-            resource_group_name=example.name,
-            recovery_vault_name=example_vault.name,
-            workload_type="SQLDataBase",
             settings={
                 "time_zone": "UTC",
                 "compression_enabled": False,
             },
             protection_policies=[
                 {
-                    "policy_type": "Full",
                     "backup": {
                         "frequency": "Daily",
                         "time": "15:00",
@@ -273,17 +268,22 @@ class PolicyVMWorkload(pulumi.CustomResource):
                     "retention_daily": {
                         "count": 8,
                     },
+                    "policy_type": "Full",
                 },
                 {
-                    "policy_type": "Log",
                     "backup": {
                         "frequency_in_minutes": 15,
                     },
                     "simple_retention": {
                         "count": 8,
                     },
+                    "policy_type": "Log",
                 },
-            ])
+            ],
+            name="example-bpvmw",
+            resource_group_name=example.name,
+            recovery_vault_name=example_vault.name,
+            workload_type="SQLDataBase")
         ```
 
         ## Import
@@ -329,17 +329,12 @@ class PolicyVMWorkload(pulumi.CustomResource):
             sku="Standard",
             soft_delete_enabled=False)
         example_policy_vm_workload = azure.backup.PolicyVMWorkload("example",
-            name="example-bpvmw",
-            resource_group_name=example.name,
-            recovery_vault_name=example_vault.name,
-            workload_type="SQLDataBase",
             settings={
                 "time_zone": "UTC",
                 "compression_enabled": False,
             },
             protection_policies=[
                 {
-                    "policy_type": "Full",
                     "backup": {
                         "frequency": "Daily",
                         "time": "15:00",
@@ -347,17 +342,22 @@ class PolicyVMWorkload(pulumi.CustomResource):
                     "retention_daily": {
                         "count": 8,
                     },
+                    "policy_type": "Full",
                 },
                 {
-                    "policy_type": "Log",
                     "backup": {
                         "frequency_in_minutes": 15,
                     },
                     "simple_retention": {
                         "count": 8,
                     },
+                    "policy_type": "Log",
                 },
-            ])
+            ],
+            name="example-bpvmw",
+            resource_group_name=example.name,
+            recovery_vault_name=example_vault.name,
+            workload_type="SQLDataBase")
         ```
 
         ## Import

@@ -37,11 +37,6 @@ namespace Pulumi.Azure.DevTest
     /// 
     ///     var exampleSchedule = new Azure.DevTest.Schedule("example", new()
     ///     {
-    ///         Name = "LabVmAutoStart",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         LabName = exampleLab.Name,
-    ///         Status = "Enabled",
     ///         WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
     ///         {
     ///             Time = "1100",
@@ -51,9 +46,14 @@ namespace Pulumi.Azure.DevTest
     ///                 "Tuesday",
     ///             },
     ///         },
+    ///         NotificationSettings = null,
+    ///         Name = "LabVmAutoStart",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         LabName = exampleLab.Name,
+    ///         Status = "Enabled",
     ///         TimeZoneId = "Pacific Standard Time",
     ///         TaskType = "LabVmsStartupTask",
-    ///         NotificationSettings = null,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

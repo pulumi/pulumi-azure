@@ -51,12 +51,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("example", new()
     ///     {
-    ///         Name = "example-function-app",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ServicePlanId = exampleServicePlan.Id,
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         SiteConfig = new Azure.AppService.Inputs.LinuxFunctionAppSiteConfigArgs
     ///         {
     ///             ApplicationStack = new Azure.AppService.Inputs.LinuxFunctionAppSiteConfigApplicationStackArgs
@@ -64,6 +58,12 @@ namespace Pulumi.Azure.AppService
     ///                 PythonVersion = "3.9",
     ///             },
     ///         },
+    ///         Name = "example-function-app",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///     });
     /// 
     ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("example", new()
@@ -142,12 +142,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
     ///     {
-    ///         Name = "example-function-app",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ServicePlanId = exampleServicePlan.Id,
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         SiteConfig = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigArgs
     ///         {
     ///             ApplicationStack = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigApplicationStackArgs
@@ -155,13 +149,16 @@ namespace Pulumi.Azure.AppService
     ///                 DotnetVersion = "6",
     ///             },
     ///         },
+    ///         Name = "example-function-app",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///     });
     /// 
     ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("example", new()
     ///     {
-    ///         Name = "example-function-app-function",
-    ///         FunctionAppId = exampleWindowsFunctionApp.Id,
-    ///         Language = "CSharp",
     ///         Files = new[]
     ///         {
     ///             new Azure.AppService.Inputs.FunctionAppFunctionFileArgs
@@ -170,9 +167,12 @@ namespace Pulumi.Azure.AppService
     ///                 Content = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "exampledata/run.csx",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///             },
     ///         },
+    ///         Name = "example-function-app-function",
+    ///         FunctionAppId = exampleWindowsFunctionApp.Id,
+    ///         Language = "CSharp",
     ///         TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["name"] = "Azure",

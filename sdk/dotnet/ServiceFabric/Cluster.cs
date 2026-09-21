@@ -30,14 +30,6 @@ namespace Pulumi.Azure.ServiceFabric
     /// 
     ///     var exampleCluster = new Azure.ServiceFabric.Cluster("example", new()
     ///     {
-    ///         Name = "example-servicefabric",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ReliabilityLevel = "Bronze",
-    ///         UpgradeMode = "Manual",
-    ///         ClusterCodeVersion = "7.1.456.959",
-    ///         VmImage = "Windows",
-    ///         ManagementEndpoint = "https://example:80",
     ///         NodeTypes = new[]
     ///         {
     ///             new Azure.ServiceFabric.Inputs.ClusterNodeTypeArgs
@@ -49,6 +41,14 @@ namespace Pulumi.Azure.ServiceFabric
     ///                 HttpEndpointPort = 80,
     ///             },
     ///         },
+    ///         Name = "example-servicefabric",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ReliabilityLevel = "Bronze",
+    ///         UpgradeMode = "Manual",
+    ///         ClusterCodeVersion = "7.1.456.959",
+    ///         VmImage = "Windows",
+    ///         ManagementEndpoint = "https://example:80",
     ///     });
     /// 
     /// });

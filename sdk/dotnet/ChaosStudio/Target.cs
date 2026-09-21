@@ -32,24 +32,24 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         DnsPrefix = "acctestaksexample",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
-    ///             Name = "example-value",
-    ///             NodeCount = "example-value",
-    ///             VmSize = "example-value",
     ///             UpgradeSettings = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs
     ///             {
     ///                 MaxSurge = "example-value",
     ///             },
+    ///             Name = "example-value",
+    ///             NodeCount = "example-value",
+    ///             VmSize = "example-value",
     ///         },
     ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
     ///         {
     ///             Type = "example-value",
     ///         },
+    ///         Name = "example",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DnsPrefix = "acctestaksexample",
     ///     });
     /// 
     ///     var exampleTarget = new Azure.ChaosStudio.Target("example", new()

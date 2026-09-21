@@ -34,13 +34,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleAutomaticCluster = new Azure.ContainerService.AutomaticCluster("example", new()
     ///     {
-    ///         Name = "example-aks1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.ContainerService.Inputs.AutomaticClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-aks1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },
@@ -95,18 +95,10 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var api = new Azure.Network.Subnet("api", new()
     ///     {
-    ///         Name = "example-api-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.1.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "aks-delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -115,7 +107,15 @@ namespace Pulumi.Azure.ContainerService
     ///                     },
     ///                     Name = "Microsoft.ContainerService/managedClusters",
     ///                 },
+    ///                 Name = "aks-delegation",
     ///             },
+    ///         },
+    ///         Name = "example-api-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.1.0/24",
     ///         },
     ///     });
     /// 
@@ -127,6 +127,12 @@ namespace Pulumi.Azure.ContainerService
     ///         AddressPrefixes = new[]
     ///         {
     ///             "10.1.2.0/24",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "delegations",
     ///         },
     ///     });
     /// 
@@ -146,9 +152,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleAutomaticCluster = new Azure.ContainerService.AutomaticCluster("example", new()
     ///     {
-    ///         Name = "example-aks",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         HostedSystem = new Azure.ContainerService.Inputs.AutomaticClusterHostedSystemArgs
     ///         {
     ///             NodeSubnetId = node.Id,
@@ -166,6 +169,9 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             SubnetId = api.Id,
     ///         },
+    ///         Name = "example-aks",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

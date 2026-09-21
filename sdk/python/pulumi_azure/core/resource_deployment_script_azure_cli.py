@@ -634,6 +634,10 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-rdsac",
             resource_group_name=example.name,
             location="West Europe",
@@ -644,10 +648,6 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             force_update_tag="1",
             timeout="PT30M",
             script_content="            echo \\\\\\"{\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\":{\\\\\\\\\\\\\\"displayName\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"$1 $2\\\\\\\\\\\\\\"}}\\\\\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
             tags={
                 "key": "value",
             })
@@ -712,6 +712,10 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-rdsac",
             resource_group_name=example.name,
             location="West Europe",
@@ -722,10 +726,6 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             force_update_tag="1",
             timeout="PT30M",
             script_content="            echo \\\\\\"{\\\\\\\\\\\\\\"name\\\\\\\\\\\\\\":{\\\\\\\\\\\\\\"displayName\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"$1 $2\\\\\\\\\\\\\\"}}\\\\\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
             tags={
                 "key": "value",
             })

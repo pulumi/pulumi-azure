@@ -52,9 +52,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
     ///     {
-    ///         Name = "example-nsg",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         SecurityRules = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
@@ -70,6 +67,9 @@ namespace Pulumi.Azure.Network
     ///                 DestinationAddressPrefix = "*",
     ///             },
     ///         },
+    ///         Name = "example-nsg",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()

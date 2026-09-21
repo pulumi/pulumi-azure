@@ -42,15 +42,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "GRS",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     name: "example-container",

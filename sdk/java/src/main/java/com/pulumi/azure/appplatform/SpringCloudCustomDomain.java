@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudCustomDomain;
  * import com.pulumi.azure.appplatform.SpringCloudCustomDomainArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -86,12 +85,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudCustomDomain = new SpringCloudCustomDomain("exampleSpringCloudCustomDomain", SpringCloudCustomDomainArgs.builder()
- *             .name(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
+ *             .name(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
  *                     exampleCNameRecord.name(),
- *                     exampleCNameRecord.zoneName())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *                     exampleCNameRecord.zoneName()))
+ *             )).result())
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .build());
  * 

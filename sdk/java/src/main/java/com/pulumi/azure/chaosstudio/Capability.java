@@ -54,10 +54,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new KubernetesCluster("example", KubernetesClusterArgs.builder()
- *             .name("example")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .dnsPrefix("acctestaksexample")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("example-value")
  *                 .nodeCount("example-value")
@@ -66,6 +62,10 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("example-value")
  *                 .build())
+ *             .name("example")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .dnsPrefix("acctestaksexample")
  *             .build());
  * 
  *         var exampleTarget = new Target("exampleTarget", TargetArgs.builder()

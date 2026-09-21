@@ -76,15 +76,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("Env", "production"))
  *             .build());
  * 
@@ -194,12 +194,6 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
- *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .customerManagedKey(WorkspaceCustomerManagedKeyArgs.builder()
  *                 .keyVersionlessId(exampleKey.versionlessId())
  *                 .keyName("enckey")
@@ -207,6 +201,12 @@ import javax.annotation.Nullable;
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
+ *             .sqlAdministratorLogin("sqladminuser")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .tags(Map.of("Env", "production"))
  *             .build());
  * 

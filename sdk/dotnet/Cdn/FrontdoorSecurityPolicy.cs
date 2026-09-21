@@ -38,25 +38,10 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorFirewallPolicy = new Azure.Cdn.FrontdoorFirewallPolicy("example", new()
     ///     {
-    ///         Name = "exampleWAF",
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = exampleFrontdoorProfile.SkuName,
-    ///         Enabled = true,
-    ///         Mode = "Prevention",
-    ///         RedirectUrl = "https://www.contoso.com",
-    ///         CustomBlockResponseStatusCode = 403,
-    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///         CustomRules = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
     ///             {
-    ///                 Name = "Rule1",
-    ///                 Enabled = true,
-    ///                 Priority = 1,
-    ///                 RateLimitDurationInMinutes = 1,
-    ///                 RateLimitThreshold = 10,
-    ///                 Type = "MatchRule",
-    ///                 Action = "Block",
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
@@ -71,8 +56,23 @@ namespace Pulumi.Azure.Cdn
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Rule1",
+    ///                 Enabled = true,
+    ///                 Priority = 1,
+    ///                 RateLimitDurationInMinutes = 1,
+    ///                 RateLimitThreshold = 10,
+    ///                 Type = "MatchRule",
+    ///                 Action = "Block",
     ///             },
     ///         },
+    ///         Name = "exampleWAF",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = exampleFrontdoorProfile.SkuName,
+    ///         Enabled = true,
+    ///         Mode = "Prevention",
+    ///         RedirectUrl = "https://www.contoso.com",
+    ///         CustomBlockResponseStatusCode = 403,
+    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///     });
     /// 
     ///     var exampleZone = new Azure.Dns.Zone("example", new()
@@ -83,6 +83,11 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
     ///     {
+    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         {
+    ///             CertificateType = "ManagedCertificate",
+    ///             MinimumTlsVersion = "TLS12",
+    ///         },
     ///         Name = "example-customDomain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
@@ -94,23 +99,15 @@ namespace Pulumi.Azure.Cdn
     ///                 "contoso",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
-    ///         {
-    ///             CertificateType = "ManagedCertificate",
-    ///             MinimumTlsVersion = "TLS12",
-    ///         },
+    ///         }).Result,
     ///     });
     /// 
     ///     var exampleFrontdoorSecurityPolicy = new Azure.Cdn.FrontdoorSecurityPolicy("example", new()
     ///     {
-    ///         Name = "Example-Security-Policy",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         SecurityPolicies = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesArgs
     ///         {
     ///             Firewall = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs
     ///             {
-    ///                 CdnFrontdoorFirewallPolicyId = exampleFrontdoorFirewallPolicy.Id,
     ///                 Association = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs
     ///                 {
     ///                     Domains = new[]
@@ -122,8 +119,11 @@ namespace Pulumi.Azure.Cdn
     ///                     },
     ///                     PatternsToMatch = "/*",
     ///                 },
+    ///                 CdnFrontdoorFirewallPolicyId = exampleFrontdoorFirewallPolicy.Id,
     ///             },
     ///         },
+    ///         Name = "Example-Security-Policy",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///     });
     /// 
     /// });

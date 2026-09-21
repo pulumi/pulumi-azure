@@ -353,12 +353,12 @@ class MedtechService(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_medtech_service = azure.healthcare.MedtechService("example",
-            name="examplemed",
-            workspace_id=example_workspace.id,
-            location="east us",
             identity={
                 "type": "SystemAssigned",
             },
+            name="examplemed",
+            workspace_id=example_workspace.id,
+            location="east us",
             eventhub_namespace_name="example-eventhub-namespace",
             eventhub_name="example-eventhub",
             eventhub_consumer_group_name="$Default",
@@ -433,12 +433,12 @@ class MedtechService(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_medtech_service = azure.healthcare.MedtechService("example",
-            name="examplemed",
-            workspace_id=example_workspace.id,
-            location="east us",
             identity={
                 "type": "SystemAssigned",
             },
+            name="examplemed",
+            workspace_id=example_workspace.id,
+            location="east us",
             eventhub_namespace_name="example-eventhub-namespace",
             eventhub_name="example-eventhub",
             eventhub_consumer_group_name="$Default",

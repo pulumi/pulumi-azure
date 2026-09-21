@@ -71,11 +71,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-cosmosdb-account")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Strong")
  *                 .build())
@@ -83,6 +78,11 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSpringCloudAppCosmosDBAssociation = new SpringCloudAppCosmosDBAssociation("exampleSpringCloudAppCosmosDBAssociation", SpringCloudAppCosmosDBAssociationArgs.builder()

@@ -64,10 +64,6 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Name = "example-lb",
-    ///         Sku = "Standard",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -76,25 +72,14 @@ namespace Pulumi.Azure.PrivateDns
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "example-lb",
+    ///         Sku = "Standard",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinkService = new Azure.PrivateDns.LinkService("example", new()
     ///     {
-    ///         Name = "example-privatelink",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AutoApprovalSubscriptionIds = new[]
-    ///         {
-    ///             "00000000-0000-0000-0000-000000000000",
-    ///         },
-    ///         VisibilitySubscriptionIds = new[]
-    ///         {
-    ///             "00000000-0000-0000-0000-000000000000",
-    ///         },
-    ///         LoadBalancerFrontendIpConfigurationIds = new[]
-    ///         {
-    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
-    ///         },
     ///         NatIpConfigurations = new[]
     ///         {
     ///             new Azure.PrivateDns.Inputs.LinkServiceNatIpConfigurationArgs
@@ -113,6 +98,21 @@ namespace Pulumi.Azure.PrivateDns
     ///                 SubnetId = exampleSubnet.Id,
     ///                 Primary = false,
     ///             },
+    ///         },
+    ///         Name = "example-privatelink",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AutoApprovalSubscriptionIds = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         VisibilitySubscriptionIds = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         LoadBalancerFrontendIpConfigurationIds = new[]
+    ///         {
+    ///             exampleLoadBalancer.FrontendIpConfigurations.Apply(frontendIpConfigurations =&gt; frontendIpConfigurations[0]?.Id),
     ///         },
     ///     });
     /// 

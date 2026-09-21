@@ -350,13 +350,13 @@ class Script(pulumi.CustomResource):
             name="example",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_database = azure.kusto.Database("example",
             name="example",
             resource_group_name=example_resource_group.name,
@@ -378,19 +378,19 @@ class Script(pulumi.CustomResource):
             storage_container_name=example_container.name,
             type="Block",
             source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
-            container_name=example_container.name,
-            https_only=True,
-            start="2017-03-21",
-            expiry="2022-03-21",
-            permissions={
+        example = azure.storage.get_account_blob_container_sas_output(permissions={
                 "read": True,
                 "add": False,
                 "create": False,
                 "write": True,
                 "delete": False,
                 "list": True,
-            })
+            },
+            connection_string=example_account.primary_connection_string,
+            container_name=example_container.name,
+            https_only=True,
+            start="2017-03-21",
+            expiry="2022-03-21")
         example_script = azure.kusto.Script("example",
             name="example",
             database_id=example_database.id,
@@ -449,13 +449,13 @@ class Script(pulumi.CustomResource):
             name="example",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="example",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_database = azure.kusto.Database("example",
             name="example",
             resource_group_name=example_resource_group.name,
@@ -477,19 +477,19 @@ class Script(pulumi.CustomResource):
             storage_container_name=example_container.name,
             type="Block",
             source_content=".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)")
-        example = azure.storage.get_account_blob_container_sas_output(connection_string=example_account.primary_connection_string,
-            container_name=example_container.name,
-            https_only=True,
-            start="2017-03-21",
-            expiry="2022-03-21",
-            permissions={
+        example = azure.storage.get_account_blob_container_sas_output(permissions={
                 "read": True,
                 "add": False,
                 "create": False,
                 "write": True,
                 "delete": False,
                 "list": True,
-            })
+            },
+            connection_string=example_account.primary_connection_string,
+            container_name=example_container.name,
+            https_only=True,
+            start="2017-03-21",
+            expiry="2022-03-21")
         example_script = azure.kusto.Script("example",
             name="example",
             database_id=example_database.id,

@@ -63,6 +63,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMongoCollection = new MongoCollection("exampleMongoCollection", MongoCollectionArgs.builder()
+ *             .indices(MongoCollectionIndexArgs.builder()
+ *                 .keys("_id")
+ *                 .unique(true)
+ *                 .build())
  *             .name("tfex-cosmos-mongo-db")
  *             .resourceGroupName(example.resourceGroupName())
  *             .accountName(example.name())
@@ -70,10 +74,6 @@ import javax.annotation.Nullable;
  *             .defaultTtlSeconds(777)
  *             .shardKey("uniqueKey")
  *             .throughput(400)
- *             .indices(MongoCollectionIndexArgs.builder()
- *                 .keys("_id")
- *                 .unique(true)
- *                 .build())
  *             .build());
  * 
  *     }

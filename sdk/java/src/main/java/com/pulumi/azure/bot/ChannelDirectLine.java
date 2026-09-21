@@ -64,13 +64,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleChannelDirectLine = new ChannelDirectLine("exampleChannelDirectLine", ChannelDirectLineArgs.builder()
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(example.name())
  *             .sites(ChannelDirectLineSiteArgs.builder()
  *                 .name("default")
  *                 .enabled(true)
  *                 .build())
+ *             .botName(exampleChannelsRegistration.name())
+ *             .location(exampleChannelsRegistration.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

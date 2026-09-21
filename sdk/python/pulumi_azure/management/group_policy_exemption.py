@@ -347,13 +347,13 @@ class GroupPolicyExemption(pulumi.CustomResource):
         example_group = azure.management.Group("example", display_name="Example MgmtGroup")
         example = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
         example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="assignment1",
             management_group_id=example_group.id,
             policy_definition_id=example.id,
-            location="westus",
-            identity={
-                "type": "SystemAssigned",
-            })
+            location="westus")
         example_group_policy_exemption = azure.management.GroupPolicyExemption("example",
             name="exemption1",
             management_group_id=example_group.id,
@@ -400,13 +400,13 @@ class GroupPolicyExemption(pulumi.CustomResource):
         example_group = azure.management.Group("example", display_name="Example MgmtGroup")
         example = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
         example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="assignment1",
             management_group_id=example_group.id,
             policy_definition_id=example.id,
-            location="westus",
-            identity={
-                "type": "SystemAssigned",
-            })
+            location="westus")
         example_group_policy_exemption = azure.management.GroupPolicyExemption("example",
             name="exemption1",
             management_group_id=example_group.id,

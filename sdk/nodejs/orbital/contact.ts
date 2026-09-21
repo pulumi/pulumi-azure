@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleSpacecraft = new azure.orbital.Spacecraft("example", {
- *     name: "example-spacecraft",
- *     resourceGroupName: example.name,
- *     location: "westeurope",
- *     noradId: "12345",
  *     links: [{
  *         bandwidthMhz: 100,
  *         centerFrequencyMhz: 101,
@@ -31,6 +27,10 @@ import * as utilities from "../utilities";
  *         polarization: "LHCP",
  *         name: "examplename",
  *     }],
+ *     name: "example-spacecraft",
+ *     resourceGroupName: example.name,
+ *     location: "westeurope",
+ *     noradId: "12345",
  *     twoLineElements: [
  *         "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
  *         "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
@@ -47,12 +47,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "orbitalgateway",
  *         serviceDelegation: {
  *             name: "Microsoft.Orbital/orbitalGateways",
  *             actions: [
@@ -62,30 +57,35 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/publicIPAddresses/read",
  *             ],
  *         },
+ *         name: "orbitalgateway",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const exampleContactProfile = new azure.orbital.ContactProfile("example", {
- *     name: "example-contactprofile",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     minimumVariableContactDuration: "PT1M",
- *     autoTracking: "disabled",
  *     links: [{
  *         channels: [{
- *             name: "channelname",
- *             bandwidthMhz: 100,
- *             centerFrequencyMhz: 101,
  *             endPoints: [{
  *                 endPointName: "AQUA_command",
  *                 ipAddress: "10.0.1.0",
  *                 port: "49153",
  *                 protocol: "TCP",
  *             }],
+ *             name: "channelname",
+ *             bandwidthMhz: 100,
+ *             centerFrequencyMhz: 101,
  *         }],
  *         direction: "Uplink",
  *         name: "RHCP_UL",
  *         polarization: "RHCP",
  *     }],
+ *     name: "example-contactprofile",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     minimumVariableContactDuration: "PT1M",
+ *     autoTracking: "disabled",
  *     networkConfigurationSubnetId: exampleSubnet.id,
  * });
  * const exampleContact = new azure.orbital.Contact("example", {

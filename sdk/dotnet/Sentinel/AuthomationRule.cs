@@ -43,10 +43,6 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleAutomationRule = new Azure.Sentinel.AutomationRule("example", new()
     ///     {
-    ///         Name = "56094f72-ac3f-40e7-a0c0-47bd95f70336",
-    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-    ///         DisplayName = "automation_rule1",
-    ///         Order = 1,
     ///         ActionIncidents = new[]
     ///         {
     ///             new Azure.Sentinel.Inputs.AutomationRuleActionIncidentArgs
@@ -55,6 +51,10 @@ namespace Pulumi.Azure.Sentinel
     ///                 Status = "Active",
     ///             },
     ///         },
+    ///         Name = "56094f72-ac3f-40e7-a0c0-47bd95f70336",
+    ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+    ///         DisplayName = "automation_rule1",
+    ///         Order = 1,
     ///     });
     /// 
     /// });

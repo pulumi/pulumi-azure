@@ -47,16 +47,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyIssuerParametersArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyKeyPropertiesArgs;
- * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionArgs;
- * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionActionArgs;
- * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicySecretPropertiesArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionActionArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs;
  * import com.pulumi.azure.apimanagement.CustomDomain;
  * import com.pulumi.azure.apimanagement.CustomDomainArgs;
- * import com.pulumi.azure.apimanagement.inputs.CustomDomainGatewayArgs;
  * import com.pulumi.azure.apimanagement.inputs.CustomDomainDeveloperPortalArgs;
+ * import com.pulumi.azure.apimanagement.inputs.CustomDomainGatewayArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -90,8 +90,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("example-certificate")
- *             .keyVaultId(example.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
  *                     .name("Self")
@@ -102,18 +100,15 @@ import javax.annotation.Nullable;
  *                     .keyType("RSA")
  *                     .reuseKey(true)
  *                     .build())
- *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
- *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
- *                         .actionType("AutoRenew")
- *                         .build())
- *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
- *                         .daysBeforeExpiry(30)
- *                         .build())
- *                     .build())
  *                 .secretProperties(CertificateCertificatePolicySecretPropertiesArgs.builder()
  *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .x509CertificateProperties(CertificateCertificatePolicyX509CertificatePropertiesArgs.builder()
+ *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
+ *                         .dnsNames(                        
+ *                             "api.example.com",
+ *                             "portal.example.com")
+ *                         .build())
  *                     .keyUsages(                    
  *                         "cRLSign",
  *                         "dataEncipherment",
@@ -123,25 +118,30 @@ import javax.annotation.Nullable;
  *                         "keyEncipherment")
  *                     .subject("CN=api.example.com")
  *                     .validityInMonths(12)
- *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
- *                         .dnsNames(                        
- *                             "api.example.com",
- *                             "portal.example.com")
+ *                     .build())
+ *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
+ *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
+ *                         .actionType("AutoRenew")
+ *                         .build())
+ *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
+ *                         .daysBeforeExpiry(30)
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("example-certificate")
+ *             .keyVaultId(example.id())
  *             .build());
  * 
  *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
- *             .apiManagementId(exampleService.id())
- *             .gateways(CustomDomainGatewayArgs.builder()
- *                 .hostName("api.example.com")
- *                 .keyVaultId(exampleCertificate.versionlessSecretId())
- *                 .build())
  *             .developerPortals(CustomDomainDeveloperPortalArgs.builder()
  *                 .hostName("portal.example.com")
  *                 .keyVaultId(exampleCertificate.versionlessSecretId())
  *                 .build())
+ *             .gateways(CustomDomainGatewayArgs.builder()
+ *                 .hostName("api.example.com")
+ *                 .keyVaultId(exampleCertificate.versionlessSecretId())
+ *                 .build())
+ *             .apiManagementId(exampleService.id())
  *             .build());
  * 
  *     }}{@code

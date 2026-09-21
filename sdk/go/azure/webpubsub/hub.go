@@ -56,8 +56,6 @@ import (
 //				return err
 //			}
 //			_, err = webpubsub.NewHub(ctx, "example", &webpubsub.HubArgs{
-//				Name:        pulumi.String("tfex_wpsh"),
-//				WebPubsubId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				EventHandlers: webpubsub.HubEventHandlerArray{
 //					&webpubsub.HubEventHandlerArgs{
 //						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
@@ -68,13 +66,13 @@ import (
 //						},
 //					},
 //					&webpubsub.HubEventHandlerArgs{
+//						Auth: &webpubsub.HubEventHandlerAuthArgs{
+//							ManagedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//						},
 //						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
 //						UserEventPattern: pulumi.String("event1, event2"),
 //						SystemEvents: pulumi.StringArray{
 //							pulumi.String("connected"),
-//						},
-//						Auth: &webpubsub.HubEventHandlerAuthArgs{
-//							ManagedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},
@@ -111,6 +109,8 @@ import (
 //						EventhubName:          pulumi.Any(test1.Name),
 //					},
 //				},
+//				Name:                        pulumi.String("tfex_wpsh"),
+//				WebPubsubId:                 exampleService.ID().ToIDOutput().ToStringOutput(),
 //				AnonymousConnectionsEnabled: pulumi.Bool(true),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleService,

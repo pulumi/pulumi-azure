@@ -43,20 +43,20 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "GRS",
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     siteConfig: {},
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-function-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     siteConfig: {},
  * });
  * const exampleFunctionAppHybridConnection = new azure.appservice.FunctionAppHybridConnection("example", {
  *     functionAppId: exampleWindowsWebApp.id,

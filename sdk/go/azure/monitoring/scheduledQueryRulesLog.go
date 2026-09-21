@@ -48,29 +48,26 @@ import (
 //				return err
 //			}
 //			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-actiongroup"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("exampleact"),
 //				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 //					&monitoring.ActionGroupWebhookReceiverArgs{
 //						Name:       pulumi.String("callmyapi"),
 //						ServiceUri: pulumi.String("http://example.com/alert"),
 //					},
 //				},
+//				Name:              pulumi.String("example-actiongroup"),
+//				ResourceGroupName: example.Name,
+//				ShortName:         pulumi.String("exampleact"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Example: Creates alert using the new Scheduled Query Rules metric
 //			_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
-//				Name:              pulumi.String("example-metricalert"),
-//				ResourceGroupName: example.Name,
-//				Scopes: pulumi.StringArray{
-//					exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				Actions: monitoring.MetricAlertActionArray{
+//					&monitoring.MetricAlertActionArgs{
+//						ActionGroupId: exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
+//					},
 //				},
-//				Description: pulumi.String("Action will be triggered when Average_% Idle Time metric is less than 10."),
-//				Frequency:   pulumi.String("PT1M"),
-//				WindowSize:  pulumi.String("PT5M"),
 //				Criterias: monitoring.MetricAlertCriteriaArray{
 //					&monitoring.MetricAlertCriteriaArgs{
 //						MetricNamespace: pulumi.String("Microsoft.OperationalInsights/workspaces"),
@@ -80,22 +77,21 @@ import (
 //						Threshold:       pulumi.Float64(10),
 //					},
 //				},
-//				Actions: monitoring.MetricAlertActionArray{
-//					&monitoring.MetricAlertActionArgs{
-//						ActionGroupId: exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
-//					},
+//				Name:              pulumi.String("example-metricalert"),
+//				ResourceGroupName: example.Name,
+//				Scopes: pulumi.StringArray{
+//					exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Description: pulumi.String("Action will be triggered when Average_% Idle Time metric is less than 10."),
+//				Frequency:   pulumi.String("PT1M"),
+//				WindowSize:  pulumi.String("PT5M"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// Example: LogToMetric Action for the named Computer
 //			_, err = monitoring.NewScheduledQueryRulesLog(ctx, "example", &monitoring.ScheduledQueryRulesLogArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
-//					MetricName: pulumi.String("Average_% Idle Time"),
 //					Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{
 //						&monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs{
 //							Name:     pulumi.String("Computer"),
@@ -105,10 +101,14 @@ import (
 //							},
 //						},
 //					},
+//					MetricName: pulumi.String("Average_% Idle Time"),
 //				},
-//				DataSourceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				Description:  pulumi.String("Scheduled query rule LogToMetric example"),
-//				Enabled:      pulumi.Bool(true),
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DataSourceId:      exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				Description:       pulumi.String("Scheduled query rule LogToMetric example"),
+//				Enabled:           pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

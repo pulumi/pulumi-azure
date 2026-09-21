@@ -86,17 +86,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
+ *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .subnetId(exampleSubnet.id())
+ *                 .build())
  *             .name("example-vnetgw")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .type("Vpn")
  *             .vpnType("RouteBased")
  *             .sku("Basic")
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation("Dynamic")
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
  *             .build());
  * 
  *         final var example = NetworkFunctions.getVirtualNetworkGateway(GetVirtualNetworkGatewayArgs.builder()
@@ -105,12 +105,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetworkGatewayNatRule = new VirtualNetworkGatewayNatRule("exampleVirtualNetworkGatewayNatRule", VirtualNetworkGatewayNatRuleArgs.builder()
- *             .name("example-vnetgwnatrule")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkGatewayId(example.applyValue(_example -> _example.id()))
- *             .mode("EgressSnat")
- *             .type("Dynamic")
- *             .ipConfigurationId(example.applyValue(_example -> _example.ipConfigurations()[0].id()))
  *             .externalMappings(VirtualNetworkGatewayNatRuleExternalMappingArgs.builder()
  *                 .addressSpace("10.2.0.0/26")
  *                 .portRange("200")
@@ -119,6 +113,12 @@ import javax.annotation.Nullable;
  *                 .addressSpace("10.4.0.0/26")
  *                 .portRange("400")
  *                 .build())
+ *             .name("example-vnetgwnatrule")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkGatewayId(example.applyValue(_example -> _example.id()))
+ *             .mode("EgressSnat")
+ *             .type("Dynamic")
+ *             .ipConfigurationId(example.applyValue(_example -> _example.ipConfigurations()[0].id()))
  *             .build());
  * 
  *     }

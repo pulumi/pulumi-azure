@@ -50,16 +50,16 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewSharedImage(ctx, "example", &compute.SharedImageArgs{
-//				Name:              pulumi.String("my-image"),
-//				GalleryName:       exampleSharedImageGallery.Name,
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				OsType:            pulumi.String("Linux"),
 //				Identifier: &compute.SharedImageIdentifierArgs{
 //					Publisher: pulumi.String("PublisherName"),
 //					Offer:     pulumi.String("OfferName"),
 //					Sku:       pulumi.String("ExampleSku"),
 //				},
+//				Name:              pulumi.String("my-image"),
+//				GalleryName:       exampleSharedImageGallery.Name,
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				OsType:            pulumi.String("Linux"),
 //			})
 //			if err != nil {
 //				return err

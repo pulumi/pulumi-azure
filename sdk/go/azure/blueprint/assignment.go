@@ -92,6 +92,12 @@ import (
 //				return err
 //			}
 //			_, err = blueprint.NewAssignment(ctx, "example", &blueprint.AssignmentArgs{
+//				Identity: &blueprint.AssignmentIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:                 pulumi.String("testAccBPAssignment"),
 //				TargetSubscriptionId: pulumi.String(example.Id),
 //				VersionId:            pulumi.String(exampleGetPublishedVersion.Id),
@@ -99,12 +105,6 @@ import (
 //				LockMode:             pulumi.String("AllResourcesDoNotDelete"),
 //				LockExcludePrincipals: pulumi.StringArray{
 //					pulumi.String(current.ObjectId),
-//				},
-//				Identity: &blueprint.AssignmentIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
-//					},
 //				},
 //				ResourceGroups: pulumi.String(`    {
 //	      \"ResourceGroup\": {

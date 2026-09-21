@@ -32,26 +32,26 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "inbounddns",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.0/28"],
  *     delegations: [{
- *         name: "Microsoft.Network.dnsResolvers",
  *         serviceDelegation: {
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *             name: "Microsoft.Network/dnsResolvers",
  *         },
+ *         name: "Microsoft.Network.dnsResolvers",
  *     }],
+ *     name: "inbounddns",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/28"],
  * });
  * const exampleResolverInboundEndpoint = new azure.privatedns.ResolverInboundEndpoint("example", {
- *     name: "example-drie",
- *     privateDnsResolverId: exampleResolver.id,
- *     location: exampleResolver.location,
  *     ipConfigurations: {
  *         privateIpAllocationMethod: "Dynamic",
  *         subnetId: exampleSubnet.id,
  *     },
+ *     name: "example-drie",
+ *     privateDnsResolverId: exampleResolver.id,
+ *     location: exampleResolver.location,
  *     tags: {
  *         key: "value",
  *     },

@@ -63,6 +63,14 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewTriggerBlobEvent(ctx, "example", &datafactory.TriggerBlobEventArgs{
+//				Pipelines: datafactory.TriggerBlobEventPipelineArray{
+//					&datafactory.TriggerBlobEventPipelineArgs{
+//						Name: examplePipeline.Name,
+//						Parameters: pulumi.StringMap{
+//							"Env": pulumi.String("Prod"),
+//						},
+//					},
+//				},
 //				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
@@ -79,14 +87,6 @@ import (
 //					pulumi.String("test3"),
 //				},
 //				Description: pulumi.String("example description"),
-//				Pipelines: datafactory.TriggerBlobEventPipelineArray{
-//					&datafactory.TriggerBlobEventPipelineArgs{
-//						Name: examplePipeline.Name,
-//						Parameters: pulumi.StringMap{
-//							"Env": pulumi.String("Prod"),
-//						},
-//					},
-//				},
 //				AdditionalProperties: pulumi.StringMap{
 //					"foo": pulumi.String("foo1"),
 //					"bar": pulumi.String("bar2"),

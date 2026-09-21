@@ -31,13 +31,13 @@ namespace Pulumi.Azure.Healthcare
     /// 
     ///     var testDicomService = new Azure.Healthcare.DicomService("test", new()
     ///     {
-    ///         Name = "tfexDicom",
-    ///         WorkspaceId = test.Id,
-    ///         Location = "east us",
     ///         Identity = new Azure.Healthcare.Inputs.DicomServiceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "tfexDicom",
+    ///         WorkspaceId = test.Id,
+    ///         Location = "east us",
     ///         Tags = 
     ///         {
     ///             { "environment", "None" },

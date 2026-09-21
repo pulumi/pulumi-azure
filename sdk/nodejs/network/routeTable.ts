@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleRouteTable = new azure.network.RouteTable("example", {
- *     name: "example-route-table",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     routes: [{
  *         name: "route1",
  *         addressPrefix: "10.1.0.0/16",
  *         nextHopType: "VnetLocal",
  *     }],
+ *     name: "example-route-table",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         environment: "Production",
  *     },

@@ -68,19 +68,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-windows-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot("exampleWindowsWebAppSlot", WindowsWebAppSlotArgs.builder()
- *             .name("example-windows-web-app-slot")
- *             .appServiceId(exampleWindowsWebApp.name())
  *             .siteConfig(WindowsWebAppSlotSiteConfigArgs.builder()
  *                 .build())
+ *             .name("example-windows-web-app-slot")
+ *             .appServiceId(exampleWindowsWebApp.name())
  *             .build());
  * 
  *         var exampleWebAppActiveSlot = new WebAppActiveSlot("exampleWebAppActiveSlot", WebAppActiveSlotArgs.builder()
@@ -140,21 +140,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
+ *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot("exampleLinuxWebAppSlot", LinuxWebAppSlotArgs.builder()
+ *             .siteConfig(LinuxWebAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-web-app-slot")
  *             .appServiceName(exampleLinuxWebApp.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(LinuxWebAppSlotSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleWebAppActiveSlot = new WebAppActiveSlot("exampleWebAppActiveSlot", WebAppActiveSlotArgs.builder()

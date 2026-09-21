@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.devtest.LinuxVirtualMachineArgs;
  * import com.pulumi.azure.devtest.inputs.LinuxVirtualMachineGalleryImageReferenceArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,35 +68,33 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
- *             .name("example-network")
- *             .labName(exampleLab.name())
- *             .resourceGroupName(example.name())
  *             .subnet(VirtualNetworkSubnetArgs.builder()
  *                 .usePublicIpAddress("Allow")
  *                 .useInVirtualMachineCreation("Allow")
  *                 .build())
+ *             .name("example-network")
+ *             .labName(exampleLab.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("example-vm03")
- *             .labName(exampleLab.name())
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_DS2")
- *             .username("exampleuser99")
- *             .sshKey(StdFunctions.file(FileArgs.builder()
- *                 .input("~/.ssh/id_rsa.pub")
- *                 .build()).result())
- *             .labVirtualNetworkId(exampleVirtualNetwork.id())
- *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(_subnet -> _subnet.name()))
- *             .storageType("Premium")
- *             .notes("Some notes about this Virtual Machine.")
  *             .galleryImageReference(LinuxVirtualMachineGalleryImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .name("example-vm03")
+ *             .labName(exampleLab.name())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_DS2")
+ *             .username("exampleuser99")
+ *             .sshKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
+ *             .labVirtualNetworkId(exampleVirtualNetwork.id())
+ *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(_subnet -> _subnet.name()))
+ *             .storageType("Premium")
+ *             .notes("Some notes about this Virtual Machine.")
  *             .build());
  * 
  *     }

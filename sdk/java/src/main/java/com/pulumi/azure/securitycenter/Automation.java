@@ -92,16 +92,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomation = new Automation("exampleAutomation", AutomationArgs.builder()
- *             .name("example-automation")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .actions(AutomationActionArgs.builder()
  *                 .type("EventHub")
  *                 .resourceId(exampleEventHub.id())
  *                 .connectionString(exampleAuthorizationRule.primaryConnectionString())
  *                 .build())
  *             .sources(AutomationSourceArgs.builder()
- *                 .eventSource("Alerts")
  *                 .ruleSets(AutomationSourceRuleSetArgs.builder()
  *                     .rules(AutomationSourceRuleSetRuleArgs.builder()
  *                         .propertyPath("properties.metadata.severity")
@@ -110,7 +106,11 @@ import javax.annotation.Nullable;
  *                         .propertyType("String")
  *                         .build())
  *                     .build())
+ *                 .eventSource("Alerts")
  *                 .build())
+ *             .name("example-automation")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scopes(String.format("/subscriptions/%s", current.subscriptionId()))
  *             .build());
  * 

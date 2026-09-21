@@ -30,15 +30,15 @@ namespace Pulumi.Azure.Arc
     /// 
     ///     var exampleResourceBridgeAppliance = new Azure.Arc.ResourceBridgeAppliance("example", new()
     ///     {
+    ///         Identity = new Azure.Arc.Inputs.ResourceBridgeApplianceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-appliance",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Distro = "AKSEdge",
     ///         InfrastructureProvider = "VMWare",
-    ///         Identity = new Azure.Arc.Inputs.ResourceBridgeApplianceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "hello", "world" },

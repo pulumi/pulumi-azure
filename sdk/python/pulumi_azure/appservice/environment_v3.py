@@ -567,22 +567,18 @@ class EnvironmentV3(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "Microsoft.Web.hostingEnvironments",
                 "service_delegation": {
                     "name": "Microsoft.Web/hostingEnvironments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
-            }])
-        example_environment_v3 = azure.appservice.EnvironmentV3("example",
-            name="example-asev3",
+                "name": "Microsoft.Web.hostingEnvironments",
+            }],
+            name="example-subnet",
             resource_group_name=example.name,
-            subnet_id=example_subnet.id,
-            internal_load_balancing_mode="Web, Publishing",
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_environment_v3 = azure.appservice.EnvironmentV3("example",
             cluster_settings=[
                 {
                     "name": "DisableTls1.0",
@@ -597,6 +593,10 @@ class EnvironmentV3(pulumi.CustomResource):
                     "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
                 },
             ],
+            name="example-asev3",
+            resource_group_name=example.name,
+            subnet_id=example_subnet.id,
+            internal_load_balancing_mode="Web, Publishing",
             tags={
                 "env": "production",
                 "terraformed": "true",
@@ -675,22 +675,18 @@ class EnvironmentV3(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "Microsoft.Web.hostingEnvironments",
                 "service_delegation": {
                     "name": "Microsoft.Web/hostingEnvironments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
-            }])
-        example_environment_v3 = azure.appservice.EnvironmentV3("example",
-            name="example-asev3",
+                "name": "Microsoft.Web.hostingEnvironments",
+            }],
+            name="example-subnet",
             resource_group_name=example.name,
-            subnet_id=example_subnet.id,
-            internal_load_balancing_mode="Web, Publishing",
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_environment_v3 = azure.appservice.EnvironmentV3("example",
             cluster_settings=[
                 {
                     "name": "DisableTls1.0",
@@ -705,6 +701,10 @@ class EnvironmentV3(pulumi.CustomResource):
                     "value": "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
                 },
             ],
+            name="example-asev3",
+            resource_group_name=example.name,
+            subnet_id=example_subnet.id,
+            internal_load_balancing_mode="Web, Publishing",
             tags={
                 "env": "production",
                 "terraformed": "true",

@@ -373,7 +373,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         ```
 
@@ -399,14 +399,14 @@ class EnvironmentCertificate(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_environment = azure.containerapp.Environment("example",
-            name="example-environment",
-            location=example.location,
-            resource_group_name=example.name,
-            log_analytics_workspace_id=example_analytics_workspace.id,
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="example-environment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-keyvault",
             location=example.location,
@@ -423,23 +423,23 @@ class EnvironmentCertificate(pulumi.CustomResource):
             role_definition_name="Key Vault Secrets User",
             principal_id=example_environment.identity.principal_id)
         example_certificate = azure.keyvault.Certificate("example",
-            name="example-certificate",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="path/to/certificate_file.pfx").result,
+                "contents": std.filebase64(input="path/to/certificate_file.pfx")["result"],
                 "password": "",
             },
+            name="example-certificate",
+            key_vault_id=example_key_vault.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     user_keyvault_admin,
                     example_assignment,
                 ]))
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
-            name="example-certificate",
-            container_app_environment_id=example_environment.id,
             certificate_key_vault={
                 "identity": example_user_assigned_identity.id,
                 "key_vault_secret_id": example_certificate.versionless_secret_id,
             },
+            name="example-certificate",
+            container_app_environment_id=example_environment.id,
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
@@ -509,7 +509,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob_base64=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         ```
 
@@ -535,14 +535,14 @@ class EnvironmentCertificate(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_environment = azure.containerapp.Environment("example",
-            name="example-environment",
-            location=example.location,
-            resource_group_name=example.name,
-            log_analytics_workspace_id=example_analytics_workspace.id,
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="example-environment",
+            location=example.location,
+            resource_group_name=example.name,
+            log_analytics_workspace_id=example_analytics_workspace.id)
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-keyvault",
             location=example.location,
@@ -559,23 +559,23 @@ class EnvironmentCertificate(pulumi.CustomResource):
             role_definition_name="Key Vault Secrets User",
             principal_id=example_environment.identity.principal_id)
         example_certificate = azure.keyvault.Certificate("example",
-            name="example-certificate",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="path/to/certificate_file.pfx").result,
+                "contents": std.filebase64(input="path/to/certificate_file.pfx")["result"],
                 "password": "",
             },
+            name="example-certificate",
+            key_vault_id=example_key_vault.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     user_keyvault_admin,
                     example_assignment,
                 ]))
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
-            name="example-certificate",
-            container_app_environment_id=example_environment.id,
             certificate_key_vault={
                 "identity": example_user_assigned_identity.id,
                 "key_vault_secret_id": example_certificate.versionless_secret_id,
             },
+            name="example-certificate",
+            container_app_environment_id=example_environment.id,
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 

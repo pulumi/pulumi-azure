@@ -34,18 +34,18 @@ import * as utilities from "../utilities";
  *     skuName: "Y1",
  * });
  * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-windows-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageAccountName: exampleAccount.name,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWindowsFunctionAppSlot = new azure.appservice.WindowsFunctionAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-slot",
  *     functionAppId: exampleWindowsFunctionApp.id,
  *     storageAccountName: exampleAccount.name,
- *     siteConfig: {},
  * });
  * ```
  *

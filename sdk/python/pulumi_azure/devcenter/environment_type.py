@@ -152,12 +152,12 @@ class EnvironmentType(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_environment_type = azure.devcenter.EnvironmentType("example",
             name="example-dcet",
             dev_center_id=example_dev_center.id,
@@ -207,12 +207,12 @@ class EnvironmentType(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_environment_type = azure.devcenter.EnvironmentType("example",
             name="example-dcet",
             dev_center_id=example_dev_center.id,

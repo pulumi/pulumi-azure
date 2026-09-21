@@ -72,10 +72,10 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewTokenPassword(ctx, "example", &containerservice.TokenPasswordArgs{
-//				ContainerRegistryTokenId: exampleRegistryToken.ID().ToIDOutput().ToStringOutput(),
 //				Password1: &containerservice.TokenPasswordPassword1Args{
 //					Expiry: pulumi.String("2023-03-22T17:57:36+08:00"),
 //				},
+//				ContainerRegistryTokenId: exampleRegistryToken.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

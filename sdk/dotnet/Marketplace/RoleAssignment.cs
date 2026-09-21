@@ -30,6 +30,13 @@ namespace Pulumi.Azure.Marketplace
     ///     {
     ///         RoleDefinitionName = "Marketplace Admin",
     ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "name",
+    ///             "roleDefinitionId",
+    ///         },
     ///     });
     /// 
     /// });
@@ -56,6 +63,12 @@ namespace Pulumi.Azure.Marketplace
     ///     {
     ///         RoleDefinitionId = exampleGetRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
     ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "roleDefinitionName",
+    ///         },
     ///     });
     /// 
     /// });

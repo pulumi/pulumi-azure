@@ -14,6 +14,94 @@ namespace Pulumi.Azure.Pim
     /// 
     /// ## Example Usage
     /// 
+    /// ### Resource Group
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Azuread = Pulumi.Azuread;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var rgContributor = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     {
+    ///         Name = "Contributor",
+    ///         Scope = example.Id,
+    ///     });
+    /// 
+    ///     var approvers = Azuread.Group.Invoke(new()
+    ///     {
+    ///         DisplayName = "Example Approver Group",
+    ///     });
+    /// 
+    ///     var exampleRoleManagementPolicy = new Azure.Pim.RoleManagementPolicy("example", new()
+    ///     {
+    ///         ActiveAssignmentRules = new Azure.Pim.Inputs.RoleManagementPolicyActiveAssignmentRulesArgs
+    ///         {
+    ///             ExpireAfter = "P365D",
+    ///         },
+    ///         EligibleAssignmentRules = new Azure.Pim.Inputs.RoleManagementPolicyEligibleAssignmentRulesArgs
+    ///         {
+    ///             ExpirationRequired = false,
+    ///         },
+    ///         ActivationRules = new Azure.Pim.Inputs.RoleManagementPolicyActivationRulesArgs
+    ///         {
+    ///             ApprovalStage = new Azure.Pim.Inputs.RoleManagementPolicyActivationRulesApprovalStageArgs
+    ///             {
+    ///                 PrimaryApprovers = new[]
+    ///                 {
+    ///                     new Azure.Pim.Inputs.RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs
+    ///                     {
+    ///                         ObjectId = approvers.ObjectId,
+    ///                         Type = "Group",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             MaximumDuration = "PT1H",
+    ///             RequireApproval = true,
+    ///         },
+    ///         NotificationRules = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesArgs
+    ///         {
+    ///             EligibleAssignments = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs
+    ///             {
+    ///                 ApproverNotifications = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs
+    ///                 {
+    ///                     NotificationLevel = "Critical",
+    ///                     DefaultRecipients = false,
+    ///                     AdditionalRecipients = new[]
+    ///                     {
+    ///                         "someone@example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             EligibleActivations = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleActivationsArgs
+    ///             {
+    ///                 AssigneeNotifications = new Azure.Pim.Inputs.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs
+    ///                 {
+    ///                     NotificationLevel = "All",
+    ///                     DefaultRecipients = true,
+    ///                     AdditionalRecipients = new[]
+    ///                     {
+    ///                         "someone.else@example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = test.Id,
+    ///         RoleDefinitionId = contributor.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Management Group
     /// 
     /// ```csharp
@@ -37,8 +125,6 @@ namespace Pulumi.Azure.Pim
     /// 
     ///     var exampleRoleManagementPolicy = new Azure.Pim.RoleManagementPolicy("example", new()
     ///     {
-    ///         Scope = example.Id,
-    ///         RoleDefinitionId = mgContributor.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
     ///         EligibleAssignmentRules = new Azure.Pim.Inputs.RoleManagementPolicyEligibleAssignmentRulesArgs
     ///         {
     ///             ExpirationRequired = false,
@@ -67,6 +153,8 @@ namespace Pulumi.Azure.Pim
     ///                 },
     ///             },
     ///         },
+    ///         Scope = example.Id,
+    ///         RoleDefinitionId = mgContributor.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
     ///     });
     /// 
     /// });

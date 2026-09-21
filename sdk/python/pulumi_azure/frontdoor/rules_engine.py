@@ -239,24 +239,22 @@ class RulesEngine(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example",
-            resource_group_name=example.name,
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
             backend_pools=[{
-                "name": "exampleBackendBing",
-                "load_balancing_name": "exampleLoadBalancingSettings1",
-                "health_probe_name": "exampleHealthProbeSetting1",
                 "backends": [{
                     "host_header": "www.bing.com",
                     "address": "www.bing.com",
                     "http_port": 80,
                     "https_port": 443,
                 }],
-            }],
-            backend_pool_health_probes=[{
-                "name": "exampleHealthProbeSetting1",
-            }],
-            backend_pool_load_balancings=[{
-                "name": "exampleLoadBalancingSettings1",
+                "name": "exampleBackendBing",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
             }],
             frontend_endpoints=[{
                 "name": "exampleFrontendEndpoint1",
@@ -270,15 +268,12 @@ class RulesEngine(pulumi.CustomResource):
                 ],
                 "patterns_to_matches": ["/*"],
                 "frontend_endpoints": ["exampleFrontendEndpoint1"],
-            }])
+            }],
+            name="example",
+            resource_group_name=example.name)
         example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
-            name="exampleRulesEngineConfig1",
-            frontdoor_name=example_frontdoor.name,
-            resource_group_name=example_frontdoor.resource_group_name,
             rules=[
                 {
-                    "name": "debuggingoutput",
-                    "priority": 1,
                     "action": {
                         "response_headers": [{
                             "header_action_type": "Append",
@@ -286,18 +281,10 @@ class RulesEngine(pulumi.CustomResource):
                             "value": "Append Header Rule",
                         }],
                     },
+                    "name": "debuggingoutput",
+                    "priority": 1,
                 },
                 {
-                    "name": "overwriteorigin",
-                    "priority": 2,
-                    "match_conditions": [{
-                        "variable": "RequestMethod",
-                        "operator": "Equal",
-                        "values": [
-                            "GET",
-                            "POST",
-                        ],
-                    }],
                     "action": {
                         "response_headers": [
                             {
@@ -312,8 +299,21 @@ class RulesEngine(pulumi.CustomResource):
                             },
                         ],
                     },
+                    "match_conditions": [{
+                        "variable": "RequestMethod",
+                        "operator": "Equal",
+                        "values": [
+                            "GET",
+                            "POST",
+                        ],
+                    }],
+                    "name": "overwriteorigin",
+                    "priority": 2,
                 },
-            ])
+            ],
+            name="exampleRulesEngineConfig1",
+            frontdoor_name=example_frontdoor.name,
+            resource_group_name=example_frontdoor.resource_group_name)
         ```
 
         ## Import
@@ -356,24 +356,22 @@ class RulesEngine(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example",
-            resource_group_name=example.name,
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
             backend_pools=[{
-                "name": "exampleBackendBing",
-                "load_balancing_name": "exampleLoadBalancingSettings1",
-                "health_probe_name": "exampleHealthProbeSetting1",
                 "backends": [{
                     "host_header": "www.bing.com",
                     "address": "www.bing.com",
                     "http_port": 80,
                     "https_port": 443,
                 }],
-            }],
-            backend_pool_health_probes=[{
-                "name": "exampleHealthProbeSetting1",
-            }],
-            backend_pool_load_balancings=[{
-                "name": "exampleLoadBalancingSettings1",
+                "name": "exampleBackendBing",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
             }],
             frontend_endpoints=[{
                 "name": "exampleFrontendEndpoint1",
@@ -387,15 +385,12 @@ class RulesEngine(pulumi.CustomResource):
                 ],
                 "patterns_to_matches": ["/*"],
                 "frontend_endpoints": ["exampleFrontendEndpoint1"],
-            }])
+            }],
+            name="example",
+            resource_group_name=example.name)
         example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
-            name="exampleRulesEngineConfig1",
-            frontdoor_name=example_frontdoor.name,
-            resource_group_name=example_frontdoor.resource_group_name,
             rules=[
                 {
-                    "name": "debuggingoutput",
-                    "priority": 1,
                     "action": {
                         "response_headers": [{
                             "header_action_type": "Append",
@@ -403,18 +398,10 @@ class RulesEngine(pulumi.CustomResource):
                             "value": "Append Header Rule",
                         }],
                     },
+                    "name": "debuggingoutput",
+                    "priority": 1,
                 },
                 {
-                    "name": "overwriteorigin",
-                    "priority": 2,
-                    "match_conditions": [{
-                        "variable": "RequestMethod",
-                        "operator": "Equal",
-                        "values": [
-                            "GET",
-                            "POST",
-                        ],
-                    }],
                     "action": {
                         "response_headers": [
                             {
@@ -429,8 +416,21 @@ class RulesEngine(pulumi.CustomResource):
                             },
                         ],
                     },
+                    "match_conditions": [{
+                        "variable": "RequestMethod",
+                        "operator": "Equal",
+                        "values": [
+                            "GET",
+                            "POST",
+                        ],
+                    }],
+                    "name": "overwriteorigin",
+                    "priority": 2,
                 },
-            ])
+            ],
+            name="exampleRulesEngineConfig1",
+            frontdoor_name=example_frontdoor.name,
+            resource_group_name=example_frontdoor.resource_group_name)
         ```
 
         ## Import

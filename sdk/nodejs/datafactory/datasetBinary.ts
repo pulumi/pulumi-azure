@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     password: "bar",
  * });
  * const exampleDatasetBinary = new azure.datafactory.DatasetBinary("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceSftp.name,
  *     sftpServerLocation: {
  *         path: "/test/",
  *         filename: "**",
  *     },
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedServiceSftp.name,
  * });
  * ```
  *

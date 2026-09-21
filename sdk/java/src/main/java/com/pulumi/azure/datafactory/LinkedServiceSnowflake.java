@@ -133,13 +133,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake("exampleLinkedServiceSnowflake", LinkedServiceSnowflakeArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .connectionString("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
  *             .keyVaultPassword(LinkedServiceSnowflakeKeyVaultPasswordArgs.builder()
  *                 .linkedServiceName(exampleLinkedServiceKeyVault.name())
  *                 .secretName("secret")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .connectionString("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
  *             .build());
  * 
  *     }

@@ -36,18 +36,23 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "example-iothub",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "S1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example-iothub",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
     ///     var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputIotHubSerializationArgs
+    ///         {
+    ///             Type = "Json",
+    ///             Encoding = "UTF8",
+    ///         },
     ///         Name = "example-iothub-input",
     ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
     ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
@@ -56,11 +61,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         IothubNamespace = exampleIoTHub.Name,
     ///         SharedAccessPolicyKey = exampleIoTHub.SharedAccessPolicies.Apply(sharedAccessPolicies =&gt; sharedAccessPolicies[0].PrimaryKey),
     ///         SharedAccessPolicyName = "iothubowner",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputIotHubSerializationArgs
-    ///         {
-    ///             Type = "Json",
-    ///             Encoding = "UTF8",
-    ///         },
     ///     });
     /// 
     /// });

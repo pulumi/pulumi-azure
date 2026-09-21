@@ -30,25 +30,25 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// vnetName := "example-vnet";
-// tmpJSON0, err := json.Marshal(map[string]map[string]string{
-// "vnetName": map[string]string{
-// "value": vnetName,
-// },
-// })
-// if err != nil {
-// return err
-// }
-// json0 := string(tmpJSON0)
-// example, err := core.NewResourceGroupTemplateDeployment(ctx, "example", &core.ResourceGroupTemplateDeploymentArgs{
-// Name: pulumi.String("example-deploy"),
-// ResourceGroupName: pulumi.String("example-group"),
-// DeploymentMode: pulumi.String("Incremental"),
-// ParametersContent: pulumi.String(json0),
 //
-//	TemplateContent: pulumi.String(`{
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vnetName := "example-vnet"
+//			tmpJSON0, err := json.Marshal(map[string]map[string]string{
+//				"vnetName": map[string]string{
+//					"value": vnetName,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			example, err := core.NewResourceGroupTemplateDeployment(ctx, "example", &core.ResourceGroupTemplateDeploymentArgs{
+//				Name:              pulumi.String("example-deploy"),
+//				ResourceGroupName: pulumi.String("example-group"),
+//				DeploymentMode:    pulumi.String("Incremental"),
+//				ParametersContent: pulumi.String(json0),
+//				TemplateContent: pulumi.String(`{
 //	    \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",
 //	    \"contentVersion\": \"1.0.0.0\",
 //	    \"parameters\": {
@@ -84,19 +84,18 @@ import (
 //	}
 //
 // `),
-// })
-// if err != nil {
-// return err
-// }
-// ctx.Export("armExampleOutput", std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
-// Input: example.OutputContent,
-// }, nil).ApplyT(func(invoke std.JsondecodeResult) (*interface{}, error) {
-// val := invoke.Result.ExampleOutput.Value
-// return &val, nil
-// }).(pulumi.Interface{}PtrOutput))
-// return nil
-// })
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("armExampleOutput", std.Jsondecode(ctx, map[string]pulumi.String{
+//				"input": example.OutputContent,
+//			}, nil).Result.ExampleOutput.Value.(pulumi.AnyOutput))
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go

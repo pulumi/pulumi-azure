@@ -27,16 +27,16 @@ import * as utilities from "../utilities";
  *     skuName: "P1v2",
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     siteConfig: {},
  *     name: "example-windows-web-app",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWindowsWebAppSlot = new azure.appservice.WindowsWebAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-slot",
  *     appServiceId: exampleWindowsWebApp.id,
- *     siteConfig: {},
  * });
  * ```
  *

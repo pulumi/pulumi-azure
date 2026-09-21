@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "TestLoadBalancer",
- *     location: "West US",
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "TestLoadBalancer",
+ *     location: "West US",
+ *     resourceGroupName: example.name,
  * });
  * const exampleRule = new azure.lb.Rule("example", {
  *     loadbalancerId: exampleLoadBalancer.id,

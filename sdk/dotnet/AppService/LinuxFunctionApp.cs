@@ -50,13 +50,13 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-linux-function-app",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     /// });

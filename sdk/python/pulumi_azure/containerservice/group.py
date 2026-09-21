@@ -886,22 +886,16 @@ class Group(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_group = azure.containerservice.Group("example",
-            name="example-continst",
-            location=example.location,
-            resource_group_name=example.name,
-            ip_address_type="Public",
-            dns_name_label="aci-label",
-            os_type="Linux",
             containers=[
                 {
-                    "name": "hello-world",
-                    "image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-                    "cpu": 0.5,
-                    "memory": 1.5,
                     "ports": [{
                         "port": 443,
                         "protocol": "TCP",
                     }],
+                    "name": "hello-world",
+                    "image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+                    "cpu": 0.5,
+                    "memory": 1.5,
                 },
                 {
                     "name": "sidecar",
@@ -910,6 +904,12 @@ class Group(pulumi.CustomResource):
                     "memory": 1.5,
                 },
             ],
+            name="example-continst",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_address_type="Public",
+            dns_name_label="aci-label",
+            os_type="Linux",
             tags={
                 "environment": "testing",
             })
@@ -987,22 +987,16 @@ class Group(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_group = azure.containerservice.Group("example",
-            name="example-continst",
-            location=example.location,
-            resource_group_name=example.name,
-            ip_address_type="Public",
-            dns_name_label="aci-label",
-            os_type="Linux",
             containers=[
                 {
-                    "name": "hello-world",
-                    "image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-                    "cpu": 0.5,
-                    "memory": 1.5,
                     "ports": [{
                         "port": 443,
                         "protocol": "TCP",
                     }],
+                    "name": "hello-world",
+                    "image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+                    "cpu": 0.5,
+                    "memory": 1.5,
                 },
                 {
                     "name": "sidecar",
@@ -1011,6 +1005,12 @@ class Group(pulumi.CustomResource):
                     "memory": 1.5,
                 },
             ],
+            name="example-continst",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_address_type="Public",
+            dns_name_label="aci-label",
+            os_type="Linux",
             tags={
                 "environment": "testing",
             })

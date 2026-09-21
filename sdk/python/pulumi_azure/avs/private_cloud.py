@@ -536,13 +536,13 @@ class PrivateCloud(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_private_cloud = azure.avs.PrivateCloud("example",
+            management_cluster={
+                "size": 3,
+            },
             name="example-vmware-private-cloud",
             resource_group_name=example.name,
             location=example.location,
             sku_name="av36",
-            management_cluster={
-                "size": 3,
-            },
             network_subnet_cidr="192.168.48.0/22",
             internet_connection_enabled=False,
             nsxt_password="QazWsx13$Edc",
@@ -601,13 +601,13 @@ class PrivateCloud(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_private_cloud = azure.avs.PrivateCloud("example",
+            management_cluster={
+                "size": 3,
+            },
             name="example-vmware-private-cloud",
             resource_group_name=example.name,
             location=example.location,
             sku_name="av36",
-            management_cluster={
-                "size": 3,
-            },
             network_subnet_cidr="192.168.48.0/22",
             internet_connection_enabled=False,
             nsxt_password="QazWsx13$Edc",

@@ -120,21 +120,21 @@ class GeoReplication(pulumi.CustomResource):
             name="example-managedredis",
             location="West Europe")
         amr1 = azure.managedredis.ManagedRedis("amr1",
+            default_database={
+                "geo_replication_group_name": "example-geo-group",
+            },
             name="example-managedredis-amr1",
             resource_group_name=example.name,
             location="West Europe",
-            sku_name="Balanced_B3",
+            sku_name="Balanced_B3")
+        amr2 = azure.managedredis.ManagedRedis("amr2",
             default_database={
                 "geo_replication_group_name": "example-geo-group",
-            })
-        amr2 = azure.managedredis.ManagedRedis("amr2",
+            },
             name="example-managedredis-amr2",
             resource_group_name=example.name,
             location="Central US",
-            sku_name="Balanced_B3",
-            default_database={
-                "geo_replication_group_name": "example-geo-group",
-            })
+            sku_name="Balanced_B3")
         example_geo_replication = azure.managedredis.GeoReplication("example",
             managed_redis_id=amr1.id,
             linked_managed_redis_ids=[amr2.id])
@@ -182,21 +182,21 @@ class GeoReplication(pulumi.CustomResource):
             name="example-managedredis",
             location="West Europe")
         amr1 = azure.managedredis.ManagedRedis("amr1",
+            default_database={
+                "geo_replication_group_name": "example-geo-group",
+            },
             name="example-managedredis-amr1",
             resource_group_name=example.name,
             location="West Europe",
-            sku_name="Balanced_B3",
+            sku_name="Balanced_B3")
+        amr2 = azure.managedredis.ManagedRedis("amr2",
             default_database={
                 "geo_replication_group_name": "example-geo-group",
-            })
-        amr2 = azure.managedredis.ManagedRedis("amr2",
+            },
             name="example-managedredis-amr2",
             resource_group_name=example.name,
             location="Central US",
-            sku_name="Balanced_B3",
-            default_database={
-                "geo_replication_group_name": "example-geo-group",
-            })
+            sku_name="Balanced_B3")
         example_geo_replication = azure.managedredis.GeoReplication("example",
             managed_redis_id=amr1.id,
             linked_managed_redis_ids=[amr2.id])

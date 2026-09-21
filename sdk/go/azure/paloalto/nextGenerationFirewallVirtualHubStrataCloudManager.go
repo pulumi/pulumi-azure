@@ -78,10 +78,6 @@ import (
 //				return err
 //			}
 //			_, err = paloalto.NewNextGenerationFirewallVirtualHubStrataCloudManager(ctx, "example", &paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerArgs{
-//				Name:                         pulumi.String("example"),
-//				ResourceGroupName:            pulumi.String("example"),
-//				Location:                     pulumi.String("West Europe"),
-//				StrataCloudManagerTenantName: pulumi.String("example"),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
 //						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -89,6 +85,10 @@ import (
 //					VirtualHubId:              exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //					NetworkVirtualApplianceId: exampleVirtualNetworkAppliance.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:                         pulumi.String("example"),
+//				ResourceGroupName:            pulumi.String("example"),
+//				Location:                     pulumi.String("West Europe"),
+//				StrataCloudManagerTenantName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

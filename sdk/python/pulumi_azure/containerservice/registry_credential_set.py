@@ -226,16 +226,16 @@ class RegistryCredentialSet(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
-            name="exampleCredentialSet",
-            container_registry_id=example_registry.id,
-            login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
             },
             authentication_credentials={
                 "username_secret_id": "https://example-keyvault.vault.azure.net/secrets/example-user-name",
                 "password_secret_id": "https://example-keyvault.vault.azure.net/secrets/example-user-password",
-            })
+            },
+            name="exampleCredentialSet",
+            container_registry_id=example_registry.id,
+            login_server="docker.io")
         ```
 
         ### Full)
@@ -251,13 +251,6 @@ class RegistryCredentialSet(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -269,7 +262,14 @@ class RegistryCredentialSet(pulumi.CustomResource):
                     "Delete",
                     "Purge",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7)
         example_user = azure.keyvault.Secret("example_user",
             key_vault_id=example_key_vault.id,
             name="example-user-name",
@@ -284,16 +284,16 @@ class RegistryCredentialSet(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
-            name="exampleCredentialSet",
-            container_registry_id=example_registry.id,
-            login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
             },
             authentication_credentials={
                 "username_secret_id": example_user.versionless_id,
                 "password_secret_id": example_password.versionless_id,
-            })
+            },
+            name="exampleCredentialSet",
+            container_registry_id=example_registry.id,
+            login_server="docker.io")
         read_secrets = azure.keyvault.AccessPolicy("read_secrets",
             key_vault_id=example_key_vault.id,
             tenant_id=example_registry_credential_set.identity.tenant_id,
@@ -353,16 +353,16 @@ class RegistryCredentialSet(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
-            name="exampleCredentialSet",
-            container_registry_id=example_registry.id,
-            login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
             },
             authentication_credentials={
                 "username_secret_id": "https://example-keyvault.vault.azure.net/secrets/example-user-name",
                 "password_secret_id": "https://example-keyvault.vault.azure.net/secrets/example-user-password",
-            })
+            },
+            name="exampleCredentialSet",
+            container_registry_id=example_registry.id,
+            login_server="docker.io")
         ```
 
         ### Full)
@@ -378,13 +378,6 @@ class RegistryCredentialSet(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -396,7 +389,14 @@ class RegistryCredentialSet(pulumi.CustomResource):
                     "Delete",
                     "Purge",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7)
         example_user = azure.keyvault.Secret("example_user",
             key_vault_id=example_key_vault.id,
             name="example-user-name",
@@ -411,16 +411,16 @@ class RegistryCredentialSet(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_credential_set = azure.containerservice.RegistryCredentialSet("example",
-            name="exampleCredentialSet",
-            container_registry_id=example_registry.id,
-            login_server="docker.io",
             identity={
                 "type": "SystemAssigned",
             },
             authentication_credentials={
                 "username_secret_id": example_user.versionless_id,
                 "password_secret_id": example_password.versionless_id,
-            })
+            },
+            name="exampleCredentialSet",
+            container_registry_id=example_registry.id,
+            login_server="docker.io")
         read_secrets = azure.keyvault.AccessPolicy("read_secrets",
             key_vault_id=example_key_vault.id,
             tenant_id=example_registry_credential_set.identity.tenant_id,

@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleGrafana = new azure.dashboard.Grafana("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-dg",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
@@ -29,9 +32,6 @@ import * as utilities from "../utilities";
  *     publicNetworkAccessEnabled: false,
  *     sku: "Standard",
  *     skuSize: "X1",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  *     tags: {
  *         key: "value",
  *     },

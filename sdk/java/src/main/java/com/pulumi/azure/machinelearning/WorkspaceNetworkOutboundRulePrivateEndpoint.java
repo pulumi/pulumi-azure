@@ -87,18 +87,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
- *             .name("example-workspace")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .applicationInsightsId(exampleInsights.id())
- *             .keyVaultId(exampleKeyVault.id())
- *             .storageAccountId(exampleAccount.id())
  *             .managedNetwork(WorkspaceManagedNetworkArgs.builder()
  *                 .isolationMode("AllowOnlyApprovedOutbound")
  *                 .build())
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-workspace")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .applicationInsightsId(exampleInsights.id())
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *         var example2 = new Account("example2", AccountArgs.builder()

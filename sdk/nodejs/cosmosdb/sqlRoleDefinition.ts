@@ -21,11 +21,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-cosmosdb",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
@@ -33,16 +28,21 @@ import * as utilities from "../utilities";
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-cosmosdb",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlRoleDefinition = new azure.cosmosdb.SqlRoleDefinition("example", {
+ *     permissions: [{
+ *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+ *     }],
  *     roleDefinitionId: "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
  *     resourceGroupName: example.name,
  *     accountName: exampleAccount.name,
  *     name: "acctestsqlrole",
  *     assignableScopes: [pulumi.interpolate`${exampleAccount.id}/dbs/sales`],
- *     permissions: [{
- *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
- *     }],
  * });
  * ```
  *

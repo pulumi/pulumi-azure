@@ -38,10 +38,6 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * const exampleVpnSite = new azure.network.VpnSite("example", {
- *     name: "example-vpn-site",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     virtualWanId: exampleVirtualWan.id,
  *     links: [
  *         {
  *             name: "link1",
@@ -52,11 +48,12 @@ import * as utilities from "../utilities";
  *             ipAddress: "10.2.0.0",
  *         },
  *     ],
+ *     name: "example-vpn-site",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     virtualWanId: exampleVirtualWan.id,
  * });
  * const exampleVpnGatewayConnection = new azure.network.VpnGatewayConnection("example", {
- *     name: "example",
- *     vpnGatewayId: exampleVpnGateway.id,
- *     remoteVpnSiteId: exampleVpnSite.id,
  *     vpnLinks: [
  *         {
  *             name: "link1",
@@ -67,6 +64,9 @@ import * as utilities from "../utilities";
  *             vpnSiteLinkId: exampleVpnSite.links.apply(links => links?.[1]?.id),
  *         },
  *     ],
+ *     name: "example",
+ *     vpnGatewayId: exampleVpnGateway.id,
+ *     remoteVpnSiteId: exampleVpnSite.id,
  * });
  * ```
  *

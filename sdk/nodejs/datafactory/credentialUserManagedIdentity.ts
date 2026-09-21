@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const test = new azure.datafactory.CredentialUserManagedIdentity("test", {
  *     name: exampleUserAssignedIdentity.name,

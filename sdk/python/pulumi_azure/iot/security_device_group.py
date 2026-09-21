@@ -187,13 +187,13 @@ class SecurityDeviceGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="example-IoTHub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example-IoTHub",
+            resource_group_name=example.name,
+            location=example.location)
         example_security_solution = azure.iot.SecuritySolution("example",
             name="example-Iot-Security-Solution",
             resource_group_name=example.name,
@@ -201,8 +201,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
             display_name="Iot Security Solution",
             iothub_ids=[example_io_t_hub.id])
         example_security_device_group = azure.iot.SecurityDeviceGroup("example",
-            name="example-device-security-group",
-            iothub_id=example_io_t_hub.id,
             allow_rule={
                 "connection_to_ips_not_alloweds": ["10.0.0.0/24"],
             },
@@ -212,6 +210,8 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 "max": 30,
                 "duration": "PT5M",
             }],
+            name="example-device-security-group",
+            iothub_id=example_io_t_hub.id,
             opts = pulumi.ResourceOptions(depends_on=[example_security_solution]))
         ```
 
@@ -250,13 +250,13 @@ class SecurityDeviceGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="example-IoTHub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example-IoTHub",
+            resource_group_name=example.name,
+            location=example.location)
         example_security_solution = azure.iot.SecuritySolution("example",
             name="example-Iot-Security-Solution",
             resource_group_name=example.name,
@@ -264,8 +264,6 @@ class SecurityDeviceGroup(pulumi.CustomResource):
             display_name="Iot Security Solution",
             iothub_ids=[example_io_t_hub.id])
         example_security_device_group = azure.iot.SecurityDeviceGroup("example",
-            name="example-device-security-group",
-            iothub_id=example_io_t_hub.id,
             allow_rule={
                 "connection_to_ips_not_alloweds": ["10.0.0.0/24"],
             },
@@ -275,6 +273,8 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 "max": 30,
                 "duration": "PT5M",
             }],
+            name="example-device-security-group",
+            iothub_id=example_io_t_hub.id,
             opts = pulumi.ResourceOptions(depends_on=[example_security_solution]))
         ```
 

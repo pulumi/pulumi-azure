@@ -42,23 +42,17 @@ import (
 //				return err
 //			}
 //			exampleCluster, err := loganalytics.NewCluster(ctx, "example", &loganalytics.ClusterArgs{
-//				Name:              pulumi.String("example-cluster"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Identity: &loganalytics.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-cluster"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("keyvaultkeyexample"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -82,6 +76,12 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("keyvaultkeyexample"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

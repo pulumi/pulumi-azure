@@ -73,22 +73,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRouteMap = new RouteMap("exampleRouteMap", RouteMapArgs.builder()
- *             .name("example-rm")
- *             .virtualHubId(exampleVirtualHub.id())
  *             .rules(RouteMapRuleArgs.builder()
- *                 .name("rule1")
- *                 .nextStepIfMatched("Continue")
  *                 .actions(RouteMapRuleActionArgs.builder()
- *                     .type("Add")
  *                     .parameters(RouteMapRuleActionParameterArgs.builder()
  *                         .asPaths("22334")
  *                         .build())
+ *                     .type("Add")
  *                     .build())
  *                 .matchCriterions(RouteMapRuleMatchCriterionArgs.builder()
  *                     .matchCondition("Contains")
  *                     .routePrefixes("10.0.0.0/8")
  *                     .build())
+ *                 .name("rule1")
+ *                 .nextStepIfMatched("Continue")
  *                 .build())
+ *             .name("example-rm")
+ *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
  *     }

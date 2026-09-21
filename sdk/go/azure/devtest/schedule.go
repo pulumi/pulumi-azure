@@ -45,11 +45,6 @@ import (
 //				return err
 //			}
 //			_, err = devtest.NewSchedule(ctx, "example", &devtest.ScheduleArgs{
-//				Name:              pulumi.String("LabVmAutoStart"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				LabName:           exampleLab.Name,
-//				Status:            pulumi.String("Enabled"),
 //				WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
 //					Time: pulumi.String("1100"),
 //					WeekDays: pulumi.StringArray{
@@ -57,9 +52,14 @@ import (
 //						pulumi.String("Tuesday"),
 //					},
 //				},
+//				NotificationSettings: &devtest.ScheduleNotificationSettingsArgs{},
+//				Name:                 pulumi.String("LabVmAutoStart"),
+//				Location:             example.Location,
+//				ResourceGroupName:    example.Name,
+//				LabName:              exampleLab.Name,
+//				Status:               pulumi.String("Enabled"),
 //				TimeZoneId:           pulumi.String("Pacific Standard Time"),
 //				TaskType:             pulumi.String("LabVmsStartupTask"),
-//				NotificationSettings: &devtest.ScheduleNotificationSettingsArgs{},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

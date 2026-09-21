@@ -74,15 +74,15 @@ import * as utilities from "../utilities";
  *     skuName: "WS1",
  * });
  * const exampleStandard = new azure.logicapps.Standard("example", {
+ *     siteConfig: {
+ *         linuxFxVersion: "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+ *     },
  *     name: "example-logic-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     siteConfig: {
- *         linuxFxVersion: "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
- *     },
  *     appSettings: {
  *         DOCKER_REGISTRY_SERVER_URL: "https://<server-name>.azurecr.io",
  *         DOCKER_REGISTRY_SERVER_USERNAME: "username",

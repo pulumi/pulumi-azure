@@ -96,17 +96,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var trust = new Subnet("trust", SubnetArgs.builder()
- *             .name("example-trust-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("trusted")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("PaloAltoNetworks.Cloudngfw/firewalls")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("trusted")
  *                 .build())
+ *             .name("example-trust-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
  *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
@@ -115,17 +115,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var untrust = new Subnet("untrust", SubnetArgs.builder()
- *             .name("example-untrust-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("untrusted")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("PaloAltoNetworks.Cloudngfw/firewalls")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("untrusted")
  *                 .build())
+ *             .name("example-untrust-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
@@ -140,31 +140,31 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLocalRulestackRule = new LocalRulestackRule("exampleLocalRulestackRule", LocalRulestackRuleArgs.builder()
- *             .name("example-rulestack-rule")
- *             .rulestackId(exampleLocalRulestack.id())
- *             .priority(1001)
- *             .action("Allow")
- *             .applications("any")
  *             .destination(LocalRulestackRuleDestinationArgs.builder()
  *                 .cidrs("any")
  *                 .build())
  *             .source(LocalRulestackRuleSourceArgs.builder()
  *                 .cidrs("any")
  *                 .build())
+ *             .name("example-rulestack-rule")
+ *             .rulestackId(exampleLocalRulestack.id())
+ *             .priority(1001)
+ *             .action("Allow")
+ *             .applications("any")
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new NextGenerationFirewallVirtualNetworkLocalRulestack("exampleNextGenerationFirewallVirtualNetworkLocalRulestack", NextGenerationFirewallVirtualNetworkLocalRulestackArgs.builder()
- *             .name("example-ngfwvn")
- *             .resourceGroupName(example.name())
- *             .rulestackId(exampleLocalRulestack.id())
  *             .networkProfile(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs.builder()
- *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs.builder()
  *                     .virtualNetworkId(exampleVirtualNetwork.id())
  *                     .trustedSubnetId(trust.id())
  *                     .untrustedSubnetId(untrust.id())
  *                     .build())
+ *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .build())
+ *             .name("example-ngfwvn")
+ *             .resourceGroupName(example.name())
+ *             .rulestackId(exampleLocalRulestack.id())
  *             .build());
  * 
  *     }

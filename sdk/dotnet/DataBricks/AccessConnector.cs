@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DataBricks
     /// 
     ///     var exampleAccessConnector = new Azure.DataBricks.AccessConnector("example", new()
     ///     {
-    ///         Name = "example-resource",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.DataBricks.Inputs.AccessConnectorIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-resource",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

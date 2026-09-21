@@ -37,6 +37,14 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleResourceDeploymentScriptPowerShell = new Azure.Core.ResourceDeploymentScriptPowerShell("example", new()
     ///     {
+    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptPowerShellIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
     ///         Name = "example-rdsaps",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
@@ -52,14 +60,6 @@ namespace Pulumi.Azure.Core
     ///             $DeploymentScriptOutputs = @{}
     ///             $DeploymentScriptOutputs['text'] = $output
     /// ",
-    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptPowerShellIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

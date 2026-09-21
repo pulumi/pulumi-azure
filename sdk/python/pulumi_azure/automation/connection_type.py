@@ -224,13 +224,13 @@ class ConnectionType(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
         example_connection_type = azure.automation.ConnectionType("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
             fields=[{
                 "name": "example",
                 "type": "string",
-            }])
+            }],
+            name="example",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name)
         ```
 
         ## API Providers
@@ -282,13 +282,13 @@ class ConnectionType(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
         example_connection_type = azure.automation.ConnectionType("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            automation_account_name=example_account.name,
             fields=[{
                 "name": "example",
                 "type": "string",
-            }])
+            }],
+            name="example",
+            resource_group_name=example_resource_group.name,
+            automation_account_name=example_account.name)
         ```
 
         ## API Providers

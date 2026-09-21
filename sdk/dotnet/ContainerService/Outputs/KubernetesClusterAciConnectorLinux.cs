@@ -38,7 +38,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         ///         {
         ///             new Azure.Network.Inputs.SubnetDelegationArgs
         ///             {
-        ///                 Name = "aciDelegation",
         ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
         ///                 {
         ///                     Name = "Microsoft.ContainerInstance/containerGroups",
@@ -47,6 +46,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         ///                         "Microsoft.Network/virtualNetworks/subnets/action",
         ///                     },
         ///                 },
+        ///                 Name = "aciDelegation",
         ///             },
         ///         },
         ///     });

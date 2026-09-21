@@ -60,16 +60,16 @@ import (
 //				return err
 //			}
 //			_, err = mongocluster.NewUser(ctx, "example", &mongocluster.UserArgs{
-//				ObjectId:             pulumi.String(current.ObjectId),
-//				MongoClusterId:       exampleMongoCluster.ID().ToIDOutput().ToStringOutput(),
-//				IdentityProviderType: pulumi.String("MicrosoftEntraID"),
-//				PrincipalType:        pulumi.String("servicePrincipal"),
 //				Roles: mongocluster.UserRoleArray{
 //					&mongocluster.UserRoleArgs{
 //						Database: pulumi.String("admin"),
 //						Name:     pulumi.String("root"),
 //					},
 //				},
+//				ObjectId:             pulumi.String(current.ObjectId),
+//				MongoClusterId:       exampleMongoCluster.ID().ToIDOutput().ToStringOutput(),
+//				IdentityProviderType: pulumi.String("MicrosoftEntraID"),
+//				PrincipalType:        pulumi.String("servicePrincipal"),
 //			})
 //			if err != nil {
 //				return err

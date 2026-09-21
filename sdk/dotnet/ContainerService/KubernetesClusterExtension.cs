@@ -30,10 +30,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-aks",
-    ///         Location = "West Europe",
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "example-aks",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -44,6 +40,10 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-aks",
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "example-aks",
     ///     });
     /// 
     ///     var exampleKubernetesClusterExtension = new Azure.ContainerService.KubernetesClusterExtension("example", new()

@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit("exampleExpressRouteCircuit", ExpressRouteCircuitArgs.builder()
+ *             .sku(ExpressRouteCircuitSkuArgs.builder()
+ *                 .tier("Standard")
+ *                 .family("MeteredData")
+ *                 .build())
  *             .name("expressRoute1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .serviceProviderName("Equinix")
  *             .peeringLocation("Silicon Valley")
  *             .bandwidthInMbps(50)
- *             .sku(ExpressRouteCircuitSkuArgs.builder()
- *                 .tier("Standard")
- *                 .family("MeteredData")
- *                 .build())
  *             .allowClassicOperations(false)
  *             .tags(Map.of("environment", "Production"))
  *             .build());

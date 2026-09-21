@@ -475,14 +475,14 @@ class DatasetJson(pulumi.CustomResource):
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_json = azure.datafactory.DatasetJson("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_web.name,
             http_server_location={
                 "relative_url": "/fizz/buzz/",
                 "path": "foo/bar/",
                 "filename": "foo.txt",
             },
+            name="example",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_web.name,
             encoding="UTF-8")
         ```
 
@@ -542,14 +542,14 @@ class DatasetJson(pulumi.CustomResource):
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_json = azure.datafactory.DatasetJson("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_web.name,
             http_server_location={
                 "relative_url": "/fizz/buzz/",
                 "path": "foo/bar/",
                 "filename": "foo.txt",
             },
+            name="example",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_web.name,
             encoding="UTF-8")
         ```
 

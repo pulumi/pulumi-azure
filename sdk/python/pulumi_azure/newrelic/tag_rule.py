@@ -286,9 +286,6 @@ class TagRule(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_monitor = azure.newrelic.Monitor("example",
-            name="example-nrm",
-            resource_group_name=example.name,
-            location=example.location,
             plan={
                 "effective_date": "2023-06-06T00:00:00Z",
             },
@@ -297,13 +294,11 @@ class TagRule(pulumi.CustomResource):
                 "first_name": "Example",
                 "last_name": "User",
                 "phone_number": "+12313803556",
-            })
+            },
+            name="example-nrm",
+            resource_group_name=example.name,
+            location=example.location)
         example_tag_rule = azure.newrelic.TagRule("example",
-            monitor_id=example_monitor.id,
-            azure_active_directory_log_enabled=True,
-            activity_log_enabled=True,
-            metric_enabled=True,
-            subscription_log_enabled=True,
             log_tag_filters=[{
                 "name": "key",
                 "action": "Include",
@@ -313,7 +308,12 @@ class TagRule(pulumi.CustomResource):
                 "name": "key",
                 "action": "Exclude",
                 "value": "value",
-            }])
+            }],
+            monitor_id=example_monitor.id,
+            azure_active_directory_log_enabled=True,
+            activity_log_enabled=True,
+            metric_enabled=True,
+            subscription_log_enabled=True)
         ```
 
         ## API Providers
@@ -361,9 +361,6 @@ class TagRule(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_monitor = azure.newrelic.Monitor("example",
-            name="example-nrm",
-            resource_group_name=example.name,
-            location=example.location,
             plan={
                 "effective_date": "2023-06-06T00:00:00Z",
             },
@@ -372,13 +369,11 @@ class TagRule(pulumi.CustomResource):
                 "first_name": "Example",
                 "last_name": "User",
                 "phone_number": "+12313803556",
-            })
+            },
+            name="example-nrm",
+            resource_group_name=example.name,
+            location=example.location)
         example_tag_rule = azure.newrelic.TagRule("example",
-            monitor_id=example_monitor.id,
-            azure_active_directory_log_enabled=True,
-            activity_log_enabled=True,
-            metric_enabled=True,
-            subscription_log_enabled=True,
             log_tag_filters=[{
                 "name": "key",
                 "action": "Include",
@@ -388,7 +383,12 @@ class TagRule(pulumi.CustomResource):
                 "name": "key",
                 "action": "Exclude",
                 "value": "value",
-            }])
+            }],
+            monitor_id=example_monitor.id,
+            azure_active_directory_log_enabled=True,
+            activity_log_enabled=True,
+            metric_enabled=True,
+            subscription_log_enabled=True)
         ```
 
         ## API Providers

@@ -57,6 +57,14 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudApiPortal(ctx, "example", &appplatform.SpringCloudApiPortalArgs{
+//				Sso: &appplatform.SpringCloudApiPortalSsoArgs{
+//					ClientId:     pulumi.String("test"),
+//					ClientSecret: pulumi.String("secret"),
+//					IssuerUri:    pulumi.String("https://www.example.com/issueToken"),
+//					Scopes: pulumi.StringArray{
+//						pulumi.String("read"),
+//					},
+//				},
 //				Name:                 pulumi.String("default"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				GatewayIds: pulumi.StringArray{
@@ -66,14 +74,6 @@ import (
 //				PublicNetworkAccessEnabled: pulumi.Bool(true),
 //				InstanceCount:              pulumi.Int(1),
 //				ApiTryOutEnabled:           pulumi.Bool(true),
-//				Sso: &appplatform.SpringCloudApiPortalSsoArgs{
-//					ClientId:     pulumi.String("test"),
-//					ClientSecret: pulumi.String("secret"),
-//					IssuerUri:    pulumi.String("https://www.example.com/issueToken"),
-//					Scopes: pulumi.StringArray{
-//						pulumi.String("read"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

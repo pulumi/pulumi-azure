@@ -24,17 +24,17 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "outbounddns",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.64/28"],
  *     delegations: [{
- *         name: "Microsoft.Network.dnsResolvers",
  *         serviceDelegation: {
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *             name: "Microsoft.Network/dnsResolvers",
  *         },
+ *         name: "Microsoft.Network.dnsResolvers",
  *     }],
+ *     name: "outbounddns",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.64/28"],
  * });
  * const exampleResolver = new azure.privatedns.Resolver("example", {
  *     name: "example-resolver",

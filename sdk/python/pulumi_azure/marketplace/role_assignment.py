@@ -399,7 +399,11 @@ class RoleAssignment(pulumi.CustomResource):
         example = azure.core.get_client_config()
         example_role_assignment = azure.marketplace.RoleAssignment("example",
             role_definition_name="Marketplace Admin",
-            principal_id=example.object_id)
+            principal_id=example.object_id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "name",
+                    "roleDefinitionId",
+                ]))
         ```
 
         ### Using A Role Definition ID)
@@ -412,7 +416,8 @@ class RoleAssignment(pulumi.CustomResource):
         example_get_role_definition = azure.authorization.get_role_definition(name="Log Analytics Reader")
         example_role_assignment = azure.marketplace.RoleAssignment("example",
             role_definition_id=example_get_role_definition.id,
-            principal_id=example.object_id)
+            principal_id=example.object_id,
+            opts = pulumi.ResourceOptions(ignore_changes=["roleDefinitionName"]))
         ```
 
         ## API Providers
@@ -473,7 +478,11 @@ class RoleAssignment(pulumi.CustomResource):
         example = azure.core.get_client_config()
         example_role_assignment = azure.marketplace.RoleAssignment("example",
             role_definition_name="Marketplace Admin",
-            principal_id=example.object_id)
+            principal_id=example.object_id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "name",
+                    "roleDefinitionId",
+                ]))
         ```
 
         ### Using A Role Definition ID)
@@ -486,7 +495,8 @@ class RoleAssignment(pulumi.CustomResource):
         example_get_role_definition = azure.authorization.get_role_definition(name="Log Analytics Reader")
         example_role_assignment = azure.marketplace.RoleAssignment("example",
             role_definition_id=example_get_role_definition.id,
-            principal_id=example.object_id)
+            principal_id=example.object_id,
+            opts = pulumi.ResourceOptions(ignore_changes=["roleDefinitionName"]))
         ```
 
         ## API Providers

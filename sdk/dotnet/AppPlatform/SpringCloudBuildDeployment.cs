@@ -49,6 +49,11 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("example", new()
     ///     {
+    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudBuildDeploymentQuotaArgs
+    ///         {
+    ///             Cpu = "2",
+    ///             Memory = "4Gi",
+    ///         },
     ///         Name = "example",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///         BuildResultId = "&lt;default&gt;",
@@ -57,11 +62,6 @@ namespace Pulumi.Azure.AppPlatform
     ///         {
     ///             { "Foo", "Bar" },
     ///             { "Env", "Staging" },
-    ///         },
-    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudBuildDeploymentQuotaArgs
-    ///         {
-    ///             Cpu = "2",
-    ///             Memory = "4Gi",
     ///         },
     ///     });
     /// 

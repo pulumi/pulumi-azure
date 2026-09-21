@@ -30,24 +30,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "machine",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_B1ls",
- *     adminUsername: "adminuser",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     adminPassword: "example-Password@7890",
- *     disablePasswordAuthentication: false,
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -58,11 +50,16 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
- * });
- * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("example", {
- *     name: "example-dcr",
+ *     name: "machine",
  *     resourceGroupName: example.name,
  *     location: example.location,
+ *     size: "Standard_B1ls",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     adminPassword: "example-Password@7890",
+ *     disablePasswordAuthentication: false,
+ * });
+ * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("example", {
  *     destinations: {
  *         azureMonitorMetrics: {
  *             name: "example-destination-metrics",
@@ -72,6 +69,9 @@ import * as utilities from "../utilities";
  *         streams: ["Microsoft-InsightsMetrics"],
  *         destinations: ["example-destination-metrics"],
  *     }],
+ *     name: "example-dcr",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("example", {
  *     name: "example-dce",

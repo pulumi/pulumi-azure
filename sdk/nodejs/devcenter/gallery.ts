@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * const test = new azure.devcenter.DevCenter("test", {
- *     name: "example-devcenter",
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     location: testAzurermResourceGroup.location,
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [testUserAssignedIdentity.id],
  *     },
+ *     name: "example-devcenter",
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     location: testAzurermResourceGroup.location,
  * });
  * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
  *     name: "example-image-gallery",

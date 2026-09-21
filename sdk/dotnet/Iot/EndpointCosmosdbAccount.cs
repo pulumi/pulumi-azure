@@ -32,14 +32,14 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "exampleIothub",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "B1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "exampleIothub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Tags = 
     ///         {
     ///             { "purpose", "example" },
@@ -48,11 +48,6 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "cosmosdb-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
     ///             ConsistencyLevel = "Strong",
@@ -65,6 +60,11 @@ namespace Pulumi.Azure.Iot
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
     ///     });
     /// 
     ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()

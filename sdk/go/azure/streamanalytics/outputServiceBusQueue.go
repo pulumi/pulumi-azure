@@ -59,6 +59,10 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "example", &streamanalytics.OutputServiceBusQueueArgs{
+//				Serialization: &streamanalytics.OutputServiceBusQueueSerializationArgs{
+//					Type:   pulumi.String("Csv"),
+//					Format: pulumi.String("Array"),
+//				},
 //				Name:                   pulumi.String("blob-storage-output"),
 //				StreamAnalyticsJobName: example.Name(),
 //				ResourceGroupName:      example.ResourceGroupName(),
@@ -66,10 +70,6 @@ import (
 //				ServicebusNamespace:    exampleNamespace.Name,
 //				SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,
 //				SharedAccessPolicyName: pulumi.String("RootManageSharedAccessKey"),
-//				Serialization: &streamanalytics.OutputServiceBusQueueSerializationArgs{
-//					Type:   pulumi.String("Csv"),
-//					Format: pulumi.String("Array"),
-//				},
 //			})
 //			if err != nil {
 //				return err

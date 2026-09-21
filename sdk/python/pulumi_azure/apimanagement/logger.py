@@ -330,13 +330,13 @@ class Logger(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
         example_logger = azure.apimanagement.Logger("example",
+            application_insights={
+                "instrumentation_key": example_insights.instrumentation_key,
+            },
             name="example-logger",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            resource_id=example_insights.id,
-            application_insights={
-                "instrumentation_key": example_insights.instrumentation_key,
-            })
+            resource_id=example_insights.id)
         ```
 
         ## API Providers
@@ -397,13 +397,13 @@ class Logger(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
         example_logger = azure.apimanagement.Logger("example",
+            application_insights={
+                "instrumentation_key": example_insights.instrumentation_key,
+            },
             name="example-logger",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            resource_id=example_insights.id,
-            application_insights={
-                "instrumentation_key": example_insights.instrumentation_key,
-            })
+            resource_id=example_insights.id)
         ```
 
         ## API Providers

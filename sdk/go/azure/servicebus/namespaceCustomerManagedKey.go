@@ -42,16 +42,18 @@ import (
 //				return err
 //			}
 //			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Identity: &servicebus.NamespaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                       pulumi.String("example-servicebus-namespace"),
 //				Location:                   example.Location,
 //				ResourceGroupName:          example.Name,
 //				Sku:                        pulumi.String("Premium"),
 //				PremiumMessagingPartitions: pulumi.Int(1),
 //				Capacity:                   pulumi.Int(1),
-//				Identity: &servicebus.NamespaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"customerManagedKey",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -60,15 +62,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example-key-vault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(true),
-//				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -111,6 +104,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example-key-vault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err

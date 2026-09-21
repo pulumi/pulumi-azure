@@ -22,6 +22,14 @@ import * as utilities from "../utilities";
  *     revision: "2",
  * });
  * const exampleApiOperation = new azure.apimanagement.ApiOperation("example", {
+ *     responses: [{
+ *         statusCode: 200,
+ *     }],
+ *     templateParameters: [{
+ *         name: "id",
+ *         type: "number",
+ *         required: true,
+ *     }],
  *     operationId: "user-delete",
  *     apiName: example.then(example => example.name),
  *     apiManagementName: example.then(example => example.apiManagementName),
@@ -30,14 +38,6 @@ import * as utilities from "../utilities";
  *     method: "DELETE",
  *     urlTemplate: "/users/{id}/delete",
  *     description: "This can only be done by the logged in user.",
- *     templateParameters: [{
- *         name: "id",
- *         type: "number",
- *         required: true,
- *     }],
- *     responses: [{
- *         statusCode: 200,
- *     }],
  * });
  * ```
  *

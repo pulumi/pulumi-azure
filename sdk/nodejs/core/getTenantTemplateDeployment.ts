@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  *     name: "existing",
  * });
  * export const id = example.then(example => example.id);
- * export const exampleOutput = example.then(example => std.jsondecode({
- *     input: example.outputContent,
- * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * export const exampleOutput = std.jsondecode({
+ *     input: example.then(example => example.outputContent),
+ * }).result.exampleOutput.value;
  * ```
  */
 export function getTenantTemplateDeployment(args: GetTenantTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantTemplateDeploymentResult> {
@@ -68,9 +68,9 @@ export interface GetTenantTemplateDeploymentResult {
  *     name: "existing",
  * });
  * export const id = example.then(example => example.id);
- * export const exampleOutput = example.then(example => std.jsondecode({
- *     input: example.outputContent,
- * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * export const exampleOutput = std.jsondecode({
+ *     input: example.then(example => example.outputContent),
+ * }).result.exampleOutput.value;
  * ```
  */
 export function getTenantTemplateDeploymentOutput(args: GetTenantTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantTemplateDeploymentResult> {

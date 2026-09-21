@@ -128,19 +128,16 @@ class ManagementPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="BlobStorage")
         example_management_policy = azure.storage.ManagementPolicy("example",
-            storage_account_id=example_account.id,
             rules=[
                 {
-                    "name": "rule1",
-                    "enabled": True,
                     "filters": {
-                        "prefix_matches": ["container1/prefix1"],
-                        "blob_types": ["blockBlob"],
                         "match_blob_index_tags": [{
                             "name": "tag1",
                             "operation": "==",
                             "value": "val1",
                         }],
+                        "prefix_matches": ["container1/prefix1"],
+                        "blob_types": ["blockBlob"],
                     },
                     "actions": {
                         "base_blob": {
@@ -152,10 +149,10 @@ class ManagementPolicy(pulumi.CustomResource):
                             "delete_after_days_since_creation_greater_than": 30,
                         },
                     },
+                    "name": "rule1",
+                    "enabled": True,
                 },
                 {
-                    "name": "rule2",
-                    "enabled": False,
                     "filters": {
                         "prefix_matches": [
                             "container2/prefix1",
@@ -180,8 +177,11 @@ class ManagementPolicy(pulumi.CustomResource):
                             "delete_after_days_since_creation": 3,
                         },
                     },
+                    "name": "rule2",
+                    "enabled": False,
                 },
-            ])
+            ],
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers
@@ -231,19 +231,16 @@ class ManagementPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="BlobStorage")
         example_management_policy = azure.storage.ManagementPolicy("example",
-            storage_account_id=example_account.id,
             rules=[
                 {
-                    "name": "rule1",
-                    "enabled": True,
                     "filters": {
-                        "prefix_matches": ["container1/prefix1"],
-                        "blob_types": ["blockBlob"],
                         "match_blob_index_tags": [{
                             "name": "tag1",
                             "operation": "==",
                             "value": "val1",
                         }],
+                        "prefix_matches": ["container1/prefix1"],
+                        "blob_types": ["blockBlob"],
                     },
                     "actions": {
                         "base_blob": {
@@ -255,10 +252,10 @@ class ManagementPolicy(pulumi.CustomResource):
                             "delete_after_days_since_creation_greater_than": 30,
                         },
                     },
+                    "name": "rule1",
+                    "enabled": True,
                 },
                 {
-                    "name": "rule2",
-                    "enabled": False,
                     "filters": {
                         "prefix_matches": [
                             "container2/prefix1",
@@ -283,8 +280,11 @@ class ManagementPolicy(pulumi.CustomResource):
                             "delete_after_days_since_creation": 3,
                         },
                     },
+                    "name": "rule2",
+                    "enabled": False,
                 },
-            ])
+            ],
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers

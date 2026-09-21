@@ -2042,16 +2042,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            instances=1,
-            admin_username="adminuser",
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": first_public_key,
-            }],
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -2062,15 +2052,25 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": first_public_key,
+            }],
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": internal.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            instances=1,
+            admin_username="adminuser")
         ```
 
         ## API Providers
@@ -2226,16 +2226,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            instances=1,
-            admin_username="adminuser",
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": first_public_key,
-            }],
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -2246,15 +2236,25 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": first_public_key,
+            }],
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": internal.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            instances=1,
+            admin_username="adminuser")
         ```
 
         ## API Providers

@@ -57,15 +57,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ledger = new Ledger("ledger", LedgerArgs.builder()
- *             .name("example-ledger")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .ledgerType("Private")
  *             .azureadBasedServicePrincipals(LedgerAzureadBasedServicePrincipalArgs.builder()
  *                 .principalId(current.objectId())
  *                 .tenantId(current.tenantId())
  *                 .ledgerRoleName("Administrator")
  *                 .build())
+ *             .name("example-ledger")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .ledgerType("Private")
  *             .build());
  * 
  *     }

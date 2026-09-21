@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "azure-functions-test-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "azure-functions-test-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
  *     name: "test-azure-functions",
@@ -70,14 +70,14 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "azure-functions-test-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     kind: "FunctionApp",
  *     sku: {
  *         tier: "Dynamic",
  *         size: "Y1",
  *     },
+ *     name: "azure-functions-test-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     kind: "FunctionApp",
  * });
  * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
  *     name: "test-azure-functions",
@@ -107,15 +107,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
+ *     sku: {
+ *         tier: "Dynamic",
+ *         size: "Y1",
+ *     },
  *     name: "azure-functions-test-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "Linux",
  *     reserved: true,
- *     sku: {
- *         tier: "Dynamic",
- *         size: "Y1",
- *     },
  * });
  * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
  *     name: "test-azure-functions",

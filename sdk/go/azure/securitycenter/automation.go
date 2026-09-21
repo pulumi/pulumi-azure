@@ -73,9 +73,6 @@ import (
 //				return err
 //			}
 //			_, err = securitycenter.NewAutomation(ctx, "example", &securitycenter.AutomationArgs{
-//				Name:              pulumi.String("example-automation"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Actions: securitycenter.AutomationActionArray{
 //					&securitycenter.AutomationActionArgs{
 //						Type:             pulumi.String("EventHub"),
@@ -85,7 +82,6 @@ import (
 //				},
 //				Sources: securitycenter.AutomationSourceArray{
 //					&securitycenter.AutomationSourceArgs{
-//						EventSource: pulumi.String("Alerts"),
 //						RuleSets: securitycenter.AutomationSourceRuleSetArray{
 //							&securitycenter.AutomationSourceRuleSetArgs{
 //								Rules: securitycenter.AutomationSourceRuleSetRuleArray{
@@ -98,8 +94,12 @@ import (
 //								},
 //							},
 //						},
+//						EventSource: pulumi.String("Alerts"),
 //					},
 //				},
+//				Name:              pulumi.String("example-automation"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Scopes: pulumi.StringArray{
 //					pulumi.Sprintf("/subscriptions/%v", current.SubscriptionId),
 //				},

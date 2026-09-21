@@ -69,15 +69,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
- *             .name("example-routetable")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .name("example")
  *                 .addressPrefix("10.100.0.0/14")
  *                 .nextHopType("VirtualAppliance")
  *                 .nextHopInIpAddress("10.10.1.1")
  *                 .build())
+ *             .name("example-routetable")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", SubnetRouteTableAssociationArgs.builder()

@@ -93,19 +93,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var netappSubnet = new Subnet("netappSubnet", SubnetArgs.builder()
- *             .name("example-Subnet")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .virtualNetworkName(testVirtualNetwork.name())
- *             .addressPrefixes("10.88.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("testdelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("testdelegation")
  *                 .build())
+ *             .name("example-Subnet")
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .virtualNetworkName(testVirtualNetwork.name())
+ *             .addressPrefixes("10.88.2.0/24")
  *             .build());
  * 
  *         var gatewaySubnet = new Subnet("gatewaySubnet", SubnetArgs.builder()
@@ -116,16 +116,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testVirtualNetworkGateway = new VirtualNetworkGateway("testVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
- *             .name("example-vnet-gateway")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .type("ExpressRoute")
- *             .sku("Standard")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .name("vnetGatewayConfig")
  *                 .publicIpAddressId(test.id())
  *                 .subnetId(gatewaySubnet.id())
  *                 .build())
+ *             .name("example-vnet-gateway")
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .type("ExpressRoute")
+ *             .sku("Standard")
  *             .build());
  * 
  *         var testAccount = new Account("testAccount", AccountArgs.builder()
@@ -144,6 +144,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testVolume = new Volume("testVolume", VolumeArgs.builder()
+ *             .exportPolicyRules(VolumeExportPolicyRuleArgs.builder()
+ *                 .ruleIndex(1)
+ *                 .allowedClients("0.0.0.0/0")
+ *                 .protocolsEnabled("NFSv3")
+ *                 .unixReadOnly(false)
+ *                 .unixReadWrite(true)
+ *                 .rootAccessEnabled(true)
+ *                 .build())
  *             .name("example-NetAppVolume")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
@@ -155,24 +163,16 @@ import javax.annotation.Nullable;
  *             .protocols("NFSv3")
  *             .storageQuotaInGb(100)
  *             .azureVmwareDataStoreEnabled(true)
- *             .exportPolicyRules(VolumeExportPolicyRuleArgs.builder()
- *                 .ruleIndex(1)
- *                 .allowedClients("0.0.0.0/0")
- *                 .protocolsEnabled("NFSv3")
- *                 .unixReadOnly(false)
- *                 .unixReadWrite(true)
- *                 .rootAccessEnabled(true)
- *                 .build())
  *             .build());
  * 
  *         var testPrivateCloud = new PrivateCloud("testPrivateCloud", PrivateCloudArgs.builder()
+ *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
+ *                 .size(3)
+ *                 .build())
  *             .name("example-PC")
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .location(testAzurermResourceGroup.location())
  *             .skuName("av36")
- *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
- *                 .size(3)
- *                 .build())
  *             .networkSubnetCidr("192.168.48.0/22")
  *             .build());
  * 

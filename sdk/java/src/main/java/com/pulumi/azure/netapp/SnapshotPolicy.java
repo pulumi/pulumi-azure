@@ -67,11 +67,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSnapshotPolicy = new SnapshotPolicy("exampleSnapshotPolicy", SnapshotPolicyArgs.builder()
- *             .name("snapshotpolicy-01")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .accountName(exampleAccount.name())
- *             .enabled(true)
  *             .hourlySchedule(SnapshotPolicyHourlyScheduleArgs.builder()
  *                 .snapshotsToKeep(4)
  *                 .minute(15)
@@ -99,6 +94,11 @@ import javax.annotation.Nullable;
  *                 .hour(5)
  *                 .minute(45)
  *                 .build())
+ *             .name("snapshotpolicy-01")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount.name())
+ *             .enabled(true)
  *             .build());
  * 
  *     }

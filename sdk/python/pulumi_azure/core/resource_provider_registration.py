@@ -142,11 +142,11 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceProviderRegistration("example",
-            name="Microsoft.ContainerService",
             features=[{
                 "name": "AKS-DataPlaneAutoApprove",
                 "registered": True,
-            }])
+            }],
+            name="Microsoft.ContainerService")
         ```
 
         ## API Providers
@@ -203,11 +203,11 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceProviderRegistration("example",
-            name="Microsoft.ContainerService",
             features=[{
                 "name": "AKS-DataPlaneAutoApprove",
                 "registered": True,
-            }])
+            }],
+            name="Microsoft.ContainerService")
         ```
 
         ## API Providers

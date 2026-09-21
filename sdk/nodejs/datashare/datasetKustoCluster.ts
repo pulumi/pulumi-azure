@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.datashare.Account("example", {
- *     name: "example-dsa",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-dsa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleShare = new azure.datashare.Share("example", {
  *     name: "example_ds",
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  *     kind: "InPlace",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "examplekc",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
+ *     name: "examplekc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleCluster.id,

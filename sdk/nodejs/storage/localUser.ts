@@ -33,11 +33,14 @@ import * as utilities from "../utilities";
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleLocalUser = new azure.storage.LocalUser("example", {
- *     name: "user1",
- *     storageAccountId: exampleAccount.id,
- *     sshKeyEnabled: true,
- *     sshPasswordEnabled: true,
- *     homeDirectory: "example_path",
+ *     permissionScopes: [{
+ *         permissions: {
+ *             read: true,
+ *             create: true,
+ *         },
+ *         service: "blob",
+ *         resourceName: exampleContainer.name,
+ *     }],
  *     sshAuthorizedKeys: [
  *         {
  *             description: "key1",
@@ -48,14 +51,11 @@ import * as utilities from "../utilities";
  *             key: secondPublicKey,
  *         },
  *     ],
- *     permissionScopes: [{
- *         permissions: {
- *             read: true,
- *             create: true,
- *         },
- *         service: "blob",
- *         resourceName: exampleContainer.name,
- *     }],
+ *     name: "user1",
+ *     storageAccountId: exampleAccount.id,
+ *     sshKeyEnabled: true,
+ *     sshPasswordEnabled: true,
+ *     homeDirectory: "example_path",
  * });
  * ```
  *

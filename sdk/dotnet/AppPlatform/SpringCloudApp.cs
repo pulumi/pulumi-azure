@@ -39,13 +39,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
     ///     {
-    ///         Name = "example-springcloudapp",
-    ///         ResourceGroupName = example.Name,
-    ///         ServiceName = exampleSpringCloudService.Name,
     ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-springcloudapp",
+    ///         ResourceGroupName = example.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
     /// });

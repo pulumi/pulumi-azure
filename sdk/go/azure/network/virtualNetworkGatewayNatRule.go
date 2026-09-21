@@ -68,12 +68,6 @@ import (
 //				return err
 //			}
 //			exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
-//				Name:              pulumi.String("example-vnetgw"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Type:              pulumi.String("Vpn"),
-//				VpnType:           pulumi.String("RouteBased"),
-//				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
 //						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -81,6 +75,12 @@ import (
 //						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("example-vnetgw"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Type:              pulumi.String("Vpn"),
+//				VpnType:           pulumi.String("RouteBased"),
+//				Sku:               pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
@@ -90,14 +90,6 @@ import (
 //				ResourceGroupName: exampleVirtualNetworkGateway.ResourceGroupName,
 //			}, nil)
 //			_, err = network.NewVirtualNetworkGatewayNatRule(ctx, "example", &network.VirtualNetworkGatewayNatRuleArgs{
-//				Name:                    pulumi.String("example-vnetgwnatrule"),
-//				ResourceGroupName:       exampleResourceGroup.Name,
-//				VirtualNetworkGatewayId: example.Id(),
-//				Mode:                    pulumi.String("EgressSnat"),
-//				Type:                    pulumi.String("Dynamic"),
-//				IpConfigurationId: example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
-//					return example.IpConfigurations[0].Id, nil
-//				}).(pulumi.StringPtrOutput),
 //				ExternalMappings: network.VirtualNetworkGatewayNatRuleExternalMappingArray{
 //					&network.VirtualNetworkGatewayNatRuleExternalMappingArgs{
 //						AddressSpace: pulumi.String("10.2.0.0/26"),
@@ -110,6 +102,14 @@ import (
 //						PortRange:    pulumi.String("400"),
 //					},
 //				},
+//				Name:                    pulumi.String("example-vnetgwnatrule"),
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				VirtualNetworkGatewayId: example.Id(),
+//				Mode:                    pulumi.String("EgressSnat"),
+//				Type:                    pulumi.String("Dynamic"),
+//				IpConfigurationId: example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
+//					return example.IpConfigurations[0].Id, nil
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

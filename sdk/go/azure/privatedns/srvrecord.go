@@ -44,10 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewSRVRecord(ctx, "example", &privatedns.SRVRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: privatedns.SRVRecordRecordArray{
 //					&privatedns.SRVRecordRecordArgs{
 //						Priority: pulumi.Int(1),
@@ -62,6 +58,10 @@ import (
 //						Target:   pulumi.String("target2.contoso.com"),
 //					},
 //				},
+//				Name:              pulumi.String("test"),
+//				ResourceGroupName: example.Name,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

@@ -32,17 +32,17 @@ namespace Pulumi.Azure.Fabric
     /// 
     ///     var exampleCapacity = new Azure.Fabric.Capacity("example", new()
     ///     {
+    ///         Sku = new Azure.Fabric.Inputs.CapacitySkuArgs
+    ///         {
+    ///             Name = "F32",
+    ///             Tier = "Fabric",
+    ///         },
     ///         Name = "exampleffc",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         AdministrationMembers = new[]
     ///         {
     ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         },
-    ///         Sku = new Azure.Fabric.Inputs.CapacitySkuArgs
-    ///         {
-    ///             Name = "F32",
-    ///             Tier = "Fabric",
     ///         },
     ///         Tags = 
     ///         {

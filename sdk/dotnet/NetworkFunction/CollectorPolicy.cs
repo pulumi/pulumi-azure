@@ -40,27 +40,20 @@ namespace Pulumi.Azure.NetworkFunction
     /// 
     ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
-    ///         Name = "example-erc",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
-    ///         BandwidthInGbps = 1,
     ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Family = "MeteredData",
     ///         },
+    ///         Name = "example-erc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 1,
     ///     });
     /// 
     ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()
     ///     {
-    ///         PeeringType = "MicrosoftPeering",
-    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         PeerAsn = 100,
-    ///         PrimaryPeerAddressPrefix = "192.168.199.0/30",
-    ///         SecondaryPeerAddressPrefix = "192.168.200.0/30",
-    ///         VlanId = 300,
     ///         MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
     ///         {
     ///             AdvertisedPublicPrefixes = new[]
@@ -68,6 +61,13 @@ namespace Pulumi.Azure.NetworkFunction
     ///                 "123.6.0.0/24",
     ///             },
     ///         },
+    ///         PeeringType = "MicrosoftPeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.199.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.200.0/30",
+    ///         VlanId = 300,
     ///     });
     /// 
     ///     var exampleAzureTrafficCollector = new Azure.NetworkFunction.AzureTrafficCollector("example", new()
@@ -85,9 +85,6 @@ namespace Pulumi.Azure.NetworkFunction
     /// 
     ///     var exampleCollectorPolicy = new Azure.NetworkFunction.CollectorPolicy("example", new()
     ///     {
-    ///         Name = "example-nfcp",
-    ///         TrafficCollectorId = exampleAzureTrafficCollector.Id,
-    ///         Location = example.Location,
     ///         IpfxEmission = new Azure.NetworkFunction.Inputs.CollectorPolicyIpfxEmissionArgs
     ///         {
     ///             DestinationTypes = "AzureMonitor",
@@ -99,6 +96,9 @@ namespace Pulumi.Azure.NetworkFunction
     ///                 exampleExpressRouteCircuit.Id,
     ///             },
     ///         },
+    ///         Name = "example-nfcp",
+    ///         TrafficCollectorId = exampleAzureTrafficCollector.Id,
+    ///         Location = example.Location,
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

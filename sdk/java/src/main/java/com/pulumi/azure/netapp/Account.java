@@ -67,9 +67,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("netappaccount")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .activeDirectory(AccountActiveDirectoryArgs.builder()
  *                 .username("aduser")
  *                 .password("aduserpwd")
@@ -82,6 +79,9 @@ import javax.annotation.Nullable;
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .name("netappaccount")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

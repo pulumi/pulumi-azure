@@ -47,13 +47,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("examplekeyvault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -73,11 +66,25 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = keyvault.NewKey(ctx, "generated", &keyvault.KeyArgs{
+//				RotationPolicy: &keyvault.KeyRotationPolicyArgs{
+//					Automatic: &keyvault.KeyRotationPolicyAutomaticArgs{
+//						TimeBeforeExpiry: pulumi.String("P30D"),
+//					},
+//					ExpireAfter:        pulumi.String("P90D"),
+//					NotifyBeforeExpiry: pulumi.String("P29D"),
+//				},
 //				Name:       pulumi.String("generated-certificate"),
 //				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
@@ -89,13 +96,6 @@ import (
 //					pulumi.String("unwrapKey"),
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
-//				},
-//				RotationPolicy: &keyvault.KeyRotationPolicyArgs{
-//					Automatic: &keyvault.KeyRotationPolicyAutomaticArgs{
-//						TimeBeforeExpiry: pulumi.String("P30D"),
-//					},
-//					ExpireAfter:        pulumi.String("P90D"),
-//					NotifyBeforeExpiry: pulumi.String("P29D"),
 //				},
 //			})
 //			if err != nil {

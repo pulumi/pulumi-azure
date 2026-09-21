@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     microsoftAppId: current.then(current => current.clientId),
  * });
  * const exampleChannelDirectLine = new azure.bot.ChannelDirectLine("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: example.name,
  *     sites: [{
  *         name: "default",
  *         enabled: true,
  *     }],
+ *     botName: exampleChannelsRegistration.name,
+ *     location: exampleChannelsRegistration.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

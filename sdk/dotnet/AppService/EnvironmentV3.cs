@@ -43,18 +43,10 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "Microsoft.Web.hostingEnvironments",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Web/hostingEnvironments",
@@ -63,16 +55,20 @@ namespace Pulumi.Azure.AppService
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
+    ///                 Name = "Microsoft.Web.hostingEnvironments",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleEnvironmentV3 = new Azure.AppService.EnvironmentV3("example", new()
     ///     {
-    ///         Name = "example-asev3",
-    ///         ResourceGroupName = example.Name,
-    ///         SubnetId = exampleSubnet.Id,
-    ///         InternalLoadBalancingMode = "Web, Publishing",
     ///         ClusterSettings = new[]
     ///         {
     ///             new Azure.AppService.Inputs.EnvironmentV3ClusterSettingArgs
@@ -91,6 +87,10 @@ namespace Pulumi.Azure.AppService
     ///                 Value = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
     ///             },
     ///         },
+    ///         Name = "example-asev3",
+    ///         ResourceGroupName = example.Name,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         InternalLoadBalancingMode = "Web, Publishing",
     ///         Tags = 
     ///         {
     ///             { "env", "production" },

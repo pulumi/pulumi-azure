@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Redis
     /// 
     ///     var example_primaryCache = new Azure.Redis.Cache("example-primary", new()
     ///     {
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
     ///         Name = "example-cache1",
     ///         Location = example_primary.Location,
     ///         ResourceGroupName = example_primary.Name,
@@ -37,12 +43,6 @@ namespace Pulumi.Azure.Redis
     ///         Family = "P",
     ///         SkuName = "Premium",
     ///         EnableNonSslPort = false,
-    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
-    ///         {
-    ///             MaxmemoryReserved = 2,
-    ///             MaxmemoryDelta = 2,
-    ///             MaxmemoryPolicy = "allkeys-lru",
-    ///         },
     ///     });
     /// 
     ///     var example_secondary = new Azure.Core.ResourceGroup("example-secondary", new()
@@ -53,6 +53,12 @@ namespace Pulumi.Azure.Redis
     /// 
     ///     var example_secondaryCache = new Azure.Redis.Cache("example-secondary", new()
     ///     {
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
     ///         Name = "example-cache2",
     ///         Location = example_secondary.Location,
     ///         ResourceGroupName = example_secondary.Name,
@@ -60,12 +66,6 @@ namespace Pulumi.Azure.Redis
     ///         Family = "P",
     ///         SkuName = "Premium",
     ///         EnableNonSslPort = false,
-    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
-    ///         {
-    ///             MaxmemoryReserved = 2,
-    ///             MaxmemoryDelta = 2,
-    ///             MaxmemoryPolicy = "allkeys-lru",
-    ///         },
     ///     });
     /// 
     ///     var example_link = new Azure.Redis.LinkedServer("example-link", new()

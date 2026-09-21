@@ -35,13 +35,10 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleFunctionJavaScriptUDF = new Azure.StreamAnalytics.FunctionJavaScriptUDF("example", new()
     ///     {
-    ///         Name = "example-javascript-function",
-    ///         StreamAnalyticsJobName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
-    ///         Script = @"function getRandomNumber(in) {
-    ///   return in;
-    /// }
-    /// ",
+    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFOutputArgs
+    ///         {
+    ///             Type = "bigint",
+    ///         },
     ///         Inputs = new[]
     ///         {
     ///             new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFInputArgs
@@ -49,10 +46,13 @@ namespace Pulumi.Azure.StreamAnalytics
     ///                 Type = "bigint",
     ///             },
     ///         },
-    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavaScriptUDFOutputArgs
-    ///         {
-    ///             Type = "bigint",
-    ///         },
+    ///         Name = "example-javascript-function",
+    ///         StreamAnalyticsJobName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Script = @"function getRandomNumber(in) {
+    ///   return in;
+    /// }
+    /// ",
     ///     });
     /// 
     /// });

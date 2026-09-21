@@ -58,15 +58,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var srcAccount = new Account("srcAccount", AccountArgs.builder()
+ *             .blobProperties(AccountBlobPropertiesArgs.builder()
+ *                 .versioningEnabled(true)
+ *                 .changeFeedEnabled(true)
+ *                 .build())
  *             .name("srcstorageaccount")
  *             .resourceGroupName(src.name())
  *             .location(src.location())
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
- *             .blobProperties(AccountBlobPropertiesArgs.builder()
- *                 .versioningEnabled(true)
- *                 .changeFeedEnabled(true)
- *                 .build())
  *             .build());
  * 
  *         var srcContainer = new Container("srcContainer", ContainerArgs.builder()
@@ -81,15 +81,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dstAccount = new Account("dstAccount", AccountArgs.builder()
+ *             .blobProperties(AccountBlobPropertiesArgs.builder()
+ *                 .versioningEnabled(true)
+ *                 .changeFeedEnabled(true)
+ *                 .build())
  *             .name("dststorageaccount")
  *             .resourceGroupName(dst.name())
  *             .location(dst.location())
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
- *             .blobProperties(AccountBlobPropertiesArgs.builder()
- *                 .versioningEnabled(true)
- *                 .changeFeedEnabled(true)
- *                 .build())
  *             .build());
  * 
  *         var dstContainer = new Container("dstContainer", ContainerArgs.builder()
@@ -99,12 +99,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ObjectReplication("example", ObjectReplicationArgs.builder()
- *             .sourceStorageAccountId(srcAccount.id())
- *             .destinationStorageAccountId(dstAccount.id())
  *             .rules(ObjectReplicationRuleArgs.builder()
  *                 .sourceContainerName(srcContainer.name())
  *                 .destinationContainerName(dstContainer.name())
  *                 .build())
+ *             .sourceStorageAccountId(srcAccount.id())
+ *             .destinationStorageAccountId(dstAccount.id())
  *             .build());
  * 
  *     }

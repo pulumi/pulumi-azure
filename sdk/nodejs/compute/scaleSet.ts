@@ -45,13 +45,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "test",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const bpepool = new azure.lb.BackendAddressPool("bpepool", {
  *     loadbalancerId: exampleLoadBalancer.id,
@@ -75,18 +75,12 @@ import * as utilities from "../utilities";
  *     port: 8080,
  * });
  * const exampleScaleSet = new azure.compute.ScaleSet("example", {
- *     name: "mytestscaleset-1",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     automaticOsUpgrade: true,
- *     upgradePolicyMode: "Rolling",
  *     rollingUpgradePolicy: {
  *         maxBatchInstancePercent: 20,
  *         maxUnhealthyInstancePercent: 20,
  *         maxUnhealthyUpgradedInstancePercent: 5,
  *         pauseTimeBetweenBatches: "PT0S",
  *     },
- *     healthProbeId: exampleProbe.id,
  *     sku: {
  *         name: "Standard_D4_v5",
  *         tier: "Standard",
@@ -104,28 +98,20 @@ import * as utilities from "../utilities";
  *         createOption: "FromImage",
  *         managedDiskType: "Standard_LRS",
  *     },
- *     storageProfileDataDisks: [{
- *         lun: 0,
- *         caching: "ReadWrite",
- *         createOption: "Empty",
- *         diskSizeGb: 10,
- *     }],
  *     osProfile: {
  *         computerNamePrefix: "testvm",
  *         adminUsername: "myadmin",
  *     },
  *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: true,
  *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *             keyData: std.file({
  *                 input: "~/.ssh/demo_key.pub",
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *         }],
+ *         disablePasswordAuthentication: true,
  *     },
  *     networkProfiles: [{
- *         name: "mynetworkprofile",
- *         primary: true,
  *         ipConfigurations: [{
  *             name: "TestIPConfiguration",
  *             primary: true,
@@ -133,7 +119,21 @@ import * as utilities from "../utilities";
  *             loadBalancerBackendAddressPoolIds: [bpepool.id],
  *             loadBalancerInboundNatRulesIds: [lbnatpool.id],
  *         }],
+ *         name: "mynetworkprofile",
+ *         primary: true,
  *     }],
+ *     storageProfileDataDisks: [{
+ *         lun: 0,
+ *         caching: "ReadWrite",
+ *         createOption: "Empty",
+ *         diskSizeGb: 10,
+ *     }],
+ *     name: "mytestscaleset-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     automaticOsUpgrade: true,
+ *     upgradePolicyMode: "Rolling",
+ *     healthProbeId: exampleProbe.id,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -179,10 +179,6 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleScaleSet = new azure.compute.ScaleSet("example", {
- *     name: "mytestscaleset-1",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     upgradePolicyMode: "Manual",
  *     sku: {
  *         name: "Standard_D4_v5",
  *         tier: "Standard",
@@ -193,23 +189,14 @@ import * as utilities from "../utilities";
  *         adminUsername: "myadmin",
  *     },
  *     osProfileLinuxConfig: {
- *         disablePasswordAuthentication: true,
  *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *             keyData: std.file({
  *                 input: "~/.ssh/demo_key.pub",
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *         }],
+ *         disablePasswordAuthentication: true,
  *     },
- *     networkProfiles: [{
- *         name: "TestNetworkProfile",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "TestIPConfiguration",
- *             primary: true,
- *             subnetId: exampleSubnet.id,
- *         }],
- *     }],
  *     storageProfileOsDisk: {
  *         name: "osDiskProfile",
  *         caching: "ReadWrite",
@@ -222,6 +209,19 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     networkProfiles: [{
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *     }],
+ *     name: "mytestscaleset-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     upgradePolicyMode: "Manual",
  * });
  * ```
  *
@@ -233,10 +233,10 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.compute.Image("example", {name: "test"});
  * const exampleScaleSet = new azure.compute.ScaleSet("example", {
- *     name: "test",
  *     storageProfileImageReference: {
  *         id: example.id,
  *     },
+ *     name: "test",
  * });
  * ```
  *

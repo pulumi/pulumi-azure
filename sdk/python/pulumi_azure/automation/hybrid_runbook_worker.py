@@ -313,22 +313,15 @@ class HybridRunbookWorker(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["192.168.1.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "vm-example",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-vm",
+            }],
+            name="example-nic",
             location=example.location,
-            resource_group_name=example.name,
-            size="Standard_B1s",
-            admin_username="testadmin",
-            admin_password="Password1234!",
-            disable_password_authentication=False,
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -339,6 +332,13 @@ class HybridRunbookWorker(pulumi.CustomResource):
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
             },
+            name="example-vm",
+            location=example.location,
+            resource_group_name=example.name,
+            size="Standard_B1s",
+            admin_username="testadmin",
+            admin_password="Password1234!",
+            disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id])
         example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("example",
             resource_group_name=example.name,
@@ -410,22 +410,15 @@ class HybridRunbookWorker(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["192.168.1.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "vm-example",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="example-vm",
+            }],
+            name="example-nic",
             location=example.location,
-            resource_group_name=example.name,
-            size="Standard_B1s",
-            admin_username="testadmin",
-            admin_password="Password1234!",
-            disable_password_authentication=False,
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -436,6 +429,13 @@ class HybridRunbookWorker(pulumi.CustomResource):
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
             },
+            name="example-vm",
+            location=example.location,
+            resource_group_name=example.name,
+            size="Standard_B1s",
+            admin_username="testadmin",
+            admin_password="Password1234!",
+            disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id])
         example_hybrid_runbook_worker = azure.automation.HybridRunbookWorker("example",
             resource_group_name=example.name,

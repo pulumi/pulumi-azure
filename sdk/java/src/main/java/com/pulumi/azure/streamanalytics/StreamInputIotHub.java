@@ -61,16 +61,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example-iothub")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example-iothub")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *         var exampleStreamInputIotHub = new StreamInputIotHub("exampleStreamInputIotHub", StreamInputIotHubArgs.builder()
+ *             .serialization(StreamInputIotHubSerializationArgs.builder()
+ *                 .type("Json")
+ *                 .encoding("UTF8")
+ *                 .build())
  *             .name("example-iothub-input")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -79,10 +83,6 @@ import javax.annotation.Nullable;
  *             .iothubNamespace(exampleIoTHub.name())
  *             .sharedAccessPolicyKey(exampleIoTHub.sharedAccessPolicies().applyValue(_sharedAccessPolicies -> _sharedAccessPolicies[0].primaryKey()))
  *             .sharedAccessPolicyName("iothubowner")
- *             .serialization(StreamInputIotHubSerializationArgs.builder()
- *                 .type("Json")
- *                 .encoding("UTF8")
- *                 .build())
  *             .build());
  * 
  *     }

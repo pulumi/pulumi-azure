@@ -370,19 +370,19 @@ class Application(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_definition = azure.managedapplication.Definition("example",
+            authorizations=[{
+                "service_principal_id": current.object_id,
+                "role_definition_id": std.split(separator="/",
+                    text=builtin.id)["result"][len(std.split(separator="/",
+                    text=builtin.id)["result"]) - 1],
+            }],
             name="examplemanagedapplicationdefinition",
             location=example.location,
             resource_group_name=example.name,
             lock_level="ReadOnly",
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedAppDefinition",
-            description="Test Managed App Definition",
-            authorizations=[{
-                "service_principal_id": current.object_id,
-                "role_definition_id": len(std.split(separator="/",
-                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[int(length - 1)]),
-            }])
+            description="Test Managed App Definition")
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
             location=example.location,
@@ -454,19 +454,19 @@ class Application(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_definition = azure.managedapplication.Definition("example",
+            authorizations=[{
+                "service_principal_id": current.object_id,
+                "role_definition_id": std.split(separator="/",
+                    text=builtin.id)["result"][len(std.split(separator="/",
+                    text=builtin.id)["result"]) - 1],
+            }],
             name="examplemanagedapplicationdefinition",
             location=example.location,
             resource_group_name=example.name,
             lock_level="ReadOnly",
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedAppDefinition",
-            description="Test Managed App Definition",
-            authorizations=[{
-                "service_principal_id": current.object_id,
-                "role_definition_id": len(std.split(separator="/",
-                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[int(length - 1)]),
-            }])
+            description="Test Managed App Definition")
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
             location=example.location,

@@ -434,6 +434,10 @@ class StreamInputEventHub(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             resource_group_name=example_resource_group.name)
         example_stream_input_event_hub = azure.streamanalytics.StreamInputEventHub("example",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            },
             name="eventhub-stream-input",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -441,11 +445,7 @@ class StreamInputEventHub(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Json",
-                "encoding": "UTF8",
-            })
+            shared_access_policy_name="RootManageSharedAccessKey")
         ```
 
         ## API Providers
@@ -517,6 +517,10 @@ class StreamInputEventHub(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             resource_group_name=example_resource_group.name)
         example_stream_input_event_hub = azure.streamanalytics.StreamInputEventHub("example",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            },
             name="eventhub-stream-input",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -524,11 +528,7 @@ class StreamInputEventHub(pulumi.CustomResource):
             eventhub_name=example_event_hub.name,
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Json",
-                "encoding": "UTF8",
-            })
+            shared_access_policy_name="RootManageSharedAccessKey")
         ```
 
         ## API Providers

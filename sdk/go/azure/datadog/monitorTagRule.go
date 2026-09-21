@@ -38,9 +38,6 @@ import (
 //				return err
 //			}
 //			exampleMonitor, err := datadog.NewMonitor(ctx, "example", &datadog.MonitorArgs{
-//				Name:              pulumi.String("example-monitor"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
 //					ApiKey:         pulumi.String("XXXX"),
 //					ApplicationKey: pulumi.String("XXXX"),
@@ -49,16 +46,18 @@ import (
 //					Name:  pulumi.String("Example"),
 //					Email: pulumi.String("abc@xyz.com"),
 //				},
-//				SkuName: pulumi.String("Linked"),
 //				Identity: &datadog.MonitorIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-monitor"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SkuName:           pulumi.String("Linked"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datadog.NewMonitorTagRule(ctx, "example", &datadog.MonitorTagRuleArgs{
-//				DatadogMonitorId: exampleMonitor.ID().ToIDOutput().ToStringOutput(),
 //				Logs: datadog.MonitorTagRuleLogArray{
 //					&datadog.MonitorTagRuleLogArgs{
 //						SubscriptionLogEnabled: pulumi.Bool(true),
@@ -75,6 +74,7 @@ import (
 //						},
 //					},
 //				},
+//				DatadogMonitorId: exampleMonitor.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

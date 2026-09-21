@@ -262,11 +262,6 @@ class SpringCloudConnection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
                 "max_interval_in_seconds": 10,
@@ -275,7 +270,12 @@ class SpringCloudConnection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -292,22 +292,22 @@ class SpringCloudConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="examplespringcloudapp",
-            resource_group_name=example.name,
-            service_name=example_spring_cloud_service.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="examplespringcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="exampledeployment",
             spring_cloud_app_id=example_spring_cloud_app.id)
         example_spring_cloud_connection = azure.appplatform.SpringCloudConnection("example",
-            name="example-serviceconnector",
-            spring_cloud_id=example_spring_cloud_java_deployment.id,
-            target_resource_id=example_sql_database.id,
             authentication={
                 "type": "systemAssignedIdentity",
-            })
+            },
+            name="example-serviceconnector",
+            spring_cloud_id=example_spring_cloud_java_deployment.id,
+            target_resource_id=example_sql_database.id)
         ```
 
         ## API Providers
@@ -354,11 +354,6 @@ class SpringCloudConnection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
                 "max_interval_in_seconds": 10,
@@ -367,7 +362,12 @@ class SpringCloudConnection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -384,22 +384,22 @@ class SpringCloudConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="examplespringcloudapp",
-            resource_group_name=example.name,
-            service_name=example_spring_cloud_service.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="examplespringcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="exampledeployment",
             spring_cloud_app_id=example_spring_cloud_app.id)
         example_spring_cloud_connection = azure.appplatform.SpringCloudConnection("example",
-            name="example-serviceconnector",
-            spring_cloud_id=example_spring_cloud_java_deployment.id,
-            target_resource_id=example_sql_database.id,
             authentication={
                 "type": "systemAssignedIdentity",
-            })
+            },
+            name="example-serviceconnector",
+            spring_cloud_id=example_spring_cloud_java_deployment.id,
+            target_resource_id=example_sql_database.id)
         ```
 
         ## API Providers

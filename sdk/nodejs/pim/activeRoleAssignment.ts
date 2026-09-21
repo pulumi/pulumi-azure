@@ -16,29 +16,29 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumiverse/time";
+ * import * as time from "@pulumi/time";
  *
  * const primary = azure.core.getSubscription({});
  * const example = azure.core.getClientConfig({});
  * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
- * const exampleStatic = new time.Static("example", {});
+ * const exampleStatic = new time.index.Static("example", {});
  * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("example", {
- *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: Promise.all([primary, exampleGetRoleDefinition]).then(([primary, exampleGetRoleDefinition]) => `${primary.id}${exampleGetRoleDefinition.id}`),
- *     principalId: example.then(example => example.objectId),
  *     schedule: {
- *         startDateTime: exampleStatic.rfc3339,
  *         expiration: {
  *             durationHours: 8,
  *         },
+ *         startDateTime: exampleStatic.rfc3339,
  *     },
- *     justification: "Expiration Duration Set",
  *     ticket: {
  *         number: "1",
  *         system: "example ticket system",
  *     },
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: Promise.all([primary, exampleGetRoleDefinition]).then(([primary, exampleGetRoleDefinition]) => `${primary.id}${exampleGetRoleDefinition.id}`),
+ *     principalId: example.then(example => example.objectId),
+ *     justification: "Expiration Duration Set",
  * });
  * ```
  *
@@ -47,29 +47,29 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumiverse/time";
+ * import * as time from "@pulumi/time";
  *
  * const example = azure.core.getClientConfig({});
  * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
  * const exampleGroup = new azure.management.Group("example", {name: "Example-Management-Group"});
- * const exampleStatic = new time.Static("example", {});
+ * const exampleStatic = new time.index.Static("example", {});
  * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("example", {
- *     scope: exampleGroup.id,
- *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
- *     principalId: example.then(example => example.objectId),
  *     schedule: {
- *         startDateTime: exampleStatic.rfc3339,
  *         expiration: {
  *             durationHours: 8,
  *         },
+ *         startDateTime: exampleStatic.rfc3339,
  *     },
- *     justification: "Expiration Duration Set",
  *     ticket: {
  *         number: "1",
  *         system: "example ticket system",
  *     },
+ *     scope: exampleGroup.id,
+ *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
+ *     principalId: example.then(example => example.objectId),
+ *     justification: "Expiration Duration Set",
  * });
  * ```
  *

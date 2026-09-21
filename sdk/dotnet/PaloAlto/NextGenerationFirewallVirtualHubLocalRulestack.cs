@@ -68,9 +68,6 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var exampleNextGenerationFirewallVirtualHubLocalRulestack = new Azure.PaloAlto.NextGenerationFirewallVirtualHubLocalRulestack("example", new()
     ///     {
-    ///         Name = "example-ngfwvn",
-    ///         ResourceGroupName = example.Name,
-    ///         RulestackId = exampleAzurermPaloAltoLocalRulestack.Id,
     ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs
     ///         {
     ///             PublicIpAddressIds = new[]
@@ -80,6 +77,9 @@ namespace Pulumi.Azure.PaloAlto
     ///             VirtualHubId = exampleVirtualHub.Id,
     ///             NetworkVirtualApplianceId = exampleVirtualNetworkAppliance.Id,
     ///         },
+    ///         Name = "example-ngfwvn",
+    ///         ResourceGroupName = example.Name,
+    ///         RulestackId = exampleAzurermPaloAltoLocalRulestack.Id,
     ///     });
     /// 
     /// });

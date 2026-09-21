@@ -47,18 +47,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "subnet1-mssql",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.0.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "managedinstancedelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Sql/managedInstances",
@@ -69,12 +61,24 @@ namespace Pulumi.Azure.MSSql
     ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
     ///                     },
     ///                 },
+    ///                 Name = "managedinstancedelegation",
     ///             },
+    ///         },
+    ///         Name = "subnet1-mssql",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
     ///     {
+    ///         Identity = new Azure.MSSql.Inputs.ManagedInstanceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "mssqlinstance",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -85,10 +89,6 @@ namespace Pulumi.Azure.MSSql
     ///         Vcores = 4,
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "NCC-1701-D",
-    ///         Identity = new Azure.MSSql.Inputs.ManagedInstanceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("example", new()
@@ -130,18 +130,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "subnet1-mssql",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.0.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "managedinstancedelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Sql/managedInstances",
@@ -152,12 +144,24 @@ namespace Pulumi.Azure.MSSql
     ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
     ///                     },
     ///                 },
+    ///                 Name = "managedinstancedelegation",
     ///             },
+    ///         },
+    ///         Name = "subnet1-mssql",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
     ///     {
+    ///         Identity = new Azure.MSSql.Inputs.ManagedInstanceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "mssqlinstance",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -168,24 +172,11 @@ namespace Pulumi.Azure.MSSql
     ///         Vcores = 4,
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "NCC-1701-D",
-    ///         Identity = new Azure.MSSql.Inputs.ManagedInstanceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     // Create a key vault with policies for the deployer to create a key &amp; SQL Managed Instance to wrap/unwrap/get key
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = false,
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -216,6 +207,15 @@ namespace Pulumi.Azure.MSSql
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = false,
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()

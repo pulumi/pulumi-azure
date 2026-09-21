@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.hdinsight.SparkClusterArgs;
  * import com.pulumi.azure.hdinsight.inputs.SparkClusterComponentVersionArgs;
  * import com.pulumi.azure.hdinsight.inputs.SparkClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.SparkClusterStorageAccountArgs;
  * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesArgs;
  * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesHeadNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesWorkerNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.SparkClusterRolesZookeeperNodeArgs;
+ * import com.pulumi.azure.hdinsight.inputs.SparkClusterStorageAccountArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -90,22 +90,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSparkCluster = new SparkCluster("exampleSparkCluster", SparkClusterArgs.builder()
- *             .name("example-hdicluster")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .clusterVersion("3.6")
- *             .tier("Standard")
  *             .componentVersion(SparkClusterComponentVersionArgs.builder()
  *                 .spark("2.3")
  *                 .build())
  *             .gateway(SparkClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password123!")
- *                 .build())
- *             .storageAccounts(SparkClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
  *                 .build())
  *             .roles(SparkClusterRolesArgs.builder()
  *                 .headNode(SparkClusterRolesHeadNodeArgs.builder()
@@ -125,6 +115,16 @@ import javax.annotation.Nullable;
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
+ *             .storageAccounts(SparkClusterStorageAccountArgs.builder()
+ *                 .storageContainerId(exampleContainer.id())
+ *                 .storageAccountKey(exampleAccount.primaryAccessKey())
+ *                 .isDefault(true)
+ *                 .build())
+ *             .name("example-hdicluster")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .clusterVersion("3.6")
+ *             .tier("Standard")
  *             .build());
  * 
  *     }

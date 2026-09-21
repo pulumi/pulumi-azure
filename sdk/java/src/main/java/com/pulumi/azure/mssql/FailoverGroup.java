@@ -40,8 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.DatabaseArgs;
  * import com.pulumi.azure.mssql.FailoverGroup;
  * import com.pulumi.azure.mssql.FailoverGroupArgs;
- * import com.pulumi.azure.mssql.inputs.FailoverGroupPartnerServerArgs;
  * import com.pulumi.azure.mssql.inputs.FailoverGroupReadWriteEndpointFailoverPolicyArgs;
+ * import com.pulumi.azure.mssql.inputs.FailoverGroupPartnerServerArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -87,16 +87,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()
- *             .name("example")
- *             .serverId(primary.id())
- *             .databases(exampleDatabase.id())
- *             .partnerServers(FailoverGroupPartnerServerArgs.builder()
- *                 .id(secondary.id())
- *                 .build())
  *             .readWriteEndpointFailoverPolicy(FailoverGroupReadWriteEndpointFailoverPolicyArgs.builder()
  *                 .mode("Automatic")
  *                 .graceMinutes(80)
  *                 .build())
+ *             .partnerServers(FailoverGroupPartnerServerArgs.builder()
+ *                 .id(secondary.id())
+ *                 .build())
+ *             .name("example")
+ *             .serverId(primary.id())
+ *             .databases(exampleDatabase.id())
  *             .tags(Map.ofEntries(
  *                 Map.entry("environment", "prod"),
  *                 Map.entry("database", "example")

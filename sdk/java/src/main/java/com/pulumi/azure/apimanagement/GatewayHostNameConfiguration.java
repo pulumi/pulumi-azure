@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.Certificate;
  * import com.pulumi.azure.apimanagement.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.apimanagement.GatewayHostNameConfiguration;
  * import com.pulumi.azure.apimanagement.GatewayHostNameConfigurationArgs;
  * import java.util.ArrayList;
@@ -68,24 +67,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()
- *             .name("example-gateway")
- *             .apiManagementId(exampleService.id())
- *             .description("Example API Management gateway")
  *             .locationData(GatewayLocationDataArgs.builder()
  *                 .name("example name")
  *                 .city("example city")
  *                 .district("example district")
  *                 .region("example region")
  *                 .build())
+ *             .name("example-gateway")
+ *             .apiManagementId(exampleService.id())
+ *             .description("Example API Management gateway")
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
- *             .data(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("example.pfx")
- *                 .build()).result())
+ *             .data(StdFunctions.filebase64(Map.of("input", "example.pfx")).result())
  *             .build());
  * 
  *         var exampleGatewayHostNameConfiguration = new GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration", GatewayHostNameConfigurationArgs.builder()

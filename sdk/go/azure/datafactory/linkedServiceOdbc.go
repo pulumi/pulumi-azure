@@ -55,13 +55,13 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceOdbc(ctx, "basic_auth", &datafactory.LinkedServiceOdbcArgs{
-//				Name:             pulumi.String("basic_auth"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
 //				BasicAuthentication: &datafactory.LinkedServiceOdbcBasicAuthenticationArgs{
 //					Username: pulumi.String("onrylmz"),
 //					Password: pulumi.String("Ch4ngeM3!"),
 //				},
+//				Name:             pulumi.String("basic_auth"),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
 //			})
 //			if err != nil {
 //				return err

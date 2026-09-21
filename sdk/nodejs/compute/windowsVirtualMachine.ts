@@ -46,23 +46,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("example", {
- *     name: "example-machine",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_D4_v5",
- *     adminUsername: "adminuser",
- *     adminPassword: "P@$$w0rd1234!",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -73,6 +66,13 @@ import * as utilities from "../utilities";
  *         sku: "2016-Datacenter",
  *         version: "latest",
  *     },
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_D4_v5",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@$$w0rd1234!",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * ```
  *

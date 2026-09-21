@@ -50,9 +50,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
-//				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
-//				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -60,6 +57,9 @@ import (
 //					UsernameSecretId: pulumi.String("https://example-keyvault.vault.azure.net/secrets/example-user-name"),
 //					PasswordSecretId: pulumi.String("https://example-keyvault.vault.azure.net/secrets/example-user-password"),
 //				},
+//				Name:                pulumi.String("exampleCredentialSet"),
+//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
+//				LoginServer:         pulumi.String("docker.io"),
 //			})
 //			if err != nil {
 //				return err
@@ -100,13 +100,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("examplekeyvault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("standard"),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId:               pulumi.String(current.TenantId),
@@ -121,6 +114,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("standard"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
@@ -151,9 +151,6 @@ import (
 //				return err
 //			}
 //			exampleRegistryCredentialSet, err := containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
-//				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
-//				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -161,6 +158,9 @@ import (
 //					UsernameSecretId: exampleUser.VersionlessId,
 //					PasswordSecretId: examplePassword.VersionlessId,
 //				},
+//				Name:                pulumi.String("exampleCredentialSet"),
+//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
+//				LoginServer:         pulumi.String("docker.io"),
 //			})
 //			if err != nil {
 //				return err

@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *     displayName: "Audit machines with insecure password security settings",
  * });
  * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "assignment1",
  *     managementGroupId: exampleGroup.id,
  *     policyDefinitionId: example.then(example => example.id),
  *     location: "westus",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleGroupPolicyExemption = new azure.management.GroupPolicyExemption("example", {
  *     name: "exemption1",

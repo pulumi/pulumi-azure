@@ -39,8 +39,6 @@ namespace Pulumi.Azure.Cognitive
     /// 
     ///     var exampleDeployment = new Azure.Cognitive.Deployment("example", new()
     ///     {
-    ///         Name = "example-cd",
-    ///         CognitiveAccountId = exampleAccount.Id,
     ///         Model = new Azure.Cognitive.Inputs.DeploymentModelArgs
     ///         {
     ///             Format = "OpenAI",
@@ -51,6 +49,8 @@ namespace Pulumi.Azure.Cognitive
     ///         {
     ///             Name = "Standard",
     ///         },
+    ///         Name = "example-cd",
+    ///         CognitiveAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

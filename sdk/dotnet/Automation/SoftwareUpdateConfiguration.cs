@@ -59,8 +59,6 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration("example", new()
     ///     {
-    ///         Name = "example",
-    ///         AutomationAccountId = exampleAccount.Id,
     ///         Linux = new Azure.Automation.Inputs.SoftwareUpdateConfigurationLinuxArgs
     ///         {
     ///             ClassificationsIncludeds = "Security",
@@ -82,6 +80,8 @@ namespace Pulumi.Azure.Automation
     ///                 { "COMPUTER_NAME", "Foo" },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         AutomationAccountId = exampleAccount.Id,
     ///         Duration = "PT2H2M2S",
     ///     });
     /// 

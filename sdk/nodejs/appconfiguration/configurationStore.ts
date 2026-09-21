@@ -111,14 +111,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleConfigurationStore = new azure.appconfiguration.ConfigurationStore("example", {
- *     name: "appConf2",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "standard",
- *     localAuthEnabled: true,
- *     publicNetworkAccess: "Enabled",
- *     purgeProtectionEnabled: false,
- *     softDeleteRetentionDays: 1,
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
@@ -131,6 +123,14 @@ import * as utilities from "../utilities";
  *         name: "replica1",
  *         location: "West US",
  *     }],
+ *     name: "appConf2",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "standard",
+ *     localAuthEnabled: true,
+ *     publicNetworkAccess: "Enabled",
+ *     purgeProtectionEnabled: false,
+ *     softDeleteRetentionDays: 1,
  *     tags: {
  *         environment: "development",
  *     },

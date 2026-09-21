@@ -92,15 +92,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualHubStrataCloudManager = new NextGenerationFirewallVirtualHubStrataCloudManager("exampleNextGenerationFirewallVirtualHubStrataCloudManager", NextGenerationFirewallVirtualHubStrataCloudManagerArgs.builder()
- *             .name("example")
- *             .resourceGroupName("example")
- *             .location("West Europe")
- *             .strataCloudManagerTenantName("example")
  *             .networkProfile(NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs.builder()
  *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .virtualHubId(exampleVirtualHub.id())
  *                 .networkVirtualApplianceId(exampleVirtualNetworkAppliance.id())
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("West Europe")
+ *             .strataCloudManagerTenantName("example")
  *             .build());
  * 
  *     }

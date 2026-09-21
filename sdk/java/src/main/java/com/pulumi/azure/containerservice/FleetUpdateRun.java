@@ -71,10 +71,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .dnsPrefix("example")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("default")
  *                 .nodeCount(1)
@@ -83,6 +79,10 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix("example")
  *             .build());
  * 
  *         var exampleFleetMember = new FleetMember("exampleFleetMember", FleetMemberArgs.builder()
@@ -93,8 +93,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFleetUpdateRun = new FleetUpdateRun("exampleFleetUpdateRun", FleetUpdateRunArgs.builder()
- *             .name("example")
- *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .managedClusterUpdate(FleetUpdateRunManagedClusterUpdateArgs.builder()
  *                 .upgrade(FleetUpdateRunManagedClusterUpdateUpgradeArgs.builder()
  *                     .type("Full")
@@ -105,12 +103,14 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .stages(FleetUpdateRunStageArgs.builder()
- *                 .name("example")
  *                 .groups(FleetUpdateRunStageGroupArgs.builder()
  *                     .name("example-group")
  *                     .build())
+ *                 .name("example")
  *                 .afterStageWaitInSeconds(21)
  *                 .build())
+ *             .name("example")
+ *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .build());
  * 
  *     }

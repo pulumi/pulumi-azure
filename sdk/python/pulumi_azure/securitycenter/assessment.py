@@ -196,16 +196,6 @@ class Assessment(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_F2",
-            instances=1,
-            admin_username="adminuser",
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
-            }],
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -216,25 +206,35 @@ class Assessment(pulumi.CustomResource):
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+            }],
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": internal.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_F2",
+            instances=1,
+            admin_username="adminuser")
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
             display_name="Test Display Name",
             severity="Medium",
             description="Test Description")
         example_assessment = azure.securitycenter.Assessment("example",
-            assessment_policy_id=example_assessment_policy.id,
-            target_resource_id=example_linux_virtual_machine_scale_set.id,
             status={
                 "code": "Healthy",
-            })
+            },
+            assessment_policy_id=example_assessment_policy.id,
+            target_resource_id=example_linux_virtual_machine_scale_set.id)
         ```
 
         ## Import
@@ -283,16 +283,6 @@ class Assessment(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_F2",
-            instances=1,
-            admin_username="adminuser",
-            admin_ssh_keys=[{
-                "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
-            }],
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -303,25 +293,35 @@ class Assessment(pulumi.CustomResource):
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
+            }],
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": internal.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_F2",
+            instances=1,
+            admin_username="adminuser")
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
             display_name="Test Display Name",
             severity="Medium",
             description="Test Description")
         example_assessment = azure.securitycenter.Assessment("example",
-            assessment_policy_id=example_assessment_policy.id,
-            target_resource_id=example_linux_virtual_machine_scale_set.id,
             status={
                 "code": "Healthy",
-            })
+            },
+            assessment_policy_id=example_assessment_policy.id,
+            target_resource_id=example_linux_virtual_machine_scale_set.id)
         ```
 
         ## Import

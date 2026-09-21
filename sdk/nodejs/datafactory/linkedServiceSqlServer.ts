@@ -61,13 +61,13 @@ import * as utilities from "../utilities";
  *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
  *     keyVaultPassword: {
  *         linkedServiceName: exampleLinkedServiceKeyVault.name,
  *         secretName: "secret",
  *     },
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
  * });
  * ```
  *

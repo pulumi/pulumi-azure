@@ -63,9 +63,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -73,20 +70,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example-nic"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleWindowsVirtualMachine, err := compute.NewWindowsVirtualMachine(ctx, "example", &compute.WindowsVirtualMachineArgs{
-//				Name:              pulumi.String("examplevm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_D4_v5"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				Identity: &compute.WindowsVirtualMachineIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -99,6 +90,15 @@ import (
 //					Offer:     pulumi.String("WindowsServer"),
 //					Sku:       pulumi.String("2019-Datacenter"),
 //					Version:   pulumi.String("latest"),
+//				},
+//				Name:              pulumi.String("examplevm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Size:              pulumi.String("Standard_D4_v5"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -116,12 +116,7 @@ import (
 //				return err
 //			}
 //			_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "example", &policy.VirtualMachineConfigurationAssignmentArgs{
-//				Name:             pulumi.String("AzureWindowsBaseline"),
-//				Location:         exampleWindowsVirtualMachine.Location,
-//				VirtualMachineId: exampleWindowsVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{
-//					AssignmentType: pulumi.String("ApplyAndMonitor"),
-//					Version:        pulumi.String("1.*"),
 //					Parameters: policy.VirtualMachineConfigurationAssignmentConfigurationParameterArray{
 //						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
 //							Name:  pulumi.String("Minimum Password Length;ExpectedValue"),
@@ -144,7 +139,12 @@ import (
 //							Value: pulumi.String("1"),
 //						},
 //					},
+//					AssignmentType: pulumi.String("ApplyAndMonitor"),
+//					Version:        pulumi.String("1.*"),
 //				},
+//				Name:             pulumi.String("AzureWindowsBaseline"),
+//				Location:         exampleWindowsVirtualMachine.Location,
+//				VirtualMachineId: exampleWindowsVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

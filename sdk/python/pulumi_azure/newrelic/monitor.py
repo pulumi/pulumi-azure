@@ -465,9 +465,6 @@ class Monitor(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_monitor = azure.newrelic.Monitor("example",
-            name="example-nrm",
-            resource_group_name=example.name,
-            location=example.location,
             plan={
                 "effective_date": "2023-06-06T00:00:00Z",
             },
@@ -479,7 +476,10 @@ class Monitor(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-nrm",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## Role Assignment
@@ -554,9 +554,6 @@ class Monitor(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_monitor = azure.newrelic.Monitor("example",
-            name="example-nrm",
-            resource_group_name=example.name,
-            location=example.location,
             plan={
                 "effective_date": "2023-06-06T00:00:00Z",
             },
@@ -568,7 +565,10 @@ class Monitor(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-nrm",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## Role Assignment

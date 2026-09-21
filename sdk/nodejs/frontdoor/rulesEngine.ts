@@ -24,24 +24,22 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
+ *     backendPoolHealthProbes: [{
+ *         name: "exampleHealthProbeSetting1",
+ *     }],
+ *     backendPoolLoadBalancings: [{
+ *         name: "exampleLoadBalancingSettings1",
+ *     }],
  *     backendPools: [{
- *         name: "exampleBackendBing",
- *         loadBalancingName: "exampleLoadBalancingSettings1",
- *         healthProbeName: "exampleHealthProbeSetting1",
  *         backends: [{
  *             hostHeader: "www.bing.com",
  *             address: "www.bing.com",
  *             httpPort: 80,
  *             httpsPort: 443,
  *         }],
- *     }],
- *     backendPoolHealthProbes: [{
- *         name: "exampleHealthProbeSetting1",
- *     }],
- *     backendPoolLoadBalancings: [{
- *         name: "exampleLoadBalancingSettings1",
+ *         name: "exampleBackendBing",
+ *         loadBalancingName: "exampleLoadBalancingSettings1",
+ *         healthProbeName: "exampleHealthProbeSetting1",
  *     }],
  *     frontendEndpoints: [{
  *         name: "exampleFrontendEndpoint1",
@@ -56,15 +54,12 @@ import * as utilities from "../utilities";
  *         patternsToMatches: ["/*"],
  *         frontendEndpoints: ["exampleFrontendEndpoint1"],
  *     }],
+ *     name: "example",
+ *     resourceGroupName: example.name,
  * });
  * const exampleRulesEngine = new azure.frontdoor.RulesEngine("example_rules_engine", {
- *     name: "exampleRulesEngineConfig1",
- *     frontdoorName: exampleFrontdoor.name,
- *     resourceGroupName: exampleFrontdoor.resourceGroupName,
  *     rules: [
  *         {
- *             name: "debuggingoutput",
- *             priority: 1,
  *             action: {
  *                 responseHeaders: [{
  *                     headerActionType: "Append",
@@ -72,18 +67,10 @@ import * as utilities from "../utilities";
  *                     value: "Append Header Rule",
  *                 }],
  *             },
+ *             name: "debuggingoutput",
+ *             priority: 1,
  *         },
  *         {
- *             name: "overwriteorigin",
- *             priority: 2,
- *             matchConditions: [{
- *                 variable: "RequestMethod",
- *                 operator: "Equal",
- *                 values: [
- *                     "GET",
- *                     "POST",
- *                 ],
- *             }],
  *             action: {
  *                 responseHeaders: [
  *                     {
@@ -98,8 +85,21 @@ import * as utilities from "../utilities";
  *                     },
  *                 ],
  *             },
+ *             matchConditions: [{
+ *                 variable: "RequestMethod",
+ *                 operator: "Equal",
+ *                 values: [
+ *                     "GET",
+ *                     "POST",
+ *                 ],
+ *             }],
+ *             name: "overwriteorigin",
+ *             priority: 2,
  *         },
  *     ],
+ *     name: "exampleRulesEngineConfig1",
+ *     frontdoorName: exampleFrontdoor.name,
+ *     resourceGroupName: exampleFrontdoor.resourceGroupName,
  * });
  * ```
  *

@@ -85,6 +85,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
+ *             .import_(ApiImportArgs.builder()
+ *                 .contentFormat("swagger-link-json")
+ *                 .contentValue("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json")
+ *                 .build())
  *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
@@ -92,32 +96,18 @@ import javax.annotation.Nullable;
  *             .displayName("Example API")
  *             .path("example")
  *             .protocols("https")
- *             .import_(ApiImportArgs.builder()
- *                 .contentFormat("swagger-link-json")
- *                 .contentValue("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json")
- *                 .build())
  *             .build());
  * 
  *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()
- *             .name("example-apimlogger")
- *             .apiManagementName(exampleService.name())
- *             .resourceGroupName(example.name())
  *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
  *                 .instrumentationKey(exampleInsights.instrumentationKey())
  *                 .build())
+ *             .name("example-apimlogger")
+ *             .apiManagementName(exampleService.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleApiDiagnostic = new ApiDiagnostic("exampleApiDiagnostic", ApiDiagnosticArgs.builder()
- *             .identifier("applicationinsights")
- *             .resourceGroupName(example.name())
- *             .apiManagementName(exampleService.name())
- *             .apiName(exampleApi.name())
- *             .apiManagementLoggerId(exampleLogger.id())
- *             .samplingPercentage(5.0)
- *             .alwaysLogErrors(true)
- *             .logClientIp(true)
- *             .verbosity("verbose")
- *             .httpCorrelationProtocol("W3C")
  *             .frontendRequest(ApiDiagnosticFrontendRequestArgs.builder()
  *                 .bodyBytes(32)
  *                 .headersToLogs(                
@@ -146,6 +136,16 @@ import javax.annotation.Nullable;
  *                     "content-length",
  *                     "origin")
  *                 .build())
+ *             .identifier("applicationinsights")
+ *             .resourceGroupName(example.name())
+ *             .apiManagementName(exampleService.name())
+ *             .apiName(exampleApi.name())
+ *             .apiManagementLoggerId(exampleLogger.id())
+ *             .samplingPercentage(5.0)
+ *             .alwaysLogErrors(true)
+ *             .logClientIp(true)
+ *             .verbosity("verbose")
+ *             .httpCorrelationProtocol("W3C")
  *             .build());
  * 
  *     }}{@code

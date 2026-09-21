@@ -684,14 +684,14 @@ class Endpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard_Microsoft")
         example_endpoint = azure.cdn.Endpoint("example",
-            name="example",
-            profile_name=example_profile.name,
-            location=example.location,
-            resource_group_name=example.name,
             origins=[{
                 "name": "example",
                 "host_name": "www.contoso.com",
-            }])
+            }],
+            name="example",
+            profile_name=example_profile.name,
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -758,14 +758,14 @@ class Endpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard_Microsoft")
         example_endpoint = azure.cdn.Endpoint("example",
-            name="example",
-            profile_name=example_profile.name,
-            location=example.location,
-            resource_group_name=example.name,
             origins=[{
                 "name": "example",
                 "host_name": "www.contoso.com",
-            }])
+            }],
+            name="example",
+            profile_name=example_profile.name,
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## Import

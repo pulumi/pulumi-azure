@@ -48,18 +48,24 @@ import (
 //				return err
 //			}
 //			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "example", &devtest.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-network"),
-//				LabName:           exampleLab.Name,
-//				ResourceGroupName: example.Name,
 //				Subnet: &devtest.VirtualNetworkSubnetArgs{
 //					UsePublicIpAddress:          pulumi.String("Allow"),
 //					UseInVirtualMachineCreation: pulumi.String("Allow"),
 //				},
+//				Name:              pulumi.String("example-network"),
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = devtest.NewWindowsVirtualMachine(ctx, "example", &devtest.WindowsVirtualMachineArgs{
+//				GalleryImageReference: &devtest.WindowsVirtualMachineGalleryImageReferenceArgs{
+//					Offer:     pulumi.String("WindowsServer"),
+//					Publisher: pulumi.String("MicrosoftWindowsServer"),
+//					Sku:       pulumi.String("2019-Datacenter"),
+//					Version:   pulumi.String("latest"),
+//				},
 //				Name:                pulumi.String("example-vm03"),
 //				LabName:             exampleLab.Name,
 //				ResourceGroupName:   example.Name,
@@ -71,12 +77,6 @@ import (
 //				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
 //				StorageType:         pulumi.String("Premium"),
 //				Notes:               pulumi.String("Some notes about this Virtual Machine."),
-//				GalleryImageReference: &devtest.WindowsVirtualMachineGalleryImageReferenceArgs{
-//					Offer:     pulumi.String("WindowsServer"),
-//					Publisher: pulumi.String("MicrosoftWindowsServer"),
-//					Sku:       pulumi.String("2019-Datacenter"),
-//					Version:   pulumi.String("latest"),
-//				},
 //			})
 //			if err != nil {
 //				return err

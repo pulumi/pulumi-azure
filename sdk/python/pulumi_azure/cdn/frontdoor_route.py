@@ -556,13 +556,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             load_balancing={
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-originGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -581,32 +581,45 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="ExampleRuleSet",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         contoso = azure.cdn.FrontdoorCustomDomain("contoso",
+            tls={
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
+            },
             name="contoso-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).result,
+                ])["result"])
+        fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
-            })
-        fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
+            },
             name="fabrikam-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "fabrikam",
                     example_zone.name,
-                ]).result,
-            tls={
-                "certificate_type": "ManagedCertificate",
-                "minimum_tls_version": "TLS12",
-            })
+                ])["result"])
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
+            cache={
+                "query_string_caching_behavior": "IgnoreSpecifiedQueryStrings",
+                "query_strings": [
+                    "account",
+                    "settings",
+                ],
+                "compression_enabled": True,
+                "content_types_to_compresses": [
+                    "text/html",
+                    "text/javascript",
+                    "text/xml",
+                ],
+            },
             name="example-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -624,20 +637,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                 contoso.id,
                 fabrikam.id,
             ],
-            link_to_default_domain=False,
-            cache={
-                "query_string_caching_behavior": "IgnoreSpecifiedQueryStrings",
-                "query_strings": [
-                    "account",
-                    "settings",
-                ],
-                "compression_enabled": True,
-                "content_types_to_compresses": [
-                    "text/html",
-                    "text/javascript",
-                    "text/xml",
-                ],
-            })
+            link_to_default_domain=False)
         contoso_frontdoor_custom_domain_association = azure.cdn.FrontdoorCustomDomainAssociation("contoso",
             cdn_frontdoor_custom_domain_id=contoso.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
@@ -709,13 +709,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             load_balancing={
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-originGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -734,32 +734,45 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="ExampleRuleSet",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         contoso = azure.cdn.FrontdoorCustomDomain("contoso",
+            tls={
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
+            },
             name="contoso-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).result,
+                ])["result"])
+        fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
-            })
-        fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
+            },
             name="fabrikam-custom-domain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "fabrikam",
                     example_zone.name,
-                ]).result,
-            tls={
-                "certificate_type": "ManagedCertificate",
-                "minimum_tls_version": "TLS12",
-            })
+                ])["result"])
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
+            cache={
+                "query_string_caching_behavior": "IgnoreSpecifiedQueryStrings",
+                "query_strings": [
+                    "account",
+                    "settings",
+                ],
+                "compression_enabled": True,
+                "content_types_to_compresses": [
+                    "text/html",
+                    "text/javascript",
+                    "text/xml",
+                ],
+            },
             name="example-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -777,20 +790,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                 contoso.id,
                 fabrikam.id,
             ],
-            link_to_default_domain=False,
-            cache={
-                "query_string_caching_behavior": "IgnoreSpecifiedQueryStrings",
-                "query_strings": [
-                    "account",
-                    "settings",
-                ],
-                "compression_enabled": True,
-                "content_types_to_compresses": [
-                    "text/html",
-                    "text/javascript",
-                    "text/xml",
-                ],
-            })
+            link_to_default_domain=False)
         contoso_frontdoor_custom_domain_association = azure.cdn.FrontdoorCustomDomainAssociation("contoso",
             cdn_frontdoor_custom_domain_id=contoso.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])

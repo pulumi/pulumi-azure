@@ -38,13 +38,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "examplekeyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -68,10 +61,26 @@ namespace Pulumi.Azure.KeyVault
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var generated = new Azure.KeyVault.Key("generated", new()
     ///     {
+    ///         RotationPolicy = new Azure.KeyVault.Inputs.KeyRotationPolicyArgs
+    ///         {
+    ///             Automatic = new Azure.KeyVault.Inputs.KeyRotationPolicyAutomaticArgs
+    ///             {
+    ///                 TimeBeforeExpiry = "P30D",
+    ///             },
+    ///             ExpireAfter = "P90D",
+    ///             NotifyBeforeExpiry = "P29D",
+    ///         },
     ///         Name = "generated-certificate",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
@@ -84,15 +93,6 @@ namespace Pulumi.Azure.KeyVault
     ///             "unwrapKey",
     ///             "verify",
     ///             "wrapKey",
-    ///         },
-    ///         RotationPolicy = new Azure.KeyVault.Inputs.KeyRotationPolicyArgs
-    ///         {
-    ///             Automatic = new Azure.KeyVault.Inputs.KeyRotationPolicyAutomaticArgs
-    ///             {
-    ///                 TimeBeforeExpiry = "P30D",
-    ///             },
-    ///             ExpireAfter = "P90D",
-    ///             NotifyBeforeExpiry = "P29D",
     ///         },
     ///     });
     /// 

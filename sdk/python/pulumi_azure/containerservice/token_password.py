@@ -176,10 +176,10 @@ class TokenPassword(pulumi.CustomResource):
             resource_group_name=example.name,
             scope_map_id=example_registry_scope_map.id)
         example_token_password = azure.containerservice.TokenPassword("example",
-            container_registry_token_id=example_registry_token.id,
             password1={
                 "expiry": "2023-03-22T17:57:36+08:00",
-            })
+            },
+            container_registry_token_id=example_registry_token.id)
         ```
 
         ## API Providers
@@ -246,10 +246,10 @@ class TokenPassword(pulumi.CustomResource):
             resource_group_name=example.name,
             scope_map_id=example_registry_scope_map.id)
         example_token_password = azure.containerservice.TokenPassword("example",
-            container_registry_token_id=example_registry_token.id,
             password1={
                 "expiry": "2023-03-22T17:57:36+08:00",
-            })
+            },
+            container_registry_token_id=example_registry_token.id)
         ```
 
         ## API Providers

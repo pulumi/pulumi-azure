@@ -227,6 +227,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_managed_instance = azure.mssql.ManagedInstance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="managedsqlinstance",
             resource_group_name=example.name,
             location=example.location,
@@ -236,23 +239,20 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11",
-            identity={
-                "type": "SystemAssigned",
-            })
-        reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
+            administrator_login_password="thisIsDog11")
+        reader = azuread.DirectoryRole("reader", display_name=Directory Readers)
         example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
         admin = azuread.User("admin",
-            user_principal_name="ms.admin@example.com",
-            display_name="Ms Admin",
-            mail_nickname="ms.admin",
-            password="SecretP@sswd99!")
+            user_principal_name=ms.admin@example.com,
+            display_name=Ms Admin,
+            mail_nickname=ms.admin,
+            password=SecretP@sswd99!)
         example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_id=example_managed_instance.id,
             login_username="msadmin",
-            object_id=admin.object_id,
+            object_id=admin["objectId"],
             tenant_id=current.tenant_id)
         ```
 
@@ -311,6 +311,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_managed_instance = azure.mssql.ManagedInstance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="managedsqlinstance",
             resource_group_name=example.name,
             location=example.location,
@@ -320,23 +323,20 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="msadministrator",
-            administrator_login_password="thisIsDog11",
-            identity={
-                "type": "SystemAssigned",
-            })
-        reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
+            administrator_login_password="thisIsDog11")
+        reader = azuread.DirectoryRole("reader", display_name=Directory Readers)
         example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
         admin = azuread.User("admin",
-            user_principal_name="ms.admin@example.com",
-            display_name="Ms Admin",
-            mail_nickname="ms.admin",
-            password="SecretP@sswd99!")
+            user_principal_name=ms.admin@example.com,
+            display_name=Ms Admin,
+            mail_nickname=ms.admin,
+            password=SecretP@sswd99!)
         example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_id=example_managed_instance.id,
             login_username="msadmin",
-            object_id=admin.object_id,
+            object_id=admin["objectId"],
             tenant_id=current.tenant_id)
         ```
 

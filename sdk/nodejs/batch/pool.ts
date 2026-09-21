@@ -38,12 +38,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const examplePool = new azure.batch.Pool("example", {
- *     name: "testaccpool",
- *     resourceGroupName: example.name,
- *     accountName: exampleAccount2.name,
- *     displayName: "Test Acc Pool Auto",
- *     vmSize: "STANDARD_A1_V2",
- *     nodeAgentSkuId: "batch.node.ubuntu 20.04",
  *     autoScale: {
  *         evaluationInterval: "PT15M",
  *         formula: `      startingNumberOfVMs = 1;
@@ -60,27 +54,33 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  *     containerConfiguration: {
- *         type: "DockerCompatible",
  *         containerRegistries: [{
  *             registryServer: "docker.io",
  *             userName: "login",
  *             password: "apassword",
  *         }],
+ *         type: "DockerCompatible",
  *     },
  *     startTask: {
- *         commandLine: "echo 'Hello World from $env'",
- *         taskRetryMaximum: 1,
- *         waitForSuccess: true,
- *         commonEnvironmentProperties: {
- *             env: "TEST",
- *         },
  *         userIdentity: {
  *             autoUser: {
  *                 elevationLevel: "NonAdmin",
  *                 scope: "Task",
  *             },
  *         },
+ *         commandLine: "echo 'Hello World from $env'",
+ *         taskRetryMaximum: 1,
+ *         waitForSuccess: true,
+ *         commonEnvironmentProperties: {
+ *             env: "TEST",
+ *         },
  *     },
+ *     name: "testaccpool",
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount2.name,
+ *     displayName: "Test Acc Pool Auto",
+ *     vmSize: "STANDARD_A1_V2",
+ *     nodeAgentSkuId: "batch.node.ubuntu 20.04",
  * });
  * ```
  *

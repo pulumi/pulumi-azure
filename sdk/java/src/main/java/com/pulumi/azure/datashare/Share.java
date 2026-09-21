@@ -54,26 +54,26 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-dsa")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-dsa")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 
  *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
- *             .name("example_dss")
- *             .accountId(exampleAccount.id())
- *             .kind("CopyBased")
- *             .description("example desc")
- *             .terms("example terms")
  *             .snapshotSchedule(ShareSnapshotScheduleArgs.builder()
  *                 .name("example-ss")
  *                 .recurrence("Day")
  *                 .startTime("2020-04-17T04:47:52.9614956Z")
  *                 .build())
+ *             .name("example_dss")
+ *             .accountId(exampleAccount.id())
+ *             .kind("CopyBased")
+ *             .description("example desc")
+ *             .terms("example terms")
  *             .build());
  * 
  *     }

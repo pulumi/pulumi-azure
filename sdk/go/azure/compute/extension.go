@@ -66,9 +66,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("acctni"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -76,31 +73,20 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("acctni"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("example-machine"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_D4_v5"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
-//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
-//						Username:  pulumi.String("adminuser"),
-//						PublicKey: pulumi.String(invokeFile.Result),
-//					},
-//				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
@@ -110,6 +96,20 @@ import (
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
+//				},
+//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: invokeFile.Result,
+//					},
+//				},
+//				Name:              pulumi.String("example-machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Size:              pulumi.String("Standard_D4_v5"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

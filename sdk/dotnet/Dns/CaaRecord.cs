@@ -38,10 +38,6 @@ namespace Pulumi.Azure.Dns
     /// 
     ///     var exampleCaaRecord = new Azure.Dns.CaaRecord("example", new()
     ///     {
-    ///         Name = "test",
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
@@ -69,6 +65,10 @@ namespace Pulumi.Azure.Dns
     ///                 Value = "mailto:user@nonexisting.tld",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Ttl = 300,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

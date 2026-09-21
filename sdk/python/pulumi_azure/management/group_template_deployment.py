@@ -391,8 +391,8 @@ class GroupTemplateDeployment(pulumi.CustomResource):
             name="example",
             location="West Europe",
             management_group_id=example.id,
-            template_content=std.file(input="templates/example-deploy-template.json").result,
-            parameters_content=std.file(input="templates/example-deploy-params.json").result)
+            template_content=std.file(input="templates/example-deploy-template.json")["result"],
+            parameters_content=std.file(input="templates/example-deploy-params.json")["result"])
         ```
 
         ```python
@@ -507,8 +507,8 @@ class GroupTemplateDeployment(pulumi.CustomResource):
             name="example",
             location="West Europe",
             management_group_id=example.id,
-            template_content=std.file(input="templates/example-deploy-template.json").result,
-            parameters_content=std.file(input="templates/example-deploy-params.json").result)
+            template_content=std.file(input="templates/example-deploy-template.json")["result"],
+            parameters_content=std.file(input="templates/example-deploy-params.json")["result"])
         ```
 
         ```python

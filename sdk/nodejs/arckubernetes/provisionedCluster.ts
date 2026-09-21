@@ -21,15 +21,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleGroup = new azuread.Group("example", {
+ * const exampleGroup = new azuread.index.Group("example", {
  *     displayName: "example-adg",
- *     owners: [current.then(current => current.objectId)],
+ *     owners: [current.objectId],
  *     securityEnabled: true,
  * });
  * const exampleProvisionedCluster = new azure.arckubernetes.ProvisionedCluster("example", {
- *     name: "example-akpc",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     azureActiveDirectory: {
  *         azureRbacEnabled: true,
  *         adminGroupObjectIds: [exampleGroup.id],
@@ -38,6 +35,9 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-akpc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

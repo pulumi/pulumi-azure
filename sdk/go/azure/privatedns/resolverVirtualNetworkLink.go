@@ -49,22 +49,22 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("outbounddns"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.64/28"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //							Name: pulumi.String("Microsoft.Network/dnsResolvers"),
 //						},
+//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
 //					},
+//				},
+//				Name:               pulumi.String("outbounddns"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.64/28"),
 //				},
 //			})
 //			if err != nil {

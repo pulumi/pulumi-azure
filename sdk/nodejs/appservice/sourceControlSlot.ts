@@ -27,16 +27,16 @@ import * as utilities from "../utilities";
  *     skuName: "P1v2",
  * });
  * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     siteConfig: {},
  *     name: "example-web-app",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-slot",
  *     appServiceId: exampleLinuxWebApp.id,
- *     siteConfig: {},
  * });
  * const exampleSourceControlSlot = new azure.appservice.SourceControlSlot("example", {
  *     slotId: exampleLinuxWebAppSlot.id,

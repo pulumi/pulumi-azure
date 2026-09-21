@@ -45,15 +45,15 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Basic"),
+//					Size: pulumi.String("B1"),
+//				},
 //				Name:              pulumi.String("example-plan"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Kind:              pulumi.Any("Linux"),
 //				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Basic"),
-//					Size: pulumi.String("B1"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -68,15 +68,15 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String("asuid.mycustomhost.contoso.com"),
-//				ZoneName:          example.Name(),
-//				ResourceGroupName: example.ResourceGroupName(),
-//				Ttl:               pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
 //						Value: exampleAppService.CustomDomainVerificationId,
 //					},
 //				},
+//				Name:              pulumi.String("asuid.mycustomhost.contoso.com"),
+//				ZoneName:          example.Name(),
+//				ResourceGroupName: example.ResourceGroupName(),
+//				Ttl:               pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err
@@ -91,14 +91,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": pulumi.StringArray{
+//					exampleCNameRecord.Name,
+//					exampleCNameRecord.ZoneName,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						exampleCNameRecord.Name,
-//						exampleCNameRecord.ZoneName,
-//					},
-//				}, nil).Result(),
+//				Hostname:          invokeJoin.Result,
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})

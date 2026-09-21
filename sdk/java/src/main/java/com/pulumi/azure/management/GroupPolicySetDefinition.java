@@ -52,6 +52,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupPolicySetDefinition = new GroupPolicySetDefinition("exampleGroupPolicySetDefinition", GroupPolicySetDefinitionArgs.builder()
+ *             .policyDefinitionReferences(GroupPolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
+ *                 .version("1.0.*")
+ *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
+ *                 .parameterValues("""
+ *    {
+ *      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}
+ *    }
+ *                 """)
+ *                 .build())
  *             .name("example")
  *             .policyType("Custom")
  *             .displayName("Example")
@@ -68,15 +77,6 @@ import javax.annotation.Nullable;
  *        }
  *    }
  *             """)
- *             .policyDefinitionReferences(GroupPolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
- *                 .version("1.0.*")
- *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
- *                 .parameterValues("""
- *    {
- *      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}
- *    }
- *                 """)
- *                 .build())
  *             .build());
  * 
  *     }

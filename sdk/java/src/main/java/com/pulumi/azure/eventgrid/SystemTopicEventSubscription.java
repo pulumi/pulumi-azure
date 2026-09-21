@@ -90,13 +90,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSystemTopicEventSubscription = new SystemTopicEventSubscription("exampleSystemTopicEventSubscription", SystemTopicEventSubscriptionArgs.builder()
- *             .name("example-event-subscription")
- *             .systemTopic(exampleSystemTopic.name())
- *             .resourceGroupName(example.name())
  *             .storageQueueEndpoint(SystemTopicEventSubscriptionStorageQueueEndpointArgs.builder()
  *                 .storageAccountId(exampleAccount.id())
  *                 .queueName(exampleQueue.name())
  *                 .build())
+ *             .name("example-event-subscription")
+ *             .systemTopic(exampleSystemTopic.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

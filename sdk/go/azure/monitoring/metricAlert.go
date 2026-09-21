@@ -48,33 +48,27 @@ import (
 //				return err
 //			}
 //			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-actiongroup"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("exampleact"),
 //				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 //					&monitoring.ActionGroupWebhookReceiverArgs{
 //						Name:       pulumi.String("callmyapi"),
 //						ServiceUri: pulumi.String("http://example.com/alert"),
 //					},
 //				},
+//				Name:              pulumi.String("example-actiongroup"),
+//				ResourceGroupName: example.Name,
+//				ShortName:         pulumi.String("exampleact"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
-//				Name:              pulumi.String("example-metricalert"),
-//				ResourceGroupName: example.Name,
-//				Scopes: pulumi.StringArray{
-//					toMonitor.ID().ToIDOutput().ToStringOutput(),
+//				Actions: monitoring.MetricAlertActionArray{
+//					&monitoring.MetricAlertActionArgs{
+//						ActionGroupId: main.ID().ToIDOutput().ToStringOutput(),
+//					},
 //				},
-//				Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
 //				Criterias: monitoring.MetricAlertCriteriaArray{
 //					&monitoring.MetricAlertCriteriaArgs{
-//						MetricNamespace: pulumi.String("Microsoft.Storage/storageAccounts"),
-//						MetricName:      pulumi.String("Transactions"),
-//						Aggregation:     pulumi.String("Total"),
-//						Operator:        pulumi.String("GreaterThan"),
-//						Threshold:       pulumi.Float64(50),
 //						Dimensions: monitoring.MetricAlertCriteriaDimensionArray{
 //							&monitoring.MetricAlertCriteriaDimensionArgs{
 //								Name:     pulumi.String("ApiName"),
@@ -84,13 +78,19 @@ import (
 //								},
 //							},
 //						},
+//						MetricNamespace: pulumi.String("Microsoft.Storage/storageAccounts"),
+//						MetricName:      pulumi.String("Transactions"),
+//						Aggregation:     pulumi.String("Total"),
+//						Operator:        pulumi.String("GreaterThan"),
+//						Threshold:       pulumi.Float64(50),
 //					},
 //				},
-//				Actions: monitoring.MetricAlertActionArray{
-//					&monitoring.MetricAlertActionArgs{
-//						ActionGroupId: main.ID().ToIDOutput().ToStringOutput(),
-//					},
+//				Name:              pulumi.String("example-metricalert"),
+//				ResourceGroupName: example.Name,
+//				Scopes: pulumi.StringArray{
+//					toMonitor.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
 //			})
 //			if err != nil {
 //				return err

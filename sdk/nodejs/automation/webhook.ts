@@ -24,6 +24,9 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  * });
  * const exampleRunBook = new azure.automation.RunBook("example", {
+ *     publishContentLink: {
+ *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+ *     },
  *     name: "Get-AzureVMTutorial",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -32,9 +35,6 @@ import * as utilities from "../utilities";
  *     logProgress: true,
  *     description: "This is an example runbook",
  *     runbookType: "PowerShellWorkflow",
- *     publishContentLink: {
- *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
- *     },
  * });
  * const exampleWebhook = new azure.automation.Webhook("example", {
  *     name: "TestRunbook_webhook",

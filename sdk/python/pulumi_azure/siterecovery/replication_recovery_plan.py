@@ -333,21 +333,16 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             resource_group_name=primary.name,
             sku="Basic")
         vm_network_interface = azure.network.NetworkInterface("vm",
-            name="vm-nic",
-            location=primary.location,
-            resource_group_name=primary.name,
             ip_configurations=[{
                 "name": "vm",
                 "subnet_id": primary_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
                 "public_ip_address_id": primary_public_ip.id,
-            }])
-        vm = azure.compute.VirtualMachine("vm",
-            name="vm",
+            }],
+            name="vm-nic",
             location=primary.location,
-            resource_group_name=primary.name,
-            vm_size="Standard_B1s",
-            network_interface_ids=[vm_network_interface.id],
+            resource_group_name=primary.name)
+        vm = azure.compute.VirtualMachine("vm",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -368,7 +363,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             },
             os_profile_linux_config={
                 "disable_password_authentication": False,
-            })
+            },
+            name="vm",
+            location=primary.location,
+            resource_group_name=primary.name,
+            vm_size="Standard_B1s",
+            network_interface_ids=[vm_network_interface.id])
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
             location=secondary.location,
@@ -439,16 +439,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             resource_group_name=secondary.name,
             sku="Basic")
         vm_replication = azure.siterecovery.ReplicatedVM("vm-replication",
-            name="vm-replication",
-            resource_group_name=secondary.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name=primary_fabric.name,
-            source_vm_id=vm.id,
-            recovery_replication_policy_id=policy.id,
-            source_recovery_protection_container_name=primary_protection_container.name,
-            target_resource_group_id=secondary.id,
-            target_recovery_fabric_id=secondary_fabric.id,
-            target_recovery_protection_container_id=secondary_protection_container.id,
             managed_disks=[{
                 "disk_id": vm.storage_os_disk.managed_disk_id,
                 "staging_storage_account_id": primary_account.id,
@@ -461,20 +451,30 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 "target_subnet_name": secondary_subnet.name,
                 "recovery_public_ip_address_id": secondary_public_ip.id,
             }],
+            name="vm-replication",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name=primary_fabric.name,
+            source_vm_id=vm.id,
+            recovery_replication_policy_id=policy.id,
+            source_recovery_protection_container_name=primary_protection_container.name,
+            target_resource_group_id=secondary.id,
+            target_recovery_fabric_id=secondary_fabric.id,
+            target_recovery_protection_container_id=secondary_protection_container.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
                 ]))
         example = azure.siterecovery.ReplicationRecoveryPlan("example",
-            name="example-recover-plan",
-            recovery_vault_id=vault.id,
-            source_recovery_fabric_id=primary_fabric.id,
-            target_recovery_fabric_id=secondary_fabric.id,
             shutdown_recovery_group={},
             failover_recovery_group={},
             boot_recovery_groups=[{
                 "replicated_protected_items": [vm_replication.id],
-            }])
+            }],
+            name="example-recover-plan",
+            recovery_vault_id=vault.id,
+            source_recovery_fabric_id=primary_fabric.id,
+            target_recovery_fabric_id=secondary_fabric.id)
         ```
 
         ## API Providers
@@ -542,21 +542,16 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             resource_group_name=primary.name,
             sku="Basic")
         vm_network_interface = azure.network.NetworkInterface("vm",
-            name="vm-nic",
-            location=primary.location,
-            resource_group_name=primary.name,
             ip_configurations=[{
                 "name": "vm",
                 "subnet_id": primary_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
                 "public_ip_address_id": primary_public_ip.id,
-            }])
-        vm = azure.compute.VirtualMachine("vm",
-            name="vm",
+            }],
+            name="vm-nic",
             location=primary.location,
-            resource_group_name=primary.name,
-            vm_size="Standard_B1s",
-            network_interface_ids=[vm_network_interface.id],
+            resource_group_name=primary.name)
+        vm = azure.compute.VirtualMachine("vm",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -577,7 +572,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             },
             os_profile_linux_config={
                 "disable_password_authentication": False,
-            })
+            },
+            name="vm",
+            location=primary.location,
+            resource_group_name=primary.name,
+            vm_size="Standard_B1s",
+            network_interface_ids=[vm_network_interface.id])
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
             location=secondary.location,
@@ -648,16 +648,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             resource_group_name=secondary.name,
             sku="Basic")
         vm_replication = azure.siterecovery.ReplicatedVM("vm-replication",
-            name="vm-replication",
-            resource_group_name=secondary.name,
-            recovery_vault_name=vault.name,
-            source_recovery_fabric_name=primary_fabric.name,
-            source_vm_id=vm.id,
-            recovery_replication_policy_id=policy.id,
-            source_recovery_protection_container_name=primary_protection_container.name,
-            target_resource_group_id=secondary.id,
-            target_recovery_fabric_id=secondary_fabric.id,
-            target_recovery_protection_container_id=secondary_protection_container.id,
             managed_disks=[{
                 "disk_id": vm.storage_os_disk.managed_disk_id,
                 "staging_storage_account_id": primary_account.id,
@@ -670,20 +660,30 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                 "target_subnet_name": secondary_subnet.name,
                 "recovery_public_ip_address_id": secondary_public_ip.id,
             }],
+            name="vm-replication",
+            resource_group_name=secondary.name,
+            recovery_vault_name=vault.name,
+            source_recovery_fabric_name=primary_fabric.name,
+            source_vm_id=vm.id,
+            recovery_replication_policy_id=policy.id,
+            source_recovery_protection_container_name=primary_protection_container.name,
+            target_resource_group_id=secondary.id,
+            target_recovery_fabric_id=secondary_fabric.id,
+            target_recovery_protection_container_id=secondary_protection_container.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
                 ]))
         example = azure.siterecovery.ReplicationRecoveryPlan("example",
-            name="example-recover-plan",
-            recovery_vault_id=vault.id,
-            source_recovery_fabric_id=primary_fabric.id,
-            target_recovery_fabric_id=secondary_fabric.id,
             shutdown_recovery_group={},
             failover_recovery_group={},
             boot_recovery_groups=[{
                 "replicated_protected_items": [vm_replication.id],
-            }])
+            }],
+            name="example-recover-plan",
+            recovery_vault_id=vault.id,
+            source_recovery_fabric_id=primary_fabric.id,
+            target_recovery_fabric_id=secondary_fabric.id)
         ```
 
         ## API Providers

@@ -111,13 +111,13 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()
+ *             .identity(DiskEncryptionSetIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("des")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .keyVaultKeyId(exampleKey.id())
- *             .identity(DiskEncryptionSetIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()
@@ -236,14 +236,14 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleDiskEncryptionSet = new DiskEncryptionSet("exampleDiskEncryptionSet", DiskEncryptionSetArgs.builder()
+ *             .identity(DiskEncryptionSetIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("des")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .keyVaultKeyId(exampleKey.versionlessId())
  *             .autoKeyRotationEnabled(true)
- *             .identity(DiskEncryptionSetIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var example_disk = new AccessPolicy("example-disk", AccessPolicyArgs.builder()

@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new ActionGroup("main", ActionGroupArgs.builder()
- *             .name("example-actiongroup")
- *             .resourceGroupName(example.name())
- *             .shortName("p0action")
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
  *                 .name("callmyapi")
  *                 .serviceUri("http://example.com/alert")
  *                 .build())
+ *             .name("example-actiongroup")
+ *             .resourceGroupName(example.name())
+ *             .shortName("p0action")
  *             .build());
  * 
  *         var toMonitor = new Account("toMonitor", AccountArgs.builder()
@@ -79,11 +79,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mainActivityLogAlert = new ActivityLogAlert("mainActivityLogAlert", ActivityLogAlertArgs.builder()
- *             .name("example-activitylogalert")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .scopes(example.id())
- *             .description("This alert will monitor a specific storage account updates.")
  *             .criteria(ActivityLogAlertCriteriaArgs.builder()
  *                 .resourceId(toMonitor.id())
  *                 .operationName("Microsoft.Storage/storageAccounts/write")
@@ -93,6 +88,11 @@ import javax.annotation.Nullable;
  *                 .actionGroupId(main.id())
  *                 .webhookProperties(Map.of("from", "source"))
  *                 .build())
+ *             .name("example-activitylogalert")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .scopes(example.id())
+ *             .description("This alert will monitor a specific storage account updates.")
  *             .build());
  * 
  *     }

@@ -37,14 +37,14 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "S1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
@@ -58,15 +58,15 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIotHubDeviceUpdateInstance = new Azure.Iot.IotHubDeviceUpdateInstance("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DeviceUpdateAccountId = exampleIotHubDeviceUpdateAccount.Id,
-    ///         IothubId = exampleIoTHub.Id,
-    ///         DiagnosticEnabled = true,
     ///         DiagnosticStorageAccount = new Azure.Iot.Inputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs
     ///         {
     ///             ConnectionString = exampleAccount.PrimaryConnectionString,
     ///             Id = exampleAccount.Id,
     ///         },
+    ///         Name = "example",
+    ///         DeviceUpdateAccountId = exampleIotHubDeviceUpdateAccount.Id,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         DiagnosticEnabled = true,
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

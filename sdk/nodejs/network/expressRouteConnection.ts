@@ -49,15 +49,15 @@ import * as utilities from "../utilities";
  *     encapsulation: "Dot1Q",
  * });
  * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "example-erc",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     expressRoutePortId: exampleExpressRoutePort.id,
  *     bandwidthInGbps: 5,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  * });
  * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
  *     peeringType: "AzurePrivatePeering",

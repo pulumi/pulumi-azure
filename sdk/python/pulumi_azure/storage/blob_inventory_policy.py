@@ -120,20 +120,19 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.storage.Account("example",
+            blob_properties={
+                "versioning_enabled": True,
+            },
             name="examplestoracc",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties={
-                "versioning_enabled": True,
-            })
+            account_replication_type="LRS")
         example_container = azure.storage.Container("example",
             name="examplecontainer",
             storage_account_name=example_account.name,
             container_access_type="private")
         example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("example",
-            storage_account_id=example_account.id,
             rules=[{
                 "name": "rule1",
                 "storage_container_name": example_container.name,
@@ -144,7 +143,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                     "Name",
                     "Last-Modified",
                 ],
-            }])
+            }],
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers
@@ -187,20 +187,19 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.storage.Account("example",
+            blob_properties={
+                "versioning_enabled": True,
+            },
             name="examplestoracc",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties={
-                "versioning_enabled": True,
-            })
+            account_replication_type="LRS")
         example_container = azure.storage.Container("example",
             name="examplecontainer",
             storage_account_name=example_account.name,
             container_access_type="private")
         example_blob_inventory_policy = azure.storage.BlobInventoryPolicy("example",
-            storage_account_id=example_account.id,
             rules=[{
                 "name": "rule1",
                 "storage_container_name": example_container.name,
@@ -211,7 +210,8 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                     "Name",
                     "Last-Modified",
                 ],
-            }])
+            }],
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers

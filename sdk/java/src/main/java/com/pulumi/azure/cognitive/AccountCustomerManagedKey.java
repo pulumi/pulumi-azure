@@ -70,26 +70,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned, UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("Face")
  *             .skuName("E0")
  *             .customSubdomainName("example-account")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned, UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example-vault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("standard")
- *             .purgeProtectionEnabled(true)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(exampleAccount.identity().applyValue(_identity -> _identity.tenantId()))
@@ -148,6 +141,13 @@ import javax.annotation.Nullable;
  *                         "Verify")
  *                     .secretPermissions("Get")
  *                     .build())
+ *             .name("example-vault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()

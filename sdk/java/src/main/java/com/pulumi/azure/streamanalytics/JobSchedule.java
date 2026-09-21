@@ -105,6 +105,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()
+ *             .serialization(StreamInputBlobSerializationArgs.builder()
+ *                 .type("Csv")
+ *                 .encoding("UTF8")
+ *                 .fieldDelimiter(",")
+ *                 .build())
  *             .name("exampleinput")
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
@@ -114,14 +119,12 @@ import javax.annotation.Nullable;
  *             .pathPattern("")
  *             .dateFormat("yyyy/MM/dd")
  *             .timeFormat("HH")
- *             .serialization(StreamInputBlobSerializationArgs.builder()
- *                 .type("Csv")
- *                 .encoding("UTF8")
- *                 .fieldDelimiter(",")
- *                 .build())
  *             .build());
  * 
  *         var exampleOutputBlob = new OutputBlob("exampleOutputBlob", OutputBlobArgs.builder()
+ *             .serialization(OutputBlobSerializationArgs.builder()
+ *                 .type("Avro")
+ *                 .build())
  *             .name("exampleoutput")
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
@@ -131,9 +134,6 @@ import javax.annotation.Nullable;
  *             .pathPattern("example-{date}-{time}")
  *             .dateFormat("yyyy-MM-dd")
  *             .timeFormat("HH")
- *             .serialization(OutputBlobSerializationArgs.builder()
- *                 .type("Avro")
- *                 .build())
  *             .build());
  * 
  *         var exampleJobSchedule = new JobSchedule("exampleJobSchedule", JobScheduleArgs.builder()

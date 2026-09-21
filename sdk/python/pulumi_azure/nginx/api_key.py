@@ -213,29 +213,29 @@ class ApiKey(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
-        example_deployment = azure.nginx.Deployment("example",
-            name="example-nginx",
+                "name": "delegation",
+            }],
+            name="example-subnet",
             resource_group_name=example.name,
-            sku="standardv3_Monthly",
-            location=example.location,
-            automatic_upgrade_channel="stable",
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_deployment = azure.nginx.Deployment("example",
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
                 "subnet_id": example_subnet.id,
             }],
+            name="example-nginx",
+            resource_group_name=example.name,
+            sku="standardv3_Monthly",
+            location=example.location,
+            automatic_upgrade_channel="stable",
             capacity=20,
             email="user@test.com")
         example_api_key = azure.nginx.ApiKey("example",
@@ -301,29 +301,29 @@ class ApiKey(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
-        example_deployment = azure.nginx.Deployment("example",
-            name="example-nginx",
+                "name": "delegation",
+            }],
+            name="example-subnet",
             resource_group_name=example.name,
-            sku="standardv3_Monthly",
-            location=example.location,
-            automatic_upgrade_channel="stable",
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_deployment = azure.nginx.Deployment("example",
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
                 "subnet_id": example_subnet.id,
             }],
+            name="example-nginx",
+            resource_group_name=example.name,
+            sku="standardv3_Monthly",
+            location=example.location,
+            automatic_upgrade_channel="stable",
             capacity=20,
             email="user@test.com")
         example_api_key = azure.nginx.ApiKey("example",

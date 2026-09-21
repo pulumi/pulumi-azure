@@ -219,17 +219,17 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_flexible_server = azure.mysql.FlexibleServer("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-mysqlfs",
             resource_group_name=example.name,
             location=example.location,
             administrator_login="_admin_Terraform_892123456789312",
             administrator_password="QAZwsx123",
             sku_name="B_Standard_B1ms",
-            zone="2",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            })
+            zone="2")
         example_flexible_server_active_directory_administratory = azure.mysql.FlexibleServerActiveDirectoryAdministratory("example",
             server_id=example_flexible_server.id,
             identity_id=example_user_assigned_identity.id,
@@ -286,17 +286,17 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_flexible_server = azure.mysql.FlexibleServer("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-mysqlfs",
             resource_group_name=example.name,
             location=example.location,
             administrator_login="_admin_Terraform_892123456789312",
             administrator_password="QAZwsx123",
             sku_name="B_Standard_B1ms",
-            zone="2",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            })
+            zone="2")
         example_flexible_server_active_directory_administratory = azure.mysql.FlexibleServerActiveDirectoryAdministratory("example",
             server_id=example_flexible_server.id,
             identity_id=example_user_assigned_identity.id,

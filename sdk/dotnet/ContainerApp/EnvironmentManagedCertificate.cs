@@ -47,10 +47,6 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleApp = new Azure.ContainerApp.App("example", new()
     ///     {
-    ///         Name = "example-app",
-    ///         ResourceGroupName = example.Name,
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         RevisionMode = "Single",
     ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
     ///         {
     ///             Containers = new[]
@@ -66,9 +62,6 @@ namespace Pulumi.Azure.ContainerApp
     ///         },
     ///         Ingress = new Azure.ContainerApp.Inputs.AppIngressArgs
     ///         {
-    ///             ExternalEnabled = true,
-    ///             TargetPort = 80,
-    ///             Transport = "http",
     ///             TrafficWeights = new[]
     ///             {
     ///                 new Azure.ContainerApp.Inputs.AppIngressTrafficWeightArgs
@@ -77,13 +70,27 @@ namespace Pulumi.Azure.ContainerApp
     ///                     Percentage = 100,
     ///                 },
     ///             },
+    ///             ExternalEnabled = true,
+    ///             TargetPort = 80,
+    ///             Transport = "http",
     ///         },
+    ///         Name = "example-app",
+    ///         ResourceGroupName = example.Name,
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         RevisionMode = "Single",
     ///     });
     /// 
     ///     var exampleCustomDomain = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
     ///         Name = "example.com",
     ///         ContainerAppId = exampleApp.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "certificateBindingType",
+    ///             "containerAppEnvironmentCertificateId",
+    ///         },
     ///     });
     /// 
     ///     var exampleEnvironmentManagedCertificate = new Azure.ContainerApp.EnvironmentManagedCertificate("example", new()

@@ -59,12 +59,6 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
-    ///         Name = "example-workspace",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ApplicationInsightsId = exampleInsights.Id,
-    ///         KeyVaultId = exampleKeyVault.Id,
-    ///         StorageAccountId = exampleAccount.Id,
     ///         ManagedNetwork = new Azure.MachineLearning.Inputs.WorkspaceManagedNetworkArgs
     ///         {
     ///             IsolationMode = "AllowOnlyApprovedOutbound",
@@ -73,6 +67,12 @@ namespace Pulumi.Azure.MachineLearning
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     ///     var exampleWorkspaceNetworkOutboundRuleServiceTag = new Azure.MachineLearning.WorkspaceNetworkOutboundRuleServiceTag("example", new()

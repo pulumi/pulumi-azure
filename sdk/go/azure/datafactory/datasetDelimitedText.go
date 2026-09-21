@@ -54,21 +54,21 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewDatasetDelimitedText(ctx, "example", &datafactory.DatasetDelimitedTextArgs{
-//				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				LinkedServiceName: exampleLinkedServiceWeb.Name,
 //				HttpServerLocation: &datafactory.DatasetDelimitedTextHttpServerLocationArgs{
 //					RelativeUrl: pulumi.String("http://www.bing.com"),
 //					Path:        pulumi.String("foo/bar/"),
 //					Filename:    pulumi.String("fizz.txt"),
 //				},
-//				ColumnDelimiter:  pulumi.String(","),
-//				RowDelimiter:     pulumi.String("NEW"),
-//				Encoding:         pulumi.String("UTF-8"),
-//				QuoteCharacter:   pulumi.String("x"),
-//				EscapeCharacter:  pulumi.String("f"),
-//				FirstRowAsHeader: pulumi.Bool(true),
-//				NullValue:        pulumi.String("NULL"),
+//				Name:              pulumi.String("example"),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceName: exampleLinkedServiceWeb.Name,
+//				ColumnDelimiter:   pulumi.String(","),
+//				RowDelimiter:      pulumi.String("NEW"),
+//				Encoding:          pulumi.String("UTF-8"),
+//				QuoteCharacter:    pulumi.String("x"),
+//				EscapeCharacter:   pulumi.String("f"),
+//				FirstRowAsHeader:  pulumi.Bool(true),
+//				NullValue:         pulumi.String("NULL"),
 //			})
 //			if err != nil {
 //				return err

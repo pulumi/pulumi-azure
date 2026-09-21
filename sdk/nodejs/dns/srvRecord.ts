@@ -26,16 +26,16 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSrvRecord = new azure.dns.SrvRecord("example", {
- *     name: "test",
- *     zoneName: exampleZone.name,
- *     resourceGroupName: example.name,
- *     ttl: 300,
  *     records: [{
  *         priority: 1,
  *         weight: 5,
  *         port: 8080,
  *         target: "target1.contoso.com",
  *     }],
+ *     name: "test",
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: example.name,
+ *     ttl: 300,
  *     tags: {
  *         Environment: "Production",
  *     },

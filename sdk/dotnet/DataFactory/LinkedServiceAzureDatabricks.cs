@@ -33,13 +33,13 @@ namespace Pulumi.Azure.DataFactory
     ///     //Create a Linked Service using managed identity and new cluster config
     ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Name = "TestDtaFactory92783401247",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "TestDtaFactory92783401247",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     //Create a databricks instance
@@ -53,11 +53,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var msiLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("msi_linked", new()
     ///     {
-    ///         Name = "ADBLinkedServiceViaMSI",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Description = "ADB Linked Service via MSI",
-    ///         AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
-    ///         MsiWorkspaceId = exampleWorkspace.Id,
     ///         NewClusterConfig = new Azure.DataFactory.Inputs.LinkedServiceAzureDatabricksNewClusterConfigArgs
     ///         {
     ///             NodeType = "Standard_NC12",
@@ -87,6 +82,11 @@ namespace Pulumi.Azure.DataFactory
     ///                 "init2.sh",
     ///             },
     ///         },
+    ///         Name = "ADBLinkedServiceViaMSI",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Description = "ADB Linked Service via MSI",
+    ///         AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
+    ///         MsiWorkspaceId = exampleWorkspace.Id,
     ///     });
     /// 
     /// });

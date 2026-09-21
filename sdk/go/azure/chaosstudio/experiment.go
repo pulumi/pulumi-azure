@@ -70,9 +70,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("example"),
@@ -80,21 +77,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String("example"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Size:                          pulumi.String("Standard_F2"),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("example"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
@@ -104,6 +94,16 @@ import (
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
+//				},
+//				Name:                          pulumi.String("example"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
+//				Size:                          pulumi.String("Standard_F2"),
+//				AdminUsername:                 pulumi.String("adminuser"),
+//				AdminPassword:                 pulumi.String("example"),
+//				DisablePasswordAuthentication: pulumi.Bool(false),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -125,9 +125,6 @@ import (
 //				return err
 //			}
 //			_, err = chaosstudio.NewExperiment(ctx, "example", &chaosstudio.ExperimentArgs{
-//				Location:          example.Location,
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
 //				Identity: &chaosstudio.ExperimentIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -141,10 +138,8 @@ import (
 //				},
 //				Steps: chaosstudio.ExperimentStepArray{
 //					&chaosstudio.ExperimentStepArgs{
-//						Name: pulumi.String("example"),
 //						Branches: chaosstudio.ExperimentStepBranchArray{
 //							&chaosstudio.ExperimentStepBranchArgs{
-//								Name: pulumi.String("example"),
 //								Actions: chaosstudio.ExperimentStepBranchActionArray{
 //									&chaosstudio.ExperimentStepBranchActionArgs{
 //										Urn:          exampleCapability.CapabilityUrn,
@@ -156,10 +151,15 @@ import (
 //										Duration:   pulumi.String("PT10M"),
 //									},
 //								},
+//								Name: pulumi.String("example"),
 //							},
 //						},
+//						Name: pulumi.String("example"),
 //					},
 //				},
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

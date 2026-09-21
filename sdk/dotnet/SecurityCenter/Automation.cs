@@ -60,9 +60,6 @@ namespace Pulumi.Azure.SecurityCenter
     /// 
     ///     var exampleAutomation = new Azure.SecurityCenter.Automation("example", new()
     ///     {
-    ///         Name = "example-automation",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Actions = new[]
     ///         {
     ///             new Azure.SecurityCenter.Inputs.AutomationActionArgs
@@ -76,7 +73,6 @@ namespace Pulumi.Azure.SecurityCenter
     ///         {
     ///             new Azure.SecurityCenter.Inputs.AutomationSourceArgs
     ///             {
-    ///                 EventSource = "Alerts",
     ///                 RuleSets = new[]
     ///                 {
     ///                     new Azure.SecurityCenter.Inputs.AutomationSourceRuleSetArgs
@@ -93,8 +89,12 @@ namespace Pulumi.Azure.SecurityCenter
     ///                         },
     ///                     },
     ///                 },
+    ///                 EventSource = "Alerts",
     ///             },
     ///         },
+    ///         Name = "example-automation",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Scopes = new[]
     ///         {
     ///             $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}",

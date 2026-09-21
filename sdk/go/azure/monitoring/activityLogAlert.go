@@ -38,15 +38,15 @@ import (
 //				return err
 //			}
 //			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("example-actiongroup"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("p0action"),
 //				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 //					&monitoring.ActionGroupWebhookReceiverArgs{
 //						Name:       pulumi.String("callmyapi"),
 //						ServiceUri: pulumi.String("http://example.com/alert"),
 //					},
 //				},
+//				Name:              pulumi.String("example-actiongroup"),
+//				ResourceGroupName: example.Name,
+//				ShortName:         pulumi.String("p0action"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,13 +62,6 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewActivityLogAlert(ctx, "main", &monitoring.ActivityLogAlertArgs{
-//				Name:              pulumi.String("example-activitylogalert"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Scopes: pulumi.StringArray{
-//					example.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				Description: pulumi.String("This alert will monitor a specific storage account updates."),
 //				Criteria: &monitoring.ActivityLogAlertCriteriaArgs{
 //					ResourceId:    toMonitor.ID().ToIDOutput().ToStringOutput(),
 //					OperationName: pulumi.String("Microsoft.Storage/storageAccounts/write"),
@@ -82,6 +75,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example-activitylogalert"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Scopes: pulumi.StringArray{
+//					example.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				Description: pulumi.String("This alert will monitor a specific storage account updates."),
 //			})
 //			if err != nil {
 //				return err

@@ -58,13 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("standard")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -72,16 +65,23 @@ import javax.annotation.Nullable;
  *                 .keyPermissions("Create")
  *                 .secretPermissions("Set")
  *                 .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var test = new Service("test", ServiceArgs.builder()
- *             .name("tfex-signalr")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(ServiceSkuArgs.builder()
  *                 .name("Standard_S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("tfex-signalr")
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
  *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource("exampleSharedPrivateLinkResource", SharedPrivateLinkResourceArgs.builder()

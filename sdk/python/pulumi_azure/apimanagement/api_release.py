@@ -159,17 +159,17 @@ class ApiRelease(pulumi.CustomResource):
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("example",
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+            },
             name="example-api",
             resource_group_name=example.name,
             api_management_name=example_service.name,
             revision="1",
             display_name="Example API",
             path="example",
-            protocols=["https"],
-            import_={
-                "content_format": "swagger-link-json",
-                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
-            })
+            protocols=["https"])
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",
             api_id=example_api.id)
@@ -223,17 +223,17 @@ class ApiRelease(pulumi.CustomResource):
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("example",
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+            },
             name="example-api",
             resource_group_name=example.name,
             api_management_name=example_service.name,
             revision="1",
             display_name="Example API",
             path="example",
-            protocols=["https"],
-            import_={
-                "content_format": "swagger-link-json",
-                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
-            })
+            protocols=["https"])
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",
             api_id=example_api.id)

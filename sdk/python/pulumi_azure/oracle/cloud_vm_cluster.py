@@ -1082,12 +1082,7 @@ class CloudVmCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -1095,10 +1090,19 @@ class CloudVmCluster(pulumi.CustomResource):
                     ],
                     "name": "Oracle.Database/networkAttachments",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         example = azure.oracle.get_db_servers_output(resource_group_name=example_resource_group.name,
             cloud_exadata_infrastructure_name=example_exadata_infrastructure.name)
         example_cloud_vm_cluster = azure.oracle.CloudVmCluster("example",
+            file_system_configurations=[{
+                "mount_point": "/var",
+                "size_in_gb": 32,
+            }],
             name="example-cloud-vm-cluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -1106,17 +1110,13 @@ class CloudVmCluster(pulumi.CustomResource):
             virtual_network_id=example_virtual_network.id,
             license_model="BringYourOwnLicense",
             db_servers=example.apply(lambda example: [obj.ocid for obj in example.db_servers]),
-            ssh_public_keys=[std.file(input="~/.ssh/id_rsa.pub").result],
+            ssh_public_keys=[std.file(input="~/.ssh/id_rsa.pub")["result"]],
             display_name="example-cloud-vm-cluster",
             cloud_exadata_infrastructure_id=example_exadata_infrastructure.id,
             cpu_core_count=2,
             hostname="hostname",
             subnet_id=example_subnet.id,
-            system_version="23.1.19.0.0.241015",
-            file_system_configurations=[{
-                "mount_point": "/var",
-                "size_in_gb": 32,
-            }])
+            system_version="23.1.19.0.0.241015")
         ```
 
         ## API Providers
@@ -1202,12 +1202,7 @@ class CloudVmCluster(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -1215,10 +1210,19 @@ class CloudVmCluster(pulumi.CustomResource):
                     ],
                     "name": "Oracle.Database/networkAttachments",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         example = azure.oracle.get_db_servers_output(resource_group_name=example_resource_group.name,
             cloud_exadata_infrastructure_name=example_exadata_infrastructure.name)
         example_cloud_vm_cluster = azure.oracle.CloudVmCluster("example",
+            file_system_configurations=[{
+                "mount_point": "/var",
+                "size_in_gb": 32,
+            }],
             name="example-cloud-vm-cluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -1226,17 +1230,13 @@ class CloudVmCluster(pulumi.CustomResource):
             virtual_network_id=example_virtual_network.id,
             license_model="BringYourOwnLicense",
             db_servers=example.apply(lambda example: [obj.ocid for obj in example.db_servers]),
-            ssh_public_keys=[std.file(input="~/.ssh/id_rsa.pub").result],
+            ssh_public_keys=[std.file(input="~/.ssh/id_rsa.pub")["result"]],
             display_name="example-cloud-vm-cluster",
             cloud_exadata_infrastructure_id=example_exadata_infrastructure.id,
             cpu_core_count=2,
             hostname="hostname",
             subnet_id=example_subnet.id,
-            system_version="23.1.19.0.0.241015",
-            file_system_configurations=[{
-                "mount_point": "/var",
-                "size_in_gb": 32,
-            }])
+            system_version="23.1.19.0.0.241015")
         ```
 
         ## API Providers

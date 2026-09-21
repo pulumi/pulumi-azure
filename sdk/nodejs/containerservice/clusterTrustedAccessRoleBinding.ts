@@ -38,21 +38,21 @@ import * as utilities from "../utilities";
  *     keyPermissions: "example-value",
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     dnsPrefix: "acctestaksexample",
  *     defaultNodePool: {
- *         name: "example-value",
- *         nodeCount: Number("example-value"),
- *         vmSize: "example-value",
  *         upgradeSettings: {
  *             maxSurge: "example-value",
  *         },
+ *         name: "example-value",
+ *         nodeCount: Number("example-value"),
+ *         vmSize: "example-value",
  *     },
  *     identity: {
  *         type: "example-value",
  *     },
+ *     name: "example",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     dnsPrefix: "acctestaksexample",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "example",
@@ -62,15 +62,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "example-value",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     identity: {
+ *         type: "example-value",
+ *     },
  *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
  *     applicationInsightsId: example.id,
- *     identity: {
- *         type: "example-value",
- *     },
  * });
  * const exampleClusterTrustedAccessRoleBinding = new azure.containerservice.ClusterTrustedAccessRoleBinding("example", {
  *     kubernetesClusterId: exampleKubernetesCluster.id,

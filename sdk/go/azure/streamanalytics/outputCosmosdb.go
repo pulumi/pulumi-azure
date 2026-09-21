@@ -42,11 +42,6 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("exampledb"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
 //					MaxIntervalInSeconds: pulumi.Int(10),
@@ -58,6 +53,11 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("exampledb"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err

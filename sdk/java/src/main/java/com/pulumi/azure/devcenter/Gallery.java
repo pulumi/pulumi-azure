@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new DevCenter("test", DevCenterArgs.builder()
- *             .name("example-devcenter")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .location(testAzurermResourceGroup.location())
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(testUserAssignedIdentity.id())
  *                 .build())
+ *             .name("example-devcenter")
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.location())
  *             .build());
  * 
  *         var exampleSharedImageGallery = new SharedImageGallery("exampleSharedImageGallery", SharedImageGalleryArgs.builder()

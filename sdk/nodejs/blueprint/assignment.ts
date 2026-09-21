@@ -53,16 +53,16 @@ import * as utilities from "../utilities";
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
  * const exampleAssignment = new azure.blueprint.Assignment("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "testAccBPAssignment",
  *     targetSubscriptionId: example.then(example => example.id),
  *     versionId: exampleGetPublishedVersion.then(exampleGetPublishedVersion => exampleGetPublishedVersion.id),
  *     location: exampleResourceGroup.location,
  *     lockMode: "AllResourcesDoNotDelete",
  *     lockExcludePrincipals: [current.then(current => current.objectId)],
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
  *     resourceGroups: `    {
  *       \\"ResourceGroup\\": {
  *         \\"name\\": \\"exampleRG-bp\\"

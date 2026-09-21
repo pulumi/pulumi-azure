@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         CertificateBlobBase64 = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         CertificatePassword = "$3cretSqu1rreL",
     ///     });
     /// 
@@ -99,10 +99,6 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
     ///     {
-    ///         Name = "example-environment",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         Identity = new Azure.ContainerApp.Inputs.EnvironmentIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -111,6 +107,10 @@ namespace Pulumi.Azure.ContainerApp
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example-environment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
@@ -139,16 +139,16 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "example-certificate",
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "path/to/certificate_file.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "",
     ///         },
+    ///         Name = "example-certificate",
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -160,13 +160,13 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleEnvironmentCertificate = new Azure.ContainerApp.EnvironmentCertificate("example", new()
     ///     {
-    ///         Name = "example-certificate",
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
     ///         CertificateKeyVault = new Azure.ContainerApp.Inputs.EnvironmentCertificateCertificateKeyVaultArgs
     ///         {
     ///             Identity = exampleUserAssignedIdentity.Id,
     ///             KeyVaultSecretId = exampleCertificate.VersionlessSecretId,
     ///         },
+    ///         Name = "example-certificate",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

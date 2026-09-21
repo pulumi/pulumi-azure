@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDevCenter = new DevCenter("exampleDevCenter", DevCenterArgs.builder()
- *             .name("example-dc")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-dc")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleEnvironmentType = new EnvironmentType("exampleEnvironmentType", EnvironmentTypeArgs.builder()

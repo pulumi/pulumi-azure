@@ -32,9 +32,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Name = "example-network-manager",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -42,6 +39,9 @@ namespace Pulumi.Azure.Network
     ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ScopeAccesses = new[]
     ///         {
     ///             "Connectivity",
@@ -74,6 +74,27 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManagerAdminRule = new Azure.Network.NetworkManagerAdminRule("example", new()
     ///     {
+    ///         Destinations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
+    ///             {
+    ///                 AddressPrefixType = "IPPrefix",
+    ///                 AddressPrefix = "10.1.0.1",
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
+    ///             {
+    ///                 AddressPrefixType = "IPPrefix",
+    ///                 AddressPrefix = "10.0.0.0/24",
+    ///             },
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleSourceArgs
+    ///             {
+    ///                 AddressPrefixType = "ServiceTag",
+    ///                 AddressPrefix = "Internet",
+    ///             },
+    ///         },
     ///         Name = "example-admin-rule",
     ///         AdminRuleCollectionId = exampleNetworkManagerAdminRuleCollection.Id,
     ///         Action = "Deny",
@@ -88,27 +109,6 @@ namespace Pulumi.Azure.Network
     ///         DestinationPortRanges = new[]
     ///         {
     ///             "80",
-    ///         },
-    ///         Sources = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleSourceArgs
-    ///             {
-    ///                 AddressPrefixType = "ServiceTag",
-    ///                 AddressPrefix = "Internet",
-    ///             },
-    ///         },
-    ///         Destinations = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
-    ///             {
-    ///                 AddressPrefixType = "IPPrefix",
-    ///                 AddressPrefix = "10.1.0.1",
-    ///             },
-    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
-    ///             {
-    ///                 AddressPrefixType = "IPPrefix",
-    ///                 AddressPrefix = "10.0.0.0/24",
-    ///             },
     ///         },
     ///         Description = "example admin rule",
     ///     });

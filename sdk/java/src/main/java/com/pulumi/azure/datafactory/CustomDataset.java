@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -97,13 +97,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomDataset = new CustomDataset("exampleCustomDataset", CustomDatasetArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .type("Json")
  *             .linkedService(CustomDatasetLinkedServiceArgs.builder()
  *                 .name(exampleLinkedCustomService.name())
  *                 .parameters(Map.of("key1", "value1"))
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .type("Json")
  *             .typePropertiesJson(exampleContainer.name().applyValue(_name -> """
  * {
  *   \"location\": {

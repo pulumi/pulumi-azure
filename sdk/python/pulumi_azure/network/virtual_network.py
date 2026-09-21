@@ -584,14 +584,6 @@ class VirtualNetwork(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            location=example.location,
-            resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"],
-            dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
-            ],
             subnets=[
                 {
                     "name": "subnet1",
@@ -602,6 +594,14 @@ class VirtualNetwork(pulumi.CustomResource):
                     "address_prefixes": ["10.0.2.0/24"],
                     "security_group": example_network_security_group.id,
                 },
+            ],
+            name="example-network",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
             ],
             tags={
                 "environment": "Production",
@@ -681,14 +681,6 @@ class VirtualNetwork(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-network",
-            location=example.location,
-            resource_group_name=example.name,
-            address_spaces=["10.0.0.0/16"],
-            dns_servers=[
-                "10.0.0.4",
-                "10.0.0.5",
-            ],
             subnets=[
                 {
                     "name": "subnet1",
@@ -699,6 +691,14 @@ class VirtualNetwork(pulumi.CustomResource):
                     "address_prefixes": ["10.0.2.0/24"],
                     "security_group": example_network_security_group.id,
                 },
+            ],
+            name="example-network",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            dns_servers=[
+                "10.0.0.4",
+                "10.0.0.5",
             ],
             tags={
                 "environment": "Production",

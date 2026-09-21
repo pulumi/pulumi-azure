@@ -417,9 +417,6 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name="example-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": "example-profile",
                 "ttl": 100,
@@ -432,6 +429,9 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name="example-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })
@@ -492,9 +492,6 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name="example-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": "example-profile",
                 "ttl": 100,
@@ -507,6 +504,9 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name="example-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })

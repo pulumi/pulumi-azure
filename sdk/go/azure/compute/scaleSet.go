@@ -77,15 +77,15 @@ import (
 //				return err
 //			}
 //			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              pulumi.String("test"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -120,25 +120,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/demo_key.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/demo_key.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name:               pulumi.String("mytestscaleset-1"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				AutomaticOsUpgrade: pulumi.Bool(true),
-//				UpgradePolicyMode:  pulumi.String("Rolling"),
 //				RollingUpgradePolicy: &compute.ScaleSetRollingUpgradePolicyArgs{
 //					MaxBatchInstancePercent:             pulumi.Int(20),
 //					MaxUnhealthyInstancePercent:         pulumi.Int(20),
 //					MaxUnhealthyUpgradedInstancePercent: pulumi.Int(5),
 //					PauseTimeBetweenBatches:             pulumi.String("PT0S"),
 //				},
-//				HealthProbeId: exampleProbe.ID().ToIDOutput().ToStringOutput(),
 //				Sku: &compute.ScaleSetSkuArgs{
 //					Name:     pulumi.String("Standard_D4_v5"),
 //					Tier:     pulumi.String("Standard"),
@@ -156,31 +150,21 @@ import (
 //					CreateOption:    pulumi.String("FromImage"),
 //					ManagedDiskType: pulumi.String("Standard_LRS"),
 //				},
-//				StorageProfileDataDisks: compute.ScaleSetStorageProfileDataDiskArray{
-//					&compute.ScaleSetStorageProfileDataDiskArgs{
-//						Lun:          pulumi.Int(0),
-//						Caching:      pulumi.String("ReadWrite"),
-//						CreateOption: pulumi.String("Empty"),
-//						DiskSizeGb:   pulumi.Int(10),
-//					},
-//				},
 //				OsProfile: &compute.ScaleSetOsProfileArgs{
 //					ComputerNamePrefix: pulumi.String("testvm"),
 //					AdminUsername:      pulumi.String("myadmin"),
 //				},
 //				OsProfileLinuxConfig: &compute.ScaleSetOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(true),
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: pulumi.String(invokeFile.Result),
+//							KeyData: invokeFile.Result,
 //						},
 //					},
+//					DisablePasswordAuthentication: pulumi.Bool(true),
 //				},
 //				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
 //					&compute.ScaleSetNetworkProfileArgs{
-//						Name:    pulumi.String("mynetworkprofile"),
-//						Primary: pulumi.Bool(true),
 //						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
 //							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
@@ -194,8 +178,24 @@ import (
 //								},
 //							},
 //						},
+//						Name:    pulumi.String("mynetworkprofile"),
+//						Primary: pulumi.Bool(true),
 //					},
 //				},
+//				StorageProfileDataDisks: compute.ScaleSetStorageProfileDataDiskArray{
+//					&compute.ScaleSetStorageProfileDataDiskArgs{
+//						Lun:          pulumi.Int(0),
+//						Caching:      pulumi.String("ReadWrite"),
+//						CreateOption: pulumi.String("Empty"),
+//						DiskSizeGb:   pulumi.Int(10),
+//					},
+//				},
+//				Name:               pulumi.String("mytestscaleset-1"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				AutomaticOsUpgrade: pulumi.Bool(true),
+//				UpgradePolicyMode:  pulumi.String("Rolling"),
+//				HealthProbeId:      exampleProbe.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),
 //				},
@@ -279,17 +279,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/demo_key.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/demo_key.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name:              pulumi.String("mytestscaleset-1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				UpgradePolicyMode: pulumi.String("Manual"),
 //				Sku: &compute.ScaleSetSkuArgs{
 //					Name:     pulumi.String("Standard_D4_v5"),
 //					Tier:     pulumi.String("Standard"),
@@ -300,26 +296,13 @@ import (
 //					AdminUsername:      pulumi.String("myadmin"),
 //				},
 //				OsProfileLinuxConfig: &compute.ScaleSetOsProfileLinuxConfigArgs{
-//					DisablePasswordAuthentication: pulumi.Bool(true),
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: pulumi.String(invokeFile.Result),
+//							KeyData: invokeFile.Result,
 //						},
 //					},
-//				},
-//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
-//					&compute.ScaleSetNetworkProfileArgs{
-//						Name:    pulumi.String("TestNetworkProfile"),
-//						Primary: pulumi.Bool(true),
-//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
-//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
-//								Name:     pulumi.String("TestIPConfiguration"),
-//								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//							},
-//						},
-//					},
+//					DisablePasswordAuthentication: pulumi.Bool(true),
 //				},
 //				StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
 //					Name:         pulumi.String("osDiskProfile"),
@@ -339,6 +322,23 @@ import (
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
+//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+//					&compute.ScaleSetNetworkProfileArgs{
+//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+//								Name:     pulumi.String("TestIPConfiguration"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//							},
+//						},
+//						Name:    pulumi.String("TestNetworkProfile"),
+//						Primary: pulumi.Bool(true),
+//					},
+//				},
+//				Name:              pulumi.String("mytestscaleset-1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				UpgradePolicyMode: pulumi.String("Manual"),
 //			})
 //			if err != nil {
 //				return err
@@ -370,10 +370,10 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name: pulumi.String("test"),
 //				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
 //					Id: example.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name: pulumi.String("test"),
 //			})
 //			if err != nil {
 //				return err

@@ -241,15 +241,15 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             sku_name="B_Standard_B1ms",
             zone="1")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backupvault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            soft_delete="Off",
-            identity={
-                "type": "SystemAssigned",
-            })
+            soft_delete="Off")
         example_assignment = azure.authorization.Assignment("example",
             scope=example.id,
             role_definition_name="Reader",
@@ -259,15 +259,15 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             role_definition_name="MySQL Backup And Export Operator",
             principal_id=example_backup_vault.identity.principal_id)
         example_backup_policy_mysql_flexible_server = azure.dataprotection.BackupPolicyMysqlFlexibleServer("example",
-            name="example-dp",
-            vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             default_retention_rule={
                 "life_cycles": [{
                     "duration": "P4M",
                     "data_store_type": "VaultStore",
                 }],
             },
+            name="example-dp",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example2,
@@ -332,15 +332,15 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             sku_name="B_Standard_B1ms",
             zone="1")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backupvault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            soft_delete="Off",
-            identity={
-                "type": "SystemAssigned",
-            })
+            soft_delete="Off")
         example_assignment = azure.authorization.Assignment("example",
             scope=example.id,
             role_definition_name="Reader",
@@ -350,15 +350,15 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             role_definition_name="MySQL Backup And Export Operator",
             principal_id=example_backup_vault.identity.principal_id)
         example_backup_policy_mysql_flexible_server = azure.dataprotection.BackupPolicyMysqlFlexibleServer("example",
-            name="example-dp",
-            vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             default_retention_rule={
                 "life_cycles": [{
                     "duration": "P4M",
                     "data_store_type": "VaultStore",
                 }],
             },
+            name="example-dp",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example2,

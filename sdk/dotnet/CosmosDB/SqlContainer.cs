@@ -37,19 +37,15 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
     ///     {
-    ///         Name = "example-container",
-    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
-    ///         DatabaseName = exampleSqlDatabase.Name,
-    ///         PartitionKeyPaths = new[]
-    ///         {
-    ///             "/definition/id",
-    ///         },
-    ///         PartitionKeyVersion = 1,
-    ///         Throughput = 400,
     ///         IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
     ///         {
-    ///             IndexingMode = "consistent",
+    ///             ExcludedPaths = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyExcludedPathArgs
+    ///                 {
+    ///                     Path = "/excluded/?",
+    ///                 },
+    ///             },
     ///             IncludedPaths = new[]
     ///             {
     ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
@@ -61,13 +57,7 @@ namespace Pulumi.Azure.CosmosDB
     ///                     Path = "/included/?",
     ///                 },
     ///             },
-    ///             ExcludedPaths = new[]
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyExcludedPathArgs
-    ///                 {
-    ///                     Path = "/excluded/?",
-    ///                 },
-    ///             },
+    ///             IndexingMode = "consistent",
     ///         },
     ///         UniqueKeys = new[]
     ///         {
@@ -80,6 +70,16 @@ namespace Pulumi.Azure.CosmosDB
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-container",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPaths = new[]
+    ///         {
+    ///             "/definition/id",
+    ///         },
+    ///         PartitionKeyVersion = 1,
+    ///         Throughput = 400,
     ///     });
     /// 
     /// });

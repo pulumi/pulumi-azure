@@ -51,14 +51,14 @@ import (
 //				return err
 //			}
 //			_, err = bot.NewChannelWebChat(ctx, "example", &bot.ChannelWebChatArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: example.Name,
 //				Sites: bot.ChannelWebChatSiteArray{
 //					&bot.ChannelWebChatSiteArgs{
 //						Name: pulumi.String("TestSite"),
 //					},
 //				},
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

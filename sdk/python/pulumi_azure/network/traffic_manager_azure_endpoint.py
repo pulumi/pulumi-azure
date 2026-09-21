@@ -390,9 +390,6 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             allocation_method="Static",
             domain_name_label="example-public-ip")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name="example-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": "example-profile",
                 "ttl": 100,
@@ -405,6 +402,9 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name="example-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })
@@ -470,9 +470,6 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             allocation_method="Static",
             domain_name_label="example-public-ip")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name="example-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": "example-profile",
                 "ttl": 100,
@@ -485,6 +482,9 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name="example-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })

@@ -52,8 +52,6 @@ import (
 //				return err
 //			}
 //			exampleGetAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
-//				ConnectionString: exampleAccount.PrimaryConnectionString,
-//				HttpsOnly:        pulumi.Bool(true),
 //				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
 //					Service:   pulumi.Bool(true),
 //					Container: pulumi.Bool(false),
@@ -65,8 +63,6 @@ import (
 //					Table: pulumi.Bool(false),
 //					File:  pulumi.Bool(false),
 //				},
-//				Start:  pulumi.String("2021-04-30T00:00:00Z"),
-//				Expiry: pulumi.String("2023-04-30T00:00:00Z"),
 //				Permissions: &storage.GetAccountSASPermissionsArgs{
 //					Read:    pulumi.Bool(true),
 //					Write:   pulumi.Bool(true),
@@ -79,14 +75,12 @@ import (
 //					Tag:     pulumi.Bool(false),
 //					Filter:  pulumi.Bool(false),
 //				},
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				HttpsOnly:        pulumi.Bool(true),
+//				Start:            pulumi.String("2021-04-30T00:00:00Z"),
+//				Expiry:           pulumi.String("2023-04-30T00:00:00Z"),
 //			}, nil)
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example-keyvault"),
-//				Location:                 exampleResourceGroup.Location,
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(example.TenantId),
-//				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(example.TenantId),
@@ -107,6 +101,12 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example-keyvault"),
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(example.TenantId),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err

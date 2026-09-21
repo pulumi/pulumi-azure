@@ -48,24 +48,21 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewManagementPolicy(ctx, "example", &storage.ManagementPolicyArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Rules: storage.ManagementPolicyRuleArray{
 //					&storage.ManagementPolicyRuleArgs{
-//						Name:    pulumi.String("rule1"),
-//						Enabled: pulumi.Bool(true),
 //						Filters: &storage.ManagementPolicyRuleFiltersArgs{
-//							PrefixMatches: pulumi.StringArray{
-//								pulumi.String("container1/prefix1"),
-//							},
-//							BlobTypes: pulumi.StringArray{
-//								pulumi.String("blockBlob"),
-//							},
 //							MatchBlobIndexTags: storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArray{
 //								&storage.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs{
 //									Name:      pulumi.String("tag1"),
 //									Operation: pulumi.String("=="),
 //									Value:     pulumi.String("val1"),
 //								},
+//							},
+//							PrefixMatches: pulumi.StringArray{
+//								pulumi.String("container1/prefix1"),
+//							},
+//							BlobTypes: pulumi.StringArray{
+//								pulumi.String("blockBlob"),
 //							},
 //						},
 //						Actions: &storage.ManagementPolicyRuleActionsArgs{
@@ -78,10 +75,10 @@ import (
 //								DeleteAfterDaysSinceCreationGreaterThan: pulumi.Int(30),
 //							},
 //						},
+//						Name:    pulumi.String("rule1"),
+//						Enabled: pulumi.Bool(true),
 //					},
 //					&storage.ManagementPolicyRuleArgs{
-//						Name:    pulumi.String("rule2"),
-//						Enabled: pulumi.Bool(false),
 //						Filters: &storage.ManagementPolicyRuleFiltersArgs{
 //							PrefixMatches: pulumi.StringArray{
 //								pulumi.String("container2/prefix1"),
@@ -108,8 +105,11 @@ import (
 //								DeleteAfterDaysSinceCreation:              pulumi.Int(3),
 //							},
 //						},
+//						Name:    pulumi.String("rule2"),
+//						Enabled: pulumi.Bool(false),
 //					},
 //				},
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

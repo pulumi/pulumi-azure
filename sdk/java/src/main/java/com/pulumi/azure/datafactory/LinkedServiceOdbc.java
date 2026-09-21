@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var basicAuth = new LinkedServiceOdbc("basicAuth", LinkedServiceOdbcArgs.builder()
- *             .name("basic_auth")
- *             .dataFactoryId(exampleFactory.id())
- *             .connectionString("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
  *             .basicAuthentication(LinkedServiceOdbcBasicAuthenticationArgs.builder()
  *                 .username("onrylmz")
  *                 .password("Ch4ngeM3!")
  *                 .build())
+ *             .name("basic_auth")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .connectionString("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
  *             .build());
  * 
  *     }

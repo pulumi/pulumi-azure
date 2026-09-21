@@ -53,16 +53,16 @@ import (
 //				return err
 //			}
 //			_, err = sentinel.NewAutomationRule(ctx, "example", &sentinel.AutomationRuleArgs{
-//				Name:                    pulumi.String("56094f72-ac3f-40e7-a0c0-47bd95f70336"),
-//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
-//				DisplayName:             pulumi.String("automation_rule1"),
-//				Order:                   pulumi.Int(1),
 //				ActionIncidents: sentinel.AutomationRuleActionIncidentArray{
 //					&sentinel.AutomationRuleActionIncidentArgs{
 //						Order:  pulumi.Int(1),
 //						Status: pulumi.String("Active"),
 //					},
 //				},
+//				Name:                    pulumi.String("56094f72-ac3f-40e7-a0c0-47bd95f70336"),
+//				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
+//				DisplayName:             pulumi.String("automation_rule1"),
+//				Order:                   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

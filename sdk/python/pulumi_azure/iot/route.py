@@ -292,13 +292,13 @@ class Route(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
             },
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "testing",
             })
@@ -372,13 +372,13 @@ class Route(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
             },
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "testing",
             })

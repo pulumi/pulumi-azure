@@ -60,13 +60,13 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewLinuxFunctionApp(ctx, "example", &appservice.LinuxFunctionAppArgs{
+//				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
 //				Name:                    pulumi.String("example-linux-function-app"),
 //				ResourceGroupName:       example.Name,
 //				Location:                example.Location,
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

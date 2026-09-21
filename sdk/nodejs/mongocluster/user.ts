@@ -37,14 +37,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleUser = new azure.mongocluster.User("example", {
- *     objectId: current.then(current => current.objectId),
- *     mongoClusterId: exampleMongoCluster.id,
- *     identityProviderType: "MicrosoftEntraID",
- *     principalType: "servicePrincipal",
  *     roles: [{
  *         database: "admin",
  *         name: "root",
  *     }],
+ *     objectId: current.then(current => current.objectId),
+ *     mongoClusterId: exampleMongoCluster.id,
+ *     identityProviderType: "MicrosoftEntraID",
+ *     principalType: "servicePrincipal",
  * });
  * ```
  *

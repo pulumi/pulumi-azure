@@ -47,26 +47,26 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "example-delegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Web/serverFarms",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
  *         },
+ *         name: "example-delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "example-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "example-app-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAppService = new azure.appservice.AppService("example", {
  *     name: "example-app-service",
@@ -97,26 +97,26 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "example-delegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Web/serverFarms",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
  *         },
+ *         name: "example-delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "example-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "example-app-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "functionsappexamplesa",

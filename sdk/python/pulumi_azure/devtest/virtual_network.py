@@ -275,13 +275,13 @@ class VirtualNetwork(pulumi.CustomResource):
                 "Sydney": "Australia",
             })
         example_virtual_network = azure.devtest.VirtualNetwork("example",
-            name="example-network",
-            lab_name=example_lab.name,
-            resource_group_name=example.name,
             subnet={
                 "use_public_ip_address": "Allow",
                 "use_in_virtual_machine_creation": "Allow",
-            })
+            },
+            name="example-network",
+            lab_name=example_lab.name,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -335,13 +335,13 @@ class VirtualNetwork(pulumi.CustomResource):
                 "Sydney": "Australia",
             })
         example_virtual_network = azure.devtest.VirtualNetwork("example",
-            name="example-network",
-            lab_name=example_lab.name,
-            resource_group_name=example.name,
             subnet={
                 "use_public_ip_address": "Allow",
                 "use_in_virtual_machine_creation": "Allow",
-            })
+            },
+            name="example-network",
+            lab_name=example_lab.name,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

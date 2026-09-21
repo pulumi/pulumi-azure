@@ -120,25 +120,16 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-key-vault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -176,7 +167,16 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
                     ],
                     "secret_permissions": ["Set"],
                 },
-            ])
+            ],
+            name="example-key-vault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="example-key",
             key_vault_id=example_key_vault.id,
@@ -237,25 +237,16 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-key-vault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -293,7 +284,16 @@ class BackupVaultCustomerManagedKey(pulumi.CustomResource):
                     ],
                     "secret_permissions": ["Set"],
                 },
-            ])
+            ],
+            name="example-key-vault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="example-key",
             key_vault_id=example_key_vault.id,

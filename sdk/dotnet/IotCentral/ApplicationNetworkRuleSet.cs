@@ -44,7 +44,6 @@ namespace Pulumi.Azure.IotCentral
     /// 
     ///     var exampleApplicationNetworkRuleSet = new Azure.IotCentral.ApplicationNetworkRuleSet("example", new()
     ///     {
-    ///         IotcentralApplicationId = exampleApplication.Id,
     ///         IpRules = new[]
     ///         {
     ///             new Azure.IotCentral.Inputs.ApplicationNetworkRuleSetIpRuleArgs
@@ -58,6 +57,7 @@ namespace Pulumi.Azure.IotCentral
     ///                 IpMask = "10.1.1.0/24",
     ///             },
     ///         },
+    ///         IotcentralApplicationId = exampleApplication.Id,
     ///     });
     /// 
     /// });

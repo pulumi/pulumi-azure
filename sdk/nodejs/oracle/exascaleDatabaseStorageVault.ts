@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleExascaleDatabaseStorageVault = new azure.oracle.ExascaleDatabaseStorageVault("example", {
+ *     highCapacityDatabaseStorage: {
+ *         totalSizeInGb: 300,
+ *     },
  *     name: "example-exascale-db-storage-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -27,9 +30,6 @@ import * as utilities from "../utilities";
  *     displayName: "example-exascale-db-storage-vault",
  *     description: "description",
  *     additionalFlashCachePercentage: 100,
- *     highCapacityDatabaseStorage: {
- *         totalSizeInGb: 300,
- *     },
  *     timeZone: "UTC",
  * });
  * ```

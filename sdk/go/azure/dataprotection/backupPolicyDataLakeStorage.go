@@ -37,26 +37,19 @@ import (
 //				return err
 //			}
 //			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Identity: &dataprotection.BackupVaultIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example-backup-vault"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
-//				Identity: &dataprotection.BackupVaultIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupPolicyDataLakeStorage(ctx, "example", &dataprotection.BackupPolicyDataLakeStorageArgs{
-//				Name:                        pulumi.String("example-backup-policy"),
-//				DataProtectionBackupVaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				BackupSchedules: pulumi.StringArray{
-//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
-//				},
-//				TimeZone:                 pulumi.String("India Standard Time"),
-//				DefaultRetentionDuration: pulumi.String("P4M"),
 //				RetentionRules: dataprotection.BackupPolicyDataLakeStorageRetentionRuleArray{
 //					&dataprotection.BackupPolicyDataLakeStorageRetentionRuleArgs{
 //						Name:             pulumi.String("weekly"),
@@ -88,6 +81,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                        pulumi.String("example-backup-policy"),
+//				DataProtectionBackupVaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				BackupSchedules: pulumi.StringArray{
+//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
+//				},
+//				TimeZone:                 pulumi.String("India Standard Time"),
+//				DefaultRetentionDuration: pulumi.String("P4M"),
 //			})
 //			if err != nil {
 //				return err

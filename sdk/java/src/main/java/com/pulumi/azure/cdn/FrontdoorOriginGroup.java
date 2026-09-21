@@ -63,10 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-origin-group")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .sessionAffinityEnabled(true)
- *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
  *                 .intervalInSeconds(240)
  *                 .path("/healthProbe")
@@ -78,6 +74,10 @@ import javax.annotation.Nullable;
  *                 .sampleSize(16)
  *                 .successfulSamplesRequired(3)
  *                 .build())
+ *             .name("example-origin-group")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .sessionAffinityEnabled(true)
+ *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .build());
  * 
  *     }

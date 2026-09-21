@@ -40,9 +40,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("example", new()
     ///     {
-    ///         Name = server.Hex,
-    ///         ResourceGroupName = example.Name,
-    ///         TrafficRoutingMethod = "Weighted",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
     ///             RelativeName = server.Hex,
@@ -57,6 +54,9 @@ namespace Pulumi.Azure.Network
     ///             TimeoutInSeconds = 9,
     ///             ToleratedNumberOfFailures = 3,
     ///         },
+    ///         Name = server.Hex,
+    ///         ResourceGroupName = example.Name,
+    ///         TrafficRoutingMethod = "Weighted",
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

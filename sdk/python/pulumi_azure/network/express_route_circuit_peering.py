@@ -526,21 +526,32 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             name="exprtTest",
             location="West Europe")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="expressRoute1",
             resource_group_name=example.name,
             location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
             })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
+            microsoft_peering_config={
+                "advertised_public_prefixes": ["123.1.0.0/24"],
+            },
+            ipv6={
+                "microsoft_peering": {
+                    "advertised_public_prefixes": ["2002:db01::/126"],
+                },
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
+                "enabled": True,
+            },
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
@@ -548,18 +559,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
-            vlan_id=300,
-            microsoft_peering_config={
-                "advertised_public_prefixes": ["123.1.0.0/24"],
-            },
-            ipv6={
-                "primary_peer_address_prefix": "2002:db01::/126",
-                "secondary_peer_address_prefix": "2003:db01::/126",
-                "enabled": True,
-                "microsoft_peering": {
-                    "advertised_public_prefixes": ["2002:db01::/126"],
-                },
-            })
+            vlan_id=300)
         ```
 
         ### Creating Azure Private Peering)
@@ -572,21 +572,26 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             name="exprtTest",
             location="West Europe")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="expressRoute1",
             resource_group_name=example.name,
             location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
             })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
+            ipv6={
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
+                "enabled": True,
+            },
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
@@ -594,12 +599,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
-            vlan_id=300,
-            ipv6={
-                "primary_peer_address_prefix": "2002:db01::/126",
-                "secondary_peer_address_prefix": "2003:db01::/126",
-                "enabled": True,
-            })
+            vlan_id=300)
         ```
 
         ## API Providers
@@ -658,21 +658,32 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             name="exprtTest",
             location="West Europe")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="expressRoute1",
             resource_group_name=example.name,
             location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
             })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
+            microsoft_peering_config={
+                "advertised_public_prefixes": ["123.1.0.0/24"],
+            },
+            ipv6={
+                "microsoft_peering": {
+                    "advertised_public_prefixes": ["2002:db01::/126"],
+                },
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
+                "enabled": True,
+            },
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
@@ -680,18 +691,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
-            vlan_id=300,
-            microsoft_peering_config={
-                "advertised_public_prefixes": ["123.1.0.0/24"],
-            },
-            ipv6={
-                "primary_peer_address_prefix": "2002:db01::/126",
-                "secondary_peer_address_prefix": "2003:db01::/126",
-                "enabled": True,
-                "microsoft_peering": {
-                    "advertised_public_prefixes": ["2002:db01::/126"],
-                },
-            })
+            vlan_id=300)
         ```
 
         ### Creating Azure Private Peering)
@@ -704,21 +704,26 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             name="exprtTest",
             location="West Europe")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="expressRoute1",
             resource_group_name=example.name,
             location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
             })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
+            ipv6={
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
+                "enabled": True,
+            },
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
@@ -726,12 +731,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
             ipv4_enabled=True,
-            vlan_id=300,
-            ipv6={
-                "primary_peer_address_prefix": "2002:db01::/126",
-                "secondary_peer_address_prefix": "2003:db01::/126",
-                "enabled": True,
-            })
+            vlan_id=300)
         ```
 
         ## API Providers

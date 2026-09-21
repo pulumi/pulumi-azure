@@ -327,13 +327,13 @@ class HybridConnection(pulumi.CustomResource):
             name="exampleResourceGroup1",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="exampleAppServicePlan1",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="exampleAppServicePlan1",
+            location=example.location,
+            resource_group_name=example.name)
         example_app_service = azure.appservice.AppService("example",
             name="exampleAppService1",
             location=example.location,
@@ -406,13 +406,13 @@ class HybridConnection(pulumi.CustomResource):
             name="exampleResourceGroup1",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="exampleAppServicePlan1",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="exampleAppServicePlan1",
+            location=example.location,
+            resource_group_name=example.name)
         example_app_service = azure.appservice.AppService("example",
             name="exampleAppService1",
             location=example.location,

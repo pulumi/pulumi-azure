@@ -280,13 +280,13 @@ class Definition(pulumi.CustomResource):
 
         primary = azure.core.get_subscription()
         example = azure.authorization.RoleDefinition("example",
-            name="my-custom-role",
-            scope=primary.id,
-            description="This is a custom role created",
             permissions=[{
                 "actions": ["*"],
                 "not_actions": [],
             }],
+            name="my-custom-role",
+            scope=primary.id,
+            description="This is a custom role created",
             assignable_scopes=[primary.id])
         ```
 
@@ -300,13 +300,13 @@ class Definition(pulumi.CustomResource):
             display_name="ParentGroup",
             subscription_ids=[current.subscription_id])
         example_role_definition = azure.authorization.RoleDefinition("example",
-            name="example-mg-role",
-            scope=example.id,
-            description="Example custom role scoped to a management group.",
             permissions=[{
                 "actions": ["Microsoft.Insights/alertRules/*"],
                 "not_actions": [],
             }],
+            name="example-mg-role",
+            scope=example.id,
+            description="Example custom role scoped to a management group.",
             assignable_scopes=[example.id])
         ```
 
@@ -356,13 +356,13 @@ class Definition(pulumi.CustomResource):
 
         primary = azure.core.get_subscription()
         example = azure.authorization.RoleDefinition("example",
-            name="my-custom-role",
-            scope=primary.id,
-            description="This is a custom role created",
             permissions=[{
                 "actions": ["*"],
                 "not_actions": [],
             }],
+            name="my-custom-role",
+            scope=primary.id,
+            description="This is a custom role created",
             assignable_scopes=[primary.id])
         ```
 
@@ -376,13 +376,13 @@ class Definition(pulumi.CustomResource):
             display_name="ParentGroup",
             subscription_ids=[current.subscription_id])
         example_role_definition = azure.authorization.RoleDefinition("example",
-            name="example-mg-role",
-            scope=example.id,
-            description="Example custom role scoped to a management group.",
             permissions=[{
                 "actions": ["Microsoft.Insights/alertRules/*"],
                 "not_actions": [],
             }],
+            name="example-mg-role",
+            scope=example.id,
+            description="Example custom role scoped to a management group.",
             assignable_scopes=[example.id])
         ```
 

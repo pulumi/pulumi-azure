@@ -36,17 +36,17 @@ import * as utilities from "../utilities";
  *     skuName: "S1",
  * });
  * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     siteConfig: {
+ *         applicationStack: {
+ *             pythonVersion: "3.9",
+ *         },
+ *     },
  *     name: "example-function-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     siteConfig: {
- *         applicationStack: {
- *             pythonVersion: "3.9",
- *         },
- *     },
  * });
  * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("example", {
  *     name: "example-function-app-function",
@@ -103,28 +103,28 @@ import * as utilities from "../utilities";
  *     skuName: "S1",
  * });
  * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     siteConfig: {
+ *         applicationStack: {
+ *             dotnetVersion: "6",
+ *         },
+ *     },
  *     name: "example-function-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     siteConfig: {
- *         applicationStack: {
- *             dotnetVersion: "6",
- *         },
- *     },
  * });
  * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("example", {
- *     name: "example-function-app-function",
- *     functionAppId: exampleWindowsFunctionApp.id,
- *     language: "CSharp",
  *     files: [{
  *         name: "run.csx",
  *         content: std.file({
  *             input: "exampledata/run.csx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *     }],
+ *     name: "example-function-app-function",
+ *     functionAppId: exampleWindowsFunctionApp.id,
+ *     language: "CSharp",
  *     testData: JSON.stringify({
  *         name: "Azure",
  *     }),

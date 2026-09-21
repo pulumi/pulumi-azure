@@ -37,6 +37,11 @@ import (
 //				return err
 //			}
 //			example_primaryCache, err := redis.NewCache(ctx, "example-primary", &redis.CacheArgs{
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
 //				Name:              pulumi.String("example-cache1"),
 //				Location:          example_primary.Location,
 //				ResourceGroupName: example_primary.Name,
@@ -44,11 +49,6 @@ import (
 //				Family:            pulumi.String("P"),
 //				SkuName:           pulumi.String("Premium"),
 //				EnableNonSslPort:  false,
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-//					MaxmemoryReserved: pulumi.Int(2),
-//					MaxmemoryDelta:    pulumi.Int(2),
-//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -61,6 +61,11 @@ import (
 //				return err
 //			}
 //			example_secondaryCache, err := redis.NewCache(ctx, "example-secondary", &redis.CacheArgs{
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
 //				Name:              pulumi.String("example-cache2"),
 //				Location:          example_secondary.Location,
 //				ResourceGroupName: example_secondary.Name,
@@ -68,11 +73,6 @@ import (
 //				Family:            pulumi.String("P"),
 //				SkuName:           pulumi.String("Premium"),
 //				EnableNonSslPort:  false,
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-//					MaxmemoryReserved: pulumi.Int(2),
-//					MaxmemoryDelta:    pulumi.Int(2),
-//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -41,6 +41,21 @@ namespace Pulumi.Azure.MySql
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.DBforMySQL/flexibleServers",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///                 Name = "fs",
+    ///             },
+    ///         },
     ///         Name = "example-sn",
     ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
@@ -51,21 +66,6 @@ namespace Pulumi.Azure.MySql
     ///         ServiceEndpoints = new[]
     ///         {
     ///             "Microsoft.Storage",
-    ///         },
-    ///         Delegations = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.SubnetDelegationArgs
-    ///             {
-    ///                 Name = "fs",
-    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
-    ///                 {
-    ///                     Name = "Microsoft.DBforMySQL/flexibleServers",
-    ///                     Actions = new[]
-    ///                     {
-    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
     ///     });
     /// 

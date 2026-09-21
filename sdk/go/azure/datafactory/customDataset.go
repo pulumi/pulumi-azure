@@ -40,12 +40,12 @@ import (
 //				return err
 //			}
 //			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &datafactory.FactoryIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -81,15 +81,15 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewCustomDataset(ctx, "example", &datafactory.CustomDatasetArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Type:          pulumi.String("Json"),
 //				LinkedService: &datafactory.CustomDatasetLinkedServiceArgs{
 //					Name: exampleLinkedCustomService.Name,
 //					Parameters: pulumi.StringMap{
 //						"key1": pulumi.String("value1"),
 //					},
 //				},
+//				Name:          pulumi.String("example"),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				Type:          pulumi.String("Json"),
 //				TypePropertiesJson: exampleContainer.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf(`{
 //	  \"location\": {

@@ -39,13 +39,6 @@ namespace Pulumi.Azure.MySql
     /// 
     ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
     ///     {
-    ///         Name = "example-mysqlfs",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AdministratorLogin = "_admin_Terraform_892123456789312",
-    ///         AdministratorPassword = "QAZwsx123",
-    ///         SkuName = "B_Standard_B1ms",
-    ///         Zone = "2",
     ///         Identity = new Azure.MySql.Inputs.FlexibleServerIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -54,6 +47,13 @@ namespace Pulumi.Azure.MySql
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example-mysqlfs",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AdministratorLogin = "_admin_Terraform_892123456789312",
+    ///         AdministratorPassword = "QAZwsx123",
+    ///         SkuName = "B_Standard_B1ms",
+    ///         Zone = "2",
     ///     });
     /// 
     ///     var exampleFlexibleServerActiveDirectoryAdministratory = new Azure.MySql.FlexibleServerActiveDirectoryAdministratory("example", new()

@@ -437,17 +437,17 @@ class Share(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
-            name="sharename",
-            storage_account_id=example_account.id,
-            quota=50,
             acls=[{
-                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
                 "access_policies": [{
                     "permissions": "rwdl",
                     "start": "2019-07-02T09:38:21Z",
                     "expiry": "2019-07-02T10:38:21Z",
                 }],
-            }])
+                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+            }],
+            name="sharename",
+            storage_account_id=example_account.id,
+            quota=50)
         ```
 
         ## API Providers
@@ -518,17 +518,17 @@ class Share(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
-            name="sharename",
-            storage_account_id=example_account.id,
-            quota=50,
             acls=[{
-                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
                 "access_policies": [{
                     "permissions": "rwdl",
                     "start": "2019-07-02T09:38:21Z",
                     "expiry": "2019-07-02T10:38:21Z",
                 }],
-            }])
+                "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+            }],
+            name="sharename",
+            storage_account_id=example_account.id,
+            quota=50)
         ```
 
         ## API Providers

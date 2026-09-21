@@ -45,14 +45,20 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "examplestor",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
-    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             "customerManagedKey",
     ///         },
     ///     });
     /// 

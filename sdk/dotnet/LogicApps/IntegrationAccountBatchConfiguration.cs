@@ -38,14 +38,14 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var exampleIntegrationAccountBatchConfiguration = new Azure.LogicApps.IntegrationAccountBatchConfiguration("example", new()
     ///     {
-    ///         Name = "exampleiabc",
-    ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///         BatchGroupName = "TestBatchGroup",
     ///         ReleaseCriteria = new Azure.LogicApps.Inputs.IntegrationAccountBatchConfigurationReleaseCriteriaArgs
     ///         {
     ///             MessageCount = 80,
     ///         },
+    ///         Name = "exampleiabc",
+    ///         ResourceGroupName = example.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         BatchGroupName = "TestBatchGroup",
     ///     });
     /// 
     /// });

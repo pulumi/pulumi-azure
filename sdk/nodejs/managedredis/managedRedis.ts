@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleManagedRedis = new azure.managedredis.ManagedRedis("example", {
+ *     defaultDatabase: {
+ *         geoReplicationGroupName: "myGeoGroup",
+ *     },
  *     name: "example-managed-redis",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     skuName: "Balanced_B3",
- *     defaultDatabase: {
- *         geoReplicationGroupName: "myGeoGroup",
- *     },
  * });
  * ```
  *
@@ -47,13 +47,6 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     purgeProtectionEnabled: true,
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -80,6 +73,13 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "managedrediscmk",
@@ -92,10 +92,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleManagedRedis = new azure.managedredis.ManagedRedis("example", {
- *     name: "example-managed-redis",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     skuName: "Balanced_B3",
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
@@ -107,6 +103,10 @@ import * as utilities from "../utilities";
  *     defaultDatabase: {
  *         geoReplicationGroupName: "myGeoGroup",
  *     },
+ *     name: "example-managed-redis",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "Balanced_B3",
  * });
  * ```
  *

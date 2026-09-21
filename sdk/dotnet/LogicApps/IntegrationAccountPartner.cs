@@ -38,9 +38,6 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var exampleIntegrationAccountPartner = new Azure.LogicApps.IntegrationAccountPartner("example", new()
     ///     {
-    ///         Name = "example-iap",
-    ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         BusinessIdentities = new[]
     ///         {
     ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
@@ -49,6 +46,9 @@ namespace Pulumi.Azure.LogicApps
     ///                 Value = "AA",
     ///             },
     ///         },
+    ///         Name = "example-iap",
+    ///         ResourceGroupName = example.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///     });
     /// 
     /// });

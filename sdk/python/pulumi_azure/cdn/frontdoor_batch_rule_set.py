@@ -189,10 +189,6 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                 "endpoint": "contoso.com",
             })
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -203,7 +199,11 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-originGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -216,12 +216,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
             priority=1,
             weight=500)
         example_frontdoor_batch_rule_set = azure.cdn.FrontdoorBatchRuleSet("example",
-            name="examplebatchruleset",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             rules=[{
-                "name": "examplebatchrule",
-                "order": 1,
-                "behaviour_on_match": "Continue",
                 "actions": {
                     "route_configuration_override": {
                         "origin_group": {
@@ -241,6 +236,10 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                     },
                 },
                 "conditions": {
+                    "device_types": [{
+                        "operator": "Equal",
+                        "values": "Mobile",
+                    }],
                     "host_names": [{
                         "operator": "Equal",
                         "values": [
@@ -253,10 +252,6 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                             "Trim",
                         ],
                     }],
-                    "device_types": [{
-                        "operator": "Equal",
-                        "values": "Mobile",
-                    }],
                     "post_arguments": [{
                         "name": "customerName",
                         "operator": "BeginsWith",
@@ -265,10 +260,6 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                             "K",
                         ],
                         "transforms": ["Uppercase"],
-                    }],
-                    "request_methods": [{
-                        "operator": "Equal",
-                        "values": ["DELETE"],
                     }],
                     "request_filenames": [{
                         "operator": "Equal",
@@ -279,8 +270,17 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                             "Trim",
                         ],
                     }],
+                    "request_methods": [{
+                        "operator": "Equal",
+                        "values": ["DELETE"],
+                    }],
                 },
-            }])
+                "name": "examplebatchrule",
+                "order": 1,
+                "behaviour_on_match": "Continue",
+            }],
+            name="examplebatchruleset",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-cdn-frontdoor-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
@@ -355,10 +355,6 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                 "endpoint": "contoso.com",
             })
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -369,7 +365,11 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-originGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -382,12 +382,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
             priority=1,
             weight=500)
         example_frontdoor_batch_rule_set = azure.cdn.FrontdoorBatchRuleSet("example",
-            name="examplebatchruleset",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             rules=[{
-                "name": "examplebatchrule",
-                "order": 1,
-                "behaviour_on_match": "Continue",
                 "actions": {
                     "route_configuration_override": {
                         "origin_group": {
@@ -407,6 +402,10 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                     },
                 },
                 "conditions": {
+                    "device_types": [{
+                        "operator": "Equal",
+                        "values": "Mobile",
+                    }],
                     "host_names": [{
                         "operator": "Equal",
                         "values": [
@@ -419,10 +418,6 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                             "Trim",
                         ],
                     }],
-                    "device_types": [{
-                        "operator": "Equal",
-                        "values": "Mobile",
-                    }],
                     "post_arguments": [{
                         "name": "customerName",
                         "operator": "BeginsWith",
@@ -431,10 +426,6 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                             "K",
                         ],
                         "transforms": ["Uppercase"],
-                    }],
-                    "request_methods": [{
-                        "operator": "Equal",
-                        "values": ["DELETE"],
                     }],
                     "request_filenames": [{
                         "operator": "Equal",
@@ -445,8 +436,17 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                             "Trim",
                         ],
                     }],
+                    "request_methods": [{
+                        "operator": "Equal",
+                        "values": ["DELETE"],
+                    }],
                 },
-            }])
+                "name": "examplebatchrule",
+                "order": 1,
+                "behaviour_on_match": "Continue",
+            }],
+            name="examplebatchruleset",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-cdn-frontdoor-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,

@@ -131,16 +131,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("storageaccountname")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .accountTier("Standard")
- *             .accountReplicationType("LRS")
  *             .networkRules(AccountNetworkRulesArgs.builder()
  *                 .defaultAction("Deny")
  *                 .ipRules("100.0.0.1")
  *                 .virtualNetworkSubnetIds(exampleSubnet.id())
  *                 .build())
+ *             .name("storageaccountname")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 

@@ -263,9 +263,6 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="E0")
         example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("example",
-            name="default",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            public_network_access_enabled=True,
             sso={
                 "client_id": "example id",
                 "client_secret": "example secret",
@@ -276,6 +273,9 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
                     "email",
                 ],
             },
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            public_network_access_enabled=True,
             application_accelerator_enabled=True,
             application_live_view_enabled=True)
         ```
@@ -327,9 +327,6 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="E0")
         example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("example",
-            name="default",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            public_network_access_enabled=True,
             sso={
                 "client_id": "example id",
                 "client_secret": "example secret",
@@ -340,6 +337,9 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
                     "email",
                 ],
             },
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            public_network_access_enabled=True,
             application_accelerator_enabled=True,
             application_live_view_enabled=True)
         ```

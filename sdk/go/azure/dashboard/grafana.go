@@ -37,6 +37,9 @@ import (
 //				return err
 //			}
 //			_, err = dashboard.NewGrafana(ctx, "example", &dashboard.GrafanaArgs{
+//				Identity: &dashboard.GrafanaIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                           pulumi.String("example-dg"),
 //				ResourceGroupName:              example.Name,
 //				Location:                       pulumi.String("West Europe"),
@@ -46,9 +49,6 @@ import (
 //				PublicNetworkAccessEnabled:     pulumi.Bool(false),
 //				Sku:                            pulumi.String("Standard"),
 //				SkuSize:                        pulumi.String("X1"),
-//				Identity: &dashboard.GrafanaIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

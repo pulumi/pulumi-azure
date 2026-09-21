@@ -66,12 +66,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
- *             .name("example-springcloudapp")
- *             .resourceGroupName(example.name())
- *             .serviceName(exampleSpringCloudService.name())
  *             .identity(SpringCloudAppIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-springcloudapp")
+ *             .resourceGroupName(example.name())
+ *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
  *     }

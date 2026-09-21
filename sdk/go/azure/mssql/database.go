@@ -125,15 +125,6 @@ import (
 //			}
 //			// Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("mssqltdeexample"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 exampleUserAssignedIdentity.TenantId,
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(true),
-//				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.Any(current.TenantId),
@@ -159,6 +150,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("mssqltdeexample"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				TenantId:                 exampleUserAssignedIdentity.TenantId,
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err
@@ -179,6 +179,12 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
+//				Identity: &mssql.DatabaseIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:          pulumi.String("example-db"),
 //				ServerId:      exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				Collation:     pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
@@ -190,12 +196,6 @@ import (
 //				EnclaveType:   pulumi.String("VBS"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
-//				},
-//				Identity: &mssql.DatabaseIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
-//					},
 //				},
 //				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})

@@ -20,27 +20,27 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.datashare.Account("example", {
- *     name: "example-dsa",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-dsa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         foo: "bar",
  *     },
  * });
  * const exampleShare = new azure.datashare.Share("example", {
- *     name: "example_dss",
- *     accountId: exampleAccount.id,
- *     kind: "CopyBased",
- *     description: "example desc",
- *     terms: "example terms",
  *     snapshotSchedule: {
  *         name: "example-ss",
  *         recurrence: "Day",
  *         startTime: "2020-04-17T04:47:52.9614956Z",
  *     },
+ *     name: "example_dss",
+ *     accountId: exampleAccount.id,
+ *     kind: "CopyBased",
+ *     description: "example desc",
+ *     terms: "example terms",
  * });
  * ```
  *

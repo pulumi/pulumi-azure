@@ -24,9 +24,6 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const examplePolicyVM = new azure.backup.PolicyVM("example", {
- *     name: "tfex-recovery-vault-policy",
- *     resourceGroupName: exampleResourceGroup.name,
- *     recoveryVaultName: exampleVault.name,
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
@@ -34,6 +31,9 @@ import * as utilities from "../utilities";
  *     retentionDaily: {
  *         count: 10,
  *     },
+ *     name: "tfex-recovery-vault-policy",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     recoveryVaultName: exampleVault.name,
  * });
  * const example = azure.compute.getVirtualMachineOutput({
  *     name: "example-vm",

@@ -34,12 +34,6 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const example = azure.storage.getAccountBlobContainerSASOutput({
- *     connectionString: storage.primaryConnectionString,
- *     containerName: container.name,
- *     httpsOnly: true,
- *     ipAddress: "168.1.5.65",
- *     start: "2018-03-21",
- *     expiry: "2018-03-21",
  *     permissions: {
  *         read: true,
  *         add: true,
@@ -48,6 +42,12 @@ import * as utilities from "../utilities";
  *         "delete": true,
  *         list: true,
  *     },
+ *     connectionString: storage.primaryConnectionString,
+ *     containerName: container.name,
+ *     httpsOnly: true,
+ *     ipAddress: "168.1.5.65",
+ *     start: "2018-03-21",
+ *     expiry: "2018-03-21",
  *     cacheControl: "max-age=5",
  *     contentDisposition: "inline",
  *     contentEncoding: "deflate",
@@ -184,12 +184,6 @@ export interface GetAccountBlobContainerSASResult {
  *     containerAccessType: "private",
  * });
  * const example = azure.storage.getAccountBlobContainerSASOutput({
- *     connectionString: storage.primaryConnectionString,
- *     containerName: container.name,
- *     httpsOnly: true,
- *     ipAddress: "168.1.5.65",
- *     start: "2018-03-21",
- *     expiry: "2018-03-21",
  *     permissions: {
  *         read: true,
  *         add: true,
@@ -198,6 +192,12 @@ export interface GetAccountBlobContainerSASResult {
  *         "delete": true,
  *         list: true,
  *     },
+ *     connectionString: storage.primaryConnectionString,
+ *     containerName: container.name,
+ *     httpsOnly: true,
+ *     ipAddress: "168.1.5.65",
+ *     start: "2018-03-21",
+ *     expiry: "2018-03-21",
  *     cacheControl: "max-age=5",
  *     contentDisposition: "inline",
  *     contentEncoding: "deflate",

@@ -267,25 +267,25 @@ class AccountConnectionApiKey(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cognitive.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-aiservices",
             location=example.location,
             resource_group_name=example.name,
             kind="AIServices",
             sku_name="S0",
             project_management_enabled=True,
-            custom_subdomain_name="exampleaiservices",
+            custom_subdomain_name="exampleaiservices")
+        openai = azure.cognitive.Account("openai",
             identity={
                 "type": "SystemAssigned",
-            })
-        openai = azure.cognitive.Account("openai",
+            },
             name="example-openai",
             location=example.location,
             resource_group_name=example.name,
             kind="OpenAI",
-            sku_name="S0",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sku_name="S0")
         example_account_connection_api_key = azure.cognitive.AccountConnectionApiKey("example",
             name="example-connection",
             cognitive_account_id=example_account.id,
@@ -349,25 +349,25 @@ class AccountConnectionApiKey(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cognitive.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-aiservices",
             location=example.location,
             resource_group_name=example.name,
             kind="AIServices",
             sku_name="S0",
             project_management_enabled=True,
-            custom_subdomain_name="exampleaiservices",
+            custom_subdomain_name="exampleaiservices")
+        openai = azure.cognitive.Account("openai",
             identity={
                 "type": "SystemAssigned",
-            })
-        openai = azure.cognitive.Account("openai",
+            },
             name="example-openai",
             location=example.location,
             resource_group_name=example.name,
             kind="OpenAI",
-            sku_name="S0",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sku_name="S0")
         example_account_connection_api_key = azure.cognitive.AccountConnectionApiKey("example",
             name="example-connection",
             cognitive_account_id=example_account.id,

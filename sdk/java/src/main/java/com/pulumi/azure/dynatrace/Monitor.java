@@ -59,11 +59,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
- *             .name("exmpledynatracemonitor")
- *             .resourceGroupName(example.name())
- *             .location(test.location())
- *             .monitoringEnabled(true)
- *             .marketplaceSubscriptionStatus("Active")
  *             .identity(MonitorIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -80,6 +75,11 @@ import javax.annotation.Nullable;
  *                 .plan("azureportalintegration_privatepreview}{@literal @}{@code TIDhjdtn7tfnxcy")
  *                 .effectiveDate("2019-08-30T15:14:33Z")
  *                 .build())
+ *             .name("exmpledynatracemonitor")
+ *             .resourceGroupName(example.name())
+ *             .location(test.location())
+ *             .monitoringEnabled(true)
+ *             .marketplaceSubscriptionStatus("Active")
  *             .build());
  * 
  *     }}{@code

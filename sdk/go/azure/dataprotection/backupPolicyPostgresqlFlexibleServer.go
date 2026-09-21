@@ -37,25 +37,19 @@ import (
 //				return err
 //			}
 //			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Identity: &dataprotection.BackupVaultIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example-backup-vault"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
-//				Identity: &dataprotection.BackupVaultIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupPolicyPostgresqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyPostgresqlFlexibleServerArgs{
-//				Name:    pulumi.String("example-backup-policy"),
-//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				BackupRepeatingTimeIntervals: pulumi.StringArray{
-//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
-//				},
-//				TimeZone: pulumi.String("India Standard Time"),
 //				DefaultRetentionRule: &dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{
 //					LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray{
 //						&dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{
@@ -66,27 +60,19 @@ import (
 //				},
 //				RetentionRules: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArray{
 //					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
-//						Name: pulumi.String("weekly"),
+//						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
+//						},
 //						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
 //							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
 //								Duration:      pulumi.String("P6M"),
 //								DataStoreType: pulumi.String("VaultStore"),
 //							},
 //						},
+//						Name:     pulumi.String("weekly"),
 //						Priority: pulumi.Int(20),
-//						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
-//						},
 //					},
 //					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
-//						Name: pulumi.String("thursday"),
-//						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
-//							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
-//								Duration:      pulumi.String("P1W"),
-//								DataStoreType: pulumi.String("VaultStore"),
-//							},
-//						},
-//						Priority: pulumi.Int(25),
 //						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
 //							DaysOfWeeks: pulumi.StringArray{
 //								pulumi.String("Thursday"),
@@ -95,16 +81,16 @@ import (
 //								pulumi.String("2021-05-23T02:30:00Z"),
 //							},
 //						},
-//					},
-//					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
-//						Name: pulumi.String("monthly"),
 //						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
 //							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
-//								Duration:      pulumi.String("P1D"),
+//								Duration:      pulumi.String("P1W"),
 //								DataStoreType: pulumi.String("VaultStore"),
 //							},
 //						},
-//						Priority: pulumi.Int(15),
+//						Name:     pulumi.String("thursday"),
+//						Priority: pulumi.Int(25),
+//					},
+//					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
 //						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
 //							WeeksOfMonths: pulumi.StringArray{
 //								pulumi.String("First"),
@@ -117,8 +103,22 @@ import (
 //								pulumi.String("2021-05-23T02:30:00Z"),
 //							},
 //						},
+//						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P1D"),
+//								DataStoreType: pulumi.String("VaultStore"),
+//							},
+//						},
+//						Name:     pulumi.String("monthly"),
+//						Priority: pulumi.Int(15),
 //					},
 //				},
+//				Name:    pulumi.String("example-backup-policy"),
+//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
+//				},
+//				TimeZone: pulumi.String("India Standard Time"),
 //			})
 //			if err != nil {
 //				return err

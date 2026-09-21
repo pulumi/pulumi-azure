@@ -46,12 +46,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("examplekeyvault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -100,23 +94,29 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate-to-import.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "certificate-to-import.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
-//				Name:       pulumi.String("imported-cert"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: pulumi.String(invokeFilebase64.Result),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
+//				Name:       pulumi.String("imported-cert"),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -154,13 +154,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("examplekeyvault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("standard"),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -210,13 +203,18 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("standard"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
-//				Name:       pulumi.String("generated-cert"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 //						Name: pulumi.String("Self"),
@@ -227,20 +225,16 @@ import (
 //						KeyType:    pulumi.String("RSA"),
 //						ReuseKey:   pulumi.Bool(true),
 //					},
-//					LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
-//						&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
-//							Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
-//								ActionType: pulumi.String("AutoRenew"),
-//							},
-//							Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
-//								DaysBeforeExpiry: pulumi.Int(30),
-//							},
-//						},
-//					},
 //					SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
 //						ContentType: pulumi.String("application/x-pkcs12"),
 //					},
 //					X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
+//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
+//							DnsNames: pulumi.StringArray{
+//								pulumi.String("internal.contoso.com"),
+//								pulumi.String("domain.hello.world"),
+//							},
+//						},
 //						ExtendedKeyUsages: pulumi.StringArray{
 //							pulumi.String("1.3.6.1.5.5.7.3.1"),
 //						},
@@ -252,16 +246,22 @@ import (
 //							pulumi.String("keyCertSign"),
 //							pulumi.String("keyEncipherment"),
 //						},
-//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
-//							DnsNames: pulumi.StringArray{
-//								pulumi.String("internal.contoso.com"),
-//								pulumi.String("domain.hello.world"),
-//							},
-//						},
 //						Subject:          pulumi.String("CN=hello-world"),
 //						ValidityInMonths: pulumi.Int(12),
 //					},
+//					LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
+//						&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
+//							Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
+//								ActionType: pulumi.String("AutoRenew"),
+//							},
+//							Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
+//								DaysBeforeExpiry: pulumi.Int(30),
+//							},
+//						},
+//					},
 //				},
+//				Name:       pulumi.String("generated-cert"),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

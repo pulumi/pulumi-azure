@@ -68,10 +68,6 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var exampleNextGenerationFirewallVirtualHubStrataCloudManager = new Azure.PaloAlto.NextGenerationFirewallVirtualHubStrataCloudManager("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = "example",
-    ///         Location = "West Europe",
-    ///         StrataCloudManagerTenantName = "example",
     ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs
     ///         {
     ///             PublicIpAddressIds = new[]
@@ -81,6 +77,10 @@ namespace Pulumi.Azure.PaloAlto
     ///             VirtualHubId = exampleVirtualHub.Id,
     ///             NetworkVirtualApplianceId = exampleVirtualNetworkAppliance.Id,
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
+    ///         StrataCloudManagerTenantName = "example",
     ///     });
     /// 
     /// });

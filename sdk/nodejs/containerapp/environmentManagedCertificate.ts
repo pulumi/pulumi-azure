@@ -31,10 +31,6 @@ import * as utilities from "../utilities";
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
  * const exampleApp = new azure.containerapp.App("example", {
- *     name: "example-app",
- *     resourceGroupName: example.name,
- *     containerAppEnvironmentId: exampleEnvironment.id,
- *     revisionMode: "Single",
  *     template: {
  *         containers: [{
  *             name: "example-container",
@@ -44,18 +40,27 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     ingress: {
- *         externalEnabled: true,
- *         targetPort: 80,
- *         transport: "http",
  *         trafficWeights: [{
  *             latestRevision: true,
  *             percentage: 100,
  *         }],
+ *         externalEnabled: true,
+ *         targetPort: 80,
+ *         transport: "http",
  *     },
+ *     name: "example-app",
+ *     resourceGroupName: example.name,
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     revisionMode: "Single",
  * });
  * const exampleCustomDomain = new azure.containerapp.CustomDomain("example", {
  *     name: "example.com",
  *     containerAppId: exampleApp.id,
+ * }, {
+ *     ignoreChanges: [
+ *         "certificateBindingType",
+ *         "containerAppEnvironmentCertificateId",
+ *     ],
  * });
  * const exampleEnvironmentManagedCertificate = new azure.containerapp.EnvironmentManagedCertificate("example", {
  *     name: "example-managed-cert",

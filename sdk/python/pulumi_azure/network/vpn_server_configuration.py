@@ -385,10 +385,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         test = azure.network.VpnServerConfiguration("test",
-            name="example-config",
-            resource_group_name=example.name,
-            location=example.location,
-            vpn_authentication_types=["Certificate"],
             client_root_certificates=[{
                 "name": "DigiCert-Federated-ID-Root-CA",
                 "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -412,7 +408,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            }])
+            }],
+            name="example-config",
+            resource_group_name=example.name,
+            location=example.location,
+            vpn_authentication_types=["Certificate"])
         ```
 
         ## API Providers
@@ -460,10 +460,6 @@ class VpnServerConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         test = azure.network.VpnServerConfiguration("test",
-            name="example-config",
-            resource_group_name=example.name,
-            location=example.location,
-            vpn_authentication_types=["Certificate"],
             client_root_certificates=[{
                 "name": "DigiCert-Federated-ID-Root-CA",
                 "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -487,7 +483,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            }])
+            }],
+            name="example-config",
+            resource_group_name=example.name,
+            location=example.location,
+            vpn_authentication_types=["Certificate"])
         ```
 
         ## API Providers

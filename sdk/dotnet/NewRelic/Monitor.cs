@@ -30,9 +30,6 @@ namespace Pulumi.Azure.NewRelic
     /// 
     ///     var exampleMonitor = new Azure.NewRelic.Monitor("example", new()
     ///     {
-    ///         Name = "example-nrm",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Plan = new Azure.NewRelic.Inputs.MonitorPlanArgs
     ///         {
     ///             EffectiveDate = "2023-06-06T00:00:00Z",
@@ -48,6 +45,9 @@ namespace Pulumi.Azure.NewRelic
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-nrm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

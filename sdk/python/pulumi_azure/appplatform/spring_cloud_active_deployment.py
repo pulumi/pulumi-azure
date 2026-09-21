@@ -124,22 +124,22 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
-            resource_group_name=example.name,
-            service_name=example_spring_cloud_service.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-springcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota={
-                "cpu": "2",
-                "memory": "4Gi",
-            },
             environment_variables={
                 "Env": "Staging",
             })
@@ -187,22 +187,22 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
-            name="example-springcloudapp",
-            resource_group_name=example.name,
-            service_name=example_spring_cloud_service.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-springcloudapp",
+            resource_group_name=example.name,
+            service_name=example_spring_cloud_service.name)
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota={
-                "cpu": "2",
-                "memory": "4Gi",
-            },
             environment_variables={
                 "Env": "Staging",
             })

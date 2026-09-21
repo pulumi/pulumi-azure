@@ -61,9 +61,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -71,21 +68,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("machine"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_B1ls"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				AdminPassword:                 pulumi.String("example-Password@7890"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
@@ -96,14 +86,21 @@ import (
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
+//				Name:              pulumi.String("machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Size:              pulumi.String("Standard_B1ls"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				AdminPassword:                 pulumi.String("example-Password@7890"),
+//				DisablePasswordAuthentication: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleDataCollectionRule, err := monitoring.NewDataCollectionRule(ctx, "example", &monitoring.DataCollectionRuleArgs{
-//				Name:              pulumi.String("example-dcr"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
 //					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
 //						Name: pulumi.String("example-destination-metrics"),
@@ -119,6 +116,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example-dcr"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

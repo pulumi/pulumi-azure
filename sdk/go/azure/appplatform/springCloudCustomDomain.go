@@ -70,14 +70,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": pulumi.StringArray{
+//					exampleCNameRecord.Name,
+//					exampleCNameRecord.ZoneName,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = appplatform.NewSpringCloudCustomDomain(ctx, "example", &appplatform.SpringCloudCustomDomainArgs{
-//				Name: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						exampleCNameRecord.Name,
-//						exampleCNameRecord.ZoneName,
-//					},
-//				}, nil).Result(),
+//				Name:             invokeJoin.Result,
 //				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {

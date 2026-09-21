@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  *     retentionInDays: 30,
  * });
  * const exampleWorkspaceTableCustomLog = new azure.loganalytics.WorkspaceTableCustomLog("example", {
- *     name: "example_CL",
- *     workspaceId: exampleAnalyticsWorkspace.id,
  *     columns: [{
  *         name: "TimeGenerated",
  *         type: "dateTime",
  *     }],
+ *     name: "example_CL",
+ *     workspaceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
  *

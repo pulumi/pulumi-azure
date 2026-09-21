@@ -66,13 +66,13 @@ import * as utilities from "../utilities";
  *     dependsOn: [example_user],
  * });
  * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "des",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     keyVaultKeyId: exampleKey.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
  *     keyVaultId: exampleKeyVault.id,
@@ -152,14 +152,14 @@ import * as utilities from "../utilities";
  *     dependsOn: [example_user],
  * });
  * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "des",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     keyVaultKeyId: exampleKey.versionlessId,
  *     autoKeyRotationEnabled: true,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
  *     keyVaultId: exampleKeyVault.id,

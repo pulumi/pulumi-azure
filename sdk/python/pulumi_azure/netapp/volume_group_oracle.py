@@ -292,12 +292,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.88.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name=f"{prefix}-delegated-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.88.2.0/24"],
             delegations=[{
-                "name": "exampledelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -305,7 +300,12 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "exampledelegation",
+            }],
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.2.0/24"])
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example.location,
@@ -320,14 +320,17 @@ class VolumeGroupOracle(pulumi.CustomResource):
             size_in_tb=4,
             qos_type="Manual")
         example_volume_group_oracle = azure.netapp.VolumeGroupOracle("example",
-            name=f"{prefix}-NetAppVolumeGroupOracle",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            group_description="Example volume group for Oracle",
-            application_identifier="TST",
             volumes=[
                 {
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
                     "name": f"{prefix}-volume-ora1",
                     "volume_path": f"{prefix}-my-unique-file-ora-path-1",
                     "service_level": "Standard",
@@ -340,6 +343,8 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -349,8 +354,6 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                },
-                {
                     "name": f"{prefix}-volume-oraLog",
                     "volume_path": f"{prefix}-my-unique-file-oralog-path",
                     "service_level": "Standard",
@@ -363,17 +366,14 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
-                    "export_policy_rules": [{
-                        "rule_index": 1,
-                        "allowed_clients": "0.0.0.0/0",
-                        "nfsv3_enabled": False,
-                        "nfsv41_enabled": True,
-                        "unix_read_only": False,
-                        "unix_read_write": True,
-                        "root_access_enabled": False,
-                    }],
                 },
-            ])
+            ],
+            name=f"{prefix}-NetAppVolumeGroupOracle",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            group_description="Example volume group for Oracle",
+            application_identifier="TST")
         ```
 
         ### Cross-Region Replication
@@ -395,12 +395,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.47.0.0/16"])
         example_primary_subnet = azure.network.Subnet("example_primary",
-            name=f"{prefix}-delegated-subnet-primary",
-            resource_group_name=example.name,
-            virtual_network_name=example_primary.name,
-            address_prefixes=["10.47.2.0/24"],
             delegations=[{
-                "name": "exampledelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -408,7 +403,12 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "exampledelegation",
+            }],
+            name=f"{prefix}-delegated-subnet-primary",
+            resource_group_name=example.name,
+            virtual_network_name=example_primary.name,
+            address_prefixes=["10.47.2.0/24"])
         # Secondary region networking
         example_secondary = azure.network.VirtualNetwork("example_secondary",
             name=f"{prefix}-vnet-secondary",
@@ -416,12 +416,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.48.0.0/16"])
         example_secondary_subnet = azure.network.Subnet("example_secondary",
-            name=f"{prefix}-delegated-subnet-secondary",
-            resource_group_name=example.name,
-            virtual_network_name=example_secondary.name,
-            address_prefixes=["10.48.2.0/24"],
             delegations=[{
-                "name": "exampledelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -429,7 +424,12 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "exampledelegation",
+            }],
+            name=f"{prefix}-delegated-subnet-secondary",
+            resource_group_name=example.name,
+            virtual_network_name=example_secondary.name,
+            address_prefixes=["10.48.2.0/24"])
         # Primary region NetApp infrastructure
         example_primary_account = azure.netapp.Account("example_primary",
             name=f"{prefix}-netapp-account-primary",
@@ -460,13 +460,16 @@ class VolumeGroupOracle(pulumi.CustomResource):
             qos_type="Manual")
         # Primary Oracle volume group
         example_primary_volume_group_oracle = azure.netapp.VolumeGroupOracle("example_primary",
-            name=f"{prefix}-NetAppVolumeGroupOracle-primary",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_primary_account.name,
-            group_description="Primary Oracle volume group for CRR",
-            application_identifier="TST",
             volumes=[{
+                "export_policy_rules": [{
+                    "rule_index": 1,
+                    "allowed_clients": "0.0.0.0/0",
+                    "nfsv3_enabled": False,
+                    "nfsv41_enabled": True,
+                    "unix_read_only": False,
+                    "unix_read_write": True,
+                    "root_access_enabled": False,
+                }],
                 "name": f"{prefix}-volume-ora1-primary",
                 "volume_path": f"{prefix}-my-unique-file-ora-path-1-primary",
                 "service_level": "Standard",
@@ -478,6 +481,22 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
+            }],
+            name=f"{prefix}-NetAppVolumeGroupOracle-primary",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_primary_account.name,
+            group_description="Primary Oracle volume group for CRR",
+            application_identifier="TST")
+        # Secondary Oracle volume group with CRR
+        example_secondary_volume_group_oracle = azure.netapp.VolumeGroupOracle("example_secondary",
+            volumes=[{
+                "data_protection_replication": {
+                    "endpoint_type": "dst",
+                    "remote_volume_location": example.location,
+                    "remote_volume_resource_id": example_primary_volume_group_oracle.volumes[0].id,
+                    "replication_frequency": "10minutes",
+                },
                 "export_policy_rules": [{
                     "rule_index": 1,
                     "allowed_clients": "0.0.0.0/0",
@@ -487,16 +506,6 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "unix_read_write": True,
                     "root_access_enabled": False,
                 }],
-            }])
-        # Secondary Oracle volume group with CRR
-        example_secondary_volume_group_oracle = azure.netapp.VolumeGroupOracle("example_secondary",
-            name=f"{prefix}-NetAppVolumeGroupOracle-secondary",
-            location=alt_location,
-            resource_group_name=example.name,
-            account_name=example_secondary_account.name,
-            group_description="Secondary Oracle volume group for CRR",
-            application_identifier="TST",
-            volumes=[{
                 "name": f"{prefix}-volume-ora1-secondary",
                 "volume_path": f"{prefix}-my-unique-file-ora-path-1-secondary",
                 "service_level": "Standard",
@@ -508,22 +517,13 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
-                "export_policy_rules": [{
-                    "rule_index": 1,
-                    "allowed_clients": "0.0.0.0/0",
-                    "nfsv3_enabled": False,
-                    "nfsv41_enabled": True,
-                    "unix_read_only": False,
-                    "unix_read_write": True,
-                    "root_access_enabled": False,
-                }],
-                "data_protection_replication": {
-                    "endpoint_type": "dst",
-                    "remote_volume_location": example.location,
-                    "remote_volume_resource_id": example_primary_volume_group_oracle.volumes[0].id,
-                    "replication_frequency": "10minutes",
-                },
             }],
+            name=f"{prefix}-NetAppVolumeGroupOracle-secondary",
+            location=alt_location,
+            resource_group_name=example.name,
+            account_name=example_secondary_account.name,
+            group_description="Secondary Oracle volume group for CRR",
+            application_identifier="TST",
             opts = pulumi.ResourceOptions(depends_on=[example_primary_volume_group_oracle]))
         ```
 
@@ -582,12 +582,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.88.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name=f"{prefix}-delegated-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.88.2.0/24"],
             delegations=[{
-                "name": "exampledelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -595,7 +590,12 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "exampledelegation",
+            }],
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.2.0/24"])
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example.location,
@@ -610,14 +610,17 @@ class VolumeGroupOracle(pulumi.CustomResource):
             size_in_tb=4,
             qos_type="Manual")
         example_volume_group_oracle = azure.netapp.VolumeGroupOracle("example",
-            name=f"{prefix}-NetAppVolumeGroupOracle",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            group_description="Example volume group for Oracle",
-            application_identifier="TST",
             volumes=[
                 {
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
                     "name": f"{prefix}-volume-ora1",
                     "volume_path": f"{prefix}-my-unique-file-ora-path-1",
                     "service_level": "Standard",
@@ -630,6 +633,8 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -639,8 +644,6 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                },
-                {
                     "name": f"{prefix}-volume-oraLog",
                     "volume_path": f"{prefix}-my-unique-file-oralog-path",
                     "service_level": "Standard",
@@ -653,17 +656,14 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
-                    "export_policy_rules": [{
-                        "rule_index": 1,
-                        "allowed_clients": "0.0.0.0/0",
-                        "nfsv3_enabled": False,
-                        "nfsv41_enabled": True,
-                        "unix_read_only": False,
-                        "unix_read_write": True,
-                        "root_access_enabled": False,
-                    }],
                 },
-            ])
+            ],
+            name=f"{prefix}-NetAppVolumeGroupOracle",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            group_description="Example volume group for Oracle",
+            application_identifier="TST")
         ```
 
         ### Cross-Region Replication
@@ -685,12 +685,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.47.0.0/16"])
         example_primary_subnet = azure.network.Subnet("example_primary",
-            name=f"{prefix}-delegated-subnet-primary",
-            resource_group_name=example.name,
-            virtual_network_name=example_primary.name,
-            address_prefixes=["10.47.2.0/24"],
             delegations=[{
-                "name": "exampledelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -698,7 +693,12 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "exampledelegation",
+            }],
+            name=f"{prefix}-delegated-subnet-primary",
+            resource_group_name=example.name,
+            virtual_network_name=example_primary.name,
+            address_prefixes=["10.47.2.0/24"])
         # Secondary region networking
         example_secondary = azure.network.VirtualNetwork("example_secondary",
             name=f"{prefix}-vnet-secondary",
@@ -706,12 +706,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.48.0.0/16"])
         example_secondary_subnet = azure.network.Subnet("example_secondary",
-            name=f"{prefix}-delegated-subnet-secondary",
-            resource_group_name=example.name,
-            virtual_network_name=example_secondary.name,
-            address_prefixes=["10.48.2.0/24"],
             delegations=[{
-                "name": "exampledelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -719,7 +714,12 @@ class VolumeGroupOracle(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "exampledelegation",
+            }],
+            name=f"{prefix}-delegated-subnet-secondary",
+            resource_group_name=example.name,
+            virtual_network_name=example_secondary.name,
+            address_prefixes=["10.48.2.0/24"])
         # Primary region NetApp infrastructure
         example_primary_account = azure.netapp.Account("example_primary",
             name=f"{prefix}-netapp-account-primary",
@@ -750,13 +750,16 @@ class VolumeGroupOracle(pulumi.CustomResource):
             qos_type="Manual")
         # Primary Oracle volume group
         example_primary_volume_group_oracle = azure.netapp.VolumeGroupOracle("example_primary",
-            name=f"{prefix}-NetAppVolumeGroupOracle-primary",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_primary_account.name,
-            group_description="Primary Oracle volume group for CRR",
-            application_identifier="TST",
             volumes=[{
+                "export_policy_rules": [{
+                    "rule_index": 1,
+                    "allowed_clients": "0.0.0.0/0",
+                    "nfsv3_enabled": False,
+                    "nfsv41_enabled": True,
+                    "unix_read_only": False,
+                    "unix_read_write": True,
+                    "root_access_enabled": False,
+                }],
                 "name": f"{prefix}-volume-ora1-primary",
                 "volume_path": f"{prefix}-my-unique-file-ora-path-1-primary",
                 "service_level": "Standard",
@@ -768,6 +771,22 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
+            }],
+            name=f"{prefix}-NetAppVolumeGroupOracle-primary",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_primary_account.name,
+            group_description="Primary Oracle volume group for CRR",
+            application_identifier="TST")
+        # Secondary Oracle volume group with CRR
+        example_secondary_volume_group_oracle = azure.netapp.VolumeGroupOracle("example_secondary",
+            volumes=[{
+                "data_protection_replication": {
+                    "endpoint_type": "dst",
+                    "remote_volume_location": example.location,
+                    "remote_volume_resource_id": example_primary_volume_group_oracle.volumes[0].id,
+                    "replication_frequency": "10minutes",
+                },
                 "export_policy_rules": [{
                     "rule_index": 1,
                     "allowed_clients": "0.0.0.0/0",
@@ -777,16 +796,6 @@ class VolumeGroupOracle(pulumi.CustomResource):
                     "unix_read_write": True,
                     "root_access_enabled": False,
                 }],
-            }])
-        # Secondary Oracle volume group with CRR
-        example_secondary_volume_group_oracle = azure.netapp.VolumeGroupOracle("example_secondary",
-            name=f"{prefix}-NetAppVolumeGroupOracle-secondary",
-            location=alt_location,
-            resource_group_name=example.name,
-            account_name=example_secondary_account.name,
-            group_description="Secondary Oracle volume group for CRR",
-            application_identifier="TST",
-            volumes=[{
                 "name": f"{prefix}-volume-ora1-secondary",
                 "volume_path": f"{prefix}-my-unique-file-ora-path-1-secondary",
                 "service_level": "Standard",
@@ -798,22 +807,13 @@ class VolumeGroupOracle(pulumi.CustomResource):
                 "protocols": "NFSv4.1",
                 "security_style": "unix",
                 "snapshot_directory_visible": False,
-                "export_policy_rules": [{
-                    "rule_index": 1,
-                    "allowed_clients": "0.0.0.0/0",
-                    "nfsv3_enabled": False,
-                    "nfsv41_enabled": True,
-                    "unix_read_only": False,
-                    "unix_read_write": True,
-                    "root_access_enabled": False,
-                }],
-                "data_protection_replication": {
-                    "endpoint_type": "dst",
-                    "remote_volume_location": example.location,
-                    "remote_volume_resource_id": example_primary_volume_group_oracle.volumes[0].id,
-                    "replication_frequency": "10minutes",
-                },
             }],
+            name=f"{prefix}-NetAppVolumeGroupOracle-secondary",
+            location=alt_location,
+            resource_group_name=example.name,
+            account_name=example_secondary_account.name,
+            group_description="Secondary Oracle volume group for CRR",
+            application_identifier="TST",
             opts = pulumi.ResourceOptions(depends_on=[example_primary_volume_group_oracle]))
         ```
 

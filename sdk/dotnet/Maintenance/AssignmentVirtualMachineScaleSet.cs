@@ -60,9 +60,6 @@ namespace Pulumi.Azure.Maintenance
     /// 
     ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Name = example.Name,
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -71,6 +68,9 @@ namespace Pulumi.Azure.Maintenance
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = example.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("example", new()
@@ -100,11 +100,6 @@ namespace Pulumi.Azure.Maintenance
     /// 
     ///     var exampleConfiguration = new Azure.Maintenance.Configuration("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Scope = "OSImage",
-    ///         Visibility = "Custom",
     ///         Window = new Azure.Maintenance.Inputs.ConfigurationWindowArgs
     ///         {
     ///             StartDateTime = "2021-12-31 00:00",
@@ -113,13 +108,15 @@ namespace Pulumi.Azure.Maintenance
     ///             TimeZone = "Pacific Standard Time",
     ///             RecurEvery = "1Days",
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Scope = "OSImage",
+    ///         Visibility = "Custom",
     ///     });
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "sample-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -128,10 +125,18 @@ namespace Pulumi.Azure.Maintenance
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "sample-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
     ///         Name = "example-machine",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -141,25 +146,10 @@ namespace Pulumi.Azure.Maintenance
     ///         {
     ///             exampleNetworkInterface.Id,
     ///         },
-    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
-    ///         {
-    ///             Caching = "ReadWrite",
-    ///             StorageAccountType = "Standard_LRS",
-    ///         },
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "Standard_D4_v5",
-    ///         Instances = 1,
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "P@ssword1234!",
-    ///         UpgradeMode = "Automatic",
-    ///         HealthProbeId = exampleProbe.Id,
-    ///         DisablePasswordAuthentication = false,
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -171,27 +161,6 @@ namespace Pulumi.Azure.Maintenance
     ///         {
     ///             StorageAccountType = "Standard_LRS",
     ///             Caching = "ReadWrite",
-    ///         },
-    ///         NetworkInterfaces = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
-    ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
-    ///                 {
-    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
-    ///                     {
-    ///                         Name = "internal",
-    ///                         Primary = true,
-    ///                         SubnetId = exampleSubnet.Id,
-    ///                         LoadBalancerBackendAddressPoolIds = new[]
-    ///                         {
-    ///                             exampleBackendAddressPool.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
     ///         AutomaticOsUpgradePolicy = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
     ///         {
@@ -205,6 +174,37 @@ namespace Pulumi.Azure.Maintenance
     ///             MaxUnhealthyUpgradedInstancePercent = 20,
     ///             PauseTimeBetweenBatches = "PT0S",
     ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
+    ///             {
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
+    ///                     {
+    ///                         Name = "internal",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                         LoadBalancerBackendAddressPoolIds = new[]
+    ///                         {
+    ///                             exampleBackendAddressPool.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "example",
+    ///                 Primary = true,
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard_D4_v5",
+    ///         Instances = 1,
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@ssword1234!",
+    ///         UpgradeMode = "Automatic",
+    ///         HealthProbeId = exampleProbe.Id,
+    ///         DisablePasswordAuthentication = false,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

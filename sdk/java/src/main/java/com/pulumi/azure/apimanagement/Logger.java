@@ -73,13 +73,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogger = new Logger("exampleLogger", LoggerArgs.builder()
+ *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
+ *                 .instrumentationKey(exampleInsights.instrumentationKey())
+ *                 .build())
  *             .name("example-logger")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())
  *             .resourceId(exampleInsights.id())
- *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
- *                 .instrumentationKey(exampleInsights.instrumentationKey())
- *                 .build())
  *             .build());
  * 
  *     }}{@code

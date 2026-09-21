@@ -59,8 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "path/to/certificate_file.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "path/to/certificate_file.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -68,7 +68,7 @@ import (
 //			_, err = containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
 //				Name:                      pulumi.String("myfriendlyname"),
 //				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				CertificateBlobBase64:     pulumi.String(invokeFilebase64.Result),
+//				CertificateBlobBase64:     invokeFilebase64.Result,
 //				CertificatePassword:       pulumi.String("$3cretSqu1rreL"),
 //			})
 //			if err != nil {
@@ -129,16 +129,16 @@ import (
 //				return err
 //			}
 //			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "example", &containerapp.EnvironmentArgs{
-//				Name:                    pulumi.String("example-environment"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &containerapp.EnvironmentIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                    pulumi.String("example-environment"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -170,19 +170,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "path/to/certificate_file.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "path/to/certificate_file.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
-//				Name:       pulumi.String("example-certificate"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: pulumi.String(invokeFilebase64.Result),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
+//				Name:       pulumi.String("example-certificate"),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				userKeyvaultAdmin,
 //				exampleAssignment,
@@ -191,12 +191,12 @@ import (
 //				return err
 //			}
 //			_, err = containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
-//				Name:                      pulumi.String("example-certificate"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				CertificateKeyVault: &containerapp.EnvironmentCertificateCertificateKeyVaultArgs{
 //					Identity:         exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					KeyVaultSecretId: exampleCertificate.VersionlessSecretId,
 //				},
+//				Name:                      pulumi.String("example-certificate"),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAssignment,
 //			}))

@@ -62,15 +62,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpnSite = new VpnSite("exampleVpnSite", VpnSiteArgs.builder()
+ *             .links(VpnSiteLinkArgs.builder()
+ *                 .name("link1")
+ *                 .ipAddress("10.0.0.1")
+ *                 .build())
  *             .name("site1")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .addressCidrs("10.0.0.0/24")
- *             .links(VpnSiteLinkArgs.builder()
- *                 .name("link1")
- *                 .ipAddress("10.0.0.1")
- *                 .build())
  *             .build());
  * 
  *     }

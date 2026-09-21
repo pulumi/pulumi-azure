@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Resource Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "East US",
+ * });
+ * const rgContributor = azure.authorization.getRoleDefinitionOutput({
+ *     name: "Contributor",
+ *     scope: example.id,
+ * });
+ * const approvers = azuread.group({
+ *     displayName: "Example Approver Group",
+ * });
+ * const exampleRoleManagementPolicy = new azure.pim.RoleManagementPolicy("example", {
+ *     activeAssignmentRules: {
+ *         expireAfter: "P365D",
+ *     },
+ *     eligibleAssignmentRules: {
+ *         expirationRequired: false,
+ *     },
+ *     activationRules: {
+ *         approvalStage: {
+ *             primaryApprovers: [{
+ *                 objectId: approvers.objectId,
+ *                 type: "Group",
+ *             }],
+ *         },
+ *         maximumDuration: "PT1H",
+ *         requireApproval: true,
+ *     },
+ *     notificationRules: {
+ *         eligibleAssignments: {
+ *             approverNotifications: {
+ *                 notificationLevel: "Critical",
+ *                 defaultRecipients: false,
+ *                 additionalRecipients: ["someone@example.com"],
+ *             },
+ *         },
+ *         eligibleActivations: {
+ *             assigneeNotifications: {
+ *                 notificationLevel: "All",
+ *                 defaultRecipients: true,
+ *                 additionalRecipients: ["someone.else@example.com"],
+ *             },
+ *         },
+ *     },
+ *     scope: test.id,
+ *     roleDefinitionId: contributor.id,
+ * });
+ * ```
+ *
  * ### Management Group
  *
  * ```typescript
@@ -23,8 +79,6 @@ import * as utilities from "../utilities";
  *     scope: example.id,
  * });
  * const exampleRoleManagementPolicy = new azure.pim.RoleManagementPolicy("example", {
- *     scope: example.id,
- *     roleDefinitionId: mgContributor.id,
  *     eligibleAssignmentRules: {
  *         expirationRequired: false,
  *     },
@@ -44,6 +98,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     scope: example.id,
+ *     roleDefinitionId: mgContributor.id,
  * });
  * ```
  *

@@ -20,11 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleWorkbookTemplate = new azure.appinsights.WorkbookTemplate("example", {
- *     name: "example-aiwt",
- *     resourceGroupName: example.name,
- *     location: "West Europe",
- *     author: "test author",
- *     priority: 1,
  *     galleries: [{
  *         category: "workbook",
  *         name: "test",
@@ -32,6 +27,11 @@ import * as utilities from "../utilities";
  *         resourceType: "microsoft.insights/components",
  *         type: "tsg",
  *     }],
+ *     name: "example-aiwt",
+ *     resourceGroupName: example.name,
+ *     location: "West Europe",
+ *     author: "test author",
+ *     priority: 1,
  *     templateData: JSON.stringify({
  *         version: "Notebook/1.0",
  *         items: [{

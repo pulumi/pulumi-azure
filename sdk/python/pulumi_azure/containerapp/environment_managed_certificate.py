@@ -252,10 +252,6 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_app = azure.containerapp.App("example",
-            name="example-app",
-            resource_group_name=example.name,
-            container_app_environment_id=example_environment.id,
-            revision_mode="Single",
             template={
                 "containers": [{
                     "name": "example-container",
@@ -265,17 +261,25 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
                 }],
             },
             ingress={
-                "external_enabled": True,
-                "target_port": 80,
-                "transport": "http",
                 "traffic_weights": [{
                     "latest_revision": True,
                     "percentage": 100,
                 }],
-            })
+                "external_enabled": True,
+                "target_port": 80,
+                "transport": "http",
+            },
+            name="example-app",
+            resource_group_name=example.name,
+            container_app_environment_id=example_environment.id,
+            revision_mode="Single")
         example_custom_domain = azure.containerapp.CustomDomain("example",
             name="example.com",
-            container_app_id=example_app.id)
+            container_app_id=example_app.id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "certificateBindingType",
+                    "containerAppEnvironmentCertificateId",
+                ]))
         example_environment_managed_certificate = azure.containerapp.EnvironmentManagedCertificate("example",
             name="example-managed-cert",
             container_app_environment_id=example_environment.id,
@@ -340,10 +344,6 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_app = azure.containerapp.App("example",
-            name="example-app",
-            resource_group_name=example.name,
-            container_app_environment_id=example_environment.id,
-            revision_mode="Single",
             template={
                 "containers": [{
                     "name": "example-container",
@@ -353,17 +353,25 @@ class EnvironmentManagedCertificate(pulumi.CustomResource):
                 }],
             },
             ingress={
-                "external_enabled": True,
-                "target_port": 80,
-                "transport": "http",
                 "traffic_weights": [{
                     "latest_revision": True,
                     "percentage": 100,
                 }],
-            })
+                "external_enabled": True,
+                "target_port": 80,
+                "transport": "http",
+            },
+            name="example-app",
+            resource_group_name=example.name,
+            container_app_environment_id=example_environment.id,
+            revision_mode="Single")
         example_custom_domain = azure.containerapp.CustomDomain("example",
             name="example.com",
-            container_app_id=example_app.id)
+            container_app_id=example_app.id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "certificateBindingType",
+                    "containerAppEnvironmentCertificateId",
+                ]))
         example_environment_managed_certificate = azure.containerapp.EnvironmentManagedCertificate("example",
             name="example-managed-cert",
             container_app_environment_id=example_environment.id,

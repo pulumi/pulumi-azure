@@ -111,9 +111,6 @@ namespace Pulumi.Azure.EventHub
     /// 
     ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
     ///     {
-    ///         Name = "tfex_servicebus_rule",
-    ///         SubscriptionId = exampleSubscription.Id,
-    ///         FilterType = "CorrelationFilter",
     ///         CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs
     ///         {
     ///             CorrelationId = "high",
@@ -123,6 +120,9 @@ namespace Pulumi.Azure.EventHub
     ///                 { "customProperty", "value" },
     ///             },
     ///         },
+    ///         Name = "tfex_servicebus_rule",
+    ///         SubscriptionId = exampleSubscription.Id,
+    ///         FilterType = "CorrelationFilter",
     ///     });
     /// 
     /// });

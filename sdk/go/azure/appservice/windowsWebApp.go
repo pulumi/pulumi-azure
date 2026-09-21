@@ -47,11 +47,11 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

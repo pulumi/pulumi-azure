@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCapacity = new azure.fabric.Capacity("example", {
- *     name: "exampleffc",
- *     resourceGroupName: example.name,
- *     location: "West Europe",
- *     administrationMembers: [current.then(current => current.objectId)],
  *     sku: {
  *         name: "F32",
  *         tier: "Fabric",
  *     },
+ *     name: "exampleffc",
+ *     resourceGroupName: example.name,
+ *     location: "West Europe",
+ *     administrationMembers: [current.then(current => current.objectId)],
  *     tags: {
  *         environment: "test",
  *     },

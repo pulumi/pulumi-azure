@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *     skuName: "P1v2",
  * });
  * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     siteConfig: {},
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleSourceControl = new azure.appservice.SourceControl("example", {
  *     appId: exampleLinuxWebApp.id,

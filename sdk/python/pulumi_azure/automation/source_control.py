@@ -386,13 +386,13 @@ class SourceControl(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Basic")
         example_source_control = azure.automation.SourceControl("example",
-            name="example",
-            automation_account_id=example_account.id,
-            folder_path="runbook",
             security={
                 "token": "ghp_xxx",
                 "token_type": "PersonalAccessToken",
             },
+            name="example",
+            automation_account_id=example_account.id,
+            folder_path="runbook",
             repository_url="https://github.com/foo/bat.git",
             source_control_type="GitHub",
             branch="main")
@@ -451,13 +451,13 @@ class SourceControl(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Basic")
         example_source_control = azure.automation.SourceControl("example",
-            name="example",
-            automation_account_id=example_account.id,
-            folder_path="runbook",
             security={
                 "token": "ghp_xxx",
                 "token_type": "PersonalAccessToken",
             },
+            name="example",
+            automation_account_id=example_account.id,
+            folder_path="runbook",
             repository_url="https://github.com/foo/bat.git",
             source_control_type="GitHub",
             branch="main")

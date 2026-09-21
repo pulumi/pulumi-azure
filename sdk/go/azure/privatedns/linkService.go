@@ -74,35 +74,21 @@ import (
 //				return err
 //			}
 //			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              pulumi.String("example-lb"),
-//				Sku:               pulumi.String("Standard"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("example-lb"),
+//				Sku:               pulumi.String("Standard"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = privatedns.NewLinkService(ctx, "example", &privatedns.LinkServiceArgs{
-//				Name:              pulumi.String("example-privatelink"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AutoApprovalSubscriptionIds: pulumi.StringArray{
-//					pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
-//				VisibilitySubscriptionIds: pulumi.StringArray{
-//					pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
-//				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
-//						return frontendIpConfigurations[0].Id, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:                    pulumi.String("primary"),
@@ -118,6 +104,20 @@ import (
 //						SubnetId:                exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						Primary:                 pulumi.Bool(false),
 //					},
+//				},
+//				Name:              pulumi.String("example-privatelink"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				AutoApprovalSubscriptionIds: pulumi.StringArray{
+//					pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				VisibilitySubscriptionIds: pulumi.StringArray{
+//					pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//						return frontendIpConfigurations[0].Id, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {

@@ -29,34 +29,30 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * })));
  * const exampleVirtualMachineGroup = new azure.mssql.VirtualMachineGroup("example", {
+ *     wsfcDomainProfile: {
+ *         fqdn: "testdomain.com",
+ *         clusterSubnetType: "SingleSubnet",
+ *     },
  *     name: "examplegroup",
  *     resourceGroupName: "example-resources",
  *     location: "West Europe",
  *     sqlImageOffer: "SQL2017-WS2016",
  *     sqlImageSku: "Developer",
- *     wsfcDomainProfile: {
- *         fqdn: "testdomain.com",
- *         clusterSubnetType: "SingleSubnet",
- *     },
  * });
  * const exampleVirtualMachine: azure.mssql.VirtualMachine[] = [];
  * for (let range = 0; range < 2; range++) {
  *     exampleVirtualMachine.push(new azure.mssql.VirtualMachine(`example-${range}`, {
- *         virtualMachineId: exampleGetVirtualMachine[range].then(exampleGetVirtualMachine => exampleGetVirtualMachine.id),
- *         sqlLicenseType: "PAYG",
- *         sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
  *         wsfcDomainCredential: {
  *             clusterBootstrapAccountPassword: "P@ssw0rd1234!",
  *             clusterOperatorAccountPassword: "P@ssw0rd1234!",
  *             sqlServiceAccountPassword: "P@ssw0rd1234!",
  *         },
+ *         virtualMachineId: exampleGetVirtualMachine[range].then(exampleGetVirtualMachine => exampleGetVirtualMachine.id),
+ *         sqlLicenseType: "PAYG",
+ *         sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
  *     }));
  * }
  * const exampleVirtualMachineAvailabilityGroupListener = new azure.mssql.VirtualMachineAvailabilityGroupListener("example", {
- *     name: "listener1",
- *     availabilityGroupName: "availabilitygroup1",
- *     port: 1433,
- *     sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
  *     loadBalancerConfiguration: {
  *         loadBalancerId: exampleGetLB.then(exampleGetLB => exampleGetLB.id),
  *         privateIpAddress: "10.0.2.11",
@@ -83,6 +79,10 @@ import * as utilities from "../utilities";
  *             readableSecondary: "No",
  *         },
  *     ],
+ *     name: "listener1",
+ *     availabilityGroupName: "availabilitygroup1",
+ *     port: 1433,
+ *     sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
  * });
  * ```
  *

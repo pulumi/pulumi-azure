@@ -49,21 +49,21 @@ import (
 //				return err
 //			}
 //			exampleGateway, err := apimanagement.NewGateway(ctx, "example", &apimanagement.GatewayArgs{
-//				Name:            pulumi.String("example-gateway"),
-//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
-//				Description:     pulumi.String("Example API Management gateway"),
 //				LocationData: &apimanagement.GatewayLocationDataArgs{
 //					Name:     pulumi.String("example name"),
 //					City:     pulumi.String("example city"),
 //					District: pulumi.String("example district"),
 //					Region:   pulumi.String("example region"),
 //				},
+//				Name:            pulumi.String("example-gateway"),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				Description:     pulumi.String("Example API Management gateway"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "example.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "example.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				Name:              pulumi.String("example-cert"),
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
-//				Data:              pulumi.String(invokeFilebase64.Result),
+//				Data:              invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

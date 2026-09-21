@@ -28,9 +28,6 @@ namespace Pulumi.Azure.Compute.Inputs
         /// {
         ///     var example = new Azure.Compute.ScaleSet("example", new()
         ///     {
-        ///         Name = "vm-scaleset",
-        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-        ///         Location = exampleAzurermResourceGroup.Location,
         ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
         ///         {
         ///             Name = vmSku,
@@ -52,6 +49,9 @@ namespace Pulumi.Azure.Compute.Inputs
         ///                 Settings = "{\"port\": 50342}",
         ///             },
         ///         },
+        ///         Name = "vm-scaleset",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         Location = exampleAzurermResourceGroup.Location,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomaticCluster = new AutomaticCluster("exampleAutomaticCluster", AutomaticClusterArgs.builder()
- *             .name("example-aks1")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(AutomaticClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-aks1")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
@@ -105,6 +105,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.inputs.AutomaticClusterHostedSystemArgs;
  * import com.pulumi.azure.containerservice.inputs.AutomaticClusterIdentityArgs;
  * import com.pulumi.azure.containerservice.inputs.AutomaticClusterApiServerAccessArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -138,17 +139,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var api = new Subnet("api", SubnetArgs.builder()
- *             .name("example-api-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.1.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("aks-delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .name("Microsoft.ContainerService/managedClusters")
  *                     .build())
+ *                 .name("aks-delegation")
  *                 .build())
+ *             .name("example-api-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.1.1.0/24")
  *             .build());
  * 
  *         var systemnode = new Subnet("systemnode", SubnetArgs.builder()
@@ -156,7 +157,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.1.2.0/24")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("delegations")
+ *                 .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .resourceGroupName(example.name())
@@ -171,9 +174,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomaticCluster = new AutomaticCluster("exampleAutomaticCluster", AutomaticClusterArgs.builder()
- *             .name("example-aks")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .hostedSystem(AutomaticClusterHostedSystemArgs.builder()
  *                 .nodeSubnetId(node.id())
  *                 .systemNodeSubnetId(systemnode.id())
@@ -185,6 +185,9 @@ import javax.annotation.Nullable;
  *             .apiServerAccess(AutomaticClusterApiServerAccessArgs.builder()
  *                 .subnetId(api.id())
  *                 .build())
+ *             .name("example-aks")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

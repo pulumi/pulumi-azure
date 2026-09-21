@@ -295,20 +295,15 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="sample-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="SampleVM",
+            }],
+            name="sample-nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[example_network_interface.id],
-            size="Standard_B2s",
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -320,20 +315,25 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
             },
+            name="SampleVM",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[example_network_interface.id],
+            size="Standard_B2s",
             admin_username="testadmin",
             admin_password="Password1234!",
             disable_password_authentication=False)
         example_global_vm_shutdown_schedule = azure.devtest.GlobalVMShutdownSchedule("example",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            location=example.location,
-            enabled=True,
-            daily_recurrence_time="1100",
-            timezone="Pacific Standard Time",
             notification_settings={
                 "enabled": True,
                 "time_in_minutes": 60,
                 "webhook_url": "https://sample-webhook-url.example.com",
-            })
+            },
+            virtual_machine_id=example_linux_virtual_machine.id,
+            location=example.location,
+            enabled=True,
+            daily_recurrence_time="1100",
+            timezone="Pacific Standard Time")
         ```
 
         ## API Providers
@@ -395,20 +395,15 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="sample-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name="SampleVM",
+            }],
+            name="sample-nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[example_network_interface.id],
-            size="Standard_B2s",
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -420,20 +415,25 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
             },
+            name="SampleVM",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[example_network_interface.id],
+            size="Standard_B2s",
             admin_username="testadmin",
             admin_password="Password1234!",
             disable_password_authentication=False)
         example_global_vm_shutdown_schedule = azure.devtest.GlobalVMShutdownSchedule("example",
-            virtual_machine_id=example_linux_virtual_machine.id,
-            location=example.location,
-            enabled=True,
-            daily_recurrence_time="1100",
-            timezone="Pacific Standard Time",
             notification_settings={
                 "enabled": True,
                 "time_in_minutes": 60,
                 "webhook_url": "https://sample-webhook-url.example.com",
-            })
+            },
+            virtual_machine_id=example_linux_virtual_machine.id,
+            location=example.location,
+            enabled=True,
+            daily_recurrence_time="1100",
+            timezone="Pacific Standard Time")
         ```
 
         ## API Providers

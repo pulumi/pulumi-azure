@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  *     osType: "Windows",
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     siteConfig: {},
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * ```
  *

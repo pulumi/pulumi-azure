@@ -46,6 +46,10 @@ namespace Pulumi.Azure.Synapse
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -53,10 +57,6 @@ namespace Pulumi.Azure.Synapse
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
     ///         ManagedVirtualNetworkEnabled = true,
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("example", new()
@@ -76,6 +76,10 @@ namespace Pulumi.Azure.Synapse
     /// 
     ///     var exampleLinkedService = new Azure.Synapse.LinkedService("example", new()
     ///     {
+    ///         IntegrationRuntime = new Azure.Synapse.Inputs.LinkedServiceIntegrationRuntimeArgs
+    ///         {
+    ///             Name = exampleIntegrationRuntimeAzure.Name,
+    ///         },
     ///         Name = "example",
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         Type = "AzureBlobStorage",
@@ -83,10 +87,6 @@ namespace Pulumi.Azure.Synapse
     ///   \""connectionString\"": \""{primaryConnectionString}\""
     /// }}
     /// "),
-    ///         IntegrationRuntime = new Azure.Synapse.Inputs.LinkedServiceIntegrationRuntimeArgs
-    ///         {
-    ///             Name = exampleIntegrationRuntimeAzure.Name,
-    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

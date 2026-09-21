@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("examplesa")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleEncryptionScope = new EncryptionScope("exampleEncryptionScope", EncryptionScopeArgs.builder()

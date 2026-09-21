@@ -908,20 +908,15 @@ class VirtualMachine(pulumi.CustomResource):
             virtual_network_name=main.name,
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("main",
-            name=f"{prefix}-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": internal.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        main_virtual_machine = azure.compute.VirtualMachine("main",
-            name=f"{prefix}-vm",
+            }],
+            name=f"{prefix}-nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_DS1_v2",
+            resource_group_name=example.name)
+        main_virtual_machine = azure.compute.VirtualMachine("main",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -942,6 +937,11 @@ class VirtualMachine(pulumi.CustomResource):
             os_profile_linux_config={
                 "disable_password_authentication": False,
             },
+            name=f"{prefix}-vm",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_DS1_v2",
             tags={
                 "environment": "staging",
             })
@@ -1045,20 +1045,15 @@ class VirtualMachine(pulumi.CustomResource):
             virtual_network_name=main.name,
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("main",
-            name=f"{prefix}-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": internal.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        main_virtual_machine = azure.compute.VirtualMachine("main",
-            name=f"{prefix}-vm",
+            }],
+            name=f"{prefix}-nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_DS1_v2",
+            resource_group_name=example.name)
+        main_virtual_machine = azure.compute.VirtualMachine("main",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -1079,6 +1074,11 @@ class VirtualMachine(pulumi.CustomResource):
             os_profile_linux_config={
                 "disable_password_authentication": False,
             },
+            name=f"{prefix}-vm",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_DS1_v2",
             tags={
                 "environment": "staging",
             })

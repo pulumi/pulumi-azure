@@ -65,29 +65,29 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("apim-delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Web/serverFarms")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
  *                     .build())
+ *                 .name("apim-delegation")
  *                 .build())
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
  *         var exampleStandaloneGateway = new StandaloneGateway("exampleStandaloneGateway", StandaloneGatewayArgs.builder()
+ *             .sku(StandaloneGatewaySkuArgs.builder()
+ *                 .capacity(1)
+ *                 .name("WorkspaceGatewayPremium")
+ *                 .build())
  *             .name("example-gateway-flexible")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .virtualNetworkType("External")
  *             .backendSubnetId(exampleSubnet.id())
- *             .sku(StandaloneGatewaySkuArgs.builder()
- *                 .capacity(1)
- *                 .name("WorkspaceGatewayPremium")
- *                 .build())
  *             .tags(Map.of("Hello", "World"))
  *             .build());
  * 

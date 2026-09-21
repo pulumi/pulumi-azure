@@ -44,13 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewMongoCollection(ctx, "example", &cosmosdb.MongoCollectionArgs{
-//				Name:              pulumi.String("tfex-cosmos-mongo-db"),
-//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
-//				AccountName:       pulumi.String(example.Name),
-//				DatabaseName:      exampleMongoDatabase.Name,
-//				DefaultTtlSeconds: pulumi.Int(777),
-//				ShardKey:          pulumi.String("uniqueKey"),
-//				Throughput:        pulumi.Int(400),
 //				Indices: cosmosdb.MongoCollectionIndexArray{
 //					&cosmosdb.MongoCollectionIndexArgs{
 //						Keys: pulumi.StringArray{
@@ -59,6 +52,13 @@ import (
 //						Unique: pulumi.Bool(true),
 //					},
 //				},
+//				Name:              pulumi.String("tfex-cosmos-mongo-db"),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
+//				DatabaseName:      exampleMongoDatabase.Name,
+//				DefaultTtlSeconds: pulumi.Int(777),
+//				ShardKey:          pulumi.String("uniqueKey"),
+//				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {
 //				return err

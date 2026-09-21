@@ -30,26 +30,19 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleBackupPolicyPostgresqlFlexibleServer = new Azure.DataProtection.BackupPolicyPostgresqlFlexibleServer("example", new()
     ///     {
-    ///         Name = "example-backup-policy",
-    ///         VaultId = exampleBackupVault.Id,
-    ///         BackupRepeatingTimeIntervals = new[]
-    ///         {
-    ///             "R/2021-05-23T02:30:00+00:00/P1W",
-    ///         },
-    ///         TimeZone = "India Standard Time",
     ///         DefaultRetentionRule = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs
     ///         {
     ///             LifeCycles = new[]
@@ -65,7 +58,10 @@ namespace Pulumi.Azure.DataProtection
     ///         {
     ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs
     ///             {
-    ///                 Name = "weekly",
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfWeek",
+    ///                 },
     ///                 LifeCycles = new[]
     ///                 {
     ///                     new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs
@@ -74,24 +70,11 @@ namespace Pulumi.Azure.DataProtection
     ///                         DataStoreType = "VaultStore",
     ///                     },
     ///                 },
+    ///                 Name = "weekly",
     ///                 Priority = 20,
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs
-    ///                 {
-    ///                     AbsoluteCriteria = "FirstOfWeek",
-    ///                 },
     ///             },
     ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs
     ///             {
-    ///                 Name = "thursday",
-    ///                 LifeCycles = new[]
-    ///                 {
-    ///                     new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs
-    ///                     {
-    ///                         Duration = "P1W",
-    ///                         DataStoreType = "VaultStore",
-    ///                     },
-    ///                 },
-    ///                 Priority = 25,
     ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs
     ///                 {
     ///                     DaysOfWeeks = new[]
@@ -103,19 +86,19 @@ namespace Pulumi.Azure.DataProtection
     ///                         "2021-05-23T02:30:00Z",
     ///                     },
     ///                 },
-    ///             },
-    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs
-    ///             {
-    ///                 Name = "monthly",
     ///                 LifeCycles = new[]
     ///                 {
     ///                     new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs
     ///                     {
-    ///                         Duration = "P1D",
+    ///                         Duration = "P1W",
     ///                         DataStoreType = "VaultStore",
     ///                     },
     ///                 },
-    ///                 Priority = 15,
+    ///                 Name = "thursday",
+    ///                 Priority = 25,
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs
+    ///             {
     ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs
     ///                 {
     ///                     WeeksOfMonths = new[]
@@ -132,8 +115,25 @@ namespace Pulumi.Azure.DataProtection
     ///                         "2021-05-23T02:30:00Z",
     ///                     },
     ///                 },
+    ///                 LifeCycles = new[]
+    ///                 {
+    ///                     new Azure.DataProtection.Inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs
+    ///                     {
+    ///                         Duration = "P1D",
+    ///                         DataStoreType = "VaultStore",
+    ///                     },
+    ///                 },
+    ///                 Name = "monthly",
+    ///                 Priority = 15,
     ///             },
     ///         },
+    ///         Name = "example-backup-policy",
+    ///         VaultId = exampleBackupVault.Id,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         TimeZone = "India Standard Time",
     ///     });
     /// 
     /// });

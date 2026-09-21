@@ -33,45 +33,45 @@ import * as utilities from "../utilities";
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
  * const exampleJob = new azure.containerapp.Job("example", {
- *     name: "example-container-app-job",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     containerAppEnvironmentId: exampleEnvironment.id,
- *     replicaTimeoutInSeconds: 10,
- *     replicaRetryLimit: 10,
  *     manualTriggerConfig: {
  *         parallelism: 4,
  *         replicaCompletionCount: 1,
  *     },
  *     template: {
  *         containers: [{
- *             image: "repo/testcontainerAppsJob0:v1",
- *             name: "testcontainerappsjob0",
- *             readinessProbes: [{
- *                 transport: "HTTP",
- *                 port: 5000,
- *             }],
  *             livenessProbes: [{
- *                 transport: "HTTP",
- *                 port: 5000,
- *                 path: "/health",
  *                 headers: [{
  *                     name: "Cache-Control",
  *                     value: "no-cache",
  *                 }],
+ *                 transport: "HTTP",
+ *                 port: 5000,
+ *                 path: "/health",
  *                 initialDelay: 5,
  *                 intervalSeconds: 20,
  *                 timeout: 2,
  *                 failureCountThreshold: 1,
  *             }],
+ *             readinessProbes: [{
+ *                 transport: "HTTP",
+ *                 port: 5000,
+ *             }],
  *             startupProbes: [{
  *                 transport: "TCP",
  *                 port: 5000,
  *             }],
+ *             image: "repo/testcontainerAppsJob0:v1",
+ *             name: "testcontainerappsjob0",
  *             cpu: 0.5,
  *             memory: "1Gi",
  *         }],
  *     },
+ *     name: "example-container-app-job",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     replicaTimeoutInSeconds: 10,
+ *     replicaRetryLimit: 10,
  * });
  * ```
  *

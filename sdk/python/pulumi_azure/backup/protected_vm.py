@@ -320,16 +320,16 @@ class ProtectedVM(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_policy_vm = azure.backup.PolicyVM("example",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
             },
             retention_daily={
                 "count": 10,
-            })
+            },
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name)
         example = azure.compute.get_virtual_machine_output(name="example-vm",
             resource_group_name=example_resource_group.name)
         vm1 = azure.backup.ProtectedVM("vm1",
@@ -397,16 +397,16 @@ class ProtectedVM(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard")
         example_policy_vm = azure.backup.PolicyVM("example",
-            name="tfex-recovery-vault-policy",
-            resource_group_name=example_resource_group.name,
-            recovery_vault_name=example_vault.name,
             backup={
                 "frequency": "Daily",
                 "time": "23:00",
             },
             retention_daily={
                 "count": 10,
-            })
+            },
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example_resource_group.name,
+            recovery_vault_name=example_vault.name)
         example = azure.compute.get_virtual_machine_output(name="example-vm",
             resource_group_name=example_resource_group.name)
         vm1 = azure.backup.ProtectedVM("vm1",

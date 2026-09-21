@@ -516,12 +516,12 @@ class AutomaticCluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_automatic_cluster = azure.containerservice.AutomaticCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "Environment": "Production",
             })
@@ -549,22 +549,23 @@ class AutomaticCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         api = azure.network.Subnet("api",
-            name="example-api-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.1.0/24"],
             delegations=[{
-                "name": "aks-delegation",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.ContainerService/managedClusters",
                 },
-            }])
+                "name": "aks-delegation",
+            }],
+            name="example-api-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
         systemnode = azure.network.Subnet("systemnode",
             name="example-systemnode-subnet",
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.2.0/24"])
+            address_prefixes=["10.1.2.0/24"],
+            opts = pulumi.ResourceOptions(ignore_changes=["delegations"]))
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             resource_group_name=example.name,
             location=example.location,
@@ -574,9 +575,6 @@ class AutomaticCluster(pulumi.CustomResource):
             role_definition_name="Network Contributor",
             principal_id=example_user_assigned_identity.principal_id)
         example_automatic_cluster = azure.containerservice.AutomaticCluster("example",
-            name="example-aks",
-            location=example.location,
-            resource_group_name=example.name,
             hosted_system={
                 "node_subnet_id": node.id,
                 "system_node_subnet_id": systemnode.id,
@@ -587,7 +585,10 @@ class AutomaticCluster(pulumi.CustomResource):
             },
             api_server_access={
                 "subnet_id": api.id,
-            })
+            },
+            name="example-aks",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -642,12 +643,12 @@ class AutomaticCluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_automatic_cluster = azure.containerservice.AutomaticCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "Environment": "Production",
             })
@@ -675,22 +676,23 @@ class AutomaticCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         api = azure.network.Subnet("api",
-            name="example-api-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.1.0/24"],
             delegations=[{
-                "name": "aks-delegation",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.ContainerService/managedClusters",
                 },
-            }])
+                "name": "aks-delegation",
+            }],
+            name="example-api-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
         systemnode = azure.network.Subnet("systemnode",
             name="example-systemnode-subnet",
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.2.0/24"])
+            address_prefixes=["10.1.2.0/24"],
+            opts = pulumi.ResourceOptions(ignore_changes=["delegations"]))
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             resource_group_name=example.name,
             location=example.location,
@@ -700,9 +702,6 @@ class AutomaticCluster(pulumi.CustomResource):
             role_definition_name="Network Contributor",
             principal_id=example_user_assigned_identity.principal_id)
         example_automatic_cluster = azure.containerservice.AutomaticCluster("example",
-            name="example-aks",
-            location=example.location,
-            resource_group_name=example.name,
             hosted_system={
                 "node_subnet_id": node.id,
                 "system_node_subnet_id": systemnode.id,
@@ -713,7 +712,10 @@ class AutomaticCluster(pulumi.CustomResource):
             },
             api_server_access={
                 "subnet_id": api.id,
-            })
+            },
+            name="example-aks",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

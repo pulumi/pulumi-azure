@@ -46,14 +46,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basic_auth", new()
     ///     {
-    ///         Name = "basic_auth",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
     ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs
     ///         {
     ///             Username = "emma",
     ///             Password = "Ch4ngeM3!",
     ///         },
+    ///         Name = "basic_auth",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
     ///     });
     /// 
     /// });

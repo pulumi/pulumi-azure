@@ -514,15 +514,15 @@ class DiagnosticSetting(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard")
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("example",
-            name="example",
-            target_resource_id=example_key_vault.id,
-            storage_account_id=example_account.id,
             enabled_logs=[{
                 "category": "AuditEvent",
             }],
             enabled_metrics=[{
                 "category": "AllMetrics",
-            }])
+            }],
+            name="example",
+            target_resource_id=example_key_vault.id,
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers
@@ -611,15 +611,15 @@ class DiagnosticSetting(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard")
         example_diagnostic_setting = azure.monitoring.DiagnosticSetting("example",
-            name="example",
-            target_resource_id=example_key_vault.id,
-            storage_account_id=example_account.id,
             enabled_logs=[{
                 "category": "AuditEvent",
             }],
             enabled_metrics=[{
                 "category": "AllMetrics",
-            }])
+            }],
+            name="example",
+            target_resource_id=example_key_vault.id,
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers

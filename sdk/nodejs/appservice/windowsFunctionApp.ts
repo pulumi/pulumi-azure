@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     skuName: "Y1",
  * });
  * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-windows-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * ```
  *

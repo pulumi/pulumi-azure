@@ -36,27 +36,27 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "example-lb",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "primary",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "example-lb",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
  *     loadbalancerId: exampleLoadBalancer.id,
  *     name: "acctestpool",
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleNetworkInterfaceBackendAddressPoolAssociation = new azure.network.NetworkInterfaceBackendAddressPoolAssociation("example", {
  *     networkInterfaceId: exampleNetworkInterface.id,

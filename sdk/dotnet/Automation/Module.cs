@@ -38,13 +38,13 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var exampleModule = new Azure.Automation.Module("example", new()
     ///     {
-    ///         Name = "xActiveDirectory",
-    ///         ResourceGroupName = example.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
     ///         ModuleLink = new Azure.Automation.Inputs.ModuleModuleLinkArgs
     ///         {
     ///             Uri = "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
     ///         },
+    ///         Name = "xActiveDirectory",
+    ///         ResourceGroupName = example.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
     ///     });
     /// 
     /// });

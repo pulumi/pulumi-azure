@@ -45,6 +45,10 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
+    ///         Identity = new Azure.PostgreSql.Inputs.ServerIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-postgre-server",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -54,10 +58,6 @@ namespace Pulumi.Azure.PostgreSql
     ///         Version = "11",
     ///         StorageMb = 51200,
     ///         SslEnforcementEnabled = true,
-    ///         Identity = new Azure.PostgreSql.Inputs.ServerIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var server = new Azure.KeyVault.AccessPolicy("server", new()

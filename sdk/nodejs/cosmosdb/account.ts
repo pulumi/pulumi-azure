@@ -25,12 +25,11 @@ import * as utilities from "../utilities";
  *     max: 99999,
  * });
  * const db = new azure.cosmosdb.Account("db", {
- *     name: `tfex-cosmos-db-${ri.result}`,
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "MongoDB",
- *     automaticFailoverEnabled: true,
+ *     consistencyPolicy: {
+ *         consistencyLevel: "BoundedStaleness",
+ *         maxIntervalInSeconds: 300,
+ *         maxStalenessPrefix: 100000,
+ *     },
  *     capabilities: [
  *         {
  *             name: "EnableAggregationPipeline",
@@ -45,11 +44,6 @@ import * as utilities from "../utilities";
  *             name: "EnableMongo",
  *         },
  *     ],
- *     consistencyPolicy: {
- *         consistencyLevel: "BoundedStaleness",
- *         maxIntervalInSeconds: 300,
- *         maxStalenessPrefix: 100000,
- *     },
  *     geoLocations: [
  *         {
  *             location: "eastus",
@@ -60,6 +54,12 @@ import * as utilities from "../utilities";
  *             failoverPriority: 0,
  *         },
  *     ],
+ *     name: `tfex-cosmos-db-${ri.result}`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "MongoDB",
+ *     automaticFailoverEnabled: true,
  * });
  * ```
  *
@@ -76,10 +76,24 @@ import * as utilities from "../utilities";
  *     name: "example-resource",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     consistencyPolicy: {
+ *         consistencyLevel: "Strong",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [example.id],
+ *     },
+ *     capabilities: [{
+ *         name: "EnableMongo",
+ *     }],
+ *     geoLocations: [{
+ *         location: "westus",
+ *         failoverPriority: 0,
+ *     }],
  *     name: "example-resource",
  *     location: exampleAzurermResourceGroup.location,
  *     resourceGroupName: exampleAzurermResourceGroup.name,
- *     defaultIdentityType: std.joinOutput({
+ *     defaultIdentityType: std.join({
  *         separator: "=",
  *         input: [
  *             "UserAssignedIdentity",
@@ -88,20 +102,6 @@ import * as utilities from "../utilities";
  *     }).result,
  *     offerType: "Standard",
  *     kind: "MongoDB",
- *     capabilities: [{
- *         name: "EnableMongo",
- *     }],
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
- *     geoLocations: [{
- *         location: "westus",
- *         failoverPriority: 0,
- *     }],
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [example.id],
- *     },
  * });
  * ```
  * ## API Providers

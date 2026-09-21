@@ -229,8 +229,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="E0")
         example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("example",
-            name="default",
-            spring_cloud_service_id=example_spring_cloud_service.id,
             repositories=[{
                 "name": "fake",
                 "label": "master",
@@ -243,7 +241,9 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                 "strict_host_key_checking": False,
                 "username": "adminuser",
                 "password": "H@Sh1CoR3!",
-            }])
+            }],
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id)
         ```
 
         ## API Providers
@@ -298,8 +298,6 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="E0")
         example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("example",
-            name="default",
-            spring_cloud_service_id=example_spring_cloud_service.id,
             repositories=[{
                 "name": "fake",
                 "label": "master",
@@ -312,7 +310,9 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                 "strict_host_key_checking": False,
                 "username": "adminuser",
                 "password": "H@Sh1CoR3!",
-            }])
+            }],
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id)
         ```
 
         ## API Providers

@@ -64,13 +64,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example-signalr")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ServiceSkuArgs.builder()
  *                 .name("Standard_S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example-signalr")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
@@ -89,21 +89,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example-privateendpoint")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .subnetId(exampleSubnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name("psc-sig-test")
  *                 .isManualConnection(false)
  *                 .privateConnectionResourceId(exampleService.id())
  *                 .subresourceNames("signalr")
  *                 .build())
+ *             .name("example-privateendpoint")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *         var exampleServiceNetworkAcl = new ServiceNetworkAcl("exampleServiceNetworkAcl", ServiceNetworkAclArgs.builder()
- *             .signalrServiceId(exampleService.id())
- *             .defaultAction("Deny")
  *             .publicNetwork(ServiceNetworkAclPublicNetworkArgs.builder()
  *                 .allowedRequestTypes("ClientConnection")
  *                 .build())
@@ -111,6 +109,8 @@ import javax.annotation.Nullable;
  *                 .id(exampleEndpoint.id())
  *                 .allowedRequestTypes("ServerConnection")
  *                 .build())
+ *             .signalrServiceId(exampleService.id())
+ *             .defaultAction("Deny")
  *             .build());
  * 
  *     }

@@ -186,12 +186,12 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -250,12 +250,12 @@ class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",

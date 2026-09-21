@@ -68,9 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var parent = new TrafficManagerProfile("parent", TrafficManagerProfileArgs.builder()
- *             .name("parent-profile")
- *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod("Weighted")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName("parent-profile")
  *                 .ttl(100)
@@ -83,13 +80,13 @@ import javax.annotation.Nullable;
  *                 .timeoutInSeconds(9)
  *                 .toleratedNumberOfFailures(3)
  *                 .build())
+ *             .name("parent-profile")
+ *             .resourceGroupName(example.name())
+ *             .trafficRoutingMethod("Weighted")
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 
  *         var nested = new TrafficManagerProfile("nested", TrafficManagerProfileArgs.builder()
- *             .name("nested-profile")
- *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod("Priority")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName("nested-profile")
  *                 .ttl(30)
@@ -99,6 +96,9 @@ import javax.annotation.Nullable;
  *                 .port(443)
  *                 .path("/")
  *                 .build())
+ *             .name("nested-profile")
+ *             .resourceGroupName(example.name())
+ *             .trafficRoutingMethod("Priority")
  *             .build());
  * 
  *         var exampleTrafficManagerNestedEndpoint = new TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", TrafficManagerNestedEndpointArgs.builder()

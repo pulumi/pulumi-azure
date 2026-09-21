@@ -251,20 +251,15 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_backup_policy_data_lake_storage = azure.dataprotection.BackupPolicyDataLakeStorage("example",
-            name="example-backup-policy",
-            data_protection_backup_vault_id=example_backup_vault.id,
-            backup_schedules=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
-            default_retention_duration="P4M",
             retention_rules=[
                 {
                     "name": "weekly",
@@ -287,7 +282,12 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
                     "days_of_weeks": ["Tuesday"],
                     "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                 },
-            ])
+            ],
+            name="example-backup-policy",
+            data_protection_backup_vault_id=example_backup_vault.id,
+            backup_schedules=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
+            default_retention_duration="P4M")
         ```
 
         ## API Providers
@@ -334,20 +334,15 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_backup_policy_data_lake_storage = azure.dataprotection.BackupPolicyDataLakeStorage("example",
-            name="example-backup-policy",
-            data_protection_backup_vault_id=example_backup_vault.id,
-            backup_schedules=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
-            default_retention_duration="P4M",
             retention_rules=[
                 {
                     "name": "weekly",
@@ -370,7 +365,12 @@ class BackupPolicyDataLakeStorage(pulumi.CustomResource):
                     "days_of_weeks": ["Tuesday"],
                     "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                 },
-            ])
+            ],
+            name="example-backup-policy",
+            data_protection_backup_vault_id=example_backup_vault.id,
+            backup_schedules=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
+            default_retention_duration="P4M")
         ```
 
         ## API Providers

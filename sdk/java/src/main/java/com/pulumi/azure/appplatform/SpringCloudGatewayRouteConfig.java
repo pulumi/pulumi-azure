@@ -82,10 +82,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudGatewayRouteConfig = new SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", SpringCloudGatewayRouteConfigArgs.builder()
- *             .name("example")
- *             .springCloudGatewayId(exampleSpringCloudGateway.id())
- *             .springCloudAppId(exampleSpringCloudApp.id())
- *             .protocol("HTTPS")
  *             .routes(SpringCloudGatewayRouteConfigRouteArgs.builder()
  *                 .description("example description")
  *                 .filters(                
@@ -101,6 +97,10 @@ import javax.annotation.Nullable;
  *                     "tag1",
  *                     "tag2")
  *                 .build())
+ *             .name("example")
+ *             .springCloudGatewayId(exampleSpringCloudGateway.id())
+ *             .springCloudAppId(exampleSpringCloudApp.id())
+ *             .protocol("HTTPS")
  *             .build());
  * 
  *     }

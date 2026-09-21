@@ -46,10 +46,6 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
-//				Name:                   pulumi.String("example-cdn-profile"),
-//				ResourceGroupName:      example.Name,
-//				SkuName:                pulumi.String("Premium_AzureFrontDoor"),
-//				ResponseTimeoutSeconds: pulumi.Int(120),
 //				Identity: &cdn.FrontdoorProfileIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
@@ -61,6 +57,10 @@ import (
 //						MatchVariable: pulumi.String("RequestIPAddress"),
 //					},
 //				},
+//				Name:                   pulumi.String("example-cdn-profile"),
+//				ResourceGroupName:      example.Name,
+//				SkuName:                pulumi.String("Premium_AzureFrontDoor"),
+//				ResponseTimeoutSeconds: pulumi.Int(120),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

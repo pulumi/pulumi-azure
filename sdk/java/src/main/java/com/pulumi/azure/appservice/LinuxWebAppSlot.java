@@ -75,19 +75,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
+ *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-web-app")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot("exampleLinuxWebAppSlot", LinuxWebAppSlotArgs.builder()
- *             .name("example-slot")
- *             .appServiceId(exampleLinuxWebApp.id())
  *             .siteConfig(LinuxWebAppSlotSiteConfigArgs.builder()
  *                 .build())
+ *             .name("example-slot")
+ *             .appServiceId(exampleLinuxWebApp.id())
  *             .build());
  * 
  *     }

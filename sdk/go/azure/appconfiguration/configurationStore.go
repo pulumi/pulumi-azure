@@ -169,14 +169,6 @@ import (
 //				return err
 //			}
 //			_, err = appconfiguration.NewConfigurationStore(ctx, "example", &appconfiguration.ConfigurationStoreArgs{
-//				Name:                    pulumi.String("appConf2"),
-//				ResourceGroupName:       example.Name,
-//				Location:                example.Location,
-//				Sku:                     pulumi.String("standard"),
-//				LocalAuthEnabled:        pulumi.Bool(true),
-//				PublicNetworkAccess:     pulumi.String("Enabled"),
-//				PurgeProtectionEnabled:  pulumi.Bool(false),
-//				SoftDeleteRetentionDays: pulumi.Int(1),
 //				Identity: &appconfiguration.ConfigurationStoreIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
@@ -193,6 +185,14 @@ import (
 //						Location: pulumi.String("West US"),
 //					},
 //				},
+//				Name:                    pulumi.String("appConf2"),
+//				ResourceGroupName:       example.Name,
+//				Location:                example.Location,
+//				Sku:                     pulumi.String("standard"),
+//				LocalAuthEnabled:        pulumi.Bool(true),
+//				PublicNetworkAccess:     pulumi.String("Enabled"),
+//				PurgeProtectionEnabled:  pulumi.Bool(false),
+//				SoftDeleteRetentionDays: pulumi.Int(1),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("development"),
 //				},

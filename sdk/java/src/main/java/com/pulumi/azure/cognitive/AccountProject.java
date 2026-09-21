@@ -58,6 +58,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-account")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -65,20 +68,17 @@ import javax.annotation.Nullable;
  *             .skuName("S0")
  *             .projectManagementEnabled(true)
  *             .customSubdomainName("example-account-subdomain")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleAccountProject = new AccountProject("exampleAccountProject", AccountProjectArgs.builder()
+ *             .identity(AccountProjectIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-project")
  *             .cognitiveAccountId(exampleAccount.id())
  *             .location(example.location())
  *             .description("Example cognitive services project")
  *             .displayName("Example Project")
- *             .identity(AccountProjectIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 

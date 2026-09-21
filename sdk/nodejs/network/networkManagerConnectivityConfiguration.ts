@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scopeAccesses: [
  *         "Connectivity",
  *         "SecurityAdmin",
@@ -51,9 +51,10 @@ import * as utilities from "../utilities";
  *     networkManagerId: exampleNetworkManager.id,
  * });
  * const exampleNetworkManagerConnectivityConfiguration = new azure.network.NetworkManagerConnectivityConfiguration("example", {
- *     name: "example-connectivity-conf",
- *     networkManagerId: exampleNetworkManager.id,
- *     connectivityTopology: "HubAndSpoke",
+ *     hub: {
+ *         resourceId: exampleVirtualNetwork.id,
+ *         resourceType: "Microsoft.Network/virtualNetworks",
+ *     },
  *     appliesToGroups: [
  *         {
  *             groupConnectivity: "DirectlyConnected",
@@ -64,10 +65,9 @@ import * as utilities from "../utilities";
  *             networkGroupId: example2.id,
  *         },
  *     ],
- *     hub: {
- *         resourceId: exampleVirtualNetwork.id,
- *         resourceType: "Microsoft.Network/virtualNetworks",
- *     },
+ *     name: "example-connectivity-conf",
+ *     networkManagerId: exampleNetworkManager.id,
+ *     connectivityTopology: "HubAndSpoke",
  * });
  * ```
  *

@@ -580,10 +580,6 @@ class App(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_app = azure.containerapp.App("example",
-            name="example-app",
-            container_app_environment_id=example_environment.id,
-            resource_group_name=example.name,
-            revision_mode="Single",
             template={
                 "containers": [{
                     "name": "examplecontainerapp",
@@ -591,7 +587,11 @@ class App(pulumi.CustomResource):
                     "cpu": 0.25,
                     "memory": "0.5Gi",
                 }],
-            })
+            },
+            name="example-app",
+            container_app_environment_id=example_environment.id,
+            resource_group_name=example.name,
+            revision_mode="Single")
         ```
 
         ## API Providers
@@ -658,10 +658,6 @@ class App(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_app = azure.containerapp.App("example",
-            name="example-app",
-            container_app_environment_id=example_environment.id,
-            resource_group_name=example.name,
-            revision_mode="Single",
             template={
                 "containers": [{
                     "name": "examplecontainerapp",
@@ -669,7 +665,11 @@ class App(pulumi.CustomResource):
                     "cpu": 0.25,
                     "memory": "0.5Gi",
                 }],
-            })
+            },
+            name="example-app",
+            container_app_environment_id=example_environment.id,
+            resource_group_name=example.name,
+            revision_mode="Single")
         ```
 
         ## API Providers

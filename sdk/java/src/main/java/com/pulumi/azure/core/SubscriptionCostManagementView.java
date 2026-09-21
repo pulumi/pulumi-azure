@@ -50,19 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubscriptionCostManagementView("example", SubscriptionCostManagementViewArgs.builder()
- *             .name("example")
- *             .displayName("Cost View per Month")
- *             .chartType("StackedColumn")
- *             .accumulated(false)
- *             .subscriptionId("/subscription/00000000-0000-0000-0000-000000000000")
- *             .reportType("Usage")
- *             .timeframe("MonthToDate")
  *             .dataset(SubscriptionCostManagementViewDatasetArgs.builder()
- *                 .granularity("Monthly")
  *                 .aggregations(SubscriptionCostManagementViewDatasetAggregationArgs.builder()
  *                     .name("totalCost")
  *                     .columnName("Cost")
  *                     .build())
+ *                 .granularity("Monthly")
  *                 .build())
  *             .pivots(            
  *                 SubscriptionCostManagementViewPivotArgs.builder()
@@ -77,6 +70,13 @@ import javax.annotation.Nullable;
  *                     .type("Dimension")
  *                     .name("ResourceGroupName")
  *                     .build())
+ *             .name("example")
+ *             .displayName("Cost View per Month")
+ *             .chartType("StackedColumn")
+ *             .accumulated(false)
+ *             .subscriptionId("/subscription/00000000-0000-0000-0000-000000000000")
+ *             .reportType("Usage")
+ *             .timeframe("MonthToDate")
  *             .build());
  * 
  *     }

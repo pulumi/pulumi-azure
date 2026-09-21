@@ -489,15 +489,15 @@ class ComputeInstance(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -513,13 +513,13 @@ class ComputeInstance(pulumi.CustomResource):
         if ssh_key is None:
             ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
         example_compute_instance = azure.machinelearning.ComputeInstance("example",
+            ssh={
+                "public_key": ssh_key,
+            },
             name="example",
             machine_learning_workspace_id=example_workspace.id,
             virtual_machine_size="STANDARD_DS2_V2",
             authorization_type="personal",
-            ssh={
-                "public_key": ssh_key,
-            },
             subnet_resource_id=example_subnet.id,
             description="foo",
             tags={
@@ -604,15 +604,15 @@ class ComputeInstance(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -628,13 +628,13 @@ class ComputeInstance(pulumi.CustomResource):
         if ssh_key is None:
             ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
         example_compute_instance = azure.machinelearning.ComputeInstance("example",
+            ssh={
+                "public_key": ssh_key,
+            },
             name="example",
             machine_learning_workspace_id=example_workspace.id,
             virtual_machine_size="STANDARD_DS2_V2",
             authorization_type="personal",
-            ssh={
-                "public_key": ssh_key,
-            },
             subnet_resource_id=example_subnet.id,
             description="foo",
             tags={

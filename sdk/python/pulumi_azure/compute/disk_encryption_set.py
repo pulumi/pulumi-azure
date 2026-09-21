@@ -494,13 +494,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="des",
             resource_group_name=example.name,
             location=example.location,
-            key_vault_key_id=example_key.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            key_vault_key_id=example_key.id)
         example_disk = azure.keyvault.AccessPolicy("example-disk",
             key_vault_id=example_key_vault.id,
             tenant_id=example_disk_encryption_set.identity.tenant_id,
@@ -572,14 +572,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="des",
             resource_group_name=example.name,
             location=example.location,
             key_vault_key_id=example_key.versionless_id,
-            auto_key_rotation_enabled=True,
-            identity={
-                "type": "SystemAssigned",
-            })
+            auto_key_rotation_enabled=True)
         example_disk = azure.keyvault.AccessPolicy("example-disk",
             key_vault_id=example_key_vault.id,
             tenant_id=example_disk_encryption_set.identity.tenant_id,
@@ -702,13 +702,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="des",
             resource_group_name=example.name,
             location=example.location,
-            key_vault_key_id=example_key.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            key_vault_key_id=example_key.id)
         example_disk = azure.keyvault.AccessPolicy("example-disk",
             key_vault_id=example_key_vault.id,
             tenant_id=example_disk_encryption_set.identity.tenant_id,
@@ -780,14 +780,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_user]))
         example_disk_encryption_set = azure.compute.DiskEncryptionSet("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="des",
             resource_group_name=example.name,
             location=example.location,
             key_vault_key_id=example_key.versionless_id,
-            auto_key_rotation_enabled=True,
-            identity={
-                "type": "SystemAssigned",
-            })
+            auto_key_rotation_enabled=True)
         example_disk = azure.keyvault.AccessPolicy("example-disk",
             key_vault_id=example_key_vault.id,
             tenant_id=example_disk_encryption_set.identity.tenant_id,

@@ -39,9 +39,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
     ///     {
-    ///         Name = "example-actiongroup",
-    ///         ResourceGroupName = example.Name,
-    ///         ShortName = "exampleact",
     ///         WebhookReceivers = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
@@ -50,20 +47,21 @@ namespace Pulumi.Azure.Monitoring
     ///                 ServiceUri = "http://example.com/alert",
     ///             },
     ///         },
+    ///         Name = "example-actiongroup",
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "exampleact",
     ///     });
     /// 
     ///     // Example: Creates alert using the new Scheduled Query Rules metric
     ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("example", new()
     ///     {
-    ///         Name = "example-metricalert",
-    ///         ResourceGroupName = example.Name,
-    ///         Scopes = new[]
+    ///         Actions = new[]
     ///         {
-    ///             exampleAnalyticsWorkspace.Id,
+    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = exampleActionGroup.Id,
+    ///             },
     ///         },
-    ///         Description = "Action will be triggered when Average_% Idle Time metric is less than 10.",
-    ///         Frequency = "PT1M",
-    ///         WindowSize = "PT5M",
     ///         Criterias = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
@@ -75,24 +73,22 @@ namespace Pulumi.Azure.Monitoring
     ///                 Threshold = 10,
     ///             },
     ///         },
-    ///         Actions = new[]
+    ///         Name = "example-metricalert",
+    ///         ResourceGroupName = example.Name,
+    ///         Scopes = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
-    ///             {
-    ///                 ActionGroupId = exampleActionGroup.Id,
-    ///             },
+    ///             exampleAnalyticsWorkspace.Id,
     ///         },
+    ///         Description = "Action will be triggered when Average_% Idle Time metric is less than 10.",
+    ///         Frequency = "PT1M",
+    ///         WindowSize = "PT5M",
     ///     });
     /// 
     ///     // Example: LogToMetric Action for the named Computer
     ///     var exampleScheduledQueryRulesLog = new Azure.Monitoring.ScheduledQueryRulesLog("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Criteria = new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaArgs
     ///         {
-    ///             MetricName = "Average_% Idle Time",
     ///             Dimensions = new[]
     ///             {
     ///                 new Azure.Monitoring.Inputs.ScheduledQueryRulesLogCriteriaDimensionArgs
@@ -105,7 +101,11 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                 },
     ///             },
+    ///             MetricName = "Average_% Idle Time",
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         DataSourceId = exampleAnalyticsWorkspace.Id,
     ///         Description = "Scheduled query rule LogToMetric example",
     ///         Enabled = true,

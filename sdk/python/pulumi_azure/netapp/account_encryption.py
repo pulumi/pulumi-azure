@@ -257,16 +257,6 @@ class AccountEncryption(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="anfcmkakv",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            enabled_for_deployment=True,
-            enabled_for_template_deployment=True,
-            purge_protection_enabled=True,
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": "00000000-0000-0000-0000-000000000000",
@@ -290,7 +280,17 @@ class AccountEncryption(pulumi.CustomResource):
                         "Decrypt",
                     ],
                 },
-            ])
+            ],
+            name="anfcmkakv",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True,
+            purge_protection_enabled=True,
+            tenant_id="00000000-0000-0000-0000-000000000000",
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="anfencryptionkey",
             key_vault_id=example_key_vault.id,
@@ -305,13 +305,13 @@ class AccountEncryption(pulumi.CustomResource):
                 "wrapKey",
             ])
         example_account = azure.netapp.Account("example",
-            name="netappaccount",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name)
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
             user_assigned_identity_id=example_user_assigned_identity.id,
@@ -386,16 +386,6 @@ class AccountEncryption(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="anfcmkakv",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            enabled_for_deployment=True,
-            enabled_for_template_deployment=True,
-            purge_protection_enabled=True,
-            tenant_id="00000000-0000-0000-0000-000000000000",
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": "00000000-0000-0000-0000-000000000000",
@@ -419,7 +409,17 @@ class AccountEncryption(pulumi.CustomResource):
                         "Decrypt",
                     ],
                 },
-            ])
+            ],
+            name="anfcmkakv",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True,
+            purge_protection_enabled=True,
+            tenant_id="00000000-0000-0000-0000-000000000000",
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="anfencryptionkey",
             key_vault_id=example_key_vault.id,
@@ -434,13 +434,13 @@ class AccountEncryption(pulumi.CustomResource):
                 "wrapKey",
             ])
         example_account = azure.netapp.Account("example",
-            name="netappaccount",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name)
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
             user_assigned_identity_id=example_user_assigned_identity.id,

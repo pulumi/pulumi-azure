@@ -22,6 +22,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cognitive.Account("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -29,19 +32,16 @@ import * as utilities from "../utilities";
  *     skuName: "S0",
  *     projectManagementEnabled: true,
  *     customSubdomainName: "example-account-subdomain",
+ * });
+ * const exampleAccountProject = new azure.cognitive.AccountProject("example", {
  *     identity: {
  *         type: "SystemAssigned",
  *     },
- * });
- * const exampleAccountProject = new azure.cognitive.AccountProject("example", {
  *     name: "example-project",
  *     cognitiveAccountId: exampleAccount.id,
  *     location: example.location,
  *     description: "Example cognitive services project",
  *     displayName: "Example Project",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  *     tags: {
  *         Environment: "test",
  *     },

@@ -820,13 +820,13 @@ class Cluster(pulumi.CustomResource):
             name="example",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
             },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "Environment": "Production",
             })
@@ -892,13 +892,13 @@ class Cluster(pulumi.CustomResource):
             name="example",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
             },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "Environment": "Production",
             })

@@ -185,13 +185,13 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
             name="example-resources",
             location="West Europe")
         example_arc_machine = azure.arcmachine.ArcMachine("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-arcmachine",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            kind="SCVMM",
-            identity={
-                "type": "SystemAssigned",
-            })
+            kind="SCVMM")
         example_virtual_machine_manager_server = azure.systemcenter.VirtualMachineManagerServer("example",
             name="example-scvmmms",
             resource_group_name=example_resource_group.name,
@@ -217,8 +217,6 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_inventory_item_id=example2.inventory_items[0].id)
         example_virtual_machine_manager_virtual_machine_instance = azure.systemcenter.VirtualMachineManagerVirtualMachineInstance("example",
-            scoped_resource_id=example_arc_machine.id,
-            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             infrastructure={
                 "checkpoint_type": "Standard",
                 "system_center_virtual_machine_manager_cloud_id": example_virtual_machine_manager_cloud.id,
@@ -227,7 +225,15 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
             },
             operating_system={
                 "admin_password": "AdminPassword123!",
-            })
+            },
+            scoped_resource_id=example_arc_machine.id,
+            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "storageDisks",
+                    "hardware",
+                    "networkInterfaces",
+                    "operatingSystem.computerName",
+                ]))
         example_virtual_machine_manager_virtual_machine_instance_guest_agent = azure.systemcenter.VirtualMachineManagerVirtualMachineInstanceGuestAgent("example",
             scoped_resource_id=example_arc_machine.id,
             username="Administrator",
@@ -279,13 +285,13 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
             name="example-resources",
             location="West Europe")
         example_arc_machine = azure.arcmachine.ArcMachine("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-arcmachine",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            kind="SCVMM",
-            identity={
-                "type": "SystemAssigned",
-            })
+            kind="SCVMM")
         example_virtual_machine_manager_server = azure.systemcenter.VirtualMachineManagerServer("example",
             name="example-scvmmms",
             resource_group_name=example_resource_group.name,
@@ -311,8 +317,6 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_inventory_item_id=example2.inventory_items[0].id)
         example_virtual_machine_manager_virtual_machine_instance = azure.systemcenter.VirtualMachineManagerVirtualMachineInstance("example",
-            scoped_resource_id=example_arc_machine.id,
-            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             infrastructure={
                 "checkpoint_type": "Standard",
                 "system_center_virtual_machine_manager_cloud_id": example_virtual_machine_manager_cloud.id,
@@ -321,7 +325,15 @@ class VirtualMachineManagerVirtualMachineInstanceGuestAgent(pulumi.CustomResourc
             },
             operating_system={
                 "admin_password": "AdminPassword123!",
-            })
+            },
+            scoped_resource_id=example_arc_machine.id,
+            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
+            opts = pulumi.ResourceOptions(ignore_changes=[
+                    "storageDisks",
+                    "hardware",
+                    "networkInterfaces",
+                    "operatingSystem.computerName",
+                ]))
         example_virtual_machine_manager_virtual_machine_instance_guest_agent = azure.systemcenter.VirtualMachineManagerVirtualMachineInstanceGuestAgent("example",
             scoped_resource_id=example_arc_machine.id,
             username="Administrator",

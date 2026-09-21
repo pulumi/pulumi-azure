@@ -26,10 +26,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleCaaRecord = new azure.dns.CaaRecord("example", {
- *     name: "test",
- *     zoneName: exampleZone.name,
- *     resourceGroupName: example.name,
- *     ttl: 300,
  *     records: [
  *         {
  *             flags: 0,
@@ -52,6 +48,10 @@ import * as utilities from "../utilities";
  *             value: "mailto:user@nonexisting.tld",
  *         },
  *     ],
+ *     name: "test",
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: example.name,
+ *     ttl: 300,
  *     tags: {
  *         Environment: "Production",
  *     },

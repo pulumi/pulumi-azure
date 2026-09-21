@@ -48,6 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicySetDefinition("example", PolicySetDefinitionArgs.builder()
+ *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
+ *                 .version("1.0.*")
+ *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
+ *                 .parameterValues("""
+ *     {
+ *       \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}
+ *     }
+ *                 """)
+ *                 .build())
  *             .name("example")
  *             .policyType("Custom")
  *             .displayName("Example")
@@ -63,15 +72,6 @@ import javax.annotation.Nullable;
  *         }
  *     }
  *             """)
- *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
- *                 .version("1.0.*")
- *                 .policyDefinitionId("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988")
- *                 .parameterValues("""
- *     {
- *       \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}
- *     }
- *                 """)
- *                 .build())
  *             .build());
  * 
  *     }

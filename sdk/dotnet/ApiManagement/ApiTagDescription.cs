@@ -40,6 +40,11 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
     ///     {
+    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
+    ///         {
+    ///             ContentFormat = "swagger-link-json",
+    ///             ContentValue = "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+    ///         },
     ///         Name = "example-api",
     ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,
@@ -49,11 +54,6 @@ namespace Pulumi.Azure.ApiManagement
     ///         Protocols = new[]
     ///         {
     ///             "https",
-    ///         },
-    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
-    ///         {
-    ///             ContentFormat = "swagger-link-json",
-    ///             ContentValue = "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
     ///         },
     ///     });
     /// 

@@ -25,6 +25,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleResourceDeploymentScriptAzureCli = new azure.core.ResourceDeploymentScriptAzureCli("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "example-rdsac",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
@@ -35,10 +39,6 @@ import * as utilities from "../utilities";
  *     forceUpdateTag: "1",
  *     timeout: "PT30M",
  *     scriptContent: "            echo \\\"{\\\\\\\"name\\\\\\\":{\\\\\\\"displayName\\\\\\\":\\\\\\\"$1 $2\\\\\\\"}}\\\" > $AZ_SCRIPTS_OUTPUT_PATH\n",
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
  *     tags: {
  *         key: "value",
  *     },

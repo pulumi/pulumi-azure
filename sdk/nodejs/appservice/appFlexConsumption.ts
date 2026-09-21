@@ -39,6 +39,7 @@ import * as utilities from "../utilities";
  *     osType: "Linux",
  * });
  * const exampleAppFlexConsumption = new azure.appservice.AppFlexConsumption("example", {
+ *     siteConfig: {},
  *     name: "example-linux-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -51,7 +52,6 @@ import * as utilities from "../utilities";
  *     runtimeVersion: "20",
  *     maximumInstanceCount: 50,
  *     instanceMemoryInMb: 2048,
- *     siteConfig: {},
  * });
  * ```
  *

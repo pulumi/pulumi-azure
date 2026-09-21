@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleElasticSan = new azure.elasticsan.ElasticSan("example", {
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
  *     name: "examplees-es",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     baseSizeInTib: 1,
- *     sku: {
- *         name: "Premium_LRS",
- *     },
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
@@ -111,9 +111,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleVolumeGroup = new azure.elasticsan.VolumeGroup("example", {
- *     name: "example-esvg",
- *     elasticSanId: exampleElasticSan.id,
- *     encryptionType: "EncryptionAtRestWithCustomerManagedKey",
  *     encryption: {
  *         keyVaultKeyId: exampleKey.versionlessId,
  *         userAssignedIdentityId: exampleUserAssignedIdentity.id,
@@ -126,6 +123,9 @@ import * as utilities from "../utilities";
  *         subnetId: exampleSubnet.id,
  *         action: "Allow",
  *     }],
+ *     name: "example-esvg",
+ *     elasticSanId: exampleElasticSan.id,
+ *     encryptionType: "EncryptionAtRestWithCustomerManagedKey",
  * });
  * ```
  *

@@ -98,15 +98,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-mlw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
@@ -124,12 +124,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new ComputeCluster("test", ComputeClusterArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .vmPriority("LowPriority")
- *             .vmSize("Standard_DS2_v2")
- *             .machineLearningWorkspaceId(exampleWorkspace.id())
- *             .subnetResourceId(exampleSubnet.id())
  *             .scaleSettings(ComputeClusterScaleSettingsArgs.builder()
  *                 .minNodeCount(0)
  *                 .maxNodeCount(1)
@@ -138,6 +132,12 @@ import javax.annotation.Nullable;
  *             .identity(ComputeClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .vmPriority("LowPriority")
+ *             .vmSize("Standard_DS2_v2")
+ *             .machineLearningWorkspaceId(exampleWorkspace.id())
+ *             .subnetResourceId(exampleSubnet.id())
  *             .build());
  * 
  *     }

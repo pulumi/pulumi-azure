@@ -64,8 +64,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVnpGatewayNatRule(ctx, "example", &network.VnpGatewayNatRuleArgs{
-//				Name:         pulumi.String("example-vpngatewaynatrule"),
-//				VpnGatewayId: exampleVpnGateway.ID().ToIDOutput().ToStringOutput(),
 //				ExternalMappings: network.VnpGatewayNatRuleExternalMappingArray{
 //					&network.VnpGatewayNatRuleExternalMappingArgs{
 //						AddressSpace: pulumi.String("192.168.21.0/26"),
@@ -76,6 +74,8 @@ import (
 //						AddressSpace: pulumi.String("10.4.0.0/26"),
 //					},
 //				},
+//				Name:         pulumi.String("example-vpngatewaynatrule"),
+//				VpnGatewayId: exampleVpnGateway.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

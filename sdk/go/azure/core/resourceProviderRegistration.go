@@ -60,13 +60,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
-//				Name: pulumi.String("Microsoft.ContainerService"),
 //				Features: core.ResourceProviderRegistrationFeatureArray{
 //					&core.ResourceProviderRegistrationFeatureArgs{
 //						Name:       pulumi.String("AKS-DataPlaneAutoApprove"),
 //						Registered: pulumi.Bool(true),
 //					},
 //				},
+//				Name: pulumi.String("Microsoft.ContainerService"),
 //			})
 //			if err != nil {
 //				return err

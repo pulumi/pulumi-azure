@@ -376,32 +376,32 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
                 "environment": "Production",
             })
         trust = azure.network.Subnet("trust",
-            name="example-trust-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "trusted",
                 "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
+                "name": "trusted",
+            }],
+            name="example-trust-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         trust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("trust",
             subnet_id=trust.id,
             network_security_group_id=example_network_security_group.id)
         untrust = azure.network.Subnet("untrust",
-            name="example-untrust-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "untrusted",
                 "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
+                "name": "untrusted",
+            }],
+            name="example-untrust-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         untrust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("untrust",
             subnet_id=untrust.id,
             network_security_group_id=example_network_security_group.id)
@@ -410,29 +410,29 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.locatio)
         example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("example",
-            name="example-rulestack-rule",
-            rulestack_id=example_local_rulestack.id,
-            priority=1001,
-            action="Allow",
-            applications=["any"],
             destination={
                 "cidrs": ["any"],
             },
             source={
                 "cidrs": ["any"],
-            })
-        example_next_generation_firewall_virtual_network_local_rulestack = azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example",
-            name="example-ngfwvn",
-            resource_group_name=example.name,
+            },
+            name="example-rulestack-rule",
             rulestack_id=example_local_rulestack.id,
+            priority=1001,
+            action="Allow",
+            applications=["any"])
+        example_next_generation_firewall_virtual_network_local_rulestack = azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example",
             network_profile={
-                "public_ip_address_ids": [example_public_ip.id],
                 "vnet_configuration": {
                     "virtual_network_id": example_virtual_network.id,
                     "trusted_subnet_id": trust.id,
                     "untrusted_subnet_id": untrust.id,
                 },
-            })
+                "public_ip_address_ids": [example_public_ip.id],
+            },
+            name="example-ngfwvn",
+            resource_group_name=example.name,
+            rulestack_id=example_local_rulestack.id)
         ```
 
         ## API Providers
@@ -502,32 +502,32 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
                 "environment": "Production",
             })
         trust = azure.network.Subnet("trust",
-            name="example-trust-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "trusted",
                 "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
+                "name": "trusted",
+            }],
+            name="example-trust-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         trust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("trust",
             subnet_id=trust.id,
             network_security_group_id=example_network_security_group.id)
         untrust = azure.network.Subnet("untrust",
-            name="example-untrust-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "untrusted",
                 "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
+                "name": "untrusted",
+            }],
+            name="example-untrust-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         untrust_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("untrust",
             subnet_id=untrust.id,
             network_security_group_id=example_network_security_group.id)
@@ -536,29 +536,29 @@ class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.locatio)
         example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("example",
-            name="example-rulestack-rule",
-            rulestack_id=example_local_rulestack.id,
-            priority=1001,
-            action="Allow",
-            applications=["any"],
             destination={
                 "cidrs": ["any"],
             },
             source={
                 "cidrs": ["any"],
-            })
-        example_next_generation_firewall_virtual_network_local_rulestack = azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example",
-            name="example-ngfwvn",
-            resource_group_name=example.name,
+            },
+            name="example-rulestack-rule",
             rulestack_id=example_local_rulestack.id,
+            priority=1001,
+            action="Allow",
+            applications=["any"])
+        example_next_generation_firewall_virtual_network_local_rulestack = azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example",
             network_profile={
-                "public_ip_address_ids": [example_public_ip.id],
                 "vnet_configuration": {
                     "virtual_network_id": example_virtual_network.id,
                     "trusted_subnet_id": trust.id,
                     "untrusted_subnet_id": untrust.id,
                 },
-            })
+                "public_ip_address_ids": [example_public_ip.id],
+            },
+            name="example-ngfwvn",
+            resource_group_name=example.name,
+            rulestack_id=example_local_rulestack.id)
         ```
 
         ## API Providers

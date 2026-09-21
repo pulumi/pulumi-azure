@@ -78,9 +78,6 @@ import (
 //				return err
 //			}
 //			_, err = paloalto.NewNextGenerationFirewallVirtualHubLocalRulestack(ctx, "example", &paloalto.NextGenerationFirewallVirtualHubLocalRulestackArgs{
-//				Name:              pulumi.String("example-ngfwvn"),
-//				ResourceGroupName: example.Name,
-//				RulestackId:       pulumi.Any(exampleAzurermPaloAltoLocalRulestack.Id),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
 //						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -88,6 +85,9 @@ import (
 //					VirtualHubId:              exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //					NetworkVirtualApplianceId: exampleVirtualNetworkAppliance.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:              pulumi.String("example-ngfwvn"),
+//				ResourceGroupName: example.Name,
+//				RulestackId:       pulumi.Any(exampleAzurermPaloAltoLocalRulestack.Id),
 //			})
 //			if err != nil {
 //				return err

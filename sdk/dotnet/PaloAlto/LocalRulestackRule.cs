@@ -37,15 +37,6 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("example", new()
     ///     {
-    ///         Name = "example-rule",
-    ///         RulestackId = exampleLocalRulestack.Id,
-    ///         Priority = 1000,
-    ///         Action = "Allow",
-    ///         Protocol = "application-default",
-    ///         Applications = new[]
-    ///         {
-    ///             "any",
-    ///         },
     ///         Source = new Azure.PaloAlto.Inputs.LocalRulestackRuleSourceArgs
     ///         {
     ///             Cidrs = new[]
@@ -59,6 +50,15 @@ namespace Pulumi.Azure.PaloAlto
     ///             {
     ///                 "192.168.16.0/24",
     ///             },
+    ///         },
+    ///         Name = "example-rule",
+    ///         RulestackId = exampleLocalRulestack.Id,
+    ///         Priority = 1000,
+    ///         Action = "Allow",
+    ///         Protocol = "application-default",
+    ///         Applications = new[]
+    ///         {
+    ///             "any",
     ///         },
     ///     });
     /// 

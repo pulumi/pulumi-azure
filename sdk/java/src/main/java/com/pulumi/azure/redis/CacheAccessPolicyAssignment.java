@@ -54,6 +54,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -61,11 +66,6 @@ import javax.annotation.Nullable;
  *             .family("P")
  *             .skuName("Premium")
  *             .enableNonSslPort(false)
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .maxmemoryReserved(2)
- *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy("allkeys-lru")
- *                 .build())
  *             .build());
  * 
  *         var exampleCacheAccessPolicyAssignment = new CacheAccessPolicyAssignment("exampleCacheAccessPolicyAssignment", CacheAccessPolicyAssignmentArgs.builder()

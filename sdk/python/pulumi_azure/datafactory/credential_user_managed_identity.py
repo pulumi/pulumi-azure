@@ -237,13 +237,13 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
             name="my-user",
             resource_group_name=example.name)
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
         test = azure.datafactory.CredentialUserManagedIdentity("test",
             name=example_user_assigned_identity.name,
             description="Short description of this credential",
@@ -306,13 +306,13 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
             name="my-user",
             resource_group_name=example.name)
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
         test = azure.datafactory.CredentialUserManagedIdentity("test",
             name=example_user_assigned_identity.name,
             description="Short description of this credential",

@@ -223,13 +223,13 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             domain_name="my-domain.contoso.com",
             validation_type="dns-txt-token")
         example_txt_record = azure.dns.TxtRecord("example",
+            records=[{
+                "value": example_static_web_app_custom_domain.validation_token,
+            }],
             name="_dnsauth.my-domain",
             zone_name="contoso.com",
             resource_group_name=example.name,
-            ttl=300,
-            records=[{
-                "value": example_static_web_app_custom_domain.validation_token,
-            }])
+            ttl=300)
         ```
 
         ## API Providers
@@ -318,13 +318,13 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             domain_name="my-domain.contoso.com",
             validation_type="dns-txt-token")
         example_txt_record = azure.dns.TxtRecord("example",
+            records=[{
+                "value": example_static_web_app_custom_domain.validation_token,
+            }],
             name="_dnsauth.my-domain",
             zone_name="contoso.com",
             resource_group_name=example.name,
-            ttl=300,
-            records=[{
-                "value": example_static_web_app_custom_domain.validation_token,
-            }])
+            ttl=300)
         ```
 
         ## API Providers

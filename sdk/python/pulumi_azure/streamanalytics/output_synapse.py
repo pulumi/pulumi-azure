@@ -324,15 +324,15 @@ class OutputSynapse(pulumi.CustomResource):
             name="example",
             storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sql_administrator_login_password="H@Sh1CoR3!")
         example_output_synapse = azure.streamanalytics.OutputSynapse("example",
             name="example-output-synapse",
             stream_analytics_job_name=example.name,
@@ -403,15 +403,15 @@ class OutputSynapse(pulumi.CustomResource):
             name="example",
             storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
-            sql_administrator_login_password="H@Sh1CoR3!",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sql_administrator_login_password="H@Sh1CoR3!")
         example_output_synapse = azure.streamanalytics.OutputSynapse("example",
             name="example-output-synapse",
             stream_analytics_job_name=example.name,

@@ -79,15 +79,15 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &machinelearning.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -115,12 +115,6 @@ import (
 //				return err
 //			}
 //			_, err = machinelearning.NewComputeCluster(ctx, "test", &machinelearning.ComputeClusterArgs{
-//				Name:                       pulumi.String("example"),
-//				Location:                   example.Location,
-//				VmPriority:                 pulumi.String("LowPriority"),
-//				VmSize:                     pulumi.String("Standard_DS2_v2"),
-//				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				SubnetResourceId:           exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				ScaleSettings: &machinelearning.ComputeClusterScaleSettingsArgs{
 //					MinNodeCount:                    pulumi.Int(0),
 //					MaxNodeCount:                    pulumi.Int(1),
@@ -129,6 +123,12 @@ import (
 //				Identity: &machinelearning.ComputeClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                       pulumi.String("example"),
+//				Location:                   example.Location,
+//				VmPriority:                 pulumi.String("LowPriority"),
+//				VmSize:                     pulumi.String("Standard_DS2_v2"),
+//				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SubnetResourceId:           exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

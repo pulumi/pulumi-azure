@@ -172,12 +172,12 @@ class CacheAccessPolicy(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
         example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
-            name="example",
-            hpc_cache_id=example_cache.id,
             access_rules=[{
                 "scope": "default",
                 "access": "rw",
-            }])
+            }],
+            name="example",
+            hpc_cache_id=example_cache.id)
         ```
 
         ## API Providers
@@ -240,12 +240,12 @@ class CacheAccessPolicy(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
         example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
-            name="example",
-            hpc_cache_id=example_cache.id,
             access_rules=[{
                 "scope": "default",
                 "access": "rw",
-            }])
+            }],
+            name="example",
+            hpc_cache_id=example_cache.id)
         ```
 
         ## API Providers

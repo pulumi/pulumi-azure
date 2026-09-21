@@ -193,15 +193,15 @@ class Gateway(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
         example_gateway = azure.apimanagement.Gateway("example",
-            name="example-gateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
             location_data={
                 "name": "example name",
                 "city": "example city",
                 "district": "example district",
                 "region": "example region",
-            })
+            },
+            name="example-gateway",
+            api_management_id=example_service.id,
+            description="Example API Management gateway")
         ```
 
         ## API Providers
@@ -253,15 +253,15 @@ class Gateway(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
         example_gateway = azure.apimanagement.Gateway("example",
-            name="example-gateway",
-            api_management_id=example_service.id,
-            description="Example API Management gateway",
             location_data={
                 "name": "example name",
                 "city": "example city",
                 "district": "example district",
                 "region": "example region",
-            })
+            },
+            name="example-gateway",
+            api_management_id=example_service.id,
+            description="Example API Management gateway")
         ```
 
         ## API Providers

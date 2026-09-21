@@ -85,21 +85,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-windows-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageAccountName(exampleAccount.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()
+ *             .siteConfig(WindowsFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-slot")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig(WindowsFunctionAppSlotSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *     }

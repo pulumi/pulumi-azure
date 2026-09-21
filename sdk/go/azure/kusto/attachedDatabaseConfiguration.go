@@ -37,25 +37,25 @@ import (
 //				return err
 //			}
 //			followerCluster, err := kusto.NewCluster(ctx, "follower_cluster", &kusto.ClusterArgs{
-//				Name:              pulumi.String("cluster1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("cluster1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			followedCluster, err := kusto.NewCluster(ctx, "followed_cluster", &kusto.ClusterArgs{
-//				Name:              pulumi.String("cluster2"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("cluster2"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -79,12 +79,6 @@ import (
 //				return err
 //			}
 //			_, err = kusto.NewAttachedDatabaseConfiguration(ctx, "example", &kusto.AttachedDatabaseConfigurationArgs{
-//				Name:              pulumi.String("configuration1"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ClusterName:       followerCluster.Name,
-//				ClusterId:         followedCluster.ID().ToIDOutput().ToStringOutput(),
-//				DatabaseName:      exampleDatabase.Name,
 //				Sharing: &kusto.AttachedDatabaseConfigurationSharingArgs{
 //					ExternalTablesToExcludes: pulumi.StringArray{
 //						pulumi.String("ExternalTable2"),
@@ -111,6 +105,12 @@ import (
 //						pulumi.String("Table1"),
 //					},
 //				},
+//				Name:              pulumi.String("configuration1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ClusterName:       followerCluster.Name,
+//				ClusterId:         followedCluster.ID().ToIDOutput().ToStringOutput(),
+//				DatabaseName:      exampleDatabase.Name,
 //			})
 //			if err != nil {
 //				return err

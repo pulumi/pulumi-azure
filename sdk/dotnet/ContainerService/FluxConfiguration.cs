@@ -30,10 +30,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-aks",
-    ///         Location = "West Europe",
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "example-aks",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -44,6 +40,10 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-aks",
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "example-aks",
     ///     });
     /// 
     ///     var exampleKubernetesClusterExtension = new Azure.ContainerService.KubernetesClusterExtension("example", new()
@@ -55,9 +55,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleFluxConfiguration = new Azure.ContainerService.FluxConfiguration("example", new()
     ///     {
-    ///         Name = "example-fc",
-    ///         ClusterId = test.Id,
-    ///         Namespace = "flux",
     ///         GitRepository = new Azure.ContainerService.Inputs.FluxConfigurationGitRepositoryArgs
     ///         {
     ///             Url = "https://github.com/Azure/arc-k8s-demo",
@@ -68,13 +65,8 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             new Azure.ContainerService.Inputs.FluxConfigurationKustomizationArgs
     ///             {
-    ///                 Name = "kustomization-1",
     ///                 PostBuild = new Azure.ContainerService.Inputs.FluxConfigurationKustomizationPostBuildArgs
     ///                 {
-    ///                     Substitute = 
-    ///                     {
-    ///                         { "example_var", "substitute_with_this" },
-    ///                     },
     ///                     SubstituteFroms = new[]
     ///                     {
     ///                         new Azure.ContainerService.Inputs.FluxConfigurationKustomizationPostBuildSubstituteFromArgs
@@ -83,9 +75,17 @@ namespace Pulumi.Azure.ContainerService
     ///                             Name = "example-configmap",
     ///                         },
     ///                     },
+    ///                     Substitute = 
+    ///                     {
+    ///                         { "example_var", "substitute_with_this" },
+    ///                     },
     ///                 },
+    ///                 Name = "kustomization-1",
     ///             },
     ///         },
+    ///         Name = "example-fc",
+    ///         ClusterId = test.Id,
+    ///         Namespace = "flux",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

@@ -24,6 +24,10 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleFlexibleServer = new azure.mysql.FlexibleServer("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "example-mysqlfs",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -31,10 +35,6 @@ import * as utilities from "../utilities";
  *     administratorPassword: "QAZwsx123",
  *     skuName: "B_Standard_B1ms",
  *     zone: "2",
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
  * });
  * const exampleFlexibleServerActiveDirectoryAdministratory = new azure.mysql.FlexibleServerActiveDirectoryAdministratory("example", {
  *     serverId: exampleFlexibleServer.id,

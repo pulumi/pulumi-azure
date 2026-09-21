@@ -30,15 +30,15 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
     ///     {
+    ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
+    ///         {
+    ///             Name = "example-value",
+    ///         },
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         BaseSizeInTib = 1,
     ///         ExtendedSizeInTib = 2,
-    ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
-    ///         {
-    ///             Name = "example-value",
-    ///         },
     ///     });
     /// 
     /// });

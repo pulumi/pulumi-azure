@@ -264,10 +264,6 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-origin-group",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -278,7 +274,11 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-origin-group",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         ```
 
         ## Import
@@ -324,10 +324,6 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-origin-group",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -338,7 +334,11 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-origin-group",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         ```
 
         ## Import

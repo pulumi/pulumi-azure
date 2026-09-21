@@ -32,14 +32,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("example", new()
     ///     {
-    ///         OperationId = "user-delete",
-    ///         ApiName = example.Apply(getApiResult =&gt; getApiResult.Name),
-    ///         ApiManagementName = example.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
-    ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
-    ///         DisplayName = "Delete User Operation",
-    ///         Method = "DELETE",
-    ///         UrlTemplate = "/users/{id}/delete",
-    ///         Description = "This can only be done by the logged in user.",
+    ///         Responses = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
+    ///             {
+    ///                 StatusCode = 200,
+    ///             },
+    ///         },
     ///         TemplateParameters = new[]
     ///         {
     ///             new Azure.ApiManagement.Inputs.ApiOperationTemplateParameterArgs
@@ -49,13 +48,14 @@ namespace Pulumi.Azure.ApiManagement
     ///                 Required = true,
     ///             },
     ///         },
-    ///         Responses = new[]
-    ///         {
-    ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs
-    ///             {
-    ///                 StatusCode = 200,
-    ///             },
-    ///         },
+    ///         OperationId = "user-delete",
+    ///         ApiName = example.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = example.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         DisplayName = "Delete User Operation",
+    ///         Method = "DELETE",
+    ///         UrlTemplate = "/users/{id}/delete",
+    ///         Description = "This can only be done by the logged in user.",
     ///     });
     /// 
     /// });

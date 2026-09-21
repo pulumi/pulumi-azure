@@ -50,7 +50,21 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewAccountTableProperties(ctx, "example", &storage.AccountTablePropertiesArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Logging: &storage.AccountTablePropertiesLoggingArgs{
+//					Version:             pulumi.String("1.0"),
+//					Delete:              pulumi.Bool(true),
+//					Read:                pulumi.Bool(true),
+//					Write:               pulumi.Bool(true),
+//					RetentionPolicyDays: pulumi.Int(7),
+//				},
+//				HourMetrics: &storage.AccountTablePropertiesHourMetricsArgs{
+//					Version:             pulumi.String("1.0"),
+//					RetentionPolicyDays: pulumi.Int(7),
+//				},
+//				MinuteMetrics: &storage.AccountTablePropertiesMinuteMetricsArgs{
+//					Version:             pulumi.String("1.0"),
+//					RetentionPolicyDays: pulumi.Int(7),
+//				},
 //				CorsRules: storage.AccountTablePropertiesCorsRuleArray{
 //					&storage.AccountTablePropertiesCorsRuleArgs{
 //						AllowedOrigins: pulumi.StringArray{
@@ -69,21 +83,7 @@ import (
 //						MaxAgeInSeconds: pulumi.Int(500),
 //					},
 //				},
-//				Logging: &storage.AccountTablePropertiesLoggingArgs{
-//					Version:             pulumi.String("1.0"),
-//					Delete:              pulumi.Bool(true),
-//					Read:                pulumi.Bool(true),
-//					Write:               pulumi.Bool(true),
-//					RetentionPolicyDays: pulumi.Int(7),
-//				},
-//				HourMetrics: &storage.AccountTablePropertiesHourMetricsArgs{
-//					Version:             pulumi.String("1.0"),
-//					RetentionPolicyDays: pulumi.Int(7),
-//				},
-//				MinuteMetrics: &storage.AccountTablePropertiesMinuteMetricsArgs{
-//					Version:             pulumi.String("1.0"),
-//					RetentionPolicyDays: pulumi.Int(7),
-//				},
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

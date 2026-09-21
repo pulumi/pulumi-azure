@@ -66,17 +66,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicyVMWorkload = new PolicyVMWorkload("examplePolicyVMWorkload", PolicyVMWorkloadArgs.builder()
- *             .name("example-bpvmw")
- *             .resourceGroupName(example.name())
- *             .recoveryVaultName(exampleVault.name())
- *             .workloadType("SQLDataBase")
  *             .settings(PolicyVMWorkloadSettingsArgs.builder()
  *                 .timeZone("UTC")
  *                 .compressionEnabled(false)
  *                 .build())
  *             .protectionPolicies(            
  *                 PolicyVMWorkloadProtectionPolicyArgs.builder()
- *                     .policyType("Full")
  *                     .backup(PolicyVMWorkloadProtectionPolicyBackupArgs.builder()
  *                         .frequency("Daily")
  *                         .time("15:00")
@@ -84,16 +79,21 @@ import javax.annotation.Nullable;
  *                     .retentionDaily(PolicyVMWorkloadProtectionPolicyRetentionDailyArgs.builder()
  *                         .count(8)
  *                         .build())
+ *                     .policyType("Full")
  *                     .build(),
  *                 PolicyVMWorkloadProtectionPolicyArgs.builder()
- *                     .policyType("Log")
  *                     .backup(PolicyVMWorkloadProtectionPolicyBackupArgs.builder()
  *                         .frequencyInMinutes(15)
  *                         .build())
  *                     .simpleRetention(PolicyVMWorkloadProtectionPolicySimpleRetentionArgs.builder()
  *                         .count(8)
  *                         .build())
+ *                     .policyType("Log")
  *                     .build())
+ *             .name("example-bpvmw")
+ *             .resourceGroupName(example.name())
+ *             .recoveryVaultName(exampleVault.name())
+ *             .workloadType("SQLDataBase")
  *             .build());
  * 
  *     }

@@ -69,11 +69,6 @@ import (
 //				return err
 //			}
 //			exampleFirewall, err := network.NewFirewall(ctx, "example", &network.FirewallArgs{
-//				Name:              pulumi.String("testfirewall"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("AZFW_VNet"),
-//				SkuTier:           pulumi.String("Standard"),
 //				IpConfigurations: network.FirewallIpConfigurationArray{
 //					&network.FirewallIpConfigurationArgs{
 //						Name:              pulumi.String("configuration"),
@@ -81,16 +76,16 @@ import (
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("testfirewall"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("AZFW_VNet"),
+//				SkuTier:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewFirewallNatRuleCollection(ctx, "example", &network.FirewallNatRuleCollectionArgs{
-//				Name:              pulumi.String("testcollection"),
-//				AzureFirewallName: exampleFirewall.Name,
-//				ResourceGroupName: example.Name,
-//				Priority:          pulumi.Int(100),
-//				Action:            pulumi.String("Dnat"),
 //				Rules: network.FirewallNatRuleCollectionRuleArray{
 //					&network.FirewallNatRuleCollectionRuleArgs{
 //						Name: pulumi.String("testrule"),
@@ -111,6 +106,11 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("testcollection"),
+//				AzureFirewallName: exampleFirewall.Name,
+//				ResourceGroupName: example.Name,
+//				Priority:          pulumi.Int(100),
+//				Action:            pulumi.String("Dnat"),
 //			})
 //			if err != nil {
 //				return err

@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DataShare
     /// 
     ///     var exampleAccount = new Azure.DataShare.Account("example", new()
     ///     {
-    ///         Name = "example-dsa",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-dsa",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
@@ -45,17 +45,17 @@ namespace Pulumi.Azure.DataShare
     /// 
     ///     var exampleShare = new Azure.DataShare.Share("example", new()
     ///     {
-    ///         Name = "example_dss",
-    ///         AccountId = exampleAccount.Id,
-    ///         Kind = "CopyBased",
-    ///         Description = "example desc",
-    ///         Terms = "example terms",
     ///         SnapshotSchedule = new Azure.DataShare.Inputs.ShareSnapshotScheduleArgs
     ///         {
     ///             Name = "example-ss",
     ///             Recurrence = "Day",
     ///             StartTime = "2020-04-17T04:47:52.9614956Z",
     ///         },
+    ///         Name = "example_dss",
+    ///         AccountId = exampleAccount.Id,
+    ///         Kind = "CopyBased",
+    ///         Description = "example desc",
+    ///         Terms = "example terms",
     ///     });
     /// 
     /// });

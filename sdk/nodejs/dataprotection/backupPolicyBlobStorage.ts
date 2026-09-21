@@ -27,14 +27,8 @@ import * as utilities from "../utilities";
  *     redundancy: "LocallyRedundant",
  * });
  * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("example", {
- *     name: "example-backup-policy",
- *     vaultId: exampleBackupVault.id,
- *     operationalDefaultRetentionDuration: "P30D",
- *     vaultDefaultRetentionDuration: "P7D",
  *     retentionRules: [
  *         {
- *             name: "Weekly",
- *             priority: 20,
  *             lifeCycle: {
  *                 duration: "P90D",
  *                 dataStoreType: "VaultStore",
@@ -42,10 +36,10 @@ import * as utilities from "../utilities";
  *             criteria: {
  *                 daysOfWeeks: ["Monday"],
  *             },
+ *             name: "Weekly",
+ *             priority: 20,
  *         },
  *         {
- *             name: "Monthly",
- *             priority: 10,
  *             lifeCycle: {
  *                 duration: "P180D",
  *                 dataStoreType: "VaultStore",
@@ -53,10 +47,10 @@ import * as utilities from "../utilities";
  *             criteria: {
  *                 daysOfMonths: [1],
  *             },
+ *             name: "Monthly",
+ *             priority: 10,
  *         },
  *         {
- *             name: "Yearly",
- *             priority: 5,
  *             lifeCycle: {
  *                 duration: "P365D",
  *                 dataStoreType: "VaultStore",
@@ -65,8 +59,14 @@ import * as utilities from "../utilities";
  *                 monthsOfYears: ["January"],
  *                 daysOfMonths: [1],
  *             },
+ *             name: "Yearly",
+ *             priority: 5,
  *         },
  *     ],
+ *     name: "example-backup-policy",
+ *     vaultId: exampleBackupVault.id,
+ *     operationalDefaultRetentionDuration: "P30D",
+ *     vaultDefaultRetentionDuration: "P7D",
  * });
  * ```
  *

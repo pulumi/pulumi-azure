@@ -79,17 +79,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .applicationStack(LinuxFunctionAppSiteConfigApplicationStackArgs.builder()
+ *                     .pythonVersion("3.9")
+ *                     .build())
+ *                 .build())
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
- *                 .applicationStack(LinuxFunctionAppSiteConfigApplicationStackArgs.builder()
- *                     .pythonVersion("3.9")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()
@@ -150,7 +150,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
  * import com.pulumi.azure.appservice.inputs.FunctionAppFunctionFileArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -187,29 +186,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .applicationStack(WindowsFunctionAppSiteConfigApplicationStackArgs.builder()
+ *                     .dotnetVersion("6")
+ *                     .build())
+ *                 .build())
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
- *                 .applicationStack(WindowsFunctionAppSiteConfigApplicationStackArgs.builder()
- *                     .dotnetVersion("6")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppFunction = new FunctionAppFunction("exampleFunctionAppFunction", FunctionAppFunctionArgs.builder()
+ *             .files(FunctionAppFunctionFileArgs.builder()
+ *                 .name("run.csx")
+ *                 .content(StdFunctions.file(Map.of("input", "exampledata/run.csx")).result())
+ *                 .build())
  *             .name("example-function-app-function")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .language("CSharp")
- *             .files(FunctionAppFunctionFileArgs.builder()
- *                 .name("run.csx")
- *                 .content(StdFunctions.file(FileArgs.builder()
- *                     .input("exampledata/run.csx")
- *                     .build()).result())
- *                 .build())
  *             .testData(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("name", "Azure")

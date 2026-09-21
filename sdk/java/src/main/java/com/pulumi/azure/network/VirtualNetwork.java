@@ -72,13 +72,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
- *             .name("example-network")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .addressSpaces("10.0.0.0/16")
- *             .dnsServers(            
- *                 "10.0.0.4",
- *                 "10.0.0.5")
  *             .subnets(            
  *                 VirtualNetworkSubnetArgs.builder()
  *                     .name("subnet1")
@@ -89,6 +82,13 @@ import javax.annotation.Nullable;
  *                     .addressPrefixes("10.0.2.0/24")
  *                     .securityGroup(exampleNetworkSecurityGroup.id())
  *                     .build())
+ *             .name("example-network")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces("10.0.0.0/16")
+ *             .dnsServers(            
+ *                 "10.0.0.4",
+ *                 "10.0.0.5")
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

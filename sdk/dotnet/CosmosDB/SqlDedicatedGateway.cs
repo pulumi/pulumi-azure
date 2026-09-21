@@ -30,11 +30,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "example-ca",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
     ///             ConsistencyLevel = "BoundedStaleness",
@@ -47,6 +42,11 @@ namespace Pulumi.Azure.CosmosDB
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "example-ca",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
     ///     });
     /// 
     ///     var exampleSqlDedicatedGateway = new Azure.CosmosDB.SqlDedicatedGateway("example", new()

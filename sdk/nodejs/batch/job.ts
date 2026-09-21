@@ -23,11 +23,6 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const examplePool = new azure.batch.Pool("example", {
- *     name: "examplepool",
- *     resourceGroupName: example.name,
- *     accountName: exampleAccount.name,
- *     nodeAgentSkuId: "batch.node.ubuntu 22.04",
- *     vmSize: "STANDARD_A1_V2",
  *     fixedScale: {
  *         targetDedicatedNodes: 1,
  *     },
@@ -37,6 +32,11 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     name: "examplepool",
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount.name,
+ *     nodeAgentSkuId: "batch.node.ubuntu 22.04",
+ *     vmSize: "STANDARD_A1_V2",
  * });
  * const exampleJob = new azure.batch.Job("example", {
  *     name: "examplejob",

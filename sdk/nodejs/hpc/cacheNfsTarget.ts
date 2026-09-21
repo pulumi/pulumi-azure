@@ -51,14 +51,14 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "examplenic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleVm.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "examplenic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const customData = `#!/bin/bash
  * sudo -i 
@@ -74,18 +74,6 @@ import * as utilities from "../utilities";
  * exportfs -arv
  * `;
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "examplevm",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_F2",
- *     adminUsername: "adminuser",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: std.file({
- *             input: "~/.ssh/id_rsa.pub",
- *         }).then(invoke => invoke.result),
- *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -96,16 +84,23 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: std.file({
+ *             input: "~/.ssh/id_rsa.pub",
+ *         }).result,
+ *     }],
+ *     name: "examplevm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_F2",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     customData: std.base64encode({
  *         input: customData,
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * const exampleCacheNfsTarget = new azure.hpc.CacheNfsTarget("example", {
- *     name: "examplehpcnfstarget",
- *     resourceGroupName: example.name,
- *     cacheName: exampleCache.name,
- *     targetHostName: exampleLinuxVirtualMachine.privateIpAddress,
- *     usageModel: "READ_HEAVY_INFREQ",
  *     namespaceJunctions: [
  *         {
  *             namespacePath: "/nfs/a1",
@@ -117,6 +112,11 @@ import * as utilities from "../utilities";
  *             nfsExport: "/export/b",
  *         },
  *     ],
+ *     name: "examplehpcnfstarget",
+ *     resourceGroupName: example.name,
+ *     cacheName: exampleCache.name,
+ *     targetHostName: exampleLinuxVirtualMachine.privateIpAddress,
+ *     usageModel: "READ_HEAVY_INFREQ",
  * });
  * ```
  *

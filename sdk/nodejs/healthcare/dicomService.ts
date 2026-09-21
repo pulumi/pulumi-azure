@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  *     location: "east us",
  * });
  * const testDicomService = new azure.healthcare.DicomService("test", {
- *     name: "tfexDicom",
- *     workspaceId: test.id,
- *     location: "east us",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "tfexDicom",
+ *     workspaceId: test.id,
+ *     location: "east us",
  *     tags: {
  *         environment: "None",
  *     },

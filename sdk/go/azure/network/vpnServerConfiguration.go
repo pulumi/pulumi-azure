@@ -37,12 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVpnServerConfiguration(ctx, "test", &network.VpnServerConfigurationArgs{
-//				Name:              pulumi.String("example-config"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VpnAuthenticationTypes: pulumi.StringArray{
-//					pulumi.String("Certificate"),
-//				},
 //				ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
 //					&network.VpnServerConfigurationClientRootCertificateArgs{
 //						Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
@@ -70,6 +64,12 @@ import (
 // `),
 //
 //					},
+//				},
+//				Name:              pulumi.String("example-config"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				VpnAuthenticationTypes: pulumi.StringArray{
+//					pulumi.String("Certificate"),
 //				},
 //			})
 //			if err != nil {

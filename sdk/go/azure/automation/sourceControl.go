@@ -46,16 +46,16 @@ import (
 //				return err
 //			}
 //			_, err = automation.NewSourceControl(ctx, "example", &automation.SourceControlArgs{
-//				Name:                pulumi.String("example"),
-//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				FolderPath:          pulumi.String("runbook"),
 //				Security: &automation.SourceControlSecurityArgs{
 //					Token:     pulumi.String("ghp_xxx"),
 //					TokenType: pulumi.String("PersonalAccessToken"),
 //				},
-//				RepositoryUrl:     pulumi.String("https://github.com/foo/bat.git"),
-//				SourceControlType: pulumi.String("GitHub"),
-//				Branch:            pulumi.String("main"),
+//				Name:                pulumi.String("example"),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				FolderPath:          pulumi.String("runbook"),
+//				RepositoryUrl:       pulumi.String("https://github.com/foo/bat.git"),
+//				SourceControlType:   pulumi.String("GitHub"),
+//				Branch:              pulumi.String("main"),
 //			})
 //			if err != nil {
 //				return err

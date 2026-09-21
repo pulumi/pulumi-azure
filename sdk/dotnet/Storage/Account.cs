@@ -89,11 +89,6 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Name = "storageaccountname",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AccountTier = "Standard",
-    ///         AccountReplicationType = "LRS",
     ///         NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
     ///         {
     ///             DefaultAction = "Deny",
@@ -106,6 +101,11 @@ namespace Pulumi.Azure.Storage
     ///                 exampleSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },

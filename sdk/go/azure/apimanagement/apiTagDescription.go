@@ -48,6 +48,10 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
+//				Import: &apimanagement.ApiImportArgs{
+//					ContentFormat: pulumi.String("swagger-link-json"),
+//					ContentValue:  pulumi.String("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json"),
+//				},
 //				Name:              pulumi.String("example-api"),
 //				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
@@ -56,10 +60,6 @@ import (
 //				Path:              pulumi.String("example"),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("https"),
-//				},
-//				Import: &apimanagement.ApiImportArgs{
-//					ContentFormat: pulumi.String("swagger-link-json"),
-//					ContentValue:  pulumi.String("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json"),
 //				},
 //			})
 //			if err != nil {

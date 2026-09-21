@@ -37,10 +37,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.frontdoor.Frontdoor;
  * import com.pulumi.azure.frontdoor.FrontdoorArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
- * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolBackendArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolHealthProbeArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolBackendArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorRoutingRuleArgs;
  * import com.pulumi.azure.frontdoor.RulesEngine;
@@ -68,24 +68,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoor = new Frontdoor("exampleFrontdoor", FrontdoorArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
+ *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
+ *                 .name("exampleHealthProbeSetting1")
+ *                 .build())
+ *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
+ *                 .name("exampleLoadBalancingSettings1")
+ *                 .build())
  *             .backendPools(FrontdoorBackendPoolArgs.builder()
- *                 .name("exampleBackendBing")
- *                 .loadBalancingName("exampleLoadBalancingSettings1")
- *                 .healthProbeName("exampleHealthProbeSetting1")
  *                 .backends(FrontdoorBackendPoolBackendArgs.builder()
  *                     .hostHeader("www.bing.com")
  *                     .address("www.bing.com")
  *                     .httpPort(80)
  *                     .httpsPort(443)
  *                     .build())
- *                 .build())
- *             .backendPoolHealthProbes(FrontdoorBackendPoolHealthProbeArgs.builder()
- *                 .name("exampleHealthProbeSetting1")
- *                 .build())
- *             .backendPoolLoadBalancings(FrontdoorBackendPoolLoadBalancingArgs.builder()
- *                 .name("exampleLoadBalancingSettings1")
+ *                 .name("exampleBackendBing")
+ *                 .loadBalancingName("exampleLoadBalancingSettings1")
+ *                 .healthProbeName("exampleHealthProbeSetting1")
  *                 .build())
  *             .frontendEndpoints(FrontdoorFrontendEndpointArgs.builder()
  *                 .name("exampleFrontendEndpoint1")
@@ -99,16 +97,13 @@ import javax.annotation.Nullable;
  *                 .patternsToMatches("/*")
  *                 .frontendEndpoints("exampleFrontendEndpoint1")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleRulesEngine = new RulesEngine("exampleRulesEngine", RulesEngineArgs.builder()
- *             .name("exampleRulesEngineConfig1")
- *             .frontdoorName(exampleFrontdoor.name())
- *             .resourceGroupName(exampleFrontdoor.resourceGroupName())
  *             .rules(            
  *                 RulesEngineRuleArgs.builder()
- *                     .name("debuggingoutput")
- *                     .priority(1)
  *                     .action(RulesEngineRuleActionArgs.builder()
  *                         .responseHeaders(RulesEngineRuleActionResponseHeaderArgs.builder()
  *                             .headerActionType("Append")
@@ -116,17 +111,10 @@ import javax.annotation.Nullable;
  *                             .value("Append Header Rule")
  *                             .build())
  *                         .build())
+ *                     .name("debuggingoutput")
+ *                     .priority(1)
  *                     .build(),
  *                 RulesEngineRuleArgs.builder()
- *                     .name("overwriteorigin")
- *                     .priority(2)
- *                     .matchConditions(RulesEngineRuleMatchConditionArgs.builder()
- *                         .variable("RequestMethod")
- *                         .operator("Equal")
- *                         .values(                        
- *                             "GET",
- *                             "POST")
- *                         .build())
  *                     .action(RulesEngineRuleActionArgs.builder()
  *                         .responseHeaders(                        
  *                             RulesEngineRuleActionResponseHeaderArgs.builder()
@@ -140,7 +128,19 @@ import javax.annotation.Nullable;
  *                                 .value("true")
  *                                 .build())
  *                         .build())
+ *                     .matchConditions(RulesEngineRuleMatchConditionArgs.builder()
+ *                         .variable("RequestMethod")
+ *                         .operator("Equal")
+ *                         .values(                        
+ *                             "GET",
+ *                             "POST")
+ *                         .build())
+ *                     .name("overwriteorigin")
+ *                     .priority(2)
  *                     .build())
+ *             .name("exampleRulesEngineConfig1")
+ *             .frontdoorName(exampleFrontdoor.name())
+ *             .resourceGroupName(exampleFrontdoor.resourceGroupName())
  *             .build());
  * 
  *     }

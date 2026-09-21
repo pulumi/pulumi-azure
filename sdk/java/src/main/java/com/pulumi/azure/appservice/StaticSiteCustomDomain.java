@@ -137,13 +137,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value(exampleStaticSiteCustomDomain.validationToken())
+ *                 .build())
  *             .name("_dnsauth.my-domain")
  *             .zoneName("contoso.com")
  *             .resourceGroupName(example.name())
  *             .ttl(300)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleStaticSiteCustomDomain.validationToken())
- *                 .build())
  *             .build());
  * 
  *     }

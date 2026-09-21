@@ -61,7 +61,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///     var exampleCertificateContacts = new Azure.KeyVault.CertificateContacts("example", new()
     ///     {
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         Contacts = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.CertificateContactsContactArgs
@@ -75,6 +74,7 @@ namespace Pulumi.Azure.KeyVault
     ///                 Email = "example2@example.com",
     ///             },
     ///         },
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

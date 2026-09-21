@@ -1360,6 +1360,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             sku_name="FC1",
             os_type="Linux")
         example_app_flex_consumption = azure.appservice.AppFlexConsumption("example",
+            site_config={},
             name="example-linux-function-app",
             resource_group_name=example.name,
             location=example.location,
@@ -1375,8 +1376,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             runtime_name="node",
             runtime_version="20",
             maximum_instance_count=50,
-            instance_memory_in_mb=2048,
-            site_config={})
+            instance_memory_in_mb=2048)
         ```
 
         ## API Providers
@@ -1489,6 +1489,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             sku_name="FC1",
             os_type="Linux")
         example_app_flex_consumption = azure.appservice.AppFlexConsumption("example",
+            site_config={},
             name="example-linux-function-app",
             resource_group_name=example.name,
             location=example.location,
@@ -1504,8 +1505,7 @@ class AppFlexConsumption(pulumi.CustomResource):
             runtime_name="node",
             runtime_version="20",
             maximum_instance_count=50,
-            instance_memory_in_mb=2048,
-            site_config={})
+            instance_memory_in_mb=2048)
         ```
 
         ## API Providers

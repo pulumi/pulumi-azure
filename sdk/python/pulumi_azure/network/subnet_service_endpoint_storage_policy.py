@@ -226,9 +226,6 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_subnet_service_endpoint_storage_policy = azure.network.SubnetServiceEndpointStoragePolicy("example",
-            name="example-policy",
-            resource_group_name=example.name,
-            location=example.location,
             definitions=[
                 {
                     "name": "name1",
@@ -253,7 +250,10 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
                         "/services/Azure/WebPI",
                     ],
                 },
-            ])
+            ],
+            name="example-policy",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers
@@ -305,9 +305,6 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_subnet_service_endpoint_storage_policy = azure.network.SubnetServiceEndpointStoragePolicy("example",
-            name="example-policy",
-            resource_group_name=example.name,
-            location=example.location,
             definitions=[
                 {
                     "name": "name1",
@@ -332,7 +329,10 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
                         "/services/Azure/WebPI",
                     ],
                 },
-            ])
+            ],
+            name="example-policy",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers

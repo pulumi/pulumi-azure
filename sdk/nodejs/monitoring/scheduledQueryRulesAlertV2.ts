@@ -41,39 +41,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
  * const exampleScheduledQueryRulesAlertV2 = new azure.monitoring.ScheduledQueryRulesAlertV2("example", {
- *     name: "example-msqrv2",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     evaluationFrequency: "PT10M",
- *     windowDuration: "PT10M",
- *     scopes: exampleInsights.id,
- *     severity: 4,
- *     criterias: [{
- *         query: `requests
- *   | summarize CountByCountry=count() by client_CountryOrRegion
- * `,
- *         timeAggregationMethod: "Maximum",
- *         threshold: 17.5,
- *         operator: "LessThan",
- *         resourceIdColumn: "client_CountryOrRegion",
- *         metricMeasureColumn: "CountByCountry",
- *         dimensions: [{
- *             name: "client_CountryOrRegion",
- *             operator: "Exclude",
- *             values: ["123"],
- *         }],
- *         failingPeriods: {
- *             minimumFailingPeriodsToTriggerAlert: 1,
- *             numberOfEvaluationPeriods: 1,
- *         },
- *     }],
- *     autoMitigationEnabled: true,
- *     workspaceAlertsStorageEnabled: false,
- *     description: "example sqr",
- *     displayName: "example-sqr",
- *     enabled: true,
- *     queryTimeRangeOverride: "PT1H",
- *     skipQueryValidation: true,
  *     action: {
  *         actionGroups: [exampleActionGroup.id],
  *         customProperties: {
@@ -86,6 +53,39 @@ import * as utilities from "../utilities";
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     criterias: [{
+ *         failingPeriods: {
+ *             minimumFailingPeriodsToTriggerAlert: 1,
+ *             numberOfEvaluationPeriods: 1,
+ *         },
+ *         dimensions: [{
+ *             name: "client_CountryOrRegion",
+ *             operator: "Exclude",
+ *             values: ["123"],
+ *         }],
+ *         query: `requests
+ *   | summarize CountByCountry=count() by client_CountryOrRegion
+ * `,
+ *         timeAggregationMethod: "Maximum",
+ *         threshold: 17.5,
+ *         operator: "LessThan",
+ *         resourceIdColumn: "client_CountryOrRegion",
+ *         metricMeasureColumn: "CountByCountry",
+ *     }],
+ *     name: "example-msqrv2",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     evaluationFrequency: "PT10M",
+ *     windowDuration: "PT10M",
+ *     scopes: exampleInsights.id,
+ *     severity: 4,
+ *     autoMitigationEnabled: true,
+ *     workspaceAlertsStorageEnabled: false,
+ *     description: "example sqr",
+ *     displayName: "example-sqr",
+ *     enabled: true,
+ *     queryTimeRangeOverride: "PT1H",
+ *     skipQueryValidation: true,
  *     tags: {
  *         key: "value",
  *         key2: "value2",

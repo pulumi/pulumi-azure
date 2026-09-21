@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.NetworkManagerConnectivityConfiguration;
  * import com.pulumi.azure.network.NetworkManagerConnectivityConfigurationArgs;
- * import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs;
  * import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationHubArgs;
+ * import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs;
  * import com.pulumi.azure.network.NetworkManagerDeployment;
  * import com.pulumi.azure.network.NetworkManagerDeploymentArgs;
  * import java.util.ArrayList;
@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-network-manager")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-network-manager")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scopeAccesses(            
  *                 "Connectivity",
  *                 "SecurityAdmin")
@@ -95,17 +95,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerConnectivityConfiguration = new NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", NetworkManagerConnectivityConfigurationArgs.builder()
- *             .name("example-connectivity-conf")
- *             .networkManagerId(exampleNetworkManager.id())
- *             .connectivityTopology("HubAndSpoke")
- *             .appliesToGroups(NetworkManagerConnectivityConfigurationAppliesToGroupArgs.builder()
- *                 .groupConnectivity("None")
- *                 .networkGroupId(exampleNetworkManagerNetworkGroup.id())
- *                 .build())
  *             .hub(NetworkManagerConnectivityConfigurationHubArgs.builder()
  *                 .resourceId(exampleVirtualNetwork.id())
  *                 .resourceType("Microsoft.Network/virtualNetworks")
  *                 .build())
+ *             .appliesToGroups(NetworkManagerConnectivityConfigurationAppliesToGroupArgs.builder()
+ *                 .groupConnectivity("None")
+ *                 .networkGroupId(exampleNetworkManagerNetworkGroup.id())
+ *                 .build())
+ *             .name("example-connectivity-conf")
+ *             .networkManagerId(exampleNetworkManager.id())
+ *             .connectivityTopology("HubAndSpoke")
  *             .build());
  * 
  *         var exampleNetworkManagerDeployment = new NetworkManagerDeployment("exampleNetworkManagerDeployment", NetworkManagerDeploymentArgs.builder()
@@ -146,12 +146,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.NetworkManagerAdminRuleCollectionArgs;
  * import com.pulumi.azure.network.NetworkManagerAdminRule;
  * import com.pulumi.azure.network.NetworkManagerAdminRuleArgs;
- * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleSourceArgs;
  * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleDestinationArgs;
+ * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleSourceArgs;
  * import com.pulumi.azure.network.NetworkManagerDeployment;
  * import com.pulumi.azure.network.NetworkManagerDeploymentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -175,12 +174,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-network-manager")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-network-manager")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scopeAccesses(            
  *                 "Connectivity",
  *                 "SecurityAdmin")
@@ -212,6 +211,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule("exampleNetworkManagerAdminRule", NetworkManagerAdminRuleArgs.builder()
+ *             .destinations(NetworkManagerAdminRuleDestinationArgs.builder()
+ *                 .addressPrefixType("IPPrefix")
+ *                 .addressPrefix("*")
+ *                 .build())
+ *             .sources(NetworkManagerAdminRuleSourceArgs.builder()
+ *                 .addressPrefixType("ServiceTag")
+ *                 .addressPrefix("Internet")
+ *                 .build())
  *             .name("example-nmar")
  *             .adminRuleCollectionId(exampleNetworkManagerAdminRuleCollection.id())
  *             .action("Deny")
@@ -221,14 +228,6 @@ import javax.annotation.Nullable;
  *             .protocol("Tcp")
  *             .sourcePortRanges("80")
  *             .destinationPortRanges("80")
- *             .sources(NetworkManagerAdminRuleSourceArgs.builder()
- *                 .addressPrefixType("ServiceTag")
- *                 .addressPrefix("Internet")
- *                 .build())
- *             .destinations(NetworkManagerAdminRuleDestinationArgs.builder()
- *                 .addressPrefixType("IPPrefix")
- *                 .addressPrefix("*")
- *                 .build())
  *             .build());
  * 
  *         var exampleNetworkManagerDeployment = new NetworkManagerDeployment("exampleNetworkManagerDeployment", NetworkManagerDeploymentArgs.builder()
@@ -236,10 +235,10 @@ import javax.annotation.Nullable;
  *             .location("eastus")
  *             .scopeAccess("SecurityAdmin")
  *             .configurationIds(exampleNetworkManagerSecurityAdminConfiguration.id())
- *             .triggers(Map.of("source_port_ranges", StdFunctions.join(JoinArgs.builder()
- *                 .separator(",")
- *                 .input(exampleNetworkManagerAdminRule.sourcePortRanges())
- *                 .build()).applyValue(_invoke -> _invoke.result())))
+ *             .triggers(Map.of("source_port_ranges", StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", ","),
+ *                 Map.entry("input", exampleNetworkManagerAdminRule.sourcePortRanges())
+ *             )).result()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleNetworkManagerAdminRule)
  *                 .build());

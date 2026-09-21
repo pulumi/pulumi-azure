@@ -64,10 +64,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpacecraft = new Spacecraft("exampleSpacecraft", SpacecraftArgs.builder()
- *             .name("example-spacecraft")
- *             .resourceGroupName(example.name())
- *             .location("westeurope")
- *             .noradId("12345")
  *             .links(SpacecraftLinkArgs.builder()
  *                 .bandwidthMhz(100.0)
  *                 .centerFrequencyMhz(101.0)
@@ -75,6 +71,10 @@ import javax.annotation.Nullable;
  *                 .polarization("LHCP")
  *                 .name("examplename")
  *                 .build())
+ *             .name("example-spacecraft")
+ *             .resourceGroupName(example.name())
+ *             .location("westeurope")
+ *             .noradId("12345")
  *             .twoLineElements(            
  *                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
  *                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495")
@@ -90,12 +90,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("orbitalgateway")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Orbital/orbitalGateways")
  *                     .actions(                    
@@ -104,31 +99,36 @@ import javax.annotation.Nullable;
  *                         "Microsoft.Network/virtualNetworks/read",
  *                         "Microsoft.Network/publicIPAddresses/read")
  *                     .build())
+ *                 .name("orbitalgateway")
  *                 .build())
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
  *         var exampleContactProfile = new ContactProfile("exampleContactProfile", ContactProfileArgs.builder()
- *             .name("example-contactprofile")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .minimumVariableContactDuration("PT1M")
- *             .autoTracking("disabled")
  *             .links(ContactProfileLinkArgs.builder()
  *                 .channels(ContactProfileLinkChannelArgs.builder()
- *                     .name("channelname")
- *                     .bandwidthMhz(100.0)
- *                     .centerFrequencyMhz(101.0)
  *                     .endPoints(ContactProfileLinkChannelEndPointArgs.builder()
  *                         .endPointName("AQUA_command")
  *                         .ipAddress("10.0.1.0")
  *                         .port("49153")
  *                         .protocol("TCP")
  *                         .build())
+ *                     .name("channelname")
+ *                     .bandwidthMhz(100.0)
+ *                     .centerFrequencyMhz(101.0)
  *                     .build())
  *                 .direction("Uplink")
  *                 .name("RHCP_UL")
  *                 .polarization("RHCP")
  *                 .build())
+ *             .name("example-contactprofile")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .minimumVariableContactDuration("PT1M")
+ *             .autoTracking("disabled")
  *             .networkConfigurationSubnetId(exampleSubnet.id())
  *             .build());
  * 

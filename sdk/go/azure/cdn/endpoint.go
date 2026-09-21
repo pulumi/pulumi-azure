@@ -54,16 +54,16 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewEndpoint(ctx, "example", &cdn.EndpointArgs{
-//				Name:              pulumi.String("example"),
-//				ProfileName:       exampleProfile.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Origins: cdn.EndpointOriginArray{
 //					&cdn.EndpointOriginArgs{
 //						Name:     pulumi.String("example"),
 //						HostName: pulumi.String("www.contoso.com"),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				ProfileName:       exampleProfile.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -185,13 +185,13 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_service = azure.signalr.Service("example",
-            name="example-signalr",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_S1",
                 "capacity": 1,
-            })
+            },
+            name="example-signalr",
+            location=example.location,
+            resource_group_name=example.name)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             resource_group_name=example.name,
@@ -204,26 +204,26 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
         example_endpoint = azure.privatelink.Endpoint("example",
-            name="example-privateendpoint",
-            resource_group_name=example.name,
-            location=example.location,
-            subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
                 "is_manual_connection": False,
                 "private_connection_resource_id": example_service.id,
                 "subresource_names": ["signalr"],
-            })
+            },
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
+            subnet_id=example_subnet.id)
         example_service_network_acl = azure.signalr.ServiceNetworkAcl("example",
-            signalr_service_id=example_service.id,
-            default_action="Deny",
             public_network={
                 "allowed_request_types": ["ClientConnection"],
             },
             private_endpoints=[{
                 "id": example_endpoint.id,
                 "allowed_request_types": ["ServerConnection"],
-            }])
+            }],
+            signalr_service_id=example_service.id,
+            default_action="Deny")
         ```
 
         ## API Providers
@@ -268,13 +268,13 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_service = azure.signalr.Service("example",
-            name="example-signalr",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_S1",
                 "capacity": 1,
-            })
+            },
+            name="example-signalr",
+            location=example.location,
+            resource_group_name=example.name)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             resource_group_name=example.name,
@@ -287,26 +287,26 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
         example_endpoint = azure.privatelink.Endpoint("example",
-            name="example-privateendpoint",
-            resource_group_name=example.name,
-            location=example.location,
-            subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
                 "is_manual_connection": False,
                 "private_connection_resource_id": example_service.id,
                 "subresource_names": ["signalr"],
-            })
+            },
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
+            subnet_id=example_subnet.id)
         example_service_network_acl = azure.signalr.ServiceNetworkAcl("example",
-            signalr_service_id=example_service.id,
-            default_action="Deny",
             public_network={
                 "allowed_request_types": ["ClientConnection"],
             },
             private_endpoints=[{
                 "id": example_endpoint.id,
                 "allowed_request_types": ["ServerConnection"],
-            }])
+            }],
+            signalr_service_id=example_service.id,
+            default_action="Deny")
         ```
 
         ## API Providers

@@ -136,10 +136,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-origin-group",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -150,7 +146,11 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-origin-group",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -169,18 +169,18 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             name="ExampleRuleSet",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-            name="example-customDomain",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
-                input=[
-                    "contoso",
-                    example_zone.name,
-                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
-            })
+            },
+            name="example-customDomain",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name=std.join(separator=".",
+                input=[
+                    "contoso",
+                    example_zone.name,
+                ])["result"])
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
@@ -254,10 +254,6 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-origin-group",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -268,7 +264,11 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-origin-group",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -287,18 +287,18 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             name="ExampleRuleSet",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-            name="example-customDomain",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
-                input=[
-                    "contoso",
-                    example_zone.name,
-                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
-            })
+            },
+            name="example-customDomain",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name=std.join(separator=".",
+                input=[
+                    "contoso",
+                    example_zone.name,
+                ])["result"])
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,

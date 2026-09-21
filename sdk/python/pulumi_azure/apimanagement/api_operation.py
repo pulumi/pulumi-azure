@@ -413,6 +413,14 @@ class ApiOperation(pulumi.CustomResource):
             resource_group_name="search-service",
             revision="2")
         example_api_operation = azure.apimanagement.ApiOperation("example",
+            responses=[{
+                "status_code": 200,
+            }],
+            template_parameters=[{
+                "name": "id",
+                "type": "number",
+                "required": True,
+            }],
             operation_id="user-delete",
             api_name=example.name,
             api_management_name=example.api_management_name,
@@ -420,15 +428,7 @@ class ApiOperation(pulumi.CustomResource):
             display_name="Delete User Operation",
             method="DELETE",
             url_template="/users/{id}/delete",
-            description="This can only be done by the logged in user.",
-            template_parameters=[{
-                "name": "id",
-                "type": "number",
-                "required": True,
-            }],
-            responses=[{
-                "status_code": 200,
-            }])
+            description="This can only be done by the logged in user.")
         ```
 
         ## API Providers
@@ -481,6 +481,14 @@ class ApiOperation(pulumi.CustomResource):
             resource_group_name="search-service",
             revision="2")
         example_api_operation = azure.apimanagement.ApiOperation("example",
+            responses=[{
+                "status_code": 200,
+            }],
+            template_parameters=[{
+                "name": "id",
+                "type": "number",
+                "required": True,
+            }],
             operation_id="user-delete",
             api_name=example.name,
             api_management_name=example.api_management_name,
@@ -488,15 +496,7 @@ class ApiOperation(pulumi.CustomResource):
             display_name="Delete User Operation",
             method="DELETE",
             url_template="/users/{id}/delete",
-            description="This can only be done by the logged in user.",
-            template_parameters=[{
-                "name": "id",
-                "type": "number",
-                "required": True,
-            }],
-            responses=[{
-                "status_code": 200,
-            }])
+            description="This can only be done by the logged in user.")
         ```
 
         ## API Providers

@@ -37,33 +37,31 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             name: "NGINX.NGINXPLUS/nginxDeployments",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleDeployment = new azure.nginx.Deployment("example", {
- *     name: "example-nginx",
- *     resourceGroupName: example.name,
- *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
- *     location: example.location,
  *     frontendPublic: {
  *         ipAddresses: [examplePublicIp.id],
  *     },
  *     networkInterfaces: [{
  *         subnetId: exampleSubnet.id,
  *     }],
+ *     name: "example-nginx",
+ *     resourceGroupName: example.name,
+ *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
+ *     location: example.location,
  * });
  * const exampleConfiguration = new azure.nginx.Configuration("example", {
- *     nginxDeploymentId: exampleDeployment.id,
- *     rootFile: "/etc/nginx/nginx.conf",
  *     configFiles: [
  *         {
  *             content: std.base64encode({
@@ -81,7 +79,7 @@ import * as utilities from "../utilities";
  *     }
  * }
  * `,
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *             virtualPath: "/etc/nginx/nginx.conf",
  *         },
  *         {
@@ -94,10 +92,12 @@ import * as utilities from "../utilities";
  *  </body></html>';
  * }
  * `,
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *             virtualPath: "/etc/nginx/site/b.conf",
  *         },
  *     ],
+ *     nginxDeploymentId: exampleDeployment.id,
+ *     rootFile: "/etc/nginx/nginx.conf",
  * });
  * ```
  *

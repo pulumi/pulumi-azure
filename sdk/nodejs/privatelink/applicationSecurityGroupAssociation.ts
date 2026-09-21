@@ -46,38 +46,38 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "examplelb",
- *     sku: "Standard",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
- * });
- * const exampleLinkService = new azure.privatedns.LinkService("example", {
- *     name: "examplePLS",
+ *     name: "examplelb",
+ *     sku: "Standard",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     autoApprovalSubscriptionIds: [current.then(current => current.subscriptionId)],
- *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
+ * });
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
  *     natIpConfigurations: [{
  *         name: "primaryIpConfiguration",
  *         primary: true,
  *         subnetId: service.id,
  *     }],
+ *     name: "examplePLS",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     autoApprovalSubscriptionIds: [current.then(current => current.subscriptionId)],
+ *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
  *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: "example-privatelink",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     subnetId: endpoint.id,
  *     privateServiceConnection: {
  *         name: exampleLinkService.name,
  *         isManualConnection: false,
  *         privateConnectionResourceId: exampleLinkService.id,
  *     },
+ *     name: "example-privatelink",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     subnetId: endpoint.id,
  * });
  * const exampleApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("example", {
  *     name: "example",

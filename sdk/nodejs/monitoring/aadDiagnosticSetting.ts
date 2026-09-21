@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleAadDiagnosticSetting = new azure.monitoring.AadDiagnosticSetting("example", {
- *     name: "setting1",
- *     storageAccountId: exampleAccount.id,
  *     enabledLogs: [
  *         {
  *             category: "SignInLogs",
@@ -46,6 +44,8 @@ import * as utilities from "../utilities";
  *             category: "ServicePrincipalSignInLogs",
  *         },
  *     ],
+ *     name: "setting1",
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

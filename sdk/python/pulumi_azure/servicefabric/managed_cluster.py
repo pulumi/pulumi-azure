@@ -643,10 +643,6 @@ class ManagedCluster(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.servicefabric.ManagedCluster("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe",
-            http_gateway_port=4567,
             lb_rules=[{
                 "backend_port": 38080,
                 "frontend_port": 80,
@@ -654,7 +650,6 @@ class ManagedCluster(pulumi.CustomResource):
                 "probe_request_path": "/test",
                 "protocol": "tcp",
             }],
-            client_connection_port=12345,
             node_types=[{
                 "data_disk_size_gb": 130,
                 "name": "test1",
@@ -667,7 +662,12 @@ class ManagedCluster(pulumi.CustomResource):
                 "vm_image_offer": "WindowsServer",
                 "vm_image_version": "latest",
                 "vm_instance_count": 5,
-            }])
+            }],
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
+            http_gateway_port=4567,
+            client_connection_port=12345)
         ```
 
         ## API Providers
@@ -723,10 +723,6 @@ class ManagedCluster(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.servicefabric.ManagedCluster("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe",
-            http_gateway_port=4567,
             lb_rules=[{
                 "backend_port": 38080,
                 "frontend_port": 80,
@@ -734,7 +730,6 @@ class ManagedCluster(pulumi.CustomResource):
                 "probe_request_path": "/test",
                 "protocol": "tcp",
             }],
-            client_connection_port=12345,
             node_types=[{
                 "data_disk_size_gb": 130,
                 "name": "test1",
@@ -747,7 +742,12 @@ class ManagedCluster(pulumi.CustomResource):
                 "vm_image_offer": "WindowsServer",
                 "vm_image_version": "latest",
                 "vm_instance_count": 5,
-            }])
+            }],
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
+            http_gateway_port=4567,
+            client_connection_port=12345)
         ```
 
         ## API Providers

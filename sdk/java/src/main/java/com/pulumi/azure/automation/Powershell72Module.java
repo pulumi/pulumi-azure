@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePowershell72Module = new Powershell72Module("examplePowershell72Module", Powershell72ModuleArgs.builder()
- *             .name("xActiveDirectory")
- *             .automationAccountId(exampleAccount.id())
  *             .moduleLink(Powershell72ModuleModuleLinkArgs.builder()
  *                 .uri("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg")
  *                 .build())
+ *             .name("xActiveDirectory")
+ *             .automationAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

@@ -30,13 +30,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var test = new Azure.Network.VpnServerConfiguration("test", new()
     ///     {
-    ///         Name = "example-config",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         VpnAuthenticationTypes = new[]
-    ///         {
-    ///             "Certificate",
-    ///         },
     ///         ClientRootCertificates = new[]
     ///         {
     ///             new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
@@ -64,6 +57,13 @@ namespace Pulumi.Azure.Network
     /// M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
     /// ",
     ///             },
+    ///         },
+    ///         Name = "example-config",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VpnAuthenticationTypes = new[]
+    ///         {
+    ///             "Certificate",
     ///         },
     ///     });
     /// 

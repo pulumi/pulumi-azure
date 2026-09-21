@@ -30,12 +30,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleAlertProcessingRuleSuppression = new Azure.Monitoring.AlertProcessingRuleSuppression("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = "example",
-    ///         Scopes = new[]
-    ///         {
-    ///             example.Id,
-    ///         },
     ///         Condition = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionArgs
     ///         {
     ///             TargetResourceType = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs
@@ -59,9 +53,6 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///         Schedule = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleArgs
     ///         {
-    ///             EffectiveFrom = "2022-01-01T01:02:03",
-    ///             EffectiveUntil = "2022-02-02T01:02:03",
-    ///             TimeZone = "Pacific Standard Time",
     ///             Recurrence = new Azure.Monitoring.Inputs.AlertProcessingRuleSuppressionScheduleRecurrenceArgs
     ///             {
     ///                 Dailies = new[]
@@ -84,6 +75,15 @@ namespace Pulumi.Azure.Monitoring
     ///                     },
     ///                 },
     ///             },
+    ///             EffectiveFrom = "2022-01-01T01:02:03",
+    ///             EffectiveUntil = "2022-02-02T01:02:03",
+    ///             TimeZone = "Pacific Standard Time",
+    ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Scopes = new[]
+    ///         {
+    ///             example.Id,
     ///         },
     ///         Tags = 
     ///         {

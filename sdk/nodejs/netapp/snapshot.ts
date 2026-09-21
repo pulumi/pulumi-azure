@@ -24,12 +24,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "netapp",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -37,7 +32,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "netapp",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     name: "example-netappaccount",

@@ -65,13 +65,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectionType = new ConnectionType("exampleConnectionType", ConnectionTypeArgs.builder()
- *             .name("example")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
  *             .fields(ConnectionTypeFieldArgs.builder()
  *                 .name("example")
  *                 .type("string")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .automationAccountName(exampleAccount.name())
  *             .build());
  * 
  *     }

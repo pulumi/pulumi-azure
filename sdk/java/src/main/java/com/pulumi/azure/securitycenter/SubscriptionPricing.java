@@ -83,8 +83,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example1 = new SubscriptionPricing("example1", SubscriptionPricingArgs.builder()
- *             .tier("Standard")
- *             .resourceType("CloudPosture")
  *             .extensions(            
  *                 SubscriptionPricingExtensionArgs.builder()
  *                     .name("ContainerRegistriesVulnerabilityAssessments")
@@ -99,6 +97,8 @@ import javax.annotation.Nullable;
  *                 SubscriptionPricingExtensionArgs.builder()
  *                     .name("SensitiveDataDiscovery")
  *                     .build())
+ *             .tier("Standard")
+ *             .resourceType("CloudPosture")
  *             .build());
  * 
  *     }

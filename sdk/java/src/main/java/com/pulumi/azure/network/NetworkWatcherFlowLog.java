@@ -95,12 +95,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog("testNetworkWatcherFlowLog", NetworkWatcherFlowLogArgs.builder()
- *             .networkWatcherName(testNetworkWatcher.name())
- *             .resourceGroupName(example.name())
- *             .name("example-log")
- *             .targetResourceId(test.id())
- *             .storageAccountId(testAccount.id())
- *             .enabled(true)
  *             .retentionPolicy(NetworkWatcherFlowLogRetentionPolicyArgs.builder()
  *                 .enabled(true)
  *                 .days(7)
@@ -112,6 +106,12 @@ import javax.annotation.Nullable;
  *                 .workspaceResourceId(testAnalyticsWorkspace.id())
  *                 .intervalInMinutes(10)
  *                 .build())
+ *             .networkWatcherName(testNetworkWatcher.name())
+ *             .resourceGroupName(example.name())
+ *             .name("example-log")
+ *             .targetResourceId(test.id())
+ *             .storageAccountId(testAccount.id())
+ *             .enabled(true)
  *             .build());
  * 
  *     }

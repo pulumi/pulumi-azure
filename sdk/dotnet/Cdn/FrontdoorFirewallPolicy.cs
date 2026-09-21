@@ -37,25 +37,10 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorFirewallPolicy = new Azure.Cdn.FrontdoorFirewallPolicy("example", new()
     ///     {
-    ///         Name = "examplecdnfdwafpolicy",
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = exampleFrontdoorProfile.SkuName,
-    ///         Enabled = true,
-    ///         Mode = "Prevention",
-    ///         RedirectUrl = "https://www.contoso.com",
-    ///         CustomBlockResponseStatusCode = 403,
-    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///         CustomRules = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
     ///             {
-    ///                 Name = "Rule1",
-    ///                 Enabled = true,
-    ///                 Priority = 1,
-    ///                 RateLimitDurationInMinutes = 1,
-    ///                 RateLimitThreshold = 10,
-    ///                 Type = "MatchRule",
-    ///                 Action = "Block",
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
@@ -70,16 +55,16 @@ namespace Pulumi.Azure.Cdn
     ///                         },
     ///                     },
     ///                 },
-    ///             },
-    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
-    ///             {
-    ///                 Name = "Rule2",
+    ///                 Name = "Rule1",
     ///                 Enabled = true,
-    ///                 Priority = 50,
+    ///                 Priority = 1,
     ///                 RateLimitDurationInMinutes = 1,
     ///                 RateLimitThreshold = 10,
     ///                 Type = "MatchRule",
     ///                 Action = "Block",
+    ///             },
+    ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleArgs
+    ///             {
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
@@ -109,15 +94,19 @@ namespace Pulumi.Azure.Cdn
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Rule2",
+    ///                 Enabled = true,
+    ///                 Priority = 50,
+    ///                 RateLimitDurationInMinutes = 1,
+    ///                 RateLimitThreshold = 10,
+    ///                 Type = "MatchRule",
+    ///                 Action = "Block",
     ///             },
     ///         },
     ///         ManagedRules = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleArgs
     ///             {
-    ///                 Type = "DefaultRuleSet",
-    ///                 Version = "1.0",
-    ///                 Action = "Log",
     ///                 Exclusions = new[]
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleExclusionArgs
@@ -131,7 +120,6 @@ namespace Pulumi.Azure.Cdn
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs
     ///                     {
-    ///                         RuleGroupName = "PHP",
     ///                         Rules = new[]
     ///                         {
     ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs
@@ -141,10 +129,10 @@ namespace Pulumi.Azure.Cdn
     ///                                 Action = "Block",
     ///                             },
     ///                         },
+    ///                         RuleGroupName = "PHP",
     ///                     },
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideArgs
     ///                     {
-    ///                         RuleGroupName = "SQLI",
     ///                         Exclusions = new[]
     ///                         {
     ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs
@@ -158,8 +146,6 @@ namespace Pulumi.Azure.Cdn
     ///                         {
     ///                             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs
     ///                             {
-    ///                                 RuleId = "942200",
-    ///                                 Action = "Block",
     ///                                 Exclusions = new[]
     ///                                 {
     ///                                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs
@@ -169,10 +155,16 @@ namespace Pulumi.Azure.Cdn
     ///                                         Selector = "innocent",
     ///                                     },
     ///                                 },
+    ///                                 RuleId = "942200",
+    ///                                 Action = "Block",
     ///                             },
     ///                         },
+    ///                         RuleGroupName = "SQLI",
     ///                     },
     ///                 },
+    ///                 Type = "DefaultRuleSet",
+    ///                 Version = "1.0",
+    ///                 Action = "Log",
     ///             },
     ///             new Azure.Cdn.Inputs.FrontdoorFirewallPolicyManagedRuleArgs
     ///             {
@@ -181,6 +173,14 @@ namespace Pulumi.Azure.Cdn
     ///                 Action = "Log",
     ///             },
     ///         },
+    ///         Name = "examplecdnfdwafpolicy",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = exampleFrontdoorProfile.SkuName,
+    ///         Enabled = true,
+    ///         Mode = "Prevention",
+    ///         RedirectUrl = "https://www.contoso.com",
+    ///         CustomBlockResponseStatusCode = 403,
+    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///     });
     /// 
     /// });

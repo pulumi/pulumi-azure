@@ -31,7 +31,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleApplicationNetworkRuleSet = new azure.iotcentral.ApplicationNetworkRuleSet("example", {
- *     iotcentralApplicationId: exampleApplication.id,
  *     ipRules: [
  *         {
  *             name: "rule1",
@@ -42,6 +41,7 @@ import * as utilities from "../utilities";
  *             ipMask: "10.1.1.0/24",
  *         },
  *     ],
+ *     iotcentralApplicationId: exampleApplication.id,
  * });
  * ```
  *

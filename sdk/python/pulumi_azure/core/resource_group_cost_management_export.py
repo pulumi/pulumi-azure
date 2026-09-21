@@ -356,12 +356,6 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             name="examplecontainer",
             storage_account_name=example_account.name)
         example_resource_group_cost_management_export = azure.core.ResourceGroupCostManagementExport("example",
-            name="example",
-            resource_group_id=example.id,
-            recurrence_type="Monthly",
-            recurrence_period_start_date="2020-08-18T00:00:00Z",
-            recurrence_period_end_date="2020-09-18T00:00:00Z",
-            file_format="Csv",
             export_data_storage_location={
                 "container_id": example_container.id,
                 "root_folder_path": "/root/updated",
@@ -369,7 +363,13 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             export_data_options={
                 "type": "Usage",
                 "time_frame": "WeekToDate",
-            })
+            },
+            name="example",
+            resource_group_id=example.id,
+            recurrence_type="Monthly",
+            recurrence_period_start_date="2020-08-18T00:00:00Z",
+            recurrence_period_end_date="2020-09-18T00:00:00Z",
+            file_format="Csv")
         ```
 
         ## API Providers
@@ -428,12 +428,6 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             name="examplecontainer",
             storage_account_name=example_account.name)
         example_resource_group_cost_management_export = azure.core.ResourceGroupCostManagementExport("example",
-            name="example",
-            resource_group_id=example.id,
-            recurrence_type="Monthly",
-            recurrence_period_start_date="2020-08-18T00:00:00Z",
-            recurrence_period_end_date="2020-09-18T00:00:00Z",
-            file_format="Csv",
             export_data_storage_location={
                 "container_id": example_container.id,
                 "root_folder_path": "/root/updated",
@@ -441,7 +435,13 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             export_data_options={
                 "type": "Usage",
                 "time_frame": "WeekToDate",
-            })
+            },
+            name="example",
+            resource_group_id=example.id,
+            recurrence_type="Monthly",
+            recurrence_period_start_date="2020-08-18T00:00:00Z",
+            recurrence_period_end_date="2020-09-18T00:00:00Z",
+            file_format="Csv")
         ```
 
         ## API Providers

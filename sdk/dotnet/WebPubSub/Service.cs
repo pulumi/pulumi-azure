@@ -30,12 +30,6 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     ///     var exampleService = new Azure.WebPubSub.Service("example", new()
     ///     {
-    ///         Name = "tfex-webpubsub",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "Standard_S1",
-    ///         Capacity = 1,
-    ///         PublicNetworkAccessEnabled = false,
     ///         LiveTrace = new Azure.WebPubSub.Inputs.ServiceLiveTraceArgs
     ///         {
     ///             Enabled = true,
@@ -46,6 +40,12 @@ namespace Pulumi.Azure.WebPubSub
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "tfex-webpubsub",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard_S1",
+    ///         Capacity = 1,
+    ///         PublicNetworkAccessEnabled = false,
     ///     });
     /// 
     /// });

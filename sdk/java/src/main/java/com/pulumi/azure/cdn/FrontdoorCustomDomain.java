@@ -92,10 +92,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-cdn-frontdoor-origin-group")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .build())
+ *             .name("example-cdn-frontdoor-origin-group")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
- *             .name("example-cdn-frontdoor-custom-domain")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .dnsZoneId(exampleZone.id())
- *             .hostName(exampleFrontdoorOrigin.hostName())
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumVersion("TLS12")
  *                 .build())
+ *             .name("example-cdn-frontdoor-custom-domain")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .dnsZoneId(exampleZone.id())
+ *             .hostName(exampleFrontdoorOrigin.hostName())
  *             .build());
  * 
  *         var exampleFrontdoorRoute = new FrontdoorRoute("exampleFrontdoorRoute", FrontdoorRouteArgs.builder()
@@ -136,19 +136,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
- *             .name("example-cdn-frontdoor-security-policy")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
  *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
- *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
  *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
  *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
  *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
  *                             .build())
  *                         .patternsToMatch("/*")
  *                         .build())
+ *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
  *                     .build())
  *                 .build())
+ *             .name("example-cdn-frontdoor-security-policy")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *     }
@@ -175,8 +175,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.TxtRecordArgs;
  * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.SplitArgs;
- * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -191,21 +189,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TxtRecord("example", TxtRecordArgs.builder()
- *             .name(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
- *                     "_dnsauth",
- *                     StdFunctions.split(SplitArgs.builder()
- *                         .separator(".")
- *                         .text(exampleAzurermCdnFrontdoorCustomDomain.hostName())
- *                         .build()).result()[0])
- *                 .build()).result())
- *             .zoneName(exampleAzurermDnsZone.name())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .ttl(3600)
  *             .records(TxtRecordRecordArgs.builder()
  *                 .value(exampleAzurermCdnFrontdoorCustomDomain.validationToken())
  *                 .build())
+ *             .name(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
+ *                     "_dnsauth",
+ *                     StdFunctions.split(Map.ofEntries(
+ *                         Map.entry("separator", "."),
+ *                         Map.entry("text", exampleAzurermCdnFrontdoorCustomDomain.hostName())
+ *                     )).result()[0]))
+ *             )).result())
+ *             .zoneName(exampleAzurermDnsZone.name())
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .ttl(3600)
  *             .build());
  * 
  *     }
@@ -227,7 +225,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.CNameRecord;
  * import com.pulumi.azure.dns.CNameRecordArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -243,10 +240,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CNameRecord("example", CNameRecordArgs.builder()
- *             .name(StdFunctions.split(SplitArgs.builder()
- *                 .separator(".")
- *                 .text(exampleAzurermCdnFrontdoorCustomDomain.hostName())
- *                 .build()).result()[0])
+ *             .name(StdFunctions.split(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("text", exampleAzurermCdnFrontdoorCustomDomain.hostName())
+ *             )).result()[0])
  *             .zoneName(exampleAzurermDnsZone.name())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .ttl(3600)

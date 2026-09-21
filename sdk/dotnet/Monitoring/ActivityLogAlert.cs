@@ -30,9 +30,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var main = new Azure.Monitoring.ActionGroup("main", new()
     ///     {
-    ///         Name = "example-actiongroup",
-    ///         ResourceGroupName = example.Name,
-    ///         ShortName = "p0action",
     ///         WebhookReceivers = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
@@ -41,6 +38,9 @@ namespace Pulumi.Azure.Monitoring
     ///                 ServiceUri = "http://example.com/alert",
     ///             },
     ///         },
+    ///         Name = "example-actiongroup",
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "p0action",
     ///     });
     /// 
     ///     var toMonitor = new Azure.Storage.Account("to_monitor", new()
@@ -54,14 +54,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("main", new()
     ///     {
-    ///         Name = "example-activitylogalert",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Scopes = new[]
-    ///         {
-    ///             example.Id,
-    ///         },
-    ///         Description = "This alert will monitor a specific storage account updates.",
     ///         Criteria = new Azure.Monitoring.Inputs.ActivityLogAlertCriteriaArgs
     ///         {
     ///             ResourceId = toMonitor.Id,
@@ -79,6 +71,14 @@ namespace Pulumi.Azure.Monitoring
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-activitylogalert",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Scopes = new[]
+    ///         {
+    ///             example.Id,
+    ///         },
+    ///         Description = "This alert will monitor a specific storage account updates.",
     ///     });
     /// 
     /// });

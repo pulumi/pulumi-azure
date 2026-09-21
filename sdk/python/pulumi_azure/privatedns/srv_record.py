@@ -269,10 +269,6 @@ class SRVRecord(pulumi.CustomResource):
             name="contoso.com",
             resource_group_name=example.name)
         example_srv_record = azure.privatedns.SRVRecord("example",
-            name="test",
-            resource_group_name=example.name,
-            zone_name=example_zone.name,
-            ttl=300,
             records=[
                 {
                     "priority": 1,
@@ -287,6 +283,10 @@ class SRVRecord(pulumi.CustomResource):
                     "target": "target2.contoso.com",
                 },
             ],
+            name="test",
+            resource_group_name=example.name,
+            zone_name=example_zone.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })
@@ -339,10 +339,6 @@ class SRVRecord(pulumi.CustomResource):
             name="contoso.com",
             resource_group_name=example.name)
         example_srv_record = azure.privatedns.SRVRecord("example",
-            name="test",
-            resource_group_name=example.name,
-            zone_name=example_zone.name,
-            ttl=300,
             records=[
                 {
                     "priority": 1,
@@ -357,6 +353,10 @@ class SRVRecord(pulumi.CustomResource):
                     "target": "target2.contoso.com",
                 },
             ],
+            name="test",
+            resource_group_name=example.name,
+            zone_name=example_zone.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })

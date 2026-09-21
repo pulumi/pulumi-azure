@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "azure-functions-test-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "azure-functions-test-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
  *     name: "test-azure-functions",

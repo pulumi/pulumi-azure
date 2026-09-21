@@ -31,14 +31,14 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "appserviceplan",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Premium",
     ///             Size = "P1",
     ///         },
+    ///         Name = "appserviceplan",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleAppService = new Azure.AppService.AppService("example", new()
@@ -66,10 +66,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = exampleCNameRecord.Name.Apply(name =&gt; $"asuid.{name}"),
-    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
-    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
@@ -77,6 +73,10 @@ namespace Pulumi.Azure.AppService
     ///                 Value = exampleAppService.CustomDomainVerificationId,
     ///             },
     ///         },
+    ///         Name = exampleCNameRecord.Name.Apply(name =&gt; $"asuid.{name}"),
+    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
+    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
+    ///         Ttl = 300,
     ///     });
     /// 
     ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("example", new()
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             Input = exampleCNameRecord.Fqdn,
     ///             Cutset = ".",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     }, new CustomResourceOptions
@@ -93,6 +93,11 @@ namespace Pulumi.Azure.AppService
     ///         DependsOn =
     ///         {
     ///             exampleTxtRecord,
+    ///         },
+    ///         IgnoreChanges =
+    ///         {
+    ///             "sslState",
+    ///             "thumbprint",
     ///         },
     ///     });
     /// 

@@ -26,13 +26,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -48,6 +41,13 @@ import * as utilities from "../utilities";
  *             "Recover",
  *         ],
  *     }],
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
  * });
  * const exampleSecret = new azure.keyvault.Secret("example", {
  *     name: "example",
@@ -60,16 +60,16 @@ import * as utilities from "../utilities";
  *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleCredentialServicePrincipal = new azure.datafactory.CredentialServicePrincipal("example", {
- *     name: "example",
- *     description: "example description",
- *     dataFactoryId: exampleFactory.id,
- *     tenantId: current.then(current => current.tenantId),
- *     servicePrincipalId: current.then(current => current.clientId),
  *     servicePrincipalKey: {
  *         linkedServiceName: exampleLinkedServiceKeyVault.name,
  *         secretName: exampleSecret.name,
  *         secretVersion: exampleSecret.version,
  *     },
+ *     name: "example",
+ *     description: "example description",
+ *     dataFactoryId: exampleFactory.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     servicePrincipalId: current.then(current => current.clientId),
  *     annotations: [
  *         "1",
  *         "2",

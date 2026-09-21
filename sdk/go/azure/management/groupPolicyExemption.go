@@ -42,13 +42,13 @@ import (
 //				return err
 //			}
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
+//				Identity: &management.GroupPolicyAssignmentIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:               pulumi.String("assignment1"),
 //				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Location:           pulumi.String("westus"),
-//				Identity: &management.GroupPolicyAssignmentIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

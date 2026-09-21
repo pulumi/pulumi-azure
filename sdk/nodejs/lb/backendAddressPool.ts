@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "TestLoadBalancer",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "TestLoadBalancer",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
  *     loadbalancerId: exampleLoadBalancer.id,

@@ -71,10 +71,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicyVM = new PolicyVM("examplePolicyVM", PolicyVMArgs.builder()
- *             .name("tfex-recovery-vault-policy")
- *             .resourceGroupName(example.name())
- *             .recoveryVaultName(exampleVault.name())
- *             .timezone("UTC")
  *             .backup(PolicyVMBackupArgs.builder()
  *                 .frequency("Daily")
  *                 .time("23:00")
@@ -105,6 +101,10 @@ import javax.annotation.Nullable;
  *                 .weeks("Last")
  *                 .months("January")
  *                 .build())
+ *             .name("tfex-recovery-vault-policy")
+ *             .resourceGroupName(example.name())
+ *             .recoveryVaultName(exampleVault.name())
+ *             .timezone("UTC")
  *             .build());
  * 
  *     }

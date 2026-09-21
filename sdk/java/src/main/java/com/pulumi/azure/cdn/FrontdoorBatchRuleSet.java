@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsHostNameArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsHostNameArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs;
- * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs;
  * import com.pulumi.azure.cdn.FrontdoorRoute;
  * import com.pulumi.azure.cdn.FrontdoorRouteArgs;
  * import java.util.ArrayList;
@@ -87,10 +87,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-originGroup")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .sessionAffinityEnabled(true)
- *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
  *                 .intervalInSeconds(240)
  *                 .path("/healthProbe")
@@ -102,6 +98,10 @@ import javax.annotation.Nullable;
  *                 .sampleSize(16)
  *                 .successfulSamplesRequired(3)
  *                 .build())
+ *             .name("example-originGroup")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .sessionAffinityEnabled(true)
+ *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -118,12 +118,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorBatchRuleSet = new FrontdoorBatchRuleSet("exampleFrontdoorBatchRuleSet", FrontdoorBatchRuleSetArgs.builder()
- *             .name("examplebatchruleset")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .rules(FrontdoorBatchRuleSetRuleArgs.builder()
- *                 .name("examplebatchrule")
- *                 .order(1)
- *                 .behaviourOnMatch("Continue")
  *                 .actions(FrontdoorBatchRuleSetRuleActionsArgs.builder()
  *                     .routeConfigurationOverride(FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs.builder()
  *                         .originGroup(FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs.builder()
@@ -142,6 +137,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .conditions(FrontdoorBatchRuleSetRuleConditionsArgs.builder()
+ *                     .deviceTypes(FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs.builder()
+ *                         .operator("Equal")
+ *                         .values("Mobile")
+ *                         .build())
  *                     .hostNames(FrontdoorBatchRuleSetRuleConditionsHostNameArgs.builder()
  *                         .operator("Equal")
  *                         .values(                        
@@ -152,10 +151,6 @@ import javax.annotation.Nullable;
  *                             "Lowercase",
  *                             "Trim")
  *                         .build())
- *                     .deviceTypes(FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs.builder()
- *                         .operator("Equal")
- *                         .values("Mobile")
- *                         .build())
  *                     .postArguments(FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs.builder()
  *                         .name("customerName")
  *                         .operator("BeginsWith")
@@ -163,10 +158,6 @@ import javax.annotation.Nullable;
  *                             "J",
  *                             "K")
  *                         .transforms("Uppercase")
- *                         .build())
- *                     .requestMethods(FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs.builder()
- *                         .operator("Equal")
- *                         .values("DELETE")
  *                         .build())
  *                     .requestFilenames(FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs.builder()
  *                         .operator("Equal")
@@ -176,8 +167,17 @@ import javax.annotation.Nullable;
  *                             "RemoveNulls",
  *                             "Trim")
  *                         .build())
+ *                     .requestMethods(FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs.builder()
+ *                         .operator("Equal")
+ *                         .values("DELETE")
+ *                         .build())
  *                     .build())
+ *                 .name("examplebatchrule")
+ *                 .order(1)
+ *                 .behaviourOnMatch("Continue")
  *                 .build())
+ *             .name("examplebatchruleset")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorRoute = new FrontdoorRoute("exampleFrontdoorRoute", FrontdoorRouteArgs.builder()

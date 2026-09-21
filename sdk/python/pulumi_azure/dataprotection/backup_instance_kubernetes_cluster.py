@@ -303,19 +303,15 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             name="example-snap",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="dns",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -324,7 +320,11 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="dns")
         aks_cluster_trusted_access = azure.containerservice.ClusterTrustedAccessRoleBinding("aks_cluster_trusted_access",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             name="example",
@@ -382,37 +382,31 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             role_definition_name="Contributor",
             principal_id=example_kubernetes_cluster.identity.principal_id)
         example_backup_policy_kubernetes_cluster = azure.dataprotection.BackupPolicyKubernetesCluster("example",
-            name="example",
-            resource_group_name=example.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2023-05-23T02:30:00+00:00/P1W"],
-            retention_rules=[{
-                "name": "Daily",
-                "priority": 25,
+            default_retention_rule={
                 "life_cycles": [{
-                    "duration": "P84D",
+                    "duration": "P14D",
                     "data_store_type": "OperationalStore",
                 }],
+            },
+            retention_rules=[{
                 "criteria": {
                     "days_of_weeks": ["Thursday"],
                     "months_of_years": ["November"],
                     "weeks_of_months": ["First"],
                     "scheduled_backup_times": ["2023-05-23T02:30:00Z"],
                 },
-            }],
-            default_retention_rule={
                 "life_cycles": [{
-                    "duration": "P14D",
+                    "duration": "P84D",
                     "data_store_type": "OperationalStore",
                 }],
-            })
-        example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
+                "name": "Daily",
+                "priority": 25,
+            }],
             name="example",
-            location=example.location,
-            vault_id=example_backup_vault.id,
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            snapshot_resource_group_name=snap.name,
-            backup_policy_id=example_backup_policy_kubernetes_cluster.id,
+            resource_group_name=example.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=["R/2023-05-23T02:30:00+00:00/P1W"])
+        example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
             backup_datasource_parameters={
                 "excluded_namespaces": ["test-excluded-namespaces"],
                 "excluded_resource_types": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
@@ -422,6 +416,12 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 "label_selectors": ["kubernetes.io/metadata.name:test"],
                 "volume_snapshot_enabled": True,
             },
+            name="example",
+            location=example.location,
+            vault_id=example_backup_vault.id,
+            kubernetes_cluster_id=example_kubernetes_cluster.id,
+            snapshot_resource_group_name=snap.name,
+            backup_policy_id=example_backup_policy_kubernetes_cluster.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
                     test_vault_msi_read_on_cluster,
@@ -482,19 +482,15 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             name="example-snap",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="dns",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -503,7 +499,11 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="dns")
         aks_cluster_trusted_access = azure.containerservice.ClusterTrustedAccessRoleBinding("aks_cluster_trusted_access",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             name="example",
@@ -561,37 +561,31 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             role_definition_name="Contributor",
             principal_id=example_kubernetes_cluster.identity.principal_id)
         example_backup_policy_kubernetes_cluster = azure.dataprotection.BackupPolicyKubernetesCluster("example",
-            name="example",
-            resource_group_name=example.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2023-05-23T02:30:00+00:00/P1W"],
-            retention_rules=[{
-                "name": "Daily",
-                "priority": 25,
+            default_retention_rule={
                 "life_cycles": [{
-                    "duration": "P84D",
+                    "duration": "P14D",
                     "data_store_type": "OperationalStore",
                 }],
+            },
+            retention_rules=[{
                 "criteria": {
                     "days_of_weeks": ["Thursday"],
                     "months_of_years": ["November"],
                     "weeks_of_months": ["First"],
                     "scheduled_backup_times": ["2023-05-23T02:30:00Z"],
                 },
-            }],
-            default_retention_rule={
                 "life_cycles": [{
-                    "duration": "P14D",
+                    "duration": "P84D",
                     "data_store_type": "OperationalStore",
                 }],
-            })
-        example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
+                "name": "Daily",
+                "priority": 25,
+            }],
             name="example",
-            location=example.location,
-            vault_id=example_backup_vault.id,
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            snapshot_resource_group_name=snap.name,
-            backup_policy_id=example_backup_policy_kubernetes_cluster.id,
+            resource_group_name=example.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=["R/2023-05-23T02:30:00+00:00/P1W"])
+        example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
             backup_datasource_parameters={
                 "excluded_namespaces": ["test-excluded-namespaces"],
                 "excluded_resource_types": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
@@ -601,6 +595,12 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
                 "label_selectors": ["kubernetes.io/metadata.name:test"],
                 "volume_snapshot_enabled": True,
             },
+            name="example",
+            location=example.location,
+            vault_id=example_backup_vault.id,
+            kubernetes_cluster_id=example_kubernetes_cluster.id,
+            snapshot_resource_group_name=snap.name,
+            backup_policy_id=example_backup_policy_kubernetes_cluster.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
                     test_vault_msi_read_on_cluster,

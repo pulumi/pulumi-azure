@@ -317,10 +317,6 @@ class Spacecraft(pulumi.CustomResource):
             name="rg-example",
             location="West Europe")
         example_spacecraft = azure.orbital.Spacecraft("example",
-            name="example-spacecraft",
-            resource_group_name=example.name,
-            location="westeurope",
-            norad_id="12345",
             links=[{
                 "bandwidth_mhz": float(30),
                 "center_frequency_mhz": float(2050),
@@ -328,6 +324,10 @@ class Spacecraft(pulumi.CustomResource):
                 "polarization": "LHCP",
                 "name": "examplename",
             }],
+            name="example-spacecraft",
+            resource_group_name=example.name,
+            location="westeurope",
+            norad_id="12345",
             two_line_elements=[
                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
@@ -386,10 +386,6 @@ class Spacecraft(pulumi.CustomResource):
             name="rg-example",
             location="West Europe")
         example_spacecraft = azure.orbital.Spacecraft("example",
-            name="example-spacecraft",
-            resource_group_name=example.name,
-            location="westeurope",
-            norad_id="12345",
             links=[{
                 "bandwidth_mhz": float(30),
                 "center_frequency_mhz": float(2050),
@@ -397,6 +393,10 @@ class Spacecraft(pulumi.CustomResource):
                 "polarization": "LHCP",
                 "name": "examplename",
             }],
+            name="example-spacecraft",
+            resource_group_name=example.name,
+            location="westeurope",
+            norad_id="12345",
             two_line_elements=[
                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",

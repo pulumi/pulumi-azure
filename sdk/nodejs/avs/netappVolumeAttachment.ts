@@ -33,12 +33,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.88.0.0/16"],
  * });
  * const netappSubnet = new azure.network.Subnet("netappSubnet", {
- *     name: "example-Subnet",
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     virtualNetworkName: testVirtualNetwork.name,
- *     addressPrefixes: ["10.88.2.0/24"],
  *     delegations: [{
- *         name: "testdelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -46,7 +41,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "testdelegation",
  *     }],
+ *     name: "example-Subnet",
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ *     addressPrefixes: ["10.88.2.0/24"],
  * });
  * const gatewaySubnet = new azure.network.Subnet("gatewaySubnet", {
  *     name: "GatewaySubnet",
@@ -55,16 +55,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.88.1.0/24"],
  * });
  * const testVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("test", {
- *     name: "example-vnet-gateway",
- *     location: testAzurermResourceGroup.location,
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     type: "ExpressRoute",
- *     sku: "Standard",
  *     ipConfigurations: [{
  *         name: "vnetGatewayConfig",
  *         publicIpAddressId: test.id,
  *         subnetId: gatewaySubnet.id,
  *     }],
+ *     name: "example-vnet-gateway",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     type: "ExpressRoute",
+ *     sku: "Standard",
  * });
  * const testAccount = new azure.netapp.Account("test", {
  *     name: "example-NetAppAccount",
@@ -80,6 +80,14 @@ import * as utilities from "../utilities";
  *     sizeInTb: 4,
  * });
  * const testVolume = new azure.netapp.Volume("test", {
+ *     exportPolicyRules: [{
+ *         ruleIndex: 1,
+ *         allowedClients: ["0.0.0.0/0"],
+ *         protocolsEnabled: "NFSv3",
+ *         unixReadOnly: false,
+ *         unixReadWrite: true,
+ *         rootAccessEnabled: true,
+ *     }],
  *     name: "example-NetAppVolume",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
@@ -91,23 +99,15 @@ import * as utilities from "../utilities";
  *     protocols: ["NFSv3"],
  *     storageQuotaInGb: 100,
  *     azureVmwareDataStoreEnabled: true,
- *     exportPolicyRules: [{
- *         ruleIndex: 1,
- *         allowedClients: ["0.0.0.0/0"],
- *         protocolsEnabled: "NFSv3",
- *         unixReadOnly: false,
- *         unixReadWrite: true,
- *         rootAccessEnabled: true,
- *     }],
  * });
  * const testPrivateCloud = new azure.avs.PrivateCloud("test", {
+ *     managementCluster: {
+ *         size: 3,
+ *     },
  *     name: "example-PC",
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     location: testAzurermResourceGroup.location,
  *     skuName: "av36",
- *     managementCluster: {
- *         size: 3,
- *     },
  *     networkSubnetCidr: "192.168.48.0/22",
  * });
  * const testCluster = new azure.avs.Cluster("test", {

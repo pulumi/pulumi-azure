@@ -209,14 +209,14 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             location=example.location,
             sku_name="Dedicated_1")
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
-            dedicated_cluster_id=example_cluster.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            dedicated_cluster_id=example_cluster.id)
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
@@ -289,15 +289,15 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
-            dedicated_cluster_id=example_cluster.id,
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            })
+            dedicated_cluster_id=example_cluster.id)
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
@@ -407,14 +407,14 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             location=example.location,
             sku_name="Dedicated_1")
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
-            dedicated_cluster_id=example_cluster.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            dedicated_cluster_id=example_cluster.id)
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
@@ -487,15 +487,15 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
-            dedicated_cluster_id=example_cluster.id,
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            })
+            dedicated_cluster_id=example_cluster.id)
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",

@@ -512,29 +512,29 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "B1",
                 "capacity": 1,
             },
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "example",
             })
         example_account = azure.cosmosdb.Account("example",
-            name="cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -610,29 +610,29 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "B1",
                 "capacity": 1,
             },
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "example",
             })
         example_account = azure.cosmosdb.Account("example",
-            name="cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,

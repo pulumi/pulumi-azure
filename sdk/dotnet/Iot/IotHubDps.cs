@@ -30,15 +30,15 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         AllocationPolicy = "Hashed",
     ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
     ///         {
     ///             Name = "S1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AllocationPolicy = "Hashed",
     ///     });
     /// 
     /// });

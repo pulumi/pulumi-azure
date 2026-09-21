@@ -19,20 +19,14 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleCluster = new azure.loganalytics.Cluster("example", {
- *     name: "example-cluster",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-cluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "keyvaultkeyexample",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -54,6 +48,12 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "keyvaultkeyexample",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
  *     tags: {
  *         environment: "Production",
  *     },

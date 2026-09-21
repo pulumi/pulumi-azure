@@ -57,19 +57,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceGroupCostManagementView = new ResourceGroupCostManagementView("exampleResourceGroupCostManagementView", ResourceGroupCostManagementViewArgs.builder()
- *             .name("example")
- *             .displayName("Cost View per Month")
- *             .chartType("StackedColumn")
- *             .accumulated(false)
- *             .resourceGroupId(example.id())
- *             .reportType("Usage")
- *             .timeframe("MonthToDate")
  *             .dataset(ResourceGroupCostManagementViewDatasetArgs.builder()
- *                 .granularity("Monthly")
  *                 .aggregations(ResourceGroupCostManagementViewDatasetAggregationArgs.builder()
  *                     .name("totalCost")
  *                     .columnName("Cost")
  *                     .build())
+ *                 .granularity("Monthly")
  *                 .build())
  *             .pivots(            
  *                 ResourceGroupCostManagementViewPivotArgs.builder()
@@ -84,6 +77,13 @@ import javax.annotation.Nullable;
  *                     .type("Dimension")
  *                     .name("ResourceGroupName")
  *                     .build())
+ *             .name("example")
+ *             .displayName("Cost View per Month")
+ *             .chartType("StackedColumn")
+ *             .accumulated(false)
+ *             .resourceGroupId(example.id())
+ *             .reportType("Usage")
+ *             .timeframe("MonthToDate")
  *             .build());
  * 
  *     }

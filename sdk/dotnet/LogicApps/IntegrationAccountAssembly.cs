@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogicApps
     ///         Content = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testdata/log4net.dll",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

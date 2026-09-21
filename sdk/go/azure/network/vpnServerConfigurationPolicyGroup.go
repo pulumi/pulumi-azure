@@ -37,12 +37,6 @@ import (
 //				return err
 //			}
 //			exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "example", &network.VpnServerConfigurationArgs{
-//				Name:              pulumi.String("example-VPNSC"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VpnAuthenticationTypes: pulumi.StringArray{
-//					pulumi.String("Radius"),
-//				},
 //				Radius: &network.VpnServerConfigurationRadiusArgs{
 //					Servers: network.VpnServerConfigurationRadiusServerArray{
 //						&network.VpnServerConfigurationRadiusServerArgs{
@@ -52,13 +46,17 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example-VPNSC"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				VpnAuthenticationTypes: pulumi.StringArray{
+//					pulumi.String("Radius"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewVpnServerConfigurationPolicyGroup(ctx, "example", &network.VpnServerConfigurationPolicyGroupArgs{
-//				Name:                     pulumi.String("example-VPNSCPG"),
-//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID().ToIDOutput().ToStringOutput(),
 //				Policies: network.VpnServerConfigurationPolicyGroupPolicyArray{
 //					&network.VpnServerConfigurationPolicyGroupPolicyArgs{
 //						Name:  pulumi.String("policy1"),
@@ -66,6 +64,8 @@ import (
 //						Value: pulumi.String("6ad1bd08"),
 //					},
 //				},
+//				Name:                     pulumi.String("example-VPNSCPG"),
+//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

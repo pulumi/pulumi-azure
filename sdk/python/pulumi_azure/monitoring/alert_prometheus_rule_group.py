@@ -391,10 +391,6 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-cluster",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -403,16 +399,12 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
-        example_alert_prometheus_rule_group = azure.monitoring.AlertPrometheusRuleGroup("example",
-            name="example-amprg",
-            location="West Europe",
+            },
+            name="example-cluster",
+            location=example.location,
             resource_group_name=example.name,
-            cluster_name=example_kubernetes_cluster.name,
-            description="This is the description of the following rule group",
-            rule_group_enabled=False,
-            interval="PT1M",
-            scopes=[example_workspace.id],
+            dns_prefix="example-aks")
+        example_alert_prometheus_rule_group = azure.monitoring.AlertPrometheusRuleGroup("example",
             rules=[
                 {
                     "enabled": False,
@@ -423,18 +415,18 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                     },
                 },
                 {
+                    "alert_resolution": {
+                        "auto_resolved": True,
+                        "time_to_resolve": "PT10M",
+                    },
+                    "actions": [{
+                        "action_group_id": example_action_group.id,
+                    }],
                     "alert": "Billing_Processing_Very_Slow",
                     "enabled": True,
                     "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\\\\"billing-processing\\\\\\"}[5m])) by (job_type))\\n",
                     "for_": "PT5M",
                     "severity": 2,
-                    "actions": [{
-                        "action_group_id": example_action_group.id,
-                    }],
-                    "alert_resolution": {
-                        "auto_resolved": True,
-                        "time_to_resolve": "PT10M",
-                    },
                     "annotations": {
                         "annotationName": "annotationValue",
                     },
@@ -443,6 +435,14 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                     },
                 },
             ],
+            name="example-amprg",
+            location="West Europe",
+            resource_group_name=example.name,
+            cluster_name=example_kubernetes_cluster.name,
+            description="This is the description of the following rule group",
+            rule_group_enabled=False,
+            interval="PT1M",
+            scopes=[example_workspace.id],
             tags={
                 "key": "value",
             })
@@ -504,10 +504,6 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-cluster",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -516,16 +512,12 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
-        example_alert_prometheus_rule_group = azure.monitoring.AlertPrometheusRuleGroup("example",
-            name="example-amprg",
-            location="West Europe",
+            },
+            name="example-cluster",
+            location=example.location,
             resource_group_name=example.name,
-            cluster_name=example_kubernetes_cluster.name,
-            description="This is the description of the following rule group",
-            rule_group_enabled=False,
-            interval="PT1M",
-            scopes=[example_workspace.id],
+            dns_prefix="example-aks")
+        example_alert_prometheus_rule_group = azure.monitoring.AlertPrometheusRuleGroup("example",
             rules=[
                 {
                     "enabled": False,
@@ -536,18 +528,18 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                     },
                 },
                 {
+                    "alert_resolution": {
+                        "auto_resolved": True,
+                        "time_to_resolve": "PT10M",
+                    },
+                    "actions": [{
+                        "action_group_id": example_action_group.id,
+                    }],
                     "alert": "Billing_Processing_Very_Slow",
                     "enabled": True,
                     "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\\\\"billing-processing\\\\\\"}[5m])) by (job_type))\\n",
                     "for_": "PT5M",
                     "severity": 2,
-                    "actions": [{
-                        "action_group_id": example_action_group.id,
-                    }],
-                    "alert_resolution": {
-                        "auto_resolved": True,
-                        "time_to_resolve": "PT10M",
-                    },
                     "annotations": {
                         "annotationName": "annotationValue",
                     },
@@ -556,6 +548,14 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                     },
                 },
             ],
+            name="example-amprg",
+            location="West Europe",
+            resource_group_name=example.name,
+            cluster_name=example_kubernetes_cluster.name,
+            description="This is the description of the following rule group",
+            rule_group_enabled=False,
+            interval="PT1M",
+            scopes=[example_workspace.id],
             tags={
                 "key": "value",
             })

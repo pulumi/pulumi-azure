@@ -37,14 +37,52 @@ import (
 //				return err
 //			}
 //			_, err = waf.NewPolicy(ctx, "example", &waf.PolicyArgs{
-//				Name:              pulumi.String("example-wafpolicy"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
+//				PolicySettings: &waf.PolicyPolicySettingsArgs{
+//					Enabled:                pulumi.Bool(true),
+//					Mode:                   pulumi.String("Prevention"),
+//					RequestBodyCheck:       pulumi.Bool(true),
+//					FileUploadLimitInMb:    pulumi.Int(100),
+//					MaxRequestBodySizeInKb: pulumi.Int(128),
+//				},
+//				ManagedRules: &waf.PolicyManagedRulesArgs{
+//					Exclusions: waf.PolicyManagedRulesExclusionArray{
+//						&waf.PolicyManagedRulesExclusionArgs{
+//							MatchVariable:         pulumi.String("RequestHeaderNames"),
+//							Selector:              pulumi.String("x-company-secret-header"),
+//							SelectorMatchOperator: pulumi.String("Equals"),
+//						},
+//						&waf.PolicyManagedRulesExclusionArgs{
+//							MatchVariable:         pulumi.String("RequestCookieNames"),
+//							Selector:              pulumi.String("too-tasty"),
+//							SelectorMatchOperator: pulumi.String("EndsWith"),
+//						},
+//					},
+//					ManagedRuleSets: waf.PolicyManagedRulesManagedRuleSetArray{
+//						&waf.PolicyManagedRulesManagedRuleSetArgs{
+//							RuleGroupOverrides: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{
+//								&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{
+//									Rules: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{
+//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
+//											Id:      pulumi.String("920300"),
+//											Enabled: pulumi.Bool(true),
+//											Action:  pulumi.String("Log"),
+//										},
+//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
+//											Id:      pulumi.String("920440"),
+//											Enabled: pulumi.Bool(true),
+//											Action:  pulumi.String("Block"),
+//										},
+//									},
+//									RuleGroupName: pulumi.String("REQUEST-920-PROTOCOL-ENFORCEMENT"),
+//								},
+//							},
+//							Type:    pulumi.String("OWASP"),
+//							Version: pulumi.String("3.2"),
+//						},
+//					},
+//				},
 //				CustomRules: waf.PolicyCustomRuleArray{
 //					&waf.PolicyCustomRuleArgs{
-//						Name:     pulumi.String("Rule1"),
-//						Priority: pulumi.Int(1),
-//						RuleType: pulumi.String("MatchRule"),
 //						MatchConditions: waf.PolicyCustomRuleMatchConditionArray{
 //							&waf.PolicyCustomRuleMatchConditionArgs{
 //								MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
@@ -60,12 +98,12 @@ import (
 //								},
 //							},
 //						},
-//						Action: pulumi.String("Block"),
+//						Name:     pulumi.String("Rule1"),
+//						Priority: pulumi.Int(1),
+//						RuleType: pulumi.String("MatchRule"),
+//						Action:   pulumi.String("Block"),
 //					},
 //					&waf.PolicyCustomRuleArgs{
-//						Name:     pulumi.String("Rule2"),
-//						Priority: pulumi.Int(2),
-//						RuleType: pulumi.String("MatchRule"),
 //						MatchConditions: waf.PolicyCustomRuleMatchConditionArray{
 //							&waf.PolicyCustomRuleMatchConditionArgs{
 //								MatchVariables: waf.PolicyCustomRuleMatchConditionMatchVariableArray{
@@ -93,53 +131,15 @@ import (
 //								},
 //							},
 //						},
-//						Action: pulumi.String("Block"),
+//						Name:     pulumi.String("Rule2"),
+//						Priority: pulumi.Int(2),
+//						RuleType: pulumi.String("MatchRule"),
+//						Action:   pulumi.String("Block"),
 //					},
 //				},
-//				PolicySettings: &waf.PolicyPolicySettingsArgs{
-//					Enabled:                pulumi.Bool(true),
-//					Mode:                   pulumi.String("Prevention"),
-//					RequestBodyCheck:       pulumi.Bool(true),
-//					FileUploadLimitInMb:    pulumi.Int(100),
-//					MaxRequestBodySizeInKb: pulumi.Int(128),
-//				},
-//				ManagedRules: &waf.PolicyManagedRulesArgs{
-//					Exclusions: waf.PolicyManagedRulesExclusionArray{
-//						&waf.PolicyManagedRulesExclusionArgs{
-//							MatchVariable:         pulumi.String("RequestHeaderNames"),
-//							Selector:              pulumi.String("x-company-secret-header"),
-//							SelectorMatchOperator: pulumi.String("Equals"),
-//						},
-//						&waf.PolicyManagedRulesExclusionArgs{
-//							MatchVariable:         pulumi.String("RequestCookieNames"),
-//							Selector:              pulumi.String("too-tasty"),
-//							SelectorMatchOperator: pulumi.String("EndsWith"),
-//						},
-//					},
-//					ManagedRuleSets: waf.PolicyManagedRulesManagedRuleSetArray{
-//						&waf.PolicyManagedRulesManagedRuleSetArgs{
-//							Type:    pulumi.String("OWASP"),
-//							Version: pulumi.String("3.2"),
-//							RuleGroupOverrides: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArray{
-//								&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{
-//									RuleGroupName: pulumi.String("REQUEST-920-PROTOCOL-ENFORCEMENT"),
-//									Rules: waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArray{
-//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
-//											Id:      pulumi.String("920300"),
-//											Enabled: pulumi.Bool(true),
-//											Action:  pulumi.String("Log"),
-//										},
-//										&waf.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs{
-//											Id:      pulumi.String("920440"),
-//											Enabled: pulumi.Bool(true),
-//											Action:  pulumi.String("Block"),
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
-//				},
+//				Name:              pulumi.String("example-wafpolicy"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleService = new azure.signalr.Service("example", {
- *     name: "example-signalr",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_S1",
  *         capacity: 1,
  *     },
+ *     name: "example-signalr",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     name: "example-vnet",
@@ -42,20 +42,18 @@ import * as utilities from "../utilities";
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: "example-privateendpoint",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     subnetId: exampleSubnet.id,
  *     privateServiceConnection: {
  *         name: "psc-sig-test",
  *         isManualConnection: false,
  *         privateConnectionResourceId: exampleService.id,
  *         subresourceNames: ["signalr"],
  *     },
+ *     name: "example-privateendpoint",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     subnetId: exampleSubnet.id,
  * });
  * const exampleServiceNetworkAcl = new azure.signalr.ServiceNetworkAcl("example", {
- *     signalrServiceId: exampleService.id,
- *     defaultAction: "Deny",
  *     publicNetwork: {
  *         allowedRequestTypes: ["ClientConnection"],
  *     },
@@ -63,6 +61,8 @@ import * as utilities from "../utilities";
  *         id: exampleEndpoint.id,
  *         allowedRequestTypes: ["ServerConnection"],
  *     }],
+ *     signalrServiceId: exampleService.id,
+ *     defaultAction: "Deny",
  * });
  * ```
  *

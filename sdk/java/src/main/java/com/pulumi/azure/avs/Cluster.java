@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePrivateCloud = new PrivateCloud("examplePrivateCloud", PrivateCloudArgs.builder()
+ *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
+ *                 .size(3)
+ *                 .build())
  *             .name("example-vmware-private-cloud")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName("av36")
- *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
- *                 .size(3)
- *                 .build())
  *             .networkSubnetCidr("192.168.48.0/22")
  *             .internetConnectionEnabled(false)
  *             .nsxtPassword("QazWsx13$Edc")

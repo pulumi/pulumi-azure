@@ -199,8 +199,6 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example1 = azure.securitycenter.SubscriptionPricing("example1",
-            tier="Standard",
-            resource_type="CloudPosture",
             extensions=[
                 {
                     "name": "ContainerRegistriesVulnerabilityAssessments",
@@ -217,7 +215,9 @@ class SubscriptionPricing(pulumi.CustomResource):
                 {
                     "name": "SensitiveDataDiscovery",
                 },
-            ])
+            ],
+            tier="Standard",
+            resource_type="CloudPosture")
         ```
 
         ## API Providers
@@ -274,8 +274,6 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example1 = azure.securitycenter.SubscriptionPricing("example1",
-            tier="Standard",
-            resource_type="CloudPosture",
             extensions=[
                 {
                     "name": "ContainerRegistriesVulnerabilityAssessments",
@@ -292,7 +290,9 @@ class SubscriptionPricing(pulumi.CustomResource):
                 {
                     "name": "SensitiveDataDiscovery",
                 },
-            ])
+            ],
+            tier="Standard",
+            resource_type="CloudPosture")
         ```
 
         ## API Providers

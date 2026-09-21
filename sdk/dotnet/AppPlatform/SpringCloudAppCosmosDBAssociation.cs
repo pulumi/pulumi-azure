@@ -46,11 +46,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "example-cosmosdb-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
     ///             ConsistencyLevel = "Strong",
@@ -63,6 +58,11 @@ namespace Pulumi.Azure.AppPlatform
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
     ///     });
     /// 
     ///     var exampleSpringCloudAppCosmosDBAssociation = new Azure.AppPlatform.SpringCloudAppCosmosDBAssociation("example", new()

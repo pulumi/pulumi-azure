@@ -20,11 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const acr = new azure.containerservice.Registry("acr", {
- *     name: "containerRegistry1",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Premium",
- *     adminEnabled: false,
  *     georeplications: [
  *         {
  *             location: "East US",
@@ -37,6 +32,11 @@ import * as utilities from "../utilities";
  *             tags: {},
  *         },
  *     ],
+ *     name: "containerRegistry1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Premium",
+ *     adminEnabled: false,
  * });
  * ```
  *
@@ -60,10 +60,6 @@ import * as utilities from "../utilities";
  *     keyVaultId: existing.id,
  * });
  * const acr = new azure.containerservice.Registry("acr", {
- *     name: "containerRegistry1",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     sku: "Premium",
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
@@ -72,6 +68,10 @@ import * as utilities from "../utilities";
  *         keyVaultKeyId: example.then(example => example.id),
  *         identityClientId: exampleUserAssignedIdentity.clientId,
  *     },
+ *     name: "containerRegistry1",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     sku: "Premium",
  * });
  * ```
  *
@@ -92,10 +92,6 @@ import * as utilities from "../utilities";
  *     sku: "Premium",
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-aks1",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefix: "exampleaks1",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
@@ -104,6 +100,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-aks1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "exampleaks1",
  *     tags: {
  *         Environment: "Production",
  *     },

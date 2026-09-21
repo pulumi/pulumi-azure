@@ -25,10 +25,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefix: "example",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
@@ -37,6 +33,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "example",
  * });
  * const exampleFleetMember = new azure.containerservice.FleetMember("example", {
  *     name: "example",
@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *     group: "example-group",
  * });
  * const exampleFleetUpdateRun = new azure.containerservice.FleetUpdateRun("example", {
- *     name: "example",
- *     kubernetesFleetManagerId: exampleKubernetesFleetManager.id,
  *     managedClusterUpdate: {
  *         upgrade: {
  *             type: "Full",
@@ -57,12 +55,14 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     stages: [{
- *         name: "example",
  *         groups: [{
  *             name: "example-group",
  *         }],
+ *         name: "example",
  *         afterStageWaitInSeconds: 21,
  *     }],
+ *     name: "example",
+ *     kubernetesFleetManagerId: exampleKubernetesFleetManager.id,
  * });
  * ```
  *

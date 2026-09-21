@@ -271,10 +271,6 @@ class TxtRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_txt_record = azure.dns.TxtRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[
                 {
                     "value": "google-site-authenticator",
@@ -283,6 +279,10 @@ class TxtRecord(pulumi.CustomResource):
                     "value": "more site information here",
                 },
             ],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })
@@ -337,10 +337,6 @@ class TxtRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_txt_record = azure.dns.TxtRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[
                 {
                     "value": "google-site-authenticator",
@@ -349,6 +345,10 @@ class TxtRecord(pulumi.CustomResource):
                     "value": "more site information here",
                 },
             ],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })

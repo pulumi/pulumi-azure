@@ -561,9 +561,32 @@ class Frontdoor(pulumi.CustomResource):
             name="FrontDoorExampleResourceGroup",
             location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example-FrontDoor",
-            resource_group_name=example.name,
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pools=[{
+                "backends": [{
+                    "host_header": "www.bing.com",
+                    "address": "www.bing.com",
+                    "http_port": 80,
+                    "https_port": 443,
+                }],
+                "name": "exampleBackendBing",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
+            }],
+            frontend_endpoints=[{
+                "name": "exampleFrontendEndpoint1",
+                "host_name": "example-FrontDoor.azurefd.net",
+            }],
             routing_rules=[{
+                "forwarding_configuration": {
+                    "forwarding_protocol": "MatchRequest",
+                    "backend_pool_name": "exampleBackendBing",
+                },
                 "name": "exampleRoutingRule1",
                 "accepted_protocols": [
                     "Http",
@@ -571,32 +594,9 @@ class Frontdoor(pulumi.CustomResource):
                 ],
                 "patterns_to_matches": ["/*"],
                 "frontend_endpoints": ["exampleFrontendEndpoint1"],
-                "forwarding_configuration": {
-                    "forwarding_protocol": "MatchRequest",
-                    "backend_pool_name": "exampleBackendBing",
-                },
             }],
-            backend_pool_load_balancings=[{
-                "name": "exampleLoadBalancingSettings1",
-            }],
-            backend_pool_health_probes=[{
-                "name": "exampleHealthProbeSetting1",
-            }],
-            backend_pools=[{
-                "name": "exampleBackendBing",
-                "backends": [{
-                    "host_header": "www.bing.com",
-                    "address": "www.bing.com",
-                    "http_port": 80,
-                    "https_port": 443,
-                }],
-                "load_balancing_name": "exampleLoadBalancingSettings1",
-                "health_probe_name": "exampleHealthProbeSetting1",
-            }],
-            frontend_endpoints=[{
-                "name": "exampleFrontendEndpoint1",
-                "host_name": "example-FrontDoor.azurefd.net",
-            }])
+            name="example-FrontDoor",
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -659,9 +659,32 @@ class Frontdoor(pulumi.CustomResource):
             name="FrontDoorExampleResourceGroup",
             location="West Europe")
         example_frontdoor = azure.frontdoor.Frontdoor("example",
-            name="example-FrontDoor",
-            resource_group_name=example.name,
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pools=[{
+                "backends": [{
+                    "host_header": "www.bing.com",
+                    "address": "www.bing.com",
+                    "http_port": 80,
+                    "https_port": 443,
+                }],
+                "name": "exampleBackendBing",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
+            }],
+            frontend_endpoints=[{
+                "name": "exampleFrontendEndpoint1",
+                "host_name": "example-FrontDoor.azurefd.net",
+            }],
             routing_rules=[{
+                "forwarding_configuration": {
+                    "forwarding_protocol": "MatchRequest",
+                    "backend_pool_name": "exampleBackendBing",
+                },
                 "name": "exampleRoutingRule1",
                 "accepted_protocols": [
                     "Http",
@@ -669,32 +692,9 @@ class Frontdoor(pulumi.CustomResource):
                 ],
                 "patterns_to_matches": ["/*"],
                 "frontend_endpoints": ["exampleFrontendEndpoint1"],
-                "forwarding_configuration": {
-                    "forwarding_protocol": "MatchRequest",
-                    "backend_pool_name": "exampleBackendBing",
-                },
             }],
-            backend_pool_load_balancings=[{
-                "name": "exampleLoadBalancingSettings1",
-            }],
-            backend_pool_health_probes=[{
-                "name": "exampleHealthProbeSetting1",
-            }],
-            backend_pools=[{
-                "name": "exampleBackendBing",
-                "backends": [{
-                    "host_header": "www.bing.com",
-                    "address": "www.bing.com",
-                    "http_port": 80,
-                    "https_port": 443,
-                }],
-                "load_balancing_name": "exampleLoadBalancingSettings1",
-                "health_probe_name": "exampleHealthProbeSetting1",
-            }],
-            frontend_endpoints=[{
-                "name": "exampleFrontendEndpoint1",
-                "host_name": "example-FrontDoor.azurefd.net",
-            }])
+            name="example-FrontDoor",
+            resource_group_name=example.name)
         ```
 
         ## Import

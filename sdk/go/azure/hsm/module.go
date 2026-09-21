@@ -64,15 +64,8 @@ import (
 //				return err
 //			}
 //			example2, err := network.NewSubnet(ctx, "example2", &network.SubnetArgs{
-//				Name:               pulumi.String("example-hsmsubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.2.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("first"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.HardwareSecurityModules/dedicatedHSMs"),
 //							Actions: pulumi.StringArray{
@@ -80,7 +73,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("first"),
 //					},
+//				},
+//				Name:               pulumi.String("example-hsmsubnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.2.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -107,12 +107,6 @@ import (
 //				return err
 //			}
 //			exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
-//				Name:              pulumi.String("example-vnetgateway"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Type:              pulumi.String("ExpressRoute"),
-//				VpnType:           pulumi.String("PolicyBased"),
-//				Sku:               pulumi.String("Standard"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
 //						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -120,15 +114,17 @@ import (
 //						SubnetId:                   example3.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("example-vnetgateway"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("ExpressRoute"),
+//				VpnType:           pulumi.String("PolicyBased"),
+//				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = hsm.NewModule(ctx, "example", &hsm.ModuleArgs{
-//				Name:              pulumi.String("example-hsm"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("payShield10K_LMK1_CPS60"),
 //				ManagementNetworkProfile: &hsm.ModuleManagementNetworkProfileArgs{
 //					NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
 //						pulumi.String("10.2.1.7"),
@@ -141,7 +137,11 @@ import (
 //					},
 //					SubnetId: example2.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				StampId: pulumi.String("stamp2"),
+//				Name:              pulumi.String("example-hsm"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("payShield10K_LMK1_CPS60"),
+//				StampId:           pulumi.String("stamp2"),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("Test"),
 //				},

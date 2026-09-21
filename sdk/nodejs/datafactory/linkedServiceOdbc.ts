@@ -32,13 +32,13 @@ import * as utilities from "../utilities";
  *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
  * });
  * const basicAuth = new azure.datafactory.LinkedServiceOdbc("basic_auth", {
- *     name: "basic_auth",
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
  *     basicAuthentication: {
  *         username: "onrylmz",
  *         password: "Ch4ngeM3!",
  *     },
+ *     name: "basic_auth",
+ *     dataFactoryId: exampleFactory.id,
+ *     connectionString: "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
  * });
  * ```
  *

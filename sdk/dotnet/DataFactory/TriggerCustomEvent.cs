@@ -50,6 +50,17 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleTriggerCustomEvent = new Azure.DataFactory.TriggerCustomEvent("example", new()
     ///     {
+    ///         Pipelines = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.TriggerCustomEventPipelineArgs
+    ///             {
+    ///                 Name = examplePipeline.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "Env", "Prod" },
+    ///                 },
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         EventgridTopicId = exampleTopic.Id,
@@ -67,17 +78,6 @@ namespace Pulumi.Azure.DataFactory
     ///             "example3",
     ///         },
     ///         Description = "example description",
-    ///         Pipelines = new[]
-    ///         {
-    ///             new Azure.DataFactory.Inputs.TriggerCustomEventPipelineArgs
-    ///             {
-    ///                 Name = examplePipeline.Name,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "Env", "Prod" },
-    ///                 },
-    ///             },
-    ///         },
     ///         AdditionalProperties = 
     ///         {
     ///             { "foo", "foo1" },

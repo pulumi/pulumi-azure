@@ -510,14 +510,14 @@ class StandardWebTest(pulumi.CustomResource):
             resource_group_name=example.name,
             application_type="web")
         example_standard_web_test = azure.appinsights.StandardWebTest("example",
+            request={
+                "url": "http://www.example.com",
+            },
             name="example-test",
             resource_group_name=example.name,
             location="West Europe",
             application_insights_id=example_insights.id,
-            geo_locations=["example"],
-            request={
-                "url": "http://www.example.com",
-            })
+            geo_locations=["example"])
         ```
 
         ## API Providers
@@ -578,14 +578,14 @@ class StandardWebTest(pulumi.CustomResource):
             resource_group_name=example.name,
             application_type="web")
         example_standard_web_test = azure.appinsights.StandardWebTest("example",
+            request={
+                "url": "http://www.example.com",
+            },
             name="example-test",
             resource_group_name=example.name,
             location="West Europe",
             application_insights_id=example_insights.id,
-            geo_locations=["example"],
-            request={
-                "url": "http://www.example.com",
-            })
+            geo_locations=["example"])
         ```
 
         ## API Providers

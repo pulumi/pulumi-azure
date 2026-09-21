@@ -53,6 +53,10 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleOutputEventHub = new Azure.StreamAnalytics.OutputEventHub("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputEventHubSerializationArgs
+    ///         {
+    ///             Type = "Avro",
+    ///         },
     ///         Name = "output-to-eventhub",
     ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
     ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
@@ -60,10 +64,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         ServicebusNamespace = exampleEventHubNamespace.Name,
     ///         SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,
     ///         SharedAccessPolicyName = "RootManageSharedAccessKey",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputEventHubSerializationArgs
-    ///         {
-    ///             Type = "Avro",
-    ///         },
     ///     });
     /// 
     /// });

@@ -69,11 +69,6 @@ import (
 //				return err
 //			}
 //			exampleFirewall, err := network.NewFirewall(ctx, "example", &network.FirewallArgs{
-//				Name:              pulumi.String("testfirewall"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("AZFW_VNet"),
-//				SkuTier:           pulumi.String("Standard"),
 //				IpConfigurations: network.FirewallIpConfigurationArray{
 //					&network.FirewallIpConfigurationArgs{
 //						Name:              pulumi.String("configuration"),
@@ -81,18 +76,24 @@ import (
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("testfirewall"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("AZFW_VNet"),
+//				SkuTier:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewFirewallApplicationRuleCollection(ctx, "example", &network.FirewallApplicationRuleCollectionArgs{
-//				Name:              pulumi.String("testcollection"),
-//				AzureFirewallName: exampleFirewall.Name,
-//				ResourceGroupName: example.Name,
-//				Priority:          pulumi.Int(100),
-//				Action:            pulumi.String("Allow"),
 //				Rules: network.FirewallApplicationRuleCollectionRuleArray{
 //					&network.FirewallApplicationRuleCollectionRuleArgs{
+//						Protocols: network.FirewallApplicationRuleCollectionRuleProtocolArray{
+//							&network.FirewallApplicationRuleCollectionRuleProtocolArgs{
+//								Port: pulumi.Int(443),
+//								Type: pulumi.String("Https"),
+//							},
+//						},
 //						Name: pulumi.String("testrule"),
 //						SourceAddresses: pulumi.StringArray{
 //							pulumi.String("10.0.0.0/16"),
@@ -100,14 +101,13 @@ import (
 //						TargetFqdns: pulumi.StringArray{
 //							pulumi.String("*.google.com"),
 //						},
-//						Protocols: network.FirewallApplicationRuleCollectionRuleProtocolArray{
-//							&network.FirewallApplicationRuleCollectionRuleProtocolArgs{
-//								Port: pulumi.Int(443),
-//								Type: pulumi.String("Https"),
-//							},
-//						},
 //					},
 //				},
+//				Name:              pulumi.String("testcollection"),
+//				AzureFirewallName: exampleFirewall.Name,
+//				ResourceGroupName: example.Name,
+//				Priority:          pulumi.Int(100),
+//				Action:            pulumi.String("Allow"),
 //			})
 //			if err != nil {
 //				return err

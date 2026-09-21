@@ -49,10 +49,6 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
-//				Name:              pulumi.String("example-springcloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("S0"),
 //				ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
 //					Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
 //					Label: pulumi.String("config"),
@@ -65,6 +61,10 @@ import (
 //					ConnectionString: exampleInsights.ConnectionString,
 //					SampleRate:       pulumi.Float64(10),
 //				},
+//				Name:              pulumi.String("example-springcloud"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SkuName:           pulumi.String("S0"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("staging"),
 //				},

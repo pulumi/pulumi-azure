@@ -108,6 +108,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVmwareReplicatedVm = new VmwareReplicatedVm("exampleVmwareReplicatedVm", VmwareReplicatedVmArgs.builder()
+ *             .networkInterfaces(VmwareReplicatedVmNetworkInterfaceArgs.builder()
+ *                 .sourceMacAddress("00:00:00:00:00:00")
+ *                 .targetSubnetName(exampleSubnet.name())
+ *                 .isPrimary(true)
+ *                 .build())
  *             .name("example-vmware-vm")
  *             .recoveryVaultId(exampleVault.id())
  *             .sourceVmName("example-vm")
@@ -121,11 +126,6 @@ import javax.annotation.Nullable;
  *             .defaultLogStorageAccountId(exampleAccount.id())
  *             .defaultRecoveryDiskType("Standard_LRS")
  *             .targetNetworkId(exampleVirtualNetwork.id())
- *             .networkInterfaces(VmwareReplicatedVmNetworkInterfaceArgs.builder()
- *                 .sourceMacAddress("00:00:00:00:00:00")
- *                 .targetSubnetName(exampleSubnet.name())
- *                 .isPrimary(true)
- *                 .build())
  *             .build());
  * 
  *     }

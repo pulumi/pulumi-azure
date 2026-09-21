@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.arckubernetes.ClusterArgs;
  * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.arckubernetes.ClusterExtension;
  * import com.pulumi.azure.arckubernetes.ClusterExtensionArgs;
  * import com.pulumi.azure.arckubernetes.FluxConfiguration;
@@ -65,15 +64,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example-akcc")
- *             .resourceGroupName(example.name())
- *             .location("West Europe")
- *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("testdata/public.cer")
- *                 .build()).result())
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-akcc")
+ *             .resourceGroupName(example.name())
+ *             .location("West Europe")
+ *             .agentPublicKeyCertificate(StdFunctions.filebase64(Map.of("input", "testdata/public.cer")).result())
  *             .tags(Map.of("ENV", "Test"))
  *             .build());
  * 
@@ -84,9 +81,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFluxConfiguration = new FluxConfiguration("exampleFluxConfiguration", FluxConfigurationArgs.builder()
- *             .name("example-fc")
- *             .clusterId(test.id())
- *             .namespace("flux")
  *             .gitRepository(FluxConfigurationGitRepositoryArgs.builder()
  *                 .url("https://github.com/Azure/arc-k8s-demo")
  *                 .referenceType("branch")
@@ -95,6 +89,9 @@ import javax.annotation.Nullable;
  *             .kustomizations(FluxConfigurationKustomizationArgs.builder()
  *                 .name("kustomization-1")
  *                 .build())
+ *             .name("example-fc")
+ *             .clusterId(test.id())
+ *             .namespace("flux")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleClusterExtension)
  *                 .build());

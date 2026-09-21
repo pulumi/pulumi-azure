@@ -33,13 +33,13 @@ import * as utilities from "../utilities";
  * const primary = azure.core.getSubscription({});
  * const example = azure.core.getClientConfig({});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     name: "my-custom-role-definition",
- *     scope: primary.then(primary => primary.id),
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "my-custom-role-definition",
+ *     scope: primary.then(primary => primary.id),
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
@@ -59,13 +59,13 @@ import * as utilities from "../utilities";
  * const primary = azure.core.getSubscription({});
  * const example = azure.core.getClientConfig({});
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     name: "my-custom-role-definition",
- *     scope: primary.then(primary => primary.id),
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "my-custom-role-definition",
+ *     scope: primary.then(primary => primary.id),
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
@@ -88,13 +88,13 @@ import * as utilities from "../utilities";
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     name: "my-custom-role-definition",
- *     scope: primary.then(primary => primary.id),
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "my-custom-role-definition",
+ *     scope: primary.then(primary => primary.id),
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
@@ -124,17 +124,15 @@ import * as utilities from "../utilities";
  *     principalType: "ServicePrincipal",
  *     description: "Role Based Access Control Administrator role assignment with ABAC Condition.",
  *     conditionVersion: "2.0",
- *     condition: Promise.all([builtin.then(builtin => std.basename({
- *         input: builtin.roleDefinitionId,
- *     })), builtin.then(builtin => std.basename({
- *         input: builtin.roleDefinitionId,
- *     }))]).then(([invoke, invoke1]) => `(
+ *     condition: `(
  *  (
  *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
  *  )
  *  OR
  *  (
- *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke.result}}
+ *   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${std.basename({
+ *         input: builtin.then(builtin => builtin.roleDefinitionId),
+ *     }).result}}
  *  )
  * )
  * AND
@@ -144,10 +142,12 @@ import * as utilities from "../utilities";
  *  )
  *  OR
  *  (
- *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${invoke1.result}}
+ *   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {${std.basename({
+ *         input: builtin.then(builtin => builtin.roleDefinitionId),
+ *     }).result}}
  *  )
  * )
- * `),
+ * `,
  * });
  * ```
  *

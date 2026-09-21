@@ -270,9 +270,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_get_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-            https_only=True,
-            resource_types={
+        example_get_account_sas = azure.storage.get_account_sas_output(resource_types={
                 "service": True,
                 "container": False,
                 "object": False,
@@ -283,8 +281,6 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 "table": False,
                 "file": False,
             },
-            start="2021-04-30T00:00:00Z",
-            expiry="2023-04-30T00:00:00Z",
             permissions={
                 "read": True,
                 "write": True,
@@ -296,14 +292,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 "process": False,
                 "tag": False,
                 "filter": False,
-            })
+            },
+            connection_string=example_account.primary_connection_string,
+            https_only=True,
+            start="2021-04-30T00:00:00Z",
+            expiry="2023-04-30T00:00:00Z")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-keyvault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            rbac_authorization_enabled=False,
-            tenant_id=example.tenant_id,
-            sku_name="standard",
             access_policies=[{
                 "tenant_id": example.tenant_id,
                 "object_id": example.object_id,
@@ -321,7 +315,13 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            }])
+            }],
+            name="example-keyvault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            rbac_authorization_enabled=False,
+            tenant_id=example.tenant_id,
+            sku_name="standard")
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
@@ -380,9 +380,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_get_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-            https_only=True,
-            resource_types={
+        example_get_account_sas = azure.storage.get_account_sas_output(resource_types={
                 "service": True,
                 "container": False,
                 "object": False,
@@ -393,8 +391,6 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 "table": False,
                 "file": False,
             },
-            start="2021-04-30T00:00:00Z",
-            expiry="2023-04-30T00:00:00Z",
             permissions={
                 "read": True,
                 "write": True,
@@ -406,14 +402,12 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 "process": False,
                 "tag": False,
                 "filter": False,
-            })
+            },
+            connection_string=example_account.primary_connection_string,
+            https_only=True,
+            start="2021-04-30T00:00:00Z",
+            expiry="2023-04-30T00:00:00Z")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-keyvault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            rbac_authorization_enabled=False,
-            tenant_id=example.tenant_id,
-            sku_name="standard",
             access_policies=[{
                 "tenant_id": example.tenant_id,
                 "object_id": example.object_id,
@@ -431,7 +425,13 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            }])
+            }],
+            name="example-keyvault",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            rbac_authorization_enabled=False,
+            tenant_id=example.tenant_id,
+            sku_name="standard")
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,

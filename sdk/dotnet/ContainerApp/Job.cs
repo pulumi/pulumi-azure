@@ -47,12 +47,6 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleJob = new Azure.ContainerApp.Job("example", new()
     ///     {
-    ///         Name = "example-container-app-job",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         ReplicaTimeoutInSeconds = 10,
-    ///         ReplicaRetryLimit = 10,
     ///         ManualTriggerConfig = new Azure.ContainerApp.Inputs.JobManualTriggerConfigArgs
     ///         {
     ///             Parallelism = 4,
@@ -64,23 +58,10 @@ namespace Pulumi.Azure.ContainerApp
     ///             {
     ///                 new Azure.ContainerApp.Inputs.JobTemplateContainerArgs
     ///                 {
-    ///                     Image = "repo/testcontainerAppsJob0:v1",
-    ///                     Name = "testcontainerappsjob0",
-    ///                     ReadinessProbes = new[]
-    ///                     {
-    ///                         new Azure.ContainerApp.Inputs.JobTemplateContainerReadinessProbeArgs
-    ///                         {
-    ///                             Transport = "HTTP",
-    ///                             Port = 5000,
-    ///                         },
-    ///                     },
     ///                     LivenessProbes = new[]
     ///                     {
     ///                         new Azure.ContainerApp.Inputs.JobTemplateContainerLivenessProbeArgs
     ///                         {
-    ///                             Transport = "HTTP",
-    ///                             Port = 5000,
-    ///                             Path = "/health",
     ///                             Headers = new[]
     ///                             {
     ///                                 new Azure.ContainerApp.Inputs.JobTemplateContainerLivenessProbeHeaderArgs
@@ -89,10 +70,21 @@ namespace Pulumi.Azure.ContainerApp
     ///                                     Value = "no-cache",
     ///                                 },
     ///                             },
+    ///                             Transport = "HTTP",
+    ///                             Port = 5000,
+    ///                             Path = "/health",
     ///                             InitialDelay = 5,
     ///                             IntervalSeconds = 20,
     ///                             Timeout = 2,
     ///                             FailureCountThreshold = 1,
+    ///                         },
+    ///                     },
+    ///                     ReadinessProbes = new[]
+    ///                     {
+    ///                         new Azure.ContainerApp.Inputs.JobTemplateContainerReadinessProbeArgs
+    ///                         {
+    ///                             Transport = "HTTP",
+    ///                             Port = 5000,
     ///                         },
     ///                     },
     ///                     StartupProbes = new[]
@@ -103,11 +95,19 @@ namespace Pulumi.Azure.ContainerApp
     ///                             Port = 5000,
     ///                         },
     ///                     },
+    ///                     Image = "repo/testcontainerAppsJob0:v1",
+    ///                     Name = "testcontainerappsjob0",
     ///                     Cpu = 0.5,
     ///                     Memory = "1Gi",
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-container-app-job",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         ReplicaTimeoutInSeconds = 10,
+    ///         ReplicaRetryLimit = 10,
     ///     });
     /// 
     /// });

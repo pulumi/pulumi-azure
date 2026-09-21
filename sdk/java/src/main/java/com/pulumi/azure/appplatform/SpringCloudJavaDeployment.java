@@ -68,23 +68,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
- *             .name("example-springcloudapp")
- *             .resourceGroupName(example.name())
- *             .serviceName(exampleSpringCloudService.name())
  *             .identity(SpringCloudAppIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-springcloudapp")
+ *             .resourceGroupName(example.name())
+ *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
  *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", SpringCloudJavaDeploymentArgs.builder()
- *             .name("deploy1")
- *             .springCloudAppId(exampleSpringCloudApp.id())
- *             .instanceCount(2)
- *             .jvmOptions("-XX:+PrintGC")
  *             .quota(SpringCloudJavaDeploymentQuotaArgs.builder()
  *                 .cpu("2")
  *                 .memory("4Gi")
  *                 .build())
+ *             .name("deploy1")
+ *             .springCloudAppId(exampleSpringCloudApp.id())
+ *             .instanceCount(2)
+ *             .jvmOptions("-XX:+PrintGC")
  *             .runtimeVersion("Java_11")
  *             .environmentVariables(Map.ofEntries(
  *                 Map.entry("Foo", "Bar"),

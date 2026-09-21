@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("testconfiguration1")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleNetworkInterfaceSecurityGroupAssociation = new NetworkInterfaceSecurityGroupAssociation("exampleNetworkInterfaceSecurityGroupAssociation", NetworkInterfaceSecurityGroupAssociationArgs.builder()

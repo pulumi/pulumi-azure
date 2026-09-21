@@ -105,11 +105,6 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                   pulumi.String("storageaccountname"),
-//				ResourceGroupName:      example.Name,
-//				Location:               example.Location,
-//				AccountTier:            pulumi.String("Standard"),
-//				AccountReplicationType: pulumi.String("LRS"),
 //				NetworkRules: &storage.AccountNetworkRulesTypeArgs{
 //					DefaultAction: pulumi.String("Deny"),
 //					IpRules: pulumi.StringArray{
@@ -119,6 +114,11 @@ import (
 //						exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                   pulumi.String("storageaccountname"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),
 //				},

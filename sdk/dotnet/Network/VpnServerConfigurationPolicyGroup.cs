@@ -30,13 +30,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("example", new()
     ///     {
-    ///         Name = "example-VPNSC",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         VpnAuthenticationTypes = new[]
-    ///         {
-    ///             "Radius",
-    ///         },
     ///         Radius = new Azure.Network.Inputs.VpnServerConfigurationRadiusArgs
     ///         {
     ///             Servers = new[]
@@ -49,12 +42,17 @@ namespace Pulumi.Azure.Network
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-VPNSC",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VpnAuthenticationTypes = new[]
+    ///         {
+    ///             "Radius",
+    ///         },
     ///     });
     /// 
     ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("example", new()
     ///     {
-    ///         Name = "example-VPNSCPG",
-    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
     ///         Policies = new[]
     ///         {
     ///             new Azure.Network.Inputs.VpnServerConfigurationPolicyGroupPolicyArgs
@@ -64,6 +62,8 @@ namespace Pulumi.Azure.Network
     ///                 Value = "6ad1bd08",
     ///             },
     ///         },
+    ///         Name = "example-VPNSCPG",
+    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
     ///     });
     /// 
     /// });

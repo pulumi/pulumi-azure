@@ -301,28 +301,26 @@ class CassandraTable(pulumi.CustomResource):
             name="tflex-cosmosdb-account-rg",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="tfex-cosmosdb-account",
-            resource_group_name=example.name,
-            location=example.location,
-            offer_type="Standard",
-            capabilities=[{
-                "name": "EnableCassandra",
-            }],
             consistency_policy={
                 "consistency_level": "Strong",
             },
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="tfex-cosmosdb-account",
+            resource_group_name=example.name,
+            location=example.location,
+            offer_type="Standard")
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
         example_cassandra_table = azure.cosmosdb.CassandraTable("example",
-            name="testtable",
-            cassandra_keyspace_id=example_cassandra_keyspace.id,
             schema={
                 "columns": [
                     {
@@ -337,7 +335,9 @@ class CassandraTable(pulumi.CustomResource):
                 "partition_keys": [{
                     "name": "test1",
                 }],
-            })
+            },
+            name="testtable",
+            cassandra_keyspace_id=example_cassandra_keyspace.id)
         ```
 
         ## API Providers
@@ -389,28 +389,26 @@ class CassandraTable(pulumi.CustomResource):
             name="tflex-cosmosdb-account-rg",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="tfex-cosmosdb-account",
-            resource_group_name=example.name,
-            location=example.location,
-            offer_type="Standard",
-            capabilities=[{
-                "name": "EnableCassandra",
-            }],
             consistency_policy={
                 "consistency_level": "Strong",
             },
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="tfex-cosmosdb-account",
+            resource_group_name=example.name,
+            location=example.location,
+            offer_type="Standard")
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
         example_cassandra_table = azure.cosmosdb.CassandraTable("example",
-            name="testtable",
-            cassandra_keyspace_id=example_cassandra_keyspace.id,
             schema={
                 "columns": [
                     {
@@ -425,7 +423,9 @@ class CassandraTable(pulumi.CustomResource):
                 "partition_keys": [{
                     "name": "test1",
                 }],
-            })
+            },
+            name="testtable",
+            cassandra_keyspace_id=example_cassandra_keyspace.id)
         ```
 
         ## API Providers

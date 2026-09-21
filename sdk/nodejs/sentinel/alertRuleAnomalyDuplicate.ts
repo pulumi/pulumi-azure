@@ -34,15 +34,15 @@ import * as utilities from "../utilities";
  *     displayName: "UEBA Anomalous Sign In",
  * });
  * const exampleAlertRuleAnomalyDuplicate = new azure.sentinel.AlertRuleAnomalyDuplicate("example", {
+ *     thresholdObservations: [{
+ *         name: "Anomaly score threshold",
+ *         value: "0.6",
+ *     }],
  *     displayName: "example duplicated UEBA Anomalous Sign In",
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  *     builtInRuleId: example.id,
  *     enabled: true,
  *     mode: "Flighting",
- *     thresholdObservations: [{
- *         name: "Anomaly score threshold",
- *         value: "0.6",
- *     }],
  * });
  * ```
  *

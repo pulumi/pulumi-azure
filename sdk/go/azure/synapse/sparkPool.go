@@ -57,25 +57,20 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
 //				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = synapse.NewSparkPool(ctx, "example", &synapse.SparkPoolArgs{
-//				Name:               pulumi.String("example"),
-//				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				NodeSizeFamily:     pulumi.String("MemoryOptimized"),
-//				NodeSize:           pulumi.String("Small"),
-//				CacheSize:          pulumi.Int(100),
 //				AutoScale: &synapse.SparkPoolAutoScaleArgs{
 //					MaxNodeCount: pulumi.Int(50),
 //					MinNodeCount: pulumi.Int(3),
@@ -91,7 +86,12 @@ import (
 //					Content:  pulumi.String("spark.shuffle.spill                true\n"),
 //					Filename: pulumi.String("config.txt"),
 //				},
-//				SparkVersion: pulumi.String("3.5"),
+//				Name:               pulumi.String("example"),
+//				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				NodeSizeFamily:     pulumi.String("MemoryOptimized"),
+//				NodeSize:           pulumi.String("Small"),
+//				CacheSize:          pulumi.Int(100),
+//				SparkVersion:       pulumi.String("3.5"),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Production"),
 //				},

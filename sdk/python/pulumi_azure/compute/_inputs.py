@@ -8362,9 +8362,6 @@ class ScaleSetIdentityArgsDict(TypedDict):
     import pulumi_azure as azure
 
     example = azure.compute.ScaleSet("example",
-        name="vm-scaleset",
-        resource_group_name=example_azurerm_resource_group["name"],
-        location=example_azurerm_resource_group["location"],
         sku={
             "name": vm_sku,
             "tier": "Standard",
@@ -8379,7 +8376,10 @@ class ScaleSetIdentityArgsDict(TypedDict):
             "type": "ManagedIdentityExtensionForLinux",
             "type_handler_version": "1.0",
             "settings": "{\\"port\\": 50342}",
-        }])
+        }],
+        name="vm-scaleset",
+        resource_group_name=example_azurerm_resource_group["name"],
+        location=example_azurerm_resource_group["location"])
     pulumi.export("principalId", example.identity.principal_id)
     ```
     """
@@ -8402,9 +8402,6 @@ class ScaleSetIdentityArgs:
                import pulumi_azure as azure
                
                example = azure.compute.ScaleSet("example",
-                   name="vm-scaleset",
-                   resource_group_name=example_azurerm_resource_group["name"],
-                   location=example_azurerm_resource_group["location"],
                    sku={
                        "name": vm_sku,
                        "tier": "Standard",
@@ -8419,7 +8416,10 @@ class ScaleSetIdentityArgs:
                        "type": "ManagedIdentityExtensionForLinux",
                        "type_handler_version": "1.0",
                        "settings": "{\\"port\\": 50342}",
-                   }])
+                   }],
+                   name="vm-scaleset",
+                   resource_group_name=example_azurerm_resource_group["name"],
+                   location=example_azurerm_resource_group["location"])
                pulumi.export("principalId", example.identity.principal_id)
                ```
         """
@@ -8454,9 +8454,6 @@ class ScaleSetIdentityArgs:
         import pulumi_azure as azure
 
         example = azure.compute.ScaleSet("example",
-            name="vm-scaleset",
-            resource_group_name=example_azurerm_resource_group["name"],
-            location=example_azurerm_resource_group["location"],
             sku={
                 "name": vm_sku,
                 "tier": "Standard",
@@ -8471,7 +8468,10 @@ class ScaleSetIdentityArgs:
                 "type": "ManagedIdentityExtensionForLinux",
                 "type_handler_version": "1.0",
                 "settings": "{\\"port\\": 50342}",
-            }])
+            }],
+            name="vm-scaleset",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"])
         pulumi.export("principalId", example.identity.principal_id)
         ```
         """

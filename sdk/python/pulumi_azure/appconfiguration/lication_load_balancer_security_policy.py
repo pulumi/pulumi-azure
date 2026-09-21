@@ -221,9 +221,6 @@ class LicationLoadBalancerSecurityPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_policy = azure.waf.Policy("example",
-            name="example-wafpolicy",
-            resource_group_name=example.name,
-            location=example.location,
             managed_rules={
                 "managed_rule_sets": [{
                     "type": "Microsoft_DefaultRuleSet",
@@ -233,7 +230,10 @@ class LicationLoadBalancerSecurityPolicy(pulumi.CustomResource):
             policy_settings={
                 "enabled": True,
                 "mode": "Detection",
-            })
+            },
+            name="example-wafpolicy",
+            resource_group_name=example.name,
+            location=example.location)
         example_lication_load_balancer_security_policy = azure.appconfiguration.LicationLoadBalancerSecurityPolicy("example",
             name="example-albsp",
             application_load_balancer_id=example_lication_load_balancer.id,
@@ -288,9 +288,6 @@ class LicationLoadBalancerSecurityPolicy(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_policy = azure.waf.Policy("example",
-            name="example-wafpolicy",
-            resource_group_name=example.name,
-            location=example.location,
             managed_rules={
                 "managed_rule_sets": [{
                     "type": "Microsoft_DefaultRuleSet",
@@ -300,7 +297,10 @@ class LicationLoadBalancerSecurityPolicy(pulumi.CustomResource):
             policy_settings={
                 "enabled": True,
                 "mode": "Detection",
-            })
+            },
+            name="example-wafpolicy",
+            resource_group_name=example.name,
+            location=example.location)
         example_lication_load_balancer_security_policy = azure.appconfiguration.LicationLoadBalancerSecurityPolicy("example",
             name="example-albsp",
             application_load_balancer_id=example_lication_load_balancer.id,

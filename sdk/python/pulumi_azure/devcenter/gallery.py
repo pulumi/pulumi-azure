@@ -155,13 +155,13 @@ class Gallery(pulumi.CustomResource):
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"])
         test = azure.devcenter.DevCenter("test",
-            name="example-devcenter",
-            resource_group_name=test_azurerm_resource_group["name"],
-            location=test_azurerm_resource_group["location"],
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [test_user_assigned_identity.id],
-            })
+            },
+            name="example-devcenter",
+            resource_group_name=test_azurerm_resource_group["name"],
+            location=test_azurerm_resource_group["location"])
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
             location=example.location,
@@ -222,13 +222,13 @@ class Gallery(pulumi.CustomResource):
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"])
         test = azure.devcenter.DevCenter("test",
-            name="example-devcenter",
-            resource_group_name=test_azurerm_resource_group["name"],
-            location=test_azurerm_resource_group["location"],
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [test_user_assigned_identity.id],
-            })
+            },
+            name="example-devcenter",
+            resource_group_name=test_azurerm_resource_group["name"],
+            location=test_azurerm_resource_group["location"])
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
             location=example.location,

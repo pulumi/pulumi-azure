@@ -37,16 +37,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "example-vmss",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard_D4_v5",
- *     instances: 4,
- *     adminUsername: "adminuser",
- *     adminPassword: "P@ssword1234!",
- *     computerNamePrefix: "my-linux-computer-name-prefix",
- *     upgradeMode: "Automatic",
- *     disablePasswordAuthentication: false,
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -58,14 +48,24 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *     },
  *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
  *         ipConfigurations: [{
  *             name: "internal",
  *             primary: true,
  *             subnetId: exampleSubnet.id,
  *         }],
+ *         name: "example",
+ *         primary: true,
  *     }],
+ *     name: "example-vmss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Standard_D4_v5",
+ *     instances: 4,
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@ssword1234!",
+ *     computerNamePrefix: "my-linux-computer-name-prefix",
+ *     upgradeMode: "Automatic",
+ *     disablePasswordAuthentication: false,
  * });
  * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("example", {
  *     name: "network-watcher",
@@ -77,9 +77,6 @@ import * as utilities from "../utilities";
  *     automaticUpgradeEnabled: true,
  * });
  * const exampleScaleSetPacketCapture = new azure.compute.ScaleSetPacketCapture("example", {
- *     name: "example-pc",
- *     networkWatcherId: exampleNetworkWatcher.id,
- *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
  *     storageLocation: {
  *         filePath: "/var/captures/packet.cap",
  *     },
@@ -87,6 +84,9 @@ import * as utilities from "../utilities";
  *         includeInstanceIds: ["0"],
  *         excludeInstanceIds: ["1"],
  *     },
+ *     name: "example-pc",
+ *     networkWatcherId: exampleNetworkWatcher.id,
+ *     virtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.id,
  * }, {
  *     dependsOn: [exampleVirtualMachineScaleSetExtension],
  * });

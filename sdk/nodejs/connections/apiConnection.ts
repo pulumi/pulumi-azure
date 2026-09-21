@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Hello: "World",
  *     },
+ * }, {
+ *     ignoreChanges: ["parameterValues"],
  * });
  * ```
  *

@@ -62,6 +62,8 @@ import javax.annotation.Nullable;
  * 
  *         // NOTE: the Name used for Redis needs to be globally unique
  *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .build())
  *             .name("example-cache")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -70,8 +72,6 @@ import javax.annotation.Nullable;
  *             .skuName("Standard")
  *             .nonSslPortEnabled(false)
  *             .minimumTlsVersion("1.2")
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .build())
  *             .build());
  * 
  *     }

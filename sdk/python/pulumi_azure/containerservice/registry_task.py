@@ -646,8 +646,6 @@ class RegistryTask(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
-            container_registry_id=example_registry.id,
             platform={
                 "os": "Linux",
             },
@@ -656,7 +654,9 @@ class RegistryTask(pulumi.CustomResource):
                 "context_path": "https://github.com/<username>/<repository>#<branch>:<folder>",
                 "context_access_token": "<github personal access token>",
                 "image_names": ["helloworld:{{.Run.ID}}"],
-            })
+            },
+            name="example-task",
+            container_registry_id=example_registry.id)
         ```
 
         ## API Providers
@@ -722,8 +722,6 @@ class RegistryTask(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
-            container_registry_id=example_registry.id,
             platform={
                 "os": "Linux",
             },
@@ -732,7 +730,9 @@ class RegistryTask(pulumi.CustomResource):
                 "context_path": "https://github.com/<username>/<repository>#<branch>:<folder>",
                 "context_access_token": "<github personal access token>",
                 "image_names": ["helloworld:{{.Run.ID}}"],
-            })
+            },
+            name="example-task",
+            container_registry_id=example_registry.id)
         ```
 
         ## API Providers

@@ -53,15 +53,15 @@ import (
 //				return err
 //			}
 //			_, err = bot.NewChannelLine(ctx, "example", &bot.ChannelLineArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: example.Name,
 //				LineChannels: bot.ChannelLineLineChannelArray{
 //					&bot.ChannelLineLineChannelArgs{
 //						AccessToken: pulumi.String("asdfdsdfTYUIOIoj1231hkjhk"),
 //						Secret:      pulumi.String("aagfdgfd123567"),
 //					},
 //				},
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

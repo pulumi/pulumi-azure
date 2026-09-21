@@ -36,10 +36,6 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleMxRecord = new Azure.PrivateDns.MxRecord("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         ZoneName = exampleZone.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.PrivateDns.Inputs.MxRecordRecordArgs
@@ -53,6 +49,10 @@ namespace Pulumi.Azure.PrivateDns
     ///                 Exchange = "backupmx.contoso.com",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

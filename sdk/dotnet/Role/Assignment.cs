@@ -54,9 +54,6 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
-    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
-    ///         Name = "my-custom-role-definition",
-    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -68,6 +65,9 @@ namespace Pulumi.Azure.Role
     ///                 NotActions = new() { },
     ///             },
     ///         },
+    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+    ///         Name = "my-custom-role-definition",
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         AssignableScopes = new[]
     ///         {
     ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
@@ -101,9 +101,6 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
-    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
-    ///         Name = "my-custom-role-definition",
-    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -115,6 +112,9 @@ namespace Pulumi.Azure.Role
     ///                 NotActions = new() { },
     ///             },
     ///         },
+    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+    ///         Name = "my-custom-role-definition",
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         AssignableScopes = new[]
     ///         {
     ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
@@ -153,9 +153,6 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
-    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
-    ///         Name = "my-custom-role-definition",
-    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -167,6 +164,9 @@ namespace Pulumi.Azure.Role
     ///                 NotActions = new() { },
     ///             },
     ///         },
+    ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+    ///         Name = "my-custom-role-definition",
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         AssignableScopes = new[]
     ///         {
     ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
@@ -212,23 +212,16 @@ namespace Pulumi.Azure.Role
     ///         PrincipalType = "ServicePrincipal",
     ///         Description = "Role Based Access Control Administrator role assignment with ABAC Condition.",
     ///         ConditionVersion = "2.0",
-    ///         Condition = Output.Tuple(Std.Basename.Invoke(new()
-    ///         {
-    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         }), Std.Basename.Invoke(new()
-    ///         {
-    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         })).Apply(values =&gt;
-    ///         {
-    ///             var invoke = values.Item1;
-    ///             var invoke1 = values.Item2;
-    ///             return @$"(
+    ///         Condition = @$"(
     ///  (
     ///   !(ActionMatches{{'Microsoft.Authorization/roleAssignments/write'}})
     ///  )
     ///  OR
     ///  (
-    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke.Result}}}
+    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         }).Result}}}
     ///  )
     /// )
     /// AND
@@ -238,11 +231,13 @@ namespace Pulumi.Azure.Role
     ///  )
     ///  OR
     ///  (
-    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke1.Result}}}
+    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         }).Result}}}
     ///  )
     /// )
-    /// ";
-    ///         }),
+    /// ",
     ///     });
     /// 
     /// });

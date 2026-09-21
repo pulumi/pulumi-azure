@@ -47,18 +47,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = $"{prefix}-delegated-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.88.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "exampledelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -68,7 +60,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "exampledelegation",
     ///             },
+    ///         },
+    ///         Name = $"{prefix}-delegated-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.88.2.0/24",
     ///         },
     ///     });
     /// 
@@ -98,16 +98,23 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleVolumeGroupOracle = new Azure.NetApp.VolumeGroupOracle("example", new()
     ///     {
-    ///         Name = $"{prefix}-NetAppVolumeGroupOracle",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount.Name,
-    ///         GroupDescription = "Example volume group for Oracle",
-    ///         ApplicationIdentifier = "TST",
     ///         Volumes = new[]
     ///         {
     ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
     ///             {
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
     ///                 Name = $"{prefix}-volume-ora1",
     ///                 VolumePath = $"{prefix}-my-unique-file-ora-path-1",
     ///                 ServiceLevel = "Standard",
@@ -120,6 +127,9 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
+    ///             },
+    ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
+    ///             {
     ///                 ExportPolicyRules = new[]
     ///                 {
     ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
@@ -133,9 +143,6 @@ namespace Pulumi.Azure.NetApp
     ///                         RootAccessEnabled = false,
     ///                     },
     ///                 },
-    ///             },
-    ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
-    ///             {
     ///                 Name = $"{prefix}-volume-oraLog",
     ///                 VolumePath = $"{prefix}-my-unique-file-oralog-path",
     ///                 ServiceLevel = "Standard",
@@ -148,21 +155,14 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
-    ///                 ExportPolicyRules = new[]
-    ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
-    ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
-    ///                     },
-    ///                 },
     ///             },
     ///         },
+    ///         Name = $"{prefix}-NetAppVolumeGroupOracle",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         GroupDescription = "Example volume group for Oracle",
+    ///         ApplicationIdentifier = "TST",
     ///     });
     /// 
     /// });
@@ -202,18 +202,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var examplePrimarySubnet = new Azure.Network.Subnet("example_primary", new()
     ///     {
-    ///         Name = $"{prefix}-delegated-subnet-primary",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = examplePrimary.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.47.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "exampledelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -223,7 +215,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "exampledelegation",
     ///             },
+    ///         },
+    ///         Name = $"{prefix}-delegated-subnet-primary",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = examplePrimary.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.47.2.0/24",
     ///         },
     ///     });
     /// 
@@ -241,18 +241,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSecondarySubnet = new Azure.Network.Subnet("example_secondary", new()
     ///     {
-    ///         Name = $"{prefix}-delegated-subnet-secondary",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleSecondary.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.48.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "exampledelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -262,7 +254,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "exampledelegation",
     ///             },
+    ///         },
+    ///         Name = $"{prefix}-delegated-subnet-secondary",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleSecondary.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.48.2.0/24",
     ///         },
     ///     });
     /// 
@@ -319,16 +319,23 @@ namespace Pulumi.Azure.NetApp
     ///     // Primary Oracle volume group
     ///     var examplePrimaryVolumeGroupOracle = new Azure.NetApp.VolumeGroupOracle("example_primary", new()
     ///     {
-    ///         Name = $"{prefix}-NetAppVolumeGroupOracle-primary",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = examplePrimaryAccount.Name,
-    ///         GroupDescription = "Primary Oracle volume group for CRR",
-    ///         ApplicationIdentifier = "TST",
     ///         Volumes = new[]
     ///         {
     ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
     ///             {
+    ///                 ExportPolicyRules = new[]
+    ///                 {
+    ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
+    ///                     {
+    ///                         RuleIndex = 1,
+    ///                         AllowedClients = "0.0.0.0/0",
+    ///                         Nfsv3Enabled = false,
+    ///                         Nfsv41Enabled = true,
+    ///                         UnixReadOnly = false,
+    ///                         UnixReadWrite = true,
+    ///                         RootAccessEnabled = false,
+    ///                     },
+    ///                 },
     ///                 Name = $"{prefix}-volume-ora1-primary",
     ///                 VolumePath = $"{prefix}-my-unique-file-ora-path-1-primary",
     ///                 ServiceLevel = "Standard",
@@ -340,6 +347,30 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
+    ///             },
+    ///         },
+    ///         Name = $"{prefix}-NetAppVolumeGroupOracle-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = examplePrimaryAccount.Name,
+    ///         GroupDescription = "Primary Oracle volume group for CRR",
+    ///         ApplicationIdentifier = "TST",
+    ///     });
+    /// 
+    ///     // Secondary Oracle volume group with CRR
+    ///     var exampleSecondaryVolumeGroupOracle = new Azure.NetApp.VolumeGroupOracle("example_secondary", new()
+    ///     {
+    ///         Volumes = new[]
+    ///         {
+    ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
+    ///             {
+    ///                 DataProtectionReplication = new Azure.NetApp.Inputs.VolumeGroupOracleVolumeDataProtectionReplicationArgs
+    ///                 {
+    ///                     EndpointType = "dst",
+    ///                     RemoteVolumeLocation = example.Location,
+    ///                     RemoteVolumeResourceId = examplePrimaryVolumeGroupOracle.Volumes.Apply(volumes =&gt; volumes[0].Id),
+    ///                     ReplicationFrequency = "10minutes",
+    ///                 },
     ///                 ExportPolicyRules = new[]
     ///                 {
     ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
@@ -353,23 +384,6 @@ namespace Pulumi.Azure.NetApp
     ///                         RootAccessEnabled = false,
     ///                     },
     ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     // Secondary Oracle volume group with CRR
-    ///     var exampleSecondaryVolumeGroupOracle = new Azure.NetApp.VolumeGroupOracle("example_secondary", new()
-    ///     {
-    ///         Name = $"{prefix}-NetAppVolumeGroupOracle-secondary",
-    ///         Location = altLocation,
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleSecondaryAccount.Name,
-    ///         GroupDescription = "Secondary Oracle volume group for CRR",
-    ///         ApplicationIdentifier = "TST",
-    ///         Volumes = new[]
-    ///         {
-    ///             new Azure.NetApp.Inputs.VolumeGroupOracleVolumeArgs
-    ///             {
     ///                 Name = $"{prefix}-volume-ora1-secondary",
     ///                 VolumePath = $"{prefix}-my-unique-file-ora-path-1-secondary",
     ///                 ServiceLevel = "Standard",
@@ -381,28 +395,14 @@ namespace Pulumi.Azure.NetApp
     ///                 Protocols = "NFSv4.1",
     ///                 SecurityStyle = "unix",
     ///                 SnapshotDirectoryVisible = false,
-    ///                 ExportPolicyRules = new[]
-    ///                 {
-    ///                     new Azure.NetApp.Inputs.VolumeGroupOracleVolumeExportPolicyRuleArgs
-    ///                     {
-    ///                         RuleIndex = 1,
-    ///                         AllowedClients = "0.0.0.0/0",
-    ///                         Nfsv3Enabled = false,
-    ///                         Nfsv41Enabled = true,
-    ///                         UnixReadOnly = false,
-    ///                         UnixReadWrite = true,
-    ///                         RootAccessEnabled = false,
-    ///                     },
-    ///                 },
-    ///                 DataProtectionReplication = new Azure.NetApp.Inputs.VolumeGroupOracleVolumeDataProtectionReplicationArgs
-    ///                 {
-    ///                     EndpointType = "dst",
-    ///                     RemoteVolumeLocation = example.Location,
-    ///                     RemoteVolumeResourceId = examplePrimaryVolumeGroupOracle.Volumes.Apply(volumes =&gt; volumes[0].Id),
-    ///                     ReplicationFrequency = "10minutes",
-    ///                 },
     ///             },
     ///         },
+    ///         Name = $"{prefix}-NetAppVolumeGroupOracle-secondary",
+    ///         Location = altLocation,
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleSecondaryAccount.Name,
+    ///         GroupDescription = "Secondary Oracle volume group for CRR",
+    ///         ApplicationIdentifier = "TST",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

@@ -37,17 +37,13 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("tfex-cosmosdb-account"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				OfferType:         pulumi.String("Standard"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("Strong"),
+//				},
 //				Capabilities: cosmosdb.AccountCapabilityArray{
 //					&cosmosdb.AccountCapabilityArgs{
 //						Name: pulumi.String("EnableCassandra"),
 //					},
-//				},
-//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-//					ConsistencyLevel: pulumi.String("Strong"),
 //				},
 //				GeoLocations: cosmosdb.AccountGeoLocationArray{
 //					&cosmosdb.AccountGeoLocationArgs{
@@ -55,6 +51,10 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("tfex-cosmosdb-account"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				OfferType:         pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err

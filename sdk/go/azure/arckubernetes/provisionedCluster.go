@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/arckubernetes"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,29 +42,29 @@ import (
 //				return err
 //			}
 //			exampleGroup, err := azuread.NewGroup(ctx, "example", &azuread.GroupArgs{
-//				DisplayName: pulumi.String("example-adg"),
-//				Owners: pulumi.StringArray{
-//					pulumi.String(current.ObjectId),
+//				DisplayName: "example-adg",
+//				Owners: []*string{
+//					current.ObjectId,
 //				},
-//				SecurityEnabled: pulumi.Bool(true),
+//				SecurityEnabled: true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = arckubernetes.NewProvisionedCluster(ctx, "example", &arckubernetes.ProvisionedClusterArgs{
-//				Name:              pulumi.String("example-akpc"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				AzureActiveDirectory: &arckubernetes.ProvisionedClusterAzureActiveDirectoryArgs{
 //					AzureRbacEnabled: pulumi.Bool(true),
 //					AdminGroupObjectIds: pulumi.StringArray{
-//						exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//						exampleGroup.Id,
 //					},
 //					TenantId: pulumi.String(current.TenantId),
 //				},
 //				Identity: &arckubernetes.ProvisionedClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-akpc"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

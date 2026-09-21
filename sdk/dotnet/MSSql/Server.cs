@@ -30,6 +30,11 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///         },
     ///         Name = "mssqlserver",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -37,11 +42,6 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
     ///         MinimumTlsVersion = "1.2",
-    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
-    ///         {
-    ///             LoginUsername = "AzureAD Admin",
-    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "environment", "production" },
@@ -79,15 +79,6 @@ namespace Pulumi.Azure.MSSql
     ///     // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "mssqltdeexample",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = exampleUserAssignedIdentity.TenantId,
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = true,
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -118,6 +109,15 @@ namespace Pulumi.Azure.MSSql
     ///                 },
     ///             },
     ///         },
+    ///         Name = "mssqltdeexample",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = exampleUserAssignedIdentity.TenantId,
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = true,
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
@@ -141,13 +141,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         Name = "example-resource",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Version = "12.0",
-    ///         AdministratorLogin = "Example-Administrator",
-    ///         AdministratorLoginPassword = "Example_Password!",
-    ///         MinimumTlsVersion = "1.2",
     ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
     ///         {
     ///             LoginUsername = exampleUserAssignedIdentity.Name,
@@ -161,6 +154,13 @@ namespace Pulumi.Azure.MSSql
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example-resource",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "Example-Administrator",
+    ///         AdministratorLoginPassword = "Example_Password!",
+    ///         MinimumTlsVersion = "1.2",
     ///         PrimaryUserAssignedIdentityId = exampleUserAssignedIdentity.Id,
     ///         TransparentDataEncryptionKeyVaultKeyId = exampleKey.Id,
     ///     });

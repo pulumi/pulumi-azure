@@ -24,9 +24,6 @@ namespace Pulumi.Azure.Network
     /// {
     ///     var example = new Azure.Network.RouteFilter("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = "example",
-    ///         Location = "East US",
     ///         Rule = new Azure.Network.Inputs.RouteFilterRuleArgs
     ///         {
     ///             Name = "rule",
@@ -37,6 +34,9 @@ namespace Pulumi.Azure.Network
     ///                 "12076:52004",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Location = "East US",
     ///     });
     /// 
     /// });

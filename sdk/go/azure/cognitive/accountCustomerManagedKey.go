@@ -53,30 +53,23 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
-//				Name:                pulumi.String("example-account"),
-//				Location:            example.Location,
-//				ResourceGroupName:   example.Name,
-//				Kind:                pulumi.String("Face"),
-//				SkuName:             pulumi.String("E0"),
-//				CustomSubdomainName: pulumi.String("example-account"),
 //				Identity: &cognitive.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                pulumi.String("example-account"),
+//				Location:            example.Location,
+//				ResourceGroupName:   example.Name,
+//				Kind:                pulumi.String("Face"),
+//				SkuName:             pulumi.String("E0"),
+//				CustomSubdomainName: pulumi.String("example-account"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example-vault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("standard"),
-//				PurgeProtectionEnabled:   pulumi.Bool(true),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: exampleAccount.Identity.TenantId(),
@@ -145,6 +138,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example-vault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("standard"),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

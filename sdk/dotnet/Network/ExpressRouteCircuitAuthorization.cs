@@ -30,17 +30,17 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
     ///         Name = "expressRoute1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ServiceProviderName = "Equinix",
     ///         PeeringLocation = "Silicon Valley",
     ///         BandwidthInMbps = 50,
-    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///         {
-    ///             Tier = "Standard",
-    ///             Family = "MeteredData",
-    ///         },
     ///         AllowClassicOperations = false,
     ///         Tags = 
     ///         {

@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const test = new azure.network.VpnServerConfiguration("test", {
- *     name: "example-config",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     vpnAuthenticationTypes: ["Certificate"],
  *     clientRootCertificates: [{
  *         name: "DigiCert-Federated-ID-Root-CA",
  *         publicCertData: `MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -48,6 +44,10 @@ import * as utilities from "../utilities";
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
  * `,
  *     }],
+ *     name: "example-config",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     vpnAuthenticationTypes: ["Certificate"],
  * });
  * ```
  *

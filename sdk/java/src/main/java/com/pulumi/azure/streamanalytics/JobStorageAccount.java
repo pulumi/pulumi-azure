@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.streamanalytics.JobStorageAccount;
  * import com.pulumi.azure.streamanalytics.JobStorageAccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -57,6 +58,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJob = new Job("exampleJob", JobArgs.builder()
+ *             .identity(JobIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-job")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,16 +72,15 @@ import javax.annotation.Nullable;
  *             .outputErrorPolicy("Drop")
  *             .streamingUnits(3)
  *             .skuName("StandardV2")
- *             .identity(JobIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("environment", "Example"))
  *             .transformationQuery("""
  *     SELECT *
  *     INTO [YourOutputAlias]
  *     FROM [YourInputAlias]
  *             """)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("jobStorageAccounts")
+ *                 .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("exampleaccount")

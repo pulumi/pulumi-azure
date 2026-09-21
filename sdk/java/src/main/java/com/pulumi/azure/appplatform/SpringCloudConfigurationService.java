@@ -66,8 +66,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudConfigurationService = new SpringCloudConfigurationService("exampleSpringCloudConfigurationService", SpringCloudConfigurationServiceArgs.builder()
- *             .name("default")
- *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .repositories(SpringCloudConfigurationServiceRepositoryArgs.builder()
  *                 .name("fake")
  *                 .label("master")
@@ -80,6 +78,8 @@ import javax.annotation.Nullable;
  *                 .username("adminuser")
  *                 .password("H}{@literal @}{@code Sh1CoR3!")
  *                 .build())
+ *             .name("default")
+ *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
  *     }}{@code

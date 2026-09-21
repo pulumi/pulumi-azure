@@ -54,9 +54,6 @@ namespace Pulumi.Azure.Policy
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -66,20 +63,13 @@ namespace Pulumi.Azure.Policy
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("example", new()
     ///     {
-    ///         Name = "examplevm",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_D4_v5",
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "P@$$w0rd1234!",
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
     ///         Identity = new Azure.Compute.Inputs.WindowsVirtualMachineIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -96,6 +86,16 @@ namespace Pulumi.Azure.Policy
     ///             Sku = "2019-Datacenter",
     ///             Version = "latest",
     ///         },
+    ///         Name = "examplevm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_D4_v5",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@$$w0rd1234!",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
     ///     });
     /// 
     ///     var exampleExtension = new Azure.Compute.Extension("example", new()
@@ -110,13 +110,8 @@ namespace Pulumi.Azure.Policy
     /// 
     ///     var exampleVirtualMachineConfigurationAssignment = new Azure.Policy.VirtualMachineConfigurationAssignment("example", new()
     ///     {
-    ///         Name = "AzureWindowsBaseline",
-    ///         Location = exampleWindowsVirtualMachine.Location,
-    ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
     ///         Configuration = new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs
     ///         {
-    ///             AssignmentType = "ApplyAndMonitor",
-    ///             Version = "1.*",
     ///             Parameters = new[]
     ///             {
     ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
@@ -145,7 +140,12 @@ namespace Pulumi.Azure.Policy
     ///                     Value = "1",
     ///                 },
     ///             },
+    ///             AssignmentType = "ApplyAndMonitor",
+    ///             Version = "1.*",
     ///         },
+    ///         Name = "AzureWindowsBaseline",
+    ///         Location = exampleWindowsVirtualMachine.Location,
+    ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
     ///     });
     /// 
     /// });

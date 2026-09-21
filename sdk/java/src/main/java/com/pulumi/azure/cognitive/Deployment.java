@@ -64,8 +64,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
- *             .name("example-cd")
- *             .cognitiveAccountId(exampleAccount.id())
  *             .model(DeploymentModelArgs.builder()
  *                 .format("OpenAI")
  *                 .name("text-curie-001")
@@ -74,6 +72,8 @@ import javax.annotation.Nullable;
  *             .sku(DeploymentSkuArgs.builder()
  *                 .name("Standard")
  *                 .build())
+ *             .name("example-cd")
+ *             .cognitiveAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

@@ -1576,10 +1576,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -1588,7 +1584,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             service_principal={
                 "client_id": "00000000-0000-0000-0000-000000000000",
                 "client_secret": "00000000000000000000000000000000",
-            })
+            },
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="exampleaks1")
         example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("example",
             name="internal",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
@@ -1709,10 +1709,6 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -1721,7 +1717,11 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             service_principal={
                 "client_id": "00000000-0000-0000-0000-000000000000",
                 "client_secret": "00000000000000000000000000000000",
-            })
+            },
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="exampleaks1")
         example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("example",
             name="internal",
             kubernetes_cluster_id=example_kubernetes_cluster.id,

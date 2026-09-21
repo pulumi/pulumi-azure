@@ -28,15 +28,15 @@ import * as utilities from "../utilities";
  *     zones: ["1"],
  * });
  * const exampleScaleSetStandbyPool = new azure.compute.ScaleSetStandbyPool("example", {
+ *     elasticityProfile: {
+ *         maxReadyCapacity: 10,
+ *         minReadyCapacity: 5,
+ *     },
  *     name: "example-spsvmp",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     attachedVirtualMachineScaleSetId: exampleOrchestratedVirtualMachineScaleSet.id,
  *     virtualMachineState: "Running",
- *     elasticityProfile: {
- *         maxReadyCapacity: 10,
- *         minReadyCapacity: 5,
- *     },
  *     tags: {
  *         key: "value",
  *     },

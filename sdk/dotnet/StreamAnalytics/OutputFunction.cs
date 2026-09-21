@@ -39,16 +39,16 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "exampleappserviceplan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "FunctionApp",
-    ///         Reserved = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Dynamic",
     ///             Size = "Y1",
     ///         },
+    ///         Name = "exampleappserviceplan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "FunctionApp",
+    ///         Reserved = true,
     ///     });
     /// 
     ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()

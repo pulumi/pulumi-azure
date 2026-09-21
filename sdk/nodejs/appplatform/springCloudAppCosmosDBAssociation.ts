@@ -30,11 +30,6 @@ import * as utilities from "../utilities";
  *     serviceName: exampleSpringCloudService.name,
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-cosmosdb-account",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
@@ -42,6 +37,11 @@ import * as utilities from "../utilities";
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSpringCloudAppCosmosDBAssociation = new azure.appplatform.SpringCloudAppCosmosDBAssociation("example", {
  *     name: "example-bind",

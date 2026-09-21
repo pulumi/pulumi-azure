@@ -55,6 +55,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-aiservices")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -62,20 +65,17 @@ import javax.annotation.Nullable;
  *             .skuName("S0")
  *             .projectManagementEnabled(true)
  *             .customSubdomainName("exampleaiservices")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var openai = new Account("openai", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-openai")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("OpenAI")
  *             .skuName("S0")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleAccountConnectionEntraId = new AccountConnectionEntraId("exampleAccountConnectionEntraId", AccountConnectionEntraIdArgs.builder()

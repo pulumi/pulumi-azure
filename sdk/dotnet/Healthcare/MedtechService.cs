@@ -38,13 +38,13 @@ namespace Pulumi.Azure.Healthcare
     /// 
     ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("example", new()
     ///     {
-    ///         Name = "examplemed",
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///         Location = "east us",
     ///         Identity = new Azure.Healthcare.Inputs.MedtechServiceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "examplemed",
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         Location = "east us",
     ///         EventhubNamespaceName = "example-eventhub-namespace",
     ///         EventhubName = "example-eventhub",
     ///         EventhubConsumerGroupName = "$Default",

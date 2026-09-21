@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.hdinsight.HBaseClusterArgs;
  * import com.pulumi.azure.hdinsight.inputs.HBaseClusterComponentVersionArgs;
  * import com.pulumi.azure.hdinsight.inputs.HBaseClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.HBaseClusterStorageAccountArgs;
  * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesArgs;
  * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesHeadNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesWorkerNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.HBaseClusterRolesZookeeperNodeArgs;
+ * import com.pulumi.azure.hdinsight.inputs.HBaseClusterStorageAccountArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -89,22 +89,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHBaseCluster = new HBaseCluster("exampleHBaseCluster", HBaseClusterArgs.builder()
- *             .name("example-hdicluster")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .clusterVersion("3.6")
- *             .tier("Standard")
  *             .componentVersion(HBaseClusterComponentVersionArgs.builder()
  *                 .hbase("1.1")
  *                 .build())
  *             .gateway(HBaseClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password123!")
- *                 .build())
- *             .storageAccounts(HBaseClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
  *                 .build())
  *             .roles(HBaseClusterRolesArgs.builder()
  *                 .headNode(HBaseClusterRolesHeadNodeArgs.builder()
@@ -124,6 +114,16 @@ import javax.annotation.Nullable;
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
+ *             .storageAccounts(HBaseClusterStorageAccountArgs.builder()
+ *                 .storageContainerId(exampleContainer.id())
+ *                 .storageAccountKey(exampleAccount.primaryAccessKey())
+ *                 .isDefault(true)
+ *                 .build())
+ *             .name("example-hdicluster")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .clusterVersion("3.6")
+ *             .tier("Standard")
  *             .build());
  * 
  *     }

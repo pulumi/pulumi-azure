@@ -30,6 +30,9 @@ import * as utilities from "../utilities";
  *     purgeProtectionEnabled: true,
  * });
  * const exampleServer = new azure.postgresql.Server("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-postgre-server",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -39,9 +42,6 @@ import * as utilities from "../utilities";
  *     version: "11",
  *     storageMb: 51200,
  *     sslEnforcementEnabled: true,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const server = new azure.keyvault.AccessPolicy("server", {
  *     keyVaultId: exampleKeyVault.id,

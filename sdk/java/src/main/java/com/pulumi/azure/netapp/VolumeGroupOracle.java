@@ -73,19 +73,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name(String.format("%s-delegated-subnet", prefix))
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.88.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("exampledelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("exampledelegation")
  *                 .build())
+ *             .name(String.format("%s-delegated-subnet", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.88.2.0/24")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -107,14 +107,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVolumeGroupOracle = new VolumeGroupOracle("exampleVolumeGroupOracle", VolumeGroupOracleArgs.builder()
- *             .name(String.format("%s-NetAppVolumeGroupOracle", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .accountName(exampleAccount.name())
- *             .groupDescription("Example volume group for Oracle")
- *             .applicationIdentifier("TST")
  *             .volumes(            
  *                 VolumeGroupOracleVolumeArgs.builder()
+ *                     .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
+ *                         .ruleIndex(1)
+ *                         .allowedClients("0.0.0.0/0")
+ *                         .nfsv3Enabled(false)
+ *                         .nfsv41Enabled(true)
+ *                         .unixReadOnly(false)
+ *                         .unixReadWrite(true)
+ *                         .rootAccessEnabled(false)
+ *                         .build())
  *                     .name(String.format("%s-volume-ora1", prefix))
  *                     .volumePath(String.format("%s-my-unique-file-ora-path-1", prefix))
  *                     .serviceLevel("Standard")
@@ -127,6 +130,8 @@ import javax.annotation.Nullable;
  *                     .protocols("NFSv4.1")
  *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
+ *                     .build(),
+ *                 VolumeGroupOracleVolumeArgs.builder()
  *                     .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
  *                         .ruleIndex(1)
  *                         .allowedClients("0.0.0.0/0")
@@ -136,8 +141,6 @@ import javax.annotation.Nullable;
  *                         .unixReadWrite(true)
  *                         .rootAccessEnabled(false)
  *                         .build())
- *                     .build(),
- *                 VolumeGroupOracleVolumeArgs.builder()
  *                     .name(String.format("%s-volume-oraLog", prefix))
  *                     .volumePath(String.format("%s-my-unique-file-oralog-path", prefix))
  *                     .serviceLevel("Standard")
@@ -150,16 +153,13 @@ import javax.annotation.Nullable;
  *                     .protocols("NFSv4.1")
  *                     .securityStyle("unix")
  *                     .snapshotDirectoryVisible(false)
- *                     .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
- *                         .ruleIndex(1)
- *                         .allowedClients("0.0.0.0/0")
- *                         .nfsv3Enabled(false)
- *                         .nfsv41Enabled(true)
- *                         .unixReadOnly(false)
- *                         .unixReadWrite(true)
- *                         .rootAccessEnabled(false)
- *                         .build())
  *                     .build())
+ *             .name(String.format("%s-NetAppVolumeGroupOracle", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount.name())
+ *             .groupDescription("Example volume group for Oracle")
+ *             .applicationIdentifier("TST")
  *             .build());
  * 
  *     }
@@ -222,19 +222,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePrimarySubnet = new Subnet("examplePrimarySubnet", SubnetArgs.builder()
- *             .name(String.format("%s-delegated-subnet-primary", prefix))
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(examplePrimary.name())
- *             .addressPrefixes("10.47.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("exampledelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("exampledelegation")
  *                 .build())
+ *             .name(String.format("%s-delegated-subnet-primary", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(examplePrimary.name())
+ *             .addressPrefixes("10.47.2.0/24")
  *             .build());
  * 
  *         // Secondary region networking
@@ -246,19 +246,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecondarySubnet = new Subnet("exampleSecondarySubnet", SubnetArgs.builder()
- *             .name(String.format("%s-delegated-subnet-secondary", prefix))
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleSecondary.name())
- *             .addressPrefixes("10.48.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("exampledelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("exampledelegation")
  *                 .build())
+ *             .name(String.format("%s-delegated-subnet-secondary", prefix))
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleSecondary.name())
+ *             .addressPrefixes("10.48.2.0/24")
  *             .build());
  * 
  *         // Primary region NetApp infrastructure
@@ -301,13 +301,16 @@ import javax.annotation.Nullable;
  * 
  *         // Primary Oracle volume group
  *         var examplePrimaryVolumeGroupOracle = new VolumeGroupOracle("examplePrimaryVolumeGroupOracle", VolumeGroupOracleArgs.builder()
- *             .name(String.format("%s-NetAppVolumeGroupOracle-primary", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .accountName(examplePrimaryAccount.name())
- *             .groupDescription("Primary Oracle volume group for CRR")
- *             .applicationIdentifier("TST")
  *             .volumes(VolumeGroupOracleVolumeArgs.builder()
+ *                 .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
+ *                     .ruleIndex(1)
+ *                     .allowedClients("0.0.0.0/0")
+ *                     .nfsv3Enabled(false)
+ *                     .nfsv41Enabled(true)
+ *                     .unixReadOnly(false)
+ *                     .unixReadWrite(true)
+ *                     .rootAccessEnabled(false)
+ *                     .build())
  *                 .name(String.format("%s-volume-ora1-primary", prefix))
  *                 .volumePath(String.format("%s-my-unique-file-ora-path-1-primary", prefix))
  *                 .serviceLevel("Standard")
@@ -319,6 +322,24 @@ import javax.annotation.Nullable;
  *                 .protocols("NFSv4.1")
  *                 .securityStyle("unix")
  *                 .snapshotDirectoryVisible(false)
+ *                 .build())
+ *             .name(String.format("%s-NetAppVolumeGroupOracle-primary", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .accountName(examplePrimaryAccount.name())
+ *             .groupDescription("Primary Oracle volume group for CRR")
+ *             .applicationIdentifier("TST")
+ *             .build());
+ * 
+ *         // Secondary Oracle volume group with CRR
+ *         var exampleSecondaryVolumeGroupOracle = new VolumeGroupOracle("exampleSecondaryVolumeGroupOracle", VolumeGroupOracleArgs.builder()
+ *             .volumes(VolumeGroupOracleVolumeArgs.builder()
+ *                 .dataProtectionReplication(VolumeGroupOracleVolumeDataProtectionReplicationArgs.builder()
+ *                     .endpointType("dst")
+ *                     .remoteVolumeLocation(example.location())
+ *                     .remoteVolumeResourceId(examplePrimaryVolumeGroupOracle.volumes().applyValue(_volumes -> _volumes[0].id()))
+ *                     .replicationFrequency("10minutes")
+ *                     .build())
  *                 .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
  *                     .ruleIndex(1)
  *                     .allowedClients("0.0.0.0/0")
@@ -328,18 +349,6 @@ import javax.annotation.Nullable;
  *                     .unixReadWrite(true)
  *                     .rootAccessEnabled(false)
  *                     .build())
- *                 .build())
- *             .build());
- * 
- *         // Secondary Oracle volume group with CRR
- *         var exampleSecondaryVolumeGroupOracle = new VolumeGroupOracle("exampleSecondaryVolumeGroupOracle", VolumeGroupOracleArgs.builder()
- *             .name(String.format("%s-NetAppVolumeGroupOracle-secondary", prefix))
- *             .location(altLocation)
- *             .resourceGroupName(example.name())
- *             .accountName(exampleSecondaryAccount.name())
- *             .groupDescription("Secondary Oracle volume group for CRR")
- *             .applicationIdentifier("TST")
- *             .volumes(VolumeGroupOracleVolumeArgs.builder()
  *                 .name(String.format("%s-volume-ora1-secondary", prefix))
  *                 .volumePath(String.format("%s-my-unique-file-ora-path-1-secondary", prefix))
  *                 .serviceLevel("Standard")
@@ -351,22 +360,13 @@ import javax.annotation.Nullable;
  *                 .protocols("NFSv4.1")
  *                 .securityStyle("unix")
  *                 .snapshotDirectoryVisible(false)
- *                 .exportPolicyRules(VolumeGroupOracleVolumeExportPolicyRuleArgs.builder()
- *                     .ruleIndex(1)
- *                     .allowedClients("0.0.0.0/0")
- *                     .nfsv3Enabled(false)
- *                     .nfsv41Enabled(true)
- *                     .unixReadOnly(false)
- *                     .unixReadWrite(true)
- *                     .rootAccessEnabled(false)
- *                     .build())
- *                 .dataProtectionReplication(VolumeGroupOracleVolumeDataProtectionReplicationArgs.builder()
- *                     .endpointType("dst")
- *                     .remoteVolumeLocation(example.location())
- *                     .remoteVolumeResourceId(examplePrimaryVolumeGroupOracle.volumes().applyValue(_volumes -> _volumes[0].id()))
- *                     .replicationFrequency("10minutes")
- *                     .build())
  *                 .build())
+ *             .name(String.format("%s-NetAppVolumeGroupOracle-secondary", prefix))
+ *             .location(altLocation)
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleSecondaryAccount.name())
+ *             .groupDescription("Secondary Oracle volume group for CRR")
+ *             .applicationIdentifier("TST")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(examplePrimaryVolumeGroupOracle)
  *                 .build());

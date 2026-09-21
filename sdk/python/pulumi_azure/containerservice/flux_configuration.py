@@ -350,10 +350,6 @@ class FluxConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location="West Europe",
-            resource_group_name=example.name,
-            dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -361,32 +357,36 @@ class FluxConfiguration(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-aks",
+            location="West Europe",
+            resource_group_name=example.name,
+            dns_prefix="example-aks")
         example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("example",
             name="example-ext",
             cluster_id=test["id"],
             extension_type="microsoft.flux")
         example_flux_configuration = azure.containerservice.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
                 "reference_type": "branch",
                 "reference_value": "main",
             },
             kustomizations=[{
-                "name": "kustomization-1",
                 "post_build": {
-                    "substitute": {
-                        "example_var": "substitute_with_this",
-                    },
                     "substitute_froms": [{
                         "kind": "ConfigMap",
                         "name": "example-configmap",
                     }],
+                    "substitute": {
+                        "example_var": "substitute_with_this",
+                    },
                 },
+                "name": "kustomization-1",
             }],
+            name="example-fc",
+            cluster_id=test["id"],
+            namespace="flux",
             opts = pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
         ```
 
@@ -437,10 +437,6 @@ class FluxConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks",
-            location="West Europe",
-            resource_group_name=example.name,
-            dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -448,32 +444,36 @@ class FluxConfiguration(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-aks",
+            location="West Europe",
+            resource_group_name=example.name,
+            dns_prefix="example-aks")
         example_kubernetes_cluster_extension = azure.containerservice.KubernetesClusterExtension("example",
             name="example-ext",
             cluster_id=test["id"],
             extension_type="microsoft.flux")
         example_flux_configuration = azure.containerservice.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
                 "reference_type": "branch",
                 "reference_value": "main",
             },
             kustomizations=[{
-                "name": "kustomization-1",
                 "post_build": {
-                    "substitute": {
-                        "example_var": "substitute_with_this",
-                    },
                     "substitute_froms": [{
                         "kind": "ConfigMap",
                         "name": "example-configmap",
                     }],
+                    "substitute": {
+                        "example_var": "substitute_with_this",
+                    },
                 },
+                "name": "kustomization-1",
             }],
+            name="example-fc",
+            cluster_id=test["id"],
+            namespace="flux",
             opts = pulumi.ResourceOptions(depends_on=[example_kubernetes_cluster_extension]))
         ```
 

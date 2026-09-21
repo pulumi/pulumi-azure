@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			_, err = databricks.NewAccessConnector(ctx, "example", &databricks.AccessConnectorArgs{
-//				Name:              pulumi.String("example-resource"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Identity: &databricks.AccessConnectorIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-resource"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

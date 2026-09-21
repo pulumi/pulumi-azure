@@ -30,14 +30,14 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
     ///             Capacity = 2,
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

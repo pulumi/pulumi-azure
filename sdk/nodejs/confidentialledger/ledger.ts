@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const ledger = new azure.confidentialledger.Ledger("ledger", {
- *     name: "example-ledger",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     ledgerType: "Private",
  *     azureadBasedServicePrincipals: [{
  *         principalId: current.then(current => current.objectId),
  *         tenantId: current.then(current => current.tenantId),
  *         ledgerRoleName: "Administrator",
  *     }],
+ *     name: "example-ledger",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     ledgerType: "Private",
  * });
  * ```
  *

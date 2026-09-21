@@ -290,12 +290,12 @@ class DevBoxDefinition(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_dev_box_definition = azure.devcenter.DevBoxDefinition("example",
             name="example-dcet",
             location=example.location,
@@ -351,12 +351,12 @@ class DevBoxDefinition(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_dev_box_definition = azure.devcenter.DevBoxDefinition("example",
             name="example-dcet",
             location=example.location,

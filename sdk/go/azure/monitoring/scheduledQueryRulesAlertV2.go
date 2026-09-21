@@ -72,43 +72,6 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewScheduledQueryRulesAlertV2(ctx, "example", &monitoring.ScheduledQueryRulesAlertV2Args{
-//				Name:                pulumi.String("example-msqrv2"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				EvaluationFrequency: pulumi.String("PT10M"),
-//				WindowDuration:      pulumi.String("PT10M"),
-//				Scopes:              exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				Severity:            pulumi.Int(4),
-//				Criterias: monitoring.ScheduledQueryRulesAlertV2CriteriaArray{
-//					&monitoring.ScheduledQueryRulesAlertV2CriteriaArgs{
-//						Query:                 pulumi.String("requests\n  | summarize CountByCountry=count() by client_CountryOrRegion\n"),
-//						TimeAggregationMethod: pulumi.String("Maximum"),
-//						Threshold:             pulumi.Float64(17.5),
-//						Operator:              pulumi.String("LessThan"),
-//						ResourceIdColumn:      pulumi.String("client_CountryOrRegion"),
-//						MetricMeasureColumn:   pulumi.String("CountByCountry"),
-//						Dimensions: monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArray{
-//							&monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs{
-//								Name:     pulumi.String("client_CountryOrRegion"),
-//								Operator: pulumi.String("Exclude"),
-//								Values: pulumi.StringArray{
-//									pulumi.String("123"),
-//								},
-//							},
-//						},
-//						FailingPeriods: &monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{
-//							MinimumFailingPeriodsToTriggerAlert: pulumi.Int(1),
-//							NumberOfEvaluationPeriods:           pulumi.Int(1),
-//						},
-//					},
-//				},
-//				AutoMitigationEnabled:         pulumi.Bool(true),
-//				WorkspaceAlertsStorageEnabled: pulumi.Bool(false),
-//				Description:                   pulumi.String("example sqr"),
-//				DisplayName:                   pulumi.String("example-sqr"),
-//				Enabled:                       pulumi.Bool(true),
-//				QueryTimeRangeOverride:        pulumi.String("PT1H"),
-//				SkipQueryValidation:           pulumi.Bool(true),
 //				Action: &monitoring.ScheduledQueryRulesAlertV2ActionArgs{
 //					ActionGroups: pulumi.StringArray{
 //						exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
@@ -125,6 +88,43 @@ import (
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Criterias: monitoring.ScheduledQueryRulesAlertV2CriteriaArray{
+//					&monitoring.ScheduledQueryRulesAlertV2CriteriaArgs{
+//						FailingPeriods: &monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{
+//							MinimumFailingPeriodsToTriggerAlert: pulumi.Int(1),
+//							NumberOfEvaluationPeriods:           pulumi.Int(1),
+//						},
+//						Dimensions: monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArray{
+//							&monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs{
+//								Name:     pulumi.String("client_CountryOrRegion"),
+//								Operator: pulumi.String("Exclude"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("123"),
+//								},
+//							},
+//						},
+//						Query:                 pulumi.String("requests\n  | summarize CountByCountry=count() by client_CountryOrRegion\n"),
+//						TimeAggregationMethod: pulumi.String("Maximum"),
+//						Threshold:             pulumi.Float64(17.5),
+//						Operator:              pulumi.String("LessThan"),
+//						ResourceIdColumn:      pulumi.String("client_CountryOrRegion"),
+//						MetricMeasureColumn:   pulumi.String("CountByCountry"),
+//					},
+//				},
+//				Name:                          pulumi.String("example-msqrv2"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
+//				EvaluationFrequency:           pulumi.String("PT10M"),
+//				WindowDuration:                pulumi.String("PT10M"),
+//				Scopes:                        exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				Severity:                      pulumi.Int(4),
+//				AutoMitigationEnabled:         pulumi.Bool(true),
+//				WorkspaceAlertsStorageEnabled: pulumi.Bool(false),
+//				Description:                   pulumi.String("example sqr"),
+//				DisplayName:                   pulumi.String("example-sqr"),
+//				Enabled:                       pulumi.Bool(true),
+//				QueryTimeRangeOverride:        pulumi.String("PT1H"),
+//				SkipQueryValidation:           pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"key":  pulumi.String("value"),
 //					"key2": pulumi.String("value2"),

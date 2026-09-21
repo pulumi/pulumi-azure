@@ -105,6 +105,27 @@ def get_encrypted_value(algorithm: Optional[_builtins.str] = None,
     """
     Encrypts or Decrypts a value using a Key Vault Key.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.keyvault.get_key_vault(name="mykeyvault",
+        resource_group_name="some-resource-group")
+    example_get_key = azure.keyvault.get_key(name="some-key",
+        key_vault_id=example.id)
+    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=test["id"],
+        algorithm="RSA1_5",
+        plain_text_value=std.base64encode(input="some-encrypted-value")["result"])
+    decrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=test["id"],
+        algorithm="RSA1_5",
+        encrypted_data=encrypted.encrypted_data)
+    pulumi.export("id", example_azurerm_key_vault_encrypted_value["encryptedData"])
+    pulumi.export("decryptedText", pulumi.Output.unsecret(decrypted.decoded_plain_text_value))
+    ```
+
 
     :param _builtins.str algorithm: The Algorithm which should be used to Decrypt/Encrypt this Value. Possible values are `RSA1_5`, `RSA-OAEP` and `RSA-OAEP-256`.
     :param _builtins.str encrypted_data: The Base64 URL Encoded Encrypted Data which should be decrypted into `plain_text_value`.
@@ -135,6 +156,27 @@ def get_encrypted_value_output(algorithm: pulumi.Input[Optional[_builtins.str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptedValueResult]:
     """
     Encrypts or Decrypts a value using a Key Vault Key.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+    import pulumi_std as std
+
+    example = azure.keyvault.get_key_vault(name="mykeyvault",
+        resource_group_name="some-resource-group")
+    example_get_key = azure.keyvault.get_key(name="some-key",
+        key_vault_id=example.id)
+    encrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=test["id"],
+        algorithm="RSA1_5",
+        plain_text_value=std.base64encode(input="some-encrypted-value")["result"])
+    decrypted = azure.keyvault.get_encrypted_value(key_vault_key_id=test["id"],
+        algorithm="RSA1_5",
+        encrypted_data=encrypted.encrypted_data)
+    pulumi.export("id", example_azurerm_key_vault_encrypted_value["encryptedData"])
+    pulumi.export("decryptedText", pulumi.Output.unsecret(decrypted.decoded_plain_text_value))
+    ```
 
 
     :param _builtins.str algorithm: The Algorithm which should be used to Decrypt/Encrypt this Value. Possible values are `RSA1_5`, `RSA-OAEP` and `RSA-OAEP-256`.

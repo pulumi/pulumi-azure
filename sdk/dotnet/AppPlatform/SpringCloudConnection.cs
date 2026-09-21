@@ -32,11 +32,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "example-cosmosdb-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
     ///             ConsistencyLevel = "BoundedStaleness",
@@ -51,6 +46,11 @@ namespace Pulumi.Azure.AppPlatform
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
     ///     });
     /// 
     ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
@@ -79,13 +79,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
     ///     {
-    ///         Name = "examplespringcloudapp",
-    ///         ResourceGroupName = example.Name,
-    ///         ServiceName = exampleSpringCloudService.Name,
     ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "examplespringcloudapp",
+    ///         ResourceGroupName = example.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
     ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("example", new()
@@ -96,13 +96,13 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudConnection = new Azure.AppPlatform.SpringCloudConnection("example", new()
     ///     {
-    ///         Name = "example-serviceconnector",
-    ///         SpringCloudId = exampleSpringCloudJavaDeployment.Id,
-    ///         TargetResourceId = exampleSqlDatabase.Id,
     ///         Authentication = new Azure.AppPlatform.Inputs.SpringCloudConnectionAuthenticationArgs
     ///         {
     ///             Type = "systemAssignedIdentity",
     ///         },
+    ///         Name = "example-serviceconnector",
+    ///         SpringCloudId = exampleSpringCloudJavaDeployment.Id,
+    ///         TargetResourceId = exampleSqlDatabase.Id,
     ///     });
     /// 
     /// });

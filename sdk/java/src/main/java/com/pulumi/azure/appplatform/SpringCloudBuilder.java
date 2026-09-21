@@ -38,8 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudBuilder;
  * import com.pulumi.azure.appplatform.SpringCloudBuilderArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderBuildPackGroupArgs;
  * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderStackArgs;
+ * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderBuildPackGroupArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,16 +66,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudBuilder = new SpringCloudBuilder("exampleSpringCloudBuilder", SpringCloudBuilderArgs.builder()
- *             .name("example")
- *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
- *                 .name("mix")
- *                 .buildPackIds("tanzu-buildpacks/java-azure")
- *                 .build())
  *             .stack(SpringCloudBuilderStackArgs.builder()
  *                 .id("io.buildpacks.stacks.bionic")
  *                 .version("base")
  *                 .build())
+ *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
+ *                 .name("mix")
+ *                 .buildPackIds("tanzu-buildpacks/java-azure")
+ *                 .build())
+ *             .name("example")
+ *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
  *     }

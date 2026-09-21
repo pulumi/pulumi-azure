@@ -35,6 +35,17 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleFunctionJavascriptUda = new Azure.StreamAnalytics.FunctionJavascriptUda("example", new()
     ///     {
+    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaOutputArgs
+    ///         {
+    ///             Type = "bigint",
+    ///         },
+    ///         Inputs = new[]
+    ///         {
+    ///             new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaInputArgs
+    ///             {
+    ///                 Type = "bigint",
+    ///             },
+    ///         },
     ///         Name = "example-javascript-function",
     ///         StreamAnalyticsJobId = exampleGetJob.Apply(getJobResult =&gt; getJobResult.Id),
     ///         Script = @"function main() {
@@ -51,17 +62,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///     }
     /// }
     /// ",
-    ///         Inputs = new[]
-    ///         {
-    ///             new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaInputArgs
-    ///             {
-    ///                 Type = "bigint",
-    ///             },
-    ///         },
-    ///         Output = new Azure.StreamAnalytics.Inputs.FunctionJavascriptUdaOutputArgs
-    ///         {
-    ///             Type = "bigint",
-    ///         },
     ///     });
     /// 
     /// });

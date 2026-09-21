@@ -72,10 +72,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService("exampleSpringCloudService", SpringCloudServiceArgs.builder()
- *             .name("example-springcloud")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .skuName("S0")
  *             .configServerGitSetting(SpringCloudServiceConfigServerGitSettingArgs.builder()
  *                 .uri("https://github.com/Azure-Samples/piggymetrics")
  *                 .label("config")
@@ -87,6 +83,10 @@ import javax.annotation.Nullable;
  *                 .connectionString(exampleInsights.connectionString())
  *                 .sampleRate(10.0)
  *                 .build())
+ *             .name("example-springcloud")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .skuName("S0")
  *             .tags(Map.of("Env", "staging"))
  *             .build());
  * 

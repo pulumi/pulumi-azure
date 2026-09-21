@@ -49,19 +49,19 @@ import (
 //				return err
 //			}
 //			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example-windows-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleWindowsWebAppSlot, err := appservice.NewWindowsWebAppSlot(ctx, "example", &appservice.WindowsWebAppSlotArgs{
+//				SiteConfig:   &appservice.WindowsWebAppSlotSiteConfigArgs{},
 //				Name:         pulumi.String("example-windows-web-app-slot"),
 //				AppServiceId: exampleWindowsWebApp.Name,
-//				SiteConfig:   &appservice.WindowsWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -111,21 +111,21 @@ import (
 //				return err
 //			}
 //			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example-linux-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "example", &appservice.LinuxWebAppSlotArgs{
+//				SiteConfig:     &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //				Name:           pulumi.String("example-linux-web-app-slot"),
 //				AppServiceName: exampleLinuxWebApp.Name,
 //				Location:       exampleServicePlan.Location,
 //				ServicePlanId:  exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:     &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

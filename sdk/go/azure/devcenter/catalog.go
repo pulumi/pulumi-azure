@@ -37,26 +37,26 @@ import (
 //				return err
 //			}
 //			_, err = devcenter.NewDevCenter(ctx, "example", &devcenter.DevCenterArgs{
-//				Location:          example.Location,
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
 //				Identity: &devcenter.DevCenterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = devcenter.NewCatalog(ctx, "example", &devcenter.CatalogArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				DevCenterId:       pulumi.Any(test.Id),
 //				CatalogGithub: &devcenter.CatalogCatalogGithubArgs{
 //					Branch:         pulumi.String("foo"),
 //					Path:           pulumi.String(""),
 //					Uri:            pulumi.String("example URI"),
 //					KeyVaultKeyUrl: pulumi.String("secret"),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.Any(test.Name),
+//				DevCenterId:       pulumi.Any(testAzurermDevCenter.Id),
 //			})
 //			if err != nil {
 //				return err

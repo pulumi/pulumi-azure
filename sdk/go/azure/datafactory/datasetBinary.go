@@ -57,13 +57,13 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewDatasetBinary(ctx, "example", &datafactory.DatasetBinaryArgs{
-//				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				LinkedServiceName: exampleLinkedServiceSftp.Name,
 //				SftpServerLocation: &datafactory.DatasetBinarySftpServerLocationArgs{
 //					Path:     pulumi.String("/test/"),
 //					Filename: pulumi.String("**"),
 //				},
+//				Name:              pulumi.String("example"),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceName: exampleLinkedServiceSftp.Name,
 //			})
 //			if err != nil {
 //				return err

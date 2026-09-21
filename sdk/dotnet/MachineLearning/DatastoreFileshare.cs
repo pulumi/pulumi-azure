@@ -61,16 +61,16 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-workspace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
-    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleShare = new Azure.Storage.Share("example", new()

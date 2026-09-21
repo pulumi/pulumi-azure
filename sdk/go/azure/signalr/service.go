@@ -37,9 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = signalr.NewService(ctx, "example", &signalr.ServiceArgs{
-//				Name:              pulumi.String("tfex-signalr"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &signalr.ServiceSkuArgs{
 //					Name:     pulumi.String("Free_F1"),
 //					Capacity: pulumi.Int(1),
@@ -51,10 +48,6 @@ import (
 //						},
 //					},
 //				},
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
-//				ConnectivityLogsEnabled:    pulumi.Bool(true),
-//				MessagingLogsEnabled:       pulumi.Bool(true),
-//				ServiceMode:                pulumi.String("Default"),
 //				UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
 //					&signalr.ServiceUpstreamEndpointArgs{
 //						CategoryPatterns: pulumi.StringArray{
@@ -70,6 +63,13 @@ import (
 //						UrlTemplate: pulumi.String("http://foo.com"),
 //					},
 //				},
+//				Name:                       pulumi.String("tfex-signalr"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
+//				PublicNetworkAccessEnabled: pulumi.Bool(false),
+//				ConnectivityLogsEnabled:    pulumi.Bool(true),
+//				MessagingLogsEnabled:       pulumi.Bool(true),
+//				ServiceMode:                pulumi.String("Default"),
 //			})
 //			if err != nil {
 //				return err

@@ -51,14 +51,14 @@ import (
 //				return err
 //			}
 //			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
+//				Identity: &eventhub.EventHubNamespaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:               pulumi.String("example-namespace"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				Sku:                pulumi.String("Standard"),
 //				DedicatedClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &eventhub.EventHubNamespaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -186,17 +186,17 @@ import (
 //				return err
 //			}
 //			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
-//				Name:               pulumi.String("example-namespace"),
-//				Location:           example.Location,
-//				ResourceGroupName:  example.Name,
-//				Sku:                pulumi.String("Standard"),
-//				DedicatedClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &eventhub.EventHubNamespaceIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:               pulumi.String("example-namespace"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				Sku:                pulumi.String("Standard"),
+//				DedicatedClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

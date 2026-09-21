@@ -35,9 +35,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     signedVersion: "2022-11-02",
  *     resourceTypes: {
  *         service: true,
  *         container: false,
@@ -49,8 +46,6 @@ import * as utilities from "../utilities";
  *         table: false,
  *         file: false,
  *     },
- *     start: "2018-03-21T00:00:00Z",
- *     expiry: "2020-03-21T00:00:00Z",
  *     permissions: {
  *         read: true,
  *         write: true,
@@ -63,6 +58,11 @@ import * as utilities from "../utilities";
  *         tag: false,
  *         filter: false,
  *     },
+ *     connectionString: exampleAccount.primaryConnectionString,
+ *     httpsOnly: true,
+ *     signedVersion: "2022-11-02",
+ *     start: "2018-03-21T00:00:00Z",
+ *     expiry: "2020-03-21T00:00:00Z",
  * });
  * export const sasUrlQueryString = example.sas;
  * ```
@@ -177,9 +177,6 @@ export interface GetAccountSASResult {
  *     },
  * });
  * const example = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
- *     signedVersion: "2022-11-02",
  *     resourceTypes: {
  *         service: true,
  *         container: false,
@@ -191,8 +188,6 @@ export interface GetAccountSASResult {
  *         table: false,
  *         file: false,
  *     },
- *     start: "2018-03-21T00:00:00Z",
- *     expiry: "2020-03-21T00:00:00Z",
  *     permissions: {
  *         read: true,
  *         write: true,
@@ -205,6 +200,11 @@ export interface GetAccountSASResult {
  *         tag: false,
  *         filter: false,
  *     },
+ *     connectionString: exampleAccount.primaryConnectionString,
+ *     httpsOnly: true,
+ *     signedVersion: "2022-11-02",
+ *     start: "2018-03-21T00:00:00Z",
+ *     expiry: "2020-03-21T00:00:00Z",
  * });
  * export const sasUrlQueryString = example.sas;
  * ```

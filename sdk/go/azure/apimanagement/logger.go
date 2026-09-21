@@ -58,13 +58,13 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewLogger(ctx, "example", &apimanagement.LoggerArgs{
+//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
+//					InstrumentationKey: exampleInsights.InstrumentationKey,
+//				},
 //				Name:              pulumi.String("example-logger"),
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
 //				ResourceId:        exampleInsights.ID().ToIDOutput().ToStringOutput(),
-//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
-//					InstrumentationKey: exampleInsights.InstrumentationKey,
-//				},
 //			})
 //			if err != nil {
 //				return err

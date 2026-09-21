@@ -28,9 +28,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
- *     name: "netappaccount",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     activeDirectory: {
  *         username: "aduser",
  *         password: "aduserpwd",
@@ -43,6 +40,9 @@ import * as utilities from "../utilities";
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

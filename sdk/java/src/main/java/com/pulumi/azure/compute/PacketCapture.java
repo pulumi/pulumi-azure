@@ -94,22 +94,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("testconfiguration1")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
- *             .name("example-vm")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .vmSize("Standard_D4_v5")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -130,6 +125,11 @@ import javax.annotation.Nullable;
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
+ *             .name("example-vm")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .vmSize("Standard_D4_v5")
  *             .build());
  * 
  *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()
@@ -150,12 +150,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePacketCapture = new PacketCapture("examplePacketCapture", PacketCaptureArgs.builder()
- *             .name("example-pc")
- *             .networkWatcherId(exampleNetworkWatcher.id())
- *             .virtualMachineId(exampleVirtualMachine.id())
  *             .storageLocation(PacketCaptureStorageLocationArgs.builder()
  *                 .storageAccountId(exampleAccount.id())
  *                 .build())
+ *             .name("example-pc")
+ *             .networkWatcherId(exampleNetworkWatcher.id())
+ *             .virtualMachineId(exampleVirtualMachine.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleExtension)
  *                 .build());

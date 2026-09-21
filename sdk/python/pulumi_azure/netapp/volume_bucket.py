@@ -367,12 +367,7 @@ class VolumeBucket(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-delegated",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -380,7 +375,12 @@ class VolumeBucket(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name="example-delegated",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.netapp.Account("example",
             name="example-anfaccount",
             location=example.location,
@@ -407,10 +407,10 @@ class VolumeBucket(pulumi.CustomResource):
             algorithm=RSA,
             rsa_bits=2048)
         bucket_self_signed_cert = tls.SelfSignedCert("bucket",
-            private_key_pem=bucket.private_key_pem,
             subject=[{
                 commonName: example-bucket.example.internal,
             }],
+            private_key_pem=bucket.private_key_pem,
             dns_names=[example-bucket.example.internal],
             validity_period_hours=8760,
             allowed_uses=[
@@ -420,24 +420,24 @@ class VolumeBucket(pulumi.CustomResource):
             ])
         # First bucket - establishes the shared bucket server.
         first = azure.netapp.VolumeBucketWithServer("first",
-            name="example-bucket-first",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 1000,
                 "user_id": 1000,
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
-            })
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
+            },
+            name="example-bucket-first",
+            volume_id=example_volume.id)
         # Subsequent bucket - reuses the server configured by the first bucket.
         example_volume_bucket = azure.netapp.VolumeBucket("example",
-            name="example-bucket-second",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 2000,
                 "user_id": 2000,
             },
+            name="example-bucket-second",
+            volume_id=example_volume.id,
             opts = pulumi.ResourceOptions(depends_on=[first]))
         ```
 
@@ -503,12 +503,7 @@ class VolumeBucket(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-delegated",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -516,7 +511,12 @@ class VolumeBucket(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name="example-delegated",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.netapp.Account("example",
             name="example-anfaccount",
             location=example.location,
@@ -543,10 +543,10 @@ class VolumeBucket(pulumi.CustomResource):
             algorithm=RSA,
             rsa_bits=2048)
         bucket_self_signed_cert = tls.SelfSignedCert("bucket",
-            private_key_pem=bucket.private_key_pem,
             subject=[{
                 commonName: example-bucket.example.internal,
             }],
+            private_key_pem=bucket.private_key_pem,
             dns_names=[example-bucket.example.internal],
             validity_period_hours=8760,
             allowed_uses=[
@@ -556,24 +556,24 @@ class VolumeBucket(pulumi.CustomResource):
             ])
         # First bucket - establishes the shared bucket server.
         first = azure.netapp.VolumeBucketWithServer("first",
-            name="example-bucket-first",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 1000,
                 "user_id": 1000,
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
-            })
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
+            },
+            name="example-bucket-first",
+            volume_id=example_volume.id)
         # Subsequent bucket - reuses the server configured by the first bucket.
         example_volume_bucket = azure.netapp.VolumeBucket("example",
-            name="example-bucket-second",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 2000,
                 "user_id": 2000,
             },
+            name="example-bucket-second",
+            volume_id=example_volume.id,
             opts = pulumi.ResourceOptions(depends_on=[first]))
         ```
 

@@ -781,12 +781,12 @@ class EventSubscription(pulumi.CustomResource):
             name="example-astq",
             storage_account_name=example_account.name)
         example_event_subscription = azure.eventgrid.EventSubscription("example",
-            name="example-aees",
-            scope=example.id,
             storage_queue_endpoint={
                 "storage_account_id": example_account.id,
                 "queue_name": example_queue.name,
-            })
+            },
+            name="example-aees",
+            scope=example.id)
         ```
 
         ## API Providers
@@ -864,12 +864,12 @@ class EventSubscription(pulumi.CustomResource):
             name="example-astq",
             storage_account_name=example_account.name)
         example_event_subscription = azure.eventgrid.EventSubscription("example",
-            name="example-aees",
-            scope=example.id,
             storage_queue_endpoint={
                 "storage_account_id": example_account.id,
                 "queue_name": example_queue.name,
-            })
+            },
+            name="example-aees",
+            scope=example.id)
         ```
 
         ## API Providers

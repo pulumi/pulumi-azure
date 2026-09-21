@@ -64,17 +64,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .name("Qumulo.Storage/fileSystems")
  *                     .build())
+ *                 .name("delegation")
  *                 .build())
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
  *         var exampleFileSystem = new FileSystem("exampleFileSystem", FileSystemArgs.builder()

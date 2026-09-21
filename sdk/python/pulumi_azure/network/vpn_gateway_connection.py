@@ -299,10 +299,6 @@ class VpnGatewayConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
         example_vpn_site = azure.network.VpnSite("example",
-            name="example-vpn-site",
-            location=example.location,
-            resource_group_name=example.name,
-            virtual_wan_id=example_virtual_wan.id,
             links=[
                 {
                     "name": "link1",
@@ -312,11 +308,12 @@ class VpnGatewayConnection(pulumi.CustomResource):
                     "name": "link2",
                     "ip_address": "10.2.0.0",
                 },
-            ])
+            ],
+            name="example-vpn-site",
+            location=example.location,
+            resource_group_name=example.name,
+            virtual_wan_id=example_virtual_wan.id)
         example_vpn_gateway_connection = azure.network.VpnGatewayConnection("example",
-            name="example",
-            vpn_gateway_id=example_vpn_gateway.id,
-            remote_vpn_site_id=example_vpn_site.id,
             vpn_links=[
                 {
                     "name": "link1",
@@ -326,7 +323,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
                     "name": "link2",
                     "vpn_site_link_id": example_vpn_site.links[1].id,
                 },
-            ])
+            ],
+            name="example",
+            vpn_gateway_id=example_vpn_gateway.id,
+            remote_vpn_site_id=example_vpn_site.id)
         ```
 
         ## API Providers
@@ -389,10 +389,6 @@ class VpnGatewayConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
         example_vpn_site = azure.network.VpnSite("example",
-            name="example-vpn-site",
-            location=example.location,
-            resource_group_name=example.name,
-            virtual_wan_id=example_virtual_wan.id,
             links=[
                 {
                     "name": "link1",
@@ -402,11 +398,12 @@ class VpnGatewayConnection(pulumi.CustomResource):
                     "name": "link2",
                     "ip_address": "10.2.0.0",
                 },
-            ])
+            ],
+            name="example-vpn-site",
+            location=example.location,
+            resource_group_name=example.name,
+            virtual_wan_id=example_virtual_wan.id)
         example_vpn_gateway_connection = azure.network.VpnGatewayConnection("example",
-            name="example",
-            vpn_gateway_id=example_vpn_gateway.id,
-            remote_vpn_site_id=example_vpn_site.id,
             vpn_links=[
                 {
                     "name": "link1",
@@ -416,7 +413,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
                     "name": "link2",
                     "vpn_site_link_id": example_vpn_site.links[1].id,
                 },
-            ])
+            ],
+            name="example",
+            vpn_gateway_id=example_vpn_gateway.id,
+            remote_vpn_site_id=example_vpn_site.id)
         ```
 
         ## API Providers

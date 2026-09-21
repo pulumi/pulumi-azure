@@ -37,6 +37,16 @@ import (
 //				return err
 //			}
 //			_, err = stack.NewHciLogicalNetwork(ctx, "example", &stack.HciLogicalNetworkArgs{
+//				Subnet: &stack.HciLogicalNetworkSubnetArgs{
+//					Route: map[string]string{
+//						"name":             "example-route",
+//						"addressPrefix":    "0.0.0.0/0",
+//						"nextHopIpAddress": "10.0.20.1",
+//					},
+//					IpAllocationMethod: pulumi.String("Static"),
+//					AddressPrefix:      pulumi.String("10.0.0.0/24"),
+//					VlanId:             pulumi.Int(123),
+//				},
 //				Name:              pulumi.String("example-hci-ln"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -46,16 +56,6 @@ import (
 //					pulumi.String("10.0.0.7"),
 //					pulumi.String("10.0.0.8"),
 //				},
-//				Subnet: &stack.HciLogicalNetworkSubnetArgs{
-//					IpAllocationMethod: pulumi.String("Static"),
-//					AddressPrefix:      pulumi.String("10.0.0.0/24"),
-//					Route: map[string]string{
-//						"name":             "example-route",
-//						"addressPrefix":    "0.0.0.0/0",
-//						"nextHopIpAddress": "10.0.20.1",
-//					},
-//					VlanId: pulumi.Int(123),
-//				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
@@ -64,6 +64,10 @@ import (
 //				return err
 //			}
 //			_, err = stack.NewHciNetworkInterface(ctx, "example", &stack.HciNetworkInterfaceArgs{
+//				IpConfiguration: &stack.HciNetworkInterfaceIpConfigurationArgs{
+//					PrivateIpAddress: pulumi.String("10.0.0.2"),
+//					SubnetId:         pulumi.Any(test.Id),
+//				},
 //				Name:              pulumi.String("example-ni"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -71,14 +75,12 @@ import (
 //				DnsServers: pulumi.StringArray{
 //					pulumi.String("10.0.0.8"),
 //				},
-//				IpConfiguration: &stack.HciNetworkInterfaceIpConfigurationArgs{
-//					PrivateIpAddress: pulumi.String("10.0.0.2"),
-//					SubnetId:         pulumi.Any(test.Id),
-//				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"macAddress",
+//			}))
 //			if err != nil {
 //				return err
 //			}

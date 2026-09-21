@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
-//				Name:              pulumi.String("example-dsa"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &datashare.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-dsa"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
@@ -51,16 +51,16 @@ import (
 //				return err
 //			}
 //			_, err = datashare.NewShare(ctx, "example", &datashare.ShareArgs{
-//				Name:        pulumi.String("example_dss"),
-//				AccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				Kind:        pulumi.String("CopyBased"),
-//				Description: pulumi.String("example desc"),
-//				Terms:       pulumi.String("example terms"),
 //				SnapshotSchedule: &datashare.ShareSnapshotScheduleArgs{
 //					Name:       pulumi.String("example-ss"),
 //					Recurrence: pulumi.String("Day"),
 //					StartTime:  pulumi.String("2020-04-17T04:47:52.9614956Z"),
 //				},
+//				Name:        pulumi.String("example_dss"),
+//				AccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Kind:        pulumi.String("CopyBased"),
+//				Description: pulumi.String("example desc"),
+//				Terms:       pulumi.String("example terms"),
 //			})
 //			if err != nil {
 //				return err

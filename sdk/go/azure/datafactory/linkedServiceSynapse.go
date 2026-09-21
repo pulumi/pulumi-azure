@@ -113,13 +113,13 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceSynapse(ctx, "example", &datafactory.LinkedServiceSynapseArgs{
-//				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;"),
 //				KeyVaultPassword: &datafactory.LinkedServiceSynapseKeyVaultPasswordArgs{
 //					LinkedServiceName: exampleLinkedServiceKeyVault.Name,
 //					SecretName:        pulumi.String("secret"),
 //				},
+//				Name:             pulumi.String("example"),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;"),
 //			})
 //			if err != nil {
 //				return err

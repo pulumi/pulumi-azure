@@ -41,18 +41,10 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "examplesubnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.1.0.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.ContainerInstance/containerGroups",
@@ -61,18 +53,22 @@ namespace Pulumi.Azure.Network
     ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = "examplesubnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.0.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleProfile = new Azure.Network.Profile("example", new()
     ///     {
-    ///         Name = "examplenetprofile",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         ContainerNetworkInterface = new Azure.Network.Inputs.ProfileContainerNetworkInterfaceArgs
     ///         {
-    ///             Name = "examplecnic",
     ///             IpConfigurations = new[]
     ///             {
     ///                 new Azure.Network.Inputs.ProfileContainerNetworkInterfaceIpConfigurationArgs
@@ -81,7 +77,11 @@ namespace Pulumi.Azure.Network
     ///                     SubnetId = exampleSubnet.Id,
     ///                 },
     ///             },
+    ///             Name = "examplecnic",
     ///         },
+    ///         Name = "examplenetprofile",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

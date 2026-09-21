@@ -237,17 +237,6 @@ class AccountQueueProperties(pulumi.CustomResource):
                 "environment": "staging",
             })
         example_account_queue_properties = azure.storage.AccountQueueProperties("example",
-            storage_account_id=example_account.id,
-            cors_rules=[{
-                "allowed_origins": ["http://www.example.com"],
-                "exposed_headers": ["x-tempo-*"],
-                "allowed_headers": ["x-tempo-*"],
-                "allowed_methods": [
-                    "GET",
-                    "PUT",
-                ],
-                "max_age_in_seconds": 500,
-            }],
             logging={
                 "version": "1.0",
                 "delete": True,
@@ -262,7 +251,18 @@ class AccountQueueProperties(pulumi.CustomResource):
             minute_metrics={
                 "version": "1.0",
                 "retention_policy_days": 7,
-            })
+            },
+            cors_rules=[{
+                "allowed_origins": ["http://www.example.com"],
+                "exposed_headers": ["x-tempo-*"],
+                "allowed_headers": ["x-tempo-*"],
+                "allowed_methods": [
+                    "GET",
+                    "PUT",
+                ],
+                "max_age_in_seconds": 500,
+            }],
+            storage_account_id=example_account.id)
         ```
 
         ## Import
@@ -312,17 +312,6 @@ class AccountQueueProperties(pulumi.CustomResource):
                 "environment": "staging",
             })
         example_account_queue_properties = azure.storage.AccountQueueProperties("example",
-            storage_account_id=example_account.id,
-            cors_rules=[{
-                "allowed_origins": ["http://www.example.com"],
-                "exposed_headers": ["x-tempo-*"],
-                "allowed_headers": ["x-tempo-*"],
-                "allowed_methods": [
-                    "GET",
-                    "PUT",
-                ],
-                "max_age_in_seconds": 500,
-            }],
             logging={
                 "version": "1.0",
                 "delete": True,
@@ -337,7 +326,18 @@ class AccountQueueProperties(pulumi.CustomResource):
             minute_metrics={
                 "version": "1.0",
                 "retention_policy_days": 7,
-            })
+            },
+            cors_rules=[{
+                "allowed_origins": ["http://www.example.com"],
+                "exposed_headers": ["x-tempo-*"],
+                "allowed_headers": ["x-tempo-*"],
+                "allowed_methods": [
+                    "GET",
+                    "PUT",
+                ],
+                "max_age_in_seconds": 500,
+            }],
+            storage_account_id=example_account.id)
         ```
 
         ## Import

@@ -31,6 +31,9 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -38,9 +41,6 @@ import * as utilities from "../utilities";
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
  *     managedVirtualNetworkEnabled: true,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
  *     name: "AllowAll",

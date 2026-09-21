@@ -27,15 +27,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleAccount2 = new azure.videoindexer.Account("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: "West Europe",
  *     storage: {
  *         storageAccountId: exampleAccount.id,
  *     },
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: "West Europe",
  * });
  * ```
  *

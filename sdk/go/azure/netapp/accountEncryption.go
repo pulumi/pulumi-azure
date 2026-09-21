@@ -53,16 +53,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                         pulumi.String("anfcmkakv"),
-//				Location:                     example.Location,
-//				ResourceGroupName:            example.Name,
-//				RbacAuthorizationEnabled:     pulumi.Bool(false),
-//				EnabledForDiskEncryption:     pulumi.Bool(true),
-//				EnabledForDeployment:         pulumi.Bool(true),
-//				EnabledForTemplateDeployment: pulumi.Bool(true),
-//				PurgeProtectionEnabled:       pulumi.Bool(true),
-//				TenantId:                     pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				SkuName:                      pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
@@ -87,6 +77,16 @@ import (
 //						},
 //					},
 //				},
+//				Name:                         pulumi.String("anfcmkakv"),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
+//				RbacAuthorizationEnabled:     pulumi.Bool(false),
+//				EnabledForDiskEncryption:     pulumi.Bool(true),
+//				EnabledForDeployment:         pulumi.Bool(true),
+//				EnabledForTemplateDeployment: pulumi.Bool(true),
+//				PurgeProtectionEnabled:       pulumi.Bool(true),
+//				TenantId:                     pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				SkuName:                      pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err
@@ -109,15 +109,15 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String("netappaccount"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &netapp.AccountIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

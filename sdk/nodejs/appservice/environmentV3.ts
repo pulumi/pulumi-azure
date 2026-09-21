@@ -28,23 +28,19 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "Microsoft.Web.hostingEnvironments",
  *         serviceDelegation: {
  *             name: "Microsoft.Web/hostingEnvironments",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
  *         },
+ *         name: "Microsoft.Web.hostingEnvironments",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("example", {
- *     name: "example-asev3",
- *     resourceGroupName: example.name,
- *     subnetId: exampleSubnet.id,
- *     internalLoadBalancingMode: "Web, Publishing",
  *     clusterSettings: [
  *         {
  *             name: "DisableTls1.0",
@@ -59,6 +55,10 @@ import * as utilities from "../utilities";
  *             value: "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
  *         },
  *     ],
+ *     name: "example-asev3",
+ *     resourceGroupName: example.name,
+ *     subnetId: exampleSubnet.id,
+ *     internalLoadBalancingMode: "Web, Publishing",
  *     tags: {
  *         env: "production",
  *         terraformed: "true",

@@ -52,16 +52,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-network"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				DnsServers: pulumi.StringArray{
-//					pulumi.String("10.0.0.4"),
-//					pulumi.String("10.0.0.5"),
-//				},
 //				Subnets: network.VirtualNetworkSubnetArray{
 //					&network.VirtualNetworkSubnetArgs{
 //						Name: pulumi.String("subnet1"),
@@ -76,6 +66,16 @@ import (
 //						},
 //						SecurityGroup: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
+//				},
+//				Name:              pulumi.String("example-network"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				DnsServers: pulumi.StringArray{
+//					pulumi.String("10.0.0.4"),
+//					pulumi.String("10.0.0.5"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),

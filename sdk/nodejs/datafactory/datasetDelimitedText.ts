@@ -31,14 +31,14 @@ import * as utilities from "../utilities";
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetDelimitedText = new azure.datafactory.DatasetDelimitedText("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     httpServerLocation: {
  *         relativeUrl: "http://www.bing.com",
  *         path: "foo/bar/",
  *         filename: "fizz.txt",
  *     },
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     columnDelimiter: ",",
  *     rowDelimiter: "NEW",
  *     encoding: "UTF-8",

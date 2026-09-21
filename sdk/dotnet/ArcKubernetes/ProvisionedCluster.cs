@@ -19,7 +19,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleGroup = new AzureAD.Group("example", new()
+    ///     var exampleGroup = new Azuread.Group("example", new()
     ///     {
     ///         DisplayName = "example-adg",
     ///         Owners = new[]
@@ -43,9 +43,6 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var exampleProvisionedCluster = new Azure.ArcKubernetes.ProvisionedCluster("example", new()
     ///     {
-    ///         Name = "example-akpc",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         AzureActiveDirectory = new Azure.ArcKubernetes.Inputs.ProvisionedClusterAzureActiveDirectoryArgs
     ///         {
     ///             AzureRbacEnabled = true,
@@ -59,6 +56,9 @@ namespace Pulumi.Azure.ArcKubernetes
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-akpc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

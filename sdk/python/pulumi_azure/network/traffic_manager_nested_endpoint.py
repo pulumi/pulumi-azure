@@ -496,9 +496,6 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
             allocation_method="Static",
             domain_name_label="example-pip")
         parent = azure.network.TrafficManagerProfile("parent",
-            name="parent-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": "parent-profile",
                 "ttl": 100,
@@ -511,13 +508,13 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name="parent-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })
         nested = azure.network.TrafficManagerProfile("nested",
-            name="nested-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Priority",
             dns_config={
                 "relative_name": "nested-profile",
                 "ttl": 30,
@@ -526,7 +523,10 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                 "protocol": "HTTP",
                 "port": 443,
                 "path": "/",
-            })
+            },
+            name="nested-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Priority")
         example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("example",
             name="example-endpoint",
             target_resource_id=nested.id,
@@ -595,9 +595,6 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
             allocation_method="Static",
             domain_name_label="example-pip")
         parent = azure.network.TrafficManagerProfile("parent",
-            name="parent-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": "parent-profile",
                 "ttl": 100,
@@ -610,13 +607,13 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name="parent-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })
         nested = azure.network.TrafficManagerProfile("nested",
-            name="nested-profile",
-            resource_group_name=example.name,
-            traffic_routing_method="Priority",
             dns_config={
                 "relative_name": "nested-profile",
                 "ttl": 30,
@@ -625,7 +622,10 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
                 "protocol": "HTTP",
                 "port": 443,
                 "path": "/",
-            })
+            },
+            name="nested-profile",
+            resource_group_name=example.name,
+            traffic_routing_method="Priority")
         example_traffic_manager_nested_endpoint = azure.network.TrafficManagerNestedEndpoint("example",
             name="example-endpoint",
             target_resource_id=nested.id,

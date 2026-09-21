@@ -79,15 +79,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleShare = new Share("exampleShare", ShareArgs.builder()
- *             .name("example-share")
- *             .storageAccountName(exampleAccount.name())
- *             .quota(50)
  *             .acls(ShareAclArgs.builder()
- *                 .id("GhostedRecall")
  *                 .accessPolicies(ShareAclAccessPolicyArgs.builder()
  *                     .permissions("r")
  *                     .build())
+ *                 .id("GhostedRecall")
  *                 .build())
+ *             .name("example-share")
+ *             .storageAccountName(exampleAccount.name())
+ *             .quota(50)
  *             .build());
  * 
  *         var exampleSyncCloudEndpoint = new SyncCloudEndpoint("exampleSyncCloudEndpoint", SyncCloudEndpointArgs.builder()

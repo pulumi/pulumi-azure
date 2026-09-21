@@ -61,6 +61,14 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewTriggerCustomEvent(ctx, "example", &datafactory.TriggerCustomEventArgs{
+//				Pipelines: datafactory.TriggerCustomEventPipelineArray{
+//					&datafactory.TriggerCustomEventPipelineArgs{
+//						Name: examplePipeline.Name,
+//						Parameters: pulumi.StringMap{
+//							"Env": pulumi.String("Prod"),
+//						},
+//					},
+//				},
 //				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				EventgridTopicId: exampleTopic.ID().ToIDOutput().ToStringOutput(),
@@ -76,14 +84,6 @@ import (
 //					pulumi.String("example3"),
 //				},
 //				Description: pulumi.String("example description"),
-//				Pipelines: datafactory.TriggerCustomEventPipelineArray{
-//					&datafactory.TriggerCustomEventPipelineArgs{
-//						Name: examplePipeline.Name,
-//						Parameters: pulumi.StringMap{
-//							"Env": pulumi.String("Prod"),
-//						},
-//					},
-//				},
 //				AdditionalProperties: pulumi.StringMap{
 //					"foo": pulumi.String("foo1"),
 //					"bar": pulumi.String("bar2"),

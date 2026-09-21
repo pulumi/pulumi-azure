@@ -56,6 +56,12 @@ namespace Pulumi.Azure.Connections
     ///         {
     ///             { "Hello", "World" },
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "parameterValues",
+    ///         },
     ///     });
     /// 
     /// });

@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .objectId(current.objectId())
- *             .mongoClusterId(exampleMongoCluster.id())
- *             .identityProviderType("MicrosoftEntraID")
- *             .principalType("servicePrincipal")
  *             .roles(UserRoleArgs.builder()
  *                 .database("admin")
  *                 .name("root")
  *                 .build())
+ *             .objectId(current.objectId())
+ *             .mongoClusterId(exampleMongoCluster.id())
+ *             .identityProviderType("MicrosoftEntraID")
+ *             .principalType("servicePrincipal")
  *             .build());
  * 
  *     }

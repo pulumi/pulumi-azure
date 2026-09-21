@@ -464,11 +464,6 @@ class ManagedDevOpsPool(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_managed_dev_ops_pool = azure.devcenter.ManagedDevOpsPool("example",
-            name="example-manageddevopspools",
-            resource_group_name=example.name,
-            location=example.location,
-            dev_center_project_id=example_project.id,
-            maximum_concurrency=1,
             azure_devops_organization={
                 "organizations": [{
                     "parallelism": 1,
@@ -477,11 +472,16 @@ class ManagedDevOpsPool(pulumi.CustomResource):
             },
             stateless_agent={},
             virtual_machine_scale_set_fabric={
-                "sku_name": "Standard_D2ads_v5",
                 "images": [{
                     "well_known_image_name": "ubuntu-24.04/buffer",
                 }],
-            })
+                "sku_name": "Standard_D2ads_v5",
+            },
+            name="example-manageddevopspools",
+            resource_group_name=example.name,
+            location=example.location,
+            dev_center_project_id=example_project.id,
+            maximum_concurrency=1)
         ```
 
         ## API Providers
@@ -545,11 +545,6 @@ class ManagedDevOpsPool(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_managed_dev_ops_pool = azure.devcenter.ManagedDevOpsPool("example",
-            name="example-manageddevopspools",
-            resource_group_name=example.name,
-            location=example.location,
-            dev_center_project_id=example_project.id,
-            maximum_concurrency=1,
             azure_devops_organization={
                 "organizations": [{
                     "parallelism": 1,
@@ -558,11 +553,16 @@ class ManagedDevOpsPool(pulumi.CustomResource):
             },
             stateless_agent={},
             virtual_machine_scale_set_fabric={
-                "sku_name": "Standard_D2ads_v5",
                 "images": [{
                     "well_known_image_name": "ubuntu-24.04/buffer",
                 }],
-            })
+                "sku_name": "Standard_D2ads_v5",
+            },
+            name="example-manageddevopspools",
+            resource_group_name=example.name,
+            location=example.location,
+            dev_center_project_id=example_project.id,
+            maximum_concurrency=1)
         ```
 
         ## API Providers

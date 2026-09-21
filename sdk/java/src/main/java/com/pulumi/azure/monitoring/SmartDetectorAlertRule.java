@@ -71,15 +71,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSmartDetectorAlertRule = new SmartDetectorAlertRule("exampleSmartDetectorAlertRule", SmartDetectorAlertRuleArgs.builder()
+ *             .actionGroup(SmartDetectorAlertRuleActionGroupArgs.builder()
+ *                 .ids(exampleActionGroup.id())
+ *                 .build())
  *             .name("example-smart-detector-alert-rule")
  *             .resourceGroupName(example.name())
  *             .severity("Sev0")
  *             .scopeResourceIds(exampleInsights.id())
  *             .frequency("PT1M")
  *             .detectorType("FailureAnomaliesDetector")
- *             .actionGroup(SmartDetectorAlertRuleActionGroupArgs.builder()
- *                 .ids(exampleActionGroup.id())
- *                 .build())
  *             .build());
  * 
  *     }

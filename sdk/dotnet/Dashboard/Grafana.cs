@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Dashboard
     /// 
     ///     var exampleGrafana = new Azure.Dashboard.Grafana("example", new()
     ///     {
+    ///         Identity = new Azure.Dashboard.Inputs.GrafanaIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-dg",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
@@ -39,10 +43,6 @@ namespace Pulumi.Azure.Dashboard
     ///         PublicNetworkAccessEnabled = false,
     ///         Sku = "Standard",
     ///         SkuSize = "X1",
-    ///         Identity = new Azure.Dashboard.Inputs.GrafanaIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

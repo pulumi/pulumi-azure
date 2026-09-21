@@ -34,23 +34,14 @@ import * as utilities from "../utilities";
  *     skuName: "Developer_1",
  * });
  * const exampleLogger = new azure.apimanagement.Logger("example", {
- *     name: "example-apimlogger",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: example.name,
  *     applicationInsights: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
+ *     name: "example-apimlogger",
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: example.name,
  * });
  * const exampleDiagnostic = new azure.apimanagement.Diagnostic("example", {
- *     identifier: "applicationinsights",
- *     resourceGroupName: example.name,
- *     apiManagementName: exampleService.name,
- *     apiManagementLoggerId: exampleLogger.id,
- *     samplingPercentage: 5,
- *     alwaysLogErrors: true,
- *     logClientIp: true,
- *     verbosity: "verbose",
- *     httpCorrelationProtocol: "W3C",
  *     frontendRequest: {
  *         bodyBytes: 32,
  *         headersToLogs: [
@@ -83,6 +74,15 @@ import * as utilities from "../utilities";
  *             "origin",
  *         ],
  *     },
+ *     identifier: "applicationinsights",
+ *     resourceGroupName: example.name,
+ *     apiManagementName: exampleService.name,
+ *     apiManagementLoggerId: exampleLogger.id,
+ *     samplingPercentage: 5,
+ *     alwaysLogErrors: true,
+ *     logClientIp: true,
+ *     verbosity: "verbose",
+ *     httpCorrelationProtocol: "W3C",
  * });
  * ```
  *

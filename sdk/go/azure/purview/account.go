@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			_, err = purview.NewAccount(ctx, "example", &purview.AccountArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Identity: &purview.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

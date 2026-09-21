@@ -50,8 +50,10 @@ import (
 //				return err
 //			}
 //			exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "example", &appplatform.SpringCloudBuilderArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				Stack: &appplatform.SpringCloudBuilderStackArgs{
+//					Id:      pulumi.String("io.Build Packs.stacks.bionic"),
+//					Version: pulumi.String("base"),
+//				},
 //				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
 //					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
 //						Name: pulumi.String("mix"),
@@ -60,18 +62,13 @@ import (
 //						},
 //					},
 //				},
-//				Stack: &appplatform.SpringCloudBuilderStackArgs{
-//					Id:      pulumi.String("io.Build Packs.stacks.bionic"),
-//					Version: pulumi.String("base"),
-//				},
+//				Name:                 pulumi.String("example"),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "example", &appplatform.SpringCloudBuildPackBindingArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudBuilderId: exampleSpringCloudBuilder.ID().ToIDOutput().ToStringOutput(),
-//				BindingType:          pulumi.String("ApplicationInsights"),
 //				Launch: &appplatform.SpringCloudBuildPackBindingLaunchArgs{
 //					Properties: pulumi.StringMap{
 //						"abc":           pulumi.String("def"),
@@ -82,6 +79,9 @@ import (
 //						"connection-string": pulumi.String("XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX"),
 //					},
 //				},
+//				Name:                 pulumi.String("example"),
+//				SpringCloudBuilderId: exampleSpringCloudBuilder.ID().ToIDOutput().ToStringOutput(),
+//				BindingType:          pulumi.String("ApplicationInsights"),
 //			})
 //			if err != nil {
 //				return err

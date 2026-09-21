@@ -37,11 +37,6 @@ namespace Pulumi.Azure.Batch
     /// 
     ///     var examplePool = new Azure.Batch.Pool("example", new()
     ///     {
-    ///         Name = "examplepool",
-    ///         ResourceGroupName = example.Name,
-    ///         AccountName = exampleAccount.Name,
-    ///         NodeAgentSkuId = "batch.node.ubuntu 22.04",
-    ///         VmSize = "STANDARD_A1_V2",
     ///         FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
     ///         {
     ///             TargetDedicatedNodes = 1,
@@ -53,6 +48,11 @@ namespace Pulumi.Azure.Batch
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
+    ///         Name = "examplepool",
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         NodeAgentSkuId = "batch.node.ubuntu 22.04",
+    ///         VmSize = "STANDARD_A1_V2",
     ///     });
     /// 
     ///     var exampleJob = new Azure.Batch.Job("example", new()

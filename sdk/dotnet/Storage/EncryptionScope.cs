@@ -32,15 +32,15 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
-    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope("example", new()

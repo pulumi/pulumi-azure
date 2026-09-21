@@ -43,16 +43,12 @@ import * as utilities from "../utilities";
  *     manage: false,
  * });
  * const exampleAutomation = new azure.securitycenter.Automation("example", {
- *     name: "example-automation",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     actions: [{
  *         type: "EventHub",
  *         resourceId: exampleEventHub.id,
  *         connectionString: exampleAuthorizationRule.primaryConnectionString,
  *     }],
  *     sources: [{
- *         eventSource: "Alerts",
  *         ruleSets: [{
  *             rules: [{
  *                 propertyPath: "properties.metadata.severity",
@@ -61,7 +57,11 @@ import * as utilities from "../utilities";
  *                 propertyType: "String",
  *             }],
  *         }],
+ *         eventSource: "Alerts",
  *     }],
+ *     name: "example-automation",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scopes: [current.then(current => `/subscriptions/${current.subscriptionId}`)],
  * });
  * ```

@@ -265,16 +265,16 @@ class AccountConnectionAccountKey(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cognitive.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-aiservices",
             location=example.location,
             resource_group_name=example.name,
             kind="AIServices",
             sku_name="S0",
             project_management_enabled=True,
-            custom_subdomain_name="exampleaiservices",
-            identity={
-                "type": "SystemAssigned",
-            })
+            custom_subdomain_name="exampleaiservices")
         example_account2 = azure.storage.Account("example",
             name="examplestorageacct",
             resource_group_name=example.name,
@@ -344,16 +344,16 @@ class AccountConnectionAccountKey(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cognitive.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-aiservices",
             location=example.location,
             resource_group_name=example.name,
             kind="AIServices",
             sku_name="S0",
             project_management_enabled=True,
-            custom_subdomain_name="exampleaiservices",
-            identity={
-                "type": "SystemAssigned",
-            })
+            custom_subdomain_name="exampleaiservices")
         example_account2 = azure.storage.Account("example",
             name="examplestorageacct",
             resource_group_name=example.name,

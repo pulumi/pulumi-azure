@@ -209,6 +209,11 @@ class JobSchedule(pulumi.CustomResource):
             FROM [exampleinput]
         \"\"\")
         example_stream_input_blob = azure.streamanalytics.StreamInputBlob("example",
+            serialization={
+                "type": "Csv",
+                "encoding": "UTF8",
+                "field_delimiter": ",",
+            },
             name="exampleinput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
@@ -217,13 +222,11 @@ class JobSchedule(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="",
             date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization={
-                "type": "Csv",
-                "encoding": "UTF8",
-                "field_delimiter": ",",
-            })
+            time_format="HH")
         example_output_blob = azure.streamanalytics.OutputBlob("example",
+            serialization={
+                "type": "Avro",
+            },
             name="exampleoutput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
@@ -232,10 +235,7 @@ class JobSchedule(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="example-{date}-{time}",
             date_format="yyyy-MM-dd",
-            time_format="HH",
-            serialization={
-                "type": "Avro",
-            })
+            time_format="HH")
         example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
@@ -324,6 +324,11 @@ class JobSchedule(pulumi.CustomResource):
             FROM [exampleinput]
         \"\"\")
         example_stream_input_blob = azure.streamanalytics.StreamInputBlob("example",
+            serialization={
+                "type": "Csv",
+                "encoding": "UTF8",
+                "field_delimiter": ",",
+            },
             name="exampleinput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
@@ -332,13 +337,11 @@ class JobSchedule(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="",
             date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization={
-                "type": "Csv",
-                "encoding": "UTF8",
-                "field_delimiter": ",",
-            })
+            time_format="HH")
         example_output_blob = azure.streamanalytics.OutputBlob("example",
+            serialization={
+                "type": "Avro",
+            },
             name="exampleoutput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
@@ -347,10 +350,7 @@ class JobSchedule(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="example-{date}-{time}",
             date_format="yyyy-MM-dd",
-            time_format="HH",
-            serialization={
-                "type": "Avro",
-            })
+            time_format="HH")
         example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",

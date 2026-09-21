@@ -39,24 +39,18 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewGroup(ctx, "example", &containerservice.GroupArgs{
-//				Name:              pulumi.String("example-continst"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				IpAddressType:     pulumi.String("Public"),
-//				DnsNameLabel:      pulumi.String("aci-label"),
-//				OsType:            pulumi.String("Linux"),
 //				Containers: containerservice.GroupContainerArray{
 //					&containerservice.GroupContainerArgs{
-//						Name:   pulumi.String("hello-world"),
-//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-helloworld:latest"),
-//						Cpu:    pulumi.Float64(0.5),
-//						Memory: pulumi.Float64(1.5),
 //						Ports: containerservice.GroupContainerPortArray{
 //							&containerservice.GroupContainerPortArgs{
 //								Port:     pulumi.Int(443),
 //								Protocol: pulumi.String("TCP"),
 //							},
 //						},
+//						Name:   pulumi.String("hello-world"),
+//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-helloworld:latest"),
+//						Cpu:    pulumi.Float64(0.5),
+//						Memory: pulumi.Float64(1.5),
 //					},
 //					&containerservice.GroupContainerArgs{
 //						Name:   pulumi.String("sidecar"),
@@ -65,6 +59,12 @@ import (
 //						Memory: pulumi.Float64(1.5),
 //					},
 //				},
+//				Name:              pulumi.String("example-continst"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				IpAddressType:     pulumi.String("Public"),
+//				DnsNameLabel:      pulumi.String("aci-label"),
+//				OsType:            pulumi.String("Linux"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("testing"),
 //				},

@@ -61,17 +61,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new SharedImageVersion("example", SharedImageVersionArgs.builder()
+ *             .targetRegions(SharedImageVersionTargetRegionArgs.builder()
+ *                 .name(existingGetSharedImage.location())
+ *                 .regionalReplicaCount(5)
+ *                 .storageAccountType("Standard_LRS")
+ *                 .build())
  *             .name("0.0.1")
  *             .galleryName(existingGetSharedImage.galleryName())
  *             .imageName(existingGetSharedImage.name())
  *             .resourceGroupName(existingGetSharedImage.resourceGroupName())
  *             .location(existingGetSharedImage.location())
  *             .managedImageId(existing.id())
- *             .targetRegions(SharedImageVersionTargetRegionArgs.builder()
- *                 .name(existingGetSharedImage.location())
- *                 .regionalReplicaCount(5)
- *                 .storageAccountType("Standard_LRS")
- *                 .build())
  *             .build());
  * 
  *     }

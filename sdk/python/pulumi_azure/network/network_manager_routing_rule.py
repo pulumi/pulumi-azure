@@ -221,12 +221,12 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            resource_group_name=example.name,
+            location=example.location,
             scope_accesses=["Routing"])
         example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
             name="example-network-group",
@@ -240,16 +240,16 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
             network_group_ids=[example_network_manager_network_group.id],
             description="example routing rule collection")
         example_network_manager_routing_rule = azure.network.NetworkManagerRoutingRule("example",
-            name="example-routing-rule",
-            rule_collection_id=example_network_manager_routing_rule_collection.id,
-            description="example routing rule",
             destination={
                 "type": "AddressPrefix",
                 "address": "10.0.0.0/24",
             },
             next_hop={
                 "type": "VirtualNetworkGateway",
-            })
+            },
+            name="example-routing-rule",
+            rule_collection_id=example_network_manager_routing_rule_collection.id,
+            description="example routing rule")
         ```
 
         ## API Providers
@@ -298,12 +298,12 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            resource_group_name=example.name,
+            location=example.location,
             scope_accesses=["Routing"])
         example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
             name="example-network-group",
@@ -317,16 +317,16 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
             network_group_ids=[example_network_manager_network_group.id],
             description="example routing rule collection")
         example_network_manager_routing_rule = azure.network.NetworkManagerRoutingRule("example",
-            name="example-routing-rule",
-            rule_collection_id=example_network_manager_routing_rule_collection.id,
-            description="example routing rule",
             destination={
                 "type": "AddressPrefix",
                 "address": "10.0.0.0/24",
             },
             next_hop={
                 "type": "VirtualNetworkGateway",
-            })
+            },
+            name="example-routing-rule",
+            rule_collection_id=example_network_manager_routing_rule_collection.id,
+            description="example routing rule")
         ```
 
         ## API Providers

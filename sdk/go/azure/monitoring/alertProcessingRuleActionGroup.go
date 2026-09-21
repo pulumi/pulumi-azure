@@ -45,14 +45,6 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewAlertProcessingRuleActionGroup(ctx, "example", &monitoring.AlertProcessingRuleActionGroupArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Scopes: pulumi.StringArray{
-//					example.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				AddActionGroupIds: pulumi.StringArray{
-//					exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				Condition: &monitoring.AlertProcessingRuleActionGroupConditionArgs{
 //					TargetResourceType: &monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{
 //						Operator: pulumi.String("Equals"),
@@ -70,9 +62,6 @@ import (
 //					},
 //				},
 //				Schedule: &monitoring.AlertProcessingRuleActionGroupScheduleArgs{
-//					EffectiveFrom:  pulumi.String("2022-01-01T01:02:03"),
-//					EffectiveUntil: pulumi.String("2022-02-02T01:02:03"),
-//					TimeZone:       pulumi.String("Pacific Standard Time"),
 //					Recurrence: &monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs{
 //						Dailies: monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray{
 //							&monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs{
@@ -89,6 +78,17 @@ import (
 //							},
 //						},
 //					},
+//					EffectiveFrom:  pulumi.String("2022-01-01T01:02:03"),
+//					EffectiveUntil: pulumi.String("2022-02-02T01:02:03"),
+//					TimeZone:       pulumi.String("Pacific Standard Time"),
+//				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.String("example"),
+//				Scopes: pulumi.StringArray{
+//					example.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				AddActionGroupIds: pulumi.StringArray{
+//					exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),

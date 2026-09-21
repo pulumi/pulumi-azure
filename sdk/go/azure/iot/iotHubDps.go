@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewIotHubDps(ctx, "example", &iot.IotHubDpsArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				AllocationPolicy:  pulumi.String("Hashed"),
 //				Sku: &iot.IotHubDpsSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				AllocationPolicy:  pulumi.String("Hashed"),
 //			})
 //			if err != nil {
 //				return err

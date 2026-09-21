@@ -449,17 +449,17 @@ class FileSystem(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Qumulo.Storage/fileSystems",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         example_file_system = azure.qumulo.FileSystem("example",
             name="example",
             resource_group_name=example.name,
@@ -529,17 +529,17 @@ class FileSystem(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Qumulo.Storage/fileSystems",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         example_file_system = azure.qumulo.FileSystem("example",
             name="example",
             resource_group_name=example.name,

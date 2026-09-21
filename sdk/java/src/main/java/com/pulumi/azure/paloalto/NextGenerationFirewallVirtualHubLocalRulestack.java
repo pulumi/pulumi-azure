@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualHubLocalRulestack = new NextGenerationFirewallVirtualHubLocalRulestack("exampleNextGenerationFirewallVirtualHubLocalRulestack", NextGenerationFirewallVirtualHubLocalRulestackArgs.builder()
- *             .name("example-ngfwvn")
- *             .resourceGroupName(example.name())
- *             .rulestackId(exampleAzurermPaloAltoLocalRulestack.id())
  *             .networkProfile(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs.builder()
  *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .virtualHubId(exampleVirtualHub.id())
  *                 .networkVirtualApplianceId(exampleVirtualNetworkAppliance.id())
  *                 .build())
+ *             .name("example-ngfwvn")
+ *             .resourceGroupName(example.name())
+ *             .rulestackId(exampleAzurermPaloAltoLocalRulestack.id())
  *             .build());
  * 
  *     }

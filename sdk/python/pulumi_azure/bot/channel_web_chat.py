@@ -193,12 +193,12 @@ class ChannelWebChat(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_web_chat = azure.bot.ChannelWebChat("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
             sites=[{
                 "name": "TestSite",
-            }])
+            }],
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -243,12 +243,12 @@ class ChannelWebChat(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_web_chat = azure.bot.ChannelWebChat("example",
-            bot_name=example_channels_registration.name,
-            location=example_channels_registration.location,
-            resource_group_name=example.name,
             sites=[{
                 "name": "TestSite",
-            }])
+            }],
+            bot_name=example_channels_registration.name,
+            location=example_channels_registration.location,
+            resource_group_name=example.name)
         ```
 
         ## Import

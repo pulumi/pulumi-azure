@@ -55,22 +55,20 @@ import (
 //				return err
 //			}
 //			exampleFirewall, err := network.NewFirewall(ctx, "example", &network.FirewallArgs{
+//				VirtualHub: &network.FirewallVirtualHubArgs{
+//					VirtualHubId:  exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//					PublicIpCount: pulumi.Int(1),
+//				},
 //				Name:              pulumi.String("example-fw"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("AZFW_Hub"),
 //				SkuTier:           pulumi.String("Standard"),
-//				VirtualHub: &network.FirewallVirtualHubArgs{
-//					VirtualHubId:  exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
-//					PublicIpCount: pulumi.Int(1),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewRoutingIntent(ctx, "example", &network.RoutingIntentArgs{
-//				Name:         pulumi.String("example-routingintent"),
-//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				RoutingPolicies: network.RoutingIntentRoutingPolicyArray{
 //					&network.RoutingIntentRoutingPolicyArgs{
 //						Name: pulumi.String("InternetTrafficPolicy"),
@@ -80,6 +78,8 @@ import (
 //						NextHop: exampleFirewall.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:         pulumi.String("example-routingintent"),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

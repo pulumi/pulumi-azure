@@ -63,6 +63,9 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                            pulumi.String("example"),
 //				Location:                        example.Location,
 //				ResourceGroupName:               example.Name,
@@ -70,9 +73,6 @@ import (
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     accessPolicies: [{
+ *         tenantId: current.then(current => current.tenantId),
+ *         objectId: current.then(current => current.objectId),
+ *         keyPermissions: ["Get"],
+ *         secretPermissions: ["Get"],
+ *         storagePermissions: ["Get"],
+ *     }],
  *     name: "examplekeyvault",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -36,13 +43,6 @@ import * as utilities from "../utilities";
  *     softDeleteRetentionDays: 7,
  *     purgeProtectionEnabled: false,
  *     skuName: "standard",
- *     accessPolicies: [{
- *         tenantId: current.then(current => current.tenantId),
- *         objectId: current.then(current => current.objectId),
- *         keyPermissions: ["Get"],
- *         secretPermissions: ["Get"],
- *         storagePermissions: ["Get"],
- *     }],
  * });
  * ```
  *

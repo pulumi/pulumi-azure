@@ -66,13 +66,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleChannelLine = new ChannelLine("exampleChannelLine", ChannelLineArgs.builder()
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(example.name())
  *             .lineChannels(ChannelLineLineChannelArgs.builder()
  *                 .accessToken("asdfdsdfTYUIOIoj1231hkjhk")
  *                 .secret("aagfdgfd123567")
  *                 .build())
+ *             .botName(exampleChannelsRegistration.name())
+ *             .location(exampleChannelsRegistration.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

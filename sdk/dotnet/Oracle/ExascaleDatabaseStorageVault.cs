@@ -30,6 +30,10 @@ namespace Pulumi.Azure.Oracle
     /// 
     ///     var exampleExascaleDatabaseStorageVault = new Azure.Oracle.ExascaleDatabaseStorageVault("example", new()
     ///     {
+    ///         HighCapacityDatabaseStorage = new Azure.Oracle.Inputs.ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs
+    ///         {
+    ///             TotalSizeInGb = 300,
+    ///         },
     ///         Name = "example-exascale-db-storage-vault",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -40,10 +44,6 @@ namespace Pulumi.Azure.Oracle
     ///         DisplayName = "example-exascale-db-storage-vault",
     ///         Description = "description",
     ///         AdditionalFlashCachePercentage = 100,
-    ///         HighCapacityDatabaseStorage = new Azure.Oracle.Inputs.ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs
-    ///         {
-    ///             TotalSizeInGb = 300,
-    ///         },
     ///         TimeZone = "UTC",
     ///     });
     /// 

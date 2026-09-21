@@ -608,11 +608,6 @@ class SpringCloudGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="E0")
         example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            https_only=False,
-            public_network_access_enabled=True,
-            instance_count=2,
             api_metadata={
                 "description": "example description",
                 "documentation_url": "https://www.example.com/docs",
@@ -641,7 +636,12 @@ class SpringCloudGateway(pulumi.CustomResource):
             local_response_cache_per_instance={
                 "size": "100MB",
                 "time_to_live": "30s",
-            })
+            },
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            https_only=False,
+            public_network_access_enabled=True,
+            instance_count=2)
         ```
 
         ## API Providers
@@ -707,11 +707,6 @@ class SpringCloudGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="E0")
         example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
-            name="default",
-            spring_cloud_service_id=example_spring_cloud_service.id,
-            https_only=False,
-            public_network_access_enabled=True,
-            instance_count=2,
             api_metadata={
                 "description": "example description",
                 "documentation_url": "https://www.example.com/docs",
@@ -740,7 +735,12 @@ class SpringCloudGateway(pulumi.CustomResource):
             local_response_cache_per_instance={
                 "size": "100MB",
                 "time_to_live": "30s",
-            })
+            },
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id,
+            https_only=False,
+            public_network_access_enabled=True,
+            instance_count=2)
         ```
 
         ## API Providers

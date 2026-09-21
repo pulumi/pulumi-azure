@@ -37,6 +37,9 @@ import (
 //				return err
 //			}
 //			_, err = oracle.NewExascaleDatabaseStorageVault(ctx, "example", &oracle.ExascaleDatabaseStorageVaultArgs{
+//				HighCapacityDatabaseStorage: &oracle.ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{
+//					TotalSizeInGb: pulumi.Int(300),
+//				},
 //				Name:              pulumi.String("example-exascale-db-storage-vault"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -46,10 +49,7 @@ import (
 //				DisplayName:                    pulumi.String("example-exascale-db-storage-vault"),
 //				Description:                    pulumi.String("description"),
 //				AdditionalFlashCachePercentage: pulumi.Int(100),
-//				HighCapacityDatabaseStorage: &oracle.ExascaleDatabaseStorageVaultHighCapacityDatabaseStorageArgs{
-//					TotalSizeInGb: pulumi.Int(300),
-//				},
-//				TimeZone: pulumi.String("UTC"),
+//				TimeZone:                       pulumi.String("UTC"),
 //			})
 //			if err != nil {
 //				return err

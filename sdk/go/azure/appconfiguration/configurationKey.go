@@ -115,13 +115,6 @@ import (
 //				return err
 //			}
 //			kv, err := keyvault.NewKeyVault(ctx, "kv", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("kv"),
-//				Location:                 pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName:        pulumi.Any(testAzurermResourceGroup.Name),
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -139,6 +132,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("kv"),
+//				Location:                 pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName:        pulumi.Any(testAzurermResourceGroup.Name),
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err

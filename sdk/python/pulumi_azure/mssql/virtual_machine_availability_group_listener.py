@@ -298,31 +298,27 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         example_get_virtual_machine = [azure.compute.get_virtual_machine(name="example-vm",
             resource_group_name="example-resources") for __index in range(2)]
         example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
+            wsfc_domain_profile={
+                "fqdn": "testdomain.com",
+                "cluster_subnet_type": "SingleSubnet",
+            },
             name="examplegroup",
             resource_group_name="example-resources",
             location="West Europe",
             sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile={
-                "fqdn": "testdomain.com",
-                "cluster_subnet_type": "SingleSubnet",
-            })
+            sql_image_sku="Developer")
         example_virtual_machine: list[azure.mssql.VirtualMachine] = []
         for example_virtual_machine_range in [{"value": i} for i in range(0, 2)]:
             example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{example_virtual_machine_range['value']}",
-                virtual_machine_id=example_get_virtual_machine[example_virtual_machine_range["value"]].id,
-                sql_license_type="PAYG",
-                sql_virtual_machine_group_id=example_virtual_machine_group.id,
                 wsfc_domain_credential={
                     "cluster_bootstrap_account_password": "P@ssw0rd1234!",
                     "cluster_operator_account_password": "P@ssw0rd1234!",
                     "sql_service_account_password": "P@ssw0rd1234!",
-                }))
+                },
+                virtual_machine_id=example_get_virtual_machine[example_virtual_machine_range["value"]].id,
+                sql_license_type="PAYG",
+                sql_virtual_machine_group_id=example_virtual_machine_group.id))
         example_virtual_machine_availability_group_listener = azure.mssql.VirtualMachineAvailabilityGroupListener("example",
-            name="listener1",
-            availability_group_name="availabilitygroup1",
-            port=1433,
-            sql_virtual_machine_group_id=example_virtual_machine_group.id,
             load_balancer_configuration={
                 "load_balancer_id": example_get_lb.id,
                 "private_ip_address": "10.0.2.11",
@@ -348,7 +344,11 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
                     "failover": "Manual",
                     "readable_secondary": "No",
                 },
-            ])
+            ],
+            name="listener1",
+            availability_group_name="availabilitygroup1",
+            port=1433,
+            sql_virtual_machine_group_id=example_virtual_machine_group.id)
         ```
 
         ## API Providers
@@ -403,31 +403,27 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         example_get_virtual_machine = [azure.compute.get_virtual_machine(name="example-vm",
             resource_group_name="example-resources") for __index in range(2)]
         example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
+            wsfc_domain_profile={
+                "fqdn": "testdomain.com",
+                "cluster_subnet_type": "SingleSubnet",
+            },
             name="examplegroup",
             resource_group_name="example-resources",
             location="West Europe",
             sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile={
-                "fqdn": "testdomain.com",
-                "cluster_subnet_type": "SingleSubnet",
-            })
+            sql_image_sku="Developer")
         example_virtual_machine: list[azure.mssql.VirtualMachine] = []
         for example_virtual_machine_range in [{"value": i} for i in range(0, 2)]:
             example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{example_virtual_machine_range['value']}",
-                virtual_machine_id=example_get_virtual_machine[example_virtual_machine_range["value"]].id,
-                sql_license_type="PAYG",
-                sql_virtual_machine_group_id=example_virtual_machine_group.id,
                 wsfc_domain_credential={
                     "cluster_bootstrap_account_password": "P@ssw0rd1234!",
                     "cluster_operator_account_password": "P@ssw0rd1234!",
                     "sql_service_account_password": "P@ssw0rd1234!",
-                }))
+                },
+                virtual_machine_id=example_get_virtual_machine[example_virtual_machine_range["value"]].id,
+                sql_license_type="PAYG",
+                sql_virtual_machine_group_id=example_virtual_machine_group.id))
         example_virtual_machine_availability_group_listener = azure.mssql.VirtualMachineAvailabilityGroupListener("example",
-            name="listener1",
-            availability_group_name="availabilitygroup1",
-            port=1433,
-            sql_virtual_machine_group_id=example_virtual_machine_group.id,
             load_balancer_configuration={
                 "load_balancer_id": example_get_lb.id,
                 "private_ip_address": "10.0.2.11",
@@ -453,7 +449,11 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
                     "failover": "Manual",
                     "readable_secondary": "No",
                 },
-            ])
+            ],
+            name="listener1",
+            availability_group_name="availabilitygroup1",
+            port=1433,
+            sql_virtual_machine_group_id=example_virtual_machine_group.id)
         ```
 
         ## API Providers

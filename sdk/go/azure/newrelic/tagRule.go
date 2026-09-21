@@ -37,9 +37,6 @@ import (
 //				return err
 //			}
 //			exampleMonitor, err := newrelic.NewMonitor(ctx, "example", &newrelic.MonitorArgs{
-//				Name:              pulumi.String("example-nrm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Plan: &newrelic.MonitorPlanArgs{
 //					EffectiveDate: pulumi.String("2023-06-06T00:00:00Z"),
 //				},
@@ -49,16 +46,14 @@ import (
 //					LastName:    pulumi.String("User"),
 //					PhoneNumber: pulumi.String("+12313803556"),
 //				},
+//				Name:              pulumi.String("example-nrm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = newrelic.NewTagRule(ctx, "example", &newrelic.TagRuleArgs{
-//				MonitorId:                      exampleMonitor.ID().ToIDOutput().ToStringOutput(),
-//				AzureActiveDirectoryLogEnabled: pulumi.Bool(true),
-//				ActivityLogEnabled:             pulumi.Bool(true),
-//				MetricEnabled:                  pulumi.Bool(true),
-//				SubscriptionLogEnabled:         pulumi.Bool(true),
 //				LogTagFilters: newrelic.TagRuleLogTagFilterArray{
 //					&newrelic.TagRuleLogTagFilterArgs{
 //						Name:   pulumi.String("key"),
@@ -73,6 +68,11 @@ import (
 //						Value:  pulumi.String("value"),
 //					},
 //				},
+//				MonitorId:                      exampleMonitor.ID().ToIDOutput().ToStringOutput(),
+//				AzureActiveDirectoryLogEnabled: pulumi.Bool(true),
+//				ActivityLogEnabled:             pulumi.Bool(true),
+//				MetricEnabled:                  pulumi.Bool(true),
+//				SubscriptionLogEnabled:         pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

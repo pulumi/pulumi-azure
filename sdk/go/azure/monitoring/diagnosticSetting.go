@@ -66,9 +66,6 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewDiagnosticSetting(ctx, "example", &monitoring.DiagnosticSettingArgs{
-//				Name:             pulumi.String("example"),
-//				TargetResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				EnabledLogs: monitoring.DiagnosticSettingEnabledLogArray{
 //					&monitoring.DiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("AuditEvent"),
@@ -79,6 +76,9 @@ import (
 //						Category: pulumi.String("AllMetrics"),
 //					},
 //				},
+//				Name:             pulumi.String("example"),
+//				TargetResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -63,32 +63,28 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("NGINX.NGINXPLUS/nginxDeployments"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("delegation"),
 //					},
+//				},
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleDeployment, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
-//				Name:              pulumi.String("example-nginx"),
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:          example.Location,
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
 //						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -99,12 +95,16 @@ import (
 //						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("example-nginx"),
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `http {
+//			invokeBase64encode, err := std.Base64encode(ctx, map[string]string{
+//				"input": `http {
 //	    server {
 //	        listen 80;
 //	        location / {
@@ -124,8 +124,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode1, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: `location /bbb {
+//			invokeBase64encode1, err := std.Base64encode(ctx, map[string]string{
+//				"input": `location /bbb {
 //	 default_type text/html;
 //	 return 200 '<!doctype html><html lang=\"en\"><head></head><body>
 //	  <div>this one will be updated</div>
@@ -140,18 +140,18 @@ import (
 //				return err
 //			}
 //			_, err = nginx.NewConfiguration(ctx, "example", &nginx.ConfigurationArgs{
-//				NginxDeploymentId: exampleDeployment.ID().ToIDOutput().ToStringOutput(),
-//				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
 //				ConfigFiles: nginx.ConfigurationConfigFileArray{
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     pulumi.String(invokeBase64encode.Result),
+//						Content:     invokeBase64encode.Result,
 //						VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
 //					},
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     pulumi.String(invokeBase64encode1.Result),
+//						Content:     invokeBase64encode1.Result,
 //						VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
 //					},
 //				},
+//				NginxDeploymentId: exampleDeployment.ID().ToIDOutput().ToStringOutput(),
+//				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
 //			})
 //			if err != nil {
 //				return err

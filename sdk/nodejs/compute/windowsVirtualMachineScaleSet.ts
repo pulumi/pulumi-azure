@@ -44,14 +44,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("example", {
- *     name: "example-vmss",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard_D4_v5",
- *     instances: 1,
- *     adminPassword: "P@55w0rd1234!",
- *     adminUsername: "adminuser",
- *     computerNamePrefix: "vm-",
  *     sourceImageReference: {
  *         publisher: "MicrosoftWindowsServer",
  *         offer: "WindowsServer",
@@ -63,14 +55,22 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *     },
  *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
  *         ipConfigurations: [{
  *             name: "internal",
  *             primary: true,
  *             subnetId: internal.id,
  *         }],
+ *         name: "example",
+ *         primary: true,
  *     }],
+ *     name: "example-vmss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Standard_D4_v5",
+ *     instances: 1,
+ *     adminPassword: "P@55w0rd1234!",
+ *     adminUsername: "adminuser",
+ *     computerNamePrefix: "vm-",
  * });
  * ```
  *

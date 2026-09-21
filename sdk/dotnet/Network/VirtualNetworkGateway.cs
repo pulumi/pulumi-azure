@@ -62,29 +62,15 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
     ///     {
-    ///         Name = "test",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Type = "Vpn",
-    ///         VpnType = "RouteBased",
-    ///         ActiveActive = false,
-    ///         BgpEnabled = false,
-    ///         Sku = "Basic",
-    ///         IpConfigurations = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
-    ///             {
-    ///                 Name = "vnetGatewayConfig",
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///                 PrivateIpAddressAllocation = "Dynamic",
-    ///                 SubnetId = exampleSubnet.Id,
-    ///             },
-    ///         },
     ///         VpnClientConfiguration = new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationArgs
     ///         {
-    ///             AddressSpaces = new[]
+    ///             RevokedCertificates = new[]
     ///             {
-    ///                 "10.2.0.0/24",
+    ///                 new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs
+    ///                 {
+    ///                     Name = "Verizon-Global-Root-CA",
+    ///                     Thumbprint = "912198EEF23DCAC40939312FEE97DD560BAE49B1",
+    ///                 },
     ///             },
     ///             RootCertificates = new[]
     ///             {
@@ -114,15 +100,29 @@ namespace Pulumi.Azure.Network
     /// ",
     ///                 },
     ///             },
-    ///             RevokedCertificates = new[]
+    ///             AddressSpaces = new[]
     ///             {
-    ///                 new Azure.Network.Inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs
-    ///                 {
-    ///                     Name = "Verizon-Global-Root-CA",
-    ///                     Thumbprint = "912198EEF23DCAC40939312FEE97DD560BAE49B1",
-    ///                 },
+    ///                 "10.2.0.0/24",
     ///             },
     ///         },
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             {
+    ///                 Name = "vnetGatewayConfig",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///             },
+    ///         },
+    ///         Name = "test",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         ActiveActive = false,
+    ///         BgpEnabled = false,
+    ///         Sku = "Basic",
     ///     });
     /// 
     /// });

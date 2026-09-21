@@ -20,15 +20,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const srcAccount = new azure.storage.Account("src", {
+ *     blobProperties: {
+ *         versioningEnabled: true,
+ *         changeFeedEnabled: true,
+ *     },
  *     name: "srcstorageaccount",
  *     resourceGroupName: src.name,
  *     location: src.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
- *     blobProperties: {
- *         versioningEnabled: true,
- *         changeFeedEnabled: true,
- *     },
  * });
  * const srcContainer = new azure.storage.Container("src", {
  *     name: "srcstrcontainer",
@@ -40,15 +40,15 @@ import * as utilities from "../utilities";
  *     location: "East US",
  * });
  * const dstAccount = new azure.storage.Account("dst", {
+ *     blobProperties: {
+ *         versioningEnabled: true,
+ *         changeFeedEnabled: true,
+ *     },
  *     name: "dststorageaccount",
  *     resourceGroupName: dst.name,
  *     location: dst.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
- *     blobProperties: {
- *         versioningEnabled: true,
- *         changeFeedEnabled: true,
- *     },
  * });
  * const dstContainer = new azure.storage.Container("dst", {
  *     name: "dststrcontainer",
@@ -56,12 +56,12 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const example = new azure.storage.ObjectReplication("example", {
- *     sourceStorageAccountId: srcAccount.id,
- *     destinationStorageAccountId: dstAccount.id,
  *     rules: [{
  *         sourceContainerName: srcContainer.name,
  *         destinationContainerName: dstContainer.name,
  *     }],
+ *     sourceStorageAccountId: srcAccount.id,
+ *     destinationStorageAccountId: dstAccount.id,
  * });
  * ```
  *

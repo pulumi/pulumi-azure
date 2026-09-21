@@ -244,7 +244,7 @@ class PolicyFragment(pulumi.CustomResource):
             api_management_id=example_service.id,
             name="example-policy-fragment",
             format="xml",
-            value=std.file(input="policy-fragment-1.xml").result)
+            value=std.file(input="policy-fragment-1.xml")["result"])
         ```
 
         ## API Providers
@@ -307,7 +307,7 @@ class PolicyFragment(pulumi.CustomResource):
             api_management_id=example_service.id,
             name="example-policy-fragment",
             format="xml",
-            value=std.file(input="policy-fragment-1.xml").result)
+            value=std.file(input="policy-fragment-1.xml")["result"])
         ```
 
         ## API Providers

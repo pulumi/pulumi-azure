@@ -20,20 +20,20 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "tfex-cosmosdb-account",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     offerType: "Standard",
- *     capabilities: [{
- *         name: "EnableCassandra",
- *     }],
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
+ *     capabilities: [{
+ *         name: "EnableCassandra",
+ *     }],
  *     geoLocations: [{
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "tfex-cosmosdb-account",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     offerType: "Standard",
  * });
  * const exampleCassandraKeyspace = new azure.cosmosdb.CassandraKeyspace("example", {
  *     name: "tfex-cosmos-cassandra-keyspace",

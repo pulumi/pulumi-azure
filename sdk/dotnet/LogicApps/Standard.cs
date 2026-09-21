@@ -102,16 +102,16 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var exampleStandard = new Azure.LogicApps.Standard("example", new()
     ///     {
+    ///         SiteConfig = new Azure.LogicApps.Inputs.StandardSiteConfigArgs
+    ///         {
+    ///             LinuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+    ///         },
     ///         Name = "example-logic-app",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         SiteConfig = new Azure.LogicApps.Inputs.StandardSiteConfigArgs
-    ///         {
-    ///             LinuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-    ///         },
     ///         AppSettings = 
     ///         {
     ///             { "DOCKER_REGISTRY_SERVER_URL", "https://&lt;server-name&gt;.azurecr.io" },

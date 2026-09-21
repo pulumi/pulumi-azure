@@ -45,11 +45,6 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewSnapshotPolicy(ctx, "example", &netapp.SnapshotPolicyArgs{
-//				Name:              pulumi.String("snapshotpolicy-01"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount.Name,
-//				Enabled:           pulumi.Bool(true),
 //				HourlySchedule: &netapp.SnapshotPolicyHourlyScheduleArgs{
 //					SnapshotsToKeep: pulumi.Int(4),
 //					Minute:          pulumi.Int(15),
@@ -79,6 +74,11 @@ import (
 //					Hour:   pulumi.Int(5),
 //					Minute: pulumi.Int(45),
 //				},
+//				Name:              pulumi.String("snapshotpolicy-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AccountName:       exampleAccount.Name,
+//				Enabled:           pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

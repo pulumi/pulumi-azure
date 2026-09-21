@@ -241,28 +241,28 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             name="terraform-signalr",
             location="east us")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
                 "certificate_permissions": ["ManageContacts"],
                 "key_permissions": ["Create"],
                 "secret_permissions": ["Set"],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7)
         test = azure.signalr.Service("test",
-            name="tfex-signalr",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
             sku={
                 "name": "Standard_S1",
                 "capacity": 1,
-            })
+            },
+            name="tfex-signalr",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"])
         example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("example",
             name="tfex-signalr-splr",
             signalr_service_id=example_azurerm_signalr_service["id"],
@@ -316,28 +316,28 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             name="terraform-signalr",
             location="east us")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
                 "certificate_permissions": ["ManageContacts"],
                 "key_permissions": ["Create"],
                 "secret_permissions": ["Set"],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7)
         test = azure.signalr.Service("test",
-            name="tfex-signalr",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
             sku={
                 "name": "Standard_S1",
                 "capacity": 1,
-            })
+            },
+            name="tfex-signalr",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"])
         example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("example",
             name="tfex-signalr-splr",
             signalr_service_id=example_azurerm_signalr_service["id"],

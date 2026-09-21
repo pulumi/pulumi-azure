@@ -41,14 +41,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-network-manager"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						pulumi.String(current.Id),
 //					},
 //				},
+//				Name:              pulumi.String("example-network-manager"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ScopeAccesses: pulumi.StringArray{
 //					pulumi.String("Connectivity"),
 //					pulumi.String("SecurityAdmin"),
@@ -83,6 +83,22 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerAdminRule(ctx, "example", &network.NetworkManagerAdminRuleArgs{
+//				Destinations: network.NetworkManagerAdminRuleDestinationArray{
+//					&network.NetworkManagerAdminRuleDestinationArgs{
+//						AddressPrefixType: pulumi.String("IPPrefix"),
+//						AddressPrefix:     pulumi.String("10.1.0.1"),
+//					},
+//					&network.NetworkManagerAdminRuleDestinationArgs{
+//						AddressPrefixType: pulumi.String("IPPrefix"),
+//						AddressPrefix:     pulumi.String("10.0.0.0/24"),
+//					},
+//				},
+//				Sources: network.NetworkManagerAdminRuleSourceArray{
+//					&network.NetworkManagerAdminRuleSourceArgs{
+//						AddressPrefixType: pulumi.String("ServiceTag"),
+//						AddressPrefix:     pulumi.String("Internet"),
+//					},
+//				},
 //				Name:                  pulumi.String("example-admin-rule"),
 //				AdminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.ID().ToIDOutput().ToStringOutput(),
 //				Action:                pulumi.String("Deny"),
@@ -95,22 +111,6 @@ import (
 //				},
 //				DestinationPortRanges: pulumi.StringArray{
 //					pulumi.String("80"),
-//				},
-//				Sources: network.NetworkManagerAdminRuleSourceArray{
-//					&network.NetworkManagerAdminRuleSourceArgs{
-//						AddressPrefixType: pulumi.String("ServiceTag"),
-//						AddressPrefix:     pulumi.String("Internet"),
-//					},
-//				},
-//				Destinations: network.NetworkManagerAdminRuleDestinationArray{
-//					&network.NetworkManagerAdminRuleDestinationArgs{
-//						AddressPrefixType: pulumi.String("IPPrefix"),
-//						AddressPrefix:     pulumi.String("10.1.0.1"),
-//					},
-//					&network.NetworkManagerAdminRuleDestinationArgs{
-//						AddressPrefixType: pulumi.String("IPPrefix"),
-//						AddressPrefix:     pulumi.String("10.0.0.0/24"),
-//					},
 //				},
 //				Description: pulumi.String("example admin rule"),
 //			})

@@ -64,16 +64,16 @@ namespace Pulumi.Azure.Healthcare
     /// 
     ///     var exampleFhirService = new Azure.Healthcare.FhirService("example", new()
     ///     {
-    ///         Name = "examplefhir",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///         Kind = "fhir-R4",
     ///         Authentication = new Azure.Healthcare.Inputs.FhirServiceAuthenticationArgs
     ///         {
     ///             Authority = "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     ///             Audience = "https://examplefhir.fhir.azurehealthcareapis.com",
     ///         },
+    ///         Name = "examplefhir",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         Kind = "fhir-R4",
     ///     });
     /// 
     ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("example", new()

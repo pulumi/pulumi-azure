@@ -39,23 +39,18 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const exampleFirewall = new azure.network.Firewall("example", {
- *     name: "testfirewall",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "AZFW_VNet",
- *     skuTier: "Standard",
  *     ipConfigurations: [{
  *         name: "configuration",
  *         subnetId: exampleSubnet.id,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "testfirewall",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     skuName: "AZFW_VNet",
+ *     skuTier: "Standard",
  * });
  * const exampleFirewallNetworkRuleCollection = new azure.network.FirewallNetworkRuleCollection("example", {
- *     name: "testcollection",
- *     azureFirewallName: exampleFirewall.name,
- *     resourceGroupName: example.name,
- *     priority: 100,
- *     action: "Allow",
  *     rules: [{
  *         name: "testrule",
  *         sourceAddresses: ["10.0.0.0/16"],
@@ -69,6 +64,11 @@ import * as utilities from "../utilities";
  *             "UDP",
  *         ],
  *     }],
+ *     name: "testcollection",
+ *     azureFirewallName: exampleFirewall.name,
+ *     resourceGroupName: example.name,
+ *     priority: 100,
+ *     action: "Allow",
  * });
  * ```
  *

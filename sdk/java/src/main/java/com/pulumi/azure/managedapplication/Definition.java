@@ -57,6 +57,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
+ *             .authorizations(DefinitionAuthorizationArgs.builder()
+ *                 .servicePrincipalId(current.objectId())
+ *                 .roleDefinitionId("a094b430-dad3-424d-ae58-13f72fd72591")
+ *                 .build())
  *             .name("examplemanagedapplicationdefinition")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -64,10 +68,6 @@ import javax.annotation.Nullable;
  *             .packageFileUri("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip")
  *             .displayName("TestManagedApplicationDefinition")
  *             .description("Test Managed Application Definition")
- *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .servicePrincipalId(current.objectId())
- *                 .roleDefinitionId("a094b430-dad3-424d-ae58-13f72fd72591")
- *                 .build())
  *             .build());
  * 
  *     }

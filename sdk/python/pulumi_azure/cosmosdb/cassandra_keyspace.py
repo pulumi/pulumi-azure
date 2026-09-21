@@ -227,20 +227,20 @@ class CassandraKeyspace(pulumi.CustomResource):
             name="tflex-cosmosdb-account-rg",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="tfex-cosmosdb-account",
-            resource_group_name=example.name,
-            location=example.location,
-            offer_type="Standard",
-            capabilities=[{
-                "name": "EnableCassandra",
-            }],
             consistency_policy={
                 "consistency_level": "Strong",
             },
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="tfex-cosmosdb-account",
+            resource_group_name=example.name,
+            location=example.location,
+            offer_type="Standard")
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
@@ -293,20 +293,20 @@ class CassandraKeyspace(pulumi.CustomResource):
             name="tflex-cosmosdb-account-rg",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="tfex-cosmosdb-account",
-            resource_group_name=example.name,
-            location=example.location,
-            offer_type="Standard",
-            capabilities=[{
-                "name": "EnableCassandra",
-            }],
             consistency_policy={
                 "consistency_level": "Strong",
             },
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="tfex-cosmosdb-account",
+            resource_group_name=example.name,
+            location=example.location,
+            offer_type="Standard")
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,

@@ -158,22 +158,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
-            name="exampleWAF",
-            resource_group_name=example.name,
-            sku_name=example_frontdoor_profile.sku_name,
-            enabled=True,
-            mode="Prevention",
-            redirect_url="https://www.contoso.com",
-            custom_block_response_status_code=403,
-            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
             custom_rules=[{
-                "name": "Rule1",
-                "enabled": True,
-                "priority": 1,
-                "rate_limit_duration_in_minutes": 1,
-                "rate_limit_threshold": 10,
-                "type": "MatchRule",
-                "action": "Block",
                 "match_conditions": [{
                     "match_variable": "RemoteAddr",
                     "operator": "IPMatch",
@@ -183,37 +168,52 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                         "10.0.1.0/24",
                     ],
                 }],
-            }])
+                "name": "Rule1",
+                "enabled": True,
+                "priority": 1,
+                "rate_limit_duration_in_minutes": 1,
+                "rate_limit_threshold": 10,
+                "type": "MatchRule",
+                "action": "Block",
+            }],
+            name="exampleWAF",
+            resource_group_name=example.name,
+            sku_name=example_frontdoor_profile.sku_name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
         example_zone = azure.dns.Zone("example",
             name="sub-domain.domain.com",
             resource_group_name=example.name)
         example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-            name="example-customDomain",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
-                input=[
-                    "contoso",
-                    example_zone.name,
-                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
-            })
-        example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
-            name="Example-Security-Policy",
+            },
+            name="example-customDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name=std.join(separator=".",
+                input=[
+                    "contoso",
+                    example_zone.name,
+                ])["result"])
+        example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
             security_policies={
                 "firewall": {
-                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                     "association": {
                         "domains": [{
                             "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                         }],
                         "patterns_to_match": "/*",
                     },
+                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                 },
-            })
+            },
+            name="Example-Security-Policy",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
         ## API Providers
@@ -262,22 +262,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
         example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
-            name="exampleWAF",
-            resource_group_name=example.name,
-            sku_name=example_frontdoor_profile.sku_name,
-            enabled=True,
-            mode="Prevention",
-            redirect_url="https://www.contoso.com",
-            custom_block_response_status_code=403,
-            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
             custom_rules=[{
-                "name": "Rule1",
-                "enabled": True,
-                "priority": 1,
-                "rate_limit_duration_in_minutes": 1,
-                "rate_limit_threshold": 10,
-                "type": "MatchRule",
-                "action": "Block",
                 "match_conditions": [{
                     "match_variable": "RemoteAddr",
                     "operator": "IPMatch",
@@ -287,37 +272,52 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                         "10.0.1.0/24",
                     ],
                 }],
-            }])
+                "name": "Rule1",
+                "enabled": True,
+                "priority": 1,
+                "rate_limit_duration_in_minutes": 1,
+                "rate_limit_threshold": 10,
+                "type": "MatchRule",
+                "action": "Block",
+            }],
+            name="exampleWAF",
+            resource_group_name=example.name,
+            sku_name=example_frontdoor_profile.sku_name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
         example_zone = azure.dns.Zone("example",
             name="sub-domain.domain.com",
             resource_group_name=example.name)
         example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-            name="example-customDomain",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
-                input=[
-                    "contoso",
-                    example_zone.name,
-                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
-            })
-        example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
-            name="Example-Security-Policy",
+            },
+            name="example-customDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name=std.join(separator=".",
+                input=[
+                    "contoso",
+                    example_zone.name,
+                ])["result"])
+        example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
             security_policies={
                 "firewall": {
-                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                     "association": {
                         "domains": [{
                             "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                         }],
                         "patterns_to_match": "/*",
                     },
+                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                 },
-            })
+            },
+            name="Example-Security-Policy",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
         ## API Providers

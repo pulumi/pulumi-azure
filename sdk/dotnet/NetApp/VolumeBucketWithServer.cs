@@ -55,18 +55,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-delegated",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "netapp",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -76,7 +68,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "netapp",
     ///             },
+    ///         },
+    ///         Name = "example-delegated",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
@@ -122,7 +122,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var bucketSelfSignedCert = new Tls.SelfSignedCert("bucket", new()
     ///     {
-    ///         PrivateKeyPem = bucket.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -130,6 +129,7 @@ namespace Pulumi.Azure.NetApp
     ///                 { "commonName", "example-bucket.example.internal" },
     ///             },
     ///         },
+    ///         PrivateKeyPem = bucket.PrivateKeyPem,
     ///         DnsNames = new[]
     ///         {
     ///             "example-bucket.example.internal",
@@ -145,8 +145,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleVolumeBucketWithServer = new Azure.NetApp.VolumeBucketWithServer("example", new()
     ///     {
-    ///         Name = "example-bucket",
-    ///         VolumeId = exampleVolume.Id,
     ///         FileSystemNfsUser = new Azure.NetApp.Inputs.VolumeBucketWithServerFileSystemNfsUserArgs
     ///         {
     ///             GroupId = 1000,
@@ -158,8 +156,10 @@ namespace Pulumi.Azure.NetApp
     ///             CertificatePem = Std.Base64encode.Invoke(new()
     ///             {
     ///                 Input = $"{bucketSelfSignedCert.CertPem}{bucket.PrivateKeyPem}",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///         },
+    ///         Name = "example-bucket",
+    ///         VolumeId = exampleVolume.Id,
     ///     });
     /// 
     /// });
@@ -198,18 +198,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-delegated",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "netapp",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -219,19 +211,27 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "netapp",
     ///             },
+    ///         },
+    ///         Name = "example-delegated",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleAccount = new Azure.NetApp.Account("example", new()
     ///     {
-    ///         Name = "example-anfaccount",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.NetApp.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-anfaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var examplePool = new Azure.NetApp.Pool("example", new()
@@ -353,8 +353,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var bucket = new Azure.KeyVault.Certificate("bucket", new()
     ///     {
-    ///         Name = "example-bucket-cert",
-    ///         KeyVaultId = certificate.Id,
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///         {
     ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
@@ -374,6 +372,13 @@ namespace Pulumi.Azure.NetApp
     ///             },
     ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
     ///             {
+    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
+    ///                 {
+    ///                     DnsNames = new[]
+    ///                     {
+    ///                         "example-bucket.example.internal",
+    ///                     },
+    ///                 },
     ///                 KeyUsages = new[]
     ///                 {
     ///                     "digitalSignature",
@@ -384,16 +389,11 @@ namespace Pulumi.Azure.NetApp
     ///                     "1.3.6.1.5.5.7.3.1",
     ///                 },
     ///                 Subject = "CN=example-bucket.example.internal",
-    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
-    ///                 {
-    ///                     DnsNames = new[]
-    ///                     {
-    ///                         "example-bucket.example.internal",
-    ///                     },
-    ///                 },
     ///                 ValidityInMonths = 12,
     ///             },
     ///         },
+    ///         Name = "example-bucket-cert",
+    ///         KeyVaultId = certificate.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -404,8 +404,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleVolumeBucketWithServer = new Azure.NetApp.VolumeBucketWithServer("example", new()
     ///     {
-    ///         Name = "example-bucket",
-    ///         VolumeId = exampleVolume.Id,
     ///         FileSystemNfsUser = new Azure.NetApp.Inputs.VolumeBucketWithServerFileSystemNfsUserArgs
     ///         {
     ///             GroupId = 1000,
@@ -422,6 +420,8 @@ namespace Pulumi.Azure.NetApp
     ///             CredentialsKeyVaultUri = credentials.VaultUri,
     ///             CredentialsSecretName = "example-bucket-creds",
     ///         },
+    ///         Name = "example-bucket",
+    ///         VolumeId = exampleVolume.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

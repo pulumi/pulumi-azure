@@ -38,8 +38,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "api_management_api_schema.xml",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "api_management_api_schema.xml",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -50,7 +50,7 @@ import (
 //				ResourceGroupName: pulumi.String(example.ResourceGroupName),
 //				SchemaId:          pulumi.String("example-schema"),
 //				ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
-//				Value:             pulumi.String(invokeFile.Result),
+//				Value:             invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

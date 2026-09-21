@@ -43,8 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroup;
  * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroupArgs;
  * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleArgs;
- * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleActionArgs;
  * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs;
+ * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -76,10 +76,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example-cluster")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .dnsPrefix("example-aks")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("default")
  *                 .nodeCount(1)
@@ -89,17 +85,13 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-cluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix("example-aks")
  *             .build());
  * 
  *         var exampleAlertPrometheusRuleGroup = new AlertPrometheusRuleGroup("exampleAlertPrometheusRuleGroup", AlertPrometheusRuleGroupArgs.builder()
- *             .name("example-amprg")
- *             .location("West Europe")
- *             .resourceGroupName(example.name())
- *             .clusterName(exampleKubernetesCluster.name())
- *             .description("This is the description of the following rule group")
- *             .ruleGroupEnabled(false)
- *             .interval("PT1M")
- *             .scopes(exampleWorkspace.id())
  *             .rules(            
  *                 AlertPrometheusRuleGroupRuleArgs.builder()
  *                     .enabled(false)
@@ -110,6 +102,13 @@ import javax.annotation.Nullable;
  *                     .labels(Map.of("team", "prod"))
  *                     .build(),
  *                 AlertPrometheusRuleGroupRuleArgs.builder()
+ *                     .alertResolution(AlertPrometheusRuleGroupRuleAlertResolutionArgs.builder()
+ *                         .autoResolved(true)
+ *                         .timeToResolve("PT10M")
+ *                         .build())
+ *                     .actions(AlertPrometheusRuleGroupRuleActionArgs.builder()
+ *                         .actionGroupId(exampleActionGroup.id())
+ *                         .build())
  *                     .alert("Billing_Processing_Very_Slow")
  *                     .enabled(true)
  *                     .expression("""
@@ -117,16 +116,17 @@ import javax.annotation.Nullable;
  *                     """)
  *                     .for_("PT5M")
  *                     .severity(2)
- *                     .actions(AlertPrometheusRuleGroupRuleActionArgs.builder()
- *                         .actionGroupId(exampleActionGroup.id())
- *                         .build())
- *                     .alertResolution(AlertPrometheusRuleGroupRuleAlertResolutionArgs.builder()
- *                         .autoResolved(true)
- *                         .timeToResolve("PT10M")
- *                         .build())
  *                     .annotations(Map.of("annotationName", "annotationValue"))
  *                     .labels(Map.of("team", "prod"))
  *                     .build())
+ *             .name("example-amprg")
+ *             .location("West Europe")
+ *             .resourceGroupName(example.name())
+ *             .clusterName(exampleKubernetesCluster.name())
+ *             .description("This is the description of the following rule group")
+ *             .ruleGroupEnabled(false)
+ *             .interval("PT1M")
+ *             .scopes(exampleWorkspace.id())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

@@ -191,11 +191,11 @@ class Powershell72Module(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Basic")
         example_powershell72_module = azure.automation.Powershell72Module("example",
-            name="xActiveDirectory",
-            automation_account_id=example_account.id,
             module_link={
                 "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            })
+            },
+            name="xActiveDirectory",
+            automation_account_id=example_account.id)
         ```
 
         ## API Providers
@@ -245,11 +245,11 @@ class Powershell72Module(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Basic")
         example_powershell72_module = azure.automation.Powershell72Module("example",
-            name="xActiveDirectory",
-            automation_account_id=example_account.id,
             module_link={
                 "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            })
+            },
+            name="xActiveDirectory",
+            automation_account_id=example_account.id)
         ```
 
         ## API Providers

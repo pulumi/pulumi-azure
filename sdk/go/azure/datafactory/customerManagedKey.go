@@ -93,15 +93,15 @@ import (
 //				return err
 //			}
 //			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("example_data_factory"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &datafactory.FactoryIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //					IdentityIds: pulumi.StringArray{
 //						exampleAzurermUserAssignedIdentity.Id,
 //					},
 //				},
+//				Name:              pulumi.String("example_data_factory"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -64,6 +64,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceDeploymentScriptAzureCli = new ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", ResourceDeploymentScriptAzureCliArgs.builder()
+ *             .identity(ResourceDeploymentScriptAzureCliIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("example-rdsac")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
@@ -76,10 +80,6 @@ import javax.annotation.Nullable;
  *             .scriptContent("""
  *             echo \"{\\\"name\\\":{\\\"displayName\\\":\\\"$1 $2\\\"}}\" > $AZ_SCRIPTS_OUTPUT_PATH
  *             """)
- *             .identity(ResourceDeploymentScriptAzureCliIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

@@ -41,12 +41,12 @@ import (
 //				return err
 //			}
 //			exampleDevCenter, err := devcenter.NewDevCenter(ctx, "example", &devcenter.DevCenterArgs{
-//				Name:              pulumi.String("example-dc"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Identity: &devcenter.DevCenterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-dc"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
@@ -70,13 +70,13 @@ import (
 //				return err
 //			}
 //			_, err = devcenter.NewProjectEnvironmentType(ctx, "example", &devcenter.ProjectEnvironmentTypeArgs{
+//				Identity: &devcenter.ProjectEnvironmentTypeIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:               pulumi.String("example-et"),
 //				Location:           example.Location,
 //				DevCenterProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				DeploymentTargetId: pulumi.Sprintf("/subscriptions/%v", current.SubscriptionId),
-//				Identity: &devcenter.ProjectEnvironmentTypeIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -223,12 +223,12 @@ class CapacityReservation(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_capacity_reservation = azure.compute.CapacityReservation("example",
-            name="example-capacity-reservation",
-            capacity_reservation_group_id=example_capacity_reservation_group.id,
             sku={
                 "name": "Standard_D2s_v3",
                 "capacity": 1,
-            })
+            },
+            name="example-capacity-reservation",
+            capacity_reservation_group_id=example_capacity_reservation_group.id)
         ```
 
         ## API Providers
@@ -278,12 +278,12 @@ class CapacityReservation(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_capacity_reservation = azure.compute.CapacityReservation("example",
-            name="example-capacity-reservation",
-            capacity_reservation_group_id=example_capacity_reservation_group.id,
             sku={
                 "name": "Standard_D2s_v3",
                 "capacity": 1,
-            })
+            },
+            name="example-capacity-reservation",
+            capacity_reservation_group_id=example_capacity_reservation_group.id)
         ```
 
         ## API Providers

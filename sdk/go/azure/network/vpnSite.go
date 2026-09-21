@@ -45,18 +45,18 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVpnSite(ctx, "example", &network.VpnSiteArgs{
+//				Links: network.VpnSiteLinkArray{
+//					&network.VpnSiteLinkArgs{
+//						Name:      pulumi.String("link1"),
+//						IpAddress: pulumi.String("10.0.0.1"),
+//					},
+//				},
 //				Name:              pulumi.String("site1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressCidrs: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/24"),
-//				},
-//				Links: network.VpnSiteLinkArray{
-//					&network.VpnSiteLinkArgs{
-//						Name:      pulumi.String("link1"),
-//						IpAddress: pulumi.String("10.0.0.1"),
-//					},
 //				},
 //			})
 //			if err != nil {

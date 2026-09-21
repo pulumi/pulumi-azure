@@ -22,11 +22,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "exampledb",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
  *         maxIntervalInSeconds: 10,
@@ -36,6 +31,11 @@ import * as utilities from "../utilities";
  *         location: exampleResourceGroup.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "exampledb",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
  *     name: "cosmos-sql-db",

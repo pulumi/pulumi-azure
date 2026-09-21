@@ -48,17 +48,12 @@ import (
 //				return err
 //			}
 //			_, err = backup.NewPolicyVMWorkload(ctx, "example", &backup.PolicyVMWorkloadArgs{
-//				Name:              pulumi.String("example-bpvmw"),
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: exampleVault.Name,
-//				WorkloadType:      pulumi.String("SQLDataBase"),
 //				Settings: &backup.PolicyVMWorkloadSettingsArgs{
 //					TimeZone:           pulumi.String("UTC"),
 //					CompressionEnabled: pulumi.Bool(false),
 //				},
 //				ProtectionPolicies: backup.PolicyVMWorkloadProtectionPolicyArray{
 //					&backup.PolicyVMWorkloadProtectionPolicyArgs{
-//						PolicyType: pulumi.String("Full"),
 //						Backup: &backup.PolicyVMWorkloadProtectionPolicyBackupArgs{
 //							Frequency: pulumi.String("Daily"),
 //							Time:      pulumi.String("15:00"),
@@ -66,17 +61,22 @@ import (
 //						RetentionDaily: &backup.PolicyVMWorkloadProtectionPolicyRetentionDailyArgs{
 //							Count: pulumi.Int(8),
 //						},
+//						PolicyType: pulumi.String("Full"),
 //					},
 //					&backup.PolicyVMWorkloadProtectionPolicyArgs{
-//						PolicyType: pulumi.String("Log"),
 //						Backup: &backup.PolicyVMWorkloadProtectionPolicyBackupArgs{
 //							FrequencyInMinutes: pulumi.Int(15),
 //						},
 //						SimpleRetention: &backup.PolicyVMWorkloadProtectionPolicySimpleRetentionArgs{
 //							Count: pulumi.Int(8),
 //						},
+//						PolicyType: pulumi.String("Log"),
 //					},
 //				},
+//				Name:              pulumi.String("example-bpvmw"),
+//				ResourceGroupName: example.Name,
+//				RecoveryVaultName: exampleVault.Name,
+//				WorkloadType:      pulumi.String("SQLDataBase"),
 //			})
 //			if err != nil {
 //				return err

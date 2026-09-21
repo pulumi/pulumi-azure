@@ -105,24 +105,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -150,6 +143,13 @@ import javax.annotation.Nullable;
  *                         "Purge",
  *                         "Recover")
  *                     .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()

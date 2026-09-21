@@ -34,21 +34,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "sample-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "SampleVM",
+ *     name: "sample-nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     size: "Standard_B2s",
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -60,21 +55,26 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
  *     },
+ *     name: "SampleVM",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     size: "Standard_B2s",
  *     adminUsername: "testadmin",
  *     adminPassword: "Password1234!",
  *     disablePasswordAuthentication: false,
  * });
  * const exampleGlobalVMShutdownSchedule = new azure.devtest.GlobalVMShutdownSchedule("example", {
- *     virtualMachineId: exampleLinuxVirtualMachine.id,
- *     location: example.location,
- *     enabled: true,
- *     dailyRecurrenceTime: "1100",
- *     timezone: "Pacific Standard Time",
  *     notificationSettings: {
  *         enabled: true,
  *         timeInMinutes: 60,
  *         webhookUrl: "https://sample-webhook-url.example.com",
  *     },
+ *     virtualMachineId: exampleLinuxVirtualMachine.id,
+ *     location: example.location,
+ *     enabled: true,
+ *     dailyRecurrenceTime: "1100",
+ *     timezone: "Pacific Standard Time",
  * });
  * ```
  *

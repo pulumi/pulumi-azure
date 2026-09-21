@@ -386,13 +386,13 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
             key_vault_password={
                 "linked_service_name": example_linked_service_key_vault.name,
                 "secret_name": "secret",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
 
         ## Import
@@ -470,13 +470,13 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         example_linked_service_snowflake = azure.datafactory.LinkedServiceSnowflake("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
             key_vault_password={
                 "linked_service_name": example_linked_service_key_vault.name,
                 "secret_name": "secret",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
 
         ## Import

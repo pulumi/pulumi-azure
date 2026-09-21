@@ -46,10 +46,6 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewMxRecord(ctx, "example", &dns.MxRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: dns.MxRecordRecordArray{
 //					&dns.MxRecordRecordArgs{
 //						Preference: pulumi.String("10"),
@@ -60,6 +56,10 @@ import (
 //						Exchange:   pulumi.String("mail2.contoso.com"),
 //					},
 //				},
+//				Name:              pulumi.String("test"),
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: example.Name,
+//				Ttl:               pulumi.Int(300),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),
 //				},

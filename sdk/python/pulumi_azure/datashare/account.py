@@ -219,12 +219,12 @@ class Account(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "foo": "bar",
             })
@@ -273,12 +273,12 @@ class Account(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "foo": "bar",
             })

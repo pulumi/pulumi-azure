@@ -537,15 +537,15 @@ class ComputeCluster(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -557,12 +557,6 @@ class ComputeCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         test = azure.machinelearning.ComputeCluster("test",
-            name="example",
-            location=example.location,
-            vm_priority="LowPriority",
-            vm_size="Standard_DS2_v2",
-            machine_learning_workspace_id=example_workspace.id,
-            subnet_resource_id=example_subnet.id,
             scale_settings={
                 "min_node_count": 0,
                 "max_node_count": 1,
@@ -570,7 +564,13 @@ class ComputeCluster(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            vm_priority="LowPriority",
+            vm_size="Standard_DS2_v2",
+            machine_learning_workspace_id=example_workspace.id,
+            subnet_resource_id=example_subnet.id)
         ```
 
         ## API Providers
@@ -648,15 +648,15 @@ class ComputeCluster(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-mlw",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_virtual_network = azure.network.VirtualNetwork("example",
             name="example-vnet",
             address_spaces=["10.1.0.0/16"],
@@ -668,12 +668,6 @@ class ComputeCluster(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.1.0.0/24"])
         test = azure.machinelearning.ComputeCluster("test",
-            name="example",
-            location=example.location,
-            vm_priority="LowPriority",
-            vm_size="Standard_DS2_v2",
-            machine_learning_workspace_id=example_workspace.id,
-            subnet_resource_id=example_subnet.id,
             scale_settings={
                 "min_node_count": 0,
                 "max_node_count": 1,
@@ -681,7 +675,13 @@ class ComputeCluster(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            vm_priority="LowPriority",
+            vm_size="Standard_DS2_v2",
+            machine_learning_workspace_id=example_workspace.id,
+            subnet_resource_id=example_subnet.id)
         ```
 
         ## API Providers

@@ -52,6 +52,12 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Encoding = "UTF8",
+    ///             FieldDelimiter = ",",
+    ///         },
     ///         Name = "output-to-blob-storage",
     ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
     ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
@@ -61,12 +67,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         PathPattern = "some-pattern",
     ///         DateFormat = "yyyy-MM-dd",
     ///         TimeFormat = "HH",
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Encoding = "UTF8",
-    ///             FieldDelimiter = ",",
-    ///         },
     ///     });
     /// 
     /// });

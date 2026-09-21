@@ -48,31 +48,11 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("example", new()
     ///     {
-    ///         Name = "example-FrontDoor",
-    ///         ResourceGroupName = example.Name,
-    ///         RoutingRules = new[]
+    ///         BackendPoolHealthProbes = new[]
     ///         {
-    ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
+    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
     ///             {
-    ///                 Name = "exampleRoutingRule1",
-    ///                 AcceptedProtocols = new[]
-    ///                 {
-    ///                     "Http",
-    ///                     "Https",
-    ///                 },
-    ///                 PatternsToMatches = new[]
-    ///                 {
-    ///                     "/*",
-    ///                 },
-    ///                 FrontendEndpoints = new[]
-    ///                 {
-    ///                     "exampleFrontendEndpoint1",
-    ///                 },
-    ///                 ForwardingConfiguration = new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleForwardingConfigurationArgs
-    ///                 {
-    ///                     ForwardingProtocol = "MatchRequest",
-    ///                     BackendPoolName = "exampleBackendBing",
-    ///                 },
+    ///                 Name = "exampleHealthProbeSetting1",
     ///             },
     ///         },
     ///         BackendPoolLoadBalancings = new[]
@@ -82,18 +62,10 @@ namespace Pulumi.Azure.FrontDoor
     ///                 Name = "exampleLoadBalancingSettings1",
     ///             },
     ///         },
-    ///         BackendPoolHealthProbes = new[]
-    ///         {
-    ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolHealthProbeArgs
-    ///             {
-    ///                 Name = "exampleHealthProbeSetting1",
-    ///             },
-    ///         },
     ///         BackendPools = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
     ///             {
-    ///                 Name = "exampleBackendBing",
     ///                 Backends = new[]
     ///                 {
     ///                     new Azure.FrontDoor.Inputs.FrontdoorBackendPoolBackendArgs
@@ -104,6 +76,7 @@ namespace Pulumi.Azure.FrontDoor
     ///                         HttpsPort = 443,
     ///                     },
     ///                 },
+    ///                 Name = "exampleBackendBing",
     ///                 LoadBalancingName = "exampleLoadBalancingSettings1",
     ///                 HealthProbeName = "exampleHealthProbeSetting1",
     ///             },
@@ -121,6 +94,33 @@ namespace Pulumi.Azure.FrontDoor
     ///                 HostName = "examplefd1.examplefd.net",
     ///             },
     ///         },
+    ///         RoutingRules = new[]
+    ///         {
+    ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
+    ///             {
+    ///                 ForwardingConfiguration = new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleForwardingConfigurationArgs
+    ///                 {
+    ///                     ForwardingProtocol = "MatchRequest",
+    ///                     BackendPoolName = "exampleBackendBing",
+    ///                 },
+    ///                 Name = "exampleRoutingRule1",
+    ///                 AcceptedProtocols = new[]
+    ///                 {
+    ///                     "Http",
+    ///                     "Https",
+    ///                 },
+    ///                 PatternsToMatches = new[]
+    ///                 {
+    ///                     "/*",
+    ///                 },
+    ///                 FrontendEndpoints = new[]
+    ///                 {
+    ///                     "exampleFrontendEndpoint1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example-FrontDoor",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleCustomHttps0 = new Azure.FrontDoor.CustomHttpsConfiguration("example_custom_https_0", new()
@@ -131,14 +131,14 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     ///     var exampleCustomHttps1 = new Azure.FrontDoor.CustomHttpsConfiguration("example_custom_https_1", new()
     ///     {
-    ///         FrontendEndpointId = exampleFrontdoor.FrontendEndpointsMap.Apply(frontendEndpointsMap =&gt; frontendEndpointsMap.ExampleFrontendEndpoint2),
-    ///         CustomHttpsProvisioningEnabled = true,
     ///         CustomHttpsConfigurationConfig = new Azure.FrontDoor.Inputs.CustomHttpsConfigurationCustomHttpsConfigurationArgs
     ///         {
     ///             CertificateSource = "AzureKeyVault",
     ///             AzureKeyVaultCertificateSecretName = "examplefd1",
     ///             AzureKeyVaultCertificateVaultId = vault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
     ///         },
+    ///         FrontendEndpointId = exampleFrontdoor.FrontendEndpointsMap.Apply(frontendEndpointsMap =&gt; frontendEndpointsMap.ExampleFrontendEndpoint2),
+    ///         CustomHttpsProvisioningEnabled = true,
     ///     });
     /// 
     /// });

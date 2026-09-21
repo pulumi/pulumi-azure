@@ -30,14 +30,14 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "examplekustocluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
     ///             Capacity = 2,
     ///         },
+    ///         Name = "examplekustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
@@ -52,14 +52,14 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "exampleIoTHub",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "B1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "exampleIoTHub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("example", new()

@@ -62,13 +62,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("examplekustocluster")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
+ *             .name("examplekustocluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
@@ -81,13 +81,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("exampleIoTHub")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("B1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("exampleIoTHub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSharedAccessPolicy = new SharedAccessPolicy("exampleSharedAccessPolicy", SharedAccessPolicyArgs.builder()

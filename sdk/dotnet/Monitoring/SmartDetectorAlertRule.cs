@@ -45,6 +45,13 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("example", new()
     ///     {
+    ///         ActionGroup = new Azure.Monitoring.Inputs.SmartDetectorAlertRuleActionGroupArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 exampleActionGroup.Id,
+    ///             },
+    ///         },
     ///         Name = "example-smart-detector-alert-rule",
     ///         ResourceGroupName = example.Name,
     ///         Severity = "Sev0",
@@ -54,13 +61,6 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///         Frequency = "PT1M",
     ///         DetectorType = "FailureAnomaliesDetector",
-    ///         ActionGroup = new Azure.Monitoring.Inputs.SmartDetectorAlertRuleActionGroupArgs
-    ///         {
-    ///             Ids = new[]
-    ///             {
-    ///                 exampleActionGroup.Id,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

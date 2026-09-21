@@ -187,13 +187,13 @@ class PartnerConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_partner_configuration = azure.eventgrid.PartnerConfiguration("example",
-            resource_group_name=example.name,
-            default_maximum_expiration_time_in_days=14,
             partner_authorizations=[{
                 "partner_registration_id": "804a11ca-ce9b-4158-8e94-3c8dc7a072ec",
                 "partner_name": "Auth0",
                 "authorization_expiration_time_in_utc": "2025-02-05T00:00:00Z",
             }],
+            resource_group_name=example.name,
+            default_maximum_expiration_time_in_days=14,
             tags={
                 "environment": "Production",
             })
@@ -241,13 +241,13 @@ class PartnerConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_partner_configuration = azure.eventgrid.PartnerConfiguration("example",
-            resource_group_name=example.name,
-            default_maximum_expiration_time_in_days=14,
             partner_authorizations=[{
                 "partner_registration_id": "804a11ca-ce9b-4158-8e94-3c8dc7a072ec",
                 "partner_name": "Auth0",
                 "authorization_expiration_time_in_utc": "2025-02-05T00:00:00Z",
             }],
+            resource_group_name=example.name,
+            default_maximum_expiration_time_in_days=14,
             tags={
                 "environment": "Production",
             })

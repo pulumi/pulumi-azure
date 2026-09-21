@@ -41,9 +41,6 @@ namespace Pulumi.Azure.Bot
     /// 
     ///     var exampleChannelDirectLine = new Azure.Bot.ChannelDirectLine("example", new()
     ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sites = new[]
     ///         {
     ///             new Azure.Bot.Inputs.ChannelDirectLineSiteArgs
@@ -52,6 +49,9 @@ namespace Pulumi.Azure.Bot
     ///                 Enabled = true,
     ///             },
     ///         },
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

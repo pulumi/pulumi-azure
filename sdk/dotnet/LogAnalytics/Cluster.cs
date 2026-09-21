@@ -32,13 +32,13 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     ///     var exampleCluster = new Azure.LogAnalytics.Cluster("example", new()
     ///     {
-    ///         Name = "example-cluster",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-cluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

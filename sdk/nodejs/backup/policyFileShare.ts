@@ -26,10 +26,6 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const policy = new azure.backup.PolicyFileShare("policy", {
- *     name: "tfex-recovery-vault-policy",
- *     resourceGroupName: example.name,
- *     recoveryVaultName: exampleVault.name,
- *     timezone: "UTC",
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
@@ -63,6 +59,10 @@ import * as utilities from "../utilities";
  *         weeks: ["Last"],
  *         months: ["January"],
  *     },
+ *     name: "tfex-recovery-vault-policy",
+ *     resourceGroupName: example.name,
+ *     recoveryVaultName: exampleVault.name,
+ *     timezone: "UTC",
  * });
  * ```
  *

@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicefabric.NewManagedCluster(ctx, "example", &servicefabric.ManagedClusterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("West Europe"),
-//				HttpGatewayPort:   pulumi.Int(4567),
 //				LbRules: servicefabric.ManagedClusterLbRuleArray{
 //					&servicefabric.ManagedClusterLbRuleArgs{
 //						BackendPort:      pulumi.Int(38080),
@@ -42,7 +38,6 @@ import (
 //						Protocol:         pulumi.String("tcp"),
 //					},
 //				},
-//				ClientConnectionPort: pulumi.Int(12345),
 //				NodeTypes: servicefabric.ManagedClusterNodeTypeArray{
 //					&servicefabric.ManagedClusterNodeTypeArgs{
 //						DataDiskSizeGb:       pulumi.Int(130),
@@ -58,6 +53,11 @@ import (
 //						VmInstanceCount:      pulumi.Int(5),
 //					},
 //				},
+//				Name:                 pulumi.String("example"),
+//				ResourceGroupName:    pulumi.String("example"),
+//				Location:             pulumi.String("West Europe"),
+//				HttpGatewayPort:      pulumi.Int(4567),
+//				ClientConnectionPort: pulumi.Int(12345),
 //			})
 //			if err != nil {
 //				return err

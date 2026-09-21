@@ -80,9 +80,6 @@ import (
 //				return err
 //			}
 //			vmNetworkInterface, err := network.NewNetworkInterface(ctx, "vm", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("vm-nic"),
-//				Location:          primary.Location,
-//				ResourceGroupName: primary.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("vm"),
@@ -91,18 +88,14 @@ import (
 //						PublicIpAddressId:          primaryPublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("vm-nic"),
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vm, err := compute.NewVirtualMachine(ctx, "vm", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String("vm"),
-//				Location:          primary.Location,
-//				ResourceGroupName: primary.Name,
-//				VmSize:            pulumi.String("Standard_B1s"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					vmNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -123,6 +116,13 @@ import (
 //				},
 //				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
 //					DisablePasswordAuthentication: pulumi.Bool(false),
+//				},
+//				Name:              pulumi.String("vm"),
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
+//				VmSize:            pulumi.String("Standard_B1s"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					vmNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -250,16 +250,6 @@ import (
 //				return err
 //			}
 //			_, err = siterecovery.NewReplicatedVM(ctx, "vm-replication", &siterecovery.ReplicatedVMArgs{
-//				Name:                                  pulumi.String("vm-replication"),
-//				ResourceGroupName:                     secondary.Name,
-//				RecoveryVaultName:                     vault.Name,
-//				SourceRecoveryFabricName:              primaryFabric.Name,
-//				SourceVmId:                            vm.ID().ToIDOutput().ToStringOutput(),
-//				RecoveryReplicationPolicyId:           policy.ID().ToIDOutput().ToStringOutput(),
-//				SourceRecoveryProtectionContainerName: primaryProtectionContainer.Name,
-//				TargetResourceGroupId:                 secondary.ID().ToIDOutput().ToStringOutput(),
-//				TargetRecoveryFabricId:                secondaryFabric.ID().ToIDOutput().ToStringOutput(),
-//				TargetRecoveryProtectionContainerId:   secondaryProtectionContainer.ID().ToIDOutput().ToStringOutput(),
 //				ManagedDisks: siterecovery.ReplicatedVMManagedDiskArray{
 //					&siterecovery.ReplicatedVMManagedDiskArgs{
 //						DiskId:                  vm.StorageOsDisk.ManagedDiskId(),
@@ -276,6 +266,16 @@ import (
 //						RecoveryPublicIpAddressId: secondaryPublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                                  pulumi.String("vm-replication"),
+//				ResourceGroupName:                     secondary.Name,
+//				RecoveryVaultName:                     vault.Name,
+//				SourceRecoveryFabricName:              primaryFabric.Name,
+//				SourceVmId:                            vm.ID().ToIDOutput().ToStringOutput(),
+//				RecoveryReplicationPolicyId:           policy.ID().ToIDOutput().ToStringOutput(),
+//				SourceRecoveryProtectionContainerName: primaryProtectionContainer.Name,
+//				TargetResourceGroupId:                 secondary.ID().ToIDOutput().ToStringOutput(),
+//				TargetRecoveryFabricId:                secondaryFabric.ID().ToIDOutput().ToStringOutput(),
+//				TargetRecoveryProtectionContainerId:   secondaryProtectionContainer.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				container_mapping,
 //				network_mapping,

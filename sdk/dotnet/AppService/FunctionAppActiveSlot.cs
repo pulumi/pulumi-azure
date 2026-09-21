@@ -50,20 +50,20 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-windows-function-app",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         StorageAccountName = exampleAccount.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleWindowsFunctionAppSlot = new Azure.AppService.WindowsFunctionAppSlot("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-windows-function-app-slot",
     ///         FunctionAppId = exampleWindowsFunctionApp.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("example", new()
@@ -110,20 +110,20 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-linux-function-app",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleLinuxFunctionAppSlot = new Azure.AppService.LinuxFunctionAppSlot("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-linux-function-app-slot",
     ///         FunctionAppId = exampleLinuxFunctionApp.Name,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("example", new()

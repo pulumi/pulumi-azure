@@ -74,9 +74,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -84,20 +81,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewWindowsVirtualMachine(ctx, "example", &compute.WindowsVirtualMachineArgs{
-//				Name:              pulumi.String("example-machine"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Size:              pulumi.String("Standard_D4_v5"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
@@ -107,6 +98,15 @@ import (
 //					Offer:     pulumi.String("WindowsServer"),
 //					Sku:       pulumi.String("2016-Datacenter"),
 //					Version:   pulumi.String("latest"),
+//				},
+//				Name:              pulumi.String("example-machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Size:              pulumi.String("Standard_D4_v5"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

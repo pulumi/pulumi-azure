@@ -41,14 +41,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-nm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						pulumi.String(current.Id),
 //					},
 //				},
+//				Name:              pulumi.String("example-nm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ScopeAccesses: pulumi.StringArray{
 //					pulumi.String("Connectivity"),
 //				},

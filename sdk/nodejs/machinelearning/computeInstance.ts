@@ -46,15 +46,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-mlw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     name: "example-vnet",
@@ -71,13 +71,13 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const sshKey = config.get("sshKey") || "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld";
  * const exampleComputeInstance = new azure.machinelearning.ComputeInstance("example", {
+ *     ssh: {
+ *         publicKey: sshKey,
+ *     },
  *     name: "example",
  *     machineLearningWorkspaceId: exampleWorkspace.id,
  *     virtualMachineSize: "STANDARD_DS2_V2",
  *     authorizationType: "personal",
- *     ssh: {
- *         publicKey: sshKey,
- *     },
  *     subnetResourceId: exampleSubnet.id,
  *     description: "foo",
  *     tags: {

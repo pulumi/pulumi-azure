@@ -36,10 +36,6 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleTxtRecord = new Azure.PrivateDns.TxtRecord("example", new()
     ///     {
-    ///         Name = "test",
-    ///         ResourceGroupName = example.Name,
-    ///         ZoneName = exampleZone.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.PrivateDns.Inputs.TxtRecordRecordArgs
@@ -47,6 +43,10 @@ namespace Pulumi.Azure.PrivateDns
     ///                 Value = "v=spf1 mx ~all",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         ResourceGroupName = example.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
     ///     });
     /// 
     /// });

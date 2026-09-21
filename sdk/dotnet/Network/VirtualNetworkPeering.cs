@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Network
     ///                 Input = vnet[range.Value].AddressSpace[range.Value],
     ///                 Newbits = 13,
     ///                 Netnum = 0,
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///         }));
     ///     }
     ///     // enable global peering between the two virtual network
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 Separator = ",",
     ///                 Input = example_2.AddressSpaces,
-    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///             }).Result },
     ///         },
     ///     });
     /// 
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Network
     ///             {
     ///                 Separator = ",",
     ///                 Input = example_1.AddressSpaces,
-    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///             }).Result },
     ///         },
     ///     });
     /// 

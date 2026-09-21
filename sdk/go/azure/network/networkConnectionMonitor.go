@@ -71,9 +71,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-Nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -81,18 +78,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example-Nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
-//				Name:              pulumi.String("example-VM"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				VmSize: pulumi.String("Standard_D2s_v3"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -113,6 +106,13 @@ import (
 //				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
 //					DisablePasswordAuthentication: pulumi.Bool(false),
 //				},
+//				Name:              pulumi.String("example-VM"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				VmSize: pulumi.String("Standard_D2s_v3"),
 //			})
 //			if err != nil {
 //				return err
@@ -138,13 +138,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkConnectionMonitor(ctx, "example", &network.NetworkConnectionMonitorArgs{
-//				Name:             pulumi.String("example-Monitor"),
-//				NetworkWatcherId: exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
-//				Location:         exampleNetworkWatcher.Location,
 //				Endpoints: network.NetworkConnectionMonitorEndpointArray{
 //					&network.NetworkConnectionMonitorEndpointArgs{
-//						Name:             pulumi.String("source"),
-//						TargetResourceId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //						Filter: &network.NetworkConnectionMonitorEndpointFilterArgs{
 //							Items: network.NetworkConnectionMonitorEndpointFilterItemArray{
 //								&network.NetworkConnectionMonitorEndpointFilterItemArgs{
@@ -154,6 +149,8 @@ import (
 //							},
 //							Type: pulumi.String("Include"),
 //						},
+//						Name:             pulumi.String("source"),
+//						TargetResourceId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					&network.NetworkConnectionMonitorEndpointArgs{
 //						Name:    pulumi.String("destination"),
@@ -162,12 +159,12 @@ import (
 //				},
 //				TestConfigurations: network.NetworkConnectionMonitorTestConfigurationArray{
 //					&network.NetworkConnectionMonitorTestConfigurationArgs{
-//						Name:                   pulumi.String("tcpName"),
-//						Protocol:               pulumi.String("Tcp"),
-//						TestFrequencyInSeconds: pulumi.Int(60),
 //						TcpConfiguration: &network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs{
 //							Port: pulumi.Int(80),
 //						},
+//						Name:                   pulumi.String("tcpName"),
+//						Protocol:               pulumi.String("Tcp"),
+//						TestFrequencyInSeconds: pulumi.Int(60),
 //					},
 //				},
 //				TestGroups: network.NetworkConnectionMonitorTestGroupArray{
@@ -184,7 +181,10 @@ import (
 //						},
 //					},
 //				},
-//				Notes: pulumi.String("examplenote"),
+//				Name:             pulumi.String("example-Monitor"),
+//				NetworkWatcherId: exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
+//				Location:         exampleNetworkWatcher.Location,
+//				Notes:            pulumi.String("examplenote"),
 //				OutputWorkspaceResourceIds: pulumi.StringArray{
 //					exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				},

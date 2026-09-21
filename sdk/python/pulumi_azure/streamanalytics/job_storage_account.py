@@ -169,6 +169,9 @@ class JobStorageAccount(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_job = azure.streamanalytics.Job("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-job",
             resource_group_name=example.name,
             location=example.location,
@@ -180,16 +183,14 @@ class JobStorageAccount(pulumi.CustomResource):
             output_error_policy="Drop",
             streaming_units=3,
             sku_name="StandardV2",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "environment": "Example",
             },
             transformation_query=\"\"\"    SELECT *
             INTO [YourOutputAlias]
             FROM [YourInputAlias]
-        \"\"\")
+        \"\"\",
+            opts = pulumi.ResourceOptions(ignore_changes=["jobStorageAccounts"]))
         example_account = azure.storage.Account("example",
             name="exampleaccount",
             resource_group_name=example.name,
@@ -244,6 +245,9 @@ class JobStorageAccount(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_job = azure.streamanalytics.Job("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-job",
             resource_group_name=example.name,
             location=example.location,
@@ -255,16 +259,14 @@ class JobStorageAccount(pulumi.CustomResource):
             output_error_policy="Drop",
             streaming_units=3,
             sku_name="StandardV2",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "environment": "Example",
             },
             transformation_query=\"\"\"    SELECT *
             INTO [YourOutputAlias]
             FROM [YourInputAlias]
-        \"\"\")
+        \"\"\",
+            opts = pulumi.ResourceOptions(ignore_changes=["jobStorageAccounts"]))
         example_account = azure.storage.Account("example",
             name="exampleaccount",
             resource_group_name=example.name,

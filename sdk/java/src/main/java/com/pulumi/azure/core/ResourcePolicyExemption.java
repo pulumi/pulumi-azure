@@ -68,13 +68,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()
+ *             .identity(ResourcePolicyAssignmentIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(example.id())
  *             .location(exampleResourceGroup.location())
- *             .identity(ResourcePolicyAssignmentIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleResourcePolicyExemption = new ResourcePolicyExemption("exampleResourcePolicyExemption", ResourcePolicyExemptionArgs.builder()

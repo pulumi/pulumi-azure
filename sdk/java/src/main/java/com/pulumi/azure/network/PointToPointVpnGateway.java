@@ -77,10 +77,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()
- *             .name("example-config")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .vpnAuthenticationTypes("Certificate")
  *             .clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs.builder()
  *                 .name("DigiCert-Federated-ID-Root-CA")
  *                 .publicCertData("""
@@ -106,21 +102,25 @@ import javax.annotation.Nullable;
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
  *                 """)
  *                 .build())
+ *             .name("example-config")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .vpnAuthenticationTypes("Certificate")
  *             .build());
  * 
  *         var examplePointToPointVpnGateway = new PointToPointVpnGateway("examplePointToPointVpnGateway", PointToPointVpnGatewayArgs.builder()
+ *             .connectionConfigurations(PointToPointVpnGatewayConnectionConfigurationArgs.builder()
+ *                 .vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs.builder()
+ *                     .addressPrefixes("10.0.2.0/24")
+ *                     .build())
+ *                 .name("example-gateway-config")
+ *                 .build())
  *             .name("example-vpn-gateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .scaleUnit(1)
- *             .connectionConfigurations(PointToPointVpnGatewayConnectionConfigurationArgs.builder()
- *                 .name("example-gateway-config")
- *                 .vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs.builder()
- *                     .addressPrefixes("10.0.2.0/24")
- *                     .build())
- *                 .build())
  *             .build());
  * 
  *     }

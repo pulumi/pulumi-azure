@@ -283,15 +283,15 @@ class VirtualMachineGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
+            wsfc_domain_profile={
+                "fqdn": "testdomain.com",
+                "cluster_subnet_type": "SingleSubnet",
+            },
             name="examplegroup",
             resource_group_name=example.name,
             location=example.location,
             sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile={
-                "fqdn": "testdomain.com",
-                "cluster_subnet_type": "SingleSubnet",
-            })
+            sql_image_sku="Developer")
         ```
 
         ## API Providers
@@ -339,15 +339,15 @@ class VirtualMachineGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_virtual_machine_group = azure.mssql.VirtualMachineGroup("example",
+            wsfc_domain_profile={
+                "fqdn": "testdomain.com",
+                "cluster_subnet_type": "SingleSubnet",
+            },
             name="examplegroup",
             resource_group_name=example.name,
             location=example.location,
             sql_image_offer="SQL2017-WS2016",
-            sql_image_sku="Developer",
-            wsfc_domain_profile={
-                "fqdn": "testdomain.com",
-                "cluster_subnet_type": "SingleSubnet",
-            })
+            sql_image_sku="Developer")
         ```
 
         ## API Providers

@@ -440,15 +440,15 @@ class NextGenerationFirewallVirtualHubStrataCloudManager(pulumi.CustomResource):
             name="example-appliance",
             virtual_hub_id=example_virtual_hub.id)
         example_next_generation_firewall_virtual_hub_strata_cloud_manager = azure.paloalto.NextGenerationFirewallVirtualHubStrataCloudManager("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe",
-            strata_cloud_manager_tenant_name="example",
             network_profile={
                 "public_ip_address_ids": [example_public_ip.id],
                 "virtual_hub_id": example_virtual_hub.id,
                 "network_virtual_appliance_id": example_virtual_network_appliance.id,
-            })
+            },
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
+            strata_cloud_manager_tenant_name="example")
         ```
 
         ## API Providers
@@ -524,15 +524,15 @@ class NextGenerationFirewallVirtualHubStrataCloudManager(pulumi.CustomResource):
             name="example-appliance",
             virtual_hub_id=example_virtual_hub.id)
         example_next_generation_firewall_virtual_hub_strata_cloud_manager = azure.paloalto.NextGenerationFirewallVirtualHubStrataCloudManager("example",
-            name="example",
-            resource_group_name="example",
-            location="West Europe",
-            strata_cloud_manager_tenant_name="example",
             network_profile={
                 "public_ip_address_ids": [example_public_ip.id],
                 "virtual_hub_id": example_virtual_hub.id,
                 "network_virtual_appliance_id": example_virtual_network_appliance.id,
-            })
+            },
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
+            strata_cloud_manager_tenant_name="example")
         ```
 
         ## API Providers

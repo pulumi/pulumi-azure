@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
     ///     {
-    ///         Name = "example-DT",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.DigitalTwins.Inputs.InstanceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-DT",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
@@ -65,14 +65,14 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "examplekc",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "examplekc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleDatabase = new Azure.Kusto.Database("example", new()

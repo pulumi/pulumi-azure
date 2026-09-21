@@ -41,13 +41,13 @@ import * as utilities from "../utilities";
  *     manage: false,
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "exampleIothub",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
  *     },
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     tags: {
  *         purpose: "example",
  *     },

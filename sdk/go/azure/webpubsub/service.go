@@ -37,12 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
-//				Name:                       pulumi.String("tfex-webpubsub"),
-//				Location:                   example.Location,
-//				ResourceGroupName:          example.Name,
-//				Sku:                        pulumi.String("Standard_S1"),
-//				Capacity:                   pulumi.Int(1),
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				LiveTrace: &webpubsub.ServiceLiveTraceArgs{
 //					Enabled:                 pulumi.Bool(true),
 //					MessagingLogsEnabled:    pulumi.Bool(true),
@@ -51,6 +45,12 @@ import (
 //				Identity: &webpubsub.ServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                       pulumi.String("tfex-webpubsub"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
+//				Sku:                        pulumi.String("Standard_S1"),
+//				Capacity:                   pulumi.Int(1),
+//				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

@@ -258,41 +258,41 @@ class CollectorPolicy(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="example-erc",
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=float(1),
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            })
+            bandwidth_in_gbps=float(1))
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
+            microsoft_peering_config={
+                "advertised_public_prefixes": ["123.6.0.0/24"],
+            },
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
             peer_asn=100,
             primary_peer_address_prefix="192.168.199.0/30",
             secondary_peer_address_prefix="192.168.200.0/30",
-            vlan_id=300,
-            microsoft_peering_config={
-                "advertised_public_prefixes": ["123.6.0.0/24"],
-            })
+            vlan_id=300)
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
             location=example.location,
             resource_group_name=example.name,
             opts = pulumi.ResourceOptions(depends_on=[example_express_route_circuit_peering]))
         example_collector_policy = azure.networkfunction.CollectorPolicy("example",
-            name="example-nfcp",
-            traffic_collector_id=example_azure_traffic_collector.id,
-            location=example.location,
             ipfx_emission={
                 "destination_types": "AzureMonitor",
             },
             ipfx_ingestion={
                 "source_resource_ids": [example_express_route_circuit.id],
             },
+            name="example-nfcp",
+            traffic_collector_id=example_azure_traffic_collector.id,
+            location=example.location,
             tags={
                 "key": "value",
             })
@@ -349,41 +349,41 @@ class CollectorPolicy(pulumi.CustomResource):
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="example-erc",
             location=example.location,
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
-            bandwidth_in_gbps=float(1),
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            })
+            bandwidth_in_gbps=float(1))
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
+            microsoft_peering_config={
+                "advertised_public_prefixes": ["123.6.0.0/24"],
+            },
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
             resource_group_name=example.name,
             peer_asn=100,
             primary_peer_address_prefix="192.168.199.0/30",
             secondary_peer_address_prefix="192.168.200.0/30",
-            vlan_id=300,
-            microsoft_peering_config={
-                "advertised_public_prefixes": ["123.6.0.0/24"],
-            })
+            vlan_id=300)
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
             location=example.location,
             resource_group_name=example.name,
             opts = pulumi.ResourceOptions(depends_on=[example_express_route_circuit_peering]))
         example_collector_policy = azure.networkfunction.CollectorPolicy("example",
-            name="example-nfcp",
-            traffic_collector_id=example_azure_traffic_collector.id,
-            location=example.location,
             ipfx_emission={
                 "destination_types": "AzureMonitor",
             },
             ipfx_ingestion={
                 "source_resource_ids": [example_express_route_circuit.id],
             },
+            name="example-nfcp",
+            traffic_collector_id=example_azure_traffic_collector.id,
+            location=example.location,
             tags={
                 "key": "value",
             })

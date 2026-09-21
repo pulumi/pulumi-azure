@@ -27,33 +27,24 @@ import * as utilities from "../utilities";
  *     skuName: "Standard",
  * });
  * const host = new azure.logicapps.IntegrationAccountPartner("host", {
- *     name: "example-hostpartner",
- *     resourceGroupName: example.name,
- *     integrationAccountName: test.name,
  *     businessIdentities: [{
  *         qualifier: "AS2Identity",
  *         value: "FabrikamNY",
  *     }],
- * });
- * const guest = new azure.logicapps.IntegrationAccountPartner("guest", {
- *     name: "example-guestpartner",
+ *     name: "example-hostpartner",
  *     resourceGroupName: example.name,
  *     integrationAccountName: test.name,
+ * });
+ * const guest = new azure.logicapps.IntegrationAccountPartner("guest", {
  *     businessIdentities: [{
  *         qualifier: "AS2Identity",
  *         value: "FabrikamDC",
  *     }],
- * });
- * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("test", {
- *     name: "example-agreement",
+ *     name: "example-guestpartner",
  *     resourceGroupName: example.name,
  *     integrationAccountName: test.name,
- *     agreementType: "AS2",
- *     hostPartnerName: host.name,
- *     guestPartnerName: guest.name,
- *     content: std.file({
- *         input: "testdata/integration_account_agreement_content_as2.json",
- *     }).then(invoke => invoke.result),
+ * });
+ * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("test", {
  *     hostIdentity: {
  *         qualifier: "AS2Identity",
  *         value: "FabrikamNY",
@@ -62,6 +53,15 @@ import * as utilities from "../utilities";
  *         qualifier: "AS2Identity",
  *         value: "FabrikamDC",
  *     },
+ *     name: "example-agreement",
+ *     resourceGroupName: example.name,
+ *     integrationAccountName: test.name,
+ *     agreementType: "AS2",
+ *     hostPartnerName: host.name,
+ *     guestPartnerName: guest.name,
+ *     content: std.file({
+ *         input: "testdata/integration_account_agreement_content_as2.json",
+ *     }).result,
  * });
  * ```
  *

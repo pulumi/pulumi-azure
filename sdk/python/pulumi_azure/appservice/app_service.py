@@ -832,30 +832,30 @@ class AppService(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="example-appserviceplan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            },
+            name="example-appserviceplan",
             location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            resource_group_name=example.name)
+        example_app_service = azure.appservice.AppService("example",
             site_config={
                 "dotnet_framework_version": "v4.0",
                 "scm_type": "LocalGit",
-            },
-            app_settings={
-                "SOME_KEY": "some-value",
             },
             connection_strings=[{
                 "name": "Database",
                 "type": "SQLServer",
                 "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
-            }])
+            }],
+            name="example-app-service",
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id,
+            app_settings={
+                "SOME_KEY": "some-value",
+            })
         ```
 
         ## Import
@@ -915,30 +915,30 @@ class AppService(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="example-appserviceplan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            },
+            name="example-appserviceplan",
             location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            resource_group_name=example.name)
+        example_app_service = azure.appservice.AppService("example",
             site_config={
                 "dotnet_framework_version": "v4.0",
                 "scm_type": "LocalGit",
-            },
-            app_settings={
-                "SOME_KEY": "some-value",
             },
             connection_strings=[{
                 "name": "Database",
                 "type": "SQLServer",
                 "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
-            }])
+            }],
+            name="example-app-service",
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id,
+            app_settings={
+                "SOME_KEY": "some-value",
+            })
         ```
 
         ## Import

@@ -75,14 +75,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
+ *             .identity(EventHubNamespaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .dedicatedClusterId(exampleCluster.id())
- *             .identity(EventHubNamespaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
@@ -209,15 +209,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace("exampleEventHubNamespace", EventHubNamespaceArgs.builder()
+ *             .identity(EventHubNamespaceIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("example-namespace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
  *             .dedicatedClusterId(exampleCluster.id())
- *             .identity(EventHubNamespaceIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);

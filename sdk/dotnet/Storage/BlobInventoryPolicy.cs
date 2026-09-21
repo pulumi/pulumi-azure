@@ -30,15 +30,15 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///         {
+    ///             VersioningEnabled = true,
+    ///         },
     ///         Name = "examplestoracc",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
-    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
-    ///         {
-    ///             VersioningEnabled = true,
-    ///         },
     ///     });
     /// 
     ///     var exampleContainer = new Azure.Storage.Container("example", new()
@@ -50,7 +50,6 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("example", new()
     ///     {
-    ///         StorageAccountId = exampleAccount.Id,
     ///         Rules = new[]
     ///         {
     ///             new Azure.Storage.Inputs.BlobInventoryPolicyRuleArgs
@@ -67,6 +66,7 @@ namespace Pulumi.Azure.Storage
     ///                 },
     ///             },
     ///         },
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

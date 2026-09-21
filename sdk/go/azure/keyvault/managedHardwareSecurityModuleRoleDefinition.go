@@ -29,15 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := keyvault.NewManagedHardwareSecurityModule(ctx, "example", &keyvault.ManagedHardwareSecurityModuleArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
-//				SkuName:           pulumi.String("Standard_B1"),
-//				TenantId:          pulumi.Any(current.TenantId),
-//				AdminObjectIds: pulumi.StringArray{
-//					current.ObjectId,
-//				},
-//				PurgeProtectionEnabled: pulumi.Bool(false),
 //				ActiveConfig: []map[string]interface{}{
 //					map[string]interface{}{
 //						"securityDomainCertificate": []interface{}{
@@ -48,14 +39,20 @@ import (
 //						"securityDomainQuorum": 2,
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
+//				SkuName:           pulumi.String("Standard_B1"),
+//				TenantId:          pulumi.Any(current.TenantId),
+//				AdminObjectIds: pulumi.StringArray{
+//					current.ObjectId,
+//				},
+//				PurgeProtectionEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = keyvault.NewManagedHardwareSecurityModuleRoleDefinition(ctx, "example", &keyvault.ManagedHardwareSecurityModuleRoleDefinitionArgs{
-//				Name:         pulumi.String("7d206142-bf01-11ed-80bc-00155d61ee9e"),
-//				ManagedHsmId: example.ID().ToIDOutput().ToStringOutput(),
-//				Description:  pulumi.String("desc foo"),
 //				Permissions: keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermissionArray{
 //					&keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{
 //						DataActions: pulumi.StringArray{
@@ -63,6 +60,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:         pulumi.String("7d206142-bf01-11ed-80bc-00155d61ee9e"),
+//				ManagedHsmId: example.ID().ToIDOutput().ToStringOutput(),
+//				Description:  pulumi.String("desc foo"),
 //			})
 //			if err != nil {
 //				return err

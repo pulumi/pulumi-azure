@@ -1128,15 +1128,15 @@ class Standard(pulumi.CustomResource):
             os_type="Linux",
             sku_name="WS1")
         example_standard = azure.logicapps.Standard("example",
+            site_config={
+                "linux_fx_version": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+            },
             name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config={
-                "linux_fx_version": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            },
             app_settings={
                 "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
                 "DOCKER_REGISTRY_SERVER_USERNAME": "username",
@@ -1274,15 +1274,15 @@ class Standard(pulumi.CustomResource):
             os_type="Linux",
             sku_name="WS1")
         example_standard = azure.logicapps.Standard("example",
+            site_config={
+                "linux_fx_version": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+            },
             name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config={
-                "linux_fx_version": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-            },
             app_settings={
                 "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
                 "DOCKER_REGISTRY_SERVER_USERNAME": "username",

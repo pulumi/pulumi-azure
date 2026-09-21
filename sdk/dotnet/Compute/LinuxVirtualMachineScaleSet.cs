@@ -60,20 +60,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Name = "example-vmss",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "Standard_D4_v5",
-    ///         Instances = 1,
-    ///         AdminUsername = "adminuser",
-    ///         AdminSshKeys = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
-    ///             {
-    ///                 Username = "adminuser",
-    ///                 PublicKey = firstPublicKey,
-    ///             },
-    ///         },
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -86,12 +72,18 @@ namespace Pulumi.Azure.Compute
     ///             StorageAccountType = "Standard_LRS",
     ///             Caching = "ReadWrite",
     ///         },
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = firstPublicKey,
+    ///             },
+    ///         },
     ///         NetworkInterfaces = new[]
     ///         {
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
     ///                 IpConfigurations = new[]
     ///                 {
     ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
@@ -101,8 +93,16 @@ namespace Pulumi.Azure.Compute
     ///                         SubnetId = @internal.Id,
     ///                     },
     ///                 },
+    ///                 Name = "example",
+    ///                 Primary = true,
     ///             },
     ///         },
+    ///         Name = "example-vmss",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard_D4_v5",
+    ///         Instances = 1,
+    ///         AdminUsername = "adminuser",
     ///     });
     /// 
     /// });

@@ -38,8 +38,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleRegistryTask = new Azure.ContainerService.RegistryTask("example", new()
     ///     {
-    ///         Name = "example-task",
-    ///         ContainerRegistryId = exampleRegistry.Id,
     ///         Platform = new Azure.ContainerService.Inputs.RegistryTaskPlatformArgs
     ///         {
     ///             Os = "Linux",
@@ -54,6 +52,8 @@ namespace Pulumi.Azure.ContainerService
     ///                 "helloworld:{{.Run.ID}}",
     ///             },
     ///         },
+    ///         Name = "example-task",
+    ///         ContainerRegistryId = exampleRegistry.Id,
     ///     });
     /// 
     /// });

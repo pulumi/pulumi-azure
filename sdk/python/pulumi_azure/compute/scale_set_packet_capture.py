@@ -364,16 +364,6 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            instances=4,
-            admin_username="adminuser",
-            admin_password="P@ssword1234!",
-            computer_name_prefix="my-linux-computer-name-prefix",
-            upgrade_mode="Automatic",
-            disable_password_authentication=False,
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -385,14 +375,24 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": example_subnet.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            instances=4,
+            admin_username="adminuser",
+            admin_password="P@ssword1234!",
+            computer_name_prefix="my-linux-computer-name-prefix",
+            upgrade_mode="Automatic",
+            disable_password_authentication=False)
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
             name="network-watcher",
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
@@ -402,9 +402,6 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             auto_upgrade_minor_version=True,
             automatic_upgrade_enabled=True)
         example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("example",
-            name="example-pc",
-            network_watcher_id=example_network_watcher.id,
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
             storage_location={
                 "file_path": "/var/captures/packet.cap",
             },
@@ -412,6 +409,9 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 "include_instance_ids": ["0"],
                 "exclude_instance_ids": ["1"],
             },
+            name="example-pc",
+            network_watcher_id=example_network_watcher.id,
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
 
@@ -478,16 +478,6 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            instances=4,
-            admin_username="adminuser",
-            admin_password="P@ssword1234!",
-            computer_name_prefix="my-linux-computer-name-prefix",
-            upgrade_mode="Automatic",
-            disable_password_authentication=False,
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -499,14 +489,24 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": example_subnet.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            instances=4,
+            admin_username="adminuser",
+            admin_password="P@ssword1234!",
+            computer_name_prefix="my-linux-computer-name-prefix",
+            upgrade_mode="Automatic",
+            disable_password_authentication=False)
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
             name="network-watcher",
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
@@ -516,9 +516,6 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             auto_upgrade_minor_version=True,
             automatic_upgrade_enabled=True)
         example_scale_set_packet_capture = azure.compute.ScaleSetPacketCapture("example",
-            name="example-pc",
-            network_watcher_id=example_network_watcher.id,
-            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
             storage_location={
                 "file_path": "/var/captures/packet.cap",
             },
@@ -526,6 +523,9 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 "include_instance_ids": ["0"],
                 "exclude_instance_ids": ["1"],
             },
+            name="example-pc",
+            network_watcher_id=example_network_watcher.id,
+            virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
 

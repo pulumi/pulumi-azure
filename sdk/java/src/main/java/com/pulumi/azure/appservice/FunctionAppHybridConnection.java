@@ -94,23 +94,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppHybridConnection = new FunctionAppHybridConnection("exampleFunctionAppHybridConnection", FunctionAppHybridConnectionArgs.builder()

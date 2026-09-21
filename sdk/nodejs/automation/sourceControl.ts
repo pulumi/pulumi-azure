@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  * });
  * const exampleSourceControl = new azure.automation.SourceControl("example", {
- *     name: "example",
- *     automationAccountId: exampleAccount.id,
- *     folderPath: "runbook",
  *     security: {
  *         token: "ghp_xxx",
  *         tokenType: "PersonalAccessToken",
  *     },
+ *     name: "example",
+ *     automationAccountId: exampleAccount.id,
+ *     folderPath: "runbook",
  *     repositoryUrl: "https://github.com/foo/bat.git",
  *     sourceControlType: "GitHub",
  *     branch: "main",

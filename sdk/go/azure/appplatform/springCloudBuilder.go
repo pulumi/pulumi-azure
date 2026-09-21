@@ -50,8 +50,10 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudBuilder(ctx, "example", &appplatform.SpringCloudBuilderArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				Stack: &appplatform.SpringCloudBuilderStackArgs{
+//					Id:      pulumi.String("io.buildpacks.stacks.bionic"),
+//					Version: pulumi.String("base"),
+//				},
 //				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
 //					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
 //						Name: pulumi.String("mix"),
@@ -60,10 +62,8 @@ import (
 //						},
 //					},
 //				},
-//				Stack: &appplatform.SpringCloudBuilderStackArgs{
-//					Id:      pulumi.String("io.buildpacks.stacks.bionic"),
-//					Version: pulumi.String("base"),
-//				},
+//				Name:                 pulumi.String("example"),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

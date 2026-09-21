@@ -51,23 +51,19 @@ import (
 //				return err
 //			}
 //			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Identity: &dataprotection.BackupVaultIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
-//				Identity: &dataprotection.BackupVaultIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("dns"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:                  pulumi.String("default"),
 //					NodeCount:             pulumi.Int(1),
@@ -77,6 +73,10 @@ import (
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DnsPrefix:         pulumi.String("dns"),
 //			})
 //			if err != nil {
 //				return err
@@ -121,7 +121,7 @@ import (
 //					"configuration.backupStorageLocation.config.resourceGroup":  example.Name,
 //					"configuration.backupStorageLocation.config.storageAccount": exampleAccount.Name,
 //					"configuration.backupStorageLocation.config.subscriptionId": pulumi.String(current.SubscriptionId),
-//					"credentials.tenantId":                                      pulumi.String(current.TenantId),
+//					"credentials.tenantId": pulumi.String(current.TenantId),
 //				},
 //			})
 //			if err != nil {
@@ -186,22 +186,16 @@ import (
 //				return err
 //			}
 //			exampleBackupPolicyKubernetesCluster, err := dataprotection.NewBackupPolicyKubernetesCluster(ctx, "example", &dataprotection.BackupPolicyKubernetesClusterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				VaultName:         exampleBackupVault.Name,
-//				BackupRepeatingTimeIntervals: pulumi.StringArray{
-//					pulumi.String("R/2023-05-23T02:30:00+00:00/P1W"),
+//				DefaultRetentionRule: &dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{
+//					LifeCycles: dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray{
+//						&dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{
+//							Duration:      pulumi.String("P14D"),
+//							DataStoreType: pulumi.String("OperationalStore"),
+//						},
+//					},
 //				},
 //				RetentionRules: dataprotection.BackupPolicyKubernetesClusterRetentionRuleArray{
 //					&dataprotection.BackupPolicyKubernetesClusterRetentionRuleArgs{
-//						Name:     pulumi.String("Daily"),
-//						Priority: pulumi.Int(25),
-//						LifeCycles: dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{
-//							&dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{
-//								Duration:      pulumi.String("P84D"),
-//								DataStoreType: pulumi.String("OperationalStore"),
-//							},
-//						},
 //						Criteria: &dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{
 //							DaysOfWeeks: pulumi.StringArray{
 //								pulumi.String("Thursday"),
@@ -216,27 +210,27 @@ import (
 //								pulumi.String("2023-05-23T02:30:00Z"),
 //							},
 //						},
+//						LifeCycles: dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P84D"),
+//								DataStoreType: pulumi.String("OperationalStore"),
+//							},
+//						},
+//						Name:     pulumi.String("Daily"),
+//						Priority: pulumi.Int(25),
 //					},
 //				},
-//				DefaultRetentionRule: &dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{
-//					LifeCycles: dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray{
-//						&dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{
-//							Duration:      pulumi.String("P14D"),
-//							DataStoreType: pulumi.String("OperationalStore"),
-//						},
-//					},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				VaultName:         exampleBackupVault.Name,
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2023-05-23T02:30:00+00:00/P1W"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupInstanceKubernetesCluster(ctx, "example", &dataprotection.BackupInstanceKubernetesClusterArgs{
-//				Name:                      pulumi.String("example"),
-//				Location:                  example.Location,
-//				VaultId:                   exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				KubernetesClusterId:       exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
-//				SnapshotResourceGroupName: snap.Name,
-//				BackupPolicyId:            exampleBackupPolicyKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				BackupDatasourceParameters: &dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{
 //					ExcludedNamespaces: pulumi.StringArray{
 //						pulumi.String("test-excluded-namespaces"),
@@ -256,6 +250,12 @@ import (
 //					},
 //					VolumeSnapshotEnabled: pulumi.Bool(true),
 //				},
+//				Name:                      pulumi.String("example"),
+//				Location:                  example.Location,
+//				VaultId:                   exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesClusterId:       exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
+//				SnapshotResourceGroupName: snap.Name,
+//				BackupPolicyId:            exampleBackupPolicyKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testExtensionAndStorageAccountPermission,
 //				testVaultMsiReadOnCluster,

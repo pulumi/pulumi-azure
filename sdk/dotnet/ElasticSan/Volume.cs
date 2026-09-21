@@ -30,14 +30,14 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
     ///     {
-    ///         Name = "example-es",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         BaseSizeInTib = 1,
     ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
     ///         {
     ///             Name = "Premium_LRS",
     ///         },
+    ///         Name = "example-es",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         BaseSizeInTib = 1,
     ///     });
     /// 
     ///     var exampleVolumeGroup = new Azure.ElasticSan.VolumeGroup("example", new()
@@ -78,14 +78,14 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
     ///     {
-    ///         Name = "example-es",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         BaseSizeInTib = 1,
     ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
     ///         {
     ///             Name = "Premium_LRS",
     ///         },
+    ///         Name = "example-es",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         BaseSizeInTib = 1,
     ///     });
     /// 
     ///     var exampleVolumeGroup = new Azure.ElasticSan.VolumeGroup("example", new()
@@ -115,14 +115,14 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var example2 = new Azure.ElasticSan.Volume("example2", new()
     ///     {
-    ///         Name = "example-esv2",
-    ///         VolumeGroupId = exampleVolumeGroup.Id,
-    ///         SizeInGib = 2,
     ///         CreateSource = new Azure.ElasticSan.Inputs.VolumeCreateSourceArgs
     ///         {
     ///             SourceType = "DiskSnapshot",
     ///             SourceId = exampleSnapshot.Id,
     ///         },
+    ///         Name = "example-esv2",
+    ///         VolumeGroupId = exampleVolumeGroup.Id,
+    ///         SizeInGib = 2,
     ///     });
     /// 
     /// });

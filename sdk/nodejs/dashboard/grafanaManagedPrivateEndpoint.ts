@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *     publicNetworkAccessEnabled: false,
  * });
  * const exampleGrafana = new azure.dashboard.Grafana("example", {
+ *     azureMonitorWorkspaceIntegrations: [{
+ *         resourceId: exampleWorkspace.id,
+ *     }],
  *     name: "example-dg",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     grafanaMajorVersion: "12",
  *     publicNetworkAccessEnabled: false,
- *     azureMonitorWorkspaceIntegrations: [{
- *         resourceId: exampleWorkspace.id,
- *     }],
  * });
  * const exampleGrafanaManagedPrivateEndpoint = new azure.dashboard.GrafanaManagedPrivateEndpoint("example", {
  *     grafanaId: exampleGrafana.id,

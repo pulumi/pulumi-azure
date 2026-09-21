@@ -32,6 +32,12 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleVirtualMachine = new Azure.MSSql.VirtualMachine("example", new()
     ///     {
+    ///         AutoPatching = new Azure.MSSql.Inputs.VirtualMachineAutoPatchingArgs
+    ///         {
+    ///             DayOfWeek = "Sunday",
+    ///             MaintenanceWindowDurationInMinutes = 60,
+    ///             MaintenanceWindowStartingHour = 2,
+    ///         },
     ///         VirtualMachineId = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
     ///         SqlLicenseType = "PAYG",
     ///         RServicesEnabled = true,
@@ -39,12 +45,6 @@ namespace Pulumi.Azure.MSSql
     ///         SqlConnectivityType = "PRIVATE",
     ///         SqlConnectivityUpdatePassword = "Password1234!",
     ///         SqlConnectivityUpdateUsername = "sqllogin",
-    ///         AutoPatching = new Azure.MSSql.Inputs.VirtualMachineAutoPatchingArgs
-    ///         {
-    ///             DayOfWeek = "Sunday",
-    ///             MaintenanceWindowDurationInMinutes = 60,
-    ///             MaintenanceWindowStartingHour = 2,
-    ///         },
     ///     });
     /// 
     /// });

@@ -58,14 +58,14 @@ namespace Pulumi.Azure.EventGrid
     /// 
     ///     var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("example", new()
     ///     {
-    ///         Name = "example-event-subscription",
-    ///         SystemTopic = exampleSystemTopic.Name,
-    ///         ResourceGroupName = example.Name,
     ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,
     ///             QueueName = exampleQueue.Name,
     ///         },
+    ///         Name = "example-event-subscription",
+    ///         SystemTopic = exampleSystemTopic.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

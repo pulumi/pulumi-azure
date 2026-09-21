@@ -384,12 +384,12 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
         test = azure.datafactory.LinkedServiceAzureSearch("test",
             name="example",
             data_factory_id=example_factory.id,
-            url=std.join_output(separator="",
+            url=std.join(separator="",
                 input=[
                     "https://",
                     example_service.name,
                     ".search.windows.net",
-                ]).result,
+                ])["result"],
             search_service_key=example_service.primary_key)
         ```
 
@@ -447,12 +447,12 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
         test = azure.datafactory.LinkedServiceAzureSearch("test",
             name="example",
             data_factory_id=example_factory.id,
-            url=std.join_output(separator="",
+            url=std.join(separator="",
                 input=[
                     "https://",
                     example_service.name,
                     ".search.windows.net",
-                ]).result,
+                ])["result"],
             search_service_key=example_service.primary_key)
         ```
 

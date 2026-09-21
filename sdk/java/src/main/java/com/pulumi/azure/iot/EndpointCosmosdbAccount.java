@@ -63,22 +63,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("exampleIothub")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("B1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("exampleIothub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .tags(Map.of("purpose", "example"))
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("cosmosdb-account")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Strong")
  *                 .build())
@@ -86,6 +81,11 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()

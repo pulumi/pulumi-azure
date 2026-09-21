@@ -31,11 +31,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleManagedDevOpsPool = new azure.devcenter.ManagedDevOpsPool("example", {
- *     name: "example-manageddevopspools",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     devCenterProjectId: exampleProject.id,
- *     maximumConcurrency: 1,
  *     azureDevopsOrganization: {
  *         organizations: [{
  *             parallelism: 1,
@@ -44,11 +39,16 @@ import * as utilities from "../utilities";
  *     },
  *     statelessAgent: {},
  *     virtualMachineScaleSetFabric: {
- *         skuName: "Standard_D2ads_v5",
  *         images: [{
  *             wellKnownImageName: "ubuntu-24.04/buffer",
  *         }],
+ *         skuName: "Standard_D2ads_v5",
  *     },
+ *     name: "example-manageddevopspools",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     devCenterProjectId: exampleProject.id,
+ *     maximumConcurrency: 1,
  * });
  * ```
  *

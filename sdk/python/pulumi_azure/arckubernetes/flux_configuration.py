@@ -351,13 +351,13 @@ class FluxConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-akcc",
+            resource_group_name=example.name,
+            location="West Europe",
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer")["result"],
             tags={
                 "ENV": "Test",
             })
@@ -366,9 +366,6 @@ class FluxConfiguration(pulumi.CustomResource):
             cluster_id=test["id"],
             extension_type="microsoft.flux")
         example_flux_configuration = azure.arckubernetes.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
                 "reference_type": "branch",
@@ -377,6 +374,9 @@ class FluxConfiguration(pulumi.CustomResource):
             kustomizations=[{
                 "name": "kustomization-1",
             }],
+            name="example-fc",
+            cluster_id=test["id"],
+            namespace="flux",
             opts = pulumi.ResourceOptions(depends_on=[example_cluster_extension]))
         ```
 
@@ -428,13 +428,13 @@ class FluxConfiguration(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-akcc",
+            resource_group_name=example.name,
+            location="West Europe",
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer")["result"],
             tags={
                 "ENV": "Test",
             })
@@ -443,9 +443,6 @@ class FluxConfiguration(pulumi.CustomResource):
             cluster_id=test["id"],
             extension_type="microsoft.flux")
         example_flux_configuration = azure.arckubernetes.FluxConfiguration("example",
-            name="example-fc",
-            cluster_id=test["id"],
-            namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
                 "reference_type": "branch",
@@ -454,6 +451,9 @@ class FluxConfiguration(pulumi.CustomResource):
             kustomizations=[{
                 "name": "kustomization-1",
             }],
+            name="example-fc",
+            cluster_id=test["id"],
+            namespace="flux",
             opts = pulumi.ResourceOptions(depends_on=[example_cluster_extension]))
         ```
 

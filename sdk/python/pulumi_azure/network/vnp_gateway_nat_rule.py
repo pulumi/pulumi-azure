@@ -301,14 +301,14 @@ class VnpGatewayNatRule(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
         example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("example",
-            name="example-vpngatewaynatrule",
-            vpn_gateway_id=example_vpn_gateway.id,
             external_mappings=[{
                 "address_space": "192.168.21.0/26",
             }],
             internal_mappings=[{
                 "address_space": "10.4.0.0/26",
-            }])
+            }],
+            name="example-vpngatewaynatrule",
+            vpn_gateway_id=example_vpn_gateway.id)
         ```
 
         ## API Providers
@@ -371,14 +371,14 @@ class VnpGatewayNatRule(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
         example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("example",
-            name="example-vpngatewaynatrule",
-            vpn_gateway_id=example_vpn_gateway.id,
             external_mappings=[{
                 "address_space": "192.168.21.0/26",
             }],
             internal_mappings=[{
                 "address_space": "10.4.0.0/26",
-            }])
+            }],
+            name="example-vpngatewaynatrule",
+            vpn_gateway_id=example_vpn_gateway.id)
         ```
 
         ## API Providers

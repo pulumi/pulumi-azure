@@ -45,15 +45,15 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleDatasetDelimitedText = new Azure.DataFactory.DatasetDelimitedText("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
     ///         HttpServerLocation = new Azure.DataFactory.Inputs.DatasetDelimitedTextHttpServerLocationArgs
     ///         {
     ///             RelativeUrl = "http://www.bing.com",
     ///             Path = "foo/bar/",
     ///             Filename = "fizz.txt",
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
     ///         ColumnDelimiter = ",",
     ///         RowDelimiter = "NEW",
     ///         Encoding = "UTF-8",

@@ -58,17 +58,17 @@ import (
 //				DisplayName:             pulumi.String("UEBA Anomalous Sign In"),
 //			}, nil)
 //			_, err = sentinel.NewAlertRuleAnomalyDuplicate(ctx, "example", &sentinel.AlertRuleAnomalyDuplicateArgs{
-//				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				BuiltInRuleId:           example.Id(),
-//				Enabled:                 pulumi.Bool(true),
-//				Mode:                    pulumi.String("Flighting"),
 //				ThresholdObservations: sentinel.AlertRuleAnomalyDuplicateThresholdObservationArray{
 //					&sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs{
 //						Name:  pulumi.String("Anomaly score threshold"),
 //						Value: pulumi.String("0.6"),
 //					},
 //				},
+//				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				BuiltInRuleId:           example.Id(),
+//				Enabled:                 pulumi.Bool(true),
+//				Mode:                    pulumi.String("Flighting"),
 //			})
 //			if err != nil {
 //				return err

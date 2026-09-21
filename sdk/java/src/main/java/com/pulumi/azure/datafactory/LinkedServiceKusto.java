@@ -62,22 +62,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("kustocluster")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
+ *             .name("kustocluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()

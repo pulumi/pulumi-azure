@@ -82,15 +82,15 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &machinelearning.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -118,10 +118,6 @@ import (
 //				return err
 //			}
 //			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:                    pulumi.String("example-aks"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				DnsPrefixPrivateCluster: pulumi.String("prefix"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:         pulumi.String("default"),
 //					NodeCount:    pulumi.Int(3),
@@ -131,6 +127,10 @@ import (
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                    pulumi.String("example-aks"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
+//				DnsPrefixPrivateCluster: pulumi.String("prefix"),
 //			})
 //			if err != nil {
 //				return err

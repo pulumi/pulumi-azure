@@ -42,22 +42,16 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "example-lb",
- *     sku: "Standard",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "example-lb",
+ *     sku: "Standard",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinkService = new azure.privatedns.LinkService("example", {
- *     name: "example-privatelink",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
- *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
- *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  *     natIpConfigurations: [
  *         {
  *             name: "primary",
@@ -74,6 +68,12 @@ import * as utilities from "../utilities";
  *             primary: false,
  *         },
  *     ],
+ *     name: "example-privatelink",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     autoApprovalSubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
+ *     visibilitySubscriptionIds: ["00000000-0000-0000-0000-000000000000"],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  * });
  * ```
  *

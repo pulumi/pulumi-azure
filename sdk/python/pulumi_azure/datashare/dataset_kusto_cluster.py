@@ -183,24 +183,24 @@ class DatasetKustoCluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name)
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
             kind="InPlace")
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name)
         example_assignment = azure.authorization.Assignment("example",
             scope=example_cluster.id,
             role_definition_name="Contributor",
@@ -253,24 +253,24 @@ class DatasetKustoCluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name)
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
             kind="InPlace")
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name)
         example_assignment = azure.authorization.Assignment("example",
             scope=example_cluster.id,
             role_definition_name="Contributor",

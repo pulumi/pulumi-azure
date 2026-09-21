@@ -62,9 +62,9 @@ import (
 //				return err
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //				Name:                  pulumi.String("example-cdn-frontdoor-origin-group"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
-//				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //			})
 //			if err != nil {
 //				return err
@@ -79,14 +79,14 @@ import (
 //				return err
 //			}
 //			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
-//				Name:                  pulumi.String("example-cdn-frontdoor-custom-domain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
-//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName:              exampleFrontdoorOrigin.HostName,
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType: pulumi.String("ManagedCertificate"),
 //					MinimumVersion:  pulumi.String("TLS12"),
 //				},
+//				Name:                  pulumi.String("example-cdn-frontdoor-custom-domain"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				HostName:              exampleFrontdoorOrigin.HostName,
 //			})
 //			if err != nil {
 //				return err
@@ -122,11 +122,8 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorSecurityPolicy(ctx, "example", &cdn.FrontdoorSecurityPolicyArgs{
-//				Name:                  pulumi.String("example-cdn-frontdoor-security-policy"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SecurityPolicies: &cdn.FrontdoorSecurityPolicySecurityPoliciesArgs{
 //					Firewall: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{
-//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //						Association: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{
 //							Domains: cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{
 //								&cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{
@@ -135,8 +132,11 @@ import (
 //							},
 //							PatternsToMatch: pulumi.String("/*"),
 //						},
+//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                  pulumi.String("example-cdn-frontdoor-security-policy"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -168,13 +168,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
-//				Separator: ".",
-//				Input: []interface{}{
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": []interface{}{
 //					"_dnsauth",
-//					std.Split(ctx, std.SplitArgs{
-//						Separator: ".",
-//						Text:      exampleAzurermCdnFrontdoorCustomDomain.HostName,
+//					std.Split(ctx, map[string]interface{}{
+//						"separator": ".",
+//						"text":      exampleAzurermCdnFrontdoorCustomDomain.HostName,
 //					}, nil).Result[0],
 //				},
 //			}, nil)
@@ -182,15 +182,15 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String(invokeJoin.Result),
-//				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Ttl:               pulumi.Int(3600),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
 //						Value: pulumi.Any(exampleAzurermCdnFrontdoorCustomDomain.ValidationToken),
 //					},
 //				},
+//				Name:              invokeJoin.Result,
+//				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Ttl:               pulumi.Int(3600),
 //			})
 //			if err != nil {
 //				return err
@@ -218,15 +218,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeSplit, err := std.Split(ctx, &std.SplitArgs{
-//				Separator: ".",
-//				Text:      exampleAzurermCdnFrontdoorCustomDomain.HostName,
+//			invokeSplit, err := std.Split(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"text":      exampleAzurermCdnFrontdoorCustomDomain.HostName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				Name:              pulumi.String(invokeSplit.Result[0]),
+//				Name:              invokeSplit.Result[0],
 //				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Ttl:               pulumi.Int(3600),

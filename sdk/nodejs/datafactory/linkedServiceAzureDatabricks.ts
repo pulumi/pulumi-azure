@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  * });
  * //Create a Linked Service using managed identity and new cluster config
  * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "TestDtaFactory92783401247",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "TestDtaFactory92783401247",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * //Create a databricks instance
  * const exampleWorkspace = new azure.databricks.Workspace("example", {
@@ -38,11 +38,6 @@ import * as utilities from "../utilities";
  *     sku: "standard",
  * });
  * const msiLinked = new azure.datafactory.LinkedServiceAzureDatabricks("msi_linked", {
- *     name: "ADBLinkedServiceViaMSI",
- *     dataFactoryId: exampleFactory.id,
- *     description: "ADB Linked Service via MSI",
- *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
- *     msiWorkspaceId: exampleWorkspace.id,
  *     newClusterConfig: {
  *         nodeType: "Standard_NC12",
  *         clusterVersion: "5.5.x-gpu-scala2.11",
@@ -67,6 +62,11 @@ import * as utilities from "../utilities";
  *             "init2.sh",
  *         ],
  *     },
+ *     name: "ADBLinkedServiceViaMSI",
+ *     dataFactoryId: exampleFactory.id,
+ *     description: "ADB Linked Service via MSI",
+ *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
+ *     msiWorkspaceId: exampleWorkspace.id,
  * });
  * ```
  *

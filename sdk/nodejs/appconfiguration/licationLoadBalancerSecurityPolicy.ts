@@ -23,9 +23,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const examplePolicy = new azure.waf.Policy("example", {
- *     name: "example-wafpolicy",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     managedRules: {
  *         managedRuleSets: [{
  *             type: "Microsoft_DefaultRuleSet",
@@ -36,6 +33,9 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *         mode: "Detection",
  *     },
+ *     name: "example-wafpolicy",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleLicationLoadBalancerSecurityPolicy = new azure.appconfiguration.LicationLoadBalancerSecurityPolicy("example", {
  *     name: "example-albsp",

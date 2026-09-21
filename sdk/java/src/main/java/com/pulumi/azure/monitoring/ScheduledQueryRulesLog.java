@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.ActionGroupWebhookReceiverArgs;
  * import com.pulumi.azure.monitoring.MetricAlert;
  * import com.pulumi.azure.monitoring.MetricAlertArgs;
- * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
  * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
+ * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesLog;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesLogArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesLogCriteriaArgs;
@@ -72,23 +72,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleActionGroup = new ActionGroup("exampleActionGroup", ActionGroupArgs.builder()
- *             .name("example-actiongroup")
- *             .resourceGroupName(example.name())
- *             .shortName("exampleact")
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
  *                 .name("callmyapi")
  *                 .serviceUri("http://example.com/alert")
  *                 .build())
+ *             .name("example-actiongroup")
+ *             .resourceGroupName(example.name())
+ *             .shortName("exampleact")
  *             .build());
  * 
  *         // Example: Creates alert using the new Scheduled Query Rules metric
  *         var exampleMetricAlert = new MetricAlert("exampleMetricAlert", MetricAlertArgs.builder()
- *             .name("example-metricalert")
- *             .resourceGroupName(example.name())
- *             .scopes(exampleAnalyticsWorkspace.id())
- *             .description("Action will be triggered when Average_% Idle Time metric is less than 10.")
- *             .frequency("PT1M")
- *             .windowSize("PT5M")
+ *             .actions(MetricAlertActionArgs.builder()
+ *                 .actionGroupId(exampleActionGroup.id())
+ *                 .build())
  *             .criterias(MetricAlertCriteriaArgs.builder()
  *                 .metricNamespace("Microsoft.OperationalInsights/workspaces")
  *                 .metricName("UsedCapacity")
@@ -96,24 +93,27 @@ import javax.annotation.Nullable;
  *                 .operator("LessThan")
  *                 .threshold(10.0)
  *                 .build())
- *             .actions(MetricAlertActionArgs.builder()
- *                 .actionGroupId(exampleActionGroup.id())
- *                 .build())
+ *             .name("example-metricalert")
+ *             .resourceGroupName(example.name())
+ *             .scopes(exampleAnalyticsWorkspace.id())
+ *             .description("Action will be triggered when Average_% Idle Time metric is less than 10.")
+ *             .frequency("PT1M")
+ *             .windowSize("PT5M")
  *             .build());
  * 
  *         // Example: LogToMetric Action for the named Computer
  *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", ScheduledQueryRulesLogArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .criteria(ScheduledQueryRulesLogCriteriaArgs.builder()
- *                 .metricName("Average_% Idle Time")
  *                 .dimensions(ScheduledQueryRulesLogCriteriaDimensionArgs.builder()
  *                     .name("Computer")
  *                     .operator("Include")
  *                     .values("targetVM")
  *                     .build())
+ *                 .metricName("Average_% Idle Time")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .dataSourceId(exampleAnalyticsWorkspace.id())
  *             .description("Scheduled query rule LogToMetric example")
  *             .enabled(true)

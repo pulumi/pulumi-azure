@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				BlobProperties: &storage.AccountBlobPropertiesArgs{
+//					VersioningEnabled: pulumi.Bool(true),
+//				},
 //				Name:                   pulumi.String("examplestoracc"),
 //				ResourceGroupName:      example.Name,
 //				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
-//				BlobProperties: &storage.AccountBlobPropertiesArgs{
-//					VersioningEnabled: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -58,7 +58,6 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewBlobInventoryPolicy(ctx, "example", &storage.BlobInventoryPolicyArgs{
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Rules: storage.BlobInventoryPolicyRuleArray{
 //					&storage.BlobInventoryPolicyRuleArgs{
 //						Name:                 pulumi.String("rule1"),
@@ -72,6 +71,7 @@ import (
 //						},
 //					},
 //				},
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

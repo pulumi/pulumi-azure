@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  *     location: "East US",
  * });
  * const exampleCache = new azure.redis.Cache("example", {
+ *     redisConfiguration: {
+ *         maxmemoryReserved: 2,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -26,11 +31,6 @@ import * as utilities from "../utilities";
  *     family: "P",
  *     skuName: "Premium",
  *     enableNonSslPort: false,
- *     redisConfiguration: {
- *         maxmemoryReserved: 2,
- *         maxmemoryDelta: 2,
- *         maxmemoryPolicy: "allkeys-lru",
- *     },
  * });
  * const exampleCacheAccessPolicyAssignment = new azure.redis.CacheAccessPolicyAssignment("example", {
  *     name: "example",

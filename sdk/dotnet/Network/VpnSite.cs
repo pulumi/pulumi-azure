@@ -37,14 +37,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVpnSite = new Azure.Network.VpnSite("example", new()
     ///     {
-    ///         Name = "site1",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         VirtualWanId = exampleVirtualWan.Id,
-    ///         AddressCidrs = new[]
-    ///         {
-    ///             "10.0.0.0/24",
-    ///         },
     ///         Links = new[]
     ///         {
     ///             new Azure.Network.Inputs.VpnSiteLinkArgs
@@ -52,6 +44,14 @@ namespace Pulumi.Azure.Network
     ///                 Name = "link1",
     ///                 IpAddress = "10.0.0.1",
     ///             },
+    ///         },
+    ///         Name = "site1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressCidrs = new[]
+    ///         {
+    ///             "10.0.0.0/24",
     ///         },
     ///     });
     /// 

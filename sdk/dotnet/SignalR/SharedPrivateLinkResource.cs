@@ -32,13 +32,6 @@ namespace Pulumi.Azure.SignalR
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "examplekeyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -59,18 +52,25 @@ namespace Pulumi.Azure.SignalR
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var test = new Azure.SignalR.Service("test", new()
     ///     {
-    ///         Name = "tfex-signalr",
-    ///         Location = testAzurermResourceGroup.Location,
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Standard_S1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "tfex-signalr",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleSharedPrivateLinkResource = new Azure.SignalR.SharedPrivateLinkResource("example", new()

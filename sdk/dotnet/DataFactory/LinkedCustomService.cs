@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()

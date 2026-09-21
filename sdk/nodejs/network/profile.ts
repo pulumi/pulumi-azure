@@ -26,29 +26,29 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.1.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "examplesubnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.1.0.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "examplesubnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.0.0/24"],
  * });
  * const exampleProfile = new azure.network.Profile("example", {
- *     name: "examplenetprofile",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     containerNetworkInterface: {
- *         name: "examplecnic",
  *         ipConfigurations: [{
  *             name: "exampleipconfig",
  *             subnetId: exampleSubnet.id,
  *         }],
+ *         name: "examplecnic",
  *     },
+ *     name: "examplenetprofile",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

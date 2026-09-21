@@ -26,16 +26,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "anfcmkakv",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     enabledForDiskEncryption: true,
- *     enabledForDeployment: true,
- *     enabledForTemplateDeployment: true,
- *     purgeProtectionEnabled: true,
- *     tenantId: "00000000-0000-0000-0000-000000000000",
- *     skuName: "standard",
  *     accessPolicies: [
  *         {
  *             tenantId: "00000000-0000-0000-0000-000000000000",
@@ -60,6 +50,16 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "anfcmkakv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     enabledForDiskEncryption: true,
+ *     enabledForDeployment: true,
+ *     enabledForTemplateDeployment: true,
+ *     purgeProtectionEnabled: true,
+ *     tenantId: "00000000-0000-0000-0000-000000000000",
+ *     skuName: "standard",
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "anfencryptionkey",
@@ -76,13 +76,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
- *     name: "netappaccount",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAccountEncryption = new azure.netapp.AccountEncryption("example", {
  *     netappAccountId: exampleAccount.id,

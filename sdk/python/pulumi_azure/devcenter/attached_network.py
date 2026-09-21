@@ -161,12 +161,12 @@ class AttachedNetwork(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_network_connection = azure.devcenter.NetworkConnection("example",
             name="example-dcnc",
             resource_group_name=example.name,
@@ -230,12 +230,12 @@ class AttachedNetwork(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_dev_center = azure.devcenter.DevCenter("example",
-            name="example-dc",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-dc",
+            resource_group_name=example.name,
+            location=example.location)
         example_network_connection = azure.devcenter.NetworkConnection("example",
             name="example-dcnc",
             resource_group_name=example.name,

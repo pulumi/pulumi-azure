@@ -329,10 +329,6 @@ class BudgetSubscription(pulumi.CustomResource):
             resource_group_name=example.name,
             short_name="example")
         example_budget_subscription = azure.consumption.BudgetSubscription("example",
-            name="example",
-            subscription_id=current.id,
-            amount=float(1000),
-            time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",
                 "end_date": "2022-07-01T00:00:00Z",
@@ -372,7 +368,11 @@ class BudgetSubscription(pulumi.CustomResource):
                         "bar@example.com",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            subscription_id=current.id,
+            amount=float(1000),
+            time_grain="Monthly")
         ```
 
         ## API Providers
@@ -428,10 +428,6 @@ class BudgetSubscription(pulumi.CustomResource):
             resource_group_name=example.name,
             short_name="example")
         example_budget_subscription = azure.consumption.BudgetSubscription("example",
-            name="example",
-            subscription_id=current.id,
-            amount=float(1000),
-            time_grain="Monthly",
             time_period={
                 "start_date": "2022-06-01T00:00:00Z",
                 "end_date": "2022-07-01T00:00:00Z",
@@ -471,7 +467,11 @@ class BudgetSubscription(pulumi.CustomResource):
                         "bar@example.com",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            subscription_id=current.id,
+            amount=float(1000),
+            time_grain="Monthly")
         ```
 
         ## API Providers

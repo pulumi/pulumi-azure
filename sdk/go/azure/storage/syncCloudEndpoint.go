@@ -64,19 +64,19 @@ import (
 //				return err
 //			}
 //			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:               pulumi.String("example-share"),
-//				StorageAccountName: exampleAccount.Name,
-//				Quota:              pulumi.Int(50),
 //				Acls: storage.ShareAclArray{
 //					&storage.ShareAclArgs{
-//						Id: pulumi.String("GhostedRecall"),
 //						AccessPolicies: storage.ShareAclAccessPolicyArray{
 //							&storage.ShareAclAccessPolicyArgs{
 //								Permissions: pulumi.String("r"),
 //							},
 //						},
+//						Id: pulumi.String("GhostedRecall"),
 //					},
 //				},
+//				Name:               pulumi.String("example-share"),
+//				StorageAccountName: exampleAccount.Name,
+//				Quota:              pulumi.Int(50),
 //			})
 //			if err != nil {
 //				return err

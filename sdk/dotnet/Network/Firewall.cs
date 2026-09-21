@@ -61,11 +61,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
     ///     {
-    ///         Name = "testfirewall",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "AZFW_VNet",
-    ///         SkuTier = "Standard",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.FirewallIpConfigurationArgs
@@ -75,6 +70,11 @@ namespace Pulumi.Azure.Network
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "testfirewall",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "AZFW_VNet",
+    ///         SkuTier = "Standard",
     ///     });
     /// 
     /// });

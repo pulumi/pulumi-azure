@@ -50,15 +50,15 @@ import (
 //				return err
 //			}
 //			_, err = automation.NewConnectionType(ctx, "example", &automation.ConnectionTypeArgs{
-//				Name:                  pulumi.String("example"),
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				AutomationAccountName: exampleAccount.Name,
 //				Fields: automation.ConnectionTypeFieldArray{
 //					&automation.ConnectionTypeFieldArgs{
 //						Name: pulumi.String("example"),
 //						Type: pulumi.String("string"),
 //					},
 //				},
+//				Name:                  pulumi.String("example"),
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err

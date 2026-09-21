@@ -88,22 +88,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mainNetworkInterface = new NetworkInterface("mainNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name(String.format("%s-nic", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(internal.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name(String.format("%s-nic", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
- *             .name(vmName)
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .networkInterfaceIds(mainNetworkInterface.id())
- *             .vmSize("Standard_D4_v5")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -124,6 +119,11 @@ import javax.annotation.Nullable;
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
+ *             .name(vmName)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .networkInterfaceIds(mainNetworkInterface.id())
+ *             .vmSize("Standard_D4_v5")
  *             .build());
  * 
  *         var exampleManagedDisk = new ManagedDisk("exampleManagedDisk", ManagedDiskArgs.builder()
@@ -145,12 +145,12 @@ import javax.annotation.Nullable;
  * 
  *         var exampleImplicitDataDiskFromSource = new ImplicitDataDiskFromSource("exampleImplicitDataDiskFromSource", ImplicitDataDiskFromSourceArgs.builder()
  *             .name(String.format("%s-implicitdisk1", vmName))
- *             .virtualMachineId(testAzurermVirtualMachine.id())
+ *             .virtualMachineId(test.id())
  *             .lun(0)
  *             .caching("None")
  *             .createOption("Copy")
  *             .diskSizeGb(20)
- *             .sourceResourceId(test.id())
+ *             .sourceResourceId(testAzurermSnapshot.id())
  *             .build());
  * 
  *     }

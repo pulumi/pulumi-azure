@@ -800,13 +800,13 @@ class FunctionAppSlot(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="azure-functions-test-service-plan",
+            location=example.location,
+            resource_group_name=example.name)
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,
@@ -892,13 +892,13 @@ class FunctionAppSlot(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_plan = azure.appservice.Plan("example",
-            name="azure-functions-test-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="azure-functions-test-service-plan",
+            location=example.location,
+            resource_group_name=example.name)
         example_function_app = azure.appservice.FunctionApp("example",
             name="test-azure-functions",
             location=example.location,

@@ -42,11 +42,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("example", new()
     ///     {
-    ///         Name = "default",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         HttpsOnly = false,
-    ///         PublicNetworkAccessEnabled = true,
-    ///         InstanceCount = 2,
     ///         ApiMetadata = new Azure.AppPlatform.Inputs.SpringCloudGatewayApiMetadataArgs
     ///         {
     ///             Description = "example description",
@@ -96,6 +91,11 @@ namespace Pulumi.Azure.AppPlatform
     ///             Size = "100MB",
     ///             TimeToLive = "30s",
     ///         },
+    ///         Name = "default",
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         HttpsOnly = false,
+    ///         PublicNetworkAccessEnabled = true,
+    ///         InstanceCount = 2,
     ///     });
     /// 
     /// });

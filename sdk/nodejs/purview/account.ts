@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.purview.Account("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

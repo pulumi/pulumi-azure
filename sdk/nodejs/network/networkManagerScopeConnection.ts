@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  *     subscriptionId: "00000000-0000-0000-0000-000000000000",
  * });
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-networkmanager",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [currentGetSubscription.then(currentGetSubscription => currentGetSubscription.id)],
  *     },
+ *     name: "example-networkmanager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scopeAccesses: ["SecurityAdmin"],
  * });
  * const exampleNetworkManagerScopeConnection = new azure.network.NetworkManagerScopeConnection("example", {

@@ -64,6 +64,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
+ *             .identity(FlexibleServerIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("example-mysqlfs")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,10 +75,6 @@ import javax.annotation.Nullable;
  *             .administratorPassword("QAZwsx123")
  *             .skuName("B_Standard_B1ms")
  *             .zone("2")
- *             .identity(FlexibleServerIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .build());
  * 
  *         var exampleFlexibleServerActiveDirectoryAdministratory = new FlexibleServerActiveDirectoryAdministratory("exampleFlexibleServerActiveDirectoryAdministratory", FlexibleServerActiveDirectoryAdministratoryArgs.builder()

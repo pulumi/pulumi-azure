@@ -37,10 +37,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
     ///     {
-    ///         Name = "example-origin-group",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         SessionAffinityEnabled = true,
-    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
     ///         {
     ///             IntervalInSeconds = 240,
@@ -54,6 +50,10 @@ namespace Pulumi.Azure.Cdn
     ///             SampleSize = 16,
     ///             SuccessfulSamplesRequired = 3,
     ///         },
+    ///         Name = "example-origin-group",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///     });
     /// 
     /// });

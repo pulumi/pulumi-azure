@@ -240,28 +240,28 @@ class Profile(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.1.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "name": "Microsoft.ContainerInstance/containerGroups",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
-            }])
-        example_profile = azure.network.Profile("example",
-            name="examplenetprofile",
-            location=example.location,
+                "name": "delegation",
+            }],
+            name="examplesubnet",
             resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"])
+        example_profile = azure.network.Profile("example",
             container_network_interface={
-                "name": "examplecnic",
                 "ip_configurations": [{
                     "name": "exampleipconfig",
                     "subnet_id": example_subnet.id,
                 }],
-            })
+                "name": "examplecnic",
+            },
+            name="examplenetprofile",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -312,28 +312,28 @@ class Profile(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.1.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="examplesubnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.1.0.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "name": "Microsoft.ContainerInstance/containerGroups",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
-            }])
-        example_profile = azure.network.Profile("example",
-            name="examplenetprofile",
-            location=example.location,
+                "name": "delegation",
+            }],
+            name="examplesubnet",
             resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.1.0.0/24"])
+        example_profile = azure.network.Profile("example",
             container_network_interface={
-                "name": "examplecnic",
                 "ip_configurations": [{
                     "name": "exampleipconfig",
                     "subnet_id": example_subnet.id,
                 }],
-            })
+                "name": "examplecnic",
+            },
+            name="examplenetprofile",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

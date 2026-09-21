@@ -183,16 +183,16 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             name="exprtTest",
             location="West Europe")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="expressRoute1",
             resource_group_name=example.name,
             location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -244,16 +244,16 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             name="exprtTest",
             location="West Europe")
         example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             name="expressRoute1",
             resource_group_name=example.name,
             location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku={
-                "tier": "Standard",
-                "family": "MeteredData",
-            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",

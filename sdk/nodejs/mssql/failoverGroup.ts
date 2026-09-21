@@ -43,16 +43,16 @@ import * as utilities from "../utilities";
  *     maxSizeGb: 200,
  * });
  * const exampleFailoverGroup = new azure.mssql.FailoverGroup("example", {
- *     name: "example",
- *     serverId: primary.id,
- *     databases: [exampleDatabase.id],
- *     partnerServers: [{
- *         id: secondary.id,
- *     }],
  *     readWriteEndpointFailoverPolicy: {
  *         mode: "Automatic",
  *         graceMinutes: 80,
  *     },
+ *     partnerServers: [{
+ *         id: secondary.id,
+ *     }],
+ *     name: "example",
+ *     serverId: primary.id,
+ *     databases: [exampleDatabase.id],
  *     tags: {
  *         environment: "prod",
  *         database: "example",

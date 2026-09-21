@@ -61,9 +61,6 @@ namespace Pulumi.Azure.Backup
     /// 
     ///     var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("example", new()
     ///     {
-    ///         Name = "tfex-recovery-vault-policy",
-    ///         ResourceGroupName = example.Name,
-    ///         RecoveryVaultName = vault.Name,
     ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
     ///         {
     ///             Frequency = "Daily",
@@ -73,6 +70,9 @@ namespace Pulumi.Azure.Backup
     ///         {
     ///             Count = 10,
     ///         },
+    ///         Name = "tfex-recovery-vault-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = vault.Name,
     ///     });
     /// 
     ///     var share1 = new Azure.Backup.ProtectedFileShare("share1", new()

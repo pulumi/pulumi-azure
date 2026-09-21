@@ -68,14 +68,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileDataDiskArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileLinuxConfigArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileIpConfigurationArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileDataDiskArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -118,13 +117,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
- *             .name("test")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name("PublicIPAddress")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("test")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var bpepool = new BackendAddressPool("bpepool", BackendAddressPoolArgs.builder()
@@ -152,18 +151,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
- *             .name("mytestscaleset-1")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .automaticOsUpgrade(true)
- *             .upgradePolicyMode("Rolling")
  *             .rollingUpgradePolicy(ScaleSetRollingUpgradePolicyArgs.builder()
  *                 .maxBatchInstancePercent(20)
  *                 .maxUnhealthyInstancePercent(20)
  *                 .maxUnhealthyUpgradedInstancePercent(5)
  *                 .pauseTimeBetweenBatches("PT0S")
  *                 .build())
- *             .healthProbeId(exampleProbe.id())
  *             .sku(ScaleSetSkuArgs.builder()
  *                 .name("Standard_D4_v5")
  *                 .tier("Standard")
@@ -181,28 +174,18 @@ import javax.annotation.Nullable;
  *                 .createOption("FromImage")
  *                 .managedDiskType("Standard_LRS")
  *                 .build())
- *             .storageProfileDataDisks(ScaleSetStorageProfileDataDiskArgs.builder()
- *                 .lun(0)
- *                 .caching("ReadWrite")
- *                 .createOption("Empty")
- *                 .diskSizeGb(10)
- *                 .build())
  *             .osProfile(ScaleSetOsProfileArgs.builder()
  *                 .computerNamePrefix("testvm")
  *                 .adminUsername("myadmin")
  *                 .build())
  *             .osProfileLinuxConfig(ScaleSetOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path("/home/myadmin/.ssh/authorized_keys")
- *                     .keyData(StdFunctions.file(FileArgs.builder()
- *                         .input("~/.ssh/demo_key.pub")
- *                         .build()).result())
+ *                     .keyData(StdFunctions.file(Map.of("input", "~/.ssh/demo_key.pub")).result())
  *                     .build())
+ *                 .disablePasswordAuthentication(true)
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
- *                 .name("mynetworkprofile")
- *                 .primary(true)
  *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
  *                     .name("TestIPConfiguration")
  *                     .primary(true)
@@ -210,7 +193,21 @@ import javax.annotation.Nullable;
  *                     .loadBalancerBackendAddressPoolIds(bpepool.id())
  *                     .loadBalancerInboundNatRulesIds(lbnatpool.id())
  *                     .build())
+ *                 .name("mynetworkprofile")
+ *                 .primary(true)
  *                 .build())
+ *             .storageProfileDataDisks(ScaleSetStorageProfileDataDiskArgs.builder()
+ *                 .lun(0)
+ *                 .caching("ReadWrite")
+ *                 .createOption("Empty")
+ *                 .diskSizeGb(10)
+ *                 .build())
+ *             .name("mytestscaleset-1")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .automaticOsUpgrade(true)
+ *             .upgradePolicyMode("Rolling")
+ *             .healthProbeId(exampleProbe.id())
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
@@ -244,12 +241,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileLinuxConfigArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileIpConfigurationArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
+ * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileIpConfigurationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -298,10 +294,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
- *             .name("mytestscaleset-1")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .upgradePolicyMode("Manual")
  *             .sku(ScaleSetSkuArgs.builder()
  *                 .name("Standard_D4_v5")
  *                 .tier("Standard")
@@ -312,22 +304,11 @@ import javax.annotation.Nullable;
  *                 .adminUsername("myadmin")
  *                 .build())
  *             .osProfileLinuxConfig(ScaleSetOsProfileLinuxConfigArgs.builder()
- *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path("/home/myadmin/.ssh/authorized_keys")
- *                     .keyData(StdFunctions.file(FileArgs.builder()
- *                         .input("~/.ssh/demo_key.pub")
- *                         .build()).result())
+ *                     .keyData(StdFunctions.file(Map.of("input", "~/.ssh/demo_key.pub")).result())
  *                     .build())
- *                 .build())
- *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
- *                 .name("TestNetworkProfile")
- *                 .primary(true)
- *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
- *                     .name("TestIPConfiguration")
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
+ *                 .disablePasswordAuthentication(true)
  *                 .build())
  *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
  *                 .name("osDiskProfile")
@@ -345,6 +326,19 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
+ *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
+ *                     .name("TestIPConfiguration")
+ *                     .primary(true)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .build())
+ *                 .name("TestNetworkProfile")
+ *                 .primary(true)
+ *                 .build())
+ *             .name("mytestscaleset-1")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .upgradePolicyMode("Manual")
  *             .build());
  * 
  *     }
@@ -384,10 +378,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScaleSet = new ScaleSet("exampleScaleSet", ScaleSetArgs.builder()
- *             .name("test")
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
  *                 .id(example.id())
  *                 .build())
+ *             .name("test")
  *             .build());
  * 
  *     }

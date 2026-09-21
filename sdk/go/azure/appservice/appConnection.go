@@ -39,11 +39,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb-account"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
 //					MaxIntervalInSeconds: pulumi.Int(10),
@@ -55,6 +50,11 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("example-cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err
@@ -105,17 +105,19 @@ import (
 //				AppServicePlanId:        pulumi.Any(testAzurermAppServicePlan.Id),
 //				StorageAccountName:      pulumi.Any(testAzurermStorageAccount.Name),
 //				StorageAccountAccessKey: pulumi.Any(testAzurermStorageAccount.PrimaryAccessKey),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"identity",
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewAppConnection(ctx, "example", &appservice.AppConnectionArgs{
-//				Name:             pulumi.String("example-serviceconnector"),
-//				FunctionAppId:    pulumi.Any(exampleAzurermFunctionApp.Id),
-//				TargetResourceId: pulumi.Any(testAzurermCosmosdbAccount.Id),
 //				Authentication: &appservice.AppConnectionAuthenticationArgs{
 //					Type: pulumi.String("systemAssignedIdentity"),
 //				},
+//				Name:             pulumi.String("example-serviceconnector"),
+//				FunctionAppId:    pulumi.Any(exampleAzurermFunctionApp.Id),
+//				TargetResourceId: pulumi.Any(testAzurermCosmosdbAccount.Id),
 //			})
 //			if err != nil {
 //				return err

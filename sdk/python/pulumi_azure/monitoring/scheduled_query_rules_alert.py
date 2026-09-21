@@ -628,14 +628,18 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             application_type="web")
         # Example: Alerting Action with result count trigger
         example_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             action={
                 "action_groups": [],
                 "email_subject": "Email Header",
                 "custom_webhook_payload": "{}",
             },
+            trigger={
+                "operator": "GreaterThan",
+                "threshold": float(3),
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             data_source_id=example_insights.id,
             description="Alert when total results cross threshold",
             enabled=True,
@@ -646,24 +650,24 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             severity=1,
             frequency=5,
             time_window=30,
-            trigger={
-                "operator": "GreaterThan",
-                "threshold": float(3),
-            },
             tags={
                 "foo": "bar",
             })
         # Example: Alerting Action Cross-Resource
         example2_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example2",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            authorized_resource_ids=[example2.id],
             action={
                 "action_groups": [],
                 "email_subject": "Email Header",
                 "custom_webhook_payload": "{}",
             },
+            trigger={
+                "operator": "GreaterThan",
+                "threshold": float(3),
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            authorized_resource_ids=[example2.id],
             data_source_id=example_insights.id,
             description="Query may access data within multiple resources",
             enabled=True,
@@ -673,14 +677,10 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
           | where toint(resultCode) >= 500 | extend fail=1; a
           | join b on fail
         \"\"\",
-                args=[example2.id]).result,
+                args=[example2.id])["result"],
             severity=1,
             frequency=5,
             time_window=30,
-            trigger={
-                "operator": "GreaterThan",
-                "threshold": float(3),
-            },
             tags={
                 "foo": "bar",
             })
@@ -756,14 +756,18 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             application_type="web")
         # Example: Alerting Action with result count trigger
         example_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             action={
                 "action_groups": [],
                 "email_subject": "Email Header",
                 "custom_webhook_payload": "{}",
             },
+            trigger={
+                "operator": "GreaterThan",
+                "threshold": float(3),
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             data_source_id=example_insights.id,
             description="Alert when total results cross threshold",
             enabled=True,
@@ -774,24 +778,24 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             severity=1,
             frequency=5,
             time_window=30,
-            trigger={
-                "operator": "GreaterThan",
-                "threshold": float(3),
-            },
             tags={
                 "foo": "bar",
             })
         # Example: Alerting Action Cross-Resource
         example2_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example2",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            authorized_resource_ids=[example2.id],
             action={
                 "action_groups": [],
                 "email_subject": "Email Header",
                 "custom_webhook_payload": "{}",
             },
+            trigger={
+                "operator": "GreaterThan",
+                "threshold": float(3),
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            authorized_resource_ids=[example2.id],
             data_source_id=example_insights.id,
             description="Query may access data within multiple resources",
             enabled=True,
@@ -801,14 +805,10 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
           | where toint(resultCode) >= 500 | extend fail=1; a
           | join b on fail
         \"\"\",
-                args=[example2.id]).result,
+                args=[example2.id])["result"],
             severity=1,
             frequency=5,
             time_window=30,
-            trigger={
-                "operator": "GreaterThan",
-                "threshold": float(3),
-            },
             tags={
                 "foo": "bar",
             })

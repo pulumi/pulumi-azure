@@ -41,32 +41,32 @@ import (
 //				return err
 //			}
 //			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Standard_D4_v5"),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				Instances:         pulumi.Int(1),
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
 //				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
 //					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name: pulumi.String("example"),
 //						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name: pulumi.String("internal"),
 //							},
 //						},
+//						Name: pulumi.String("example"),
 //					},
 //				},
-//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//					Caching:            pulumi.String("ReadWrite"),
-//				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Standard_D4_v5"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				Instances:         pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

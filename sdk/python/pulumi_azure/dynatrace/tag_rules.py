@@ -187,11 +187,6 @@ class TagRules(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_monitor = azure.dynatrace.Monitor("example",
-            name="exmpledynatracemonitor",
-            resource_group_name=example.name,
-            location=test["location"],
-            monitoring_enabled=True,
-            marketplace_subscription_status="Active",
             identity={
                 "type": "SystemAssigned",
             },
@@ -207,10 +202,13 @@ class TagRules(pulumi.CustomResource):
                 "billing_cycle": "MONTHLY",
                 "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
                 "effective_date": "2019-08-30T15:14:33Z",
-            })
+            },
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active")
         example_tag_rules = azure.dynatrace.TagRules("example",
-            name="default",
-            monitor_id=test_azurerm_dynatrace_monitors["id"],
             log_rule={
                 "filtering_tags": [{
                     "name": "Environment",
@@ -227,7 +225,9 @@ class TagRules(pulumi.CustomResource):
                     "value": "Prod",
                     "action": "Include",
                 }],
-            })
+            },
+            name="default",
+            monitor_id=test_azurerm_dynatrace_monitors["id"])
         ```
 
         ## API Providers
@@ -272,11 +272,6 @@ class TagRules(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_monitor = azure.dynatrace.Monitor("example",
-            name="exmpledynatracemonitor",
-            resource_group_name=example.name,
-            location=test["location"],
-            monitoring_enabled=True,
-            marketplace_subscription_status="Active",
             identity={
                 "type": "SystemAssigned",
             },
@@ -292,10 +287,13 @@ class TagRules(pulumi.CustomResource):
                 "billing_cycle": "MONTHLY",
                 "plan": "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
                 "effective_date": "2019-08-30T15:14:33Z",
-            })
+            },
+            name="exmpledynatracemonitor",
+            resource_group_name=example.name,
+            location=test["location"],
+            monitoring_enabled=True,
+            marketplace_subscription_status="Active")
         example_tag_rules = azure.dynatrace.TagRules("example",
-            name="default",
-            monitor_id=test_azurerm_dynatrace_monitors["id"],
             log_rule={
                 "filtering_tags": [{
                     "name": "Environment",
@@ -312,7 +310,9 @@ class TagRules(pulumi.CustomResource):
                     "value": "Prod",
                     "action": "Include",
                 }],
-            })
+            },
+            name="default",
+            monitor_id=test_azurerm_dynatrace_monitors["id"])
         ```
 
         ## API Providers

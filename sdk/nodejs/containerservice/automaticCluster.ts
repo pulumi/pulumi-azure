@@ -24,12 +24,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAutomaticCluster = new azure.containerservice.AutomaticCluster("example", {
- *     name: "example-aks1",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-aks1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         Environment: "Production",
  *     },
@@ -61,23 +61,25 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.1.0.0/24"],
  * });
  * const api = new azure.network.Subnet("api", {
- *     name: "example-api-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.1.1.0/24"],
  *     delegations: [{
- *         name: "aks-delegation",
  *         serviceDelegation: {
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *             name: "Microsoft.ContainerService/managedClusters",
  *         },
+ *         name: "aks-delegation",
  *     }],
+ *     name: "example-api-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.1.0/24"],
  * });
  * const systemnode = new azure.network.Subnet("systemnode", {
  *     name: "example-systemnode-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.1.2.0/24"],
+ * }, {
+ *     ignoreChanges: ["delegations"],
  * });
  * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
  *     resourceGroupName: example.name,
@@ -90,9 +92,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
  * const exampleAutomaticCluster = new azure.containerservice.AutomaticCluster("example", {
- *     name: "example-aks",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     hostedSystem: {
  *         nodeSubnetId: node.id,
  *         systemNodeSubnetId: systemnode.id,
@@ -104,6 +103,9 @@ import * as utilities from "../utilities";
  *     apiServerAccess: {
  *         subnetId: api.id,
  *     },
+ *     name: "example-aks",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

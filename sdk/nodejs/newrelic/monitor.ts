@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "East US",
  * });
  * const exampleMonitor = new azure.newrelic.Monitor("example", {
- *     name: "example-nrm",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     plan: {
  *         effectiveDate: "2023-06-06T00:00:00Z",
  *     },
@@ -35,6 +32,9 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-nrm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

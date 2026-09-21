@@ -36,6 +36,11 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
+ *     serialization: {
+ *         type: "Csv",
+ *         encoding: "UTF8",
+ *         fieldDelimiter: ",",
+ *     },
  *     name: "output-to-blob-storage",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -45,11 +50,6 @@ import * as utilities from "../utilities";
  *     pathPattern: "some-pattern",
  *     dateFormat: "yyyy-MM-dd",
  *     timeFormat: "HH",
- *     serialization: {
- *         type: "Csv",
- *         encoding: "UTF8",
- *         fieldDelimiter: ",",
- *     },
  * });
  * ```
  *

@@ -65,11 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-cosmosdb-account")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(10)
@@ -79,6 +74,11 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
@@ -105,21 +105,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
+ *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .location(example.location())
  *             .name("example-linuxwebapp")
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleConnection = new Connection("exampleConnection", ConnectionArgs.builder()
- *             .name("example-serviceconnector")
- *             .appServiceId(exampleLinuxWebApp.id())
- *             .targetResourceId(exampleSqlDatabase.id())
  *             .authentication(ConnectionAuthenticationArgs.builder()
  *                 .type("systemAssignedIdentity")
  *                 .build())
+ *             .name("example-serviceconnector")
+ *             .appServiceId(exampleLinuxWebApp.id())
+ *             .targetResourceId(exampleSqlDatabase.id())
  *             .build());
  * 
  *     }

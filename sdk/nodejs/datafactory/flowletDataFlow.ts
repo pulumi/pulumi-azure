@@ -41,42 +41,42 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const example1 = new azure.datafactory.DatasetJson("example1", {
- *     name: "dataset1",
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedCustomService.name,
  *     azureBlobStorageLocation: {
  *         container: "container",
  *         path: "foo/bar/",
  *         filename: "foo.txt",
  *     },
+ *     name: "dataset1",
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedCustomService.name,
  *     encoding: "UTF-8",
  * });
  * const example2 = new azure.datafactory.DatasetJson("example2", {
- *     name: "dataset2",
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedCustomService.name,
  *     azureBlobStorageLocation: {
  *         container: "container",
  *         path: "foo/bar/",
  *         filename: "bar.txt",
  *     },
+ *     name: "dataset2",
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedCustomService.name,
  *     encoding: "UTF-8",
  * });
  * const example1FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example1", {
+ *     sinks: [{
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *         name: "sink1",
+ *     }],
+ *     sources: [{
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *         name: "source1",
+ *     }],
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     sources: [{
- *         name: "source1",
- *         linkedService: {
- *             name: exampleLinkedCustomService.name,
- *         },
- *     }],
- *     sinks: [{
- *         name: "sink1",
- *         linkedService: {
- *             name: exampleLinkedCustomService.name,
- *         },
- *     }],
  *     script: `source(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
@@ -91,20 +91,20 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const example2FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example2", {
+ *     sinks: [{
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *         name: "sink1",
+ *     }],
+ *     sources: [{
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *         name: "source1",
+ *     }],
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     sources: [{
- *         name: "source1",
- *         linkedService: {
- *             name: exampleLinkedCustomService.name,
- *         },
- *     }],
- *     sinks: [{
- *         name: "sink1",
- *         linkedService: {
- *             name: exampleLinkedCustomService.name,
- *         },
- *     }],
  *     script: `source(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 
@@ -119,26 +119,26 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleFlowletDataFlow = new azure.datafactory.FlowletDataFlow("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     sources: [{
- *         name: "source1",
- *         flowlet: {
- *             name: example1FlowletDataFlow.name,
- *         },
- *         linkedService: {
- *             name: exampleLinkedCustomService.name,
- *         },
- *     }],
  *     sinks: [{
- *         name: "sink1",
  *         flowlet: {
  *             name: example2FlowletDataFlow.name,
  *         },
  *         linkedService: {
  *             name: exampleLinkedCustomService.name,
  *         },
+ *         name: "sink1",
  *     }],
+ *     sources: [{
+ *         flowlet: {
+ *             name: example1FlowletDataFlow.name,
+ *         },
+ *         linkedService: {
+ *             name: exampleLinkedCustomService.name,
+ *         },
+ *         name: "source1",
+ *     }],
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
  *     script: `source(
  *   allowSchemaDrift: true, 
  *   validateSchema: false, 

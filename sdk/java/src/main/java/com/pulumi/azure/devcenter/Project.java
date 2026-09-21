@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new DevCenter("example", DevCenterArgs.builder()
- *             .name("example")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type("example-value")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *         var exampleProject = new Project("exampleProject", ProjectArgs.builder()

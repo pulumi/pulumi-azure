@@ -37,9 +37,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const deployNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("deploy", {
- *     name: "deploy-nsg",
- *     location: deploy.location,
- *     resourceGroupName: deploy.name,
  *     securityRules: [
  *         {
  *             name: "AllowSyncWithAzureAD",
@@ -86,36 +83,33 @@ import * as utilities from "../utilities";
  *             destinationAddressPrefix: "*",
  *         },
  *     ],
+ *     name: "deploy-nsg",
+ *     location: deploy.location,
+ *     resourceGroupName: deploy.name,
  * });
  * const deploySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("deploy", {
  *     subnetId: deploySubnet.id,
  *     networkSecurityGroupId: deployNetworkSecurityGroup.id,
  * });
- * const dcAdmins = new azuread.Group("dc_admins", {
+ * const dcAdmins = new azuread.index.Group("dc_admins", {
  *     displayName: "AAD DC Administrators",
  *     securityEnabled: true,
  * });
- * const admin = new azuread.User("admin", {
+ * const admin = new azuread.index.User("admin", {
  *     userPrincipalName: "dc-admin@hashicorp-example.com",
  *     displayName: "DC Administrator",
  *     password: "Pa55w0Rd!!1",
  * });
- * const adminGroupMember = new azuread.GroupMember("admin", {
+ * const adminGroupMember = new azuread.index.GroupMember("admin", {
  *     groupObjectId: dcAdmins.objectId,
  *     memberObjectId: admin.objectId,
  * });
- * const example = new azuread.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * const example = new azuread.index.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
  * const aadds = new azure.core.ResourceGroup("aadds", {
  *     name: "aadds-rg",
  *     location: "westeurope",
  * });
  * const exampleService = new azure.domainservices.Service("example", {
- *     name: "example-aadds",
- *     location: aadds.location,
- *     resourceGroupName: aadds.name,
- *     domainName: "widgetslogin.net",
- *     sku: "Enterprise",
- *     filteredSyncEnabled: false,
  *     initialReplicaSet: {
  *         subnetId: deploySubnet.id,
  *     },
@@ -132,6 +126,12 @@ import * as utilities from "../utilities";
  *         syncNtlmPasswords: true,
  *         syncOnPremPasswords: true,
  *     },
+ *     name: "example-aadds",
+ *     location: aadds.location,
+ *     resourceGroupName: aadds.name,
+ *     domainName: "widgetslogin.net",
+ *     sku: "Enterprise",
+ *     filteredSyncEnabled: false,
  *     tags: {
  *         Environment: "prod",
  *     },

@@ -73,8 +73,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var exampleGetAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
- *             .connectionString(exampleAccount.primaryConnectionString())
- *             .httpsOnly(true)
  *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
  *                 .service(true)
  *                 .container(false)
@@ -86,8 +84,6 @@ import javax.annotation.Nullable;
  *                 .table(false)
  *                 .file(false)
  *                 .build())
- *             .start("2021-04-30T00:00:00Z")
- *             .expiry("2023-04-30T00:00:00Z")
  *             .permissions(GetAccountSASPermissionsArgs.builder()
  *                 .read(true)
  *                 .write(true)
@@ -100,15 +96,13 @@ import javax.annotation.Nullable;
  *                 .tag(false)
  *                 .filter(false)
  *                 .build())
+ *             .connectionString(exampleAccount.primaryConnectionString())
+ *             .httpsOnly(true)
+ *             .start("2021-04-30T00:00:00Z")
+ *             .expiry("2023-04-30T00:00:00Z")
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example-keyvault")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(example.tenantId())
- *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(example.tenantId())
  *                 .objectId(example.objectId())
@@ -125,6 +119,12 @@ import javax.annotation.Nullable;
  *                     "Update",
  *                     "RegenerateKey")
  *                 .build())
+ *             .name("example-keyvault")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(example.tenantId())
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()

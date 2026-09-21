@@ -79,15 +79,15 @@ import (
 //				return err
 //			}
 //			exampleFhirService, err := healthcare.NewFhirService(ctx, "example", &healthcare.FhirServiceArgs{
+//				Authentication: &healthcare.FhirServiceAuthenticationArgs{
+//					Authority: pulumi.String("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+//					Audience:  pulumi.String("https://examplefhir.fhir.azurehealthcareapis.com"),
+//				},
 //				Name:              pulumi.String("examplefhir"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				WorkspaceId:       exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Kind:              pulumi.String("fhir-R4"),
-//				Authentication: &healthcare.FhirServiceAuthenticationArgs{
-//					Authority: pulumi.String("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
-//					Audience:  pulumi.String("https://examplefhir.fhir.azurehealthcareapis.com"),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -522,15 +522,15 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         example = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="UEBA Anomalous Sign In")
         example_alert_rule_anomaly_duplicate = azure.sentinel.AlertRuleAnomalyDuplicate("example",
+            threshold_observations=[{
+                "name": "Anomaly score threshold",
+                "value": "0.6",
+            }],
             display_name="example duplicated UEBA Anomalous Sign In",
             log_analytics_workspace_id=example_analytics_workspace.id,
             built_in_rule_id=example.id,
             enabled=True,
-            mode="Flighting",
-            threshold_observations=[{
-                "name": "Anomaly score threshold",
-                "value": "0.6",
-            }])
+            mode="Flighting")
         ```
 
         ## Import
@@ -585,15 +585,15 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         example = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="UEBA Anomalous Sign In")
         example_alert_rule_anomaly_duplicate = azure.sentinel.AlertRuleAnomalyDuplicate("example",
+            threshold_observations=[{
+                "name": "Anomaly score threshold",
+                "value": "0.6",
+            }],
             display_name="example duplicated UEBA Anomalous Sign In",
             log_analytics_workspace_id=example_analytics_workspace.id,
             built_in_rule_id=example.id,
             enabled=True,
-            mode="Flighting",
-            threshold_observations=[{
-                "name": "Anomaly score threshold",
-                "value": "0.6",
-            }])
+            mode="Flighting")
         ```
 
         ## Import

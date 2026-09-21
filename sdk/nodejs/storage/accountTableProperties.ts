@@ -30,17 +30,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleAccountTableProperties = new azure.storage.AccountTableProperties("example", {
- *     storageAccountId: exampleAccount.id,
- *     corsRules: [{
- *         allowedOrigins: ["http://www.example.com"],
- *         exposedHeaders: ["x-tempo-*"],
- *         allowedHeaders: ["x-tempo-*"],
- *         allowedMethods: [
- *             "GET",
- *             "PUT",
- *         ],
- *         maxAgeInSeconds: 500,
- *     }],
  *     logging: {
  *         version: "1.0",
  *         "delete": true,
@@ -56,6 +45,17 @@ import * as utilities from "../utilities";
  *         version: "1.0",
  *         retentionPolicyDays: 7,
  *     },
+ *     corsRules: [{
+ *         allowedOrigins: ["http://www.example.com"],
+ *         exposedHeaders: ["x-tempo-*"],
+ *         allowedHeaders: ["x-tempo-*"],
+ *         allowedMethods: [
+ *             "GET",
+ *             "PUT",
+ *         ],
+ *         maxAgeInSeconds: 500,
+ *     }],
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

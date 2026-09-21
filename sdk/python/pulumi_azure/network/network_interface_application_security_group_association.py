@@ -132,14 +132,14 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
             location=example.location,
             resource_group_name=example.name)
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
         example_network_interface_application_security_group_association = azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("example",
             network_interface_id=example_network_interface.id,
             application_security_group_id=example_application_security_group.id)
@@ -201,14 +201,14 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
             location=example.location,
             resource_group_name=example.name)
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
+            }],
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name)
         example_network_interface_application_security_group_association = azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("example",
             network_interface_id=example_network_interface.id,
             application_security_group_id=example_application_security_group.id)

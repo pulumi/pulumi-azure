@@ -46,11 +46,11 @@ import (
 //				return err
 //			}
 //			_, err = automation.NewPowershell72Module(ctx, "example", &automation.Powershell72ModuleArgs{
-//				Name:                pulumi.String("xActiveDirectory"),
-//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				ModuleLink: &automation.Powershell72ModuleModuleLinkArgs{
 //					Uri: pulumi.String("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg"),
 //				},
+//				Name:                pulumi.String("xActiveDirectory"),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

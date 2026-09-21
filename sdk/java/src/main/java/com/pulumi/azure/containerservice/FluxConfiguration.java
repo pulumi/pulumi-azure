@@ -66,10 +66,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example-aks")
- *             .location("West Europe")
- *             .resourceGroupName(example.name())
- *             .dnsPrefix("example-aks")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("default")
  *                 .nodeCount(1)
@@ -78,6 +74,10 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-aks")
+ *             .location("West Europe")
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix("example-aks")
  *             .build());
  * 
  *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension("exampleKubernetesClusterExtension", KubernetesClusterExtensionArgs.builder()
@@ -87,24 +87,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFluxConfiguration = new FluxConfiguration("exampleFluxConfiguration", FluxConfigurationArgs.builder()
- *             .name("example-fc")
- *             .clusterId(test.id())
- *             .namespace("flux")
  *             .gitRepository(FluxConfigurationGitRepositoryArgs.builder()
  *                 .url("https://github.com/Azure/arc-k8s-demo")
  *                 .referenceType("branch")
  *                 .referenceValue("main")
  *                 .build())
  *             .kustomizations(FluxConfigurationKustomizationArgs.builder()
- *                 .name("kustomization-1")
  *                 .postBuild(FluxConfigurationKustomizationPostBuildArgs.builder()
- *                     .substitute(Map.of("example_var", "substitute_with_this"))
  *                     .substituteFroms(FluxConfigurationKustomizationPostBuildSubstituteFromArgs.builder()
  *                         .kind("ConfigMap")
  *                         .name("example-configmap")
  *                         .build())
+ *                     .substitute(Map.of("example_var", "substitute_with_this"))
  *                     .build())
+ *                 .name("kustomization-1")
  *                 .build())
+ *             .name("example-fc")
+ *             .clusterId(test.id())
+ *             .namespace("flux")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleKubernetesClusterExtension)
  *                 .build());

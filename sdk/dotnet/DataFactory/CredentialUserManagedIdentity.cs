@@ -37,9 +37,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -48,6 +45,9 @@ namespace Pulumi.Azure.DataFactory
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var test = new Azure.DataFactory.CredentialUserManagedIdentity("test", new()

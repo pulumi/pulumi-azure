@@ -48,12 +48,6 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewElasticPool(ctx, "example", &mssql.ElasticPoolArgs{
-//				Name:              pulumi.String("test-epool"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				ServerName:        exampleServer.Name,
-//				LicenseType:       pulumi.String("LicenseIncluded"),
-//				MaxSizeGb:         pulumi.Float64(756),
 //				Sku: &mssql.ElasticPoolSkuArgs{
 //					Name:     pulumi.String("BasicPool"),
 //					Tier:     pulumi.String("Basic"),
@@ -64,6 +58,12 @@ import (
 //					MinCapacity: pulumi.Float64(0.25),
 //					MaxCapacity: pulumi.Float64(4),
 //				},
+//				Name:              pulumi.String("test-epool"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				ServerName:        exampleServer.Name,
+//				LicenseType:       pulumi.String("LicenseIncluded"),
+//				MaxSizeGb:         pulumi.Float64(756),
 //			})
 //			if err != nil {
 //				return err

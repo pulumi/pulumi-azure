@@ -41,18 +41,10 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "outbounddns",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.0.64/28",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "Microsoft.Network.dnsResolvers",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -61,7 +53,15 @@ namespace Pulumi.Azure.PrivateDns
     ///                     },
     ///                     Name = "Microsoft.Network/dnsResolvers",
     ///                 },
+    ///                 Name = "Microsoft.Network.dnsResolvers",
     ///             },
+    ///         },
+    ///         Name = "outbounddns",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.64/28",
     ///         },
     ///     });
     /// 

@@ -319,25 +319,25 @@ class AccountProject(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cognitive.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-account",
             location=example.location,
             resource_group_name=example.name,
             kind="AIServices",
             sku_name="S0",
             project_management_enabled=True,
-            custom_subdomain_name="example-account-subdomain",
+            custom_subdomain_name="example-account-subdomain")
+        example_account_project = azure.cognitive.AccountProject("example",
             identity={
                 "type": "SystemAssigned",
-            })
-        example_account_project = azure.cognitive.AccountProject("example",
+            },
             name="example-project",
             cognitive_account_id=example_account.id,
             location=example.location,
             description="Example cognitive services project",
             display_name="Example Project",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "Environment": "test",
             })
@@ -390,25 +390,25 @@ class AccountProject(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cognitive.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-account",
             location=example.location,
             resource_group_name=example.name,
             kind="AIServices",
             sku_name="S0",
             project_management_enabled=True,
-            custom_subdomain_name="example-account-subdomain",
+            custom_subdomain_name="example-account-subdomain")
+        example_account_project = azure.cognitive.AccountProject("example",
             identity={
                 "type": "SystemAssigned",
-            })
-        example_account_project = azure.cognitive.AccountProject("example",
+            },
             name="example-project",
             cognitive_account_id=example_account.id,
             location=example.location,
             description="Example cognitive services project",
             display_name="Example Project",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "Environment": "test",
             })

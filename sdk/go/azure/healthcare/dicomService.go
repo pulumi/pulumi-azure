@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			_, err = healthcare.NewDicomService(ctx, "test", &healthcare.DicomServiceArgs{
-//				Name:        pulumi.String("tfexDicom"),
-//				WorkspaceId: test.ID().ToIDOutput().ToStringOutput(),
-//				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.DicomServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:        pulumi.String("tfexDicom"),
+//				WorkspaceId: test.ID().ToIDOutput().ToStringOutput(),
+//				Location:    pulumi.String("east us"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("None"),
 //				},

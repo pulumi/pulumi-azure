@@ -39,9 +39,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var main = new Azure.Monitoring.ActionGroup("main", new()
     ///     {
-    ///         Name = "example-actiongroup",
-    ///         ResourceGroupName = example.Name,
-    ///         ShortName = "exampleact",
     ///         WebhookReceivers = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
@@ -50,26 +47,24 @@ namespace Pulumi.Azure.Monitoring
     ///                 ServiceUri = "http://example.com/alert",
     ///             },
     ///         },
+    ///         Name = "example-actiongroup",
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "exampleact",
     ///     });
     /// 
     ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("example", new()
     ///     {
-    ///         Name = "example-metricalert",
-    ///         ResourceGroupName = example.Name,
-    ///         Scopes = new[]
+    ///         Actions = new[]
     ///         {
-    ///             toMonitor.Id,
+    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
+    ///             {
+    ///                 ActionGroupId = main.Id,
+    ///             },
     ///         },
-    ///         Description = "Action will be triggered when Transactions count is greater than 50.",
     ///         Criterias = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 MetricNamespace = "Microsoft.Storage/storageAccounts",
-    ///                 MetricName = "Transactions",
-    ///                 Aggregation = "Total",
-    ///                 Operator = "GreaterThan",
-    ///                 Threshold = 50,
     ///                 Dimensions = new[]
     ///                 {
     ///                     new Azure.Monitoring.Inputs.MetricAlertCriteriaDimensionArgs
@@ -82,15 +77,20 @@ namespace Pulumi.Azure.Monitoring
     ///                         },
     ///                     },
     ///                 },
+    ///                 MetricNamespace = "Microsoft.Storage/storageAccounts",
+    ///                 MetricName = "Transactions",
+    ///                 Aggregation = "Total",
+    ///                 Operator = "GreaterThan",
+    ///                 Threshold = 50,
     ///             },
     ///         },
-    ///         Actions = new[]
+    ///         Name = "example-metricalert",
+    ///         ResourceGroupName = example.Name,
+    ///         Scopes = new[]
     ///         {
-    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
-    ///             {
-    ///                 ActionGroupId = main.Id,
-    ///             },
+    ///             toMonitor.Id,
     ///         },
+    ///         Description = "Action will be triggered when Transactions count is greater than 50.",
     ///     });
     /// 
     /// });

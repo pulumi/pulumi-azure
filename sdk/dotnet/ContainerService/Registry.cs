@@ -30,11 +30,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var acr = new Azure.ContainerService.Registry("acr", new()
     ///     {
-    ///         Name = "containerRegistry1",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "Premium",
-    ///         AdminEnabled = false,
     ///         Georeplications = new[]
     ///         {
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
@@ -50,6 +45,11 @@ namespace Pulumi.Azure.ContainerService
     ///                 Tags = null,
     ///             },
     ///         },
+    ///         Name = "containerRegistry1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Premium",
+    ///         AdminEnabled = false,
     ///     });
     /// 
     /// });
@@ -86,10 +86,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var acr = new Azure.ContainerService.Registry("acr", new()
     ///     {
-    ///         Name = "containerRegistry1",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Sku = "Premium",
     ///         Identity = new Azure.ContainerService.Inputs.RegistryIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -103,6 +99,10 @@ namespace Pulumi.Azure.ContainerService
     ///             KeyVaultKeyId = example.Apply(getKeyResult =&gt; getKeyResult.Id),
     ///             IdentityClientId = exampleUserAssignedIdentity.ClientId,
     ///         },
+    ///         Name = "containerRegistry1",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
     ///     });
     /// 
     /// });
@@ -134,10 +134,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-aks1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "exampleaks1",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -148,6 +144,10 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-aks1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "exampleaks1",
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

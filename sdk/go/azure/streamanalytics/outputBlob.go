@@ -60,6 +60,11 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
+//				Serialization: &streamanalytics.OutputBlobSerializationArgs{
+//					Type:           pulumi.String("Csv"),
+//					Encoding:       pulumi.String("UTF8"),
+//					FieldDelimiter: pulumi.String(","),
+//				},
 //				Name:                   pulumi.String("output-to-blob-storage"),
 //				StreamAnalyticsJobName: example.Name(),
 //				ResourceGroupName:      example.ResourceGroupName(),
@@ -69,11 +74,6 @@ import (
 //				PathPattern:            pulumi.String("some-pattern"),
 //				DateFormat:             pulumi.String("yyyy-MM-dd"),
 //				TimeFormat:             pulumi.String("HH"),
-//				Serialization: &streamanalytics.OutputBlobSerializationArgs{
-//					Type:           pulumi.String("Csv"),
-//					Encoding:       pulumi.String("UTF8"),
-//					FieldDelimiter: pulumi.String(","),
-//				},
 //			})
 //			if err != nil {
 //				return err

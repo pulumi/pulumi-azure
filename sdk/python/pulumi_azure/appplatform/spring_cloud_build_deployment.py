@@ -331,6 +331,10 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name)
         example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("example",
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             name="example",
             spring_cloud_app_id=example_spring_cloud_app.id,
             build_result_id="<default>",
@@ -338,10 +342,6 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             environment_variables={
                 "Foo": "Bar",
                 "Env": "Staging",
-            },
-            quota={
-                "cpu": "2",
-                "memory": "4Gi",
             })
         ```
 
@@ -397,6 +397,10 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name)
         example_spring_cloud_build_deployment = azure.appplatform.SpringCloudBuildDeployment("example",
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             name="example",
             spring_cloud_app_id=example_spring_cloud_app.id,
             build_result_id="<default>",
@@ -404,10 +408,6 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             environment_variables={
                 "Foo": "Bar",
                 "Env": "Staging",
-            },
-            quota={
-                "cpu": "2",
-                "memory": "4Gi",
             })
         ```
 

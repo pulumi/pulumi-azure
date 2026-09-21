@@ -65,11 +65,11 @@ import (
 //				return err
 //			}
 //			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example-web-app"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

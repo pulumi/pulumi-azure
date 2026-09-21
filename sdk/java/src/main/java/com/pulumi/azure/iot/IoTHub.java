@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.IoTHub;
  * import com.pulumi.azure.iot.IoTHubArgs;
  * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubEndpointArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubRouteArgs;
- * import com.pulumi.azure.iot.inputs.IoTHubEnrichmentArgs;
  * import com.pulumi.azure.iot.inputs.IoTHubCloudToDeviceArgs;
  * import com.pulumi.azure.iot.inputs.IoTHubCloudToDeviceFeedbackArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubEndpointArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubEnrichmentArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubRouteArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -125,13 +125,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("Example-IoTHub")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .localAuthenticationEnabled(false)
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
+ *                 .build())
+ *             .cloudToDevice(IoTHubCloudToDeviceArgs.builder()
+ *                 .feedbacks(IoTHubCloudToDeviceFeedbackArgs.builder()
+ *                     .timeToLive("PT1H10M")
+ *                     .maxDeliveryCount(15)
+ *                     .lockDuration("PT30S")
+ *                     .build())
+ *                 .maxDeliveryCount(30)
+ *                 .defaultTtl("PT1H")
  *                 .build())
  *             .endpoints(            
  *                 IoTHubEndpointArgs.builder()
@@ -149,6 +154,13 @@ import javax.annotation.Nullable;
  *                     .connectionString(exampleAuthorizationRule.primaryConnectionString())
  *                     .name("export2")
  *                     .build())
+ *             .enrichments(IoTHubEnrichmentArgs.builder()
+ *                 .key("tenant")
+ *                 .value("$twin.tags.Tenant")
+ *                 .endpointNames(                
+ *                     "export",
+ *                     "export2")
+ *                 .build())
  *             .routes(            
  *                 IoTHubRouteArgs.builder()
  *                     .name("export")
@@ -164,22 +176,10 @@ import javax.annotation.Nullable;
  *                     .endpointNames("export2")
  *                     .enabled(true)
  *                     .build())
- *             .enrichments(IoTHubEnrichmentArgs.builder()
- *                 .key("tenant")
- *                 .value("$twin.tags.Tenant")
- *                 .endpointNames(                
- *                     "export",
- *                     "export2")
- *                 .build())
- *             .cloudToDevice(IoTHubCloudToDeviceArgs.builder()
- *                 .maxDeliveryCount(30)
- *                 .defaultTtl("PT1H")
- *                 .feedbacks(IoTHubCloudToDeviceFeedbackArgs.builder()
- *                     .timeToLive("PT1H10M")
- *                     .maxDeliveryCount(15)
- *                     .lockDuration("PT30S")
- *                     .build())
- *                 .build())
+ *             .name("Example-IoTHub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .localAuthenticationEnabled(false)
  *             .tags(Map.of("purpose", "testing"))
  *             .build());
  * 

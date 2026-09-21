@@ -67,16 +67,16 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
-    ///         Name = "example-erc",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
-    ///         BandwidthInGbps = 5,
     ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Family = "MeteredData",
     ///         },
+    ///         Name = "example-erc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
     ///     });
     /// 
     ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()

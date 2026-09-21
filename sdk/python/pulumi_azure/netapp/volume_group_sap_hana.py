@@ -295,12 +295,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             address_spaces=["10.88.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name=f"{prefix}-delegated-subnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.88.2.0/24"],
             delegations=[{
-                "name": "testdelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -308,7 +303,12 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "testdelegation",
+            }],
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.2.0/24"])
         example1 = azure.network.Subnet("example1",
             name=f"{prefix}-hosts-subnet",
             resource_group_name=example_resource_group.name,
@@ -324,25 +324,15 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             proximity_placement_group_id=example_placement_group.id)
         example_network_interface = azure.network.NetworkInterface("example",
-            name=f"{prefix}-nic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example1.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name=f"{prefix}-vm",
+            }],
+            name=f"{prefix}-nic",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_M8ms",
-            admin_username=admin_username,
-            admin_password=admin_password,
-            disable_password_authentication=False,
-            proximity_placement_group_id=example_placement_group.id,
-            availability_set_id=example_availability_set.id,
-            network_interface_ids=[example_network_interface.id],
+            location=example_resource_group.location)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -352,7 +342,17 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             os_disk={
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
-            })
+            },
+            name=f"{prefix}-vm",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_M8ms",
+            admin_username=admin_username,
+            admin_password=admin_password,
+            disable_password_authentication=False,
+            proximity_placement_group_id=example_placement_group.id,
+            availability_set_id=example_availability_set.id,
+            network_interface_ids=[example_network_interface.id])
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
@@ -370,14 +370,17 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             size_in_tb=8,
             qos_type="Manual")
         example_volume_group_sap_hana = azure.netapp.VolumeGroupSapHana("example",
-            name=f"{prefix}-netapp-volumegroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            group_description="Test volume group",
-            application_identifier="TST",
             volumes=[
                 {
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
                     "name": f"{prefix}-netapp-volume-1",
                     "volume_path": "my-unique-file-path-1",
                     "service_level": "Standard",
@@ -390,6 +393,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
+                    "tags": {
+                        "foo": "bar",
+                    },
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -399,11 +407,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                    "tags": {
-                        "foo": "bar",
-                    },
-                },
-                {
                     "name": f"{prefix}-netapp-volume-2",
                     "volume_path": "my-unique-file-path-2",
                     "service_level": "Standard",
@@ -416,6 +419,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
+                    "tags": {
+                        "foo": "bar",
+                    },
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -425,11 +433,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                    "tags": {
-                        "foo": "bar",
-                    },
-                },
-                {
                     "name": f"{prefix}-netapp-volume-3",
                     "volume_path": "my-unique-file-path-3",
                     "service_level": "Standard",
@@ -442,17 +445,14 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
-                    "export_policy_rules": [{
-                        "rule_index": 1,
-                        "allowed_clients": "0.0.0.0/0",
-                        "nfsv3_enabled": False,
-                        "nfsv41_enabled": True,
-                        "unix_read_only": False,
-                        "unix_read_write": True,
-                        "root_access_enabled": False,
-                    }],
                 },
             ],
+            name=f"{prefix}-netapp-volumegroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            group_description="Test volume group",
+            application_identifier="TST",
             opts = pulumi.ResourceOptions(depends_on=[
                     example_linux_virtual_machine,
                     example_placement_group,
@@ -477,12 +477,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.88.0.0/16"])
         example_delegated = azure.network.Subnet("example_delegated",
-            name=f"{prefix}-delegated-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.88.1.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -490,31 +485,25 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.1.0/24"])
         example_private_endpoint = azure.network.Subnet("example_private_endpoint",
             name=f"{prefix}-pe-subnet",
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.88.2.0/24"])
         example_account = azure.netapp.Account("example",
-            name=f"{prefix}-netapp-account",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name=f"{prefix}kv",
+            },
+            name=f"{prefix}-netapp-account",
             location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True,
-            soft_delete_retention_days=7,
-            enabled_for_disk_encryption=True,
-            enabled_for_deployment=True,
-            enabled_for_template_deployment=True,
+            resource_group_name=example.name)
+        example_key_vault = azure.keyvault.KeyVault("example",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -538,7 +527,18 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "Decrypt",
                     ],
                 },
-            ])
+            ],
+            name=f"{prefix}kv",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True,
+            soft_delete_retention_days=7,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True)
         example_key = azure.keyvault.Key("example",
             name=f"{prefix}-key",
             key_vault_id=example_key_vault.id,
@@ -557,16 +557,16 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             system_assigned_identity_principal_id=example_account.identity.principal_id,
             encryption_key=example_key.versionless_id)
         example_endpoint = azure.privatelink.Endpoint("example",
-            name=f"{prefix}-pe-kv",
-            location=example.location,
-            resource_group_name=example.name,
-            subnet_id=example_private_endpoint.id,
             private_service_connection={
                 "name": f"{prefix}-pe-sc-kv",
                 "private_connection_resource_id": example_key_vault.id,
                 "is_manual_connection": False,
                 "subresource_names": ["Vault"],
-            })
+            },
+            name=f"{prefix}-pe-kv",
+            location=example.location,
+            resource_group_name=example.name,
+            subnet_id=example_private_endpoint.id)
         example_pool = azure.netapp.Pool("example",
             name=f"{prefix}-netapp-pool",
             location=example.location,
@@ -577,14 +577,17 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             qos_type="Manual",
             opts = pulumi.ResourceOptions(depends_on=[example_account_encryption]))
         example_volume_group_sap_hana = azure.netapp.VolumeGroupSapHana("example",
-            name=f"{prefix}-netapp-volumegroup",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            group_description="Test volume group with zone and CMK",
-            application_identifier="TST",
             volumes=[
                 {
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
                     "name": f"{prefix}-netapp-volume-data",
                     "volume_path": "my-unique-file-path-data",
                     "service_level": "Standard",
@@ -600,6 +603,8 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "network_features": "Standard",
                     "encryption_key_source": "Microsoft.KeyVault",
                     "key_vault_private_endpoint_id": example_endpoint.id,
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -609,8 +614,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                },
-                {
                     "name": f"{prefix}-netapp-volume-log",
                     "volume_path": "my-unique-file-path-log",
                     "service_level": "Standard",
@@ -626,6 +629,8 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "network_features": "Standard",
                     "encryption_key_source": "Microsoft.KeyVault",
                     "key_vault_private_endpoint_id": example_endpoint.id,
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -635,8 +640,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                },
-                {
                     "name": f"{prefix}-netapp-volume-shared",
                     "volume_path": "my-unique-file-path-shared",
                     "service_level": "Standard",
@@ -652,17 +655,14 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "network_features": "Standard",
                     "encryption_key_source": "Microsoft.KeyVault",
                     "key_vault_private_endpoint_id": example_endpoint.id,
-                    "export_policy_rules": [{
-                        "rule_index": 1,
-                        "allowed_clients": "0.0.0.0/0",
-                        "nfsv3_enabled": False,
-                        "nfsv41_enabled": True,
-                        "unix_read_only": False,
-                        "unix_read_write": True,
-                        "root_access_enabled": False,
-                    }],
                 },
-            ])
+            ],
+            name=f"{prefix}-netapp-volumegroup",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            group_description="Test volume group with zone and CMK",
+            application_identifier="TST")
         ```
 
         ## API Providers
@@ -723,12 +723,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             address_spaces=["10.88.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name=f"{prefix}-delegated-subnet",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.88.2.0/24"],
             delegations=[{
-                "name": "testdelegation",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -736,7 +731,12 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "testdelegation",
+            }],
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.2.0/24"])
         example1 = azure.network.Subnet("example1",
             name=f"{prefix}-hosts-subnet",
             resource_group_name=example_resource_group.name,
@@ -752,25 +752,15 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             proximity_placement_group_id=example_placement_group.id)
         example_network_interface = azure.network.NetworkInterface("example",
-            name=f"{prefix}-nic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": example1.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
-            name=f"{prefix}-vm",
+            }],
+            name=f"{prefix}-nic",
             resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            size="Standard_M8ms",
-            admin_username=admin_username,
-            admin_password=admin_password,
-            disable_password_authentication=False,
-            proximity_placement_group_id=example_placement_group.id,
-            availability_set_id=example_availability_set.id,
-            network_interface_ids=[example_network_interface.id],
+            location=example_resource_group.location)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -780,7 +770,17 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             os_disk={
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
-            })
+            },
+            name=f"{prefix}-vm",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_M8ms",
+            admin_username=admin_username,
+            admin_password=admin_password,
+            disable_password_authentication=False,
+            proximity_placement_group_id=example_placement_group.id,
+            availability_set_id=example_availability_set.id,
+            network_interface_ids=[example_network_interface.id])
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
@@ -798,14 +798,17 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             size_in_tb=8,
             qos_type="Manual")
         example_volume_group_sap_hana = azure.netapp.VolumeGroupSapHana("example",
-            name=f"{prefix}-netapp-volumegroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            account_name=example_account.name,
-            group_description="Test volume group",
-            application_identifier="TST",
             volumes=[
                 {
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
                     "name": f"{prefix}-netapp-volume-1",
                     "volume_path": "my-unique-file-path-1",
                     "service_level": "Standard",
@@ -818,6 +821,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
+                    "tags": {
+                        "foo": "bar",
+                    },
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -827,11 +835,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                    "tags": {
-                        "foo": "bar",
-                    },
-                },
-                {
                     "name": f"{prefix}-netapp-volume-2",
                     "volume_path": "my-unique-file-path-2",
                     "service_level": "Standard",
@@ -844,6 +847,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
+                    "tags": {
+                        "foo": "bar",
+                    },
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -853,11 +861,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                    "tags": {
-                        "foo": "bar",
-                    },
-                },
-                {
                     "name": f"{prefix}-netapp-volume-3",
                     "volume_path": "my-unique-file-path-3",
                     "service_level": "Standard",
@@ -870,17 +873,14 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "protocols": "NFSv4.1",
                     "security_style": "unix",
                     "snapshot_directory_visible": False,
-                    "export_policy_rules": [{
-                        "rule_index": 1,
-                        "allowed_clients": "0.0.0.0/0",
-                        "nfsv3_enabled": False,
-                        "nfsv41_enabled": True,
-                        "unix_read_only": False,
-                        "unix_read_write": True,
-                        "root_access_enabled": False,
-                    }],
                 },
             ],
+            name=f"{prefix}-netapp-volumegroup",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            account_name=example_account.name,
+            group_description="Test volume group",
+            application_identifier="TST",
             opts = pulumi.ResourceOptions(depends_on=[
                     example_linux_virtual_machine,
                     example_placement_group,
@@ -905,12 +905,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.88.0.0/16"])
         example_delegated = azure.network.Subnet("example_delegated",
-            name=f"{prefix}-delegated-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.88.1.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -918,31 +913,25 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name=f"{prefix}-delegated-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.88.1.0/24"])
         example_private_endpoint = azure.network.Subnet("example_private_endpoint",
             name=f"{prefix}-pe-subnet",
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.88.2.0/24"])
         example_account = azure.netapp.Account("example",
-            name=f"{prefix}-netapp-account",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_key_vault = azure.keyvault.KeyVault("example",
-            name=f"{prefix}kv",
+            },
+            name=f"{prefix}-netapp-account",
             location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True,
-            soft_delete_retention_days=7,
-            enabled_for_disk_encryption=True,
-            enabled_for_deployment=True,
-            enabled_for_template_deployment=True,
+            resource_group_name=example.name)
+        example_key_vault = azure.keyvault.KeyVault("example",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -966,7 +955,18 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "Decrypt",
                     ],
                 },
-            ])
+            ],
+            name=f"{prefix}kv",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True,
+            soft_delete_retention_days=7,
+            enabled_for_disk_encryption=True,
+            enabled_for_deployment=True,
+            enabled_for_template_deployment=True)
         example_key = azure.keyvault.Key("example",
             name=f"{prefix}-key",
             key_vault_id=example_key_vault.id,
@@ -985,16 +985,16 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             system_assigned_identity_principal_id=example_account.identity.principal_id,
             encryption_key=example_key.versionless_id)
         example_endpoint = azure.privatelink.Endpoint("example",
-            name=f"{prefix}-pe-kv",
-            location=example.location,
-            resource_group_name=example.name,
-            subnet_id=example_private_endpoint.id,
             private_service_connection={
                 "name": f"{prefix}-pe-sc-kv",
                 "private_connection_resource_id": example_key_vault.id,
                 "is_manual_connection": False,
                 "subresource_names": ["Vault"],
-            })
+            },
+            name=f"{prefix}-pe-kv",
+            location=example.location,
+            resource_group_name=example.name,
+            subnet_id=example_private_endpoint.id)
         example_pool = azure.netapp.Pool("example",
             name=f"{prefix}-netapp-pool",
             location=example.location,
@@ -1005,14 +1005,17 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             qos_type="Manual",
             opts = pulumi.ResourceOptions(depends_on=[example_account_encryption]))
         example_volume_group_sap_hana = azure.netapp.VolumeGroupSapHana("example",
-            name=f"{prefix}-netapp-volumegroup",
-            location=example.location,
-            resource_group_name=example.name,
-            account_name=example_account.name,
-            group_description="Test volume group with zone and CMK",
-            application_identifier="TST",
             volumes=[
                 {
+                    "export_policy_rules": [{
+                        "rule_index": 1,
+                        "allowed_clients": "0.0.0.0/0",
+                        "nfsv3_enabled": False,
+                        "nfsv41_enabled": True,
+                        "unix_read_only": False,
+                        "unix_read_write": True,
+                        "root_access_enabled": False,
+                    }],
                     "name": f"{prefix}-netapp-volume-data",
                     "volume_path": "my-unique-file-path-data",
                     "service_level": "Standard",
@@ -1028,6 +1031,8 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "network_features": "Standard",
                     "encryption_key_source": "Microsoft.KeyVault",
                     "key_vault_private_endpoint_id": example_endpoint.id,
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -1037,8 +1042,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                },
-                {
                     "name": f"{prefix}-netapp-volume-log",
                     "volume_path": "my-unique-file-path-log",
                     "service_level": "Standard",
@@ -1054,6 +1057,8 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "network_features": "Standard",
                     "encryption_key_source": "Microsoft.KeyVault",
                     "key_vault_private_endpoint_id": example_endpoint.id,
+                },
+                {
                     "export_policy_rules": [{
                         "rule_index": 1,
                         "allowed_clients": "0.0.0.0/0",
@@ -1063,8 +1068,6 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                         "unix_read_write": True,
                         "root_access_enabled": False,
                     }],
-                },
-                {
                     "name": f"{prefix}-netapp-volume-shared",
                     "volume_path": "my-unique-file-path-shared",
                     "service_level": "Standard",
@@ -1080,17 +1083,14 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                     "network_features": "Standard",
                     "encryption_key_source": "Microsoft.KeyVault",
                     "key_vault_private_endpoint_id": example_endpoint.id,
-                    "export_policy_rules": [{
-                        "rule_index": 1,
-                        "allowed_clients": "0.0.0.0/0",
-                        "nfsv3_enabled": False,
-                        "nfsv41_enabled": True,
-                        "unix_read_only": False,
-                        "unix_read_write": True,
-                        "root_access_enabled": False,
-                    }],
                 },
-            ])
+            ],
+            name=f"{prefix}-netapp-volumegroup",
+            location=example.location,
+            resource_group_name=example.name,
+            account_name=example_account.name,
+            group_description="Test volume group with zone and CMK",
+            application_identifier="TST")
         ```
 
         ## API Providers

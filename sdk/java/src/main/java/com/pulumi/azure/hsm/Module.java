@@ -85,19 +85,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example2 = new Subnet("example2", SubnetArgs.builder()
- *             .name("example-hsmsubnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.2.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("first")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.HardwareSecurityModules/dedicatedHSMs")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("first")
  *                 .build())
+ *             .name("example-hsmsubnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.2.1.0/24")
  *             .build());
  * 
  *         var example3 = new Subnet("example3", SubnetArgs.builder()
@@ -115,24 +115,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
+ *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .subnetId(example3.id())
+ *                 .build())
  *             .name("example-vnetgateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .type("ExpressRoute")
  *             .vpnType("PolicyBased")
  *             .sku("Standard")
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation("Dynamic")
- *                 .subnetId(example3.id())
- *                 .build())
  *             .build());
  * 
  *         var exampleModule = new Module("exampleModule", ModuleArgs.builder()
- *             .name("example-hsm")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName("payShield10K_LMK1_CPS60")
  *             .managementNetworkProfile(ModuleManagementNetworkProfileArgs.builder()
  *                 .networkInterfacePrivateIpAddresses("10.2.1.7")
  *                 .subnetId(example2.id())
@@ -141,6 +137,10 @@ import javax.annotation.Nullable;
  *                 .networkInterfacePrivateIpAddresses("10.2.1.8")
  *                 .subnetId(example2.id())
  *                 .build())
+ *             .name("example-hsm")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .skuName("payShield10K_LMK1_CPS60")
  *             .stampId("stamp2")
  *             .tags(Map.of("env", "Test"))
  *             .build(), CustomResourceOptions.builder()

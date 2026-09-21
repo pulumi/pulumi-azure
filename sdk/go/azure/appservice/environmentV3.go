@@ -51,32 +51,28 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Web.hostingEnvironments"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Web/hostingEnvironments"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
 //						},
+//						Name: pulumi.String("Microsoft.Web.hostingEnvironments"),
 //					},
+//				},
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleEnvironmentV3, err := appservice.NewEnvironmentV3(ctx, "example", &appservice.EnvironmentV3Args{
-//				Name:                      pulumi.String("example-asev3"),
-//				ResourceGroupName:         example.Name,
-//				SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//				InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
 //				ClusterSettings: appservice.EnvironmentV3ClusterSettingArray{
 //					&appservice.EnvironmentV3ClusterSettingArgs{
 //						Name:  pulumi.String("DisableTls1.0"),
@@ -91,6 +87,10 @@ import (
 //						Value: pulumi.String("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"),
 //					},
 //				},
+//				Name:                      pulumi.String("example-asev3"),
+//				ResourceGroupName:         example.Name,
+//				SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
 //				Tags: pulumi.StringMap{
 //					"env":         pulumi.String("production"),
 //					"terraformed": pulumi.String("true"),

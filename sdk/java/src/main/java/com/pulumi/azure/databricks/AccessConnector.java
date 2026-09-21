@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessConnector = new AccessConnector("exampleAccessConnector", AccessConnectorArgs.builder()
- *             .name("example-resource")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .identity(AccessConnectorIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-resource")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

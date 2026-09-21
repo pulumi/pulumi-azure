@@ -29,7 +29,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,27 +53,20 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("some-app-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
 //				},
+//				Name:              pulumi.String("some-app-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              server.Hex,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"SOME_KEY": pulumi.String("some-value"),
 //				},
 //				ConnectionStrings: appservice.AppServiceConnectionStringArray{
 //					&appservice.AppServiceConnectionStringArgs{
@@ -82,21 +75,20 @@ import (
 //						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
 //					},
 //				},
+//				Name:              server.Hex,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppSettings: pulumi.StringMap{
+//					"SOME_KEY": pulumi.String("some-value"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSlot(ctx, "example", &appservice.SlotArgs{
-//				Name:              server.Hex,
-//				AppServiceName:    exampleAppService.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.SlotSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"SOME_KEY": pulumi.String("some-value"),
 //				},
 //				ConnectionStrings: appservice.SlotConnectionStringArray{
 //					&appservice.SlotConnectionStringArgs{
@@ -104,6 +96,14 @@ import (
 //						Type:  pulumi.String("SQLServer"),
 //						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
 //					},
+//				},
+//				Name:              server.Hex,
+//				AppServiceName:    exampleAppService.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppSettings: pulumi.StringMap{
+//					"SOME_KEY": pulumi.String("some-value"),
 //				},
 //			})
 //			if err != nil {
@@ -124,7 +124,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -148,42 +148,42 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("some-app-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
 //				},
+//				Name:              pulumi.String("some-app-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              server.Hex,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					JavaVersion:          pulumi.String("1.8"),
 //					JavaContainer:        pulumi.String("JETTY"),
 //					JavaContainerVersion: pulumi.String("9.3"),
 //				},
+//				Name:              server.Hex,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSlot(ctx, "example", &appservice.SlotArgs{
-//				Name:              server.Hex,
-//				AppServiceName:    exampleAppService.Name,
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.SlotSiteConfigArgs{
 //					JavaVersion:          pulumi.String("1.8"),
 //					JavaContainer:        pulumi.String("JETTY"),
 //					JavaContainerVersion: pulumi.String("9.3"),
 //				},
+//				Name:              server.Hex,
+//				AppServiceName:    exampleAppService.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

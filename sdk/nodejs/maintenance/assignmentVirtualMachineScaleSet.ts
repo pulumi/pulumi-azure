@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: example.name,
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "internal",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: example.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
  *     name: "example",
@@ -64,11 +64,6 @@ import * as utilities from "../utilities";
  *     backendPort: 22,
  * });
  * const exampleConfiguration = new azure.maintenance.Configuration("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     scope: "OSImage",
- *     visibility: "Custom",
  *     window: {
  *         startDateTime: "2021-12-31 00:00",
  *         expirationDateTime: "9999-12-31 00:00",
@@ -76,39 +71,34 @@ import * as utilities from "../utilities";
  *         timeZone: "Pacific Standard Time",
  *         recurEvery: "1Days",
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     scope: "OSImage",
+ *     visibility: "Custom",
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "sample-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "sample-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
  *     name: "example-machine",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     size: "Standard_D4_v5",
  *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     osDisk: {
- *         caching: "ReadWrite",
- *         storageAccountType: "Standard_LRS",
- *     },
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard_D4_v5",
- *     instances: 1,
- *     adminUsername: "adminuser",
- *     adminPassword: "P@ssword1234!",
- *     upgradeMode: "Automatic",
- *     healthProbeId: exampleProbe.id,
- *     disablePasswordAuthentication: false,
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -119,16 +109,6 @@ import * as utilities from "../utilities";
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
- *     networkInterfaces: [{
- *         name: "example",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "internal",
- *             primary: true,
- *             subnetId: exampleSubnet.id,
- *             loadBalancerBackendAddressPoolIds: [exampleBackendAddressPool.id],
- *         }],
- *     }],
  *     automaticOsUpgradePolicy: {
  *         disableAutomaticRollback: true,
  *         enableAutomaticOsUpgrade: true,
@@ -139,6 +119,26 @@ import * as utilities from "../utilities";
  *         maxUnhealthyUpgradedInstancePercent: 20,
  *         pauseTimeBetweenBatches: "PT0S",
  *     },
+ *     networkInterfaces: [{
+ *         ipConfigurations: [{
+ *             name: "internal",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *             loadBalancerBackendAddressPoolIds: [exampleBackendAddressPool.id],
+ *         }],
+ *         name: "example",
+ *         primary: true,
+ *     }],
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Standard_D4_v5",
+ *     instances: 1,
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@ssword1234!",
+ *     upgradeMode: "Automatic",
+ *     healthProbeId: exampleProbe.id,
+ *     disablePasswordAuthentication: false,
  * }, {
  *     dependsOn: [exampleRule],
  * });

@@ -30,11 +30,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Name = "example-cosmosdb-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
     ///         {
     ///             ConsistencyLevel = "BoundedStaleness",
@@ -49,6 +44,11 @@ namespace Pulumi.Azure.AppService
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "GlobalDocumentDB",
     ///     });
     /// 
     ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
@@ -79,22 +79,22 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Location = example.Location,
     ///         Name = "example-linuxwebapp",
     ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     ///     var exampleConnection = new Azure.AppService.Connection("example", new()
     ///     {
-    ///         Name = "example-serviceconnector",
-    ///         AppServiceId = exampleLinuxWebApp.Id,
-    ///         TargetResourceId = exampleSqlDatabase.Id,
     ///         Authentication = new Azure.AppService.Inputs.ConnectionAuthenticationArgs
     ///         {
     ///             Type = "systemAssignedIdentity",
     ///         },
+    ///         Name = "example-serviceconnector",
+    ///         AppServiceId = exampleLinuxWebApp.Id,
+    ///         TargetResourceId = exampleSqlDatabase.Id,
     ///     });
     /// 
     /// });

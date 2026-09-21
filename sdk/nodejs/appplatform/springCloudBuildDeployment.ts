@@ -35,6 +35,10 @@ import * as utilities from "../utilities";
  *     serviceName: exampleSpringCloudService.name,
  * });
  * const exampleSpringCloudBuildDeployment = new azure.appplatform.SpringCloudBuildDeployment("example", {
+ *     quota: {
+ *         cpu: "2",
+ *         memory: "4Gi",
+ *     },
  *     name: "example",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     buildResultId: "<default>",
@@ -42,10 +46,6 @@ import * as utilities from "../utilities";
  *     environmentVariables: {
  *         Foo: "Bar",
  *         Env: "Staging",
- *     },
- *     quota: {
- *         cpu: "2",
- *         memory: "4Gi",
  *     },
  * });
  * ```

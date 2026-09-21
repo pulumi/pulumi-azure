@@ -36,10 +36,6 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleSRVRecord = new Azure.PrivateDns.SRVRecord("example", new()
     ///     {
-    ///         Name = "test",
-    ///         ResourceGroupName = example.Name,
-    ///         ZoneName = exampleZone.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.PrivateDns.Inputs.SRVRecordRecordArgs
@@ -57,6 +53,10 @@ namespace Pulumi.Azure.PrivateDns
     ///                 Target = "target2.contoso.com",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         ResourceGroupName = example.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

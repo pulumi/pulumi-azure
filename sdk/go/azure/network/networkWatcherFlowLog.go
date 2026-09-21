@@ -78,12 +78,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkWatcherFlowLog(ctx, "test", &network.NetworkWatcherFlowLogArgs{
-//				NetworkWatcherName: testNetworkWatcher.Name,
-//				ResourceGroupName:  example.Name,
-//				Name:               pulumi.String("example-log"),
-//				TargetResourceId:   test.ID().ToIDOutput().ToStringOutput(),
-//				StorageAccountId:   testAccount.ID().ToIDOutput().ToStringOutput(),
-//				Enabled:            pulumi.Bool(true),
 //				RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
 //					Enabled: pulumi.Bool(true),
 //					Days:    pulumi.Int(7),
@@ -95,6 +89,12 @@ import (
 //					WorkspaceResourceId: testAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //					IntervalInMinutes:   pulumi.Int(10),
 //				},
+//				NetworkWatcherName: testNetworkWatcher.Name,
+//				ResourceGroupName:  example.Name,
+//				Name:               pulumi.String("example-log"),
+//				TargetResourceId:   test.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:   testAccount.ID().ToIDOutput().ToStringOutput(),
+//				Enabled:            pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

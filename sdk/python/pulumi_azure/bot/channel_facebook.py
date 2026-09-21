@@ -258,15 +258,15 @@ class ChannelFacebook(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_facebook = azure.bot.ChannelFacebook("example",
+            pages=[{
+                "id": "876248795081953",
+                "access_token": "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
+            }],
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
             resource_group_name=example.name,
             facebook_application_id="563490254873576",
-            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0",
-            pages=[{
-                "id": "876248795081953",
-                "access_token": "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-            }])
+            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0")
         ```
 
         ## Import
@@ -315,15 +315,15 @@ class ChannelFacebook(pulumi.CustomResource):
             sku="F0",
             microsoft_app_id=current.client_id)
         example_channel_facebook = azure.bot.ChannelFacebook("example",
+            pages=[{
+                "id": "876248795081953",
+                "access_token": "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
+            }],
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
             resource_group_name=example.name,
             facebook_application_id="563490254873576",
-            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0",
-            pages=[{
-                "id": "876248795081953",
-                "access_token": "CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD",
-            }])
+            facebook_application_secret="8976d2536445ad5b976dee8437b9beb0")
         ```
 
         ## Import

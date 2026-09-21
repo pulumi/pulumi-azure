@@ -183,13 +183,13 @@ class ConsumerGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="test",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
             },
+            name="test",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "testing",
             })
@@ -235,13 +235,13 @@ class ConsumerGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="test",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
             },
+            name="test",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "testing",
             })

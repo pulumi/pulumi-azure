@@ -38,19 +38,19 @@ import (
 //				return err
 //			}
 //			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "example.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "example.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				IothubName:         exampleIoTHub.Name,
 //				IsVerified:         pulumi.Bool(true),
-//				CertificateContent: pulumi.String(invokeFilebase64.Result),
+//				CertificateContent: invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

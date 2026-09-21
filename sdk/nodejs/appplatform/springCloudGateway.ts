@@ -30,11 +30,6 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  * });
  * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("example", {
- *     name: "default",
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     httpsOnly: false,
- *     publicNetworkAccessEnabled: true,
- *     instanceCount: 2,
  *     apiMetadata: {
  *         description: "example description",
  *         documentationUrl: "https://www.example.com/docs",
@@ -64,6 +59,11 @@ import * as utilities from "../utilities";
  *         size: "100MB",
  *         timeToLive: "30s",
  *     },
+ *     name: "default",
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ *     httpsOnly: false,
+ *     publicNetworkAccessEnabled: true,
+ *     instanceCount: 2,
  * });
  * ```
  *

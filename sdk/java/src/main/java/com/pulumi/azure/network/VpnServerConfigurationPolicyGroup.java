@@ -58,10 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpnServerConfiguration = new VpnServerConfiguration("exampleVpnServerConfiguration", VpnServerConfigurationArgs.builder()
- *             .name("example-VPNSC")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .vpnAuthenticationTypes("Radius")
  *             .radius(VpnServerConfigurationRadiusArgs.builder()
  *                 .servers(VpnServerConfigurationRadiusServerArgs.builder()
  *                     .address("10.105.1.1")
@@ -69,16 +65,20 @@ import javax.annotation.Nullable;
  *                     .score(15)
  *                     .build())
  *                 .build())
+ *             .name("example-VPNSC")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .vpnAuthenticationTypes("Radius")
  *             .build());
  * 
  *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", VpnServerConfigurationPolicyGroupArgs.builder()
- *             .name("example-VPNSCPG")
- *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .policies(VpnServerConfigurationPolicyGroupPolicyArgs.builder()
  *                 .name("policy1")
  *                 .type("RadiusAzureGroupId")
  *                 .value("6ad1bd08")
  *                 .build())
+ *             .name("example-VPNSCPG")
+ *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .build());
  * 
  *     }

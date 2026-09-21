@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var test = new CredentialUserManagedIdentity("test", CredentialUserManagedIdentityArgs.builder()

@@ -25,15 +25,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
+ *     sku: {
+ *         tier: "Dynamic",
+ *         size: "Y1",
+ *     },
  *     name: "exampleappserviceplan",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "FunctionApp",
  *     reserved: true,
- *     sku: {
- *         tier: "Dynamic",
- *         size: "Y1",
- *     },
  * });
  * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
  *     name: "examplefunctionapp",

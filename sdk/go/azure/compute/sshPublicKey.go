@@ -29,8 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -39,7 +39,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
-//				PublicKey:         pulumi.String(invokeFile.Result),
+//				PublicKey:         invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.CustomHostnameBinding;
  * import com.pulumi.azure.appservice.CustomHostnameBindingArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.TrimArgs;
  * import com.pulumi.azure.appservice.ManagedCertificate;
  * import com.pulumi.azure.appservice.ManagedCertificateArgs;
  * import com.pulumi.azure.appservice.CertificateBinding;
@@ -67,13 +66,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("appserviceplan")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Premium")
  *                 .size("P1")
  *                 .build())
+ *             .name("appserviceplan")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
@@ -97,24 +96,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value(exampleAppService.customDomainVerificationId())
+ *                 .build())
  *             .name(exampleCNameRecord.name().applyValue(_name -> String.format("asuid.%s", _name)))
  *             .zoneName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAppService.customDomainVerificationId())
- *                 .build())
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
- *             .hostname(StdFunctions.trim(TrimArgs.builder()
- *                 .input(exampleCNameRecord.fqdn())
- *                 .cutset(".")
- *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *             .hostname(StdFunctions.trim(Map.ofEntries(
+ *                 Map.entry("input", exampleCNameRecord.fqdn()),
+ *                 Map.entry("cutset", ".")
+ *             )).result())
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleTxtRecord)
+ *                 .ignoreChanges("sslState", "thumbprint")
  *                 .build());
  * 
  *         var exampleManagedCertificate = new ManagedCertificate("exampleManagedCertificate", ManagedCertificateArgs.builder()

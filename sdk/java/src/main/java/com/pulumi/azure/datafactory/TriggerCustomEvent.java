@@ -77,6 +77,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTriggerCustomEvent = new TriggerCustomEvent("exampleTriggerCustomEvent", TriggerCustomEventArgs.builder()
+ *             .pipelines(TriggerCustomEventPipelineArgs.builder()
+ *                 .name(examplePipeline.name())
+ *                 .parameters(Map.of("Env", "Prod"))
+ *                 .build())
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .eventgridTopicId(exampleTopic.id())
@@ -90,10 +94,6 @@ import javax.annotation.Nullable;
  *                 "example2",
  *                 "example3")
  *             .description("example description")
- *             .pipelines(TriggerCustomEventPipelineArgs.builder()
- *                 .name(examplePipeline.name())
- *                 .parameters(Map.of("Env", "Prod"))
- *                 .build())
  *             .additionalProperties(Map.ofEntries(
  *                 Map.entry("foo", "foo1"),
  *                 Map.entry("bar", "bar2")

@@ -427,14 +427,14 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
             name="example-appliance",
             virtual_hub_id=example_virtual_hub.id)
         example_next_generation_firewall_virtual_hub_panorama = azure.paloalto.NextGenerationFirewallVirtualHubPanorama("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             network_profile={
                 "public_ip_address_ids": [example_public_ip.id],
                 "virtual_hub_id": example_virtual_hub.id,
                 "network_virtual_appliance_id": example_virtual_network_appliance.id,
             },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             panorama_base64_config="VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==")
         ```
 
@@ -512,14 +512,14 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
             name="example-appliance",
             virtual_hub_id=example_virtual_hub.id)
         example_next_generation_firewall_virtual_hub_panorama = azure.paloalto.NextGenerationFirewallVirtualHubPanorama("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             network_profile={
                 "public_ip_address_ids": [example_public_ip.id],
                 "virtual_hub_id": example_virtual_hub.id,
                 "network_virtual_appliance_id": example_virtual_network_appliance.id,
             },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             panorama_base64_config="VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==")
         ```
 

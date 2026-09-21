@@ -49,18 +49,10 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "inbounddns",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.0.0/28",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "Microsoft.Network.dnsResolvers",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -69,20 +61,28 @@ namespace Pulumi.Azure.PrivateDns
     ///                     },
     ///                     Name = "Microsoft.Network/dnsResolvers",
     ///                 },
+    ///                 Name = "Microsoft.Network.dnsResolvers",
     ///             },
+    ///         },
+    ///         Name = "inbounddns",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/28",
     ///         },
     ///     });
     /// 
     ///     var exampleResolverInboundEndpoint = new Azure.PrivateDns.ResolverInboundEndpoint("example", new()
     ///     {
-    ///         Name = "example-drie",
-    ///         PrivateDnsResolverId = exampleResolver.Id,
-    ///         Location = exampleResolver.Location,
     ///         IpConfigurations = new Azure.PrivateDns.Inputs.ResolverInboundEndpointIpConfigurationsArgs
     ///         {
     ///             PrivateIpAllocationMethod = "Dynamic",
     ///             SubnetId = exampleSubnet.Id,
     ///         },
+    ///         Name = "example-drie",
+    ///         PrivateDnsResolverId = exampleResolver.Id,
+    ///         Location = exampleResolver.Location,
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

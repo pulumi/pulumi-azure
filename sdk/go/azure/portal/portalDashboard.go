@@ -210,7 +210,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			dash_template := notImplemented("The template_file data resource is not yet supported.")
-//			// ...
+//			//...
 //			_, err := azurerm.NewDashboard(ctx, "my-board", &azurerm.DashboardArgs{
 //				Name:              "my-cool-dashboard",
 //				ResourceGroupName: example.Name,

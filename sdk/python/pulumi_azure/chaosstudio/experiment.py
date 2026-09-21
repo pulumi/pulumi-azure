@@ -265,23 +265,15 @@ class Experiment(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "example",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            }],
             name="example",
-            resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            admin_password="example",
-            disable_password_authentication=False,
-            network_interface_ids=[example_network_interface.id],
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -291,7 +283,15 @@ class Experiment(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            admin_password="example",
+            disable_password_authentication=False,
+            network_interface_ids=[example_network_interface.id])
         example_target = azure.chaosstudio.Target("example",
             location=example.location,
             target_resource_id=example_linux_virtual_machine.id,
@@ -300,9 +300,6 @@ class Experiment(pulumi.CustomResource):
             chaos_studio_target_id=example_target.id,
             capability_type="Shutdown-1.0")
         example_experiment = azure.chaosstudio.Experiment("example",
-            location=example.location,
-            name="example",
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
@@ -311,9 +308,7 @@ class Experiment(pulumi.CustomResource):
                 "chaos_studio_target_ids": [example_target.id],
             }],
             steps=[{
-                "name": "example",
                 "branches": [{
-                    "name": "example",
                     "actions": [{
                         "urn": example_capability.capability_urn,
                         "selector_name": "Selector1",
@@ -323,8 +318,13 @@ class Experiment(pulumi.CustomResource):
                         "action_type": "continuous",
                         "duration": "PT10M",
                     }],
+                    "name": "example",
                 }],
-            }])
+                "name": "example",
+            }],
+            location=example.location,
+            name="example",
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -385,23 +385,15 @@ class Experiment(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "example",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            }],
             name="example",
-            resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
-            admin_username="adminuser",
-            admin_password="example",
-            disable_password_authentication=False,
-            network_interface_ids=[example_network_interface.id],
+            resource_group_name=example.name)
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             os_disk={
                 "caching": "ReadWrite",
                 "storage_account_type": "Standard_LRS",
@@ -411,7 +403,15 @@ class Experiment(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            admin_password="example",
+            disable_password_authentication=False,
+            network_interface_ids=[example_network_interface.id])
         example_target = azure.chaosstudio.Target("example",
             location=example.location,
             target_resource_id=example_linux_virtual_machine.id,
@@ -420,9 +420,6 @@ class Experiment(pulumi.CustomResource):
             chaos_studio_target_id=example_target.id,
             capability_type="Shutdown-1.0")
         example_experiment = azure.chaosstudio.Experiment("example",
-            location=example.location,
-            name="example",
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
@@ -431,9 +428,7 @@ class Experiment(pulumi.CustomResource):
                 "chaos_studio_target_ids": [example_target.id],
             }],
             steps=[{
-                "name": "example",
                 "branches": [{
-                    "name": "example",
                     "actions": [{
                         "urn": example_capability.capability_urn,
                         "selector_name": "Selector1",
@@ -443,8 +438,13 @@ class Experiment(pulumi.CustomResource):
                         "action_type": "continuous",
                         "duration": "PT10M",
                     }],
+                    "name": "example",
                 }],
-            }])
+                "name": "example",
+            }],
+            location=example.location,
+            name="example",
+            resource_group_name=example.name)
         ```
 
         ## API Providers

@@ -79,10 +79,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApp = new App("exampleApp", AppArgs.builder()
- *             .name("example-app")
- *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .resourceGroupName(example.name())
- *             .revisionMode("Single")
  *             .template(AppTemplateArgs.builder()
  *                 .containers(AppTemplateContainerArgs.builder()
  *                     .name("examplecontainerapp")
@@ -91,6 +87,10 @@ import javax.annotation.Nullable;
  *                     .memory("0.5Gi")
  *                     .build())
  *                 .build())
+ *             .name("example-app")
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .resourceGroupName(example.name())
+ *             .revisionMode("Single")
  *             .build());
  * 
  *     }

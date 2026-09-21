@@ -286,13 +286,13 @@ class CustomProvider(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_custom_provider = azure.core.CustomProvider("example",
-            name="example_provider",
-            location=example.location,
-            resource_group_name=example.name,
             resource_types=[{
                 "name": "dEf1",
                 "endpoint": "https://testendpoint.com/",
-            }])
+            }],
+            name="example_provider",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -340,13 +340,13 @@ class CustomProvider(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_custom_provider = azure.core.CustomProvider("example",
-            name="example_provider",
-            location=example.location,
-            resource_group_name=example.name,
             resource_types=[{
                 "name": "dEf1",
                 "endpoint": "https://testendpoint.com/",
-            }])
+            }],
+            name="example_provider",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

@@ -65,8 +65,6 @@ import (
 //				return err
 //			}
 //			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
-//				Name:                pulumi.String("example"),
-//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Linux: &automation.SoftwareUpdateConfigurationLinuxArgs{
 //					ClassificationsIncludeds: pulumi.StringArray("Security"),
 //					ExcludedPackages: pulumi.StringArray{
@@ -83,7 +81,9 @@ import (
 //						"COMPUTER_NAME": pulumi.String("Foo"),
 //					},
 //				},
-//				Duration: pulumi.String("PT2H2M2S"),
+//				Name:                pulumi.String("example"),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Duration:            pulumi.String("PT2H2M2S"),
 //			})
 //			if err != nil {
 //				return err

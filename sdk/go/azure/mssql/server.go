@@ -37,6 +37,10 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
+//					LoginUsername: pulumi.String("AzureAD Admin"),
+//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
 //				Name:                       pulumi.String("mssqlserver"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
@@ -44,10 +48,6 @@ import (
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
 //				MinimumTlsVersion:          pulumi.String("1.2"),
-//				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
-//					LoginUsername: pulumi.String("AzureAD Admin"),
-//					ObjectId:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("production"),
 //				},
@@ -99,15 +99,6 @@ import (
 //			}
 //			// Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("mssqltdeexample"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 exampleUserAssignedIdentity.TenantId,
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
-//				PurgeProtectionEnabled:   pulumi.Bool(true),
-//				SkuName:                  pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -133,6 +124,15 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("mssqltdeexample"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				TenantId:                 exampleUserAssignedIdentity.TenantId,
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err
@@ -153,13 +153,6 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServer(ctx, "example", &mssql.ServerArgs{
-//				Name:                       pulumi.String("example-resource"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				Version:                    pulumi.String("12.0"),
-//				AdministratorLogin:         pulumi.String("Example-Administrator"),
-//				AdministratorLoginPassword: pulumi.String("Example_Password!"),
-//				MinimumTlsVersion:          pulumi.String("1.2"),
 //				AzureadAdministrator: &mssql.ServerAzureadAdministratorArgs{
 //					LoginUsername: exampleUserAssignedIdentity.Name,
 //					ObjectId:      exampleUserAssignedIdentity.PrincipalId,
@@ -170,6 +163,13 @@ import (
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                                   pulumi.String("example-resource"),
+//				ResourceGroupName:                      example.Name,
+//				Location:                               example.Location,
+//				Version:                                pulumi.String("12.0"),
+//				AdministratorLogin:                     pulumi.String("Example-Administrator"),
+//				AdministratorLoginPassword:             pulumi.String("Example_Password!"),
+//				MinimumTlsVersion:                      pulumi.String("1.2"),
 //				PrimaryUserAssignedIdentityId:          exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})

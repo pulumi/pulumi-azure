@@ -37,6 +37,13 @@ import (
 //				return err
 //			}
 //			_, err = analysisservices.NewServer(ctx, "server", &analysisservices.ServerArgs{
+//				Ipv4FirewallRules: analysisservices.ServerIpv4FirewallRuleArray{
+//					&analysisservices.ServerIpv4FirewallRuleArgs{
+//						Name:       pulumi.String("myRule1"),
+//						RangeStart: pulumi.String("210.117.252.0"),
+//						RangeEnd:   pulumi.String("210.117.252.255"),
+//					},
+//				},
 //				Name:              pulumi.String("analysisservicesserver"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
@@ -45,13 +52,6 @@ import (
 //					pulumi.String("myuser@domain.tld"),
 //				},
 //				PowerBiServiceEnabled: pulumi.Bool(true),
-//				Ipv4FirewallRules: analysisservices.ServerIpv4FirewallRuleArray{
-//					&analysisservices.ServerIpv4FirewallRuleArgs{
-//						Name:       pulumi.String("myRule1"),
-//						RangeStart: pulumi.String("210.117.252.0"),
-//						RangeEnd:   pulumi.String("210.117.252.255"),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"abc": pulumi.String("123"),
 //				},

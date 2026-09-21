@@ -83,14 +83,14 @@ import (
 //				return err
 //			}
 //			_, err = aifoundry.NewHub(ctx, "example", &aifoundry.HubArgs{
+//				Identity: &aifoundry.HubIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("exampleaihub"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				StorageAccountId:  exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultId:        exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &aifoundry.HubIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

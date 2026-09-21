@@ -494,13 +494,13 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="api-appserviceplan-pro",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ### Shared / Consumption Plan)
@@ -513,14 +513,14 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="FunctionApp",
             sku={
                 "tier": "Dynamic",
                 "size": "Y1",
-            })
+            },
+            name="api-appserviceplan-pro",
+            location=example.location,
+            resource_group_name=example.name,
+            kind="FunctionApp")
         ```
 
         ### Linux)
@@ -533,15 +533,15 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            },
             name="api-appserviceplan-pro",
             location=example.location,
             resource_group_name=example.name,
             kind="Linux",
-            reserved=True,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
+            reserved=True)
         ```
 
         ### Windows Container)
@@ -554,15 +554,15 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "PremiumContainer",
+                "size": "PC2",
+            },
             name="api-appserviceplan-pro",
             location=example.location,
             resource_group_name=example.name,
             kind="xenon",
-            is_xenon=True,
-            sku={
-                "tier": "PremiumContainer",
-                "size": "PC2",
-            })
+            is_xenon=True)
         ```
 
         ## Import
@@ -618,13 +618,13 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
+            },
+            name="api-appserviceplan-pro",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ### Shared / Consumption Plan)
@@ -637,14 +637,14 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="api-appserviceplan-pro",
-            location=example.location,
-            resource_group_name=example.name,
-            kind="FunctionApp",
             sku={
                 "tier": "Dynamic",
                 "size": "Y1",
-            })
+            },
+            name="api-appserviceplan-pro",
+            location=example.location,
+            resource_group_name=example.name,
+            kind="FunctionApp")
         ```
 
         ### Linux)
@@ -657,15 +657,15 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            },
             name="api-appserviceplan-pro",
             location=example.location,
             resource_group_name=example.name,
             kind="Linux",
-            reserved=True,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
+            reserved=True)
         ```
 
         ### Windows Container)
@@ -678,15 +678,15 @@ class Plan(pulumi.CustomResource):
             name="api-rg-pro",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
+            sku={
+                "tier": "PremiumContainer",
+                "size": "PC2",
+            },
             name="api-appserviceplan-pro",
             location=example.location,
             resource_group_name=example.name,
             kind="xenon",
-            is_xenon=True,
-            sku={
-                "tier": "PremiumContainer",
-                "size": "PC2",
-            })
+            is_xenon=True)
         ```
 
         ## Import

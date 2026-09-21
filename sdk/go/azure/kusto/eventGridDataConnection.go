@@ -40,13 +40,13 @@ import (
 //				return err
 //			}
 //			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("examplekustocluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Standard_D13_v2"),
 //					Capacity: pulumi.Int(2),
 //				},
+//				Name:              pulumi.String("examplekustocluster"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -100,6 +100,10 @@ import (
 //				return err
 //			}
 //			exampleEventSubscription, err := eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
+//				RetryPolicy: &eventgrid.EventSubscriptionRetryPolicyArgs{
+//					EventTimeToLive:     pulumi.Int(144),
+//					MaxDeliveryAttempts: pulumi.Int(10),
+//				},
 //				Name:                pulumi.String("eventgrid-example"),
 //				Scope:               exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				EventhubEndpointId:  exampleEventHub.ID().ToIDOutput().ToStringOutput(),
@@ -107,10 +111,6 @@ import (
 //				IncludedEventTypes: pulumi.StringArray{
 //					pulumi.String("Microsoft.Storage.BlobCreated"),
 //					pulumi.String("Microsoft.Storage.BlobRenamed"),
-//				},
-//				RetryPolicy: &eventgrid.EventSubscriptionRetryPolicyArgs{
-//					EventTimeToLive:     pulumi.Int(144),
-//					MaxDeliveryAttempts: pulumi.Int(10),
 //				},
 //			})
 //			if err != nil {

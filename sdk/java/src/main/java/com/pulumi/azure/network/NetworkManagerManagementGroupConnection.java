@@ -82,12 +82,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-networkmanager")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-networkmanager")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 

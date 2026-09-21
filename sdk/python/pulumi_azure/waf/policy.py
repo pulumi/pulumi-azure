@@ -317,53 +317,6 @@ class Policy(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_policy = azure.waf.Policy("example",
-            name="example-wafpolicy",
-            resource_group_name=example.name,
-            location=example.location,
-            custom_rules=[
-                {
-                    "name": "Rule1",
-                    "priority": 1,
-                    "rule_type": "MatchRule",
-                    "match_conditions": [{
-                        "match_variables": [{
-                            "variable_name": "RemoteAddr",
-                        }],
-                        "operator": "IPMatch",
-                        "negation_condition": False,
-                        "match_values": [
-                            "192.168.1.0/24",
-                            "10.0.0.0/24",
-                        ],
-                    }],
-                    "action": "Block",
-                },
-                {
-                    "name": "Rule2",
-                    "priority": 2,
-                    "rule_type": "MatchRule",
-                    "match_conditions": [
-                        {
-                            "match_variables": [{
-                                "variable_name": "RemoteAddr",
-                            }],
-                            "operator": "IPMatch",
-                            "negation_condition": False,
-                            "match_values": ["192.168.1.0/24"],
-                        },
-                        {
-                            "match_variables": [{
-                                "variable_name": "RequestHeaders",
-                                "selector": "UserAgent",
-                            }],
-                            "operator": "Contains",
-                            "negation_condition": False,
-                            "match_values": ["Windows"],
-                        },
-                    ],
-                    "action": "Block",
-                },
-            ],
             policy_settings={
                 "enabled": True,
                 "mode": "Prevention",
@@ -385,10 +338,7 @@ class Policy(pulumi.CustomResource):
                     },
                 ],
                 "managed_rule_sets": [{
-                    "type": "OWASP",
-                    "version": "3.2",
                     "rule_group_overrides": [{
-                        "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
                         "rules": [
                             {
                                 "id": "920300",
@@ -401,9 +351,59 @@ class Policy(pulumi.CustomResource):
                                 "action": "Block",
                             },
                         ],
+                        "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
                     }],
+                    "type": "OWASP",
+                    "version": "3.2",
                 }],
-            })
+            },
+            custom_rules=[
+                {
+                    "match_conditions": [{
+                        "match_variables": [{
+                            "variable_name": "RemoteAddr",
+                        }],
+                        "operator": "IPMatch",
+                        "negation_condition": False,
+                        "match_values": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                    }],
+                    "name": "Rule1",
+                    "priority": 1,
+                    "rule_type": "MatchRule",
+                    "action": "Block",
+                },
+                {
+                    "match_conditions": [
+                        {
+                            "match_variables": [{
+                                "variable_name": "RemoteAddr",
+                            }],
+                            "operator": "IPMatch",
+                            "negation_condition": False,
+                            "match_values": ["192.168.1.0/24"],
+                        },
+                        {
+                            "match_variables": [{
+                                "variable_name": "RequestHeaders",
+                                "selector": "UserAgent",
+                            }],
+                            "operator": "Contains",
+                            "negation_condition": False,
+                            "match_values": ["Windows"],
+                        },
+                    ],
+                    "name": "Rule2",
+                    "priority": 2,
+                    "rule_type": "MatchRule",
+                    "action": "Block",
+                },
+            ],
+            name="example-wafpolicy",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers
@@ -451,53 +451,6 @@ class Policy(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_policy = azure.waf.Policy("example",
-            name="example-wafpolicy",
-            resource_group_name=example.name,
-            location=example.location,
-            custom_rules=[
-                {
-                    "name": "Rule1",
-                    "priority": 1,
-                    "rule_type": "MatchRule",
-                    "match_conditions": [{
-                        "match_variables": [{
-                            "variable_name": "RemoteAddr",
-                        }],
-                        "operator": "IPMatch",
-                        "negation_condition": False,
-                        "match_values": [
-                            "192.168.1.0/24",
-                            "10.0.0.0/24",
-                        ],
-                    }],
-                    "action": "Block",
-                },
-                {
-                    "name": "Rule2",
-                    "priority": 2,
-                    "rule_type": "MatchRule",
-                    "match_conditions": [
-                        {
-                            "match_variables": [{
-                                "variable_name": "RemoteAddr",
-                            }],
-                            "operator": "IPMatch",
-                            "negation_condition": False,
-                            "match_values": ["192.168.1.0/24"],
-                        },
-                        {
-                            "match_variables": [{
-                                "variable_name": "RequestHeaders",
-                                "selector": "UserAgent",
-                            }],
-                            "operator": "Contains",
-                            "negation_condition": False,
-                            "match_values": ["Windows"],
-                        },
-                    ],
-                    "action": "Block",
-                },
-            ],
             policy_settings={
                 "enabled": True,
                 "mode": "Prevention",
@@ -519,10 +472,7 @@ class Policy(pulumi.CustomResource):
                     },
                 ],
                 "managed_rule_sets": [{
-                    "type": "OWASP",
-                    "version": "3.2",
                     "rule_group_overrides": [{
-                        "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
                         "rules": [
                             {
                                 "id": "920300",
@@ -535,9 +485,59 @@ class Policy(pulumi.CustomResource):
                                 "action": "Block",
                             },
                         ],
+                        "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
                     }],
+                    "type": "OWASP",
+                    "version": "3.2",
                 }],
-            })
+            },
+            custom_rules=[
+                {
+                    "match_conditions": [{
+                        "match_variables": [{
+                            "variable_name": "RemoteAddr",
+                        }],
+                        "operator": "IPMatch",
+                        "negation_condition": False,
+                        "match_values": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                    }],
+                    "name": "Rule1",
+                    "priority": 1,
+                    "rule_type": "MatchRule",
+                    "action": "Block",
+                },
+                {
+                    "match_conditions": [
+                        {
+                            "match_variables": [{
+                                "variable_name": "RemoteAddr",
+                            }],
+                            "operator": "IPMatch",
+                            "negation_condition": False,
+                            "match_values": ["192.168.1.0/24"],
+                        },
+                        {
+                            "match_variables": [{
+                                "variable_name": "RequestHeaders",
+                                "selector": "UserAgent",
+                            }],
+                            "operator": "Contains",
+                            "negation_condition": False,
+                            "match_values": ["Windows"],
+                        },
+                    ],
+                    "name": "Rule2",
+                    "priority": 2,
+                    "rule_type": "MatchRule",
+                    "action": "Block",
+                },
+            ],
+            name="example-wafpolicy",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers

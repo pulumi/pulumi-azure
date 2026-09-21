@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStandardWebTest = new StandardWebTest("exampleStandardWebTest", StandardWebTestArgs.builder()
+ *             .request(StandardWebTestRequestArgs.builder()
+ *                 .url("http://www.example.com")
+ *                 .build())
  *             .name("example-test")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
  *             .applicationInsightsId(exampleInsights.id())
  *             .geoLocations("example")
- *             .request(StandardWebTestRequestArgs.builder()
- *                 .url("http://www.example.com")
- *                 .build())
  *             .build());
  * 
  *     }

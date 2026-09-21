@@ -371,15 +371,15 @@ class SyncServerEndpoint(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
-            name="example-storage-share",
-            storage_account_name=example_account.name,
-            quota=1,
             acls=[{
-                "id": "GhostedRecall",
                 "access_policies": [{
                     "permissions": "r",
                 }],
-            }])
+                "id": "GhostedRecall",
+            }],
+            name="example-storage-share",
+            storage_account_name=example_account.name,
+            quota=1)
         example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("example",
             name="example-ss-ce",
             storage_sync_group_id=example_sync_group.id,
@@ -456,15 +456,15 @@ class SyncServerEndpoint(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_share = azure.storage.Share("example",
-            name="example-storage-share",
-            storage_account_name=example_account.name,
-            quota=1,
             acls=[{
-                "id": "GhostedRecall",
                 "access_policies": [{
                     "permissions": "r",
                 }],
-            }])
+                "id": "GhostedRecall",
+            }],
+            name="example-storage-share",
+            storage_account_name=example_account.name,
+            quota=1)
         example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("example",
             name="example-ss-ce",
             storage_sync_group_id=example_sync_group.id,

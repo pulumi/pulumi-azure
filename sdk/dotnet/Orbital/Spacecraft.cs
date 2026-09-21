@@ -32,10 +32,6 @@ namespace Pulumi.Azure.Orbital
     /// 
     ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("example", new()
     ///     {
-    ///         Name = "example-spacecraft",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "westeurope",
-    ///         NoradId = "12345",
     ///         Links = new[]
     ///         {
     ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
@@ -47,6 +43,10 @@ namespace Pulumi.Azure.Orbital
     ///                 Name = "examplename",
     ///             },
     ///         },
+    ///         Name = "example-spacecraft",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "westeurope",
+    ///         NoradId = "12345",
     ///         TwoLineElements = new[]
     ///         {
     ///             "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",

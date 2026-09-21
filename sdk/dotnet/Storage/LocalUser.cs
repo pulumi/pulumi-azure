@@ -47,24 +47,6 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleLocalUser = new Azure.Storage.LocalUser("example", new()
     ///     {
-    ///         Name = "user1",
-    ///         StorageAccountId = exampleAccount.Id,
-    ///         SshKeyEnabled = true,
-    ///         SshPasswordEnabled = true,
-    ///         HomeDirectory = "example_path",
-    ///         SshAuthorizedKeys = new[]
-    ///         {
-    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
-    ///             {
-    ///                 Description = "key1",
-    ///                 Key = firstPublicKey,
-    ///             },
-    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
-    ///             {
-    ///                 Description = "key2",
-    ///                 Key = secondPublicKey,
-    ///             },
-    ///         },
     ///         PermissionScopes = new[]
     ///         {
     ///             new Azure.Storage.Inputs.LocalUserPermissionScopeArgs
@@ -78,6 +60,24 @@ namespace Pulumi.Azure.Storage
     ///                 ResourceName = exampleContainer.Name,
     ///             },
     ///         },
+    ///         SshAuthorizedKeys = new[]
+    ///         {
+    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
+    ///             {
+    ///                 Description = "key1",
+    ///                 Key = firstPublicKey,
+    ///             },
+    ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
+    ///             {
+    ///                 Description = "key2",
+    ///                 Key = secondPublicKey,
+    ///             },
+    ///         },
+    ///         Name = "user1",
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         SshKeyEnabled = true,
+    ///         SshPasswordEnabled = true,
+    ///         HomeDirectory = "example_path",
     ///     });
     /// 
     /// });

@@ -63,9 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccountRaiPolicy = new AccountRaiPolicy("exampleAccountRaiPolicy", AccountRaiPolicyArgs.builder()
- *             .name("example-rai-policy")
- *             .cognitiveAccountId(exampleAccount.id())
- *             .basePolicyName("Microsoft.Default")
  *             .contentFilters(AccountRaiPolicyContentFilterArgs.builder()
  *                 .name("Hate")
  *                 .filterEnabled(true)
@@ -73,6 +70,9 @@ import javax.annotation.Nullable;
  *                 .severityThreshold("High")
  *                 .source("Prompt")
  *                 .build())
+ *             .name("example-rai-policy")
+ *             .cognitiveAccountId(exampleAccount.id())
+ *             .basePolicyName("Microsoft.Default")
  *             .build());
  * 
  *     }

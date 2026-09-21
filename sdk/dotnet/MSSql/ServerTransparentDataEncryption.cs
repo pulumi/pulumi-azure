@@ -38,6 +38,11 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///         },
     ///         Name = "mssqlserver",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -45,11 +50,6 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
     ///         MinimumTlsVersion = "1.2",
-    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
-    ///         {
-    ///             LoginUsername = "AzureAD Admin",
-    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "environment", "production" },
@@ -84,6 +84,15 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
+    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
+    ///         {
+    ///             LoginUsername = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "mssqlserver",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -91,33 +100,21 @@ namespace Pulumi.Azure.MSSql
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
     ///         MinimumTlsVersion = "1.2",
-    ///         AzureadAdministrator = new Azure.MSSql.Inputs.ServerAzureadAdministratorArgs
-    ///         {
-    ///             LoginUsername = "AzureAD Admin",
-    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "environment", "production" },
     ///         },
-    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
     ///         {
-    ///             Type = "SystemAssigned",
+    ///             "transparentDataEncryptionKeyVaultKeyId",
     ///         },
     ///     });
     /// 
     ///     // Create a key vault with policies for the deployer to create a key &amp; SQL Server to wrap/unwrap/get key
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = false,
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -148,6 +145,15 @@ namespace Pulumi.Azure.MSSql
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = false,
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()

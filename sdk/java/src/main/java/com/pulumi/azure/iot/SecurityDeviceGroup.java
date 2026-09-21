@@ -60,13 +60,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example-IoTHub")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example-IoTHub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSecuritySolution = new SecuritySolution("exampleSecuritySolution", SecuritySolutionArgs.builder()
@@ -78,8 +78,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecurityDeviceGroup = new SecurityDeviceGroup("exampleSecurityDeviceGroup", SecurityDeviceGroupArgs.builder()
- *             .name("example-device-security-group")
- *             .iothubId(exampleIoTHub.id())
  *             .allowRule(SecurityDeviceGroupAllowRuleArgs.builder()
  *                 .connectionToIpsNotAlloweds("10.0.0.0/24")
  *                 .build())
@@ -89,6 +87,8 @@ import javax.annotation.Nullable;
  *                 .max(30)
  *                 .duration("PT5M")
  *                 .build())
+ *             .name("example-device-security-group")
+ *             .iothubId(exampleIoTHub.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSecuritySolution)
  *                 .build());

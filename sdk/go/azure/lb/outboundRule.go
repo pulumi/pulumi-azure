@@ -49,15 +49,15 @@ import (
 //				return err
 //			}
 //			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              pulumi.String("TestLoadBalancer"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("TestLoadBalancer"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -70,15 +70,15 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewOutboundRule(ctx, "example", &lb.OutboundRuleArgs{
-//				Name:                 pulumi.String("OutboundRule"),
-//				LoadbalancerId:       exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
-//				Protocol:             pulumi.String("Tcp"),
-//				BackendAddressPoolId: exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
 //				FrontendIpConfigurations: lb.OutboundRuleFrontendIpConfigurationArray{
 //					&lb.OutboundRuleFrontendIpConfigurationArgs{
 //						Name: pulumi.String("PublicIPAddress"),
 //					},
 //				},
+//				Name:                 pulumi.String("OutboundRule"),
+//				LoadbalancerId:       exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				Protocol:             pulumi.String("Tcp"),
+//				BackendAddressPoolId: exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -28,14 +28,14 @@ import * as utilities from "../utilities";
  *     skuName: "Dedicated_1",
  * });
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-namespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     dedicatedClusterId: exampleCluster.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
@@ -118,15 +118,15 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "example-namespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     dedicatedClusterId: exampleCluster.id,
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {

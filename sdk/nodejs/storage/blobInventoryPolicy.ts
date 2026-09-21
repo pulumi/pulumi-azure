@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
+ *     blobProperties: {
+ *         versioningEnabled: true,
+ *     },
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
- *     blobProperties: {
- *         versioningEnabled: true,
- *     },
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     name: "examplecontainer",
@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleBlobInventoryPolicy = new azure.storage.BlobInventoryPolicy("example", {
- *     storageAccountId: exampleAccount.id,
  *     rules: [{
  *         name: "rule1",
  *         storageContainerName: exampleContainer.name,
@@ -47,6 +46,7 @@ import * as utilities from "../utilities";
  *             "Last-Modified",
  *         ],
  *     }],
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

@@ -50,11 +50,6 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
-//				Name:                       pulumi.String("default"),
-//				SpringCloudServiceId:       exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
-//				HttpsOnly:                  pulumi.Bool(false),
-//				PublicNetworkAccessEnabled: pulumi.Bool(true),
-//				InstanceCount:              pulumi.Int(2),
 //				ApiMetadata: &appplatform.SpringCloudGatewayApiMetadataArgs{
 //					Description:      pulumi.String("example description"),
 //					DocumentationUrl: pulumi.String("https://www.example.com/docs"),
@@ -94,6 +89,11 @@ import (
 //					Size:       pulumi.String("100MB"),
 //					TimeToLive: pulumi.String("30s"),
 //				},
+//				Name:                       pulumi.String("default"),
+//				SpringCloudServiceId:       exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				HttpsOnly:                  pulumi.Bool(false),
+//				PublicNetworkAccessEnabled: pulumi.Bool(true),
+//				InstanceCount:              pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err

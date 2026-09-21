@@ -25,15 +25,15 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleFleetUpdateStrategy = new azure.containerservice.FleetUpdateStrategy("example", {
- *     name: "example",
- *     kubernetesFleetManagerId: exampleKubernetesFleetManager.id,
  *     stages: [{
- *         name: "example-stage-1",
  *         groups: [{
  *             name: "example-group-1",
  *         }],
+ *         name: "example-stage-1",
  *         afterStageWaitInSeconds: 21,
  *     }],
+ *     name: "example",
+ *     kubernetesFleetManagerId: exampleKubernetesFleetManager.id,
  * });
  * ```
  *

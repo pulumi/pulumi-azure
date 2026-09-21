@@ -57,14 +57,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRouteTable = new RouteTable("exampleRouteTable", RouteTableArgs.builder()
- *             .name("example-route-table")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .routes(RouteTableRouteArgs.builder()
  *                 .name("route1")
  *                 .addressPrefix("10.1.0.0/16")
  *                 .nextHopType("VnetLocal")
  *                 .build())
+ *             .name("example-route-table")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

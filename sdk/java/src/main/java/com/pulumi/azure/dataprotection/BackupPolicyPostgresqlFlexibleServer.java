@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs;
- * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -60,21 +60,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleBackupPolicyPostgresqlFlexibleServer = new BackupPolicyPostgresqlFlexibleServer("exampleBackupPolicyPostgresqlFlexibleServer", BackupPolicyPostgresqlFlexibleServerArgs.builder()
- *             .name("example-backup-policy")
- *             .vaultId(exampleBackupVault.id())
- *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
- *             .timeZone("India Standard Time")
  *             .defaultRetentionRule(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs.builder()
  *                     .duration("P4M")
@@ -83,35 +79,29 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .retentionRules(            
  *                 BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs.builder()
- *                     .name("weekly")
+ *                     .criteria(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs.builder()
+ *                         .absoluteCriteria("FirstOfWeek")
+ *                         .build())
  *                     .lifeCycles(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
  *                         .duration("P6M")
  *                         .dataStoreType("VaultStore")
  *                         .build())
+ *                     .name("weekly")
  *                     .priority(20)
- *                     .criteria(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs.builder()
- *                         .absoluteCriteria("FirstOfWeek")
- *                         .build())
  *                     .build(),
  *                 BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs.builder()
- *                     .name("thursday")
- *                     .lifeCycles(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
- *                         .duration("P1W")
- *                         .dataStoreType("VaultStore")
- *                         .build())
- *                     .priority(25)
  *                     .criteria(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs.builder()
  *                         .daysOfWeeks("Thursday")
  *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
- *                     .build(),
- *                 BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs.builder()
- *                     .name("monthly")
  *                     .lifeCycles(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
- *                         .duration("P1D")
+ *                         .duration("P1W")
  *                         .dataStoreType("VaultStore")
  *                         .build())
- *                     .priority(15)
+ *                     .name("thursday")
+ *                     .priority(25)
+ *                     .build(),
+ *                 BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs.builder()
  *                     .criteria(BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs.builder()
  *                         .weeksOfMonths(                        
  *                             "First",
@@ -119,7 +109,17 @@ import javax.annotation.Nullable;
  *                         .daysOfWeeks("Tuesday")
  *                         .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                         .build())
+ *                     .lifeCycles(BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs.builder()
+ *                         .duration("P1D")
+ *                         .dataStoreType("VaultStore")
+ *                         .build())
+ *                     .name("monthly")
+ *                     .priority(15)
  *                     .build())
+ *             .name("example-backup-policy")
+ *             .vaultId(exampleBackupVault.id())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
  *             .build());
  * 
  *     }

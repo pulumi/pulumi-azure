@@ -71,15 +71,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-backupvault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
  *             .softDelete("Off")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
@@ -95,15 +95,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyMysqlFlexibleServer = new BackupPolicyMysqlFlexibleServer("exampleBackupPolicyMysqlFlexibleServer", BackupPolicyMysqlFlexibleServerArgs.builder()
- *             .name("example-dp")
- *             .vaultId(exampleBackupVault.id())
- *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
  *             .defaultRetentionRule(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs.builder()
  *                 .lifeCycles(BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs.builder()
  *                     .duration("P4M")
  *                     .dataStoreType("VaultStore")
  *                     .build())
  *                 .build())
+ *             .name("example-dp")
+ *             .vaultId(exampleBackupVault.id())
+ *             .backupRepeatingTimeIntervals("R/2021-05-23T02:30:00+00:00/P1W")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleAssignment,

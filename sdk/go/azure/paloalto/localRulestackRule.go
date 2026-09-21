@@ -45,14 +45,6 @@ import (
 //				return err
 //			}
 //			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
-//				Name:        pulumi.String("example-rule"),
-//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
-//				Priority:    pulumi.Int(1000),
-//				Action:      pulumi.String("Allow"),
-//				Protocol:    pulumi.String("application-default"),
-//				Applications: pulumi.StringArray{
-//					pulumi.String("any"),
-//				},
 //				Source: &paloalto.LocalRulestackRuleSourceArgs{
 //					Cidrs: pulumi.StringArray{
 //						pulumi.String("10.0.0.0/8"),
@@ -62,6 +54,14 @@ import (
 //					Cidrs: pulumi.StringArray{
 //						pulumi.String("192.168.16.0/24"),
 //					},
+//				},
+//				Name:        pulumi.String("example-rule"),
+//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
+//				Priority:    pulumi.Int(1000),
+//				Action:      pulumi.String("Allow"),
+//				Protocol:    pulumi.String("application-default"),
+//				Applications: pulumi.StringArray{
+//					pulumi.String("any"),
 //				},
 //			})
 //			if err != nil {

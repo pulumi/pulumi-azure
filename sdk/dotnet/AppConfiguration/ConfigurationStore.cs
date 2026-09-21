@@ -152,14 +152,6 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     ///     var exampleConfigurationStore = new Azure.AppConfiguration.ConfigurationStore("example", new()
     ///     {
-    ///         Name = "appConf2",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "standard",
-    ///         LocalAuthEnabled = true,
-    ///         PublicNetworkAccess = "Enabled",
-    ///         PurgeProtectionEnabled = false,
-    ///         SoftDeleteRetentionDays = 1,
     ///         Identity = new Azure.AppConfiguration.Inputs.ConfigurationStoreIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -181,6 +173,14 @@ namespace Pulumi.Azure.AppConfiguration
     ///                 Location = "West US",
     ///             },
     ///         },
+    ///         Name = "appConf2",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "standard",
+    ///         LocalAuthEnabled = true,
+    ///         PublicNetworkAccess = "Enabled",
+    ///         PurgeProtectionEnabled = false,
+    ///         SoftDeleteRetentionDays = 1,
     ///         Tags = 
     ///         {
     ///             { "environment", "development" },

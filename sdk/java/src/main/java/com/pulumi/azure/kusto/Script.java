@@ -65,13 +65,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
@@ -104,11 +104,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
- *             .connectionString(exampleAccount.primaryConnectionString())
- *             .containerName(exampleContainer.name())
- *             .httpsOnly(true)
- *             .start("2017-03-21")
- *             .expiry("2022-03-21")
  *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
  *                 .read(true)
  *                 .add(false)
@@ -117,6 +112,11 @@ import javax.annotation.Nullable;
  *                 .delete(false)
  *                 .list(true)
  *                 .build())
+ *             .connectionString(exampleAccount.primaryConnectionString())
+ *             .containerName(exampleContainer.name())
+ *             .httpsOnly(true)
+ *             .start("2017-03-21")
+ *             .expiry("2022-03-21")
  *             .build());
  * 
  *         var exampleScript = new Script("exampleScript", ScriptArgs.builder()

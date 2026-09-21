@@ -55,22 +55,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
+ *             .identity(BackupVaultIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-backup-vault")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .datastoreType("VaultStore")
  *             .redundancy("LocallyRedundant")
- *             .identity(BackupVaultIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleBackupPolicyDataLakeStorage = new BackupPolicyDataLakeStorage("exampleBackupPolicyDataLakeStorage", BackupPolicyDataLakeStorageArgs.builder()
- *             .name("example-backup-policy")
- *             .dataProtectionBackupVaultId(exampleBackupVault.id())
- *             .backupSchedules("R/2021-05-23T02:30:00+00:00/P1W")
- *             .timeZone("India Standard Time")
- *             .defaultRetentionDuration("P4M")
  *             .retentionRules(            
  *                 BackupPolicyDataLakeStorageRetentionRuleArgs.builder()
  *                     .name("weekly")
@@ -92,6 +87,11 @@ import javax.annotation.Nullable;
  *                     .daysOfWeeks("Tuesday")
  *                     .scheduledBackupTimes("2021-05-23T02:30:00Z")
  *                     .build())
+ *             .name("example-backup-policy")
+ *             .dataProtectionBackupVaultId(exampleBackupVault.id())
+ *             .backupSchedules("R/2021-05-23T02:30:00+00:00/P1W")
+ *             .timeZone("India Standard Time")
+ *             .defaultRetentionDuration("P4M")
  *             .build());
  * 
  *     }

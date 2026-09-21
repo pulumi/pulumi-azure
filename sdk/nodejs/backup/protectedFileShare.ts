@@ -41,9 +41,6 @@ import * as utilities from "../utilities";
  *     storageAccountId: sa.id,
  * });
  * const examplePolicyFileShare = new azure.backup.PolicyFileShare("example", {
- *     name: "tfex-recovery-vault-policy",
- *     resourceGroupName: example.name,
- *     recoveryVaultName: vault.name,
  *     backup: {
  *         frequency: "Daily",
  *         time: "23:00",
@@ -51,6 +48,9 @@ import * as utilities from "../utilities";
  *     retentionDaily: {
  *         count: 10,
  *     },
+ *     name: "tfex-recovery-vault-policy",
+ *     resourceGroupName: example.name,
+ *     recoveryVaultName: vault.name,
  * });
  * const share1 = new azure.backup.ProtectedFileShare("share1", {
  *     resourceGroupName: example.name,

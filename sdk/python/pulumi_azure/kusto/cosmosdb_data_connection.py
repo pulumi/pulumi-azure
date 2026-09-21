@@ -316,26 +316,21 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             location="West Europe")
         builtin = azure.authorization.get_role_definition(role_definition_id="fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="examplekc",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_assignment = azure.authorization.Assignment("example",
             scope=example_resource_group.id,
             role_definition_name=builtin.name,
             principal_id=example_cluster.identity.principal_id)
         example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Session",
                 "max_interval_in_seconds": 5,
@@ -344,7 +339,12 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example_resource_group.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-ca",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="examplecosmosdbsqldb",
             resource_group_name=example_account.resource_group_name,
@@ -442,26 +442,21 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             location="West Europe")
         builtin = azure.authorization.get_role_definition(role_definition_id="fbdf93bf-df7d-467e-a4d2-9458aa1360c8")
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="examplekc",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example_assignment = azure.authorization.Assignment("example",
             scope=example_resource_group.id,
             role_definition_name=builtin.name,
             principal_id=example_cluster.identity.principal_id)
         example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Session",
                 "max_interval_in_seconds": 5,
@@ -470,7 +465,12 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example_resource_group.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-ca",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="examplecosmosdbsqldb",
             resource_group_name=example_account.resource_group_name,

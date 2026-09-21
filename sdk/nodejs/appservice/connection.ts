@@ -20,11 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-cosmosdb-account",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
  *         maxIntervalInSeconds: 10,
@@ -34,6 +29,11 @@ import * as utilities from "../utilities";
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
  *     name: "cosmos-sql-db",
@@ -56,19 +56,19 @@ import * as utilities from "../utilities";
  *     osType: "Linux",
  * });
  * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     siteConfig: {},
  *     location: example.location,
  *     name: "example-linuxwebapp",
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleConnection = new azure.appservice.Connection("example", {
- *     name: "example-serviceconnector",
- *     appServiceId: exampleLinuxWebApp.id,
- *     targetResourceId: exampleSqlDatabase.id,
  *     authentication: {
  *         type: "systemAssignedIdentity",
  *     },
+ *     name: "example-serviceconnector",
+ *     appServiceId: exampleLinuxWebApp.id,
+ *     targetResourceId: exampleSqlDatabase.id,
  * });
  * ```
  *

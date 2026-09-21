@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleEncryptionScope = new azure.storage.EncryptionScope("example", {
  *     name: "microsoftmanaged",

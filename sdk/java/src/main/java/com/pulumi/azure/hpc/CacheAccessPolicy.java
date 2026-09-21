@@ -82,12 +82,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCacheAccessPolicy = new CacheAccessPolicy("exampleCacheAccessPolicy", CacheAccessPolicyArgs.builder()
- *             .name("example")
- *             .hpcCacheId(exampleCache.id())
  *             .accessRules(CacheAccessPolicyAccessRuleArgs.builder()
  *                 .scope("default")
  *                 .access("rw")
  *                 .build())
+ *             .name("example")
+ *             .hpcCacheId(exampleCache.id())
  *             .build());
  * 
  *     }

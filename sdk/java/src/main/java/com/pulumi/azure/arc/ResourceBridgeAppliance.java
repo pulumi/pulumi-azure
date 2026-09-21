@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceBridgeAppliance = new ResourceBridgeAppliance("exampleResourceBridgeAppliance", ResourceBridgeApplianceArgs.builder()
+ *             .identity(ResourceBridgeApplianceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-appliance")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .distro("AKSEdge")
  *             .infrastructureProvider("VMWare")
- *             .identity(ResourceBridgeApplianceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("hello", "world"))
  *             .build());
  * 

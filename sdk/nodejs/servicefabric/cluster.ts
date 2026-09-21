@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.servicefabric.Cluster("example", {
+ *     nodeTypes: [{
+ *         name: "first",
+ *         instanceCount: 3,
+ *         isPrimary: true,
+ *         clientEndpointPort: 2020,
+ *         httpEndpointPort: 80,
+ *     }],
  *     name: "example-servicefabric",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -28,13 +35,6 @@ import * as utilities from "../utilities";
  *     clusterCodeVersion: "7.1.456.959",
  *     vmImage: "Windows",
  *     managementEndpoint: "https://example:80",
- *     nodeTypes: [{
- *         name: "first",
- *         instanceCount: 3,
- *         isPrimary: true,
- *         clientEndpointPort: 2020,
- *         httpEndpointPort: 80,
- *     }],
  * });
  * ```
  *

@@ -66,9 +66,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -78,20 +75,13 @@ namespace Pulumi.Azure.Compute
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("example", new()
     ///     {
-    ///         Name = "example-machine",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_D4_v5",
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "P@$$w0rd1234!",
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
     ///         OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -103,6 +93,16 @@ namespace Pulumi.Azure.Compute
     ///             Offer = "WindowsServer",
     ///             Sku = "2016-Datacenter",
     ///             Version = "latest",
+    ///         },
+    ///         Name = "example-machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_D4_v5",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@$$w0rd1234!",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
     ///         },
     ///     });
     /// 

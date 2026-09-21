@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appplatform.SpringCloudServiceArgs;
  * import com.pulumi.azure.appplatform.SpringCloudBuilder;
  * import com.pulumi.azure.appplatform.SpringCloudBuilderArgs;
- * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderBuildPackGroupArgs;
  * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderStackArgs;
+ * import com.pulumi.azure.appplatform.inputs.SpringCloudBuilderBuildPackGroupArgs;
  * import com.pulumi.azure.appplatform.SpringCloudBuildPackBinding;
  * import com.pulumi.azure.appplatform.SpringCloudBuildPackBindingArgs;
  * import com.pulumi.azure.appplatform.inputs.SpringCloudBuildPackBindingLaunchArgs;
@@ -68,22 +68,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudBuilder = new SpringCloudBuilder("exampleSpringCloudBuilder", SpringCloudBuilderArgs.builder()
- *             .name("example")
- *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
- *                 .name("mix")
- *                 .buildPackIds("tanzu-Build Packs/java-azure")
- *                 .build())
  *             .stack(SpringCloudBuilderStackArgs.builder()
  *                 .id("io.Build Packs.stacks.bionic")
  *                 .version("base")
  *                 .build())
+ *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
+ *                 .name("mix")
+ *                 .buildPackIds("tanzu-Build Packs/java-azure")
+ *                 .build())
+ *             .name("example")
+ *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
  *         var exampleSpringCloudBuildPackBinding = new SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding", SpringCloudBuildPackBindingArgs.builder()
- *             .name("example")
- *             .springCloudBuilderId(exampleSpringCloudBuilder.id())
- *             .bindingType("ApplicationInsights")
  *             .launch(SpringCloudBuildPackBindingLaunchArgs.builder()
  *                 .properties(Map.ofEntries(
  *                     Map.entry("abc", "def"),
@@ -92,6 +89,9 @@ import javax.annotation.Nullable;
  *                 ))
  *                 .secrets(Map.of("connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX"))
  *                 .build())
+ *             .name("example")
+ *             .springCloudBuilderId(exampleSpringCloudBuilder.id())
+ *             .bindingType("ApplicationInsights")
  *             .build());
  * 
  *     }

@@ -23,6 +23,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * }));
  * const exampleFunctionJavascriptUda = new azure.streamanalytics.FunctionJavascriptUda("example", {
+ *     output: {
+ *         type: "bigint",
+ *     },
+ *     inputs: [{
+ *         type: "bigint",
+ *     }],
  *     name: "example-javascript-function",
  *     streamAnalyticsJobId: exampleGetJob.then(exampleGetJob => exampleGetJob.id),
  *     script: `function main() {
@@ -39,12 +45,6 @@ import * as utilities from "../utilities";
  *     }
  * }
  * `,
- *     inputs: [{
- *         type: "bigint",
- *     }],
- *     output: {
- *         type: "bigint",
- *     },
  * });
  * ```
  *

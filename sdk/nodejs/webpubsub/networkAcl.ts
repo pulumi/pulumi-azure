@@ -40,20 +40,18 @@ import * as utilities from "../utilities";
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
  * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
- *     name: "example-privateendpoint",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     subnetId: exampleSubnet.id,
  *     privateServiceConnection: {
  *         name: "psc-sig-test",
  *         isManualConnection: false,
  *         privateConnectionResourceId: exampleService.id,
  *         subresourceNames: ["webpubsub"],
  *     },
+ *     name: "example-privateendpoint",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     subnetId: exampleSubnet.id,
  * });
  * const exampleNetworkAcl = new azure.webpubsub.NetworkAcl("example", {
- *     webPubsubId: exampleService.id,
- *     defaultAction: "Allow",
  *     publicNetwork: {
  *         deniedRequestTypes: ["ClientConnection"],
  *     },
@@ -64,6 +62,8 @@ import * as utilities from "../utilities";
  *             "ClientConnection",
  *         ],
  *     }],
+ *     webPubsubId: exampleService.id,
+ *     defaultAction: "Allow",
  * }, {
  *     dependsOn: [exampleEndpoint],
  * });

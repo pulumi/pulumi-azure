@@ -77,9 +77,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleGalleryApplicationVersion = new Azure.Compute.GalleryApplicationVersion("example", new()
     ///     {
-    ///         Name = "0.0.1",
-    ///         GalleryApplicationId = exampleGalleryApplication.Id,
-    ///         Location = exampleGalleryApplication.Location,
     ///         ManageAction = new Azure.Compute.Inputs.GalleryApplicationVersionManageActionArgs
     ///         {
     ///             Install = "[install command]",
@@ -97,6 +94,9 @@ namespace Pulumi.Azure.Compute
     ///                 RegionalReplicaCount = 1,
     ///             },
     ///         },
+    ///         Name = "0.0.1",
+    ///         GalleryApplicationId = exampleGalleryApplication.Id,
+    ///         Location = exampleGalleryApplication.Location,
     ///     });
     /// 
     ///     var exampleGalleryApplicationAssignment = new Azure.Compute.GalleryApplicationAssignment("example", new()

@@ -370,8 +370,6 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_inventory_item_id=example2.inventory_items[0].id)
         example_virtual_machine_manager_virtual_machine_instance = azure.systemcenter.VirtualMachineManagerVirtualMachineInstance("example",
-            scoped_resource_id=example_arc_machine.id,
-            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             infrastructure={
                 "system_center_virtual_machine_manager_cloud_id": example_virtual_machine_manager_cloud.id,
                 "system_center_virtual_machine_manager_template_id": example_virtual_machine_manager_virtual_machine_template.id,
@@ -383,7 +381,10 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
             hardware={
                 "cpu_count": 1,
                 "memory_in_mb": 1024,
-            })
+            },
+            scoped_resource_id=example_arc_machine.id,
+            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
+            opts = pulumi.ResourceOptions(ignore_changes=["storageDisks"]))
         ```
 
         ## API Providers
@@ -467,8 +468,6 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
             custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             system_center_virtual_machine_manager_server_inventory_item_id=example2.inventory_items[0].id)
         example_virtual_machine_manager_virtual_machine_instance = azure.systemcenter.VirtualMachineManagerVirtualMachineInstance("example",
-            scoped_resource_id=example_arc_machine.id,
-            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
             infrastructure={
                 "system_center_virtual_machine_manager_cloud_id": example_virtual_machine_manager_cloud.id,
                 "system_center_virtual_machine_manager_template_id": example_virtual_machine_manager_virtual_machine_template.id,
@@ -480,7 +479,10 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
             hardware={
                 "cpu_count": 1,
                 "memory_in_mb": 1024,
-            })
+            },
+            scoped_resource_id=example_arc_machine.id,
+            custom_location_id=example_virtual_machine_manager_server.custom_location_id,
+            opts = pulumi.ResourceOptions(ignore_changes=["storageDisks"]))
         ```
 
         ## API Providers

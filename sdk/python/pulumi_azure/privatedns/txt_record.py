@@ -269,13 +269,13 @@ class TxtRecord(pulumi.CustomResource):
             name="contoso.com",
             resource_group_name=example.name)
         example_txt_record = azure.privatedns.TxtRecord("example",
+            records=[{
+                "value": "v=spf1 mx ~all",
+            }],
             name="test",
             resource_group_name=example.name,
             zone_name=example_zone.name,
-            ttl=300,
-            records=[{
-                "value": "v=spf1 mx ~all",
-            }])
+            ttl=300)
         ```
 
         ## API Providers
@@ -325,13 +325,13 @@ class TxtRecord(pulumi.CustomResource):
             name="contoso.com",
             resource_group_name=example.name)
         example_txt_record = azure.privatedns.TxtRecord("example",
+            records=[{
+                "value": "v=spf1 mx ~all",
+            }],
             name="test",
             resource_group_name=example.name,
             zone_name=example_zone.name,
-            ttl=300,
-            records=[{
-                "value": "v=spf1 mx ~all",
-            }])
+            ttl=300)
         ```
 
         ## API Providers

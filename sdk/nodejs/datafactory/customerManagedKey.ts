@@ -61,13 +61,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example_data_factory",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *         identityIds: [exampleAzurermUserAssignedIdentity.id],
  *     },
+ *     name: "example_data_factory",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const datafactory = new azure.keyvault.AccessPolicy("datafactory", {
  *     keyVaultId: exampleKeyVault.id,

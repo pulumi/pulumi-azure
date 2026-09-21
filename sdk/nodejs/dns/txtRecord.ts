@@ -26,10 +26,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
- *     name: "test",
- *     zoneName: exampleZone.name,
- *     resourceGroupName: example.name,
- *     ttl: 300,
  *     records: [
  *         {
  *             value: "google-site-authenticator",
@@ -38,6 +34,10 @@ import * as utilities from "../utilities";
  *             value: "more site information here",
  *         },
  *     ],
+ *     name: "test",
+ *     zoneName: exampleZone.name,
+ *     resourceGroupName: example.name,
+ *     ttl: 300,
  *     tags: {
  *         Environment: "Production",
  *     },

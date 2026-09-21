@@ -31,9 +31,6 @@ namespace Pulumi.Azure.Datadog
     /// 
     ///     var exampleMonitor = new Azure.Datadog.Monitor("example", new()
     ///     {
-    ///         Name = "example-monitor",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         DatadogOrganization = new Azure.Datadog.Inputs.MonitorDatadogOrganizationArgs
     ///         {
     ///             ApiKey = "XXXX",
@@ -44,11 +41,14 @@ namespace Pulumi.Azure.Datadog
     ///             Name = "Example",
     ///             Email = "abc@xyz.com",
     ///         },
-    ///         SkuName = "Linked",
     ///         Identity = new Azure.Datadog.Inputs.MonitorIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-monitor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "Linked",
     ///     });
     /// 
     ///     var exampleMonitorSsoConfiguration = new Azure.Datadog.MonitorSsoConfiguration("example", new()

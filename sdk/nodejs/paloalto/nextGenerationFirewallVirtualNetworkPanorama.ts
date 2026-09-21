@@ -41,52 +41,52 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const trust = new azure.network.Subnet("trust", {
- *     name: "example-trust-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "trusted",
  *         serviceDelegation: {
  *             name: "PaloAltoNetworks.Cloudngfw/firewalls",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "trusted",
  *     }],
+ *     name: "example-trust-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const trustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("trust", {
  *     subnetId: trust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
  * const untrust = new azure.network.Subnet("untrust", {
- *     name: "example-untrust-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "untrusted",
  *         serviceDelegation: {
  *             name: "PaloAltoNetworks.Cloudngfw/firewalls",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "untrusted",
  *     }],
+ *     name: "example-untrust-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("untrust", {
  *     subnetId: untrust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
  * const exampleNextGenerationFirewallVirtualNetworkPanorama = new azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("example", {
- *     name: "example-ngfwvh",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     panoramaBase64Config: "e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
  *     networkProfile: {
- *         publicIpAddressIds: [examplePublicIp.id],
  *         vnetConfiguration: {
  *             virtualNetworkId: exampleVirtualNetwork.id,
  *             trustedSubnetId: trust.id,
  *             untrustedSubnetId: untrust.id,
  *         },
+ *         publicIpAddressIds: [examplePublicIp.id],
  *     },
+ *     name: "example-ngfwvh",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     panoramaBase64Config: "e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
  * });
  * ```
  *

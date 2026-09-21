@@ -697,18 +697,18 @@ class LocalRulestackRule(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("example",
-            name="example-rule",
-            rulestack_id=example_local_rulestack.id,
-            priority=1000,
-            action="Allow",
-            protocol="application-default",
-            applications=["any"],
             source={
                 "cidrs": ["10.0.0.0/8"],
             },
             destination={
                 "cidrs": ["192.168.16.0/24"],
-            })
+            },
+            name="example-rule",
+            rulestack_id=example_local_rulestack.id,
+            priority=1000,
+            action="Allow",
+            protocol="application-default",
+            applications=["any"])
         ```
 
         ## API Providers
@@ -776,18 +776,18 @@ class LocalRulestackRule(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_local_rulestack_rule = azure.paloalto.LocalRulestackRule("example",
-            name="example-rule",
-            rulestack_id=example_local_rulestack.id,
-            priority=1000,
-            action="Allow",
-            protocol="application-default",
-            applications=["any"],
             source={
                 "cidrs": ["10.0.0.0/8"],
             },
             destination={
                 "cidrs": ["192.168.16.0/24"],
-            })
+            },
+            name="example-rule",
+            rulestack_id=example_local_rulestack.id,
+            priority=1000,
+            action="Allow",
+            protocol="application-default",
+            applications=["any"])
         ```
 
         ## API Providers

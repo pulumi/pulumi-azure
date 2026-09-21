@@ -361,14 +361,15 @@ class CustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True)
         example_account = azure.storage.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="examplestor",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity={
-                "type": "SystemAssigned",
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["customerManagedKey"]))
         storage = azure.keyvault.AccessPolicy("storage",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -476,14 +477,15 @@ class CustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True)
         example_account = azure.storage.Account("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="examplestor",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity={
-                "type": "SystemAssigned",
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["customerManagedKey"]))
         storage = azure.keyvault.AccessPolicy("storage",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

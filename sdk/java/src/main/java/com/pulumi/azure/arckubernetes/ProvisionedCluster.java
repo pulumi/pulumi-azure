@@ -62,14 +62,11 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .displayName("example-adg")
- *             .owners(current.objectId())
+ *             .owners(Arrays.asList(current.objectId()))
  *             .securityEnabled(true)
  *             .build());
  * 
  *         var exampleProvisionedCluster = new ProvisionedCluster("exampleProvisionedCluster", ProvisionedClusterArgs.builder()
- *             .name("example-akpc")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .azureActiveDirectory(ProvisionedClusterAzureActiveDirectoryArgs.builder()
  *                 .azureRbacEnabled(true)
  *                 .adminGroupObjectIds(exampleGroup.id())
@@ -78,6 +75,9 @@ import javax.annotation.Nullable;
  *             .identity(ProvisionedClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-akpc")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *     }

@@ -25,11 +25,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSnapshotPolicy = new azure.netapp.SnapshotPolicy("example", {
- *     name: "snapshotpolicy-01",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     accountName: exampleAccount.name,
- *     enabled: true,
  *     hourlySchedule: {
  *         snapshotsToKeep: 4,
  *         minute: 15,
@@ -59,6 +54,11 @@ import * as utilities from "../utilities";
  *         hour: 5,
  *         minute: 45,
  *     },
+ *     name: "snapshotpolicy-01",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount.name,
+ *     enabled: true,
  * });
  * ```
  *

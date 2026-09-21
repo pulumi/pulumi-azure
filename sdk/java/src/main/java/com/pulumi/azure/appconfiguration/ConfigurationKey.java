@@ -139,13 +139,6 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var kv = new KeyVault("kv", KeyVaultArgs.builder()
- *             .name("kv")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -159,6 +152,13 @@ import javax.annotation.Nullable;
  *                     "Purge",
  *                     "Recover")
  *                 .build())
+ *             .name("kv")
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var kvs = new Secret("kvs", SecretArgs.builder()

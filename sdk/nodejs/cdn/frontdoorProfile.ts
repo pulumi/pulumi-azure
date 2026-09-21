@@ -25,10 +25,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
- *     name: "example-cdn-profile",
- *     resourceGroupName: example.name,
- *     skuName: "Premium_AzureFrontDoor",
- *     responseTimeoutSeconds: 120,
  *     identity: {
  *         type: "SystemAssigned, UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
@@ -36,6 +32,10 @@ import * as utilities from "../utilities";
  *     logScrubbingRules: [{
  *         matchVariable: "RequestIPAddress",
  *     }],
+ *     name: "example-cdn-profile",
+ *     resourceGroupName: example.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ *     responseTimeoutSeconds: 120,
  *     tags: {
  *         environment: "Production",
  *     },

@@ -43,16 +43,16 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleScaleSetStandbyPool = new Azure.Compute.ScaleSetStandbyPool("example", new()
     ///     {
-    ///         Name = "example-spsvmp",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "West Europe",
-    ///         AttachedVirtualMachineScaleSetId = exampleOrchestratedVirtualMachineScaleSet.Id,
-    ///         VirtualMachineState = "Running",
     ///         ElasticityProfile = new Azure.Compute.Inputs.ScaleSetStandbyPoolElasticityProfileArgs
     ///         {
     ///             MaxReadyCapacity = 10,
     ///             MinReadyCapacity = 5,
     ///         },
+    ///         Name = "example-spsvmp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "West Europe",
+    ///         AttachedVirtualMachineScaleSetId = exampleOrchestratedVirtualMachineScaleSet.Id,
+    ///         VirtualMachineState = "Running",
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

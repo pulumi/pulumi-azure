@@ -31,11 +31,6 @@ namespace Pulumi.Azure.AppInsights
     /// 
     ///     var exampleWorkbookTemplate = new Azure.AppInsights.WorkbookTemplate("example", new()
     ///     {
-    ///         Name = "example-aiwt",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "West Europe",
-    ///         Author = "test author",
-    ///         Priority = 1,
     ///         Galleries = new[]
     ///         {
     ///             new Azure.AppInsights.Inputs.WorkbookTemplateGalleryArgs
@@ -47,6 +42,11 @@ namespace Pulumi.Azure.AppInsights
     ///                 Type = "tsg",
     ///             },
     ///         },
+    ///         Name = "example-aiwt",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "West Europe",
+    ///         Author = "test author",
+    ///         Priority = 1,
     ///         TemplateData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["version"] = "Notebook/1.0",

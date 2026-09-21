@@ -122,14 +122,14 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
-            location=example.location,
-            resource_group_name=example.name,
             subnets=[{
                 "name": "subnet1",
                 "address_prefix": "10.0.1.0/24",
-            }])
+            }],
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
         example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
             dns_servers=[
@@ -182,14 +182,14 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_virtual_network = azure.network.VirtualNetwork("example",
-            name="example-vnet",
-            address_spaces=["10.0.0.0/16"],
-            location=example.location,
-            resource_group_name=example.name,
             subnets=[{
                 "name": "subnet1",
                 "address_prefix": "10.0.1.0/24",
-            }])
+            }],
+            name="example-vnet",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
         example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
             dns_servers=[

@@ -58,21 +58,21 @@ import (
 //				return err
 //			}
 //			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				SiteConfig:         &appservice.WindowsFunctionAppSiteConfigArgs{},
 //				Name:               pulumi.String("example-windows-function-app"),
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
 //				StorageAccountName: exampleAccount.Name,
 //				ServicePlanId:      exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:         &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewWindowsFunctionAppSlot(ctx, "example", &appservice.WindowsFunctionAppSlotArgs{
+//				SiteConfig:         &appservice.WindowsFunctionAppSlotSiteConfigArgs{},
 //				Name:               pulumi.String("example-slot"),
 //				FunctionAppId:      exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName: exampleAccount.Name,
-//				SiteConfig:         &appservice.WindowsFunctionAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

@@ -151,18 +151,18 @@ class CacheAccessPolicy(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_cache = azure.redis.Cache("example",
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            },
             name="example",
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
             family="P",
             sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration={
-                "maxmemory_reserved": 2,
-                "maxmemory_delta": 2,
-                "maxmemory_policy": "allkeys-lru",
-            })
+            enable_non_ssl_port=False)
         example_cache_access_policy = azure.redis.CacheAccessPolicy("example",
             name="example",
             redis_cache_id=example_cache.id,
@@ -210,18 +210,18 @@ class CacheAccessPolicy(pulumi.CustomResource):
             name="example-resources",
             location="East US")
         example_cache = azure.redis.Cache("example",
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            },
             name="example",
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
             family="P",
             sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration={
-                "maxmemory_reserved": 2,
-                "maxmemory_delta": 2,
-                "maxmemory_policy": "allkeys-lru",
-            })
+            enable_non_ssl_port=False)
         example_cache_access_policy = azure.redis.CacheAccessPolicy("example",
             name="example",
             redis_cache_id=example_cache.id,

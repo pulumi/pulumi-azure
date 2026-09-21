@@ -83,38 +83,11 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var network = new Azure.Network.ApplicationGateway("network", new()
     ///     {
-    ///         Name = "example-appgateway",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
     ///         {
     ///             Name = "Standard_v2",
     ///             Tier = "Standard_v2",
     ///             Capacity = 2,
-    ///         },
-    ///         GatewayIpConfigurations = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
-    ///             {
-    ///                 Name = "my-gateway-ip-configuration",
-    ///                 SubnetId = backend.Id,
-    ///             },
-    ///         },
-    ///         FrontendPorts = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendPortArgs
-    ///             {
-    ///                 Name = frontendPortName,
-    ///                 Port = 80,
-    ///             },
-    ///         },
-    ///         FrontendIpConfigurations = new[]
-    ///         {
-    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendIpConfigurationArgs
-    ///             {
-    ///                 Name = frontendIpConfigurationName,
-    ///                 PublicIpAddressId = examplePublicIp.Id,
-    ///             },
     ///         },
     ///         BackendAddressPools = new[]
     ///         {
@@ -132,6 +105,30 @@ namespace Pulumi.Azure.Network
     ///                 Port = 80,
     ///                 Protocol = "Http",
     ///                 RequestTimeout = 1,
+    ///             },
+    ///         },
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = frontendIpConfigurationName,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///         FrontendPorts = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendPortArgs
+    ///             {
+    ///                 Name = frontendPortName,
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         GatewayIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
+    ///             {
+    ///                 Name = "my-gateway-ip-configuration",
+    ///                 SubnetId = backend.Id,
     ///             },
     ///         },
     ///         HttpListeners = new[]
@@ -156,13 +153,13 @@ namespace Pulumi.Azure.Network
     ///                 BackendHttpSettingsName = httpSettingName,
     ///             },
     ///         },
+    ///         Name = "example-appgateway",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -172,6 +169,9 @@ namespace Pulumi.Azure.Network
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new Azure.Network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("example", new()

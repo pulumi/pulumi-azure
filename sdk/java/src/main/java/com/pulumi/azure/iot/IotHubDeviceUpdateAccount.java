@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIotHubDeviceUpdateAccount = new IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", IotHubDeviceUpdateAccountArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .identity(IotHubDeviceUpdateAccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

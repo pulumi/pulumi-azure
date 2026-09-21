@@ -46,8 +46,6 @@ import (
 //				return err
 //			}
 //			exampleRegistryTask, err := containerservice.NewRegistryTask(ctx, "example", &containerservice.RegistryTaskArgs{
-//				Name:                pulumi.String("example-task"),
-//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
 //				Platform: &containerservice.RegistryTaskPlatformArgs{
 //					Os: pulumi.String("Linux"),
 //				},
@@ -59,6 +57,8 @@ import (
 //						pulumi.String("helloworld:{{.Run.ID}}"),
 //					},
 //				},
+//				Name:                pulumi.String("example-task"),
+//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

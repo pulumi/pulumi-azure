@@ -69,11 +69,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-cosmosdb-account")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(10)
@@ -83,6 +78,11 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
@@ -107,12 +107,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudApp = new SpringCloudApp("exampleSpringCloudApp", SpringCloudAppArgs.builder()
- *             .name("examplespringcloudapp")
- *             .resourceGroupName(example.name())
- *             .serviceName(exampleSpringCloudService.name())
  *             .identity(SpringCloudAppIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("examplespringcloudapp")
+ *             .resourceGroupName(example.name())
+ *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
  *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", SpringCloudJavaDeploymentArgs.builder()
@@ -121,12 +121,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudConnection = new SpringCloudConnection("exampleSpringCloudConnection", SpringCloudConnectionArgs.builder()
- *             .name("example-serviceconnector")
- *             .springCloudId(exampleSpringCloudJavaDeployment.id())
- *             .targetResourceId(exampleSqlDatabase.id())
  *             .authentication(SpringCloudConnectionAuthenticationArgs.builder()
  *                 .type("systemAssignedIdentity")
  *                 .build())
+ *             .name("example-serviceconnector")
+ *             .springCloudId(exampleSpringCloudJavaDeployment.id())
+ *             .targetResourceId(exampleSqlDatabase.id())
  *             .build());
  * 
  *     }

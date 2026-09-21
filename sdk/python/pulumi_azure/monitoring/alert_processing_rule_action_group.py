@@ -354,10 +354,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             short_name="action")
         example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("example",
-            name="example",
-            resource_group_name="example",
-            scopes=[example.id],
-            add_action_group_ids=[example_action_group.id],
             condition={
                 "target_resource_type": {
                     "operator": "Equals",
@@ -373,9 +369,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                 },
             },
             schedule={
-                "effective_from": "2022-01-01T01:02:03",
-                "effective_until": "2022-02-02T01:02:03",
-                "time_zone": "Pacific Standard Time",
                 "recurrence": {
                     "dailies": [{
                         "start_time": "17:00:00",
@@ -388,7 +381,14 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                         ],
                     }],
                 },
+                "effective_from": "2022-01-01T01:02:03",
+                "effective_until": "2022-02-02T01:02:03",
+                "time_zone": "Pacific Standard Time",
             },
+            name="example",
+            resource_group_name="example",
+            scopes=[example.id],
+            add_action_group_ids=[example_action_group.id],
             tags={
                 "foo": "bar",
             })
@@ -445,10 +445,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             short_name="action")
         example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("example",
-            name="example",
-            resource_group_name="example",
-            scopes=[example.id],
-            add_action_group_ids=[example_action_group.id],
             condition={
                 "target_resource_type": {
                     "operator": "Equals",
@@ -464,9 +460,6 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                 },
             },
             schedule={
-                "effective_from": "2022-01-01T01:02:03",
-                "effective_until": "2022-02-02T01:02:03",
-                "time_zone": "Pacific Standard Time",
                 "recurrence": {
                     "dailies": [{
                         "start_time": "17:00:00",
@@ -479,7 +472,14 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                         ],
                     }],
                 },
+                "effective_from": "2022-01-01T01:02:03",
+                "effective_until": "2022-02-02T01:02:03",
+                "time_zone": "Pacific Standard Time",
             },
+            name="example",
+            resource_group_name="example",
+            scopes=[example.id],
+            add_action_group_ids=[example_action_group.id],
             tags={
                 "foo": "bar",
             })

@@ -35,6 +35,7 @@ namespace Pulumi.Azure.Redis
     ///     // NOTE: the Name used for Redis needs to be globally unique
     ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
+    ///         RedisConfiguration = null,
     ///         Name = "example-cache",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -43,7 +44,6 @@ namespace Pulumi.Azure.Redis
     ///         SkuName = "Standard",
     ///         NonSslPortEnabled = false,
     ///         MinimumTlsVersion = "1.2",
-    ///         RedisConfiguration = null,
     ///     });
     /// 
     /// });

@@ -37,9 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = automanage.NewConfiguration(ctx, "example", &automanage.ConfigurationArgs{
-//				Name:              pulumi.String("example-acmp"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Antimalware: &automanage.ConfigurationAntimalwareArgs{
 //					Exclusions: &automanage.ConfigurationAntimalwareExclusionsArgs{
 //						Extensions: pulumi.String("exe;dll"),
@@ -55,11 +52,7 @@ import (
 //				AzureSecurityBaseline: &automanage.ConfigurationAzureSecurityBaselineArgs{
 //					AssignmentType: pulumi.String("ApplyAndAutoCorrect"),
 //				},
-//				AutomationAccountEnabled: pulumi.Bool(true),
 //				Backup: &automanage.ConfigurationBackupArgs{
-//					PolicyName:                    pulumi.String("acctest-backup-policy-%d"),
-//					TimeZone:                      pulumi.String("UTC"),
-//					InstantRpRetentionRangeInDays: pulumi.Int(2),
 //					SchedulePolicy: &automanage.ConfigurationBackupSchedulePolicyArgs{
 //						ScheduleRunFrequency: pulumi.String("Daily"),
 //						ScheduleRunDays: pulumi.StringArray{
@@ -72,27 +65,34 @@ import (
 //						SchedulePolicyType: pulumi.String("SimpleSchedulePolicy"),
 //					},
 //					RetentionPolicy: &automanage.ConfigurationBackupRetentionPolicyArgs{
-//						RetentionPolicyType: pulumi.String("LongTermRetentionPolicy"),
 //						DailySchedule: &automanage.ConfigurationBackupRetentionPolicyDailyScheduleArgs{
-//							RetentionTimes: pulumi.StringArray{
-//								pulumi.String("12:00"),
-//							},
 //							RetentionDuration: &automanage.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs{
 //								Count:        pulumi.Int(7),
 //								DurationType: pulumi.String("Days"),
 //							},
+//							RetentionTimes: pulumi.StringArray{
+//								pulumi.String("12:00"),
+//							},
 //						},
 //						WeeklySchedule: &automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs{
-//							RetentionTimes: pulumi.StringArray{
-//								pulumi.String("14:00"),
-//							},
 //							RetentionDuration: &automanage.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs{
 //								Count:        pulumi.Int(4),
 //								DurationType: pulumi.String("Weeks"),
 //							},
+//							RetentionTimes: pulumi.StringArray{
+//								pulumi.String("14:00"),
+//							},
 //						},
+//						RetentionPolicyType: pulumi.String("LongTermRetentionPolicy"),
 //					},
+//					PolicyName:                    pulumi.String("acctest-backup-policy-%d"),
+//					TimeZone:                      pulumi.String("UTC"),
+//					InstantRpRetentionRangeInDays: pulumi.Int(2),
 //				},
+//				Name:                      pulumi.String("example-acmp"),
+//				ResourceGroupName:         example.Name,
+//				Location:                  example.Location,
+//				AutomationAccountEnabled:  pulumi.Bool(true),
 //				BootDiagnosticsEnabled:    pulumi.Bool(true),
 //				DefenderForCloudEnabled:   pulumi.Bool(true),
 //				GuestConfigurationEnabled: pulumi.Bool(true),

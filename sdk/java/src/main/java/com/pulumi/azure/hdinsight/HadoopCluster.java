@@ -51,11 +51,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.hdinsight.HadoopClusterArgs;
  * import com.pulumi.azure.hdinsight.inputs.HadoopClusterComponentVersionArgs;
  * import com.pulumi.azure.hdinsight.inputs.HadoopClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.HadoopClusterStorageAccountArgs;
  * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesArgs;
  * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesHeadNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesWorkerNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesZookeeperNodeArgs;
+ * import com.pulumi.azure.hdinsight.inputs.HadoopClusterStorageAccountArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -89,22 +89,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHadoopCluster = new HadoopCluster("exampleHadoopCluster", HadoopClusterArgs.builder()
- *             .name("example-hdicluster")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .clusterVersion("3.6")
- *             .tier("Standard")
  *             .componentVersion(HadoopClusterComponentVersionArgs.builder()
  *                 .hadoop("2.7")
  *                 .build())
  *             .gateway(HadoopClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("PAssword123!")
- *                 .build())
- *             .storageAccounts(HadoopClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
  *                 .build())
  *             .roles(HadoopClusterRolesArgs.builder()
  *                 .headNode(HadoopClusterRolesHeadNodeArgs.builder()
@@ -124,6 +114,16 @@ import javax.annotation.Nullable;
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
+ *             .storageAccounts(HadoopClusterStorageAccountArgs.builder()
+ *                 .storageContainerId(exampleContainer.id())
+ *                 .storageAccountKey(exampleAccount.primaryAccessKey())
+ *                 .isDefault(true)
+ *                 .build())
+ *             .name("example-hdicluster")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .clusterVersion("3.6")
+ *             .tier("Standard")
  *             .build());
  * 
  *     }

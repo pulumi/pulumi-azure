@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleGetAccountSAS = azure.storage.getAccountSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     httpsOnly: true,
  *     resourceTypes: {
  *         service: true,
  *         container: false,
@@ -39,8 +37,6 @@ import * as utilities from "../utilities";
  *         table: false,
  *         file: false,
  *     },
- *     start: "2021-04-30T00:00:00Z",
- *     expiry: "2023-04-30T00:00:00Z",
  *     permissions: {
  *         read: true,
  *         write: true,
@@ -53,14 +49,12 @@ import * as utilities from "../utilities";
  *         tag: false,
  *         filter: false,
  *     },
+ *     connectionString: exampleAccount.primaryConnectionString,
+ *     httpsOnly: true,
+ *     start: "2021-04-30T00:00:00Z",
+ *     expiry: "2023-04-30T00:00:00Z",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example-keyvault",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: example.then(example => example.tenantId),
- *     skuName: "standard",
  *     accessPolicies: [{
  *         tenantId: example.then(example => example.tenantId),
  *         objectId: example.then(example => example.objectId),
@@ -79,6 +73,12 @@ import * as utilities from "../utilities";
  *             "RegenerateKey",
  *         ],
  *     }],
+ *     name: "example-keyvault",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: example.then(example => example.tenantId),
+ *     skuName: "standard",
  * });
  * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("example", {
  *     name: "examplemanagedstorage",

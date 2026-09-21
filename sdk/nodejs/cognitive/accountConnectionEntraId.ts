@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cognitive.Account("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-aiservices",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -27,19 +30,16 @@ import * as utilities from "../utilities";
  *     skuName: "S0",
  *     projectManagementEnabled: true,
  *     customSubdomainName: "exampleaiservices",
+ * });
+ * const openai = new azure.cognitive.Account("openai", {
  *     identity: {
  *         type: "SystemAssigned",
  *     },
- * });
- * const openai = new azure.cognitive.Account("openai", {
  *     name: "example-openai",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "OpenAI",
  *     skuName: "S0",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleAccountConnectionEntraId = new azure.cognitive.AccountConnectionEntraId("example", {
  *     name: "example-connection",

@@ -40,6 +40,7 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
+    ///         RedisConfiguration = null,
     ///         Name = "example-cache",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -48,7 +49,6 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Basic",
     ///         EnableNonSslPort = false,
     ///         MinimumTlsVersion = "1.2",
-    ///         RedisConfiguration = null,
     ///     });
     /// 
     ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("example", new()

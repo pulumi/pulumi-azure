@@ -186,23 +186,17 @@ class CustomCertificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_web_pubsub_service = azurerm.WebPubsubService("example",
-            name=example-webpubsub,
-            location=test_azurerm_resource_group.location,
-            resource_group_name=test_azurerm_resource_group.name,
+            identity=[{
+                type: SystemAssigned,
+            }],
             sku=[{
                 name: Premium_P1,
                 capacity: 1,
             }],
-            identity=[{
-                type: SystemAssigned,
-            }])
+            name=example-webpubsub,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -230,14 +224,20 @@ class CustomCertificate(pulumi.CustomResource):
                         "List",
                     ],
                 },
-            ])
+            ],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
         example_certificate = azure.keyvault.Certificate("example",
-            name="imported-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
-            })
+            },
+            name="imported-cert",
+            key_vault_id=example_key_vault.id)
         test = azure.webpubsub.CustomCertificate("test",
             name="example-cert",
             web_pubsub_id=example_web_pubsub_service["id"],
@@ -293,23 +293,17 @@ class CustomCertificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_web_pubsub_service = azurerm.WebPubsubService("example",
-            name=example-webpubsub,
-            location=test_azurerm_resource_group.location,
-            resource_group_name=test_azurerm_resource_group.name,
+            identity=[{
+                type: SystemAssigned,
+            }],
             sku=[{
                 name: Premium_P1,
                 capacity: 1,
             }],
-            identity=[{
-                type: SystemAssigned,
-            }])
+            name=example-webpubsub,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -337,14 +331,20 @@ class CustomCertificate(pulumi.CustomResource):
                         "List",
                     ],
                 },
-            ])
+            ],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
         example_certificate = azure.keyvault.Certificate("example",
-            name="imported-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
-            })
+            },
+            name="imported-cert",
+            key_vault_id=example_key_vault.id)
         test = azure.webpubsub.CustomCertificate("test",
             name="example-cert",
             web_pubsub_id=example_web_pubsub_service["id"],

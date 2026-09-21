@@ -45,12 +45,6 @@ namespace Pulumi.Azure.Billing
     /// 
     ///     var exampleAccountCostManagementExport = new Azure.Billing.AccountCostManagementExport("example", new()
     ///     {
-    ///         Name = "example",
-    ///         BillingAccountId = "example",
-    ///         RecurrenceType = "Monthly",
-    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
-    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Billing.Inputs.AccountCostManagementExportExportDataStorageLocationArgs
     ///         {
     ///             ContainerId = exampleContainer.Id,
@@ -61,6 +55,12 @@ namespace Pulumi.Azure.Billing
     ///             Type = "Usage",
     ///             TimeFrame = "WeekToDate",
     ///         },
+    ///         Name = "example",
+    ///         BillingAccountId = "example",
+    ///         RecurrenceType = "Monthly",
+    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
+    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         FileFormat = "Csv",
     ///     });
     /// 
     /// });

@@ -36,13 +36,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.azure.securitycenter.AssessmentPolicy;
  * import com.pulumi.azure.securitycenter.AssessmentPolicyArgs;
  * import com.pulumi.azure.securitycenter.Assessment;
@@ -81,18 +80,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("example-vmss")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("Standard_F2")
- *             .instances(1)
- *             .adminUsername("adminuser")
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input("~/.ssh/id_rsa.pub")
- *                     .build()).result())
- *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -103,15 +90,25 @@ import javax.annotation.Nullable;
  *                 .storageAccountType("Standard_LRS")
  *                 .caching("ReadWrite")
  *                 .build())
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username("adminuser")
+ *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
+ *                 .build())
  *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("example")
- *                 .primary(true)
  *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
  *                     .name("internal")
  *                     .primary(true)
  *                     .subnetId(internal.id())
  *                     .build())
+ *                 .name("example")
+ *                 .primary(true)
  *                 .build())
+ *             .name("example-vmss")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Standard_F2")
+ *             .instances(1)
+ *             .adminUsername("adminuser")
  *             .build());
  * 
  *         var exampleAssessmentPolicy = new AssessmentPolicy("exampleAssessmentPolicy", AssessmentPolicyArgs.builder()
@@ -121,11 +118,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAssessment = new Assessment("exampleAssessment", AssessmentArgs.builder()
- *             .assessmentPolicyId(exampleAssessmentPolicy.id())
- *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .status(AssessmentStatusArgs.builder()
  *                 .code("Healthy")
  *                 .build())
+ *             .assessmentPolicyId(exampleAssessmentPolicy.id())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .build());
  * 
  *     }

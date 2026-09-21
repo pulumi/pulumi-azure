@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.NetworkManagerConnectivityConfiguration;
  * import com.pulumi.azure.network.NetworkManagerConnectivityConfigurationArgs;
- * import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs;
  * import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationHubArgs;
+ * import com.pulumi.azure.network.inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-network-manager")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-network-manager")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scopeAccesses(            
  *                 "Connectivity",
  *                 "SecurityAdmin")
@@ -100,9 +100,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerConnectivityConfiguration = new NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", NetworkManagerConnectivityConfigurationArgs.builder()
- *             .name("example-connectivity-conf")
- *             .networkManagerId(exampleNetworkManager.id())
- *             .connectivityTopology("HubAndSpoke")
+ *             .hub(NetworkManagerConnectivityConfigurationHubArgs.builder()
+ *                 .resourceId(exampleVirtualNetwork.id())
+ *                 .resourceType("Microsoft.Network/virtualNetworks")
+ *                 .build())
  *             .appliesToGroups(            
  *                 NetworkManagerConnectivityConfigurationAppliesToGroupArgs.builder()
  *                     .groupConnectivity("DirectlyConnected")
@@ -112,10 +113,9 @@ import javax.annotation.Nullable;
  *                     .groupConnectivity("DirectlyConnected")
  *                     .networkGroupId(example2.id())
  *                     .build())
- *             .hub(NetworkManagerConnectivityConfigurationHubArgs.builder()
- *                 .resourceId(exampleVirtualNetwork.id())
- *                 .resourceType("Microsoft.Network/virtualNetworks")
- *                 .build())
+ *             .name("example-connectivity-conf")
+ *             .networkManagerId(exampleNetworkManager.id())
+ *             .connectivityTopology("HubAndSpoke")
  *             .build());
  * 
  *     }

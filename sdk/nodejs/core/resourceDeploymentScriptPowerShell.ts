@@ -25,6 +25,10 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleResourceDeploymentScriptPowerShell = new azure.core.ResourceDeploymentScriptPowerShell("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "example-rdsaps",
  *     resourceGroupName: example.name,
  *     location: "West Europe",
@@ -40,10 +44,6 @@ import * as utilities from "../utilities";
  *             DeploymentScriptOutputs = @{}
  *             DeploymentScriptOutputs['text'] = output
  * `,
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
  *     tags: {
  *         key: "value",
  *     },

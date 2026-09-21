@@ -412,13 +412,13 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("example",
             name="example",
             resource_group_name=example.name,
@@ -481,13 +481,13 @@ class DpsSharedAccessPolicy(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_iot_hub_dps = azure.iot.IotHubDps("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         example_dps_shared_access_policy = azure.iot.DpsSharedAccessPolicy("example",
             name="example",
             resource_group_name=example.name,

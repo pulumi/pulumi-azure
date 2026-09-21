@@ -63,9 +63,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import java.util.ArrayList;
@@ -103,16 +103,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("example-vmss")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("Standard_D4_v5")
- *             .instances(1)
- *             .adminUsername("adminuser")
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username("adminuser")
- *                 .publicKey(firstPublicKey)
- *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -123,15 +113,25 @@ import javax.annotation.Nullable;
  *                 .storageAccountType("Standard_LRS")
  *                 .caching("ReadWrite")
  *                 .build())
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username("adminuser")
+ *                 .publicKey(firstPublicKey)
+ *                 .build())
  *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("example")
- *                 .primary(true)
  *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
  *                     .name("internal")
  *                     .primary(true)
  *                     .subnetId(internal.id())
  *                     .build())
+ *                 .name("example")
+ *                 .primary(true)
  *                 .build())
+ *             .name("example-vmss")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Standard_D4_v5")
+ *             .instances(1)
+ *             .adminUsername("adminuser")
  *             .build());
  * 
  *     }}{@code

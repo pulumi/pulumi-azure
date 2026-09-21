@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     displayName: "Audit machines with insecure password security settings",
  * });
  * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "assignment1",
  *     resourceId: exampleVirtualNetwork.id,
  *     policyDefinitionId: example.then(example => example.id),
  *     location: exampleResourceGroup.location,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleResourcePolicyExemption = new azure.core.ResourcePolicyExemption("example", {
  *     name: "exemption1",

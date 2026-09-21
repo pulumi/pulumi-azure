@@ -46,9 +46,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * 
      *     public static void stack(Context ctx) {
      *         var example = new ScaleSet("example", ScaleSetArgs.builder()
-     *             .name("vm-scaleset")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .location(exampleAzurermResourceGroup.location())
      *             .sku(ScaleSetSkuArgs.builder()
      *                 .name(vmSku)
      *                 .tier("Standard")
@@ -64,6 +61,9 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *                 .typeHandlerVersion("1.0")
      *                 .settings("{\"port\": 50342}")
      *                 .build())
+     *             .name("vm-scaleset")
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .location(exampleAzurermResourceGroup.location())
      *             .build());
      * 
      *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
@@ -105,9 +105,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      * 
      *     public static void stack(Context ctx) {
      *         var example = new ScaleSet("example", ScaleSetArgs.builder()
-     *             .name("vm-scaleset")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .location(exampleAzurermResourceGroup.location())
      *             .sku(ScaleSetSkuArgs.builder()
      *                 .name(vmSku)
      *                 .tier("Standard")
@@ -123,6 +120,9 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *                 .typeHandlerVersion("1.0")
      *                 .settings("{\"port\": 50342}")
      *                 .build())
+     *             .name("vm-scaleset")
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .location(exampleAzurermResourceGroup.location())
      *             .build());
      * 
      *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
@@ -221,9 +221,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * 
          *     public static void stack(Context ctx) {
          *         var example = new ScaleSet("example", ScaleSetArgs.builder()
-         *             .name("vm-scaleset")
-         *             .resourceGroupName(exampleAzurermResourceGroup.name())
-         *             .location(exampleAzurermResourceGroup.location())
          *             .sku(ScaleSetSkuArgs.builder()
          *                 .name(vmSku)
          *                 .tier("Standard")
@@ -239,6 +236,9 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .typeHandlerVersion("1.0")
          *                 .settings("{\"port\": 50342}")
          *                 .build())
+         *             .name("vm-scaleset")
+         *             .resourceGroupName(exampleAzurermResourceGroup.name())
+         *             .location(exampleAzurermResourceGroup.location())
          *             .build());
          * 
          *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
@@ -284,9 +284,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * 
          *     public static void stack(Context ctx) {
          *         var example = new ScaleSet("example", ScaleSetArgs.builder()
-         *             .name("vm-scaleset")
-         *             .resourceGroupName(exampleAzurermResourceGroup.name())
-         *             .location(exampleAzurermResourceGroup.location())
          *             .sku(ScaleSetSkuArgs.builder()
          *                 .name(vmSku)
          *                 .tier("Standard")
@@ -302,6 +299,9 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .typeHandlerVersion("1.0")
          *                 .settings("{\"port\": 50342}")
          *                 .build())
+         *             .name("vm-scaleset")
+         *             .resourceGroupName(exampleAzurermResourceGroup.name())
+         *             .location(exampleAzurermResourceGroup.location())
          *             .build());
          * 
          *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
@@ -346,9 +346,6 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          * 
          *     public static void stack(Context ctx) {
          *         var example = new ScaleSet("example", ScaleSetArgs.builder()
-         *             .name("vm-scaleset")
-         *             .resourceGroupName(exampleAzurermResourceGroup.name())
-         *             .location(exampleAzurermResourceGroup.location())
          *             .sku(ScaleSetSkuArgs.builder()
          *                 .name(vmSku)
          *                 .tier("Standard")
@@ -364,6 +361,9 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .typeHandlerVersion("1.0")
          *                 .settings("{\"port\": 50342}")
          *                 .build())
+         *             .name("vm-scaleset")
+         *             .resourceGroupName(exampleAzurermResourceGroup.name())
+         *             .location(exampleAzurermResourceGroup.location())
          *             .build());
          * 
          *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));

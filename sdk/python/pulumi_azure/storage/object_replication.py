@@ -217,15 +217,15 @@ class ObjectReplication(pulumi.CustomResource):
             name="srcResourceGroupName",
             location="West Europe")
         src_account = azure.storage.Account("src",
+            blob_properties={
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
+            },
             name="srcstorageaccount",
             resource_group_name=src.name,
             location=src.location,
             account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties={
-                "versioning_enabled": True,
-                "change_feed_enabled": True,
-            })
+            account_replication_type="LRS")
         src_container = azure.storage.Container("src",
             name="srcstrcontainer",
             storage_account_name=src_account.name,
@@ -234,26 +234,26 @@ class ObjectReplication(pulumi.CustomResource):
             name="dstResourceGroupName",
             location="East US")
         dst_account = azure.storage.Account("dst",
+            blob_properties={
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
+            },
             name="dststorageaccount",
             resource_group_name=dst.name,
             location=dst.location,
             account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties={
-                "versioning_enabled": True,
-                "change_feed_enabled": True,
-            })
+            account_replication_type="LRS")
         dst_container = azure.storage.Container("dst",
             name="dststrcontainer",
             storage_account_name=dst_account.name,
             container_access_type="private")
         example = azure.storage.ObjectReplication("example",
-            source_storage_account_id=src_account.id,
-            destination_storage_account_id=dst_account.id,
             rules=[{
                 "source_container_name": src_container.name,
                 "destination_container_name": dst_container.name,
-            }])
+            }],
+            source_storage_account_id=src_account.id,
+            destination_storage_account_id=dst_account.id)
         ```
 
         ## API Providers
@@ -298,15 +298,15 @@ class ObjectReplication(pulumi.CustomResource):
             name="srcResourceGroupName",
             location="West Europe")
         src_account = azure.storage.Account("src",
+            blob_properties={
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
+            },
             name="srcstorageaccount",
             resource_group_name=src.name,
             location=src.location,
             account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties={
-                "versioning_enabled": True,
-                "change_feed_enabled": True,
-            })
+            account_replication_type="LRS")
         src_container = azure.storage.Container("src",
             name="srcstrcontainer",
             storage_account_name=src_account.name,
@@ -315,26 +315,26 @@ class ObjectReplication(pulumi.CustomResource):
             name="dstResourceGroupName",
             location="East US")
         dst_account = azure.storage.Account("dst",
+            blob_properties={
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
+            },
             name="dststorageaccount",
             resource_group_name=dst.name,
             location=dst.location,
             account_tier="Standard",
-            account_replication_type="LRS",
-            blob_properties={
-                "versioning_enabled": True,
-                "change_feed_enabled": True,
-            })
+            account_replication_type="LRS")
         dst_container = azure.storage.Container("dst",
             name="dststrcontainer",
             storage_account_name=dst_account.name,
             container_access_type="private")
         example = azure.storage.ObjectReplication("example",
-            source_storage_account_id=src_account.id,
-            destination_storage_account_id=dst_account.id,
             rules=[{
                 "source_container_name": src_container.name,
                 "destination_container_name": dst_container.name,
-            }])
+            }],
+            source_storage_account_id=src_account.id,
+            destination_storage_account_id=dst_account.id)
         ```
 
         ## API Providers

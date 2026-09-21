@@ -313,10 +313,6 @@ class FrontdoorProfile(pulumi.CustomResource):
             name="example-identity",
             resource_group_name=example.name)
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-cdn-profile",
-            resource_group_name=example.name,
-            sku_name="Premium_AzureFrontDoor",
-            response_timeout_seconds=120,
             identity={
                 "type": "SystemAssigned, UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
@@ -324,6 +320,10 @@ class FrontdoorProfile(pulumi.CustomResource):
             log_scrubbing_rules=[{
                 "match_variable": "RequestIPAddress",
             }],
+            name="example-cdn-profile",
+            resource_group_name=example.name,
+            sku_name="Premium_AzureFrontDoor",
+            response_timeout_seconds=120,
             tags={
                 "environment": "Production",
             })
@@ -380,10 +380,6 @@ class FrontdoorProfile(pulumi.CustomResource):
             name="example-identity",
             resource_group_name=example.name)
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
-            name="example-cdn-profile",
-            resource_group_name=example.name,
-            sku_name="Premium_AzureFrontDoor",
-            response_timeout_seconds=120,
             identity={
                 "type": "SystemAssigned, UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
@@ -391,6 +387,10 @@ class FrontdoorProfile(pulumi.CustomResource):
             log_scrubbing_rules=[{
                 "match_variable": "RequestIPAddress",
             }],
+            name="example-cdn-profile",
+            resource_group_name=example.name,
+            sku_name="Premium_AzureFrontDoor",
+            response_timeout_seconds=120,
             tags={
                 "environment": "Production",
             })

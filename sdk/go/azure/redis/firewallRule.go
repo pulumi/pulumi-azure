@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/redis"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +47,11 @@ import (
 //				return err
 //			}
 //			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
 //				Name:              pulumi.Sprintf("redis%v", server.Hex),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
@@ -54,11 +59,6 @@ import (
 //				Family:            pulumi.String("P"),
 //				SkuName:           pulumi.String("Premium"),
 //				EnableNonSslPort:  false,
-//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-//					MaxmemoryReserved: pulumi.Int(2),
-//					MaxmemoryDelta:    pulumi.Int(2),
-//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-//				},
 //			})
 //			if err != nil {
 //				return err

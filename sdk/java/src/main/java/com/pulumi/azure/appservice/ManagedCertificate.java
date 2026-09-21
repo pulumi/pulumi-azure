@@ -47,7 +47,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.CustomHostnameBinding;
  * import com.pulumi.azure.appservice.CustomHostnameBindingArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.appservice.ManagedCertificate;
  * import com.pulumi.azure.appservice.ManagedCertificateArgs;
  * import com.pulumi.azure.appservice.CertificateBinding;
@@ -76,15 +75,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier("Basic")
+ *                 .size("B1")
+ *                 .build())
  *             .name("example-plan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .kind("Linux")
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Basic")
- *                 .size("B1")
- *                 .build())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
@@ -95,13 +94,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value(exampleAppService.customDomainVerificationId())
+ *                 .build())
  *             .name("asuid.mycustomhost.contoso.com")
  *             .zoneName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAppService.customDomainVerificationId())
- *                 .build())
  *             .build());
  * 
  *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
@@ -113,12 +112,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
- *             .hostname(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
+ *             .hostname(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
  *                     exampleCNameRecord.name(),
- *                     exampleCNameRecord.zoneName())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *                     exampleCNameRecord.zoneName()))
+ *             )).result())
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());

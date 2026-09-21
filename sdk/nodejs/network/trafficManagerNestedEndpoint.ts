@@ -27,9 +27,6 @@ import * as utilities from "../utilities";
  *     domainNameLabel: "example-pip",
  * });
  * const parent = new azure.network.TrafficManagerProfile("parent", {
- *     name: "parent-profile",
- *     resourceGroupName: example.name,
- *     trafficRoutingMethod: "Weighted",
  *     dnsConfig: {
  *         relativeName: "parent-profile",
  *         ttl: 100,
@@ -42,14 +39,14 @@ import * as utilities from "../utilities";
  *         timeoutInSeconds: 9,
  *         toleratedNumberOfFailures: 3,
  *     },
+ *     name: "parent-profile",
+ *     resourceGroupName: example.name,
+ *     trafficRoutingMethod: "Weighted",
  *     tags: {
  *         environment: "Production",
  *     },
  * });
  * const nested = new azure.network.TrafficManagerProfile("nested", {
- *     name: "nested-profile",
- *     resourceGroupName: example.name,
- *     trafficRoutingMethod: "Priority",
  *     dnsConfig: {
  *         relativeName: "nested-profile",
  *         ttl: 30,
@@ -59,6 +56,9 @@ import * as utilities from "../utilities";
  *         port: 443,
  *         path: "/",
  *     },
+ *     name: "nested-profile",
+ *     resourceGroupName: example.name,
+ *     trafficRoutingMethod: "Priority",
  * });
  * const exampleTrafficManagerNestedEndpoint = new azure.network.TrafficManagerNestedEndpoint("example", {
  *     name: "example-endpoint",

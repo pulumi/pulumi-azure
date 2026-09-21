@@ -26,18 +26,18 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
+ *     delegations: [{
+ *         serviceDelegation: {
+ *             name: "Microsoft.DBforMySQL/flexibleServers",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *         name: "fs",
+ *     }],
  *     name: "example-sn",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: ["Microsoft.Storage"],
- *     delegations: [{
- *         name: "fs",
- *         serviceDelegation: {
- *             name: "Microsoft.DBforMySQL/flexibleServers",
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
- *         },
- *     }],
  * });
  * const exampleZone = new azure.privatedns.Zone("example", {
  *     name: "example.mysql.database.azure.com",

@@ -104,12 +104,12 @@ import (
 //				return err
 //			}
 //			exampleVirtualHubConnection, err := network.NewVirtualHubConnection(ctx, "example", &network.VirtualHubConnectionArgs{
-//				Name:                   pulumi.String("example-vhubconn"),
-//				VirtualHubId:           exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
-//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				Routing: &network.VirtualHubConnectionRoutingArgs{
 //					AssociatedRouteTableId: exampleVirtualHubRouteTable.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:                   pulumi.String("example-vhubconn"),
+//				VirtualHubId:           exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

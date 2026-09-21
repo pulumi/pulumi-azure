@@ -106,21 +106,8 @@ import (
 //				return err
 //			}
 //			_, err = workloadssap.NewSingleNodeVirtualInstance(ctx, "example", &workloadssap.SingleNodeVirtualInstanceArgs{
-//				Name:                     pulumi.String("X05"),
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
-//				Environment:              pulumi.String("NonProd"),
-//				SapProduct:               pulumi.String("S4HANA"),
-//				ManagedResourceGroupName: pulumi.String("managedTestRG"),
-//				AppLocation:              app.Location,
-//				SapFqdn:                  pulumi.String("sap.bpaas.com"),
 //				SingleServerConfiguration: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationArgs{
-//					AppResourceGroupName: app.Name,
-//					SubnetId:             exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//					DatabaseType:         pulumi.String("HANA"),
-//					SecondaryIpEnabled:   pulumi.Bool(true),
 //					VirtualMachineConfiguration: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs{
-//						VirtualMachineSize: pulumi.String("Standard_E32ds_v4"),
 //						Image: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs{
 //							Offer:     pulumi.String("RHEL-SAP-HA"),
 //							Publisher: pulumi.String("RedHat"),
@@ -131,6 +118,23 @@ import (
 //							AdminUsername: pulumi.String("testAdmin"),
 //							SshPrivateKey: examplePrivateKey.PrivateKeyPem,
 //							SshPublicKey:  pulumi.Any(example.PublicKeyOpenssh),
+//						},
+//						VirtualMachineSize: pulumi.String("Standard_E32ds_v4"),
+//					},
+//					VirtualMachineResourceNames: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs{
+//						DataDisks: workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArray{
+//							&workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs{
+//								VolumeName: pulumi.String("default"),
+//								Names: pulumi.StringArray{
+//									pulumi.String("app0disk0"),
+//								},
+//							},
+//						},
+//						HostName:           pulumi.String("apphostName0"),
+//						OsDiskName:         pulumi.String("app0osdisk"),
+//						VirtualMachineName: pulumi.String("appvm0"),
+//						NetworkInterfaceNames: pulumi.StringArray{
+//							pulumi.String("appnic0"),
 //						},
 //					},
 //					DiskVolumeConfigurations: workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArray{
@@ -171,22 +175,10 @@ import (
 //							SkuName:       pulumi.String("StandardSSD_LRS"),
 //						},
 //					},
-//					VirtualMachineResourceNames: &workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs{
-//						HostName:           pulumi.String("apphostName0"),
-//						OsDiskName:         pulumi.String("app0osdisk"),
-//						VirtualMachineName: pulumi.String("appvm0"),
-//						NetworkInterfaceNames: pulumi.StringArray{
-//							pulumi.String("appnic0"),
-//						},
-//						DataDisks: workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArray{
-//							&workloadssap.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs{
-//								VolumeName: pulumi.String("default"),
-//								Names: pulumi.StringArray{
-//									pulumi.String("app0disk0"),
-//								},
-//							},
-//						},
-//					},
+//					AppResourceGroupName: app.Name,
+//					SubnetId:             exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					DatabaseType:         pulumi.String("HANA"),
+//					SecondaryIpEnabled:   pulumi.Bool(true),
 //				},
 //				Identity: &workloadssap.SingleNodeVirtualInstanceIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
@@ -194,6 +186,14 @@ import (
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                     pulumi.String("X05"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Location:                 exampleResourceGroup.Location,
+//				Environment:              pulumi.String("NonProd"),
+//				SapProduct:               pulumi.String("S4HANA"),
+//				ManagedResourceGroupName: pulumi.String("managedTestRG"),
+//				AppLocation:              app.Location,
+//				SapFqdn:                  pulumi.String("sap.bpaas.com"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAssignment,
 //			}))

@@ -74,18 +74,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTriggerTumblingWindow = new TriggerTumblingWindow("exampleTriggerTumblingWindow", TriggerTumblingWindowArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .startTime("2022-09-21T00:00:00Z")
- *             .endTime("2022-09-21T08:00:00Z")
- *             .frequency("Minute")
- *             .interval(15)
- *             .delay("16:00:00")
- *             .annotations(            
- *                 "example1",
- *                 "example2",
- *                 "example3")
- *             .description("example description")
  *             .retry(TriggerTumblingWindowRetryArgs.builder()
  *                 .count(1)
  *                 .interval(30)
@@ -98,6 +86,18 @@ import javax.annotation.Nullable;
  *                 .size("24:00:00")
  *                 .offset("-24:00:00")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .startTime("2022-09-21T00:00:00Z")
+ *             .endTime("2022-09-21T08:00:00Z")
+ *             .frequency("Minute")
+ *             .interval(15)
+ *             .delay("16:00:00")
+ *             .annotations(            
+ *                 "example1",
+ *                 "example2",
+ *                 "example3")
+ *             .description("example description")
  *             .additionalProperties(Map.ofEntries(
  *                 Map.entry("foo", "value1"),
  *                 Map.entry("bar", "value2")

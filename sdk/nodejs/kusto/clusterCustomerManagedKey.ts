@@ -28,9 +28,6 @@ import * as utilities from "../utilities";
  *     purgeProtectionEnabled: true,
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "kustocluster",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
@@ -38,6 +35,9 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const cluster = new azure.keyvault.AccessPolicy("cluster", {
  *     keyVaultId: exampleKeyVault.id,

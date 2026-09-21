@@ -54,9 +54,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Name = "example-networkmanager",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -64,6 +61,9 @@ namespace Pulumi.Azure.Network
     ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
+    ///         Name = "example-networkmanager",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         ScopeAccesses = new[]
     ///         {
     ///             "SecurityAdmin",

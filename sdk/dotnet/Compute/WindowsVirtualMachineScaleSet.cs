@@ -64,14 +64,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleWindowsVirtualMachineScaleSet = new Azure.Compute.WindowsVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Name = "example-vmss",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "Standard_D4_v5",
-    ///         Instances = 1,
-    ///         AdminPassword = "P@55w0rd1234!",
-    ///         AdminUsername = "adminuser",
-    ///         ComputerNamePrefix = "vm-",
     ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "MicrosoftWindowsServer",
@@ -88,8 +80,6 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
     ///                 IpConfigurations = new[]
     ///                 {
     ///                     new Azure.Compute.Inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
@@ -99,8 +89,18 @@ namespace Pulumi.Azure.Compute
     ///                         SubnetId = @internal.Id,
     ///                     },
     ///                 },
+    ///                 Name = "example",
+    ///                 Primary = true,
     ///             },
     ///         },
+    ///         Name = "example-vmss",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard_D4_v5",
+    ///         Instances = 1,
+    ///         AdminPassword = "P@55w0rd1234!",
+    ///         AdminUsername = "adminuser",
+    ///         ComputerNamePrefix = "vm-",
     ///     });
     /// 
     /// });

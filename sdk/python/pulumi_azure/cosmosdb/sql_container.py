@@ -533,15 +533,10 @@ class SqlContainer(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             account_name=example.name)
         example_sql_container = azure.cosmosdb.SqlContainer("example",
-            name="example-container",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            database_name=example_sql_database.name,
-            partition_key_paths=["/definition/id"],
-            partition_key_version=1,
-            throughput=400,
             indexing_policy={
-                "indexing_mode": "consistent",
+                "excluded_paths": [{
+                    "path": "/excluded/?",
+                }],
                 "included_paths": [
                     {
                         "path": "/*",
@@ -550,16 +545,21 @@ class SqlContainer(pulumi.CustomResource):
                         "path": "/included/?",
                     },
                 ],
-                "excluded_paths": [{
-                    "path": "/excluded/?",
-                }],
+                "indexing_mode": "consistent",
             },
             unique_keys=[{
                 "paths": [
                     "/definition/idlong",
                     "/definition/idshort",
                 ],
-            }])
+            }],
+            name="example-container",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            database_name=example_sql_database.name,
+            partition_key_paths=["/definition/id"],
+            partition_key_version=1,
+            throughput=400)
         ```
 
         ## API Providers
@@ -621,15 +621,10 @@ class SqlContainer(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             account_name=example.name)
         example_sql_container = azure.cosmosdb.SqlContainer("example",
-            name="example-container",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            database_name=example_sql_database.name,
-            partition_key_paths=["/definition/id"],
-            partition_key_version=1,
-            throughput=400,
             indexing_policy={
-                "indexing_mode": "consistent",
+                "excluded_paths": [{
+                    "path": "/excluded/?",
+                }],
                 "included_paths": [
                     {
                         "path": "/*",
@@ -638,16 +633,21 @@ class SqlContainer(pulumi.CustomResource):
                         "path": "/included/?",
                     },
                 ],
-                "excluded_paths": [{
-                    "path": "/excluded/?",
-                }],
+                "indexing_mode": "consistent",
             },
             unique_keys=[{
                 "paths": [
                     "/definition/idlong",
                     "/definition/idshort",
                 ],
-            }])
+            }],
+            name="example-container",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            database_name=example_sql_database.name,
+            partition_key_paths=["/definition/id"],
+            partition_key_version=1,
+            throughput=400)
         ```
 
         ## API Providers

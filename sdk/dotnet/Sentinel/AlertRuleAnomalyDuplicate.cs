@@ -50,11 +50,6 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleAlertRuleAnomalyDuplicate = new Azure.Sentinel.AlertRuleAnomalyDuplicate("example", new()
     ///     {
-    ///         DisplayName = "example duplicated UEBA Anomalous Sign In",
-    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///         BuiltInRuleId = example.Apply(getAlertRuleAnomalyResult =&gt; getAlertRuleAnomalyResult.Id),
-    ///         Enabled = true,
-    ///         Mode = "Flighting",
     ///         ThresholdObservations = new[]
     ///         {
     ///             new Azure.Sentinel.Inputs.AlertRuleAnomalyDuplicateThresholdObservationArgs
@@ -63,6 +58,11 @@ namespace Pulumi.Azure.Sentinel
     ///                 Value = "0.6",
     ///             },
     ///         },
+    ///         DisplayName = "example duplicated UEBA Anomalous Sign In",
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         BuiltInRuleId = example.Apply(getAlertRuleAnomalyResult =&gt; getAlertRuleAnomalyResult.Id),
+    ///         Enabled = true,
+    ///         Mode = "Flighting",
     ///     });
     /// 
     /// });

@@ -34,14 +34,14 @@ import * as utilities from "../utilities";
  *     sku: "Standard_Microsoft",
  * });
  * const exampleEndpoint = new azure.cdn.Endpoint("example", {
- *     name: "example",
- *     profileName: exampleProfile.name,
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     origins: [{
  *         name: "example",
  *         hostName: "www.contoso.com",
  *     }],
+ *     name: "example",
+ *     profileName: exampleProfile.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

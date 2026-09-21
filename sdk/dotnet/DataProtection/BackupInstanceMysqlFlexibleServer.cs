@@ -42,16 +42,16 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-backupvault",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
     ///         SoftDelete = "Off",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
@@ -70,12 +70,6 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupPolicyMysqlFlexibleServer = new Azure.DataProtection.BackupPolicyMysqlFlexibleServer("example", new()
     ///     {
-    ///         Name = "example-dp",
-    ///         VaultId = exampleBackupVault.Id,
-    ///         BackupRepeatingTimeIntervals = new[]
-    ///         {
-    ///             "R/2021-05-23T02:30:00+00:00/P1W",
-    ///         },
     ///         DefaultRetentionRule = new Azure.DataProtection.Inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs
     ///         {
     ///             LifeCycles = new[]
@@ -86,6 +80,12 @@ namespace Pulumi.Azure.DataProtection
     ///                     DataStoreType = "VaultStore",
     ///                 },
     ///             },
+    ///         },
+    ///         Name = "example-dp",
+    ///         VaultId = exampleBackupVault.Id,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
     ///         },
     ///     }, new CustomResourceOptions
     ///     {

@@ -77,6 +77,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputServiceBusQueue = new OutputServiceBusQueue("exampleOutputServiceBusQueue", OutputServiceBusQueueArgs.builder()
+ *             .serialization(OutputServiceBusQueueSerializationArgs.builder()
+ *                 .type("Csv")
+ *                 .format("Array")
+ *                 .build())
  *             .name("blob-storage-output")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -84,10 +88,6 @@ import javax.annotation.Nullable;
  *             .servicebusNamespace(exampleNamespace.name())
  *             .sharedAccessPolicyKey(exampleNamespace.defaultPrimaryKey())
  *             .sharedAccessPolicyName("RootManageSharedAccessKey")
- *             .serialization(OutputServiceBusQueueSerializationArgs.builder()
- *                 .type("Csv")
- *                 .format("Array")
- *                 .build())
  *             .build());
  * 
  *     }

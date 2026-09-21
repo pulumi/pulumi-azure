@@ -46,10 +46,10 @@ import * as utilities from "../utilities";
  *     scopeMapId: exampleRegistryScopeMap.id,
  * });
  * const exampleTokenPassword = new azure.containerservice.TokenPassword("example", {
- *     containerRegistryTokenId: exampleRegistryToken.id,
  *     password1: {
  *         expiry: "2023-03-22T17:57:36+08:00",
  *     },
+ *     containerRegistryTokenId: exampleRegistryToken.id,
  * });
  * ```
  *

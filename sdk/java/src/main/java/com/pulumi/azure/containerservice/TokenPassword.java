@@ -85,10 +85,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTokenPassword = new TokenPassword("exampleTokenPassword", TokenPasswordArgs.builder()
- *             .containerRegistryTokenId(exampleRegistryToken.id())
  *             .password1(TokenPasswordPassword1Args.builder()
  *                 .expiry("2023-03-22T17:57:36+08:00")
  *                 .build())
+ *             .containerRegistryTokenId(exampleRegistryToken.id())
  *             .build());
  * 
  *     }

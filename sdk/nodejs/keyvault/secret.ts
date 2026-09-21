@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -41,6 +34,13 @@ import * as utilities from "../utilities";
  *             "Recover",
  *         ],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
  * });
  * const exampleSecret = new azure.keyvault.Secret("example", {
  *     name: "secret-sauce",

@@ -100,22 +100,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mainNetworkInterface = new NetworkInterface("mainNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name(String.format("%s-nic", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("testconfiguration1")
  *                 .subnetId(internal.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name(String.format("%s-nic", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var mainVirtualMachine = new VirtualMachine("mainVirtualMachine", VirtualMachineArgs.builder()
- *             .name(String.format("%s-vm", prefix))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .networkInterfaceIds(mainNetworkInterface.id())
- *             .vmSize("Standard_DS1_v2")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -136,6 +131,11 @@ import javax.annotation.Nullable;
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
+ *             .name(String.format("%s-vm", prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .networkInterfaceIds(mainNetworkInterface.id())
+ *             .vmSize("Standard_DS1_v2")
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 

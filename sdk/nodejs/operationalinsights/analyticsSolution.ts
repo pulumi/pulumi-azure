@@ -33,15 +33,15 @@ import * as utilities from "../utilities";
  *     sku: "PerGB2018",
  * });
  * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/ContainerInsights",
+ *     },
  *     solutionName: "ContainerInsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/ContainerInsights",
- *     },
  * });
  * ```
  *

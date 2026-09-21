@@ -36,6 +36,10 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleStreamInputBlob = new azure.streamanalytics.StreamInputBlob("example", {
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
  *     name: "blob-stream-input",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -45,10 +49,6 @@ import * as utilities from "../utilities";
  *     pathPattern: "some-random-pattern",
  *     dateFormat: "yyyy/MM/dd",
  *     timeFormat: "HH",
- *     serialization: {
- *         type: "Json",
- *         encoding: "UTF8",
- *     },
  * });
  * ```
  *

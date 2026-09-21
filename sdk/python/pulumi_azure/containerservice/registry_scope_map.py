@@ -216,11 +216,6 @@ class RegistryScopeMap(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_registry = azure.containerservice.Registry("example",
-            name="exampleregistry",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Basic",
-            admin_enabled=False,
             georeplications=[
                 {
                     "location": "East US",
@@ -228,7 +223,12 @@ class RegistryScopeMap(pulumi.CustomResource):
                 {
                     "location": "West Europe",
                 },
-            ])
+            ],
+            name="exampleregistry",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Basic",
+            admin_enabled=False)
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",
             container_registry_name=example_registry.name,
@@ -282,11 +282,6 @@ class RegistryScopeMap(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_registry = azure.containerservice.Registry("example",
-            name="exampleregistry",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Basic",
-            admin_enabled=False,
             georeplications=[
                 {
                     "location": "East US",
@@ -294,7 +289,12 @@ class RegistryScopeMap(pulumi.CustomResource):
                 {
                     "location": "West Europe",
                 },
-            ])
+            ],
+            name="exampleregistry",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Basic",
+            admin_enabled=False)
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",
             container_registry_name=example_registry.name,

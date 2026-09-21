@@ -22,27 +22,20 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-servicebus-namespace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Premium",
  *     premiumMessagingPartitions: 1,
  *     capacity: 1,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
+ * }, {
+ *     ignoreChanges: ["customerManagedKey"],
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example-key-vault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     enabledForDiskEncryption: true,
- *     tenantId: current.then(current => current.tenantId),
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: true,
- *     skuName: "standard",
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -81,6 +74,15 @@ import * as utilities from "../utilities";
  *             secretPermissions: ["Set"],
  *         },
  *     ],
+ *     name: "example-key-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: current.then(current => current.tenantId),
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: true,
+ *     skuName: "standard",
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "example-key-vault-key",

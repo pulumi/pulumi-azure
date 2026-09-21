@@ -62,15 +62,8 @@ import (
 //				return err
 //			}
 //			netappSubnet, err := network.NewSubnet(ctx, "netappSubnet", &network.SubnetArgs{
-//				Name:               pulumi.String("example-Subnet"),
-//				ResourceGroupName:  pulumi.Any(testAzurermResourceGroup.Name),
-//				VirtualNetworkName: testVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.88.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("testdelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -78,7 +71,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("testdelegation"),
 //					},
+//				},
+//				Name:               pulumi.String("example-Subnet"),
+//				ResourceGroupName:  pulumi.Any(testAzurermResourceGroup.Name),
+//				VirtualNetworkName: testVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.88.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -96,11 +96,6 @@ import (
 //				return err
 //			}
 //			testVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "test", &network.VirtualNetworkGatewayArgs{
-//				Name:              pulumi.String("example-vnet-gateway"),
-//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
-//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
-//				Type:              pulumi.String("ExpressRoute"),
-//				Sku:               pulumi.String("Standard"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
 //						Name:              pulumi.String("vnetGatewayConfig"),
@@ -108,6 +103,11 @@ import (
 //						SubnetId:          gatewaySubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("example-vnet-gateway"),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
+//				Type:              pulumi.String("ExpressRoute"),
+//				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
@@ -132,6 +132,18 @@ import (
 //				return err
 //			}
 //			testVolume, err := netapp.NewVolume(ctx, "test", &netapp.VolumeArgs{
+//				ExportPolicyRules: netapp.VolumeExportPolicyRuleArray{
+//					&netapp.VolumeExportPolicyRuleArgs{
+//						RuleIndex: pulumi.Int(1),
+//						AllowedClients: pulumi.StringArray{
+//							pulumi.String("0.0.0.0/0"),
+//						},
+//						ProtocolsEnabled:  pulumi.String("NFSv3"),
+//						UnixReadOnly:      pulumi.Bool(false),
+//						UnixReadWrite:     pulumi.Bool(true),
+//						RootAccessEnabled: pulumi.Bool(true),
+//					},
+//				},
 //				Name:              pulumi.String("example-NetAppVolume"),
 //				Location:          pulumi.Any(testAzurermResourceGroup.Location),
 //				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
@@ -145,30 +157,18 @@ import (
 //				},
 //				StorageQuotaInGb:            pulumi.Int(100),
 //				AzureVmwareDataStoreEnabled: pulumi.Bool(true),
-//				ExportPolicyRules: netapp.VolumeExportPolicyRuleArray{
-//					&netapp.VolumeExportPolicyRuleArgs{
-//						RuleIndex: pulumi.Int(1),
-//						AllowedClients: pulumi.StringArray{
-//							pulumi.String("0.0.0.0/0"),
-//						},
-//						ProtocolsEnabled:  pulumi.String("NFSv3"),
-//						UnixReadOnly:      pulumi.Bool(false),
-//						UnixReadWrite:     pulumi.Bool(true),
-//						RootAccessEnabled: pulumi.Bool(true),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testPrivateCloud, err := avs.NewPrivateCloud(ctx, "test", &avs.PrivateCloudArgs{
+//				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
+//					Size: pulumi.Int(3),
+//				},
 //				Name:              pulumi.String("example-PC"),
 //				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
 //				Location:          pulumi.Any(testAzurermResourceGroup.Location),
 //				SkuName:           pulumi.String("av36"),
-//				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
-//					Size: pulumi.Int(3),
-//				},
 //				NetworkSubnetCidr: pulumi.String("192.168.48.0/22"),
 //			})
 //			if err != nil {

@@ -65,15 +65,15 @@ import * as utilities from "../utilities";
  *     dependsOn: [deployer],
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  *     tags: {
  *         Env: "production",
  *     },

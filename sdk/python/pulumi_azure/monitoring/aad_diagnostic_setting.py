@@ -279,8 +279,6 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             account_kind="StorageV2",
             account_replication_type="LRS")
         example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("example",
-            name="setting1",
-            storage_account_id=example_account.id,
             enabled_logs=[
                 {
                     "category": "SignInLogs",
@@ -294,7 +292,9 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                 {
                     "category": "ServicePrincipalSignInLogs",
                 },
-            ])
+            ],
+            name="setting1",
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers
@@ -354,8 +354,6 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             account_kind="StorageV2",
             account_replication_type="LRS")
         example_aad_diagnostic_setting = azure.monitoring.AadDiagnosticSetting("example",
-            name="setting1",
-            storage_account_id=example_account.id,
             enabled_logs=[
                 {
                     "category": "SignInLogs",
@@ -369,7 +367,9 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                 {
                     "category": "ServicePrincipalSignInLogs",
                 },
-            ])
+            ],
+            name="setting1",
+            storage_account_id=example_account.id)
         ```
 
         ## API Providers

@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-network-manager",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     scopeAccesses: [
  *         "Connectivity",
  *         "SecurityAdmin",
@@ -118,12 +118,12 @@ export interface GetNetworkManagerResult {
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-network-manager",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     scopeAccesses: [
  *         "Connectivity",
  *         "SecurityAdmin",

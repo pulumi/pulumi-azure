@@ -40,21 +40,21 @@ import (
 //				return err
 //			}
 //			example, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				DnsPrefix:         pulumi.String("acctestaksexample"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-//					Name:      pulumi.String("example-value"),
-//					NodeCount: pulumi.Int("example-value"),
-//					VmSize:    pulumi.String("example-value"),
 //					UpgradeSettings: &containerservice.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{
 //						MaxSurge: pulumi.String("example-value"),
 //					},
+//					Name:      pulumi.String("example-value"),
+//					NodeCount: pulumi.Int("example-value"),
+//					VmSize:    pulumi.String("example-value"),
 //				},
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("example-value"),
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DnsPrefix:         pulumi.String("acctestaksexample"),
 //			})
 //			if err != nil {
 //				return err

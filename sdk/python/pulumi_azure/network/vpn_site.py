@@ -396,15 +396,15 @@ class VpnSite(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_vpn_site = azure.network.VpnSite("example",
+            links=[{
+                "name": "link1",
+                "ip_address": "10.0.0.1",
+            }],
             name="site1",
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_cidrs=["10.0.0.0/24"],
-            links=[{
-                "name": "link1",
-                "ip_address": "10.0.0.1",
-            }])
+            address_cidrs=["10.0.0.0/24"])
         ```
 
         ## API Providers
@@ -461,15 +461,15 @@ class VpnSite(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_vpn_site = azure.network.VpnSite("example",
+            links=[{
+                "name": "link1",
+                "ip_address": "10.0.0.1",
+            }],
             name="site1",
             resource_group_name=example.name,
             location=example.location,
             virtual_wan_id=example_virtual_wan.id,
-            address_cidrs=["10.0.0.0/24"],
-            links=[{
-                "name": "link1",
-                "ip_address": "10.0.0.1",
-            }])
+            address_cidrs=["10.0.0.0/24"])
         ```
 
         ## API Providers

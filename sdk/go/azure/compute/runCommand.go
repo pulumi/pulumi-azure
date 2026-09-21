@@ -64,9 +64,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -74,6 +71,9 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example-nic"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -87,16 +87,6 @@ import (
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String("example-VM"),
-//				ResourceGroupName:             exampleResourceGroup.Name,
-//				Location:                      exampleResourceGroup.Location,
-//				Size:                          pulumi.String("Standard_B2s"),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("P@$$w0rd1234!"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Premium_LRS"),
@@ -112,6 +102,16 @@ import (
 //					IdentityIds: pulumi.StringArray{
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
+//				},
+//				Name:                          pulumi.String("example-VM"),
+//				ResourceGroupName:             exampleResourceGroup.Name,
+//				Location:                      exampleResourceGroup.Location,
+//				Size:                          pulumi.String("Standard_B2s"),
+//				AdminUsername:                 pulumi.String("adminuser"),
+//				AdminPassword:                 pulumi.String("P@$$w0rd1234!"),
+//				DisablePasswordAuthentication: pulumi.Bool(false),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -172,11 +172,6 @@ import (
 //				return err
 //			}
 //			example := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
-//				ConnectionString: exampleAccount.PrimaryConnectionString,
-//				HttpsOnly:        pulumi.Bool(true),
-//				SignedVersion:    pulumi.String("2019-10-10"),
-//				Start:            pulumi.String("2023-04-01T00:00:00Z"),
-//				Expiry:           pulumi.String("2024-04-01T00:00:00Z"),
 //				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
 //					Service:   pulumi.Bool(false),
 //					Container: pulumi.Bool(false),
@@ -200,33 +195,31 @@ import (
 //					Tag:     pulumi.Bool(false),
 //					Filter:  pulumi.Bool(false),
 //				},
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				HttpsOnly:        pulumi.Bool(true),
+//				SignedVersion:    pulumi.String("2019-10-10"),
+//				Start:            pulumi.String("2023-04-01T00:00:00Z"),
+//				Expiry:           pulumi.String("2024-04-01T00:00:00Z"),
 //			}, nil)
 //			// basic example
 //			_, err = compute.NewRunCommand(ctx, "example", &compute.RunCommandArgs{
-//				Name:             pulumi.String("example-vmrc"),
-//				Location:         exampleResourceGroup.Location,
-//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Source: &compute.RunCommandSourceArgs{
 //					Script: pulumi.String("echo 'hello world'"),
 //				},
+//				Name:             pulumi.String("example-vmrc"),
+//				Location:         exampleResourceGroup.Location,
+//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// authorize to storage blob using user assigned identity
 //			_, err = compute.NewRunCommand(ctx, "example2", &compute.RunCommandArgs{
-//				Location:         exampleResourceGroup.Location,
-//				Name:             pulumi.String("example2-vmrc"),
-//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
-//				OutputBlobUri:    example2.ID().ToIDOutput().ToStringOutput(),
-//				ErrorBlobUri:     example3.ID().ToIDOutput().ToStringOutput(),
-//				RunAsPassword:    pulumi.String("P@$$w0rd1234!"),
-//				RunAsUser:        pulumi.String("adminuser"),
 //				Source: &compute.RunCommandSourceArgs{
-//					ScriptUri: example1.ID().ToIDOutput().ToStringOutput(),
 //					ScriptUriManagedIdentity: &compute.RunCommandSourceScriptUriManagedIdentityArgs{
 //						ClientId: exampleUserAssignedIdentity.ClientId,
 //					},
+//					ScriptUri: example1.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				ErrorBlobManagedIdentity: &compute.RunCommandErrorBlobManagedIdentityArgs{
 //					ClientId: exampleUserAssignedIdentity.ClientId,
@@ -246,6 +239,13 @@ import (
 //						Value: pulumi.String("val2"),
 //					},
 //				},
+//				Location:         exampleResourceGroup.Location,
+//				Name:             pulumi.String("example2-vmrc"),
+//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				OutputBlobUri:    example2.ID().ToIDOutput().ToStringOutput(),
+//				ErrorBlobUri:     example3.ID().ToIDOutput().ToStringOutput(),
+//				RunAsPassword:    pulumi.String("P@$$w0rd1234!"),
+//				RunAsUser:        pulumi.String("adminuser"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("terraform-examples"),
 //					"some_key":    pulumi.String("some-value"),
@@ -258,6 +258,19 @@ import (
 //			}
 //			// authorize to storage blob using SAS token
 //			_, err = compute.NewRunCommand(ctx, "example3", &compute.RunCommandArgs{
+//				Source: &compute.RunCommandSourceArgs{
+//					ScriptUri: pulumi.All(example1.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
+//						id := _args[0].(pulumi.ID)
+//						example := _args[1].(storage.GetAccountSASResult)
+//						return fmt.Sprintf("%v%v", id, example.Sas), nil
+//					}).(pulumi.StringOutput),
+//				},
+//				Parameters: compute.RunCommandParameterArray{
+//					&compute.RunCommandParameterArgs{
+//						Name:  pulumi.String("example-vm1"),
+//						Value: pulumi.String("val1"),
+//					},
+//				},
 //				Location:         exampleResourceGroup.Location,
 //				Name:             pulumi.String("example3-vmrc"),
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
@@ -273,19 +286,6 @@ import (
 //					example := _args[1].(storage.GetAccountSASResult)
 //					return fmt.Sprintf("%v%v", id, example.Sas), nil
 //				}).(pulumi.StringOutput),
-//				Source: &compute.RunCommandSourceArgs{
-//					ScriptUri: pulumi.All(example1.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
-//						id := _args[0].(pulumi.ID)
-//						example := _args[1].(storage.GetAccountSASResult)
-//						return fmt.Sprintf("%v%v", id, example.Sas), nil
-//					}).(pulumi.StringOutput),
-//				},
-//				Parameters: compute.RunCommandParameterArray{
-//					&compute.RunCommandParameterArgs{
-//						Name:  pulumi.String("example-vm1"),
-//						Value: pulumi.String("val1"),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("terraform-example-s"),
 //					"some_key":    pulumi.String("some-value"),

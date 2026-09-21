@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxWebApp = new LinuxWebApp("exampleLinuxWebApp", LinuxWebAppArgs.builder()
+ *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleSourceControl = new SourceControl("exampleSourceControl", SourceControlArgs.builder()

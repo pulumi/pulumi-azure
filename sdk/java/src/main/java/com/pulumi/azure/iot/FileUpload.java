@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.inputs.IoTHubSkuArgs;
  * import com.pulumi.azure.iot.FileUpload;
  * import com.pulumi.azure.iot.FileUploadArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -75,14 +76,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
- *             .build());
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("fileUpload")
+ *                 .build());
  * 
  *         var exampleFileUpload = new FileUpload("exampleFileUpload", FileUploadArgs.builder()
  *             .iothubId(exampleIoTHub.id())

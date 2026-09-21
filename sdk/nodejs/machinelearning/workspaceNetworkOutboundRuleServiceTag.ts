@@ -40,18 +40,18 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "GRS",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
- *     name: "example-workspace",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     applicationInsightsId: exampleInsights.id,
- *     keyVaultId: exampleKeyVault.id,
- *     storageAccountId: exampleAccount.id,
  *     managedNetwork: {
  *         isolationMode: "AllowOnlyApprovedOutbound",
  *     },
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     applicationInsightsId: exampleInsights.id,
+ *     keyVaultId: exampleKeyVault.id,
+ *     storageAccountId: exampleAccount.id,
  * });
  * const exampleWorkspaceNetworkOutboundRuleServiceTag = new azure.machinelearning.WorkspaceNetworkOutboundRuleServiceTag("example", {
  *     name: "example-outboundrule",

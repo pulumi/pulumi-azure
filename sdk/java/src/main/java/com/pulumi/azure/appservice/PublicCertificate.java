@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.PublicCertificate;
  * import com.pulumi.azure.appservice.PublicCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,13 +54,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("example-app-service-plan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("example-app-service-plan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
@@ -76,9 +75,7 @@ import javax.annotation.Nullable;
  *             .appServiceName(exampleAppService.name())
  *             .certificateName("example-public-certificate")
  *             .certificateLocation("Unknown")
- *             .blob(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("app_service_public_certificate.cer")
- *                 .build()).result())
+ *             .blob(StdFunctions.filebase64(Map.of("input", "app_service_public_certificate.cer")).result())
  *             .build());
  * 
  *     }

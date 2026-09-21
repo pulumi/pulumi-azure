@@ -97,13 +97,13 @@ import (
 //				return err
 //			}
 //			exampleDiskEncryptionSet, err := compute.NewDiskEncryptionSet(ctx, "example", &compute.DiskEncryptionSetArgs{
+//				Identity: &compute.DiskEncryptionSetIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("des"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				KeyVaultKeyId:     exampleKey.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &compute.DiskEncryptionSetIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -222,14 +222,14 @@ import (
 //				return err
 //			}
 //			exampleDiskEncryptionSet, err := compute.NewDiskEncryptionSet(ctx, "example", &compute.DiskEncryptionSetArgs{
+//				Identity: &compute.DiskEncryptionSetIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                   pulumi.String("des"),
 //				ResourceGroupName:      example.Name,
 //				Location:               example.Location,
 //				KeyVaultKeyId:          exampleKey.VersionlessId,
 //				AutoKeyRotationEnabled: pulumi.Bool(true),
-//				Identity: &compute.DiskEncryptionSetIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

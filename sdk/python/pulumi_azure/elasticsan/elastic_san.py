@@ -421,14 +421,14 @@ class ElasticSan(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "example-value",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            extended_size_in_tib=2,
-            sku={
-                "name": "example-value",
-            })
+            extended_size_in_tib=2)
         ```
 
         ## API Providers
@@ -483,14 +483,14 @@ class ElasticSan(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "example-value",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            extended_size_in_tib=2,
-            sku={
-                "name": "example-value",
-            })
+            extended_size_in_tib=2)
         ```
 
         ## API Providers

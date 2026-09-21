@@ -51,11 +51,11 @@ public final class KubernetesClusterAciConnectorLinux {
      *     public static void stack(Context ctx) {
      *         var virtual = new Subnet("virtual", SubnetArgs.builder()
      *             .delegations(SubnetDelegationArgs.builder()
-     *                 .name("aciDelegation")
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
      *                     .name("Microsoft.ContainerInstance/containerGroups")
      *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
      *                     .build())
+     *                 .name("aciDelegation")
      *                 .build())
      *             .build());
      * 
@@ -108,11 +108,11 @@ public final class KubernetesClusterAciConnectorLinux {
      *     public static void stack(Context ctx) {
      *         var virtual = new Subnet("virtual", SubnetArgs.builder()
      *             .delegations(SubnetDelegationArgs.builder()
-     *                 .name("aciDelegation")
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
      *                     .name("Microsoft.ContainerInstance/containerGroups")
      *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
      *                     .build())
+     *                 .name("aciDelegation")
      *                 .build())
      *             .build());
      * 

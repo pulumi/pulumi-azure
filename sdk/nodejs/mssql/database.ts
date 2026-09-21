@@ -74,15 +74,6 @@ import * as utilities from "../utilities";
  * });
  * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "mssqltdeexample",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     enabledForDiskEncryption: true,
- *     tenantId: exampleUserAssignedIdentity.tenantId,
- *     softDeleteRetentionDays: 7,
- *     purgeProtectionEnabled: true,
- *     skuName: "standard",
  *     accessPolicies: [
  *         {
  *             tenantId: current.tenantId,
@@ -108,6 +99,15 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "mssqltdeexample",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     enabledForDiskEncryption: true,
+ *     tenantId: exampleUserAssignedIdentity.tenantId,
+ *     softDeleteRetentionDays: 7,
+ *     purgeProtectionEnabled: true,
+ *     skuName: "standard",
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "example-key",
@@ -122,6 +122,10 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleKeyVault],
  * });
  * const exampleDatabase = new azure.mssql.Database("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
@@ -133,10 +137,6 @@ import * as utilities from "../utilities";
  *     enclaveType: "VBS",
  *     tags: {
  *         foo: "bar",
- *     },
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  *     transparentDataEncryptionKeyVaultKeyId: exampleKey.id,
  * });

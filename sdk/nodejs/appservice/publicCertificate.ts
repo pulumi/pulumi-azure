@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "example-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "example-app-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAppService = new azure.appservice.AppService("example", {
  *     name: "example-app-service",
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     certificateLocation: "Unknown",
  *     blob: std.filebase64({
  *         input: "app_service_public_certificate.cer",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

@@ -54,8 +54,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVnpGatewayNatRule = new Azure.Network.VnpGatewayNatRule("example", new()
     ///     {
-    ///         Name = "example-vpngatewaynatrule",
-    ///         VpnGatewayId = exampleVpnGateway.Id,
     ///         ExternalMappings = new[]
     ///         {
     ///             new Azure.Network.Inputs.VnpGatewayNatRuleExternalMappingArgs
@@ -70,6 +68,8 @@ namespace Pulumi.Azure.Network
     ///                 AddressSpace = "10.4.0.0/26",
     ///             },
     ///         },
+    ///         Name = "example-vpngatewaynatrule",
+    ///         VpnGatewayId = exampleVpnGateway.Id,
     ///     });
     /// 
     /// });

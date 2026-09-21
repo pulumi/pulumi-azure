@@ -129,6 +129,9 @@ class ServerKey(pulumi.CustomResource):
             sku_name="premium",
             purge_protection_enabled=True)
         example_server = azure.postgresql.Server("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-postgre-server",
             location=example.location,
             resource_group_name=example.name,
@@ -137,10 +140,7 @@ class ServerKey(pulumi.CustomResource):
             sku_name="GP_Gen5_2",
             version="11",
             storage_mb=51200,
-            ssl_enforcement_enabled=True,
-            identity={
-                "type": "SystemAssigned",
-            })
+            ssl_enforcement_enabled=True)
         server = azure.keyvault.AccessPolicy("server",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -245,6 +245,9 @@ class ServerKey(pulumi.CustomResource):
             sku_name="premium",
             purge_protection_enabled=True)
         example_server = azure.postgresql.Server("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-postgre-server",
             location=example.location,
             resource_group_name=example.name,
@@ -253,10 +256,7 @@ class ServerKey(pulumi.CustomResource):
             sku_name="GP_Gen5_2",
             version="11",
             storage_mb=51200,
-            ssl_enforcement_enabled=True,
-            identity={
-                "type": "SystemAssigned",
-            })
+            ssl_enforcement_enabled=True)
         server = azure.keyvault.AccessPolicy("server",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

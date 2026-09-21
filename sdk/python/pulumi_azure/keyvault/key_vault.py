@@ -669,6 +669,13 @@ class KeyVault(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
+            access_policies=[{
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": ["Get"],
+                "secret_permissions": ["Get"],
+                "storage_permissions": ["Get"],
+            }],
             name="examplekeyvault",
             location=example.location,
             resource_group_name=example.name,
@@ -677,14 +684,7 @@ class KeyVault(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
             purge_protection_enabled=False,
-            sku_name="standard",
-            access_policies=[{
-                "tenant_id": current.tenant_id,
-                "object_id": current.object_id,
-                "key_permissions": ["Get"],
-                "secret_permissions": ["Get"],
-                "storage_permissions": ["Get"],
-            }])
+            sku_name="standard")
         ```
 
         ## API Providers
@@ -755,6 +755,13 @@ class KeyVault(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
+            access_policies=[{
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": ["Get"],
+                "secret_permissions": ["Get"],
+                "storage_permissions": ["Get"],
+            }],
             name="examplekeyvault",
             location=example.location,
             resource_group_name=example.name,
@@ -763,14 +770,7 @@ class KeyVault(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
             purge_protection_enabled=False,
-            sku_name="standard",
-            access_policies=[{
-                "tenant_id": current.tenant_id,
-                "object_id": current.object_id,
-                "key_permissions": ["Get"],
-                "secret_permissions": ["Get"],
-                "storage_permissions": ["Get"],
-            }])
+            sku_name="standard")
         ```
 
         ## API Providers

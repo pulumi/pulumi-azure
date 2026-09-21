@@ -32,26 +32,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "exampleset",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     upgradeMode: "Manual",
- *     sku: "Standard_F2",
- *     instances: 2,
- *     adminUsername: "myadmin",
- *     adminSshKeys: [{
- *         username: "myadmin",
- *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
- *     }],
- *     networkInterfaces: [{
- *         name: "TestNetworkProfile",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "TestIPConfiguration",
- *             primary: true,
- *             subnetId: exampleSubnet.id,
- *         }],
- *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "StandardSSD_LRS",
@@ -62,14 +42,42 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     adminSshKeys: [{
+ *         username: "myadmin",
+ *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+ *     }],
+ *     networkInterfaces: [{
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *     }],
+ *     name: "exampleset",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     upgradeMode: "Manual",
+ *     sku: "Standard_F2",
+ *     instances: 2,
+ *     adminUsername: "myadmin",
+ * }, {
+ *     ignoreChanges: ["instances"],
  * });
  * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
- *     name: "myAutoscaleSetting",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
+ *     predictive: {
+ *         scaleMode: "Enabled",
+ *         lookAheadTime: "PT5M",
+ *     },
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
  *     profiles: [{
- *         name: "defaultProfile",
  *         capacity: {
  *             "default": 1,
  *             minimum: 1,
@@ -78,6 +86,11 @@ import * as utilities from "../utilities";
  *         rules: [
  *             {
  *                 metricTrigger: {
+ *                     dimensions: [{
+ *                         name: "AppName",
+ *                         operator: "Equals",
+ *                         values: ["App1"],
+ *                     }],
  *                     metricName: "Percentage CPU",
  *                     metricResourceId: exampleLinuxVirtualMachineScaleSet.id,
  *                     timeGrain: "PT1M",
@@ -87,11 +100,6 @@ import * as utilities from "../utilities";
  *                     operator: "GreaterThan",
  *                     threshold: 75,
  *                     metricNamespace: "microsoft.compute/virtualmachinescalesets",
- *                     dimensions: [{
- *                         name: "AppName",
- *                         operator: "Equals",
- *                         values: ["App1"],
- *                     }],
  *                 },
  *                 scaleAction: {
  *                     direction: "Increase",
@@ -119,18 +127,12 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         ],
+ *         name: "defaultProfile",
  *     }],
- *     predictive: {
- *         scaleMode: "Enabled",
- *         lookAheadTime: "PT5M",
- *     },
- *     notification: {
- *         email: {
- *             sendToSubscriptionAdministrator: true,
- *             sendToSubscriptionCoAdministrator: true,
- *             customEmails: ["admin@contoso.com"],
- *         },
- *     },
+ *     name: "myAutoscaleSetting",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  * });
  * ```
  *
@@ -157,26 +159,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "exampleset",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     upgradeMode: "Manual",
- *     sku: "Standard_F2",
- *     instances: 2,
- *     adminUsername: "myadmin",
- *     adminSshKeys: [{
- *         username: "myadmin",
- *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
- *     }],
- *     networkInterfaces: [{
- *         name: "TestNetworkProfile",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "TestIPConfiguration",
- *             primary: true,
- *             subnetId: exampleSubnet.id,
- *         }],
- *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "StandardSSD_LRS",
@@ -187,18 +169,51 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     adminSshKeys: [{
+ *         username: "myadmin",
+ *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+ *     }],
+ *     networkInterfaces: [{
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *     }],
+ *     name: "exampleset",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     upgradeMode: "Manual",
+ *     sku: "Standard_F2",
+ *     instances: 2,
+ *     adminUsername: "myadmin",
+ * }, {
+ *     ignoreChanges: ["instances"],
  * });
  * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
- *     name: "myAutoscaleSetting",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
  *     profiles: [{
- *         name: "Weekends",
  *         capacity: {
  *             "default": 1,
  *             minimum: 1,
  *             maximum: 10,
+ *         },
+ *         recurrence: {
+ *             timezone: "Pacific Standard Time",
+ *             days: [
+ *                 "Saturday",
+ *                 "Sunday",
+ *             ],
+ *             hours: 12,
+ *             minutes: 0,
  *         },
  *         rules: [
  *             {
@@ -238,23 +253,12 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         ],
- *         recurrence: {
- *             timezone: "Pacific Standard Time",
- *             days: [
- *                 "Saturday",
- *                 "Sunday",
- *             ],
- *             hours: 12,
- *             minutes: 0,
- *         },
+ *         name: "Weekends",
  *     }],
- *     notification: {
- *         email: {
- *             sendToSubscriptionAdministrator: true,
- *             sendToSubscriptionCoAdministrator: true,
- *             customEmails: ["admin@contoso.com"],
- *         },
- *     },
+ *     name: "myAutoscaleSetting",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  * });
  * ```
  *
@@ -281,26 +285,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "exampleset",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     upgradeMode: "Manual",
- *     sku: "Standard_F2",
- *     instances: 2,
- *     adminUsername: "myadmin",
- *     adminSshKeys: [{
- *         username: "myadmin",
- *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
- *     }],
- *     networkInterfaces: [{
- *         name: "TestNetworkProfile",
- *         primary: true,
- *         ipConfigurations: [{
- *             name: "TestIPConfiguration",
- *             primary: true,
- *             subnetId: exampleSubnet.id,
- *         }],
- *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "StandardSSD_LRS",
@@ -311,19 +295,47 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     adminSshKeys: [{
+ *         username: "myadmin",
+ *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+ *     }],
+ *     networkInterfaces: [{
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *     }],
+ *     name: "exampleset",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     upgradeMode: "Manual",
+ *     sku: "Standard_F2",
+ *     instances: 2,
+ *     adminUsername: "myadmin",
+ * }, {
+ *     ignoreChanges: ["instances"],
  * });
  * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
- *     name: "myAutoscaleSetting",
- *     enabled: true,
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
  *     profiles: [{
- *         name: "forJuly",
  *         capacity: {
  *             "default": 1,
  *             minimum: 1,
  *             maximum: 10,
+ *         },
+ *         fixedDate: {
+ *             timezone: "Pacific Standard Time",
+ *             start: "2020-07-01T00:00:00Z",
+ *             end: "2020-07-31T23:59:59Z",
  *         },
  *         rules: [
  *             {
@@ -363,19 +375,13 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         ],
- *         fixedDate: {
- *             timezone: "Pacific Standard Time",
- *             start: "2020-07-01T00:00:00Z",
- *             end: "2020-07-31T23:59:59Z",
- *         },
+ *         name: "forJuly",
  *     }],
- *     notification: {
- *         email: {
- *             sendToSubscriptionAdministrator: true,
- *             sendToSubscriptionCoAdministrator: true,
- *             customEmails: ["admin@contoso.com"],
- *         },
- *     },
+ *     name: "myAutoscaleSetting",
+ *     enabled: true,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  * });
  * ```
  *

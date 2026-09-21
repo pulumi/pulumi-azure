@@ -51,12 +51,8 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewShare(ctx, "example", &storage.ShareArgs{
-//				Name:             pulumi.String("sharename"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				Quota:            pulumi.Int(50),
 //				Acls: storage.ShareAclArray{
 //					&storage.ShareAclArgs{
-//						Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
 //						AccessPolicies: storage.ShareAclAccessPolicyArray{
 //							&storage.ShareAclAccessPolicyArgs{
 //								Permissions: pulumi.String("rwdl"),
@@ -64,8 +60,12 @@ import (
 //								Expiry:      pulumi.String("2019-07-02T10:38:21Z"),
 //							},
 //						},
+//						Id: pulumi.String("MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI"),
 //					},
 //				},
+//				Name:             pulumi.String("sharename"),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				Quota:            pulumi.Int(50),
 //			})
 //			if err != nil {
 //				return err

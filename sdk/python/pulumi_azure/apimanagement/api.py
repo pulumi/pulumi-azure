@@ -883,17 +883,17 @@ class Api(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("example",
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_schema_swagger.json",
+            },
             name="example-api",
             resource_group_name=example.name,
             api_management_name=example_service.name,
             revision="1",
             display_name="Example API",
             path="example",
-            protocols=["https"],
-            import_={
-                "content_format": "swagger-link-json",
-                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_schema_swagger.json",
-            })
+            protocols=["https"])
         ```
 
         ## API Providers
@@ -972,17 +972,17 @@ class Api(pulumi.CustomResource):
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("example",
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_schema_swagger.json",
+            },
             name="example-api",
             resource_group_name=example.name,
             api_management_name=example_service.name,
             revision="1",
             display_name="Example API",
             path="example",
-            protocols=["https"],
-            import_={
-                "content_format": "swagger-link-json",
-                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_schema_swagger.json",
-            })
+            protocols=["https"])
         ```
 
         ## API Providers

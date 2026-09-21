@@ -65,8 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAadDiagnosticSetting = new AadDiagnosticSetting("exampleAadDiagnosticSetting", AadDiagnosticSettingArgs.builder()
- *             .name("setting1")
- *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(            
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category("SignInLogs")
@@ -80,6 +78,8 @@ import javax.annotation.Nullable;
  *                 AadDiagnosticSettingEnabledLogArgs.builder()
  *                     .category("ServicePrincipalSignInLogs")
  *                     .build())
+ *             .name("setting1")
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

@@ -394,12 +394,6 @@ class Certificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -445,14 +439,20 @@ class Certificate(pulumi.CustomResource):
                     "Restore",
                     "Set",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
         example_certificate = azure.keyvault.Certificate("example",
-            name="imported-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
-            })
+            },
+            name="imported-cert",
+            key_vault_id=example_key_vault.id)
         ```
 
         ### Generating a new certificate
@@ -466,13 +466,6 @@ class Certificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -519,10 +512,15 @@ class Certificate(pulumi.CustomResource):
                     "Restore",
                     "Set",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7)
         example_certificate = azure.keyvault.Certificate("example",
-            name="generated-cert",
-            key_vault_id=example_key_vault.id,
             certificate_policy={
                 "issuer_parameters": {
                     "name": "Self",
@@ -533,18 +531,16 @@ class Certificate(pulumi.CustomResource):
                     "key_type": "RSA",
                     "reuse_key": True,
                 },
-                "lifetime_actions": [{
-                    "action": {
-                        "action_type": "AutoRenew",
-                    },
-                    "trigger": {
-                        "days_before_expiry": 30,
-                    },
-                }],
                 "secret_properties": {
                     "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
+                    "subject_alternative_names": {
+                        "dns_names": [
+                            "internal.contoso.com",
+                            "domain.hello.world",
+                        ],
+                    },
                     "extended_key_usages": ["1.3.6.1.5.5.7.3.1"],
                     "key_usages": [
                         "cRLSign",
@@ -554,16 +550,20 @@ class Certificate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    "subject_alternative_names": {
-                        "dns_names": [
-                            "internal.contoso.com",
-                            "domain.hello.world",
-                        ],
-                    },
                     "subject": "CN=hello-world",
                     "validity_in_months": 12,
                 },
-            })
+                "lifetime_actions": [{
+                    "action": {
+                        "action_type": "AutoRenew",
+                    },
+                    "trigger": {
+                        "days_before_expiry": 30,
+                    },
+                }],
+            },
+            name="generated-cert",
+            key_vault_id=example_key_vault.id)
         ```
 
         ## Import
@@ -610,12 +610,6 @@ class Certificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -661,14 +655,20 @@ class Certificate(pulumi.CustomResource):
                     "Restore",
                     "Set",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
         example_certificate = azure.keyvault.Certificate("example",
-            name="imported-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
-            })
+            },
+            name="imported-cert",
+            key_vault_id=example_key_vault.id)
         ```
 
         ### Generating a new certificate
@@ -682,13 +682,6 @@ class Certificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="examplekeyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -735,10 +728,15 @@ class Certificate(pulumi.CustomResource):
                     "Restore",
                     "Set",
                 ],
-            }])
+            }],
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            soft_delete_retention_days=7)
         example_certificate = azure.keyvault.Certificate("example",
-            name="generated-cert",
-            key_vault_id=example_key_vault.id,
             certificate_policy={
                 "issuer_parameters": {
                     "name": "Self",
@@ -749,18 +747,16 @@ class Certificate(pulumi.CustomResource):
                     "key_type": "RSA",
                     "reuse_key": True,
                 },
-                "lifetime_actions": [{
-                    "action": {
-                        "action_type": "AutoRenew",
-                    },
-                    "trigger": {
-                        "days_before_expiry": 30,
-                    },
-                }],
                 "secret_properties": {
                     "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
+                    "subject_alternative_names": {
+                        "dns_names": [
+                            "internal.contoso.com",
+                            "domain.hello.world",
+                        ],
+                    },
                     "extended_key_usages": ["1.3.6.1.5.5.7.3.1"],
                     "key_usages": [
                         "cRLSign",
@@ -770,16 +766,20 @@ class Certificate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    "subject_alternative_names": {
-                        "dns_names": [
-                            "internal.contoso.com",
-                            "domain.hello.world",
-                        ],
-                    },
                     "subject": "CN=hello-world",
                     "validity_in_months": 12,
                 },
-            })
+                "lifetime_actions": [{
+                    "action": {
+                        "action_type": "AutoRenew",
+                    },
+                    "trigger": {
+                        "days_before_expiry": 30,
+                    },
+                }],
+            },
+            name="generated-cert",
+            key_vault_id=example_key_vault.id)
         ```
 
         ## Import

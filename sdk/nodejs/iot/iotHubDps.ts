@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleIotHubDps = new azure.iot.IotHubDps("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     allocationPolicy: "Hashed",
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     allocationPolicy: "Hashed",
  * });
  * ```
  *

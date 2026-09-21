@@ -38,10 +38,6 @@ namespace Pulumi.Azure.Dns
     /// 
     ///     var exampleSrvRecord = new Azure.Dns.SrvRecord("example", new()
     ///     {
-    ///         Name = "test",
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.SrvRecordRecordArgs
@@ -52,6 +48,10 @@ namespace Pulumi.Azure.Dns
     ///                 Target = "target1.contoso.com",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Ttl = 300,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

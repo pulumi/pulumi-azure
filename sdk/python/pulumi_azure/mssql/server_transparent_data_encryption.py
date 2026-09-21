@@ -209,6 +209,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             name="example-resources",
             location="EastUs")
         example_server = azure.mssql.Server("example",
+            azuread_administrator={
+                "login_username": "AzureAD Admin",
+                "object_id": "00000000-0000-0000-0000-000000000000",
+            },
             name="mssqlserver",
             resource_group_name=example.name,
             location=example.location,
@@ -216,10 +220,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator={
-                "login_username": "AzureAD Admin",
-                "object_id": "00000000-0000-0000-0000-000000000000",
-            },
             tags={
                 "environment": "production",
             })
@@ -237,6 +237,13 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             name="example-resources",
             location="EastUs")
         example_server = azure.mssql.Server("example",
+            azuread_administrator={
+                "login_username": "AzureAD Admin",
+                "object_id": "00000000-0000-0000-0000-000000000000",
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
             name="mssqlserver",
             resource_group_name=example.name,
             location=example.location,
@@ -244,27 +251,12 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator={
-                "login_username": "AzureAD Admin",
-                "object_id": "00000000-0000-0000-0000-000000000000",
-            },
             tags={
                 "environment": "production",
             },
-            identity={
-                "type": "SystemAssigned",
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["transparentDataEncryptionKeyVaultKeyId"]))
         # Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -289,7 +281,16 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="byok",
             key_vault_id=example_key_vault.id,
@@ -360,6 +361,10 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             name="example-resources",
             location="EastUs")
         example_server = azure.mssql.Server("example",
+            azuread_administrator={
+                "login_username": "AzureAD Admin",
+                "object_id": "00000000-0000-0000-0000-000000000000",
+            },
             name="mssqlserver",
             resource_group_name=example.name,
             location=example.location,
@@ -367,10 +372,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator={
-                "login_username": "AzureAD Admin",
-                "object_id": "00000000-0000-0000-0000-000000000000",
-            },
             tags={
                 "environment": "production",
             })
@@ -388,6 +389,13 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             name="example-resources",
             location="EastUs")
         example_server = azure.mssql.Server("example",
+            azuread_administrator={
+                "login_username": "AzureAD Admin",
+                "object_id": "00000000-0000-0000-0000-000000000000",
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
             name="mssqlserver",
             resource_group_name=example.name,
             location=example.location,
@@ -395,27 +403,12 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator={
-                "login_username": "AzureAD Admin",
-                "object_id": "00000000-0000-0000-0000-000000000000",
-            },
             tags={
                 "environment": "production",
             },
-            identity={
-                "type": "SystemAssigned",
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["transparentDataEncryptionKeyVaultKeyId"]))
         # Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -440,7 +433,16 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="byok",
             key_vault_id=example_key_vault.id,

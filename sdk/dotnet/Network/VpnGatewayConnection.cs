@@ -54,10 +54,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVpnSite = new Azure.Network.VpnSite("example", new()
     ///     {
-    ///         Name = "example-vpn-site",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualWanId = exampleVirtualWan.Id,
     ///         Links = new[]
     ///         {
     ///             new Azure.Network.Inputs.VpnSiteLinkArgs
@@ -71,13 +67,14 @@ namespace Pulumi.Azure.Network
     ///                 IpAddress = "10.2.0.0",
     ///             },
     ///         },
+    ///         Name = "example-vpn-site",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualWanId = exampleVirtualWan.Id,
     ///     });
     /// 
     ///     var exampleVpnGatewayConnection = new Azure.Network.VpnGatewayConnection("example", new()
     ///     {
-    ///         Name = "example",
-    ///         VpnGatewayId = exampleVpnGateway.Id,
-    ///         RemoteVpnSiteId = exampleVpnSite.Id,
     ///         VpnLinks = new[]
     ///         {
     ///             new Azure.Network.Inputs.VpnGatewayConnectionVpnLinkArgs
@@ -91,6 +88,9 @@ namespace Pulumi.Azure.Network
     ///                 VpnSiteLinkId = exampleVpnSite.Links.Apply(links =&gt; links[1]?.Id),
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         VpnGatewayId = exampleVpnGateway.Id,
+    ///         RemoteVpnSiteId = exampleVpnSite.Id,
     ///     });
     /// 
     /// });

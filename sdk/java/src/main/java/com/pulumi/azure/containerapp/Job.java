@@ -47,9 +47,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.inputs.JobManualTriggerConfigArgs;
  * import com.pulumi.azure.containerapp.inputs.JobTemplateArgs;
  * import com.pulumi.azure.containerapp.inputs.JobTemplateContainerArgs;
- * import com.pulumi.azure.containerapp.inputs.JobTemplateContainerReadinessProbeArgs;
  * import com.pulumi.azure.containerapp.inputs.JobTemplateContainerLivenessProbeArgs;
  * import com.pulumi.azure.containerapp.inputs.JobTemplateContainerLivenessProbeHeaderArgs;
+ * import com.pulumi.azure.containerapp.inputs.JobTemplateContainerReadinessProbeArgs;
  * import com.pulumi.azure.containerapp.inputs.JobTemplateContainerStartupProbeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -85,45 +85,45 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJob = new Job("exampleJob", JobArgs.builder()
- *             .name("example-container-app-job")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .replicaTimeoutInSeconds(10)
- *             .replicaRetryLimit(10)
  *             .manualTriggerConfig(JobManualTriggerConfigArgs.builder()
  *                 .parallelism(4)
  *                 .replicaCompletionCount(1)
  *                 .build())
  *             .template(JobTemplateArgs.builder()
  *                 .containers(JobTemplateContainerArgs.builder()
- *                     .image("repo/testcontainerAppsJob0:v1")
- *                     .name("testcontainerappsjob0")
- *                     .readinessProbes(JobTemplateContainerReadinessProbeArgs.builder()
- *                         .transport("HTTP")
- *                         .port(5000)
- *                         .build())
  *                     .livenessProbes(JobTemplateContainerLivenessProbeArgs.builder()
- *                         .transport("HTTP")
- *                         .port(5000)
- *                         .path("/health")
  *                         .headers(JobTemplateContainerLivenessProbeHeaderArgs.builder()
  *                             .name("Cache-Control")
  *                             .value("no-cache")
  *                             .build())
+ *                         .transport("HTTP")
+ *                         .port(5000)
+ *                         .path("/health")
  *                         .initialDelay(5)
  *                         .intervalSeconds(20)
  *                         .timeout(2)
  *                         .failureCountThreshold(1)
  *                         .build())
+ *                     .readinessProbes(JobTemplateContainerReadinessProbeArgs.builder()
+ *                         .transport("HTTP")
+ *                         .port(5000)
+ *                         .build())
  *                     .startupProbes(JobTemplateContainerStartupProbeArgs.builder()
  *                         .transport("TCP")
  *                         .port(5000)
  *                         .build())
+ *                     .image("repo/testcontainerAppsJob0:v1")
+ *                     .name("testcontainerappsjob0")
  *                     .cpu(0.5)
  *                     .memory("1Gi")
  *                     .build())
  *                 .build())
+ *             .name("example-container-app-job")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .replicaTimeoutInSeconds(10)
+ *             .replicaRetryLimit(10)
  *             .build());
  * 
  *     }

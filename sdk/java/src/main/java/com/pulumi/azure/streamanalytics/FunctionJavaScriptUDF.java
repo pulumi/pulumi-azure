@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
  * import com.pulumi.azure.streamanalytics.FunctionJavaScriptUDF;
  * import com.pulumi.azure.streamanalytics.FunctionJavaScriptUDFArgs;
- * import com.pulumi.azure.streamanalytics.inputs.FunctionJavaScriptUDFInputArgs;
  * import com.pulumi.azure.streamanalytics.inputs.FunctionJavaScriptUDFOutputArgs;
+ * import com.pulumi.azure.streamanalytics.inputs.FunctionJavaScriptUDFInputArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -59,6 +59,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", FunctionJavaScriptUDFArgs.builder()
+ *             .output(FunctionJavaScriptUDFOutputArgs.builder()
+ *                 .type("bigint")
+ *                 .build())
+ *             .inputs(FunctionJavaScriptUDFInputArgs.builder()
+ *                 .type("bigint")
+ *                 .build())
  *             .name("example-javascript-function")
  *             .streamAnalyticsJobName(exampleGetJob.name())
  *             .resourceGroupName(exampleGetJob.resourceGroupName())
@@ -67,12 +73,6 @@ import javax.annotation.Nullable;
  *   return in;
  * }
  *             """)
- *             .inputs(FunctionJavaScriptUDFInputArgs.builder()
- *                 .type("bigint")
- *                 .build())
- *             .output(FunctionJavaScriptUDFOutputArgs.builder()
- *                 .type("bigint")
- *                 .build())
  *             .build());
  * 
  *     }

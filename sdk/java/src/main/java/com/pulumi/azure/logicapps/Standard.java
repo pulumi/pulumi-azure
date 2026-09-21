@@ -148,15 +148,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()
+ *             .siteConfig(StandardSiteConfigArgs.builder()
+ *                 .linuxFxVersion("DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice")
+ *                 .build())
  *             .name("example-logic-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(StandardSiteConfigArgs.builder()
- *                 .linuxFxVersion("DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice")
- *                 .build())
  *             .appSettings(Map.ofEntries(
  *                 Map.entry("DOCKER_REGISTRY_SERVER_URL", "https://<server-name>.azurecr.io"),
  *                 Map.entry("DOCKER_REGISTRY_SERVER_USERNAME", "username"),

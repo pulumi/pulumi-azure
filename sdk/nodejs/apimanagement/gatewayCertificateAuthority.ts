@@ -27,15 +27,15 @@ import * as utilities from "../utilities";
  *     skuName: "Consumption_0",
  * });
  * const exampleGateway = new azure.apimanagement.Gateway("example", {
- *     name: "example-gateway",
- *     apiManagementId: exampleService.id,
- *     description: "Example API Management gateway",
  *     locationData: {
  *         name: "example name",
  *         city: "example city",
  *         district: "example district",
  *         region: "example region",
  *     },
+ *     name: "example-gateway",
+ *     apiManagementId: exampleService.id,
+ *     description: "Example API Management gateway",
  * });
  * const exampleCertificate = new azure.apimanagement.Certificate("example", {
  *     name: "example-cert",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     data: std.filebase64({
  *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * const exampleGatewayCertificateAuthority = new azure.apimanagement.GatewayCertificateAuthority("example", {
  *     apiManagementId: exampleService.id,

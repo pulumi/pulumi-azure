@@ -202,12 +202,12 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-nm",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
-            })
+            },
+            name="example-nm",
+            resource_group_name=example.name,
+            location=example.location)
         example_network_manager_ipam_pool = azure.network.NetworkManagerIpamPool("example",
             name="example-ipampool",
             network_manager_id=example_network_manager.id,
@@ -270,12 +270,12 @@ class NetworkManagerIpamPoolStaticCidr(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-nm",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
-            })
+            },
+            name="example-nm",
+            resource_group_name=example.name,
+            location=example.location)
         example_network_manager_ipam_pool = azure.network.NetworkManagerIpamPool("example",
             name="example-ipampool",
             network_manager_id=example_network_manager.id,

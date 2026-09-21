@@ -39,35 +39,6 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupPolicyKubernetesCluster = new Azure.DataProtection.BackupPolicyKubernetesCluster("example", new()
     ///     {
-    ///         Name = "example-backup-policy",
-    ///         ResourceGroupName = example.Name,
-    ///         VaultName = exampleBackupVault.Name,
-    ///         BackupRepeatingTimeIntervals = new[]
-    ///         {
-    ///             "R/2021-05-23T02:30:00+00:00/P1W",
-    ///         },
-    ///         TimeZone = "India Standard Time",
-    ///         DefaultRetentionDuration = "P4M",
-    ///         RetentionRules = new[]
-    ///         {
-    ///             new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleArgs
-    ///             {
-    ///                 Name = "Daily",
-    ///                 Priority = 25,
-    ///                 LifeCycles = new[]
-    ///                 {
-    ///                     new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs
-    ///                     {
-    ///                         Duration = "P84D",
-    ///                         DataStoreType = "OperationalStore",
-    ///                     },
-    ///                 },
-    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs
-    ///                 {
-    ///                     AbsoluteCriteria = "FirstOfDay",
-    ///                 },
-    ///             },
-    ///         },
     ///         DefaultRetentionRule = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs
     ///         {
     ///             LifeCycles = new[]
@@ -79,6 +50,35 @@ namespace Pulumi.Azure.DataProtection
     ///                 },
     ///             },
     ///         },
+    ///         RetentionRules = new[]
+    ///         {
+    ///             new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleArgs
+    ///             {
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfDay",
+    ///                 },
+    ///                 LifeCycles = new[]
+    ///                 {
+    ///                     new Azure.DataProtection.Inputs.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs
+    ///                     {
+    ///                         Duration = "P84D",
+    ///                         DataStoreType = "OperationalStore",
+    ///                     },
+    ///                 },
+    ///                 Name = "Daily",
+    ///                 Priority = 25,
+    ///             },
+    ///         },
+    ///         Name = "example-backup-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         TimeZone = "India Standard Time",
+    ///         DefaultRetentionDuration = "P4M",
     ///     });
     /// 
     /// });

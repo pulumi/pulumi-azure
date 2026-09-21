@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleVpnServerConfiguration = new azure.network.VpnServerConfiguration("example", {
- *     name: "example-VPNSC",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     vpnAuthenticationTypes: ["Radius"],
  *     radius: {
  *         servers: [{
  *             address: "10.105.1.1",
@@ -31,15 +27,19 @@ import * as utilities from "../utilities";
  *             score: 15,
  *         }],
  *     },
+ *     name: "example-VPNSC",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     vpnAuthenticationTypes: ["Radius"],
  * });
  * const exampleVpnServerConfigurationPolicyGroup = new azure.network.VpnServerConfigurationPolicyGroup("example", {
- *     name: "example-VPNSCPG",
- *     vpnServerConfigurationId: exampleVpnServerConfiguration.id,
  *     policies: [{
  *         name: "policy1",
  *         type: "RadiusAzureGroupId",
  *         value: "6ad1bd08",
  *     }],
+ *     name: "example-VPNSCPG",
+ *     vpnServerConfigurationId: exampleVpnServerConfiguration.id,
  * });
  * ```
  *

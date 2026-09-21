@@ -32,14 +32,14 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "kustocluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
     ///             Capacity = 2,
     ///         },
+    ///         Name = "kustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("example", new()

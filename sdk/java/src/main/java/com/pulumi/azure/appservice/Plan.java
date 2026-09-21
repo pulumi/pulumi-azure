@@ -58,13 +58,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("api-appserviceplan-pro")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("api-appserviceplan-pro")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }
@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("api-appserviceplan-pro")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .kind("FunctionApp")
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Dynamic")
  *                 .size("Y1")
  *                 .build())
+ *             .name("api-appserviceplan-pro")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .kind("FunctionApp")
  *             .build());
  * 
  *     }
@@ -153,15 +153,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier("Standard")
+ *                 .size("S1")
+ *                 .build())
  *             .name("api-appserviceplan-pro")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("Linux")
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Standard")
- *                 .size("S1")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -202,15 +202,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier("PremiumContainer")
+ *                 .size("PC2")
+ *                 .build())
  *             .name("api-appserviceplan-pro")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("xenon")
  *             .isXenon(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("PremiumContainer")
- *                 .size("PC2")
- *                 .build())
  *             .build());
  * 
  *     }

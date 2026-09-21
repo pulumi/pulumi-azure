@@ -53,9 +53,6 @@ import * as utilities from "../utilities";
  *     sourceContent: "[scripts file content]",
  * });
  * const exampleGalleryApplicationVersion = new azure.compute.GalleryApplicationVersion("example", {
- *     name: "0.0.1",
- *     galleryApplicationId: exampleGalleryApplication.id,
- *     location: exampleGalleryApplication.location,
  *     manageAction: {
  *         install: "[install command]",
  *         remove: "[remove command]",
@@ -67,6 +64,9 @@ import * as utilities from "../utilities";
  *         name: exampleGalleryApplication.location,
  *         regionalReplicaCount: 1,
  *     }],
+ *     name: "0.0.1",
+ *     galleryApplicationId: exampleGalleryApplication.id,
+ *     location: exampleGalleryApplication.location,
  * });
  * const exampleGalleryApplicationAssignment = new azure.compute.GalleryApplicationAssignment("example", {
  *     galleryApplicationVersionId: exampleGalleryApplicationVersion.id,

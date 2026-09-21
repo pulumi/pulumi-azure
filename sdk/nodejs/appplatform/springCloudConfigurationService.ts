@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  * });
  * const exampleSpringCloudConfigurationService = new azure.appplatform.SpringCloudConfigurationService("example", {
- *     name: "default",
- *     springCloudServiceId: exampleSpringCloudService.id,
  *     repositories: [{
  *         name: "fake",
  *         label: "master",
@@ -45,6 +43,8 @@ import * as utilities from "../utilities";
  *         username: "adminuser",
  *         password: "H@Sh1CoR3!",
  *     }],
+ *     name: "default",
+ *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * ```
  *

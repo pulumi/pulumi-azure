@@ -33,12 +33,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-networkmanager",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-networkmanager",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     scopeAccesses: ["SecurityAdmin"],
  * });
  * const exampleNetworkManagerManagementGroupConnection = new azure.network.NetworkManagerManagementGroupConnection("example", {

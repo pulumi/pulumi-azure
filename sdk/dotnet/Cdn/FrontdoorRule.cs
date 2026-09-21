@@ -51,10 +51,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
     ///     {
-    ///         Name = "example-originGroup",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         SessionAffinityEnabled = true,
-    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
     ///         {
     ///             IntervalInSeconds = 240,
@@ -68,6 +64,10 @@ namespace Pulumi.Azure.Cdn
     ///             SampleSize = 16,
     ///             SuccessfulSamplesRequired = 3,
     ///         },
+    ///         Name = "example-originGroup",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
@@ -92,10 +92,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorRule = new Azure.Cdn.FrontdoorRule("example", new()
     ///     {
-    ///         Name = "examplerule",
-    ///         CdnFrontdoorRuleSetId = exampleFrontdoorRuleSet.Id,
-    ///         Order = 1,
-    ///         BehaviorOnMatch = "Continue",
     ///         Actions = new Azure.Cdn.Inputs.FrontdoorRuleActionsArgs
     ///         {
     ///             RouteConfigurationOverrideAction = new Azure.Cdn.Inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs
@@ -200,6 +196,10 @@ namespace Pulumi.Azure.Cdn
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplerule",
+    ///         CdnFrontdoorRuleSetId = exampleFrontdoorRuleSet.Id,
+    ///         Order = 1,
+    ///         BehaviorOnMatch = "Continue",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

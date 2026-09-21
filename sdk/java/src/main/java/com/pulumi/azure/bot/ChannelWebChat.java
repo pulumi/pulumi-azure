@@ -65,12 +65,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleChannelWebChat = new ChannelWebChat("exampleChannelWebChat", ChannelWebChatArgs.builder()
- *             .botName(exampleChannelsRegistration.name())
- *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(example.name())
  *             .sites(ChannelWebChatSiteArgs.builder()
  *                 .name("TestSite")
  *                 .build())
+ *             .botName(exampleChannelsRegistration.name())
+ *             .location(exampleChannelsRegistration.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

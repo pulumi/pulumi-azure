@@ -53,10 +53,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
     ///     {
-    ///         Name = "example-endpoint",
-    ///         ProfileName = exampleProfile.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Origins = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.EndpointOriginArgs
@@ -65,6 +61,10 @@ namespace Pulumi.Azure.Cdn
     ///                 HostName = exampleAccount.PrimaryBlobHost,
     ///             },
     ///         },
+    ///         Name = "example-endpoint",
+    ///         ProfileName = exampleProfile.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var example = Azure.Dns.GetZone.Invoke(new()

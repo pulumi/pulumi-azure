@@ -56,6 +56,11 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleStreamInputBlob = new azure.streamanalytics.StreamInputBlob("example", {
+ *     serialization: {
+ *         type: "Csv",
+ *         encoding: "UTF8",
+ *         fieldDelimiter: ",",
+ *     },
  *     name: "exampleinput",
  *     streamAnalyticsJobName: exampleJob.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
@@ -65,13 +70,11 @@ import * as utilities from "../utilities";
  *     pathPattern: "",
  *     dateFormat: "yyyy/MM/dd",
  *     timeFormat: "HH",
- *     serialization: {
- *         type: "Csv",
- *         encoding: "UTF8",
- *         fieldDelimiter: ",",
- *     },
  * });
  * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
+ *     serialization: {
+ *         type: "Avro",
+ *     },
  *     name: "exampleoutput",
  *     streamAnalyticsJobName: exampleJob.name,
  *     resourceGroupName: exampleJob.resourceGroupName,
@@ -81,9 +84,6 @@ import * as utilities from "../utilities";
  *     pathPattern: "example-{date}-{time}",
  *     dateFormat: "yyyy-MM-dd",
  *     timeFormat: "HH",
- *     serialization: {
- *         type: "Avro",
- *     },
  * });
  * const exampleJobSchedule = new azure.streamanalytics.JobSchedule("example", {
  *     streamAnalyticsJobId: exampleJob.id,

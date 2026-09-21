@@ -634,6 +634,10 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-rdsaps",
             resource_group_name=example.name,
             location="West Europe",
@@ -649,10 +653,6 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                     $DeploymentScriptOutputs = @{}
                     $DeploymentScriptOutputs['text'] = $output
         \"\"\",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
             tags={
                 "key": "value",
             })
@@ -717,6 +717,10 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="example-rdsaps",
             resource_group_name=example.name,
             location="West Europe",
@@ -732,10 +736,6 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                     $DeploymentScriptOutputs = @{}
                     $DeploymentScriptOutputs['text'] = $output
         \"\"\",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
             tags={
                 "key": "value",
             })

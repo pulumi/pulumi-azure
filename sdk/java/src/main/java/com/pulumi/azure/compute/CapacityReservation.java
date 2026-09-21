@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCapacityReservation = new CapacityReservation("exampleCapacityReservation", CapacityReservationArgs.builder()
- *             .name("example-capacity-reservation")
- *             .capacityReservationGroupId(exampleCapacityReservationGroup.id())
  *             .sku(CapacityReservationSkuArgs.builder()
  *                 .name("Standard_D2s_v3")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example-capacity-reservation")
+ *             .capacityReservationGroupId(exampleCapacityReservationGroup.id())
  *             .build());
  * 
  *     }

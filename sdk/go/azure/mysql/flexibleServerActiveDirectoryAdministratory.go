@@ -50,6 +50,12 @@ import (
 //				return err
 //			}
 //			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Identity: &mysql.FlexibleServerIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:                  pulumi.String("example-mysqlfs"),
 //				ResourceGroupName:     example.Name,
 //				Location:              example.Location,
@@ -57,12 +63,6 @@ import (
 //				AdministratorPassword: pulumi.String("QAZwsx123"),
 //				SkuName:               pulumi.String("B_Standard_B1ms"),
 //				Zone:                  pulumi.String("2"),
-//				Identity: &mysql.FlexibleServerIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

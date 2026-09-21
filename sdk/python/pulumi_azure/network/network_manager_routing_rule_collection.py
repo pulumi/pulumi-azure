@@ -220,12 +220,12 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=["Routing"])
         example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
             name="example-network-group",
@@ -286,12 +286,12 @@ class NetworkManagerRoutingRuleCollection(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=["Routing"])
         example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
             name="example-network-group",

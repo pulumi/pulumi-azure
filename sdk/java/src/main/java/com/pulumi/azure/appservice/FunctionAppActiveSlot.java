@@ -78,21 +78,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-windows-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageAccountName(exampleAccount.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()
+ *             .siteConfig(WindowsFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-windows-function-app-slot")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig(WindowsFunctionAppSlotSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot("exampleFunctionAppActiveSlot", FunctionAppActiveSlotArgs.builder()
@@ -162,21 +162,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleLinuxFunctionAppSlot = new LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", LinuxFunctionAppSlotArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-function-app-slot")
  *             .functionAppId(exampleLinuxFunctionApp.name())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig(LinuxFunctionAppSlotSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot("exampleFunctionAppActiveSlot", FunctionAppActiveSlotArgs.builder()

@@ -37,12 +37,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("example", new()
     ///     {
-    ///         Name = "tfex-cosmos-gremlin-graph",
-    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
-    ///         DatabaseName = exampleGremlinDatabase.Name,
-    ///         PartitionKeyPath = "/Example",
-    ///         Throughput = 400,
     ///         IndexPolicy = new Azure.CosmosDB.Inputs.GremlinGraphIndexPolicyArgs
     ///         {
     ///             Automatic = true,
@@ -72,6 +66,12 @@ namespace Pulumi.Azure.CosmosDB
     ///                 },
     ///             },
     ///         },
+    ///         Name = "tfex-cosmos-gremlin-graph",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleGremlinDatabase.Name,
+    ///         PartitionKeyPath = "/Example",
+    ///         Throughput = 400,
     ///     });
     /// 
     /// });

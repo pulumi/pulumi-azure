@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const example = new azure.devcenter.DevCenter("example", {
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
  *     identity: {
  *         type: "example-value",
  *     },
+ *     name: "example",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  * });
  * const exampleProject = new azure.devcenter.Project("example", {
  *     devCenterId: example.id,

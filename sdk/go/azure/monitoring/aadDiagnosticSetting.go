@@ -50,8 +50,6 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewAadDiagnosticSetting(ctx, "example", &monitoring.AadDiagnosticSettingArgs{
-//				Name:             pulumi.String("setting1"),
-//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				EnabledLogs: monitoring.AadDiagnosticSettingEnabledLogArray{
 //					&monitoring.AadDiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("SignInLogs"),
@@ -66,6 +64,8 @@ import (
 //						Category: pulumi.String("ServicePrincipalSignInLogs"),
 //					},
 //				},
+//				Name:             pulumi.String("setting1"),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

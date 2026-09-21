@@ -85,6 +85,15 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var exampleVmwareReplicatedVm = new Azure.SiteRecovery.VmwareReplicatedVm("example", new()
     ///     {
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.SiteRecovery.Inputs.VmwareReplicatedVmNetworkInterfaceArgs
+    ///             {
+    ///                 SourceMacAddress = "00:00:00:00:00:00",
+    ///                 TargetSubnetName = exampleSubnet.Name,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
     ///         Name = "example-vmware-vm",
     ///         RecoveryVaultId = exampleVault.Id,
     ///         SourceVmName = "example-vm",
@@ -98,15 +107,6 @@ namespace Pulumi.Azure.SiteRecovery
     ///         DefaultLogStorageAccountId = exampleAccount.Id,
     ///         DefaultRecoveryDiskType = "Standard_LRS",
     ///         TargetNetworkId = exampleVirtualNetwork.Id,
-    ///         NetworkInterfaces = new[]
-    ///         {
-    ///             new Azure.SiteRecovery.Inputs.VmwareReplicatedVmNetworkInterfaceArgs
-    ///             {
-    ///                 SourceMacAddress = "00:00:00:00:00:00",
-    ///                 TargetSubnetName = exampleSubnet.Name,
-    ///                 IsPrimary = true,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

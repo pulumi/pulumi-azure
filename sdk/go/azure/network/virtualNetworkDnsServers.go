@@ -40,18 +40,18 @@ import (
 //				return err
 //			}
 //			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name: pulumi.String("example-vnet"),
-//				AddressSpaces: pulumi.StringArray{
-//					pulumi.String("10.0.0.0/16"),
-//				},
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Subnets: network.VirtualNetworkSubnetArray{
 //					&network.VirtualNetworkSubnetArgs{
 //						Name:          pulumi.String("subnet1"),
 //						AddressPrefix: "10.0.1.0/24",
 //					},
 //				},
+//				Name: pulumi.String("example-vnet"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

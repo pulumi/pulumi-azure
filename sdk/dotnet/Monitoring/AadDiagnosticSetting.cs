@@ -42,8 +42,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("example", new()
     ///     {
-    ///         Name = "setting1",
-    ///         StorageAccountId = exampleAccount.Id,
     ///         EnabledLogs = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.AadDiagnosticSettingEnabledLogArgs
@@ -63,6 +61,8 @@ namespace Pulumi.Azure.Monitoring
     ///                 Category = "ServicePrincipalSignInLogs",
     ///             },
     ///         },
+    ///         Name = "setting1",
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

@@ -79,8 +79,6 @@ namespace Pulumi.Azure.SystemCenter
     /// 
     ///     var exampleVirtualMachineManagerVirtualMachineInstance = new Azure.SystemCenter.VirtualMachineManagerVirtualMachineInstance("example", new()
     ///     {
-    ///         ScopedResourceId = exampleArcMachine.Id,
-    ///         CustomLocationId = exampleVirtualMachineManagerServer.CustomLocationId,
     ///         Infrastructure = new Azure.SystemCenter.Inputs.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs
     ///         {
     ///             SystemCenterVirtualMachineManagerCloudId = exampleVirtualMachineManagerCloud.Id,
@@ -95,6 +93,14 @@ namespace Pulumi.Azure.SystemCenter
     ///         {
     ///             CpuCount = 1,
     ///             MemoryInMb = 1024,
+    ///         },
+    ///         ScopedResourceId = exampleArcMachine.Id,
+    ///         CustomLocationId = exampleVirtualMachineManagerServer.CustomLocationId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "storageDisks",
     ///         },
     ///     });
     /// 

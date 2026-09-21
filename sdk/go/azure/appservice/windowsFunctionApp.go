@@ -58,13 +58,13 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
 //				Name:                    pulumi.String("example-windows-function-app"),
 //				ResourceGroupName:       example.Name,
 //				Location:                example.Location,
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

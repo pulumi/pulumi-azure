@@ -47,12 +47,12 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("example-springcloudapp"),
-//				ResourceGroupName: example.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
 //				Identity: &appplatform.SpringCloudAppIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-springcloudapp"),
+//				ResourceGroupName: example.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
 //			})
 //			if err != nil {
 //				return err

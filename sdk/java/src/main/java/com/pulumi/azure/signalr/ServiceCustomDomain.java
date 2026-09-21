@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.signalr.ServiceCustomCertificate;
  * import com.pulumi.azure.signalr.ServiceCustomCertificateArgs;
  * import com.pulumi.azure.signalr.ServiceCustomDomain;
@@ -66,9 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example-signalr")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(ServiceSkuArgs.builder()
  *                 .name("Premium_P1")
  *                 .capacity(1)
@@ -76,15 +72,12 @@ import javax.annotation.Nullable;
  *             .identity(ServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-signalr")
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example-keyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -108,17 +101,21 @@ import javax.annotation.Nullable;
  *                         "Get",
  *                         "List")
  *                     .build())
+ *             .name("example-keyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("imported-cert")
- *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("certificate-to-import.pfx")
- *                     .build()).result())
+ *                 .contents(StdFunctions.filebase64(Map.of("input", "certificate-to-import.pfx")).result())
  *                 .password("")
  *                 .build())
+ *             .name("imported-cert")
+ *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
  *         var test = new ServiceCustomCertificate("test", ServiceCustomCertificateArgs.builder()

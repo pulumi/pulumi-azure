@@ -94,9 +94,6 @@ namespace Pulumi.Azure.Network
         /// 
         ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
         ///     {
-        ///         Name = "test-nic",
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         IpConfigurations = new[]
         ///         {
         ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -108,6 +105,9 @@ namespace Pulumi.Azure.Network
         ///                 PublicIpAddressId = examplePublicIp.Id,
         ///             },
         ///         },
+        ///         Name = "test-nic",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
         ///     });
         /// 
         ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
@@ -227,9 +227,6 @@ namespace Pulumi.Azure.Network
         /// 
         ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
         ///     {
-        ///         Name = "test-nic",
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         IpConfigurations = new[]
         ///         {
         ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -241,6 +238,9 @@ namespace Pulumi.Azure.Network
         ///                 PublicIpAddressId = examplePublicIp.Id,
         ///             },
         ///         },
+        ///         Name = "test-nic",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
         ///     });
         /// 
         ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
@@ -360,9 +360,6 @@ namespace Pulumi.Azure.Network
         /// 
         ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
         ///     {
-        ///         Name = "test-nic",
-        ///         Location = exampleResourceGroup.Location,
-        ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         IpConfigurations = new[]
         ///         {
         ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -374,6 +371,9 @@ namespace Pulumi.Azure.Network
         ///                 PublicIpAddressId = examplePublicIp.Id,
         ///             },
         ///         },
+        ///         Name = "test-nic",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
         ///     });
         /// 
         ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()

@@ -42,18 +42,22 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("example-iothub"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example-iothub"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = streamanalytics.NewStreamInputIotHub(ctx, "example", &streamanalytics.StreamInputIotHubArgs{
+//				Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
+//					Type:     pulumi.String("Json"),
+//					Encoding: pulumi.String("UTF8"),
+//				},
 //				Name:                      pulumi.String("example-iothub-input"),
 //				StreamAnalyticsJobName:    example.Name(),
 //				ResourceGroupName:         example.ResourceGroupName(),
@@ -64,10 +68,6 @@ import (
 //					return sharedAccessPolicies[0].PrimaryKey, nil
 //				}).(pulumi.StringPtrOutput),
 //				SharedAccessPolicyName: pulumi.String("iothubowner"),
-//				Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
-//					Type:     pulumi.String("Json"),
-//					Encoding: pulumi.String("UTF8"),
-//				},
 //			})
 //			if err != nil {
 //				return err

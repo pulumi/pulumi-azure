@@ -598,12 +598,6 @@ class Service(pulumi.CustomResource):
             name="terraform-webpubsub",
             location="east us")
         example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard_S1",
-            capacity=1,
-            public_network_access_enabled=False,
             live_trace={
                 "enabled": True,
                 "messaging_logs_enabled": True,
@@ -611,7 +605,13 @@ class Service(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard_S1",
+            capacity=1,
+            public_network_access_enabled=False)
         ```
 
         ## API Providers
@@ -666,12 +666,6 @@ class Service(pulumi.CustomResource):
             name="terraform-webpubsub",
             location="east us")
         example_service = azure.webpubsub.Service("example",
-            name="tfex-webpubsub",
-            location=example.location,
-            resource_group_name=example.name,
-            sku="Standard_S1",
-            capacity=1,
-            public_network_access_enabled=False,
             live_trace={
                 "enabled": True,
                 "messaging_logs_enabled": True,
@@ -679,7 +673,13 @@ class Service(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="Standard_S1",
+            capacity=1,
+            public_network_access_enabled=False)
         ```
 
         ## API Providers

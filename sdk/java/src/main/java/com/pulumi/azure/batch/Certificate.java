@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.batch.Certificate;
  * import com.pulumi.azure.batch.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -74,9 +73,7 @@ import javax.annotation.Nullable;
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount2.name())
- *             .certificate(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("certificate.pfx")
- *                 .build()).result())
+ *             .certificate(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).result())
  *             .format("Pfx")
  *             .password("password")
  *             .thumbprint("42C107874FD0E4A9583292A2F1098E8FE4B2EDDA")

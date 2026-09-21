@@ -33,9 +33,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
     ///     {
-    ///         Name = "example-route-table",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Routes = new[]
     ///         {
     ///             new Azure.Network.Inputs.RouteTableRouteArgs
@@ -45,6 +42,9 @@ namespace Pulumi.Azure.Network
     ///                 NextHopType = "VnetLocal",
     ///             },
     ///         },
+    ///         Name = "example-route-table",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

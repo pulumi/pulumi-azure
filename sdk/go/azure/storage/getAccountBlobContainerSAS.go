@@ -56,12 +56,6 @@ import (
 //				return err
 //			}
 //			example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
-//				ConnectionString: storage2.PrimaryConnectionString,
-//				ContainerName:    container.Name,
-//				HttpsOnly:        pulumi.Bool(true),
-//				IpAddress:        pulumi.String("168.1.5.65"),
-//				Start:            pulumi.String("2018-03-21"),
-//				Expiry:           pulumi.String("2018-03-21"),
 //				Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
 //					Read:   pulumi.Bool(true),
 //					Add:    pulumi.Bool(true),
@@ -70,6 +64,12 @@ import (
 //					Delete: pulumi.Bool(true),
 //					List:   pulumi.Bool(true),
 //				},
+//				ConnectionString:   storage2.PrimaryConnectionString,
+//				ContainerName:      container.Name,
+//				HttpsOnly:          pulumi.Bool(true),
+//				IpAddress:          pulumi.String("168.1.5.65"),
+//				Start:              pulumi.String("2018-03-21"),
+//				Expiry:             pulumi.String("2018-03-21"),
 //				CacheControl:       pulumi.String("max-age=5"),
 //				ContentDisposition: pulumi.String("inline"),
 //				ContentEncoding:    pulumi.String("deflate"),

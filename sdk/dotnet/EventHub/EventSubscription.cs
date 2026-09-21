@@ -49,13 +49,13 @@ namespace Pulumi.Azure.EventHub
     /// 
     ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("example", new()
     ///     {
-    ///         Name = "example-aees",
-    ///         Scope = example.Id,
     ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,
     ///             QueueName = exampleQueue.Name,
     ///         },
+    ///         Name = "example-aees",
+    ///         Scope = example.Id,
     ///     });
     /// 
     /// });

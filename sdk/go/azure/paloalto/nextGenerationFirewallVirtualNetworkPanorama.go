@@ -70,22 +70,22 @@ import (
 //				return err
 //			}
 //			trust, err := network.NewSubnet(ctx, "trust", &network.SubnetArgs{
-//				Name:               pulumi.String("example-trust-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("trusted"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("PaloAltoNetworks.Cloudngfw/firewalls"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("trusted"),
 //					},
+//				},
+//				Name:               pulumi.String("example-trust-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -99,22 +99,22 @@ import (
 //				return err
 //			}
 //			untrust, err := network.NewSubnet(ctx, "untrust", &network.SubnetArgs{
-//				Name:               pulumi.String("example-untrust-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("untrusted"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("PaloAltoNetworks.Cloudngfw/firewalls"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("untrusted"),
 //					},
+//				},
+//				Name:               pulumi.String("example-untrust-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -128,20 +128,20 @@ import (
 //				return err
 //			}
 //			_, err = paloalto.NewNextGenerationFirewallVirtualNetworkPanorama(ctx, "example", &paloalto.NextGenerationFirewallVirtualNetworkPanoramaArgs{
-//				Name:                 pulumi.String("example-ngfwvh"),
-//				ResourceGroupName:    example.Name,
-//				Location:             example.Location,
-//				PanoramaBase64Config: pulumi.String("e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg=="),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs{
-//					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
-//					},
 //					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs{
 //						VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //						TrustedSubnetId:   trust.ID().ToIDOutput().ToStringOutput(),
 //						UntrustedSubnetId: untrust.ID().ToIDOutput().ToStringOutput(),
 //					},
+//					PublicIpAddressIds: pulumi.StringArray{
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//					},
 //				},
+//				Name:                 pulumi.String("example-ngfwvh"),
+//				ResourceGroupName:    example.Name,
+//				Location:             example.Location,
+//				PanoramaBase64Config: pulumi.String("e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg=="),
 //			})
 //			if err != nil {
 //				return err

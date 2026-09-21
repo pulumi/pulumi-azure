@@ -52,9 +52,6 @@ import (
 //				return err
 //			}
 //			_, err = monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
-//				Name:              pulumi.String("CriticalAlertsAction"),
-//				ResourceGroupName: example.Name,
-//				ShortName:         pulumi.String("p0action"),
 //				ArmRoleReceivers: monitoring.ActionGroupArmRoleReceiverArray{
 //					&monitoring.ActionGroupArmRoleReceiverArgs{
 //						Name:                 pulumi.String("armroleaction"),
@@ -148,6 +145,9 @@ import (
 //						UseCommonAlertSchema: pulumi.Bool(true),
 //					},
 //				},
+//				Name:              pulumi.String("CriticalAlertsAction"),
+//				ResourceGroupName: example.Name,
+//				ShortName:         pulumi.String("p0action"),
 //			})
 //			if err != nil {
 //				return err

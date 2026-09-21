@@ -180,18 +180,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "subnet-mi",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.0.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "managedinstancedelegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Sql/managedInstances",
@@ -202,7 +194,15 @@ namespace Pulumi.Azure.MSSql
     ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
     ///                     },
     ///                 },
+    ///                 Name = "managedinstancedelegation",
     ///             },
+    ///         },
+    ///         Name = "subnet-mi",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/24",
     ///         },
     ///     });
     /// 

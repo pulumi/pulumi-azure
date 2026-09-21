@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "some-app-service-plan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "some-app-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAppService = new azure.appservice.AppService("example", {
  *     name: server.hex,

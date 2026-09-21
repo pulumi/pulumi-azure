@@ -927,6 +927,7 @@ class Cache(pulumi.CustomResource):
             location="West Europe")
         # NOTE: the Name used for Redis needs to be globally unique
         example_cache = azure.redis.Cache("example",
+            redis_configuration={},
             name="example-cache",
             location=example.location,
             resource_group_name=example.name,
@@ -934,8 +935,7 @@ class Cache(pulumi.CustomResource):
             family="C",
             sku_name="Standard",
             non_ssl_port_enabled=False,
-            minimum_tls_version="1.2",
-            redis_configuration={})
+            minimum_tls_version="1.2")
         ```
 
         ## Relevant Links
@@ -1016,6 +1016,7 @@ class Cache(pulumi.CustomResource):
             location="West Europe")
         # NOTE: the Name used for Redis needs to be globally unique
         example_cache = azure.redis.Cache("example",
+            redis_configuration={},
             name="example-cache",
             location=example.location,
             resource_group_name=example.name,
@@ -1023,8 +1024,7 @@ class Cache(pulumi.CustomResource):
             family="C",
             sku_name="Standard",
             non_ssl_port_enabled=False,
-            minimum_tls_version="1.2",
-            redis_configuration={})
+            minimum_tls_version="1.2")
         ```
 
         ## Relevant Links

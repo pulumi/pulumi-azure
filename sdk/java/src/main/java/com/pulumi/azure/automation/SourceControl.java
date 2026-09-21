@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSourceControl = new SourceControl("exampleSourceControl", SourceControlArgs.builder()
- *             .name("example")
- *             .automationAccountId(exampleAccount.id())
- *             .folderPath("runbook")
  *             .security(SourceControlSecurityArgs.builder()
  *                 .token("ghp_xxx")
  *                 .tokenType("PersonalAccessToken")
  *                 .build())
+ *             .name("example")
+ *             .automationAccountId(exampleAccount.id())
+ *             .folderPath("runbook")
  *             .repositoryUrl("https://github.com/foo/bat.git")
  *             .sourceControlType("GitHub")
  *             .branch("main")

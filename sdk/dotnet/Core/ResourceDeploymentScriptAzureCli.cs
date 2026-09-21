@@ -37,6 +37,14 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleResourceDeploymentScriptAzureCli = new Azure.Core.ResourceDeploymentScriptAzureCli("example", new()
     ///     {
+    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptAzureCliIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
     ///         Name = "example-rdsac",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
@@ -48,14 +56,6 @@ namespace Pulumi.Azure.Core
     ///         Timeout = "PT30M",
     ///         ScriptContent = @"            echo \""{\\\""name\\\"":{\\\""displayName\\\"":\\\""$1 $2\\\""}}\"" &gt; $AZ_SCRIPTS_OUTPUT_PATH
     /// ",
-    ///         Identity = new Azure.Core.Inputs.ResourceDeploymentScriptAzureCliIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "key", "value" },

@@ -46,15 +46,15 @@ import (
 //				return err
 //			}
 //			_, err = appinsights.NewStandardWebTest(ctx, "example", &appinsights.StandardWebTestArgs{
+//				Request: &appinsights.StandardWebTestRequestArgs{
+//					Url: pulumi.String("http://www.example.com"),
+//				},
 //				Name:                  pulumi.String("example-test"),
 //				ResourceGroupName:     example.Name,
 //				Location:              pulumi.String("West Europe"),
 //				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				GeoLocations: pulumi.StringArray{
 //					pulumi.String("example"),
-//				},
-//				Request: &appinsights.StandardWebTestRequestArgs{
-//					Url: pulumi.String("http://www.example.com"),
 //				},
 //			})
 //			if err != nil {

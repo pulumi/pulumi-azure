@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var cluster = new Cluster("cluster", ClusterArgs.builder()
- *             .name("kustocluster")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
+ *             .name("kustocluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var database = new Database("database", DatabaseArgs.builder()

@@ -597,17 +597,17 @@ class SharedImageVersion(pulumi.CustomResource):
             gallery_name="existing_gallery",
             resource_group_name="existing-resources")
         example = azure.compute.SharedImageVersion("example",
+            target_regions=[{
+                "name": existing_get_shared_image.location,
+                "regional_replica_count": 5,
+                "storage_account_type": "Standard_LRS",
+            }],
             name="0.0.1",
             gallery_name=existing_get_shared_image.gallery_name,
             image_name=existing_get_shared_image.name,
             resource_group_name=existing_get_shared_image.resource_group_name,
             location=existing_get_shared_image.location,
-            managed_image_id=existing.id,
-            target_regions=[{
-                "name": existing_get_shared_image.location,
-                "regional_replica_count": 5,
-                "storage_account_type": "Standard_LRS",
-            }])
+            managed_image_id=existing.id)
         ```
 
         ## API Providers
@@ -677,17 +677,17 @@ class SharedImageVersion(pulumi.CustomResource):
             gallery_name="existing_gallery",
             resource_group_name="existing-resources")
         example = azure.compute.SharedImageVersion("example",
+            target_regions=[{
+                "name": existing_get_shared_image.location,
+                "regional_replica_count": 5,
+                "storage_account_type": "Standard_LRS",
+            }],
             name="0.0.1",
             gallery_name=existing_get_shared_image.gallery_name,
             image_name=existing_get_shared_image.name,
             resource_group_name=existing_get_shared_image.resource_group_name,
             location=existing_get_shared_image.location,
-            managed_image_id=existing.id,
-            target_regions=[{
-                "name": existing_get_shared_image.location,
-                "regional_replica_count": 5,
-                "storage_account_type": "Standard_LRS",
-            }])
+            managed_image_id=existing.id)
         ```
 
         ## API Providers

@@ -392,16 +392,16 @@ class LinkedService(pulumi.CustomResource):
             name="example",
             storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True,
-            identity={
-                "type": "SystemAssigned",
-            })
+            managed_virtual_network_enabled=True)
         example_firewall_rule = azure.synapse.FirewallRule("example",
             name="allowAll",
             synapse_workspace_id=example_workspace.id,
@@ -412,6 +412,9 @@ class LinkedService(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             location=example.location)
         example_linked_service = azure.synapse.LinkedService("example",
+            integration_runtime={
+                "name": example_integration_runtime_azure.name,
+            },
             name="example",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
@@ -419,9 +422,6 @@ class LinkedService(pulumi.CustomResource):
           \\"connectionString\\": \\"{primary_connection_string}\\"
         }}
         \"\"\"),
-            integration_runtime={
-                "name": example_integration_runtime_azure.name,
-            },
             opts = pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
@@ -483,16 +483,16 @@ class LinkedService(pulumi.CustomResource):
             name="example",
             storage_account_id=example_account.id)
         example_workspace = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            managed_virtual_network_enabled=True,
-            identity={
-                "type": "SystemAssigned",
-            })
+            managed_virtual_network_enabled=True)
         example_firewall_rule = azure.synapse.FirewallRule("example",
             name="allowAll",
             synapse_workspace_id=example_workspace.id,
@@ -503,6 +503,9 @@ class LinkedService(pulumi.CustomResource):
             synapse_workspace_id=example_workspace.id,
             location=example.location)
         example_linked_service = azure.synapse.LinkedService("example",
+            integration_runtime={
+                "name": example_integration_runtime_azure.name,
+            },
             name="example",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
@@ -510,9 +513,6 @@ class LinkedService(pulumi.CustomResource):
           \\"connectionString\\": \\"{primary_connection_string}\\"
         }}
         \"\"\"),
-            integration_runtime={
-                "name": example_integration_runtime_azure.name,
-            },
             opts = pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 

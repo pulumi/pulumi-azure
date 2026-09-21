@@ -89,12 +89,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJobTargetGroup = new JobTargetGroup("exampleJobTargetGroup", JobTargetGroupArgs.builder()
- *             .name("example-target-group")
- *             .jobAgentId(exampleJobAgent.id())
  *             .jobTargets(JobTargetGroupJobTargetArgs.builder()
  *                 .serverName(exampleServer.name())
  *                 .jobCredentialId(exampleJobCredential.id())
  *                 .build())
+ *             .name("example-target-group")
+ *             .jobAgentId(exampleJobAgent.id())
  *             .build());
  * 
  *     }

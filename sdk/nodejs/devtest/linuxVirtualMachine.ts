@@ -29,15 +29,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
- *     name: "example-network",
- *     labName: exampleLab.name,
- *     resourceGroupName: example.name,
  *     subnet: {
  *         usePublicIpAddress: "Allow",
  *         useInVirtualMachineCreation: "Allow",
  *     },
+ *     name: "example-network",
+ *     labName: exampleLab.name,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("example", {
+ *     galleryImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
+ *         version: "latest",
+ *     },
  *     name: "example-vm03",
  *     labName: exampleLab.name,
  *     resourceGroupName: example.name,
@@ -46,17 +52,11 @@ import * as utilities from "../utilities";
  *     username: "exampleuser99",
  *     sshKey: std.file({
  *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
  *     labSubnetName: exampleVirtualNetwork.subnet.name,
  *     storageType: "Premium",
  *     notes: "Some notes about this Virtual Machine.",
- *     galleryImageReference: {
- *         publisher: "Canonical",
- *         offer: "0001-com-ubuntu-server-jammy",
- *         sku: "22_04-lts",
- *         version: "latest",
- *     },
  * });
  * ```
  *

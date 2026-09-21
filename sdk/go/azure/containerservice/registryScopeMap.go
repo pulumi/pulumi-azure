@@ -37,11 +37,6 @@ import (
 //				return err
 //			}
 //			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
-//				Name:              pulumi.String("exampleregistry"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Basic"),
-//				AdminEnabled:      pulumi.Bool(false),
 //				Georeplications: containerservice.RegistryGeoreplicationArray{
 //					&containerservice.RegistryGeoreplicationArgs{
 //						Location: pulumi.String("East US"),
@@ -50,6 +45,11 @@ import (
 //						Location: pulumi.String("West Europe"),
 //					},
 //				},
+//				Name:              pulumi.String("exampleregistry"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Basic"),
+//				AdminEnabled:      pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

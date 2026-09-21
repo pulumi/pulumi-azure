@@ -30,27 +30,19 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
+    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-backup-vault",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
-    ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleBackupPolicyDataLakeStorage = new Azure.DataProtection.BackupPolicyDataLakeStorage("example", new()
     ///     {
-    ///         Name = "example-backup-policy",
-    ///         DataProtectionBackupVaultId = exampleBackupVault.Id,
-    ///         BackupSchedules = new[]
-    ///         {
-    ///             "R/2021-05-23T02:30:00+00:00/P1W",
-    ///         },
-    ///         TimeZone = "India Standard Time",
-    ///         DefaultRetentionDuration = "P4M",
     ///         RetentionRules = new[]
     ///         {
     ///             new Azure.DataProtection.Inputs.BackupPolicyDataLakeStorageRetentionRuleArgs
@@ -91,6 +83,14 @@ namespace Pulumi.Azure.DataProtection
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-backup-policy",
+    ///         DataProtectionBackupVaultId = exampleBackupVault.Id,
+    ///         BackupSchedules = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         TimeZone = "India Standard Time",
+    ///         DefaultRetentionDuration = "P4M",
     ///     });
     /// 
     /// });

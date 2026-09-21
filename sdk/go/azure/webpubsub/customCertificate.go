@@ -44,31 +44,25 @@ import (
 //				return err
 //			}
 //			exampleWebPubsubService, err := azurerm.NewWebPubsubService(ctx, "example", &azurerm.WebPubsubServiceArgs{
-//				Name:              "example-webpubsub",
-//				Location:          testAzurermResourceGroup.Location,
-//				ResourceGroupName: testAzurermResourceGroup.Name,
+//				Identity: []map[string]string{
+//					{
+//						"type": "SystemAssigned",
+//					},
+//				},
 //				Sku: []map[string]interface{}{
 //					map[string]interface{}{
 //						"name":     "Premium_P1",
 //						"capacity": 1,
 //					},
 //				},
-//				Identity: []map[string]string{
-//					{
-//						"type": "SystemAssigned",
-//					},
-//				},
+//				Name:              "example-webpubsub",
+//				Location:          testAzurermResourceGroup.Location,
+//				ResourceGroupName: testAzurermResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("examplekeyvault"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -97,23 +91,29 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate-to-import.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "certificate-to-import.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
-//				Name:       pulumi.String("imported-cert"),
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: pulumi.String(invokeFilebase64.Result),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
+//				Name:       pulumi.String("imported-cert"),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

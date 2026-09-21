@@ -3564,11 +3564,11 @@ class KubernetesClusterAciConnectorLinux(dict):
                import pulumi_azure as azure
                
                virtual = azure.network.Subnet("virtual", delegations=[{
-                   "name": "aciDelegation",
                    "service_delegation": {
                        "name": "Microsoft.ContainerInstance/containerGroups",
                        "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                    },
+                   "name": "aciDelegation",
                }])
                ```
         :param Sequence['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs'] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
@@ -3592,11 +3592,11 @@ class KubernetesClusterAciConnectorLinux(dict):
         import pulumi_azure as azure
 
         virtual = azure.network.Subnet("virtual", delegations=[{
-            "name": "aciDelegation",
             "service_delegation": {
                 "name": "Microsoft.ContainerInstance/containerGroups",
                 "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
             },
+            "name": "aciDelegation",
         }])
         ```
         """

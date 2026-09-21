@@ -1012,13 +1012,13 @@ class ScaleSet(pulumi.CustomResource):
                 "environment": "staging",
             })
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="test",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="test",
+            location=example.location,
+            resource_group_name=example.name)
         bpepool = azure.lb.BackendAddressPool("bpepool",
             loadbalancer_id=example_load_balancer.id,
             name="BackEndAddressPool")
@@ -1038,18 +1038,12 @@ class ScaleSet(pulumi.CustomResource):
             request_path="/health",
             port=8080)
         example_scale_set = azure.compute.ScaleSet("example",
-            name="mytestscaleset-1",
-            location=example.location,
-            resource_group_name=example.name,
-            automatic_os_upgrade=True,
-            upgrade_policy_mode="Rolling",
             rolling_upgrade_policy={
                 "max_batch_instance_percent": 20,
                 "max_unhealthy_instance_percent": 20,
                 "max_unhealthy_upgraded_instance_percent": 5,
                 "pause_time_between_batches": "PT0S",
             },
-            health_probe_id=example_probe.id,
             sku={
                 "name": "Standard_D4_v5",
                 "tier": "Standard",
@@ -1067,26 +1061,18 @@ class ScaleSet(pulumi.CustomResource):
                 "create_option": "FromImage",
                 "managed_disk_type": "Standard_LRS",
             },
-            storage_profile_data_disks=[{
-                "lun": 0,
-                "caching": "ReadWrite",
-                "create_option": "Empty",
-                "disk_size_gb": 10,
-            }],
             os_profile={
                 "computer_name_prefix": "testvm",
                 "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
+                "disable_password_authentication": True,
             },
             network_profiles=[{
-                "name": "mynetworkprofile",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
@@ -1094,7 +1080,21 @@ class ScaleSet(pulumi.CustomResource):
                     "load_balancer_backend_address_pool_ids": [bpepool.id],
                     "load_balancer_inbound_nat_rules_ids": [lbnatpool.id],
                 }],
+                "name": "mynetworkprofile",
+                "primary": True,
             }],
+            storage_profile_data_disks=[{
+                "lun": 0,
+                "caching": "ReadWrite",
+                "create_option": "Empty",
+                "disk_size_gb": 10,
+            }],
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
+            automatic_os_upgrade=True,
+            upgrade_policy_mode="Rolling",
+            health_probe_id=example_probe.id,
             tags={
                 "environment": "staging",
             })
@@ -1134,10 +1134,6 @@ class ScaleSet(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_scale_set = azure.compute.ScaleSet("example",
-            name="mytestscaleset-1",
-            location=example.location,
-            resource_group_name=example.name,
-            upgrade_policy_mode="Manual",
             sku={
                 "name": "Standard_D4_v5",
                 "tier": "Standard",
@@ -1148,21 +1144,12 @@ class ScaleSet(pulumi.CustomResource):
                 "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
+                "disable_password_authentication": True,
             },
-            network_profiles=[{
-                "name": "TestNetworkProfile",
-                "primary": True,
-                "ip_configurations": [{
-                    "name": "TestIPConfiguration",
-                    "primary": True,
-                    "subnet_id": example_subnet.id,
-                }],
-            }],
             storage_profile_os_disk={
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
@@ -1178,7 +1165,20 @@ class ScaleSet(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            network_profiles=[{
+                "ip_configurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnet_id": example_subnet.id,
+                }],
+                "name": "TestNetworkProfile",
+                "primary": True,
+            }],
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
+            upgrade_policy_mode="Manual")
         ```
 
         ## Example of storage_profile_image_reference with id
@@ -1189,10 +1189,10 @@ class ScaleSet(pulumi.CustomResource):
 
         example = azure.compute.Image("example", name="test")
         example_scale_set = azure.compute.ScaleSet("example",
-            name="test",
             storage_profile_image_reference={
                 "id": example.id,
-            })
+            },
+            name="test")
         ```
 
         ## API Providers
@@ -1287,13 +1287,13 @@ class ScaleSet(pulumi.CustomResource):
                 "environment": "staging",
             })
         example_load_balancer = azure.lb.LoadBalancer("example",
-            name="test",
-            location=example.location,
-            resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
                 "public_ip_address_id": example_public_ip.id,
-            }])
+            }],
+            name="test",
+            location=example.location,
+            resource_group_name=example.name)
         bpepool = azure.lb.BackendAddressPool("bpepool",
             loadbalancer_id=example_load_balancer.id,
             name="BackEndAddressPool")
@@ -1313,18 +1313,12 @@ class ScaleSet(pulumi.CustomResource):
             request_path="/health",
             port=8080)
         example_scale_set = azure.compute.ScaleSet("example",
-            name="mytestscaleset-1",
-            location=example.location,
-            resource_group_name=example.name,
-            automatic_os_upgrade=True,
-            upgrade_policy_mode="Rolling",
             rolling_upgrade_policy={
                 "max_batch_instance_percent": 20,
                 "max_unhealthy_instance_percent": 20,
                 "max_unhealthy_upgraded_instance_percent": 5,
                 "pause_time_between_batches": "PT0S",
             },
-            health_probe_id=example_probe.id,
             sku={
                 "name": "Standard_D4_v5",
                 "tier": "Standard",
@@ -1342,26 +1336,18 @@ class ScaleSet(pulumi.CustomResource):
                 "create_option": "FromImage",
                 "managed_disk_type": "Standard_LRS",
             },
-            storage_profile_data_disks=[{
-                "lun": 0,
-                "caching": "ReadWrite",
-                "create_option": "Empty",
-                "disk_size_gb": 10,
-            }],
             os_profile={
                 "computer_name_prefix": "testvm",
                 "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
+                "disable_password_authentication": True,
             },
             network_profiles=[{
-                "name": "mynetworkprofile",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
@@ -1369,7 +1355,21 @@ class ScaleSet(pulumi.CustomResource):
                     "load_balancer_backend_address_pool_ids": [bpepool.id],
                     "load_balancer_inbound_nat_rules_ids": [lbnatpool.id],
                 }],
+                "name": "mynetworkprofile",
+                "primary": True,
             }],
+            storage_profile_data_disks=[{
+                "lun": 0,
+                "caching": "ReadWrite",
+                "create_option": "Empty",
+                "disk_size_gb": 10,
+            }],
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
+            automatic_os_upgrade=True,
+            upgrade_policy_mode="Rolling",
+            health_probe_id=example_probe.id,
             tags={
                 "environment": "staging",
             })
@@ -1409,10 +1409,6 @@ class ScaleSet(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_scale_set = azure.compute.ScaleSet("example",
-            name="mytestscaleset-1",
-            location=example.location,
-            resource_group_name=example.name,
-            upgrade_policy_mode="Manual",
             sku={
                 "name": "Standard_D4_v5",
                 "tier": "Standard",
@@ -1423,21 +1419,12 @@ class ScaleSet(pulumi.CustomResource):
                 "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
+                "disable_password_authentication": True,
             },
-            network_profiles=[{
-                "name": "TestNetworkProfile",
-                "primary": True,
-                "ip_configurations": [{
-                    "name": "TestIPConfiguration",
-                    "primary": True,
-                    "subnet_id": example_subnet.id,
-                }],
-            }],
             storage_profile_os_disk={
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
@@ -1453,7 +1440,20 @@ class ScaleSet(pulumi.CustomResource):
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
-            })
+            },
+            network_profiles=[{
+                "ip_configurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnet_id": example_subnet.id,
+                }],
+                "name": "TestNetworkProfile",
+                "primary": True,
+            }],
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
+            upgrade_policy_mode="Manual")
         ```
 
         ## Example of storage_profile_image_reference with id
@@ -1464,10 +1464,10 @@ class ScaleSet(pulumi.CustomResource):
 
         example = azure.compute.Image("example", name="test")
         example_scale_set = azure.compute.ScaleSet("example",
-            name="test",
             storage_profile_image_reference={
                 "id": example.id,
-            })
+            },
+            name="test")
         ```
 
         ## API Providers

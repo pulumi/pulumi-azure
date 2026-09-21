@@ -25,12 +25,6 @@ import * as utilities from "../utilities";
  *     accountName: example.then(example => example.name),
  * });
  * const exampleGremlinGraph = new azure.cosmosdb.GremlinGraph("example", {
- *     name: "tfex-cosmos-gremlin-graph",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     accountName: example.then(example => example.name),
- *     databaseName: exampleGremlinDatabase.name,
- *     partitionKeyPath: "/Example",
- *     throughput: 400,
  *     indexPolicy: {
  *         automatic: true,
  *         indexingMode: "consistent",
@@ -47,6 +41,12 @@ import * as utilities from "../utilities";
  *             "/definition/id2",
  *         ],
  *     }],
+ *     name: "tfex-cosmos-gremlin-graph",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
+ *     databaseName: exampleGremlinDatabase.name,
+ *     partitionKeyPath: "/Example",
+ *     throughput: 400,
  * });
  * ```
  *

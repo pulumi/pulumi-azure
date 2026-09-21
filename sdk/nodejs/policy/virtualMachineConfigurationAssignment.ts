@@ -34,23 +34,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("example", {
- *     name: "examplevm",
+ *     name: "example-nic",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     size: "Standard_D4_v5",
- *     adminUsername: "adminuser",
- *     adminPassword: "P@$$w0rd1234!",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
+ * });
+ * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("example", {
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -64,6 +57,13 @@ import * as utilities from "../utilities";
  *         sku: "2019-Datacenter",
  *         version: "latest",
  *     },
+ *     name: "examplevm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_D4_v5",
+ *     adminUsername: "adminuser",
+ *     adminPassword: "P@$$w0rd1234!",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleExtension = new azure.compute.Extension("example", {
  *     name: "AzurePolicyforWindows",
@@ -74,12 +74,7 @@ import * as utilities from "../utilities";
  *     autoUpgradeMinorVersion: true,
  * });
  * const exampleVirtualMachineConfigurationAssignment = new azure.policy.VirtualMachineConfigurationAssignment("example", {
- *     name: "AzureWindowsBaseline",
- *     location: exampleWindowsVirtualMachine.location,
- *     virtualMachineId: exampleWindowsVirtualMachine.id,
  *     configuration: {
- *         assignmentType: "ApplyAndMonitor",
- *         version: "1.*",
  *         parameters: [
  *             {
  *                 name: "Minimum Password Length;ExpectedValue",
@@ -102,7 +97,12 @@ import * as utilities from "../utilities";
  *                 value: "1",
  *             },
  *         ],
+ *         assignmentType: "ApplyAndMonitor",
+ *         version: "1.*",
  *     },
+ *     name: "AzureWindowsBaseline",
+ *     location: exampleWindowsVirtualMachine.location,
+ *     virtualMachineId: exampleWindowsVirtualMachine.id,
  * });
  * ```
  *

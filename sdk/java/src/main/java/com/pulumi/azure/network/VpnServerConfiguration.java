@@ -57,10 +57,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new VpnServerConfiguration("test", VpnServerConfigurationArgs.builder()
- *             .name("example-config")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .vpnAuthenticationTypes("Certificate")
  *             .clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs.builder()
  *                 .name("DigiCert-Federated-ID-Root-CA")
  *                 .publicCertData("""
@@ -86,6 +82,10 @@ import javax.annotation.Nullable;
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
  *                 """)
  *                 .build())
+ *             .name("example-config")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .vpnAuthenticationTypes("Certificate")
  *             .build());
  * 
  *     }

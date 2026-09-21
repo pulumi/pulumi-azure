@@ -26,20 +26,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleFhirService = new azure.healthcare.FhirService("example", {
- *     name: "tfexfhir",
- *     location: "east us",
- *     resourceGroupName: "tfex-resource_group",
- *     workspaceId: exampleWorkspace.id,
- *     kind: "fhir-R4",
  *     authentication: {
  *         authority: "https://login.microsoftonline.com/tenantId",
  *         audience: "https://tfexfhir.fhir.azurehealthcareapis.com",
  *     },
- *     accessPolicyObjectIds: [current.then(current => current.objectId)],
  *     identity: {
  *         type: "SystemAssigned",
  *     },
- *     containerRegistryLoginServerUrls: ["tfex-container_registry_login_server"],
  *     cors: {
  *         allowedOrigins: [
  *             "https://tfex.com:123",
@@ -54,6 +47,13 @@ import * as utilities from "../utilities";
  *         maxAgeInSeconds: 3600,
  *         credentialsAllowed: true,
  *     },
+ *     name: "tfexfhir",
+ *     location: "east us",
+ *     resourceGroupName: "tfex-resource_group",
+ *     workspaceId: exampleWorkspace.id,
+ *     kind: "fhir-R4",
+ *     accessPolicyObjectIds: [current.then(current => current.objectId)],
+ *     containerRegistryLoginServerUrls: ["tfex-container_registry_login_server"],
  *     configurationExportStorageAccountName: "storage_account_name",
  * });
  * ```

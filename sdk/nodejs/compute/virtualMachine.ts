@@ -44,21 +44,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const mainNetworkInterface = new azure.network.NetworkInterface("main", {
- *     name: `${prefix}-nic`,
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: internal.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const mainVirtualMachine = new azure.compute.VirtualMachine("main", {
- *     name: `${prefix}-vm`,
+ *     name: `${prefix}-nic`,
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     networkInterfaceIds: [mainNetworkInterface.id],
- *     vmSize: "Standard_DS1_v2",
+ * });
+ * const mainVirtualMachine = new azure.compute.VirtualMachine("main", {
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -79,6 +74,11 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
+ *     name: `${prefix}-vm`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     networkInterfaceIds: [mainNetworkInterface.id],
+ *     vmSize: "Standard_DS1_v2",
  *     tags: {
  *         environment: "staging",
  *     },

@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
@@ -72,22 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
- *             .name("exampleWAF")
- *             .resourceGroupName(example.name())
- *             .skuName(exampleFrontdoorProfile.skuName())
- *             .enabled(true)
- *             .mode("Prevention")
- *             .redirectUrl("https://www.contoso.com")
- *             .customBlockResponseStatusCode(403)
- *             .customBlockResponseBody("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
  *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
- *                 .name("Rule1")
- *                 .enabled(true)
- *                 .priority(1)
- *                 .rateLimitDurationInMinutes(1)
- *                 .rateLimitThreshold(10)
- *                 .type("MatchRule")
- *                 .action("Block")
  *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
  *                     .matchVariable("RemoteAddr")
  *                     .operator("IPMatch")
@@ -96,7 +80,22 @@ import javax.annotation.Nullable;
  *                         "192.168.1.0/24",
  *                         "10.0.1.0/24")
  *                     .build())
+ *                 .name("Rule1")
+ *                 .enabled(true)
+ *                 .priority(1)
+ *                 .rateLimitDurationInMinutes(1)
+ *                 .rateLimitThreshold(10)
+ *                 .type("MatchRule")
+ *                 .action("Block")
  *                 .build())
+ *             .name("exampleWAF")
+ *             .resourceGroupName(example.name())
+ *             .skuName(exampleFrontdoorProfile.skuName())
+ *             .enabled(true)
+ *             .mode("Prevention")
+ *             .redirectUrl("https://www.contoso.com")
+ *             .customBlockResponseStatusCode(403)
+ *             .customBlockResponseBody("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
  *             .build());
  * 
  *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
@@ -105,35 +104,35 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
- *             .name("example-customDomain")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .dnsZoneId(exampleZone.id())
- *             .hostName(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
- *                     "contoso",
- *                     exampleZone.name())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumTlsVersion("TLS12")
  *                 .build())
+ *             .name("example-customDomain")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .dnsZoneId(exampleZone.id())
+ *             .hostName(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
+ *                     "contoso",
+ *                     exampleZone.name()))
+ *             )).result())
  *             .build());
  * 
  *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
- *             .name("Example-Security-Policy")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
  *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
- *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
  *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
  *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
  *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
  *                             .build())
  *                         .patternsToMatch("/*")
  *                         .build())
+ *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
  *                     .build())
  *                 .build())
+ *             .name("Example-Security-Policy")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *     }

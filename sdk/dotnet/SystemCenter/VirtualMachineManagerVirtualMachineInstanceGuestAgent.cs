@@ -32,14 +32,14 @@ namespace Pulumi.Azure.SystemCenter
     /// 
     ///     var exampleArcMachine = new Azure.ArcMachine.ArcMachine("example", new()
     ///     {
-    ///         Name = "example-arcmachine",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Kind = "SCVMM",
     ///         Identity = new Azure.ArcMachine.Inputs.ArcMachineIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-arcmachine",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Kind = "SCVMM",
     ///     });
     /// 
     ///     var exampleVirtualMachineManagerServer = new Azure.SystemCenter.VirtualMachineManagerServer("example", new()
@@ -85,8 +85,6 @@ namespace Pulumi.Azure.SystemCenter
     /// 
     ///     var exampleVirtualMachineManagerVirtualMachineInstance = new Azure.SystemCenter.VirtualMachineManagerVirtualMachineInstance("example", new()
     ///     {
-    ///         ScopedResourceId = exampleArcMachine.Id,
-    ///         CustomLocationId = exampleVirtualMachineManagerServer.CustomLocationId,
     ///         Infrastructure = new Azure.SystemCenter.Inputs.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs
     ///         {
     ///             CheckpointType = "Standard",
@@ -97,6 +95,17 @@ namespace Pulumi.Azure.SystemCenter
     ///         OperatingSystem = new Azure.SystemCenter.Inputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs
     ///         {
     ///             AdminPassword = "AdminPassword123!",
+    ///         },
+    ///         ScopedResourceId = exampleArcMachine.Id,
+    ///         CustomLocationId = exampleVirtualMachineManagerServer.CustomLocationId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "storageDisks",
+    ///             "hardware",
+    ///             "networkInterfaces",
+    ///             "operatingSystem.computerName",
     ///         },
     ///     });
     /// 

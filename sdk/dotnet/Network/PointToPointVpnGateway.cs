@@ -46,13 +46,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("example", new()
     ///     {
-    ///         Name = "example-config",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         VpnAuthenticationTypes = new[]
-    ///         {
-    ///             "Certificate",
-    ///         },
     ///         ClientRootCertificates = new[]
     ///         {
     ///             new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
@@ -81,21 +74,21 @@ namespace Pulumi.Azure.Network
     /// ",
     ///             },
     ///         },
+    ///         Name = "example-config",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VpnAuthenticationTypes = new[]
+    ///         {
+    ///             "Certificate",
+    ///         },
     ///     });
     /// 
     ///     var examplePointToPointVpnGateway = new Azure.Network.PointToPointVpnGateway("example", new()
     ///     {
-    ///         Name = "example-vpn-gateway",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualHubId = exampleVirtualHub.Id,
-    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
-    ///         ScaleUnit = 1,
     ///         ConnectionConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationArgs
     ///             {
-    ///                 Name = "example-gateway-config",
     ///                 VpnClientAddressPool = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
     ///                 {
     ///                     AddressPrefixes = new[]
@@ -103,8 +96,15 @@ namespace Pulumi.Azure.Network
     ///                         "10.0.2.0/24",
     ///                     },
     ///                 },
+    ///                 Name = "example-gateway-config",
     ///             },
     ///         },
+    ///         Name = "example-vpn-gateway",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
+    ///         ScaleUnit = 1,
     ///     });
     /// 
     /// });

@@ -20,11 +20,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-ca",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "MongoDB",
+ *     consistencyPolicy: {
+ *         consistencyLevel: "Strong",
+ *     },
  *     capabilities: [
  *         {
  *             name: "EnableMongo",
@@ -33,13 +31,15 @@ import * as utilities from "../utilities";
  *             name: "EnableMongoRoleBasedAccessControl",
  *         },
  *     ],
- *     consistencyPolicy: {
- *         consistencyLevel: "Strong",
- *     },
  *     geoLocations: [{
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-ca",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "MongoDB",
  * });
  * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
  *     name: "example-mongodb",

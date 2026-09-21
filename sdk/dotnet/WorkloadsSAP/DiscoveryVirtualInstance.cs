@@ -32,13 +32,6 @@ namespace Pulumi.Azure.WorkloadsSAP
     /// 
     ///     var exampleDiscoveryVirtualInstance = new Azure.WorkloadsSAP.DiscoveryVirtualInstance("example", new()
     ///     {
-    ///         Name = "X01",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Environment = "NonProd",
-    ///         SapProduct = "S4HANA",
-    ///         CentralServerVirtualMachineId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
-    ///         ManagedStorageAccountName = "managedsa",
     ///         Identity = new Azure.WorkloadsSAP.Inputs.DiscoveryVirtualInstanceIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -46,6 +39,19 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///             {
     ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
     ///             },
+    ///         },
+    ///         Name = "X01",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Environment = "NonProd",
+    ///         SapProduct = "S4HANA",
+    ///         CentralServerVirtualMachineId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
+    ///         ManagedStorageAccountName = "managedsa",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "managedResourceGroupName",
     ///         },
     ///     });
     /// 

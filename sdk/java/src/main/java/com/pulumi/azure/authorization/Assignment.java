@@ -99,13 +99,13 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
- *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
- *             .name("my-custom-role-definition")
- *             .scope(primary.id())
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+ *             .name("my-custom-role-definition")
+ *             .scope(primary.id())
  *             .assignableScopes(primary.id())
  *             .build());
  * 
@@ -156,13 +156,13 @@ import javax.annotation.Nullable;
  *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
- *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
- *             .name("my-custom-role-definition")
- *             .scope(primary.id())
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+ *             .name("my-custom-role-definition")
+ *             .scope(primary.id())
  *             .assignableScopes(primary.id())
  *             .build());
  * 
@@ -219,13 +219,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
- *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
- *             .name("my-custom-role-definition")
- *             .scope(primary.id())
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
+ *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
+ *             .name("my-custom-role-definition")
+ *             .scope(primary.id())
  *             .assignableScopes(primary.id())
  *             .build());
  * 
@@ -257,7 +257,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.BasenameArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -307,11 +306,7 @@ import javax.annotation.Nullable;
  *   }{@literal @}{@code Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals }{{@code %s}}{@code
  *  )
  * )
- * ", StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.roleDefinitionId())
- *                 .build()).result(),StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.roleDefinitionId())
- *                 .build()).result()))
+ * ", StdFunctions.basename(Map.of("input", builtin.roleDefinitionId())).result(),StdFunctions.basename(Map.of("input", builtin.roleDefinitionId())).result()))
  *             .build());
  * 
  *     }}{@code

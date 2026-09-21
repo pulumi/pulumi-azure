@@ -56,9 +56,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "test-nic",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
@@ -66,6 +63,9 @@ import * as utilities from "../utilities";
  *         privateIpAddress: "10.0.2.5",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "test-nic",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     name: "test-vm",
@@ -228,9 +228,6 @@ export interface GetPublicIPResult {
  *     },
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "test-nic",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
@@ -238,6 +235,9 @@ export interface GetPublicIPResult {
  *         privateIpAddress: "10.0.2.5",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "test-nic",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     name: "test-vm",

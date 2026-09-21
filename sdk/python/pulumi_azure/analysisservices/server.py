@@ -408,17 +408,17 @@ class Server(pulumi.CustomResource):
             name="analysis-services-server-test",
             location="West Europe")
         server = azure.analysisservices.Server("server",
+            ipv4_firewall_rules=[{
+                "name": "myRule1",
+                "range_start": "210.117.252.0",
+                "range_end": "210.117.252.255",
+            }],
             name="analysisservicesserver",
             location=example.location,
             resource_group_name=example.name,
             sku="S0",
             admin_users=["myuser@domain.tld"],
             power_bi_service_enabled=True,
-            ipv4_firewall_rules=[{
-                "name": "myRule1",
-                "range_start": "210.117.252.0",
-                "range_end": "210.117.252.255",
-            }],
             tags={
                 "abc": "123",
             })
@@ -476,17 +476,17 @@ class Server(pulumi.CustomResource):
             name="analysis-services-server-test",
             location="West Europe")
         server = azure.analysisservices.Server("server",
+            ipv4_firewall_rules=[{
+                "name": "myRule1",
+                "range_start": "210.117.252.0",
+                "range_end": "210.117.252.255",
+            }],
             name="analysisservicesserver",
             location=example.location,
             resource_group_name=example.name,
             sku="S0",
             admin_users=["myuser@domain.tld"],
             power_bi_service_enabled=True,
-            ipv4_firewall_rules=[{
-                "name": "myRule1",
-                "range_start": "210.117.252.0",
-                "range_end": "210.117.252.255",
-            }],
             tags={
                 "abc": "123",
             })

@@ -18,21 +18,21 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
- * });
- * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "kustocluster",
+ *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleDatabase = new azure.kusto.Database("example", {
  *     name: "my-kusto-database",

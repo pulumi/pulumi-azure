@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     algorithm: "RSA",
  *     rsaBits: 4096,
  * });
- * const example = tls.PublicKey({
+ * const example = tls.publicKey({
  *     privateKeyPem: examplePrivateKey.privateKeyPem,
  * });
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
@@ -59,21 +59,8 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleSubnet],
  * });
  * const exampleSingleNodeVirtualInstance = new azure.workloadssap.SingleNodeVirtualInstance("example", {
- *     name: "X05",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     environment: "NonProd",
- *     sapProduct: "S4HANA",
- *     managedResourceGroupName: "managedTestRG",
- *     appLocation: app.location,
- *     sapFqdn: "sap.bpaas.com",
  *     singleServerConfiguration: {
- *         appResourceGroupName: app.name,
- *         subnetId: exampleSubnet.id,
- *         databaseType: "HANA",
- *         secondaryIpEnabled: true,
  *         virtualMachineConfiguration: {
- *             virtualMachineSize: "Standard_E32ds_v4",
  *             image: {
  *                 offer: "RHEL-SAP-HA",
  *                 publisher: "RedHat",
@@ -85,6 +72,17 @@ import * as utilities from "../utilities";
  *                 sshPrivateKey: examplePrivateKey.privateKeyPem,
  *                 sshPublicKey: example.publicKeyOpenssh,
  *             },
+ *             virtualMachineSize: "Standard_E32ds_v4",
+ *         },
+ *         virtualMachineResourceNames: {
+ *             dataDisks: [{
+ *                 volumeName: "default",
+ *                 names: ["app0disk0"],
+ *             }],
+ *             hostName: "apphostName0",
+ *             osDiskName: "app0osdisk",
+ *             virtualMachineName: "appvm0",
+ *             networkInterfaceNames: ["appnic0"],
  *         },
  *         diskVolumeConfigurations: [
  *             {
@@ -124,21 +122,23 @@ import * as utilities from "../utilities";
  *                 skuName: "StandardSSD_LRS",
  *             },
  *         ],
- *         virtualMachineResourceNames: {
- *             hostName: "apphostName0",
- *             osDiskName: "app0osdisk",
- *             virtualMachineName: "appvm0",
- *             networkInterfaceNames: ["appnic0"],
- *             dataDisks: [{
- *                 volumeName: "default",
- *                 names: ["app0disk0"],
- *             }],
- *         },
+ *         appResourceGroupName: app.name,
+ *         subnetId: exampleSubnet.id,
+ *         databaseType: "HANA",
+ *         secondaryIpEnabled: true,
  *     },
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "X05",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     environment: "NonProd",
+ *     sapProduct: "S4HANA",
+ *     managedResourceGroupName: "managedTestRG",
+ *     appLocation: app.location,
+ *     sapFqdn: "sap.bpaas.com",
  * }, {
  *     dependsOn: [exampleAssignment],
  * });

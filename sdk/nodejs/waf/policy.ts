@@ -20,53 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePolicy = new azure.waf.Policy("example", {
- *     name: "example-wafpolicy",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     customRules: [
- *         {
- *             name: "Rule1",
- *             priority: 1,
- *             ruleType: "MatchRule",
- *             matchConditions: [{
- *                 matchVariables: [{
- *                     variableName: "RemoteAddr",
- *                 }],
- *                 operator: "IPMatch",
- *                 negationCondition: false,
- *                 matchValues: [
- *                     "192.168.1.0/24",
- *                     "10.0.0.0/24",
- *                 ],
- *             }],
- *             action: "Block",
- *         },
- *         {
- *             name: "Rule2",
- *             priority: 2,
- *             ruleType: "MatchRule",
- *             matchConditions: [
- *                 {
- *                     matchVariables: [{
- *                         variableName: "RemoteAddr",
- *                     }],
- *                     operator: "IPMatch",
- *                     negationCondition: false,
- *                     matchValues: ["192.168.1.0/24"],
- *                 },
- *                 {
- *                     matchVariables: [{
- *                         variableName: "RequestHeaders",
- *                         selector: "UserAgent",
- *                     }],
- *                     operator: "Contains",
- *                     negationCondition: false,
- *                     matchValues: ["Windows"],
- *                 },
- *             ],
- *             action: "Block",
- *         },
- *     ],
  *     policySettings: {
  *         enabled: true,
  *         mode: "Prevention",
@@ -88,10 +41,7 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *         managedRuleSets: [{
- *             type: "OWASP",
- *             version: "3.2",
  *             ruleGroupOverrides: [{
- *                 ruleGroupName: "REQUEST-920-PROTOCOL-ENFORCEMENT",
  *                 rules: [
  *                     {
  *                         id: "920300",
@@ -104,9 +54,59 @@ import * as utilities from "../utilities";
  *                         action: "Block",
  *                     },
  *                 ],
+ *                 ruleGroupName: "REQUEST-920-PROTOCOL-ENFORCEMENT",
  *             }],
+ *             type: "OWASP",
+ *             version: "3.2",
  *         }],
  *     },
+ *     customRules: [
+ *         {
+ *             matchConditions: [{
+ *                 matchVariables: [{
+ *                     variableName: "RemoteAddr",
+ *                 }],
+ *                 operator: "IPMatch",
+ *                 negationCondition: false,
+ *                 matchValues: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
+ *             }],
+ *             name: "Rule1",
+ *             priority: 1,
+ *             ruleType: "MatchRule",
+ *             action: "Block",
+ *         },
+ *         {
+ *             matchConditions: [
+ *                 {
+ *                     matchVariables: [{
+ *                         variableName: "RemoteAddr",
+ *                     }],
+ *                     operator: "IPMatch",
+ *                     negationCondition: false,
+ *                     matchValues: ["192.168.1.0/24"],
+ *                 },
+ *                 {
+ *                     matchVariables: [{
+ *                         variableName: "RequestHeaders",
+ *                         selector: "UserAgent",
+ *                     }],
+ *                     operator: "Contains",
+ *                     negationCondition: false,
+ *                     matchValues: ["Windows"],
+ *                 },
+ *             ],
+ *             name: "Rule2",
+ *             priority: 2,
+ *             ruleType: "MatchRule",
+ *             action: "Block",
+ *         },
+ *     ],
+ *     name: "example-wafpolicy",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

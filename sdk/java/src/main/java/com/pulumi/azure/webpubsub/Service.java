@@ -57,12 +57,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("tfex-webpubsub")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .sku("Standard_S1")
- *             .capacity(1)
- *             .publicNetworkAccessEnabled(false)
  *             .liveTrace(ServiceLiveTraceArgs.builder()
  *                 .enabled(true)
  *                 .messagingLogsEnabled(true)
@@ -71,6 +65,12 @@ import javax.annotation.Nullable;
  *             .identity(ServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("tfex-webpubsub")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("Standard_S1")
+ *             .capacity(1)
+ *             .publicNetworkAccessEnabled(false)
  *             .build());
  * 
  *     }

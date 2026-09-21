@@ -39,9 +39,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
     ///     {
-    ///         Name = "CriticalAlertsAction",
-    ///         ResourceGroupName = example.Name,
-    ///         ShortName = "p0action",
     ///         ArmRoleReceivers = new[]
     ///         {
     ///             new Azure.Monitoring.Inputs.ActionGroupArmRoleReceiverArgs
@@ -161,6 +158,9 @@ namespace Pulumi.Azure.Monitoring
     ///                 UseCommonAlertSchema = true,
     ///             },
     ///         },
+    ///         Name = "CriticalAlertsAction",
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "p0action",
     ///     });
     /// 
     /// });

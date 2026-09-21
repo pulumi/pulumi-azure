@@ -304,16 +304,16 @@ class FailoverGroup(pulumi.CustomResource):
             collation="SQL_Latin1_General_CP1_CI_AS",
             max_size_gb=float(200))
         example_failover_group = azure.mssql.FailoverGroup("example",
-            name="example",
-            server_id=primary.id,
-            databases=[example_database.id],
-            partner_servers=[{
-                "id": secondary.id,
-            }],
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
                 "grace_minutes": 80,
             },
+            partner_servers=[{
+                "id": secondary.id,
+            }],
+            name="example",
+            server_id=primary.id,
+            databases=[example_database.id],
             tags={
                 "environment": "prod",
                 "database": "example",
@@ -385,16 +385,16 @@ class FailoverGroup(pulumi.CustomResource):
             collation="SQL_Latin1_General_CP1_CI_AS",
             max_size_gb=float(200))
         example_failover_group = azure.mssql.FailoverGroup("example",
-            name="example",
-            server_id=primary.id,
-            databases=[example_database.id],
-            partner_servers=[{
-                "id": secondary.id,
-            }],
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
                 "grace_minutes": 80,
             },
+            partner_servers=[{
+                "id": secondary.id,
+            }],
+            name="example",
+            server_id=primary.id,
+            databases=[example_database.id],
             tags={
                 "environment": "prod",
                 "database": "example",

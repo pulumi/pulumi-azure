@@ -21,6 +21,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cognitive.Account("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-aiservices",
  *     location: example.location,
  *     resourceGroupName: example.name,
@@ -28,9 +31,6 @@ import * as utilities from "../utilities";
  *     skuName: "S0",
  *     projectManagementEnabled: true,
  *     customSubdomainName: "exampleaiservices",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     name: "examplekeyvaultacct",

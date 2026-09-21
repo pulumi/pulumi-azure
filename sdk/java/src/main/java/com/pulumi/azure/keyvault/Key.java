@@ -68,13 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -89,9 +82,23 @@ import javax.annotation.Nullable;
  *                     "SetRotationPolicy")
  *                 .secretPermissions("Set")
  *                 .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var generated = new Key("generated", KeyArgs.builder()
+ *             .rotationPolicy(KeyRotationPolicyArgs.builder()
+ *                 .automatic(KeyRotationPolicyAutomaticArgs.builder()
+ *                     .timeBeforeExpiry("P30D")
+ *                     .build())
+ *                 .expireAfter("P90D")
+ *                 .notifyBeforeExpiry("P29D")
+ *                 .build())
  *             .name("generated-certificate")
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType("RSA")
@@ -103,13 +110,6 @@ import javax.annotation.Nullable;
  *                 "unwrapKey",
  *                 "verify",
  *                 "wrapKey")
- *             .rotationPolicy(KeyRotationPolicyArgs.builder()
- *                 .automatic(KeyRotationPolicyAutomaticArgs.builder()
- *                     .timeBeforeExpiry("P30D")
- *                     .build())
- *                 .expireAfter("P90D")
- *                 .notifyBeforeExpiry("P29D")
- *                 .build())
  *             .build());
  * 
  *     }

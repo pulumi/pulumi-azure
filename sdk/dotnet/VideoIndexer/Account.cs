@@ -39,9 +39,6 @@ namespace Pulumi.Azure.VideoIndexer
     /// 
     ///     var exampleAccount2 = new Azure.VideoIndexer.Account("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "West Europe",
     ///         Storage = new Azure.VideoIndexer.Inputs.AccountStorageArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,
@@ -50,6 +47,9 @@ namespace Pulumi.Azure.VideoIndexer
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "West Europe",
     ///     });
     /// 
     /// });

@@ -548,28 +548,28 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             name="example",
             location="West Europe")
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            admin_username="adminuser",
-            instances=1,
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
             },
-            network_interfaces=[{
-                "name": "example",
-                "ip_configurations": [{
-                    "name": "internal",
-                }],
-            }],
             os_disk={
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
-            })
+            },
+            network_interfaces=[{
+                "ip_configurations": [{
+                    "name": "internal",
+                }],
+                "name": "example",
+            }],
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            admin_username="adminuser",
+            instances=1)
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
             name="example",
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
@@ -651,28 +651,28 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             name="example",
             location="West Europe")
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            admin_username="adminuser",
-            instances=1,
             source_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
                 "sku": "22_04-lts",
                 "version": "latest",
             },
-            network_interfaces=[{
-                "name": "example",
-                "ip_configurations": [{
-                    "name": "internal",
-                }],
-            }],
             os_disk={
                 "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
-            })
+            },
+            network_interfaces=[{
+                "ip_configurations": [{
+                    "name": "internal",
+                }],
+                "name": "example",
+            }],
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            admin_username="adminuser",
+            instances=1)
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
             name="example",
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,

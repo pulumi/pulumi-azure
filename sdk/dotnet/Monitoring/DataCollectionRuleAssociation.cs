@@ -52,9 +52,6 @@ namespace Pulumi.Azure.Monitoring
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -64,21 +61,13 @@ namespace Pulumi.Azure.Monitoring
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "machine",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_B1ls",
-    ///         AdminUsername = "adminuser",
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
-    ///         AdminPassword = "example-Password@7890",
-    ///         DisablePasswordAuthentication = false,
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -91,13 +80,21 @@ namespace Pulumi.Azure.Monitoring
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
+    ///         Name = "machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_B1ls",
+    ///         AdminUsername = "adminuser",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         AdminPassword = "example-Password@7890",
+    ///         DisablePasswordAuthentication = false,
     ///     });
     /// 
     ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("example", new()
     ///     {
-    ///         Name = "example-dcr",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
     ///         {
     ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
@@ -119,6 +116,9 @@ namespace Pulumi.Azure.Monitoring
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-dcr",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("example", new()

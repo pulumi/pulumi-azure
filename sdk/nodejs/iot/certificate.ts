@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleCertificate = new azure.iot.Certificate("example", {
  *     name: "example",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     isVerified: true,
  *     certificateContent: std.filebase64({
  *         input: "example.cer",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

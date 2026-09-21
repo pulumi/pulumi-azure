@@ -268,16 +268,16 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True)
         example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         cluster = azure.keyvault.AccessPolicy("cluster",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -378,16 +378,16 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True)
         example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         cluster = azure.keyvault.AccessPolicy("cluster",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

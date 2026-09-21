@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var basicAuth = new LinkedServiceOdata("basicAuth", LinkedServiceOdataArgs.builder()
- *             .name("basic_auth")
- *             .dataFactoryId(exampleFactory.id())
- *             .url("https://services.odata.org/v4/TripPinServiceRW/People")
  *             .basicAuthentication(LinkedServiceOdataBasicAuthenticationArgs.builder()
  *                 .username("emma")
  *                 .password("Ch4ngeM3!")
  *                 .build())
+ *             .name("basic_auth")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .url("https://services.odata.org/v4/TripPinServiceRW/People")
  *             .build());
  * 
  *     }

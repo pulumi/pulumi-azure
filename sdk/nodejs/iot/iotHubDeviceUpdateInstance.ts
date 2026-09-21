@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "example",
@@ -41,14 +41,14 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleIotHubDeviceUpdateInstance = new azure.iot.IotHubDeviceUpdateInstance("example", {
- *     name: "example",
- *     deviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.id,
- *     iothubId: exampleIoTHub.id,
- *     diagnosticEnabled: true,
  *     diagnosticStorageAccount: {
  *         connectionString: exampleAccount.primaryConnectionString,
  *         id: exampleAccount.id,
  *     },
+ *     name: "example",
+ *     deviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.id,
+ *     iothubId: exampleIoTHub.id,
+ *     diagnosticEnabled: true,
  *     tags: {
  *         key: "value",
  *     },

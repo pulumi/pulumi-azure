@@ -46,9 +46,6 @@ import (
 //				return err
 //			}
 //			examplePolicy, err := waf.NewPolicy(ctx, "example", &waf.PolicyArgs{
-//				Name:              pulumi.String("example-wafpolicy"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				ManagedRules: &waf.PolicyManagedRulesArgs{
 //					ManagedRuleSets: waf.PolicyManagedRulesManagedRuleSetArray{
 //						&waf.PolicyManagedRulesManagedRuleSetArgs{
@@ -61,6 +58,9 @@ import (
 //					Enabled: pulumi.Bool(true),
 //					Mode:    pulumi.String("Detection"),
 //				},
+//				Name:              pulumi.String("example-wafpolicy"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

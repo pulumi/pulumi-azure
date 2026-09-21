@@ -52,10 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedCluster("example", ManagedClusterArgs.builder()
- *             .name("example")
- *             .resourceGroupName("example")
- *             .location("West Europe")
- *             .httpGatewayPort(4567)
  *             .lbRules(ManagedClusterLbRuleArgs.builder()
  *                 .backendPort(38080)
  *                 .frontendPort(80)
@@ -63,7 +59,6 @@ import javax.annotation.Nullable;
  *                 .probeRequestPath("/test")
  *                 .protocol("tcp")
  *                 .build())
- *             .clientConnectionPort(12345)
  *             .nodeTypes(ManagedClusterNodeTypeArgs.builder()
  *                 .dataDiskSizeGb(130)
  *                 .name("test1")
@@ -77,6 +72,11 @@ import javax.annotation.Nullable;
  *                 .vmImageVersion("latest")
  *                 .vmInstanceCount(5)
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName("example")
+ *             .location("West Europe")
+ *             .httpGatewayPort(4567)
+ *             .clientConnectionPort(12345)
  *             .build());
  * 
  *     }

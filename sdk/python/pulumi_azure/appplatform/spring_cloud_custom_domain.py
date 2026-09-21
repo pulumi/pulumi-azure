@@ -204,11 +204,11 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
             ttl=300,
             record=example_spring_cloud_app.fqdn)
         example_spring_cloud_custom_domain = azure.appplatform.SpringCloudCustomDomain("example",
-            name=std.join_output(separator=".",
+            name=std.join(separator=".",
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ]).result,
+                ])["result"],
             spring_cloud_app_id=example_spring_cloud_app.id)
         ```
 
@@ -266,11 +266,11 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
             ttl=300,
             record=example_spring_cloud_app.fqdn)
         example_spring_cloud_custom_domain = azure.appplatform.SpringCloudCustomDomain("example",
-            name=std.join_output(separator=".",
+            name=std.join(separator=".",
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ]).result,
+                ])["result"],
             spring_cloud_app_id=example_spring_cloud_app.id)
         ```
 

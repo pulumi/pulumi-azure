@@ -88,23 +88,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
- *             .name("example-lb")
- *             .sku("Standard")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(examplePublicIp.name())
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("example-lb")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
- *             .name("example-privatelink")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .autoApprovalSubscriptionIds("00000000-0000-0000-0000-000000000000")
- *             .visibilitySubscriptionIds("00000000-0000-0000-0000-000000000000")
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
  *             .natIpConfigurations(            
  *                 LinkServiceNatIpConfigurationArgs.builder()
  *                     .name("primary")
@@ -120,6 +114,12 @@ import javax.annotation.Nullable;
  *                     .subnetId(exampleSubnet.id())
  *                     .primary(false)
  *                     .build())
+ *             .name("example-privatelink")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .autoApprovalSubscriptionIds("00000000-0000-0000-0000-000000000000")
+ *             .visibilitySubscriptionIds("00000000-0000-0000-0000-000000000000")
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
  *             .build());
  * 
  *     }

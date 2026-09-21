@@ -28,17 +28,20 @@ import * as utilities from "../utilities";
  *     encapsulation: "Dot1Q",
  * });
  * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "example-erc",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     expressRoutePortId: exampleExpressRoutePort.id,
  *     bandwidthInGbps: 1,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  * });
  * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ *     microsoftPeeringConfig: {
+ *         advertisedPublicPrefixes: ["123.6.0.0/24"],
+ *     },
  *     peeringType: "MicrosoftPeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,
@@ -46,9 +49,6 @@ import * as utilities from "../utilities";
  *     primaryPeerAddressPrefix: "192.168.199.0/30",
  *     secondaryPeerAddressPrefix: "192.168.200.0/30",
  *     vlanId: 300,
- *     microsoftPeeringConfig: {
- *         advertisedPublicPrefixes: ["123.6.0.0/24"],
- *     },
  * });
  * const exampleAzureTrafficCollector = new azure.networkfunction.AzureTrafficCollector("example", {
  *     name: "example-nfatc",
@@ -58,15 +58,15 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleExpressRouteCircuitPeering],
  * });
  * const exampleCollectorPolicy = new azure.networkfunction.CollectorPolicy("example", {
- *     name: "example-nfcp",
- *     trafficCollectorId: exampleAzureTrafficCollector.id,
- *     location: example.location,
  *     ipfxEmission: {
  *         destinationTypes: "AzureMonitor",
  *     },
  *     ipfxIngestion: {
  *         sourceResourceIds: [exampleExpressRouteCircuit.id],
  *     },
+ *     name: "example-nfcp",
+ *     trafficCollectorId: exampleAzureTrafficCollector.id,
+ *     location: example.location,
  *     tags: {
  *         key: "value",
  *     },

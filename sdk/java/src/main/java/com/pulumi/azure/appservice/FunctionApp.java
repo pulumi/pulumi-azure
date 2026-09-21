@@ -79,13 +79,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("azure-functions-test-service-plan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("azure-functions-test-service-plan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()
@@ -147,14 +147,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("azure-functions-test-service-plan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .kind("FunctionApp")
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Dynamic")
  *                 .size("Y1")
  *                 .build())
+ *             .name("azure-functions-test-service-plan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .kind("FunctionApp")
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()
@@ -216,15 +216,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier("Dynamic")
+ *                 .size("Y1")
+ *                 .build())
  *             .name("azure-functions-test-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .kind("Linux")
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Dynamic")
- *                 .size("Y1")
- *                 .build())
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp("exampleFunctionApp", FunctionAppArgs.builder()

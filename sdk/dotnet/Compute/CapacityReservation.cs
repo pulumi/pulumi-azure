@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleCapacityReservation = new Azure.Compute.CapacityReservation("example", new()
     ///     {
-    ///         Name = "example-capacity-reservation",
-    ///         CapacityReservationGroupId = exampleCapacityReservationGroup.Id,
     ///         Sku = new Azure.Compute.Inputs.CapacityReservationSkuArgs
     ///         {
     ///             Name = "Standard_D2s_v3",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example-capacity-reservation",
+    ///         CapacityReservationGroupId = exampleCapacityReservationGroup.Id,
     ///     });
     /// 
     /// });

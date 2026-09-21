@@ -233,7 +233,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
             name="example-policy-fragment",
             api_management_workspace_id=example_workspace.id,
             xml_format="xml",
-            xml_content=std.file(input="policy-fragment-1.xml").result)
+            xml_content=std.file(input="policy-fragment-1.xml")["result"])
         ```
 
         ## API Providers
@@ -297,7 +297,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
             name="example-policy-fragment",
             api_management_workspace_id=example_workspace.id,
             xml_format="xml",
-            xml_content=std.file(input="policy-fragment-1.xml").result)
+            xml_content=std.file(input="policy-fragment-1.xml")["result"])
         ```
 
         ## API Providers

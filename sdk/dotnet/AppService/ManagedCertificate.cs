@@ -39,16 +39,16 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "example-plan",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Kind = "Linux",
-    ///         Reserved = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Basic",
     ///             Size = "B1",
     ///         },
+    ///         Name = "example-plan",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "Linux",
+    ///         Reserved = true,
     ///     });
     /// 
     ///     var exampleAppService = new Azure.AppService.AppService("example", new()
@@ -61,10 +61,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = "asuid.mycustomhost.contoso.com",
-    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
-    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
@@ -72,6 +68,10 @@ namespace Pulumi.Azure.AppService
     ///                 Value = exampleAppService.CustomDomainVerificationId,
     ///             },
     ///         },
+    ///         Name = "asuid.mycustomhost.contoso.com",
+    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
+    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
+    ///         Ttl = 300,
     ///     });
     /// 
     ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.AppService
     ///                 exampleCNameRecord.Name,
     ///                 exampleCNameRecord.ZoneName,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         AppServiceName = exampleAppService.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });

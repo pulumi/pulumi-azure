@@ -70,16 +70,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("anfcmkakv")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .enabledForDiskEncryption(true)
- *             .enabledForDeployment(true)
- *             .enabledForTemplateDeployment(true)
- *             .purgeProtectionEnabled(true)
- *             .tenantId("00000000-0000-0000-0000-000000000000")
- *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId("00000000-0000-0000-0000-000000000000")
@@ -101,6 +91,16 @@ import javax.annotation.Nullable;
  *                         "Encrypt",
  *                         "Decrypt")
  *                     .build())
+ *             .name("anfcmkakv")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .enabledForDiskEncryption(true)
+ *             .enabledForDeployment(true)
+ *             .enabledForTemplateDeployment(true)
+ *             .purgeProtectionEnabled(true)
+ *             .tenantId("00000000-0000-0000-0000-000000000000")
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
@@ -118,13 +118,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("netappaccount")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .name("netappaccount")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAccountEncryption = new AccountEncryption("exampleAccountEncryption", AccountEncryptionArgs.builder()

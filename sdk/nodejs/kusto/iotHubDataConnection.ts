@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "examplekustocluster",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
+ *     name: "examplekustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleDatabase = new azure.kusto.Database("example", {
  *     name: "example-kusto-database",
@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  *     softDeletePeriod: "P31D",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "exampleIoTHub",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
  *     },
+ *     name: "exampleIoTHub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleSharedAccessPolicy = new azure.iot.SharedAccessPolicy("example", {
  *     name: "example-shared-access-policy",

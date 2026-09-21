@@ -63,16 +63,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSrvRecord = new SrvRecord("exampleSrvRecord", SrvRecordArgs.builder()
- *             .name("test")
- *             .zoneName(exampleZone.name())
- *             .resourceGroupName(example.name())
- *             .ttl(300)
  *             .records(SrvRecordRecordArgs.builder()
  *                 .priority(1)
  *                 .weight(5)
  *                 .port(8080)
  *                 .target("target1.contoso.com")
  *                 .build())
+ *             .name("test")
+ *             .zoneName(exampleZone.name())
+ *             .resourceGroupName(example.name())
+ *             .ttl(300)
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

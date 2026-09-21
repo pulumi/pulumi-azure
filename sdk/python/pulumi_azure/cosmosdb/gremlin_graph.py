@@ -500,12 +500,6 @@ class GremlinGraph(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             account_name=example.name)
         example_gremlin_graph = azure.cosmosdb.GremlinGraph("example",
-            name="tfex-cosmos-gremlin-graph",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            database_name=example_gremlin_database.name,
-            partition_key_path="/Example",
-            throughput=400,
             index_policy={
                 "automatic": True,
                 "indexing_mode": "consistent",
@@ -521,7 +515,13 @@ class GremlinGraph(pulumi.CustomResource):
                     "/definition/id1",
                     "/definition/id2",
                 ],
-            }])
+            }],
+            name="tfex-cosmos-gremlin-graph",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            database_name=example_gremlin_database.name,
+            partition_key_path="/Example",
+            throughput=400)
         ```
 
         > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
@@ -584,12 +584,6 @@ class GremlinGraph(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             account_name=example.name)
         example_gremlin_graph = azure.cosmosdb.GremlinGraph("example",
-            name="tfex-cosmos-gremlin-graph",
-            resource_group_name=example.resource_group_name,
-            account_name=example.name,
-            database_name=example_gremlin_database.name,
-            partition_key_path="/Example",
-            throughput=400,
             index_policy={
                 "automatic": True,
                 "indexing_mode": "consistent",
@@ -605,7 +599,13 @@ class GremlinGraph(pulumi.CustomResource):
                     "/definition/id1",
                     "/definition/id2",
                 ],
-            }])
+            }],
+            name="tfex-cosmos-gremlin-graph",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
+            database_name=example_gremlin_database.name,
+            partition_key_path="/Example",
+            throughput=400)
         ```
 
         > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.

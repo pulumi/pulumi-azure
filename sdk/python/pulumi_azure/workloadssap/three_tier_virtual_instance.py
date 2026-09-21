@@ -482,22 +482,9 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_three_tier_virtual_instance = azure.workloadssap.ThreeTierVirtualInstance("example",
-            name="X05",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            environment="NonProd",
-            sap_product="S4HANA",
-            managed_resource_group_name="exampleManagedRG",
-            app_location=app.location,
-            sap_fqdn="sap.bpaas.com",
             three_tier_configuration={
-                "app_resource_group_name": app.name,
-                "secondary_ip_enabled": True,
                 "application_server_configuration": {
-                    "instance_count": 1,
-                    "subnet_id": example_subnet.id,
                     "virtual_machine_configuration": {
-                        "virtual_machine_size": "Standard_D16ds_v4",
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
@@ -509,13 +496,13 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "ssh_private_key": example_private_key["privateKeyPem"],
                             "ssh_public_key": example["publicKeyOpenssh"],
                         },
+                        "virtual_machine_size": "Standard_D16ds_v4",
                     },
+                    "instance_count": 1,
+                    "subnet_id": example_subnet.id,
                 },
                 "central_server_configuration": {
-                    "instance_count": 1,
-                    "subnet_id": example_subnet.id,
                     "virtual_machine_configuration": {
-                        "virtual_machine_size": "Standard_D16ds_v4",
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
@@ -527,14 +514,13 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "ssh_private_key": example_private_key["privateKeyPem"],
                             "ssh_public_key": example["publicKeyOpenssh"],
                         },
+                        "virtual_machine_size": "Standard_D16ds_v4",
                     },
+                    "instance_count": 1,
+                    "subnet_id": example_subnet.id,
                 },
                 "database_server_configuration": {
-                    "instance_count": 1,
-                    "subnet_id": example_subnet.id,
-                    "database_type": "HANA",
                     "virtual_machine_configuration": {
-                        "virtual_machine_size": "Standard_E16ds_v4",
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
@@ -546,6 +532,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "ssh_private_key": example_private_key["privateKeyPem"],
                             "ssh_public_key": example["publicKeyOpenssh"],
                         },
+                        "virtual_machine_size": "Standard_E16ds_v4",
                     },
                     "disk_volume_configurations": [
                         {
@@ -585,23 +572,25 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "sku_name": "StandardSSD_LRS",
                         },
                     ],
+                    "instance_count": 1,
+                    "subnet_id": example_subnet.id,
+                    "database_type": "HANA",
                 },
                 "resource_names": {
                     "application_server": {
-                        "availability_set_name": "appAvSet",
                         "virtual_machines": [{
-                            "host_name": "apphostName0",
-                            "os_disk_name": "app0osdisk",
-                            "virtual_machine_name": "appvm0",
-                            "network_interface_names": ["appnic0"],
                             "data_disks": [{
                                 "volume_name": "default",
                                 "names": ["app0disk0"],
                             }],
+                            "host_name": "apphostName0",
+                            "os_disk_name": "app0osdisk",
+                            "virtual_machine_name": "appvm0",
+                            "network_interface_names": ["appnic0"],
                         }],
+                        "availability_set_name": "appAvSet",
                     },
                     "central_server": {
-                        "availability_set_name": "csAvSet",
                         "load_balancer": {
                             "name": "ascslb",
                             "backend_pool_names": ["ascsBackendPool"],
@@ -609,18 +598,18 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "health_probe_names": ["ascsHealthProbe"],
                         },
                         "virtual_machines": [{
-                            "host_name": "ascshostName",
-                            "os_disk_name": "ascsosdisk",
-                            "virtual_machine_name": "ascsvm",
-                            "network_interface_names": ["ascsnic"],
                             "data_disks": [{
                                 "volume_name": "default",
                                 "names": ["ascsdisk"],
                             }],
+                            "host_name": "ascshostName",
+                            "os_disk_name": "ascsosdisk",
+                            "virtual_machine_name": "ascsvm",
+                            "network_interface_names": ["ascsnic"],
                         }],
+                        "availability_set_name": "csAvSet",
                     },
                     "database_server": {
-                        "availability_set_name": "dbAvSet",
                         "load_balancer": {
                             "name": "dblb",
                             "backend_pool_names": ["dbBackendPool"],
@@ -628,10 +617,6 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "health_probe_names": ["dbHealthProbe"],
                         },
                         "virtual_machines": [{
-                            "host_name": "dbprhost",
-                            "os_disk_name": "dbprosdisk",
-                            "virtual_machine_name": "dbvmpr",
-                            "network_interface_names": ["dbprnic"],
                             "data_disks": [
                                 {
                                     "volume_name": "hanaData",
@@ -660,7 +645,12 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                                     ],
                                 },
                             ],
+                            "host_name": "dbprhost",
+                            "os_disk_name": "dbprosdisk",
+                            "virtual_machine_name": "dbvmpr",
+                            "network_interface_names": ["dbprnic"],
                         }],
+                        "availability_set_name": "dbAvSet",
                     },
                     "shared_storage": {
                         "account_name": "sharedexamplesa",
@@ -671,11 +661,21 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                     "resource_group_id": app.id,
                     "storage_account_name": "exampletranssa",
                 },
+                "app_resource_group_name": app.name,
+                "secondary_ip_enabled": True,
             },
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
             },
+            name="X05",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            environment="NonProd",
+            sap_product="S4HANA",
+            managed_resource_group_name="exampleManagedRG",
+            app_location=app.location,
+            sap_fqdn="sap.bpaas.com",
             tags={
                 "Env": "Test",
             },
@@ -768,22 +768,9 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_three_tier_virtual_instance = azure.workloadssap.ThreeTierVirtualInstance("example",
-            name="X05",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            environment="NonProd",
-            sap_product="S4HANA",
-            managed_resource_group_name="exampleManagedRG",
-            app_location=app.location,
-            sap_fqdn="sap.bpaas.com",
             three_tier_configuration={
-                "app_resource_group_name": app.name,
-                "secondary_ip_enabled": True,
                 "application_server_configuration": {
-                    "instance_count": 1,
-                    "subnet_id": example_subnet.id,
                     "virtual_machine_configuration": {
-                        "virtual_machine_size": "Standard_D16ds_v4",
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
@@ -795,13 +782,13 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "ssh_private_key": example_private_key["privateKeyPem"],
                             "ssh_public_key": example["publicKeyOpenssh"],
                         },
+                        "virtual_machine_size": "Standard_D16ds_v4",
                     },
+                    "instance_count": 1,
+                    "subnet_id": example_subnet.id,
                 },
                 "central_server_configuration": {
-                    "instance_count": 1,
-                    "subnet_id": example_subnet.id,
                     "virtual_machine_configuration": {
-                        "virtual_machine_size": "Standard_D16ds_v4",
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
@@ -813,14 +800,13 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "ssh_private_key": example_private_key["privateKeyPem"],
                             "ssh_public_key": example["publicKeyOpenssh"],
                         },
+                        "virtual_machine_size": "Standard_D16ds_v4",
                     },
+                    "instance_count": 1,
+                    "subnet_id": example_subnet.id,
                 },
                 "database_server_configuration": {
-                    "instance_count": 1,
-                    "subnet_id": example_subnet.id,
-                    "database_type": "HANA",
                     "virtual_machine_configuration": {
-                        "virtual_machine_size": "Standard_E16ds_v4",
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
@@ -832,6 +818,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "ssh_private_key": example_private_key["privateKeyPem"],
                             "ssh_public_key": example["publicKeyOpenssh"],
                         },
+                        "virtual_machine_size": "Standard_E16ds_v4",
                     },
                     "disk_volume_configurations": [
                         {
@@ -871,23 +858,25 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "sku_name": "StandardSSD_LRS",
                         },
                     ],
+                    "instance_count": 1,
+                    "subnet_id": example_subnet.id,
+                    "database_type": "HANA",
                 },
                 "resource_names": {
                     "application_server": {
-                        "availability_set_name": "appAvSet",
                         "virtual_machines": [{
-                            "host_name": "apphostName0",
-                            "os_disk_name": "app0osdisk",
-                            "virtual_machine_name": "appvm0",
-                            "network_interface_names": ["appnic0"],
                             "data_disks": [{
                                 "volume_name": "default",
                                 "names": ["app0disk0"],
                             }],
+                            "host_name": "apphostName0",
+                            "os_disk_name": "app0osdisk",
+                            "virtual_machine_name": "appvm0",
+                            "network_interface_names": ["appnic0"],
                         }],
+                        "availability_set_name": "appAvSet",
                     },
                     "central_server": {
-                        "availability_set_name": "csAvSet",
                         "load_balancer": {
                             "name": "ascslb",
                             "backend_pool_names": ["ascsBackendPool"],
@@ -895,18 +884,18 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "health_probe_names": ["ascsHealthProbe"],
                         },
                         "virtual_machines": [{
-                            "host_name": "ascshostName",
-                            "os_disk_name": "ascsosdisk",
-                            "virtual_machine_name": "ascsvm",
-                            "network_interface_names": ["ascsnic"],
                             "data_disks": [{
                                 "volume_name": "default",
                                 "names": ["ascsdisk"],
                             }],
+                            "host_name": "ascshostName",
+                            "os_disk_name": "ascsosdisk",
+                            "virtual_machine_name": "ascsvm",
+                            "network_interface_names": ["ascsnic"],
                         }],
+                        "availability_set_name": "csAvSet",
                     },
                     "database_server": {
-                        "availability_set_name": "dbAvSet",
                         "load_balancer": {
                             "name": "dblb",
                             "backend_pool_names": ["dbBackendPool"],
@@ -914,10 +903,6 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                             "health_probe_names": ["dbHealthProbe"],
                         },
                         "virtual_machines": [{
-                            "host_name": "dbprhost",
-                            "os_disk_name": "dbprosdisk",
-                            "virtual_machine_name": "dbvmpr",
-                            "network_interface_names": ["dbprnic"],
                             "data_disks": [
                                 {
                                     "volume_name": "hanaData",
@@ -946,7 +931,12 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                                     ],
                                 },
                             ],
+                            "host_name": "dbprhost",
+                            "os_disk_name": "dbprosdisk",
+                            "virtual_machine_name": "dbvmpr",
+                            "network_interface_names": ["dbprnic"],
                         }],
+                        "availability_set_name": "dbAvSet",
                     },
                     "shared_storage": {
                         "account_name": "sharedexamplesa",
@@ -957,11 +947,21 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                     "resource_group_id": app.id,
                     "storage_account_name": "exampletranssa",
                 },
+                "app_resource_group_name": app.name,
+                "secondary_ip_enabled": True,
             },
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
             },
+            name="X05",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            environment="NonProd",
+            sap_product="S4HANA",
+            managed_resource_group_name="exampleManagedRG",
+            app_location=app.location,
+            sap_fqdn="sap.bpaas.com",
             tags={
                 "Env": "Test",
             },

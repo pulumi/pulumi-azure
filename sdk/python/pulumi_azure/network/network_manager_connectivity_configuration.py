@@ -427,12 +427,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -451,9 +451,10 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             name="example-group2",
             network_manager_id=example_network_manager.id)
         example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
-            name="example-connectivity-conf",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
+            hub={
+                "resource_id": example_virtual_network.id,
+                "resource_type": "Microsoft.Network/virtualNetworks",
+            },
             applies_to_groups=[
                 {
                     "group_connectivity": "DirectlyConnected",
@@ -464,10 +465,9 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
                     "network_group_id": example2.id,
                 },
             ],
-            hub={
-                "resource_id": example_virtual_network.id,
-                "resource_type": "Microsoft.Network/virtualNetworks",
-            })
+            name="example-connectivity-conf",
+            network_manager_id=example_network_manager.id,
+            connectivity_topology="HubAndSpoke")
         ```
 
         ## API Providers
@@ -524,12 +524,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-network-manager",
-            location=example.location,
-            resource_group_name=example.name,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -548,9 +548,10 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             name="example-group2",
             network_manager_id=example_network_manager.id)
         example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
-            name="example-connectivity-conf",
-            network_manager_id=example_network_manager.id,
-            connectivity_topology="HubAndSpoke",
+            hub={
+                "resource_id": example_virtual_network.id,
+                "resource_type": "Microsoft.Network/virtualNetworks",
+            },
             applies_to_groups=[
                 {
                     "group_connectivity": "DirectlyConnected",
@@ -561,10 +562,9 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
                     "network_group_id": example2.id,
                 },
             ],
-            hub={
-                "resource_id": example_virtual_network.id,
-                "resource_type": "Microsoft.Network/virtualNetworks",
-            })
+            name="example-connectivity-conf",
+            network_manager_id=example_network_manager.id,
+            connectivity_topology="HubAndSpoke")
         ```
 
         ## API Providers

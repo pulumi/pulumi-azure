@@ -41,10 +41,6 @@ import (
 //				return err
 //			}
 //			_, err = confidentialledger.NewLedger(ctx, "ledger", &confidentialledger.LedgerArgs{
-//				Name:              pulumi.String("example-ledger"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				LedgerType:        pulumi.String("Private"),
 //				AzureadBasedServicePrincipals: confidentialledger.LedgerAzureadBasedServicePrincipalArray{
 //					&confidentialledger.LedgerAzureadBasedServicePrincipalArgs{
 //						PrincipalId:    pulumi.String(current.ObjectId),
@@ -52,6 +48,10 @@ import (
 //						LedgerRoleName: pulumi.String("Administrator"),
 //					},
 //				},
+//				Name:              pulumi.String("example-ledger"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				LedgerType:        pulumi.String("Private"),
 //			})
 //			if err != nil {
 //				return err

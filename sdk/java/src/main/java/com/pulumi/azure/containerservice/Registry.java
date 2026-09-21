@@ -58,11 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var acr = new Registry("acr", RegistryArgs.builder()
- *             .name("containerRegistry1")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("Premium")
- *             .adminEnabled(false)
  *             .georeplications(            
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("East US")
@@ -76,6 +71,11 @@ import javax.annotation.Nullable;
  *                     .tags(Map.ofEntries(
  *                     ))
  *                     .build())
+ *             .name("containerRegistry1")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Premium")
+ *             .adminEnabled(false)
  *             .build());
  * 
  *     }
@@ -132,10 +132,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var acr = new Registry("acr", RegistryArgs.builder()
- *             .name("containerRegistry1")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .sku("Premium")
  *             .identity(RegistryIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
@@ -144,6 +140,10 @@ import javax.annotation.Nullable;
  *                 .keyVaultKeyId(example.id())
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
+ *             .name("containerRegistry1")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .sku("Premium")
  *             .build());
  * 
  *     }
@@ -196,10 +196,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example-aks1")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .dnsPrefix("exampleaks1")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name("default")
  *                 .nodeCount(1)
@@ -208,6 +204,10 @@ import javax.annotation.Nullable;
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-aks1")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix("exampleaks1")
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

@@ -598,45 +598,45 @@ class Job(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_job = azure.containerapp.Job("example",
-            name="example-container-app-job",
-            location=example.location,
-            resource_group_name=example.name,
-            container_app_environment_id=example_environment.id,
-            replica_timeout_in_seconds=10,
-            replica_retry_limit=10,
             manual_trigger_config={
                 "parallelism": 4,
                 "replica_completion_count": 1,
             },
             template={
                 "containers": [{
-                    "image": "repo/testcontainerAppsJob0:v1",
-                    "name": "testcontainerappsjob0",
-                    "readiness_probes": [{
-                        "transport": "HTTP",
-                        "port": 5000,
-                    }],
                     "liveness_probes": [{
-                        "transport": "HTTP",
-                        "port": 5000,
-                        "path": "/health",
                         "headers": [{
                             "name": "Cache-Control",
                             "value": "no-cache",
                         }],
+                        "transport": "HTTP",
+                        "port": 5000,
+                        "path": "/health",
                         "initial_delay": 5,
                         "interval_seconds": 20,
                         "timeout": 2,
                         "failure_count_threshold": 1,
                     }],
+                    "readiness_probes": [{
+                        "transport": "HTTP",
+                        "port": 5000,
+                    }],
                     "startup_probes": [{
                         "transport": "TCP",
                         "port": 5000,
                     }],
+                    "image": "repo/testcontainerAppsJob0:v1",
+                    "name": "testcontainerappsjob0",
                     "cpu": 0.5,
                     "memory": "1Gi",
                 }],
-            })
+            },
+            name="example-container-app-job",
+            location=example.location,
+            resource_group_name=example.name,
+            container_app_environment_id=example_environment.id,
+            replica_timeout_in_seconds=10,
+            replica_retry_limit=10)
         ```
 
         ## API Providers
@@ -705,45 +705,45 @@ class Job(pulumi.CustomResource):
             resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_job = azure.containerapp.Job("example",
-            name="example-container-app-job",
-            location=example.location,
-            resource_group_name=example.name,
-            container_app_environment_id=example_environment.id,
-            replica_timeout_in_seconds=10,
-            replica_retry_limit=10,
             manual_trigger_config={
                 "parallelism": 4,
                 "replica_completion_count": 1,
             },
             template={
                 "containers": [{
-                    "image": "repo/testcontainerAppsJob0:v1",
-                    "name": "testcontainerappsjob0",
-                    "readiness_probes": [{
-                        "transport": "HTTP",
-                        "port": 5000,
-                    }],
                     "liveness_probes": [{
-                        "transport": "HTTP",
-                        "port": 5000,
-                        "path": "/health",
                         "headers": [{
                             "name": "Cache-Control",
                             "value": "no-cache",
                         }],
+                        "transport": "HTTP",
+                        "port": 5000,
+                        "path": "/health",
                         "initial_delay": 5,
                         "interval_seconds": 20,
                         "timeout": 2,
                         "failure_count_threshold": 1,
                     }],
+                    "readiness_probes": [{
+                        "transport": "HTTP",
+                        "port": 5000,
+                    }],
                     "startup_probes": [{
                         "transport": "TCP",
                         "port": 5000,
                     }],
+                    "image": "repo/testcontainerAppsJob0:v1",
+                    "name": "testcontainerappsjob0",
                     "cpu": 0.5,
                     "memory": "1Gi",
                 }],
-            })
+            },
+            name="example-container-app-job",
+            location=example.location,
+            resource_group_name=example.name,
+            container_app_environment_id=example_environment.id,
+            replica_timeout_in_seconds=10,
+            replica_retry_limit=10)
         ```
 
         ## API Providers

@@ -420,17 +420,17 @@ class FunctionAppFunction(pulumi.CustomResource):
             os_type="Linux",
             sku_name="S1")
         example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
+            site_config={
+                "application_stack": {
+                    "python_version": "3.9",
+                },
+            },
             name="example-function-app",
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config={
-                "application_stack": {
-                    "python_version": "3.9",
-                },
-            })
+            storage_account_access_key=example_account.primary_access_key)
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
             name="example-function-app-function",
             function_app_id=example_linux_function_app.id,
@@ -483,25 +483,25 @@ class FunctionAppFunction(pulumi.CustomResource):
             os_type="Windows",
             sku_name="S1")
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            site_config={
+                "application_stack": {
+                    "dotnet_version": "6",
+                },
+            },
             name="example-function-app",
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config={
-                "application_stack": {
-                    "dotnet_version": "6",
-                },
-            })
+            storage_account_access_key=example_account.primary_access_key)
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
+            files=[{
+                "name": "run.csx",
+                "content": std.file(input="exampledata/run.csx")["result"],
+            }],
             name="example-function-app-function",
             function_app_id=example_windows_function_app.id,
             language="CSharp",
-            files=[{
-                "name": "run.csx",
-                "content": std.file(input="exampledata/run.csx").result,
-            }],
             test_data=json.dumps({
                 "name": "Azure",
             }),
@@ -588,17 +588,17 @@ class FunctionAppFunction(pulumi.CustomResource):
             os_type="Linux",
             sku_name="S1")
         example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
+            site_config={
+                "application_stack": {
+                    "python_version": "3.9",
+                },
+            },
             name="example-function-app",
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config={
-                "application_stack": {
-                    "python_version": "3.9",
-                },
-            })
+            storage_account_access_key=example_account.primary_access_key)
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
             name="example-function-app-function",
             function_app_id=example_linux_function_app.id,
@@ -651,25 +651,25 @@ class FunctionAppFunction(pulumi.CustomResource):
             os_type="Windows",
             sku_name="S1")
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            site_config={
+                "application_stack": {
+                    "dotnet_version": "6",
+                },
+            },
             name="example-function-app",
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            storage_account_access_key=example_account.primary_access_key,
-            site_config={
-                "application_stack": {
-                    "dotnet_version": "6",
-                },
-            })
+            storage_account_access_key=example_account.primary_access_key)
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
+            files=[{
+                "name": "run.csx",
+                "content": std.file(input="exampledata/run.csx")["result"],
+            }],
             name="example-function-app-function",
             function_app_id=example_windows_function_app.id,
             language="CSharp",
-            files=[{
-                "name": "run.csx",
-                "content": std.file(input="exampledata/run.csx").result,
-            }],
             test_data=json.dumps({
                 "name": "Azure",
             }),

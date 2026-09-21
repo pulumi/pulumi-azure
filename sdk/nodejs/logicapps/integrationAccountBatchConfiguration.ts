@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     skuName: "Standard",
  * });
  * const exampleIntegrationAccountBatchConfiguration = new azure.logicapps.IntegrationAccountBatchConfiguration("example", {
+ *     releaseCriteria: {
+ *         messageCount: 80,
+ *     },
  *     name: "exampleiabc",
  *     resourceGroupName: example.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     batchGroupName: "TestBatchGroup",
- *     releaseCriteria: {
- *         messageCount: 80,
- *     },
  * });
  * ```
  *

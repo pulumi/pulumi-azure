@@ -34,14 +34,14 @@ namespace Pulumi.Azure.Management
     /// 
     ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("example", new()
     ///     {
-    ///         Name = "assignment1",
-    ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
-    ///         Location = "westus",
     ///         Identity = new Azure.Management.Inputs.GroupPolicyAssignmentIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "assignment1",
+    ///         ManagementGroupId = exampleGroup.Id,
+    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = "westus",
     ///     });
     /// 
     ///     var exampleGroupPolicyExemption = new Azure.Management.GroupPolicyExemption("example", new()

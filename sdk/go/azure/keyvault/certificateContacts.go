@@ -69,7 +69,6 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewCertificateContacts(ctx, "example", &keyvault.CertificateContactsArgs{
-//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Contacts: keyvault.CertificateContactsContactArray{
 //					&keyvault.CertificateContactsContactArgs{
 //						Email: pulumi.String("example@example.com"),
@@ -80,6 +79,7 @@ import (
 //						Email: pulumi.String("example2@example.com"),
 //					},
 //				},
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAccessPolicy,
 //			}))

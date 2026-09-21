@@ -61,10 +61,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMxRecord = new MxRecord("exampleMxRecord", MxRecordArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .zoneName(exampleZone.name())
- *             .ttl(300)
  *             .records(            
  *                 MxRecordRecordArgs.builder()
  *                     .preference(10)
@@ -74,6 +70,10 @@ import javax.annotation.Nullable;
  *                     .preference(20)
  *                     .exchange("backupmx.contoso.com")
  *                     .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .zoneName(exampleZone.name())
+ *             .ttl(300)
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

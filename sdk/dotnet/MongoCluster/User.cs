@@ -51,10 +51,6 @@ namespace Pulumi.Azure.MongoCluster
     /// 
     ///     var exampleUser = new Azure.MongoCluster.User("example", new()
     ///     {
-    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         MongoClusterId = exampleMongoCluster.Id,
-    ///         IdentityProviderType = "MicrosoftEntraID",
-    ///         PrincipalType = "servicePrincipal",
     ///         Roles = new[]
     ///         {
     ///             new Azure.MongoCluster.Inputs.UserRoleArgs
@@ -63,6 +59,10 @@ namespace Pulumi.Azure.MongoCluster
     ///                 Name = "root",
     ///             },
     ///         },
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         MongoClusterId = exampleMongoCluster.Id,
+    ///         IdentityProviderType = "MicrosoftEntraID",
+    ///         PrincipalType = "servicePrincipal",
     ///     });
     /// 
     /// });

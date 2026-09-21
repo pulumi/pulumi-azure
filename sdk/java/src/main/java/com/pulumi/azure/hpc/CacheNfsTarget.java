@@ -46,12 +46,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
- * import com.pulumi.std.inputs.Base64encodeArgs;
  * import com.pulumi.azure.hpc.CacheNfsTarget;
  * import com.pulumi.azure.hpc.CacheNfsTargetArgs;
  * import com.pulumi.azure.hpc.inputs.CacheNfsTargetNamespaceJunctionArgs;
@@ -104,14 +102,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("examplenic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleVm.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("examplenic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         final var customData = """
@@ -130,18 +128,6 @@ import javax.annotation.Nullable;
  *         """;
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("examplevm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_F2")
- *             .adminUsername("adminuser")
- *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
- *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input("~/.ssh/id_rsa.pub")
- *                     .build()).result())
- *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
@@ -152,17 +138,20 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
- *             .customData(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                 .input(customData)
- *                 .build()).result())
+ *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
+ *                 .username("adminuser")
+ *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
+ *                 .build())
+ *             .name("examplevm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_F2")
+ *             .adminUsername("adminuser")
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .customData(StdFunctions.base64encode(Map.of("input", customData)).result())
  *             .build());
  * 
  *         var exampleCacheNfsTarget = new CacheNfsTarget("exampleCacheNfsTarget", CacheNfsTargetArgs.builder()
- *             .name("examplehpcnfstarget")
- *             .resourceGroupName(example.name())
- *             .cacheName(exampleCache.name())
- *             .targetHostName(exampleLinuxVirtualMachine.privateIpAddress())
- *             .usageModel("READ_HEAVY_INFREQ")
  *             .namespaceJunctions(            
  *                 CacheNfsTargetNamespaceJunctionArgs.builder()
  *                     .namespacePath("/nfs/a1")
@@ -173,6 +162,11 @@ import javax.annotation.Nullable;
  *                     .namespacePath("/nfs/b")
  *                     .nfsExport("/export/b")
  *                     .build())
+ *             .name("examplehpcnfstarget")
+ *             .resourceGroupName(example.name())
+ *             .cacheName(exampleCache.name())
+ *             .targetHostName(exampleLinuxVirtualMachine.privateIpAddress())
+ *             .usageModel("READ_HEAVY_INFREQ")
  *             .build());
  * 
  *     }

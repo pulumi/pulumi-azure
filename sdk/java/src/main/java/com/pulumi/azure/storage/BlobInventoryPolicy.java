@@ -56,14 +56,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .blobProperties(AccountBlobPropertiesArgs.builder()
+ *                 .versioningEnabled(true)
+ *                 .build())
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
- *             .blobProperties(AccountBlobPropertiesArgs.builder()
- *                 .versioningEnabled(true)
- *                 .build())
  *             .build());
  * 
  *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
@@ -73,7 +73,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBlobInventoryPolicy = new BlobInventoryPolicy("exampleBlobInventoryPolicy", BlobInventoryPolicyArgs.builder()
- *             .storageAccountId(exampleAccount.id())
  *             .rules(BlobInventoryPolicyRuleArgs.builder()
  *                 .name("rule1")
  *                 .storageContainerName(exampleContainer.name())
@@ -84,6 +83,7 @@ import javax.annotation.Nullable;
  *                     "Name",
  *                     "Last-Modified")
  *                 .build())
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

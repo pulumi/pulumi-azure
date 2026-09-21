@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
+ *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("exampleAssignment")
  *             .subscriptionId(example.id())
  *             .policyDefinitionId(exampleGetPolicySetDefinition.id())
  *             .location("westus")
- *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", SubscriptionPolicyExemptionArgs.builder()

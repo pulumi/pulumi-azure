@@ -37,10 +37,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
     ///     {
-    ///         Name = "example-cdn-profile",
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "Premium_AzureFrontDoor",
-    ///         ResponseTimeoutSeconds = 120,
     ///         Identity = new Azure.Cdn.Inputs.FrontdoorProfileIdentityArgs
     ///         {
     ///             Type = "SystemAssigned, UserAssigned",
@@ -56,6 +52,10 @@ namespace Pulumi.Azure.Cdn
     ///                 MatchVariable = "RequestIPAddress",
     ///             },
     ///         },
+    ///         Name = "example-cdn-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "Premium_AzureFrontDoor",
+    ///         ResponseTimeoutSeconds = 120,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

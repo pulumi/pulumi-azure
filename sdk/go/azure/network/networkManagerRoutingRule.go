@@ -43,14 +43,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-network-manager"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						pulumi.String(current.Id),
 //					},
 //				},
+//				Name:              pulumi.String("example-network-manager"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ScopeAccesses: pulumi.StringArray{
 //					pulumi.String("Routing"),
 //				},
@@ -84,9 +84,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerRoutingRule(ctx, "example", &network.NetworkManagerRoutingRuleArgs{
-//				Name:             pulumi.String("example-routing-rule"),
-//				RuleCollectionId: exampleNetworkManagerRoutingRuleCollection.ID().ToIDOutput().ToStringOutput(),
-//				Description:      pulumi.String("example routing rule"),
 //				Destination: &network.NetworkManagerRoutingRuleDestinationArgs{
 //					Type:    pulumi.String("AddressPrefix"),
 //					Address: pulumi.String("10.0.0.0/24"),
@@ -94,6 +91,9 @@ import (
 //				NextHop: &network.NetworkManagerRoutingRuleNextHopArgs{
 //					Type: pulumi.String("VirtualNetworkGateway"),
 //				},
+//				Name:             pulumi.String("example-routing-rule"),
+//				RuleCollectionId: exampleNetworkManagerRoutingRuleCollection.ID().ToIDOutput().ToStringOutput(),
+//				Description:      pulumi.String("example routing rule"),
 //			})
 //			if err != nil {
 //				return err

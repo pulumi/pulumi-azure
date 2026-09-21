@@ -54,9 +54,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
- *             .name("example-monitor")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
  *                 .apiKey("XXXX")
  *                 .applicationKey("XXXX")
@@ -65,10 +62,13 @@ import javax.annotation.Nullable;
  *                 .name("Example")
  *                 .email("abc}{@literal @}{@code xyz.com")
  *                 .build())
- *             .skuName("Linked")
  *             .identity(MonitorIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-monitor")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .skuName("Linked")
  *             .build());
  * 
  *         var exampleMonitorSsoConfiguration = new MonitorSsoConfiguration("exampleMonitorSsoConfiguration", MonitorSsoConfigurationArgs.builder()

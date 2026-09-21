@@ -67,9 +67,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -79,30 +76,13 @@ namespace Pulumi.Azure.Compute
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "example-machine",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_D4_v5",
-    ///         AdminUsername = "adminuser",
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
-    ///         AdminSshKeys = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
-    ///             {
-    ///                 Username = "adminuser",
-    ///                 PublicKey = Std.File.Invoke(new()
-    ///                 {
-    ///                     Input = "~/.ssh/id_rsa.pub",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
-    ///             },
-    ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -114,6 +94,26 @@ namespace Pulumi.Azure.Compute
     ///             Offer = "0001-com-ubuntu-server-jammy",
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
+    ///         },
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "~/.ssh/id_rsa.pub",
+    ///                 }).Result,
+    ///             },
+    ///         },
+    ///         Name = "example-machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_D4_v5",
+    ///         AdminUsername = "adminuser",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
     ///         },
     ///     });
     /// 

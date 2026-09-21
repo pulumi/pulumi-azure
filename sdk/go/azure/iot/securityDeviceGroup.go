@@ -37,13 +37,13 @@ import (
 //				return err
 //			}
 //			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("example-IoTHub"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example-IoTHub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
@@ -61,8 +61,6 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewSecurityDeviceGroup(ctx, "example", &iot.SecurityDeviceGroupArgs{
-//				Name:     pulumi.String("example-device-security-group"),
-//				IothubId: exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				AllowRule: &iot.SecurityDeviceGroupAllowRuleArgs{
 //					ConnectionToIpsNotAlloweds: pulumi.StringArray{
 //						pulumi.String("10.0.0.0/24"),
@@ -76,6 +74,8 @@ import (
 //						Duration: pulumi.String("PT5M"),
 //					},
 //				},
+//				Name:     pulumi.String("example-device-security-group"),
+//				IothubId: exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleSecuritySolution,
 //			}))

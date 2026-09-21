@@ -67,9 +67,6 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -79,17 +76,13 @@ namespace Pulumi.Azure.Automation
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "example-vm",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Size = "Standard_B1s",
-    ///         AdminUsername = "testadmin",
-    ///         AdminPassword = "Password1234!",
-    ///         DisablePasswordAuthentication = false,
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -102,6 +95,13 @@ namespace Pulumi.Azure.Automation
     ///             Caching = "ReadWrite",
     ///             StorageAccountType = "Standard_LRS",
     ///         },
+    ///         Name = "example-vm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Size = "Standard_B1s",
+    ///         AdminUsername = "testadmin",
+    ///         AdminPassword = "Password1234!",
+    ///         DisablePasswordAuthentication = false,
     ///         NetworkInterfaceIds = new[]
     ///         {
     ///             exampleNetworkInterface.Id,

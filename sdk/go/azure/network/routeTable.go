@@ -40,9 +40,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
-//				Name:              pulumi.String("example-route-table"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Routes: network.RouteTableRouteArray{
 //					&network.RouteTableRouteArgs{
 //						Name:          pulumi.String("route1"),
@@ -50,6 +47,9 @@ import (
 //						NextHopType:   pulumi.String("VnetLocal"),
 //					},
 //				},
+//				Name:              pulumi.String("example-route-table"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

@@ -54,15 +54,15 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewDatasetJson(ctx, "example", &datafactory.DatasetJsonArgs{
-//				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				LinkedServiceName: exampleLinkedServiceWeb.Name,
 //				HttpServerLocation: &datafactory.DatasetJsonHttpServerLocationArgs{
 //					RelativeUrl: pulumi.String("/fizz/buzz/"),
 //					Path:        pulumi.String("foo/bar/"),
 //					Filename:    pulumi.String("foo.txt"),
 //				},
-//				Encoding: pulumi.String("UTF-8"),
+//				Name:              pulumi.String("example"),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceName: exampleLinkedServiceWeb.Name,
+//				Encoding:          pulumi.String("UTF-8"),
 //			})
 //			if err != nil {
 //				return err

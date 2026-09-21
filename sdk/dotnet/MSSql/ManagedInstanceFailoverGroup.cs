@@ -68,18 +68,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var primarySubnet = new Azure.Network.Subnet("primary", new()
     ///     {
-    ///         Name = primaryName,
-    ///         ResourceGroupName = primary.Name,
-    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -90,7 +82,15 @@ namespace Pulumi.Azure.MSSql
     ///                     },
     ///                     Name = "Microsoft.Sql/managedInstances",
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = primaryName,
+    ///         ResourceGroupName = primary.Name,
+    ///         VirtualNetworkName = primaryVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
@@ -169,18 +169,10 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var failoverSubnet = new Azure.Network.Subnet("failover", new()
     ///     {
-    ///         Name = "ManagedInstance",
-    ///         ResourceGroupName = failover.Name,
-    ///         VirtualNetworkName = failoverVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.1.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Actions = new[]
@@ -191,7 +183,15 @@ namespace Pulumi.Azure.MSSql
     ///                     },
     ///                     Name = "Microsoft.Sql/managedInstances",
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = "ManagedInstance",
+    ///         ResourceGroupName = failover.Name,
+    ///         VirtualNetworkName = failoverVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.1.0/24",
     ///         },
     ///     });
     /// 
@@ -245,16 +245,16 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var example = new Azure.MSSql.ManagedInstanceFailoverGroup("example", new()
     ///     {
-    ///         Name = "example-failover-group",
-    ///         Location = primaryManagedInstance.Location,
-    ///         ManagedInstanceId = primaryManagedInstance.Id,
-    ///         PartnerManagedInstanceId = failoverManagedInstance.Id,
-    ///         SecondaryType = "Geo",
     ///         ReadWriteEndpointFailoverPolicy = new Azure.MSSql.Inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs
     ///         {
     ///             Mode = "Automatic",
     ///             GraceMinutes = 60,
     ///         },
+    ///         Name = "example-failover-group",
+    ///         Location = primaryManagedInstance.Location,
+    ///         ManagedInstanceId = primaryManagedInstance.Id,
+    ///         PartnerManagedInstanceId = failoverManagedInstance.Id,
+    ///         SecondaryType = "Geo",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

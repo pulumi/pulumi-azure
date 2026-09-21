@@ -36,21 +36,14 @@ import (
 //				return err
 //			}
 //			_, err = core.NewResourceGroupCostManagementView(ctx, "example", &core.ResourceGroupCostManagementViewArgs{
-//				Name:            pulumi.String("example"),
-//				DisplayName:     pulumi.String("Cost View per Month"),
-//				ChartType:       pulumi.String("StackedColumn"),
-//				Accumulated:     pulumi.Bool(false),
-//				ResourceGroupId: example.ID().ToIDOutput().ToStringOutput(),
-//				ReportType:      pulumi.String("Usage"),
-//				Timeframe:       pulumi.String("MonthToDate"),
 //				Dataset: &core.ResourceGroupCostManagementViewDatasetArgs{
-//					Granularity: pulumi.String("Monthly"),
 //					Aggregations: core.ResourceGroupCostManagementViewDatasetAggregationArray{
 //						&core.ResourceGroupCostManagementViewDatasetAggregationArgs{
 //							Name:       pulumi.String("totalCost"),
 //							ColumnName: pulumi.String("Cost"),
 //						},
 //					},
+//					Granularity: pulumi.String("Monthly"),
 //				},
 //				Pivots: core.ResourceGroupCostManagementViewPivotArray{
 //					&core.ResourceGroupCostManagementViewPivotArgs{
@@ -66,6 +59,13 @@ import (
 //						Name: pulumi.String("ResourceGroupName"),
 //					},
 //				},
+//				Name:            pulumi.String("example"),
+//				DisplayName:     pulumi.String("Cost View per Month"),
+//				ChartType:       pulumi.String("StackedColumn"),
+//				Accumulated:     pulumi.Bool(false),
+//				ResourceGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				ReportType:      pulumi.String("Usage"),
+//				Timeframe:       pulumi.String("MonthToDate"),
 //			})
 //			if err != nil {
 //				return err

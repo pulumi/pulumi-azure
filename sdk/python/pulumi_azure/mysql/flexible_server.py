@@ -992,18 +992,18 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-sn",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
             delegations=[{
-                "name": "fs",
                 "service_delegation": {
                     "name": "Microsoft.DBforMySQL/flexibleServers",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
+                "name": "fs",
+            }],
+            name="example-sn",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=["Microsoft.Storage"])
         example_zone = azure.privatedns.Zone("example",
             name="example.mysql.database.azure.com",
             resource_group_name=example.name)
@@ -1116,18 +1116,18 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-sn",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
             delegations=[{
-                "name": "fs",
                 "service_delegation": {
                     "name": "Microsoft.DBforMySQL/flexibleServers",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
+                "name": "fs",
+            }],
+            name="example-sn",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"],
+            service_endpoints=["Microsoft.Storage"])
         example_zone = azure.privatedns.Zone("example",
             name="example.mysql.database.azure.com",
             resource_group_name=example.name)

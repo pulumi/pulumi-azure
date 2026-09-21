@@ -68,16 +68,6 @@ import (
 //				return err
 //			}
 //			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:                          pulumi.String("example-vmss"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Sku:                           pulumi.String("Standard_D4_v5"),
-//				Instances:                     pulumi.Int(4),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("P@ssword1234!"),
-//				ComputerNamePrefix:            pulumi.String("my-linux-computer-name-prefix"),
-//				UpgradeMode:                   pulumi.String("Automatic"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -90,8 +80,6 @@ import (
 //				},
 //				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
 //					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
 //						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
@@ -99,8 +87,20 @@ import (
 //								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
 //					},
 //				},
+//				Name:                          pulumi.String("example-vmss"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
+//				Sku:                           pulumi.String("Standard_D4_v5"),
+//				Instances:                     pulumi.Int(4),
+//				AdminUsername:                 pulumi.String("adminuser"),
+//				AdminPassword:                 pulumi.String("P@ssword1234!"),
+//				ComputerNamePrefix:            pulumi.String("my-linux-computer-name-prefix"),
+//				UpgradeMode:                   pulumi.String("Automatic"),
+//				DisablePasswordAuthentication: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -118,9 +118,6 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewScaleSetPacketCapture(ctx, "example", &compute.ScaleSetPacketCaptureArgs{
-//				Name:                     pulumi.String("example-pc"),
-//				NetworkWatcherId:         exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				StorageLocation: &compute.ScaleSetPacketCaptureStorageLocationArgs{
 //					FilePath: pulumi.String("/var/captures/packet.cap"),
 //				},
@@ -132,6 +129,9 @@ import (
 //						pulumi.String("1"),
 //					},
 //				},
+//				Name:                     pulumi.String("example-pc"),
+//				NetworkWatcherId:         exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleVirtualMachineScaleSetExtension,
 //			}))

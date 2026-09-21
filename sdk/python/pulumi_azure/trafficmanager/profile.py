@@ -408,9 +408,6 @@ class Profile(pulumi.CustomResource):
             name="trafficmanagerProfile",
             location="West Europe")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name=server["hex"],
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": server["hex"],
                 "ttl": 100,
@@ -423,6 +420,9 @@ class Profile(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name=server["hex"],
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })
@@ -489,9 +489,6 @@ class Profile(pulumi.CustomResource):
             name="trafficmanagerProfile",
             location="West Europe")
         example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
-            name=server["hex"],
-            resource_group_name=example.name,
-            traffic_routing_method="Weighted",
             dns_config={
                 "relative_name": server["hex"],
                 "ttl": 100,
@@ -504,6 +501,9 @@ class Profile(pulumi.CustomResource):
                 "timeout_in_seconds": 9,
                 "tolerated_number_of_failures": 3,
             },
+            name=server["hex"],
+            resource_group_name=example.name,
+            traffic_routing_method="Weighted",
             tags={
                 "environment": "Production",
             })

@@ -27,9 +27,9 @@ import * as utilities from "../utilities";
  *     skuName: "Premium_AzureFrontDoor",
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     loadBalancing: {},
  *     name: "example-origingroup",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     loadBalancing: {},
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
  *     name: "example-origin",
@@ -56,15 +56,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
+ *     networkRules: {
+ *         defaultAction: "Deny",
+ *     },
  *     name: "examplestoracc",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Premium",
  *     accountReplicationType: "LRS",
  *     allowNestedItemsToBePublic: false,
- *     networkRules: {
- *         defaultAction: "Deny",
- *     },
  *     tags: {
  *         environment: "Example",
  *     },
@@ -75,11 +75,17 @@ import * as utilities from "../utilities";
  *     skuName: "Premium_AzureFrontDoor",
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     loadBalancing: {},
  *     name: "example-origin-group",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     loadBalancing: {},
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ *     privateLink: {
+ *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
+ *         targetType: "blob",
+ *         location: exampleAccount.location,
+ *         privateLinkTargetId: exampleAccount.id,
+ *     },
  *     name: "example-origin",
  *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
  *     enabled: true,
@@ -88,12 +94,6 @@ import * as utilities from "../utilities";
  *     originHostHeader: exampleAccount.primaryBlobHost,
  *     priority: 1,
  *     weight: 500,
- *     privateLink: {
- *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
- *         targetType: "blob",
- *         location: exampleAccount.location,
- *         privateLinkTargetId: exampleAccount.id,
- *     },
  * });
  * ```
  *
@@ -129,21 +129,16 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "lb-example",
- *     sku: "Standard",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "lb-example",
+ *     sku: "Standard",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinkService = new azure.privatedns.LinkService("example", {
- *     name: "pls-example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
- *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  *     natIpConfigurations: [{
  *         name: "primary",
  *         privateIpAddress: "10.5.1.17",
@@ -151,6 +146,11 @@ import * as utilities from "../utilities";
  *         subnetId: exampleSubnet.id,
  *         primary: true,
  *     }],
+ *     name: "pls-example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
+ *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  * });
  * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
  *     name: "profile-example",
@@ -160,15 +160,20 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleLinkService],
  * });
  * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
- *     name: "group-example",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     loadBalancing: {
  *         additionalLatencyInMilliseconds: 0,
  *         sampleSize: 16,
  *         successfulSamplesRequired: 3,
  *     },
+ *     name: "group-example",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ *     privateLink: {
+ *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
+ *         location: example.location,
+ *         privateLinkTargetId: exampleLinkService.id,
+ *     },
  *     name: "origin-example",
  *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
  *     enabled: true,
@@ -177,11 +182,6 @@ import * as utilities from "../utilities";
  *     priority: 1,
  *     weight: 1000,
  *     certificateNameCheckEnabled: false,
- *     privateLink: {
- *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
- *         location: example.location,
- *         privateLinkTargetId: exampleLinkService.id,
- *     },
  * });
  * ```
  *

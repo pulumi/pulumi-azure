@@ -347,14 +347,18 @@ class StreamInputIotHub(pulumi.CustomResource):
         example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="example-iothub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example-iothub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("example",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            },
             name="example-iothub-input",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -362,11 +366,7 @@ class StreamInputIotHub(pulumi.CustomResource):
             eventhub_consumer_group_name="$Default",
             iothub_namespace=example_io_t_hub.name,
             shared_access_policy_key=example_io_t_hub.shared_access_policies[0].primary_key,
-            shared_access_policy_name="iothubowner",
-            serialization={
-                "type": "Json",
-                "encoding": "UTF8",
-            })
+            shared_access_policy_name="iothubowner")
         ```
 
         ## API Providers
@@ -418,14 +418,18 @@ class StreamInputIotHub(pulumi.CustomResource):
         example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="example-iothub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example-iothub",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("example",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            },
             name="example-iothub-input",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -433,11 +437,7 @@ class StreamInputIotHub(pulumi.CustomResource):
             eventhub_consumer_group_name="$Default",
             iothub_namespace=example_io_t_hub.name,
             shared_access_policy_key=example_io_t_hub.shared_access_policies[0].primary_key,
-            shared_access_policy_name="iothubowner",
-            serialization={
-                "type": "Json",
-                "encoding": "UTF8",
-            })
+            shared_access_policy_name="iothubowner")
         ```
 
         ## API Providers

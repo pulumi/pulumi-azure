@@ -164,22 +164,22 @@ class RouteMap(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.1.0/24")
         example_route_map = azure.network.RouteMap("example",
-            name="example-rm",
-            virtual_hub_id=example_virtual_hub.id,
             rules=[{
-                "name": "rule1",
-                "next_step_if_matched": "Continue",
                 "actions": [{
-                    "type": "Add",
                     "parameters": [{
                         "as_paths": ["22334"],
                     }],
+                    "type": "Add",
                 }],
                 "match_criterions": [{
                     "match_condition": "Contains",
                     "route_prefixes": ["10.0.0.0/8"],
                 }],
-            }])
+                "name": "rule1",
+                "next_step_if_matched": "Continue",
+            }],
+            name="example-rm",
+            virtual_hub_id=example_virtual_hub.id)
         ```
 
         ## API Providers
@@ -233,22 +233,22 @@ class RouteMap(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.1.0/24")
         example_route_map = azure.network.RouteMap("example",
-            name="example-rm",
-            virtual_hub_id=example_virtual_hub.id,
             rules=[{
-                "name": "rule1",
-                "next_step_if_matched": "Continue",
                 "actions": [{
-                    "type": "Add",
                     "parameters": [{
                         "as_paths": ["22334"],
                     }],
+                    "type": "Add",
                 }],
                 "match_criterions": [{
                     "match_condition": "Contains",
                     "route_prefixes": ["10.0.0.0/8"],
                 }],
-            }])
+                "name": "rule1",
+                "next_step_if_matched": "Continue",
+            }],
+            name="example-rm",
+            virtual_hub_id=example_virtual_hub.id)
         ```
 
         ## API Providers

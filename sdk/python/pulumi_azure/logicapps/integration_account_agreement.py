@@ -384,29 +384,22 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard")
         host = azure.logicapps.IntegrationAccountPartner("host",
-            name="example-hostpartner",
-            resource_group_name=example.name,
-            integration_account_name=test.name,
             business_identities=[{
                 "qualifier": "AS2Identity",
                 "value": "FabrikamNY",
-            }])
-        guest = azure.logicapps.IntegrationAccountPartner("guest",
-            name="example-guestpartner",
+            }],
+            name="example-hostpartner",
             resource_group_name=example.name,
-            integration_account_name=test.name,
+            integration_account_name=test.name)
+        guest = azure.logicapps.IntegrationAccountPartner("guest",
             business_identities=[{
                 "qualifier": "AS2Identity",
                 "value": "FabrikamDC",
-            }])
-        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("test",
-            name="example-agreement",
+            }],
+            name="example-guestpartner",
             resource_group_name=example.name,
-            integration_account_name=test.name,
-            agreement_type="AS2",
-            host_partner_name=host.name,
-            guest_partner_name=guest.name,
-            content=std.file(input="testdata/integration_account_agreement_content_as2.json").result,
+            integration_account_name=test.name)
+        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("test",
             host_identity={
                 "qualifier": "AS2Identity",
                 "value": "FabrikamNY",
@@ -414,7 +407,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             guest_identity={
                 "qualifier": "AS2Identity",
                 "value": "FabrikamDC",
-            })
+            },
+            name="example-agreement",
+            resource_group_name=example.name,
+            integration_account_name=test.name,
+            agreement_type="AS2",
+            host_partner_name=host.name,
+            guest_partner_name=guest.name,
+            content=std.file(input="testdata/integration_account_agreement_content_as2.json")["result"])
         ```
 
         ## API Providers
@@ -471,29 +471,22 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard")
         host = azure.logicapps.IntegrationAccountPartner("host",
-            name="example-hostpartner",
-            resource_group_name=example.name,
-            integration_account_name=test.name,
             business_identities=[{
                 "qualifier": "AS2Identity",
                 "value": "FabrikamNY",
-            }])
-        guest = azure.logicapps.IntegrationAccountPartner("guest",
-            name="example-guestpartner",
+            }],
+            name="example-hostpartner",
             resource_group_name=example.name,
-            integration_account_name=test.name,
+            integration_account_name=test.name)
+        guest = azure.logicapps.IntegrationAccountPartner("guest",
             business_identities=[{
                 "qualifier": "AS2Identity",
                 "value": "FabrikamDC",
-            }])
-        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("test",
-            name="example-agreement",
+            }],
+            name="example-guestpartner",
             resource_group_name=example.name,
-            integration_account_name=test.name,
-            agreement_type="AS2",
-            host_partner_name=host.name,
-            guest_partner_name=guest.name,
-            content=std.file(input="testdata/integration_account_agreement_content_as2.json").result,
+            integration_account_name=test.name)
+        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("test",
             host_identity={
                 "qualifier": "AS2Identity",
                 "value": "FabrikamNY",
@@ -501,7 +494,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             guest_identity={
                 "qualifier": "AS2Identity",
                 "value": "FabrikamDC",
-            })
+            },
+            name="example-agreement",
+            resource_group_name=example.name,
+            integration_account_name=test.name,
+            agreement_type="AS2",
+            host_partner_name=host.name,
+            guest_partner_name=guest.name,
+            content=std.file(input="testdata/integration_account_agreement_content_as2.json")["result"])
         ```
 
         ## API Providers

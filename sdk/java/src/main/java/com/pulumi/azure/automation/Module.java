@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleModule = new Module("exampleModule", ModuleArgs.builder()
- *             .name("xActiveDirectory")
- *             .resourceGroupName(example.name())
- *             .automationAccountName(exampleAccount.name())
  *             .moduleLink(ModuleModuleLinkArgs.builder()
  *                 .uri("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg")
  *                 .build())
+ *             .name("xActiveDirectory")
+ *             .resourceGroupName(example.name())
+ *             .automationAccountName(exampleAccount.name())
  *             .build());
  * 
  *     }

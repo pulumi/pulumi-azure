@@ -29,9 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := network.NewRouteFilter(ctx, "example", &network.RouteFilterArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: pulumi.String("example"),
-//				Location:          pulumi.String("East US"),
 //				Rule: &network.RouteFilterRuleArgs{
 //					Name:     pulumi.String("rule"),
 //					Access:   pulumi.String("Allow"),
@@ -40,6 +37,9 @@ import (
 //						pulumi.String("12076:52004"),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.String("example"),
+//				Location:          pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err

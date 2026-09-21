@@ -66,6 +66,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
+ *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
+ *                 .keyPermissions("Get")
+ *                 .secretPermissions("Get")
+ *                 .storagePermissions("Get")
+ *                 .build())
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -75,13 +82,6 @@ import javax.annotation.Nullable;
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
  *             .skuName("standard")
- *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.tenantId())
- *                 .objectId(current.objectId())
- *                 .keyPermissions("Get")
- *                 .secretPermissions("Get")
- *                 .storagePermissions("Get")
- *                 .build())
  *             .build());
  * 
  *     }

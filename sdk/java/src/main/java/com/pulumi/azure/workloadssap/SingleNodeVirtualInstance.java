@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs;
  * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs;
  * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs;
- * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs;
  * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs;
  * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs;
+ * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs;
  * import com.pulumi.azure.workloadssap.inputs.SingleNodeVirtualInstanceIdentityArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
@@ -119,21 +119,8 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleSingleNodeVirtualInstance = new SingleNodeVirtualInstance("exampleSingleNodeVirtualInstance", SingleNodeVirtualInstanceArgs.builder()
- *             .name("X05")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .environment("NonProd")
- *             .sapProduct("S4HANA")
- *             .managedResourceGroupName("managedTestRG")
- *             .appLocation(app.location())
- *             .sapFqdn("sap.bpaas.com")
  *             .singleServerConfiguration(SingleNodeVirtualInstanceSingleServerConfigurationArgs.builder()
- *                 .appResourceGroupName(app.name())
- *                 .subnetId(exampleSubnet.id())
- *                 .databaseType("HANA")
- *                 .secondaryIpEnabled(true)
  *                 .virtualMachineConfiguration(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs.builder()
- *                     .virtualMachineSize("Standard_E32ds_v4")
  *                     .image(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs.builder()
  *                         .offer("RHEL-SAP-HA")
  *                         .publisher("RedHat")
@@ -145,6 +132,17 @@ import javax.annotation.Nullable;
  *                         .sshPrivateKey(examplePrivateKey.privateKeyPem())
  *                         .sshPublicKey(example.publicKeyOpenssh())
  *                         .build())
+ *                     .virtualMachineSize("Standard_E32ds_v4")
+ *                     .build())
+ *                 .virtualMachineResourceNames(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs.builder()
+ *                     .dataDisks(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs.builder()
+ *                         .volumeName("default")
+ *                         .names("app0disk0")
+ *                         .build())
+ *                     .hostName("apphostName0")
+ *                     .osDiskName("app0osdisk")
+ *                     .virtualMachineName("appvm0")
+ *                     .networkInterfaceNames("appnic0")
  *                     .build())
  *                 .diskVolumeConfigurations(                
  *                     SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs.builder()
@@ -183,21 +181,23 @@ import javax.annotation.Nullable;
  *                         .sizeInGb(64)
  *                         .skuName("StandardSSD_LRS")
  *                         .build())
- *                 .virtualMachineResourceNames(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs.builder()
- *                     .hostName("apphostName0")
- *                     .osDiskName("app0osdisk")
- *                     .virtualMachineName("appvm0")
- *                     .networkInterfaceNames("appnic0")
- *                     .dataDisks(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs.builder()
- *                         .volumeName("default")
- *                         .names("app0disk0")
- *                         .build())
- *                     .build())
+ *                 .appResourceGroupName(app.name())
+ *                 .subnetId(exampleSubnet.id())
+ *                 .databaseType("HANA")
+ *                 .secondaryIpEnabled(true)
  *                 .build())
  *             .identity(SingleNodeVirtualInstanceIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .name("X05")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .environment("NonProd")
+ *             .sapProduct("S4HANA")
+ *             .managedResourceGroupName("managedTestRG")
+ *             .appLocation(app.location())
+ *             .sapFqdn("sap.bpaas.com")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAssignment)
  *                 .build());

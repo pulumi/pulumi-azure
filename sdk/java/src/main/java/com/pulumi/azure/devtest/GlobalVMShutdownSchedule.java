@@ -80,22 +80,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("sample-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("testconfiguration1")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("sample-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("SampleVM")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .size("Standard_B2s")
  *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -107,22 +102,27 @@ import javax.annotation.Nullable;
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
  *                 .build())
+ *             .name("SampleVM")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .size("Standard_B2s")
  *             .adminUsername("testadmin")
  *             .adminPassword("Password1234!")
  *             .disablePasswordAuthentication(false)
  *             .build());
  * 
  *         var exampleGlobalVMShutdownSchedule = new GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", GlobalVMShutdownScheduleArgs.builder()
- *             .virtualMachineId(exampleLinuxVirtualMachine.id())
- *             .location(example.location())
- *             .enabled(true)
- *             .dailyRecurrenceTime("1100")
- *             .timezone("Pacific Standard Time")
  *             .notificationSettings(GlobalVMShutdownScheduleNotificationSettingsArgs.builder()
  *                 .enabled(true)
  *                 .timeInMinutes(60)
  *                 .webhookUrl("https://sample-webhook-url.example.com")
  *                 .build())
+ *             .virtualMachineId(exampleLinuxVirtualMachine.id())
+ *             .location(example.location())
+ *             .enabled(true)
+ *             .dailyRecurrenceTime("1100")
+ *             .timezone("Pacific Standard Time")
  *             .build());
  * 
  *     }

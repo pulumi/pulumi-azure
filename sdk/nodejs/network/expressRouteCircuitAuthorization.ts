@@ -18,16 +18,16 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "expressRoute1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     serviceProviderName: "Equinix",
  *     peeringLocation: "Silicon Valley",
  *     bandwidthInMbps: 50,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  *     allowClassicOperations: false,
  *     tags: {
  *         environment: "Production",

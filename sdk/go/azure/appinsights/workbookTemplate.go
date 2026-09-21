@@ -90,11 +90,6 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = appinsights.NewWorkbookTemplate(ctx, "example", &appinsights.WorkbookTemplateArgs{
-//				Name:              pulumi.String("example-aiwt"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("West Europe"),
-//				Author:            pulumi.String("test author"),
-//				Priority:          pulumi.Int(1),
 //				Galleries: appinsights.WorkbookTemplateGalleryArray{
 //					&appinsights.WorkbookTemplateGalleryArgs{
 //						Category:     pulumi.String("workbook"),
@@ -104,8 +99,13 @@ import (
 //						Type:         pulumi.String("tsg"),
 //					},
 //				},
-//				TemplateData: pulumi.String(json0),
-//				Localized:    pulumi.String(json1),
+//				Name:              pulumi.String("example-aiwt"),
+//				ResourceGroupName: example.Name,
+//				Location:          pulumi.String("West Europe"),
+//				Author:            pulumi.String("test author"),
+//				Priority:          pulumi.Int(1),
+//				TemplateData:      pulumi.String(json0),
+//				Localized:         pulumi.String(json1),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

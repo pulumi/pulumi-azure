@@ -57,58 +57,58 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var example1 = new Azure.DataFactory.DatasetJson("example1", new()
     ///     {
-    ///         Name = "dataset1",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedCustomService.Name,
     ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
     ///         {
     ///             Container = "container",
     ///             Path = "foo/bar/",
     ///             Filename = "foo.txt",
     ///         },
+    ///         Name = "dataset1",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedCustomService.Name,
     ///         Encoding = "UTF-8",
     ///     });
     /// 
     ///     var example2 = new Azure.DataFactory.DatasetJson("example2", new()
     ///     {
-    ///         Name = "dataset2",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedCustomService.Name,
     ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
     ///         {
     ///             Container = "container",
     ///             Path = "foo/bar/",
     ///             Filename = "bar.txt",
     ///         },
+    ///         Name = "dataset2",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedCustomService.Name,
     ///         Encoding = "UTF-8",
     ///     });
     /// 
     ///     var example1FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example1", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Sources = new[]
-    ///         {
-    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
-    ///             {
-    ///                 Name = "source1",
-    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
-    ///                 {
-    ///                     Name = exampleLinkedCustomService.Name,
-    ///                 },
-    ///             },
-    ///         },
     ///         Sinks = new[]
     ///         {
     ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
     ///             {
-    ///                 Name = "sink1",
     ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
     ///                 {
     ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
+    ///                 Name = "sink1",
     ///             },
     ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///                 Name = "source1",
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
     ///         Script = @"source(
     ///   allowSchemaDrift: true, 
     ///   validateSchema: false, 
@@ -125,30 +125,30 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var example2FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example2", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Sources = new[]
-    ///         {
-    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
-    ///             {
-    ///                 Name = "source1",
-    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
-    ///                 {
-    ///                     Name = exampleLinkedCustomService.Name,
-    ///                 },
-    ///             },
-    ///         },
     ///         Sinks = new[]
     ///         {
     ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
     ///             {
-    ///                 Name = "sink1",
     ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
     ///                 {
     ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
+    ///                 Name = "sink1",
     ///             },
     ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///                 Name = "source1",
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
     ///         Script = @"source(
     ///   allowSchemaDrift: true, 
     ///   validateSchema: false, 
@@ -165,28 +165,10 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleFlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         Sources = new[]
-    ///         {
-    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
-    ///             {
-    ///                 Name = "source1",
-    ///                 Flowlet = new Azure.DataFactory.Inputs.FlowletDataFlowSourceFlowletArgs
-    ///                 {
-    ///                     Name = example1FlowletDataFlow.Name,
-    ///                 },
-    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
-    ///                 {
-    ///                     Name = exampleLinkedCustomService.Name,
-    ///                 },
-    ///             },
-    ///         },
     ///         Sinks = new[]
     ///         {
     ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
     ///             {
-    ///                 Name = "sink1",
     ///                 Flowlet = new Azure.DataFactory.Inputs.FlowletDataFlowSinkFlowletArgs
     ///                 {
     ///                     Name = example2FlowletDataFlow.Name,
@@ -195,8 +177,26 @@ namespace Pulumi.Azure.DataFactory
     ///                 {
     ///                     Name = exampleLinkedCustomService.Name,
     ///                 },
+    ///                 Name = "sink1",
     ///             },
     ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 Flowlet = new Azure.DataFactory.Inputs.FlowletDataFlowSourceFlowletArgs
+    ///                 {
+    ///                     Name = example1FlowletDataFlow.Name,
+    ///                 },
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = exampleLinkedCustomService.Name,
+    ///                 },
+    ///                 Name = "source1",
+    ///             },
+    ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
     ///         Script = @"source(
     ///   allowSchemaDrift: true, 
     ///   validateSchema: false, 

@@ -52,13 +52,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleArcMachine = new ArcMachine("exampleArcMachine", ArcMachineArgs.builder()
+ *             .identity(ArcMachineIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-arcmachine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .kind("SCVMM")
- *             .identity(ArcMachineIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .tags(Map.of("environment", "example"))
  *             .build());
  * 

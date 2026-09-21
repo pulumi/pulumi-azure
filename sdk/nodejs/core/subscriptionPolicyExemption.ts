@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *     displayName: "Audit machines with insecure password security settings",
  * });
  * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "exampleAssignment",
  *     subscriptionId: example.then(example => example.id),
  *     policyDefinitionId: exampleGetPolicySetDefinition.then(exampleGetPolicySetDefinition => exampleGetPolicySetDefinition.id),
  *     location: "westus",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleSubscriptionPolicyExemption = new azure.core.SubscriptionPolicyExemption("example", {
  *     name: "exampleExemption",

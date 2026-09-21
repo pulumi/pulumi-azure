@@ -40,11 +40,6 @@ namespace Pulumi.Azure.Dashboard
     /// 
     ///     var exampleGrafana = new Azure.Dashboard.Grafana("example", new()
     ///     {
-    ///         Name = "example-dg",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         GrafanaMajorVersion = "12",
-    ///         PublicNetworkAccessEnabled = false,
     ///         AzureMonitorWorkspaceIntegrations = new[]
     ///         {
     ///             new Azure.Dashboard.Inputs.GrafanaAzureMonitorWorkspaceIntegrationArgs
@@ -52,6 +47,11 @@ namespace Pulumi.Azure.Dashboard
     ///                 ResourceId = exampleWorkspace.Id,
     ///             },
     ///         },
+    ///         Name = "example-dg",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         GrafanaMajorVersion = "12",
+    ///         PublicNetworkAccessEnabled = false,
     ///     });
     /// 
     ///     var exampleGrafanaManagedPrivateEndpoint = new Azure.Dashboard.GrafanaManagedPrivateEndpoint("example", new()

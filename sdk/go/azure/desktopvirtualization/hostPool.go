@@ -37,6 +37,15 @@ import (
 //				return err
 //			}
 //			_, err = desktopvirtualization.NewHostPool(ctx, "example", &desktopvirtualization.HostPoolArgs{
+//				ScheduledAgentUpdates: &desktopvirtualization.HostPoolScheduledAgentUpdatesArgs{
+//					Schedules: desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArray{
+//						&desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs{
+//							DayOfWeek: pulumi.String("Saturday"),
+//							HourOfDay: pulumi.Int(2),
+//						},
+//					},
+//					Enabled: pulumi.Bool(true),
+//				},
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
 //				Name:                   pulumi.String("pooleddepthfirst"),
@@ -48,15 +57,6 @@ import (
 //				Type:                   pulumi.String("Pooled"),
 //				MaximumSessionsAllowed: pulumi.Int(50),
 //				LoadBalancerType:       pulumi.String("DepthFirst"),
-//				ScheduledAgentUpdates: &desktopvirtualization.HostPoolScheduledAgentUpdatesArgs{
-//					Enabled: pulumi.Bool(true),
-//					Schedules: desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArray{
-//						&desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs{
-//							DayOfWeek: pulumi.String("Saturday"),
-//							HourOfDay: pulumi.Int(2),
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

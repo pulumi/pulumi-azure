@@ -61,11 +61,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
     ///     {
-    ///         Name = "testfirewall",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "AZFW_VNet",
-    ///         SkuTier = "Standard",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.FirewallIpConfigurationArgs
@@ -75,19 +70,27 @@ namespace Pulumi.Azure.Network
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "testfirewall",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "AZFW_VNet",
+    ///         SkuTier = "Standard",
     ///     });
     /// 
     ///     var exampleFirewallApplicationRuleCollection = new Azure.Network.FirewallApplicationRuleCollection("example", new()
     ///     {
-    ///         Name = "testcollection",
-    ///         AzureFirewallName = exampleFirewall.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Priority = 100,
-    ///         Action = "Allow",
     ///         Rules = new[]
     ///         {
     ///             new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleArgs
     ///             {
+    ///                 Protocols = new[]
+    ///                 {
+    ///                     new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs
+    ///                     {
+    ///                         Port = 443,
+    ///                         Type = "Https",
+    ///                     },
+    ///                 },
     ///                 Name = "testrule",
     ///                 SourceAddresses = new[]
     ///                 {
@@ -97,16 +100,13 @@ namespace Pulumi.Azure.Network
     ///                 {
     ///                     "*.google.com",
     ///                 },
-    ///                 Protocols = new[]
-    ///                 {
-    ///                     new Azure.Network.Inputs.FirewallApplicationRuleCollectionRuleProtocolArgs
-    ///                     {
-    ///                         Port = 443,
-    ///                         Type = "Https",
-    ///                     },
-    ///                 },
     ///             },
     ///         },
+    ///         Name = "testcollection",
+    ///         AzureFirewallName = exampleFirewall.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Priority = 100,
+    ///         Action = "Allow",
     ///     });
     /// 
     /// });

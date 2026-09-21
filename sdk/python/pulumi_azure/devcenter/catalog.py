@@ -219,22 +219,22 @@ class Catalog(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            location=example.location,
-            name="example",
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_catalog = azure.devcenter.Catalog("example",
+            },
+            location=example.location,
             name="example",
-            resource_group_name=test_azurerm_resource_group["name"],
-            dev_center_id=test["id"],
+            resource_group_name=example.name)
+        example_catalog = azure.devcenter.Catalog("example",
             catalog_github={
                 "branch": "foo",
                 "path": "",
                 "uri": "example URI",
                 "key_vault_key_url": "secret",
-            })
+            },
+            name="example",
+            resource_group_name=test["name"],
+            dev_center_id=test_azurerm_dev_center["id"])
         ```
 
         ## API Providers
@@ -285,22 +285,22 @@ class Catalog(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_dev_center = azure.devcenter.DevCenter("example",
-            location=example.location,
-            name="example",
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_catalog = azure.devcenter.Catalog("example",
+            },
+            location=example.location,
             name="example",
-            resource_group_name=test_azurerm_resource_group["name"],
-            dev_center_id=test["id"],
+            resource_group_name=example.name)
+        example_catalog = azure.devcenter.Catalog("example",
             catalog_github={
                 "branch": "foo",
                 "path": "",
                 "uri": "example URI",
                 "key_vault_key_url": "secret",
-            })
+            },
+            name="example",
+            resource_group_name=test["name"],
+            dev_center_id=test_azurerm_dev_center["id"])
         ```
 
         ## API Providers

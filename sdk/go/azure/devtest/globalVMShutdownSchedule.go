@@ -63,9 +63,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("sample-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -73,18 +70,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("sample-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:              pulumi.String("SampleVM"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				Size: pulumi.String("Standard_B2s"),
 //				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -96,6 +89,13 @@ import (
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
 //				},
+//				Name:              pulumi.String("SampleVM"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				Size:                          pulumi.String("Standard_B2s"),
 //				AdminUsername:                 pulumi.String("testadmin"),
 //				AdminPassword:                 pulumi.String("Password1234!"),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
@@ -104,16 +104,16 @@ import (
 //				return err
 //			}
 //			_, err = devtest.NewGlobalVMShutdownSchedule(ctx, "example", &devtest.GlobalVMShutdownScheduleArgs{
-//				VirtualMachineId:    exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
-//				Location:            example.Location,
-//				Enabled:             pulumi.Bool(true),
-//				DailyRecurrenceTime: pulumi.String("1100"),
-//				Timezone:            pulumi.String("Pacific Standard Time"),
 //				NotificationSettings: &devtest.GlobalVMShutdownScheduleNotificationSettingsArgs{
 //					Enabled:       pulumi.Bool(true),
 //					TimeInMinutes: pulumi.Int(60),
 //					WebhookUrl:    pulumi.String("https://sample-webhook-url.example.com"),
 //				},
+//				VirtualMachineId:    exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				Location:            example.Location,
+//				Enabled:             pulumi.Bool(true),
+//				DailyRecurrenceTime: pulumi.String("1100"),
+//				Timezone:            pulumi.String("Pacific Standard Time"),
 //			})
 //			if err != nil {
 //				return err

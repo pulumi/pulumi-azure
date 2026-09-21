@@ -290,15 +290,15 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
             platform_fault_domain_count=1,
             zones=["1"])
         example_scale_set_standby_pool = azure.compute.ScaleSetStandbyPool("example",
+            elasticity_profile={
+                "max_ready_capacity": 10,
+                "min_ready_capacity": 5,
+            },
             name="example-spsvmp",
             resource_group_name=example.name,
             location="West Europe",
             attached_virtual_machine_scale_set_id=example_orchestrated_virtual_machine_scale_set.id,
             virtual_machine_state="Running",
-            elasticity_profile={
-                "max_ready_capacity": 10,
-                "min_ready_capacity": 5,
-            },
             tags={
                 "key": "value",
             })
@@ -356,15 +356,15 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
             platform_fault_domain_count=1,
             zones=["1"])
         example_scale_set_standby_pool = azure.compute.ScaleSetStandbyPool("example",
+            elasticity_profile={
+                "max_ready_capacity": 10,
+                "min_ready_capacity": 5,
+            },
             name="example-spsvmp",
             resource_group_name=example.name,
             location="West Europe",
             attached_virtual_machine_scale_set_id=example_orchestrated_virtual_machine_scale_set.id,
             virtual_machine_state="Running",
-            elasticity_profile={
-                "max_ready_capacity": 10,
-                "min_ready_capacity": 5,
-            },
             tags={
                 "key": "value",
             })

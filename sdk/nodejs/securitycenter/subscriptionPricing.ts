@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example1 = new azure.securitycenter.SubscriptionPricing("example1", {
- *     tier: "Standard",
- *     resourceType: "CloudPosture",
  *     extensions: [
  *         {
  *             name: "ContainerRegistriesVulnerabilityAssessments",
@@ -51,6 +49,8 @@ import * as utilities from "../utilities";
  *             name: "SensitiveDataDiscovery",
  *         },
  *     ],
+ *     tier: "Standard",
+ *     resourceType: "CloudPosture",
  * });
  * ```
  *

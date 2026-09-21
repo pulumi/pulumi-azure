@@ -180,10 +180,7 @@ def get_account_sas(connection_string: Optional[_builtins.str] = None,
         tags={
             "environment": "staging",
         })
-    example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-        https_only=True,
-        signed_version="2022-11-02",
-        resource_types={
+    example = azure.storage.get_account_sas_output(resource_types={
             "service": True,
             "container": False,
             "object": False,
@@ -194,8 +191,6 @@ def get_account_sas(connection_string: Optional[_builtins.str] = None,
             "table": False,
             "file": False,
         },
-        start="2018-03-21T00:00:00Z",
-        expiry="2020-03-21T00:00:00Z",
         permissions={
             "read": True,
             "write": True,
@@ -207,7 +202,12 @@ def get_account_sas(connection_string: Optional[_builtins.str] = None,
             "process": False,
             "tag": False,
             "filter": False,
-        })
+        },
+        connection_string=example_account.primary_connection_string,
+        https_only=True,
+        signed_version="2022-11-02",
+        start="2018-03-21T00:00:00Z",
+        expiry="2020-03-21T00:00:00Z")
     pulumi.export("sasUrlQueryString", example.sas)
     ```
 
@@ -285,10 +285,7 @@ def get_account_sas_output(connection_string: pulumi.Input[Optional[_builtins.st
         tags={
             "environment": "staging",
         })
-    example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
-        https_only=True,
-        signed_version="2022-11-02",
-        resource_types={
+    example = azure.storage.get_account_sas_output(resource_types={
             "service": True,
             "container": False,
             "object": False,
@@ -299,8 +296,6 @@ def get_account_sas_output(connection_string: pulumi.Input[Optional[_builtins.st
             "table": False,
             "file": False,
         },
-        start="2018-03-21T00:00:00Z",
-        expiry="2020-03-21T00:00:00Z",
         permissions={
             "read": True,
             "write": True,
@@ -312,7 +307,12 @@ def get_account_sas_output(connection_string: pulumi.Input[Optional[_builtins.st
             "process": False,
             "tag": False,
             "filter": False,
-        })
+        },
+        connection_string=example_account.primary_connection_string,
+        https_only=True,
+        signed_version="2022-11-02",
+        start="2018-03-21T00:00:00Z",
+        expiry="2020-03-21T00:00:00Z")
     pulumi.export("sasUrlQueryString", example.sas)
     ```
 

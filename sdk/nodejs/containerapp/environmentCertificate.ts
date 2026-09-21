@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     containerAppEnvironmentId: exampleEnvironment.id,
  *     certificateBlobBase64: std.filebase64({
  *         input: "path/to/certificate_file.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     certificatePassword: "$3cretSqu1rreL",
  * });
  * ```
@@ -70,14 +70,14 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleEnvironment = new azure.containerapp.Environment("example", {
- *     name: "example-environment",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
+ *     name: "example-environment",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     name: "example-keyvault",
@@ -98,14 +98,14 @@ import * as utilities from "../utilities";
  *     principalId: exampleEnvironment.identity.apply(identity => identity?.principalId),
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "example-certificate",
- *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "path/to/certificate_file.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "",
  *     },
+ *     name: "example-certificate",
+ *     keyVaultId: exampleKeyVault.id,
  * }, {
  *     dependsOn: [
  *         userKeyvaultAdmin,
@@ -113,12 +113,12 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleEnvironmentCertificate = new azure.containerapp.EnvironmentCertificate("example", {
- *     name: "example-certificate",
- *     containerAppEnvironmentId: exampleEnvironment.id,
  *     certificateKeyVault: {
  *         identity: exampleUserAssignedIdentity.id,
  *         keyVaultSecretId: exampleCertificate.versionlessSecretId,
  *     },
+ *     name: "example-certificate",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
  * }, {
  *     dependsOn: [exampleAssignment],
  * });

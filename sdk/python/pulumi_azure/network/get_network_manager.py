@@ -157,12 +157,12 @@ def get_network_manager(name: Optional[_builtins.str] = None,
         location="West Europe")
     current = azure.core.get_subscription()
     example_network_manager = azure.network.NetworkManager("example",
-        name="example-network-manager",
-        location=example_resource_group.location,
-        resource_group_name=example_resource_group.name,
         scope={
             "subscription_ids": [current.id],
         },
+        name="example-network-manager",
+        location=example_resource_group.location,
+        resource_group_name=example_resource_group.name,
         scope_accesses=[
             "Connectivity",
             "SecurityAdmin",
@@ -216,12 +216,12 @@ def get_network_manager_output(name: pulumi.Input[Optional[_builtins.str]] = Non
         location="West Europe")
     current = azure.core.get_subscription()
     example_network_manager = azure.network.NetworkManager("example",
-        name="example-network-manager",
-        location=example_resource_group.location,
-        resource_group_name=example_resource_group.name,
         scope={
             "subscription_ids": [current.id],
         },
+        name="example-network-manager",
+        location=example_resource_group.location,
+        resource_group_name=example_resource_group.name,
         scope_accesses=[
             "Connectivity",
             "SecurityAdmin",

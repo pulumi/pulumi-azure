@@ -38,10 +38,6 @@ namespace Pulumi.Azure.Dns
     /// 
     ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = "test",
-    ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
@@ -53,6 +49,10 @@ namespace Pulumi.Azure.Dns
     ///                 Value = "more site information here",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Ttl = 300,
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

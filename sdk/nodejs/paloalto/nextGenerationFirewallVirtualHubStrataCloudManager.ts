@@ -48,15 +48,15 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * const exampleNextGenerationFirewallVirtualHubStrataCloudManager = new azure.paloalto.NextGenerationFirewallVirtualHubStrataCloudManager("example", {
- *     name: "example",
- *     resourceGroupName: "example",
- *     location: "West Europe",
- *     strataCloudManagerTenantName: "example",
  *     networkProfile: {
  *         publicIpAddressIds: [examplePublicIp.id],
  *         virtualHubId: exampleVirtualHub.id,
  *         networkVirtualApplianceId: exampleVirtualNetworkAppliance.id,
  *     },
+ *     name: "example",
+ *     resourceGroupName: "example",
+ *     location: "West Europe",
+ *     strataCloudManagerTenantName: "example",
  * });
  * ```
  *

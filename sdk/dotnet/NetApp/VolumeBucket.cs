@@ -53,18 +53,10 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-delegated",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "netapp",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Netapp/volumes",
@@ -74,7 +66,15 @@ namespace Pulumi.Azure.NetApp
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "netapp",
     ///             },
+    ///         },
+    ///         Name = "example-delegated",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
@@ -120,7 +120,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var bucketSelfSignedCert = new Tls.SelfSignedCert("bucket", new()
     ///     {
-    ///         PrivateKeyPem = bucket.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -128,6 +127,7 @@ namespace Pulumi.Azure.NetApp
     ///                 { "commonName", "example-bucket.example.internal" },
     ///             },
     ///         },
+    ///         PrivateKeyPem = bucket.PrivateKeyPem,
     ///         DnsNames = new[]
     ///         {
     ///             "example-bucket.example.internal",
@@ -144,8 +144,6 @@ namespace Pulumi.Azure.NetApp
     ///     // First bucket - establishes the shared bucket server.
     ///     var first = new Azure.NetApp.VolumeBucketWithServer("first", new()
     ///     {
-    ///         Name = "example-bucket-first",
-    ///         VolumeId = exampleVolume.Id,
     ///         FileSystemNfsUser = new Azure.NetApp.Inputs.VolumeBucketWithServerFileSystemNfsUserArgs
     ///         {
     ///             GroupId = 1000,
@@ -157,20 +155,22 @@ namespace Pulumi.Azure.NetApp
     ///             CertificatePem = Std.Base64encode.Invoke(new()
     ///             {
     ///                 Input = $"{bucketSelfSignedCert.CertPem}{bucket.PrivateKeyPem}",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///         },
+    ///         Name = "example-bucket-first",
+    ///         VolumeId = exampleVolume.Id,
     ///     });
     /// 
     ///     // Subsequent bucket - reuses the server configured by the first bucket.
     ///     var exampleVolumeBucket = new Azure.NetApp.VolumeBucket("example", new()
     ///     {
-    ///         Name = "example-bucket-second",
-    ///         VolumeId = exampleVolume.Id,
     ///         FileSystemNfsUser = new Azure.NetApp.Inputs.VolumeBucketFileSystemNfsUserArgs
     ///         {
     ///             GroupId = 2000,
     ///             UserId = 2000,
     ///         },
+    ///         Name = "example-bucket-second",
+    ///         VolumeId = exampleVolume.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

@@ -20,22 +20,22 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const followerCluster = new azure.kusto.Cluster("follower_cluster", {
+ *     sku: {
+ *         name: "Dev(No SLA)_Standard_D11_v2",
+ *         capacity: 1,
+ *     },
  *     name: "cluster1",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ * });
+ * const followedCluster = new azure.kusto.Cluster("followed_cluster", {
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
- * });
- * const followedCluster = new azure.kusto.Cluster("followed_cluster", {
  *     name: "cluster2",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
- *         name: "Dev(No SLA)_Standard_D11_v2",
- *         capacity: 1,
- *     },
  * });
  * const followedDatabase = new azure.kusto.Database("followed_database", {
  *     name: "my-followed-database",
@@ -50,12 +50,6 @@ import * as utilities from "../utilities";
  *     clusterName: followerCluster.name,
  * });
  * const exampleAttachedDatabaseConfiguration = new azure.kusto.AttachedDatabaseConfiguration("example", {
- *     name: "configuration1",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     clusterName: followerCluster.name,
- *     clusterId: followedCluster.id,
- *     databaseName: exampleDatabase.name,
  *     sharing: {
  *         externalTablesToExcludes: ["ExternalTable2"],
  *         externalTablesToIncludes: ["ExternalTable1"],
@@ -66,6 +60,12 @@ import * as utilities from "../utilities";
  *         tablesToExcludes: ["Table2"],
  *         tablesToIncludes: ["Table1"],
  *     },
+ *     name: "configuration1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     clusterName: followerCluster.name,
+ *     clusterId: followedCluster.id,
+ *     databaseName: exampleDatabase.name,
  * });
  * ```
  *

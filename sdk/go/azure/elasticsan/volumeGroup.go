@@ -40,13 +40,13 @@ import (
 //				return err
 //			}
 //			exampleElasticSan, err := elasticsan.NewElasticSan(ctx, "example", &elasticsan.ElasticSanArgs{
+//				Sku: &elasticsan.ElasticSanSkuArgs{
+//					Name: pulumi.String("Premium_LRS"),
+//				},
 //				Name:              pulumi.String("examplees-es"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				BaseSizeInTib:     pulumi.Int(1),
-//				Sku: &elasticsan.ElasticSanSkuArgs{
-//					Name: pulumi.String("Premium_LRS"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -166,9 +166,6 @@ import (
 //				return err
 //			}
 //			_, err = elasticsan.NewVolumeGroup(ctx, "example", &elasticsan.VolumeGroupArgs{
-//				Name:           pulumi.String("example-esvg"),
-//				ElasticSanId:   exampleElasticSan.ID().ToIDOutput().ToStringOutput(),
-//				EncryptionType: pulumi.String("EncryptionAtRestWithCustomerManagedKey"),
 //				Encryption: &elasticsan.VolumeGroupEncryptionArgs{
 //					KeyVaultKeyId:          exampleKey.VersionlessId,
 //					UserAssignedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
@@ -185,6 +182,9 @@ import (
 //						Action:   pulumi.String("Allow"),
 //					},
 //				},
+//				Name:           pulumi.String("example-esvg"),
+//				ElasticSanId:   exampleElasticSan.ID().ToIDOutput().ToStringOutput(),
+//				EncryptionType: pulumi.String("EncryptionAtRestWithCustomerManagedKey"),
 //			})
 //			if err != nil {
 //				return err

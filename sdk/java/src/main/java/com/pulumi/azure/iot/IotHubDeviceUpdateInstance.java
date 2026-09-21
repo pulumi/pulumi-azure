@@ -66,13 +66,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -84,14 +84,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIotHubDeviceUpdateInstance = new IotHubDeviceUpdateInstance("exampleIotHubDeviceUpdateInstance", IotHubDeviceUpdateInstanceArgs.builder()
- *             .name("example")
- *             .deviceUpdateAccountId(exampleIotHubDeviceUpdateAccount.id())
- *             .iothubId(exampleIoTHub.id())
- *             .diagnosticEnabled(true)
  *             .diagnosticStorageAccount(IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs.builder()
  *                 .connectionString(exampleAccount.primaryConnectionString())
  *                 .id(exampleAccount.id())
  *                 .build())
+ *             .name("example")
+ *             .deviceUpdateAccountId(exampleIotHubDeviceUpdateAccount.id())
+ *             .iothubId(exampleIoTHub.id())
+ *             .diagnosticEnabled(true)
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

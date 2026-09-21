@@ -76,13 +76,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatasetBinary = new DatasetBinary("exampleDatasetBinary", DatasetBinaryArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .linkedServiceName(exampleLinkedServiceSftp.name())
  *             .sftpServerLocation(DatasetBinarySftpServerLocationArgs.builder()
  *                 .path("/test/")
  *                 .filename("**")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .linkedServiceName(exampleLinkedServiceSftp.name())
  *             .build());
  * 
  *     }

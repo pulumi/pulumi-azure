@@ -271,10 +271,6 @@ class CaaRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_caa_record = azure.dns.CaaRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[
                 {
                     "flags": 0,
@@ -297,6 +293,10 @@ class CaaRecord(pulumi.CustomResource):
                     "value": "mailto:user@nonexisting.tld",
                 },
             ],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })
@@ -351,10 +351,6 @@ class CaaRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_caa_record = azure.dns.CaaRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[
                 {
                     "flags": 0,
@@ -377,6 +373,10 @@ class CaaRecord(pulumi.CustomResource):
                     "value": "mailto:user@nonexisting.tld",
                 },
             ],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })

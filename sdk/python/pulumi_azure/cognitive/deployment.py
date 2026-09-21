@@ -290,8 +290,6 @@ class Deployment(pulumi.CustomResource):
             kind="OpenAI",
             sku_name="S0")
         example_deployment = azure.cognitive.Deployment("example",
-            name="example-cd",
-            cognitive_account_id=example_account.id,
             model={
                 "format": "OpenAI",
                 "name": "text-curie-001",
@@ -299,7 +297,9 @@ class Deployment(pulumi.CustomResource):
             },
             sku={
                 "name": "Standard",
-            })
+            },
+            name="example-cd",
+            cognitive_account_id=example_account.id)
         ```
 
         ## API Providers
@@ -353,8 +353,6 @@ class Deployment(pulumi.CustomResource):
             kind="OpenAI",
             sku_name="S0")
         example_deployment = azure.cognitive.Deployment("example",
-            name="example-cd",
-            cognitive_account_id=example_account.id,
             model={
                 "format": "OpenAI",
                 "name": "text-curie-001",
@@ -362,7 +360,9 @@ class Deployment(pulumi.CustomResource):
             },
             sku={
                 "name": "Standard",
-            })
+            },
+            name="example-cd",
+            cognitive_account_id=example_account.id)
         ```
 
         ## API Providers

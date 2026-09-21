@@ -308,14 +308,8 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("example",
-            name="example-backup-policy",
-            vault_id=example_backup_vault.id,
-            operational_default_retention_duration="P30D",
-            vault_default_retention_duration="P7D",
             retention_rules=[
                 {
-                    "name": "Weekly",
-                    "priority": 20,
                     "life_cycle": {
                         "duration": "P90D",
                         "data_store_type": "VaultStore",
@@ -323,10 +317,10 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                     "criteria": {
                         "days_of_weeks": ["Monday"],
                     },
+                    "name": "Weekly",
+                    "priority": 20,
                 },
                 {
-                    "name": "Monthly",
-                    "priority": 10,
                     "life_cycle": {
                         "duration": "P180D",
                         "data_store_type": "VaultStore",
@@ -334,10 +328,10 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                     "criteria": {
                         "days_of_months": [1],
                     },
+                    "name": "Monthly",
+                    "priority": 10,
                 },
                 {
-                    "name": "Yearly",
-                    "priority": 5,
                     "life_cycle": {
                         "duration": "P365D",
                         "data_store_type": "VaultStore",
@@ -346,8 +340,14 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                         "months_of_years": ["January"],
                         "days_of_months": [1],
                     },
+                    "name": "Yearly",
+                    "priority": 5,
                 },
-            ])
+            ],
+            name="example-backup-policy",
+            vault_id=example_backup_vault.id,
+            operational_default_retention_duration="P30D",
+            vault_default_retention_duration="P7D")
         ```
 
         ## API Providers
@@ -405,14 +405,8 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_blob_storage = azure.dataprotection.BackupPolicyBlobStorage("example",
-            name="example-backup-policy",
-            vault_id=example_backup_vault.id,
-            operational_default_retention_duration="P30D",
-            vault_default_retention_duration="P7D",
             retention_rules=[
                 {
-                    "name": "Weekly",
-                    "priority": 20,
                     "life_cycle": {
                         "duration": "P90D",
                         "data_store_type": "VaultStore",
@@ -420,10 +414,10 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                     "criteria": {
                         "days_of_weeks": ["Monday"],
                     },
+                    "name": "Weekly",
+                    "priority": 20,
                 },
                 {
-                    "name": "Monthly",
-                    "priority": 10,
                     "life_cycle": {
                         "duration": "P180D",
                         "data_store_type": "VaultStore",
@@ -431,10 +425,10 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                     "criteria": {
                         "days_of_months": [1],
                     },
+                    "name": "Monthly",
+                    "priority": 10,
                 },
                 {
-                    "name": "Yearly",
-                    "priority": 5,
                     "life_cycle": {
                         "duration": "P365D",
                         "data_store_type": "VaultStore",
@@ -443,8 +437,14 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                         "months_of_years": ["January"],
                         "days_of_months": [1],
                     },
+                    "name": "Yearly",
+                    "priority": 5,
                 },
-            ])
+            ],
+            name="example-backup-policy",
+            vault_id=example_backup_vault.id,
+            operational_default_retention_duration="P30D",
+            vault_default_retention_duration="P7D")
         ```
 
         ## API Providers

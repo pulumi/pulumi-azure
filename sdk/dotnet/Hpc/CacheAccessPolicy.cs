@@ -64,8 +64,6 @@ namespace Pulumi.Azure.Hpc
     /// 
     ///     var exampleCacheAccessPolicy = new Azure.Hpc.CacheAccessPolicy("example", new()
     ///     {
-    ///         Name = "example",
-    ///         HpcCacheId = exampleCache.Id,
     ///         AccessRules = new[]
     ///         {
     ///             new Azure.Hpc.Inputs.CacheAccessPolicyAccessRuleArgs
@@ -74,6 +72,8 @@ namespace Pulumi.Azure.Hpc
     ///                 Access = "rw",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         HpcCacheId = exampleCache.Id,
     ///     });
     /// 
     /// });

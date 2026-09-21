@@ -292,27 +292,27 @@ class SqlRoleDefinition(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
+            permissions=[{
+                "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+            }],
             role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
             resource_group_name=example.name,
             account_name=example_account.name,
             name="acctestsqlrole",
-            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
-            permissions=[{
-                "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            }])
+            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")])
         ```
 
         ## API Providers
@@ -363,27 +363,27 @@ class SqlRoleDefinition(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
+            permissions=[{
+                "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+            }],
             role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
             resource_group_name=example.name,
             account_name=example_account.name,
             name="acctestsqlrole",
-            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
-            permissions=[{
-                "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
-            }])
+            assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")])
         ```
 
         ## API Providers

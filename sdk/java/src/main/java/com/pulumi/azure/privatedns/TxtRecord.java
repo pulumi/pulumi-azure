@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value("v=spf1 mx ~all")
+ *                 .build())
  *             .name("test")
  *             .resourceGroupName(example.name())
  *             .zoneName(exampleZone.name())
  *             .ttl(300)
- *             .records(TxtRecordRecordArgs.builder()
- *                 .value("v=spf1 mx ~all")
- *                 .build())
  *             .build());
  * 
  *     }

@@ -29,10 +29,6 @@ namespace Pulumi.Azure.Lighthouse
     /// 
     ///     var example = new Azure.Lighthouse.Definition("example", new()
     ///     {
-    ///         Name = "Sample definition",
-    ///         Description = "This is a lighthouse definition created IaC",
-    ///         ManagingTenantId = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///         Authorizations = new[]
     ///         {
     ///             new Azure.Lighthouse.Inputs.DefinitionAuthorizationArgs
@@ -42,6 +38,10 @@ namespace Pulumi.Azure.Lighthouse
     ///                 PrincipalDisplayName = "Tier 1 Support",
     ///             },
     ///         },
+    ///         Name = "Sample definition",
+    ///         Description = "This is a lighthouse definition created IaC",
+    ///         ManagingTenantId = "00000000-0000-0000-0000-000000000000",
+    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
     /// });

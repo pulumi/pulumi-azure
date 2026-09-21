@@ -32,14 +32,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
- *     name: "example-network",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     addressSpaces: ["10.0.0.0/16"],
- *     dnsServers: [
- *         "10.0.0.4",
- *         "10.0.0.5",
- *     ],
  *     subnets: [
  *         {
  *             name: "subnet1",
@@ -50,6 +42,14 @@ import * as utilities from "../utilities";
  *             addressPrefixes: ["10.0.2.0/24"],
  *             securityGroup: exampleNetworkSecurityGroup.id,
  *         },
+ *     ],
+ *     name: "example-network",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     dnsServers: [
+ *         "10.0.0.4",
+ *         "10.0.0.5",
  *     ],
  *     tags: {
  *         environment: "Production",

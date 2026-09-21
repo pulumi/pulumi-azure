@@ -46,6 +46,9 @@ import (
 //				return err
 //			}
 //			exampleRunBook, err := automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
+//				PublishContentLink: &automation.RunBookPublishContentLinkArgs{
+//					Uri: pulumi.String("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1"),
+//				},
 //				Name:                  pulumi.String("Get-AzureVMTutorial"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
@@ -54,9 +57,6 @@ import (
 //				LogProgress:           pulumi.Bool(true),
 //				Description:           pulumi.String("This is an example runbook"),
 //				RunbookType:           pulumi.String("PowerShellWorkflow"),
-//				PublishContentLink: &automation.RunBookPublishContentLinkArgs{
-//					Uri: pulumi.String("https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1"),
-//				},
 //			})
 //			if err != nil {
 //				return err

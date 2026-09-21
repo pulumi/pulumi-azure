@@ -597,6 +597,9 @@ class Grafana(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_grafana = azure.dashboard.Grafana("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-dg",
             resource_group_name=example.name,
             location="West Europe",
@@ -606,9 +609,6 @@ class Grafana(pulumi.CustomResource):
             public_network_access_enabled=False,
             sku="Standard",
             sku_size="X1",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "key": "value",
             })
@@ -667,6 +667,9 @@ class Grafana(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_grafana = azure.dashboard.Grafana("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-dg",
             resource_group_name=example.name,
             location="West Europe",
@@ -676,9 +679,6 @@ class Grafana(pulumi.CustomResource):
             public_network_access_enabled=False,
             sku="Standard",
             sku_size="X1",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "key": "value",
             })

@@ -1486,13 +1486,13 @@ class LinuxFunctionApp(pulumi.CustomResource):
             os_type="Linux",
             sku_name="B1")
         example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
+            site_config={},
             name="example-linux-function-app",
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         ```
 
         ## API Providers
@@ -1612,13 +1612,13 @@ class LinuxFunctionApp(pulumi.CustomResource):
             os_type="Linux",
             sku_name="B1")
         example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
+            site_config={},
             name="example-linux-function-app",
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         ```
 
         ## API Providers

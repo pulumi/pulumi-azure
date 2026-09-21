@@ -558,35 +558,25 @@ class ApiDiagnostic(pulumi.CustomResource):
             publisher_email="company@mycompany.io",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("example",
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+            },
             name="example-api",
             resource_group_name=example.name,
             api_management_name=example_service.name,
             revision="1",
             display_name="Example API",
             path="example",
-            protocols=["https"],
-            import_={
-                "content_format": "swagger-link-json",
-                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
-            })
+            protocols=["https"])
         example_logger = azure.apimanagement.Logger("example",
-            name="example-apimlogger",
-            api_management_name=example_service.name,
-            resource_group_name=example.name,
             application_insights={
                 "instrumentation_key": example_insights.instrumentation_key,
-            })
-        example_api_diagnostic = azure.apimanagement.ApiDiagnostic("example",
-            identifier="applicationinsights",
-            resource_group_name=example.name,
+            },
+            name="example-apimlogger",
             api_management_name=example_service.name,
-            api_name=example_api.name,
-            api_management_logger_id=example_logger.id,
-            sampling_percentage=float(5),
-            always_log_errors=True,
-            log_client_ip=True,
-            verbosity="verbose",
-            http_correlation_protocol="W3C",
+            resource_group_name=example.name)
+        example_api_diagnostic = azure.apimanagement.ApiDiagnostic("example",
             frontend_request={
                 "body_bytes": 32,
                 "headers_to_logs": [
@@ -618,7 +608,17 @@ class ApiDiagnostic(pulumi.CustomResource):
                     "content-length",
                     "origin",
                 ],
-            })
+            },
+            identifier="applicationinsights",
+            resource_group_name=example.name,
+            api_management_name=example_service.name,
+            api_name=example_api.name,
+            api_management_logger_id=example_logger.id,
+            sampling_percentage=float(5),
+            always_log_errors=True,
+            log_client_ip=True,
+            verbosity="verbose",
+            http_correlation_protocol="W3C")
         ```
 
         ## API Providers
@@ -686,35 +686,25 @@ class ApiDiagnostic(pulumi.CustomResource):
             publisher_email="company@mycompany.io",
             sku_name="Developer_1")
         example_api = azure.apimanagement.Api("example",
+            import_={
+                "content_format": "swagger-link-json",
+                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+            },
             name="example-api",
             resource_group_name=example.name,
             api_management_name=example_service.name,
             revision="1",
             display_name="Example API",
             path="example",
-            protocols=["https"],
-            import_={
-                "content_format": "swagger-link-json",
-                "content_value": "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
-            })
+            protocols=["https"])
         example_logger = azure.apimanagement.Logger("example",
-            name="example-apimlogger",
-            api_management_name=example_service.name,
-            resource_group_name=example.name,
             application_insights={
                 "instrumentation_key": example_insights.instrumentation_key,
-            })
-        example_api_diagnostic = azure.apimanagement.ApiDiagnostic("example",
-            identifier="applicationinsights",
-            resource_group_name=example.name,
+            },
+            name="example-apimlogger",
             api_management_name=example_service.name,
-            api_name=example_api.name,
-            api_management_logger_id=example_logger.id,
-            sampling_percentage=float(5),
-            always_log_errors=True,
-            log_client_ip=True,
-            verbosity="verbose",
-            http_correlation_protocol="W3C",
+            resource_group_name=example.name)
+        example_api_diagnostic = azure.apimanagement.ApiDiagnostic("example",
             frontend_request={
                 "body_bytes": 32,
                 "headers_to_logs": [
@@ -746,7 +736,17 @@ class ApiDiagnostic(pulumi.CustomResource):
                     "content-length",
                     "origin",
                 ],
-            })
+            },
+            identifier="applicationinsights",
+            resource_group_name=example.name,
+            api_management_name=example_service.name,
+            api_name=example_api.name,
+            api_management_logger_id=example_logger.id,
+            sampling_percentage=float(5),
+            always_log_errors=True,
+            log_client_ip=True,
+            verbosity="verbose",
+            http_correlation_protocol="W3C")
         ```
 
         ## API Providers

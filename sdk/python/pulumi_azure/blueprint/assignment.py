@@ -485,16 +485,16 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Owner",
             principal_id=example_user_assigned_identity.principal_id)
         example_assignment = azure.blueprint.Assignment("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="testAccBPAssignment",
             target_subscription_id=example.id,
             version_id=example_get_published_version.id,
             location=example_resource_group.location,
             lock_mode="AllResourcesDoNotDelete",
             lock_exclude_principals=[current.object_id],
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
             resource_groups=\"\"\"    {
               \\"ResourceGroup\\": {
                 \\"name\\": \\"exampleRG-bp\\"
@@ -591,16 +591,16 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Owner",
             principal_id=example_user_assigned_identity.principal_id)
         example_assignment = azure.blueprint.Assignment("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            },
             name="testAccBPAssignment",
             target_subscription_id=example.id,
             version_id=example_get_published_version.id,
             location=example_resource_group.location,
             lock_mode="AllResourcesDoNotDelete",
             lock_exclude_principals=[current.object_id],
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example_user_assigned_identity.id],
-            },
             resource_groups=\"\"\"    {
               \\"ResourceGroup\\": {
                 \\"name\\": \\"exampleRG-bp\\"

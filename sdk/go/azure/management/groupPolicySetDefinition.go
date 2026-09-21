@@ -35,6 +35,13 @@ import (
 //				return err
 //			}
 //			_, err = management.NewGroupPolicySetDefinition(ctx, "example", &management.GroupPolicySetDefinitionArgs{
+//				PolicyDefinitionReferences: management.GroupPolicySetDefinitionPolicyDefinitionReferenceArray{
+//					&management.GroupPolicySetDefinitionPolicyDefinitionReferenceArgs{
+//						Version:            pulumi.String("1.0.*"),
+//						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
+//						ParameterValues:    pulumi.String("   {\n     \\\"listOfAllowedLocations\\\": {\\\"value\\\": \\\"[parameters('allowedLocations')]\\\"}\n   }\n"),
+//					},
+//				},
 //				Name:              pulumi.String("example"),
 //				PolicyType:        pulumi.String("Custom"),
 //				DisplayName:       pulumi.String("Example"),
@@ -52,13 +59,6 @@ import (
 //
 // `),
 //
-//				PolicyDefinitionReferences: management.GroupPolicySetDefinitionPolicyDefinitionReferenceArray{
-//					&management.GroupPolicySetDefinitionPolicyDefinitionReferenceArgs{
-//						Version:            pulumi.String("1.0.*"),
-//						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
-//						ParameterValues:    pulumi.String("   {\n     \\\"listOfAllowedLocations\\\": {\\\"value\\\": \\\"[parameters('allowedLocations')]\\\"}\n   }\n"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

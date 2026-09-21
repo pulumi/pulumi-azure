@@ -31,9 +31,6 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  * });
  * const exampleSpringCloudDevToolPortal = new azure.appplatform.SpringCloudDevToolPortal("example", {
- *     name: "default",
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     publicNetworkAccessEnabled: true,
  *     sso: {
  *         clientId: "example id",
  *         clientSecret: "example secret",
@@ -44,6 +41,9 @@ import * as utilities from "../utilities";
  *             "email",
  *         ],
  *     },
+ *     name: "default",
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ *     publicNetworkAccessEnabled: true,
  *     applicationAcceleratorEnabled: true,
  *     applicationLiveViewEnabled: true,
  * });

@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.marketplace.RoleAssignment;
  * import com.pulumi.azure.marketplace.RoleAssignmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -50,7 +51,9 @@ import javax.annotation.Nullable;
  *         var exampleRoleAssignment = new RoleAssignment("exampleRoleAssignment", RoleAssignmentArgs.builder()
  *             .roleDefinitionName("Marketplace Admin")
  *             .principalId(example.objectId())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("name", "roleDefinitionId")
+ *                 .build());
  * 
  *     }
  * }
@@ -71,6 +74,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.marketplace.RoleAssignment;
  * import com.pulumi.azure.marketplace.RoleAssignmentArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -93,7 +97,9 @@ import javax.annotation.Nullable;
  *         var exampleRoleAssignment = new RoleAssignment("exampleRoleAssignment", RoleAssignmentArgs.builder()
  *             .roleDefinitionId(exampleGetRoleDefinition.id())
  *             .principalId(example.objectId())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("roleDefinitionName")
+ *                 .build());
  * 
  *     }
  * }

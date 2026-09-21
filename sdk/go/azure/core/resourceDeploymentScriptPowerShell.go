@@ -45,6 +45,12 @@ import (
 //				return err
 //			}
 //			_, err = core.NewResourceDeploymentScriptPowerShell(ctx, "example", &core.ResourceDeploymentScriptPowerShellArgs{
+//				Identity: &core.ResourceDeploymentScriptPowerShellIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:              pulumi.String("example-rdsaps"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
@@ -62,12 +68,6 @@ import (
 //
 // `),
 //
-//				Identity: &core.ResourceDeploymentScriptPowerShellIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

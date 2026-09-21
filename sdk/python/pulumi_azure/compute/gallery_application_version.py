@@ -473,9 +473,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             type="Block",
             source_content="[scripts file content]")
         example_gallery_application_version = azure.compute.GalleryApplicationVersion("example",
-            name="0.0.1",
-            gallery_application_id=example_gallery_application.id,
-            location=example_gallery_application.location,
             manage_action={
                 "install": "[install command]",
                 "remove": "[remove command]",
@@ -486,7 +483,10 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             target_regions=[{
                 "name": example_gallery_application.location,
                 "regional_replica_count": 1,
-            }])
+            }],
+            name="0.0.1",
+            gallery_application_id=example_gallery_application.id,
+            location=example_gallery_application.location)
         ```
 
         ## API Providers
@@ -564,9 +564,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             type="Block",
             source_content="[scripts file content]")
         example_gallery_application_version = azure.compute.GalleryApplicationVersion("example",
-            name="0.0.1",
-            gallery_application_id=example_gallery_application.id,
-            location=example_gallery_application.location,
             manage_action={
                 "install": "[install command]",
                 "remove": "[remove command]",
@@ -577,7 +574,10 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             target_regions=[{
                 "name": example_gallery_application.location,
                 "regional_replica_count": 1,
-            }])
+            }],
+            name="0.0.1",
+            gallery_application_id=example_gallery_application.id,
+            location=example_gallery_application.location)
         ```
 
         ## API Providers

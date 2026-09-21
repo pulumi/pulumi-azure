@@ -37,12 +37,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             actions: [
  *                 "Microsoft.Network/networkinterfaces/*",
@@ -50,13 +45,22 @@ import * as utilities from "../utilities";
  *             ],
  *             name: "Oracle.Database/networkAttachments",
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const example = azure.oracle.getDbServersOutput({
  *     resourceGroupName: exampleResourceGroup.name,
  *     cloudExadataInfrastructureName: exampleExadataInfrastructure.name,
  * });
  * const exampleCloudVmCluster = new azure.oracle.CloudVmCluster("example", {
+ *     fileSystemConfigurations: [{
+ *         mountPoint: "/var",
+ *         sizeInGb: 32,
+ *     }],
  *     name: "example-cloud-vm-cluster",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -66,17 +70,13 @@ import * as utilities from "../utilities";
  *     dbServers: example.apply(example => .map(obj => (obj.ocid))),
  *     sshPublicKeys: [std.file({
  *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result)],
+ *     }).result],
  *     displayName: "example-cloud-vm-cluster",
  *     cloudExadataInfrastructureId: exampleExadataInfrastructure.id,
  *     cpuCoreCount: 2,
  *     hostname: "hostname",
  *     subnetId: exampleSubnet.id,
  *     systemVersion: "23.1.19.0.0.241015",
- *     fileSystemConfigurations: [{
- *         mountPoint: "/var",
- *         sizeInGb: 32,
- *     }],
  * });
  * ```
  *

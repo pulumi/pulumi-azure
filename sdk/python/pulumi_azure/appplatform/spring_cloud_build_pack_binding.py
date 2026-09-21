@@ -196,20 +196,17 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             location=example.location,
             sku_name="E0")
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
-            name="example",
-            spring_cloud_service_id=example_spring_cloud_service.id,
+            stack={
+                "id": "io.Build Packs.stacks.bionic",
+                "version": "base",
+            },
             build_pack_groups=[{
                 "name": "mix",
                 "build_pack_ids": ["tanzu-Build Packs/java-azure"],
             }],
-            stack={
-                "id": "io.Build Packs.stacks.bionic",
-                "version": "base",
-            })
-        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
             name="example",
-            spring_cloud_builder_id=example_spring_cloud_builder.id,
-            binding_type="ApplicationInsights",
+            spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
             launch={
                 "properties": {
                     "abc": "def",
@@ -219,7 +216,10 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                 "secrets": {
                     "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
-            })
+            },
+            name="example",
+            spring_cloud_builder_id=example_spring_cloud_builder.id,
+            binding_type="ApplicationInsights")
         ```
 
         ## Import
@@ -266,20 +266,17 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             location=example.location,
             sku_name="E0")
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
-            name="example",
-            spring_cloud_service_id=example_spring_cloud_service.id,
+            stack={
+                "id": "io.Build Packs.stacks.bionic",
+                "version": "base",
+            },
             build_pack_groups=[{
                 "name": "mix",
                 "build_pack_ids": ["tanzu-Build Packs/java-azure"],
             }],
-            stack={
-                "id": "io.Build Packs.stacks.bionic",
-                "version": "base",
-            })
-        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
             name="example",
-            spring_cloud_builder_id=example_spring_cloud_builder.id,
-            binding_type="ApplicationInsights",
+            spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
             launch={
                 "properties": {
                     "abc": "def",
@@ -289,7 +286,10 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                 "secrets": {
                     "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
-            })
+            },
+            name="example",
+            spring_cloud_builder_id=example_spring_cloud_builder.id,
+            binding_type="ApplicationInsights")
         ```
 
         ## Import

@@ -25,10 +25,6 @@ import * as utilities from "../utilities";
  *     shortName: "action",
  * });
  * const exampleAlertProcessingRuleActionGroup = new azure.monitoring.AlertProcessingRuleActionGroup("example", {
- *     name: "example",
- *     resourceGroupName: "example",
- *     scopes: [example.id],
- *     addActionGroupIds: [exampleActionGroup.id],
  *     condition: {
  *         targetResourceType: {
  *             operator: "Equals",
@@ -44,9 +40,6 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     schedule: {
- *         effectiveFrom: "2022-01-01T01:02:03",
- *         effectiveUntil: "2022-02-02T01:02:03",
- *         timeZone: "Pacific Standard Time",
  *         recurrence: {
  *             dailies: [{
  *                 startTime: "17:00:00",
@@ -59,7 +52,14 @@ import * as utilities from "../utilities";
  *                 ],
  *             }],
  *         },
+ *         effectiveFrom: "2022-01-01T01:02:03",
+ *         effectiveUntil: "2022-02-02T01:02:03",
+ *         timeZone: "Pacific Standard Time",
  *     },
+ *     name: "example",
+ *     resourceGroupName: "example",
+ *     scopes: [example.id],
+ *     addActionGroupIds: [exampleActionGroup.id],
  *     tags: {
  *         foo: "bar",
  *     },

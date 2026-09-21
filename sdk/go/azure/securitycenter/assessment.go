@@ -61,25 +61,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Name:              pulumi.String("example-vmss"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				Sku:               pulumi.String("Standard_F2"),
-//				Instances:         pulumi.Int(1),
-//				AdminUsername:     pulumi.String("adminuser"),
-//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
-//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
-//						Username:  pulumi.String("adminuser"),
-//						PublicKey: pulumi.String(invokeFile.Result),
-//					},
-//				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -90,10 +78,14 @@ import (
 //					StorageAccountType: pulumi.String("Standard_LRS"),
 //					Caching:            pulumi.String("ReadWrite"),
 //				},
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: invokeFile.Result,
+//					},
+//				},
 //				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
 //					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
 //						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
@@ -101,8 +93,16 @@ import (
 //								SubnetId: internal.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
 //					},
 //				},
+//				Name:              pulumi.String("example-vmss"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(1),
+//				AdminUsername:     pulumi.String("adminuser"),
 //			})
 //			if err != nil {
 //				return err
@@ -116,11 +116,11 @@ import (
 //				return err
 //			}
 //			_, err = securitycenter.NewAssessment(ctx, "example", &securitycenter.AssessmentArgs{
-//				AssessmentPolicyId: exampleAssessmentPolicy.ID().ToIDOutput().ToStringOutput(),
-//				TargetResourceId:   exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Status: &securitycenter.AssessmentStatusArgs{
 //					Code: pulumi.String("Healthy"),
 //				},
+//				AssessmentPolicyId: exampleAssessmentPolicy.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

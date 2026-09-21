@@ -78,11 +78,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudGateway = new SpringCloudGateway("exampleSpringCloudGateway", SpringCloudGatewayArgs.builder()
- *             .name("default")
- *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .httpsOnly(false)
- *             .publicNetworkAccessEnabled(true)
- *             .instanceCount(2)
  *             .apiMetadata(SpringCloudGatewayApiMetadataArgs.builder()
  *                 .description("example description")
  *                 .documentationUrl("https://www.example.com/docs")
@@ -112,6 +107,11 @@ import javax.annotation.Nullable;
  *                 .size("100MB")
  *                 .timeToLive("30s")
  *                 .build())
+ *             .name("default")
+ *             .springCloudServiceId(exampleSpringCloudService.id())
+ *             .httpsOnly(false)
+ *             .publicNetworkAccessEnabled(true)
+ *             .instanceCount(2)
  *             .build());
  * 
  *     }

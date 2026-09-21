@@ -68,9 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudDevToolPortal = new SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal", SpringCloudDevToolPortalArgs.builder()
- *             .name("default")
- *             .springCloudServiceId(exampleSpringCloudService.id())
- *             .publicNetworkAccessEnabled(true)
  *             .sso(SpringCloudDevToolPortalSsoArgs.builder()
  *                 .clientId("example id")
  *                 .clientSecret("example secret")
@@ -80,6 +77,9 @@ import javax.annotation.Nullable;
  *                     "profile",
  *                     "email")
  *                 .build())
+ *             .name("default")
+ *             .springCloudServiceId(exampleSpringCloudService.id())
+ *             .publicNetworkAccessEnabled(true)
  *             .applicationAcceleratorEnabled(true)
  *             .applicationLiveViewEnabled(true)
  *             .build());

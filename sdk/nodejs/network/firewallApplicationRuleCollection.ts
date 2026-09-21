@@ -39,32 +39,32 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const exampleFirewall = new azure.network.Firewall("example", {
- *     name: "testfirewall",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "AZFW_VNet",
- *     skuTier: "Standard",
  *     ipConfigurations: [{
  *         name: "configuration",
  *         subnetId: exampleSubnet.id,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "testfirewall",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     skuName: "AZFW_VNet",
+ *     skuTier: "Standard",
  * });
  * const exampleFirewallApplicationRuleCollection = new azure.network.FirewallApplicationRuleCollection("example", {
+ *     rules: [{
+ *         protocols: [{
+ *             port: 443,
+ *             type: "Https",
+ *         }],
+ *         name: "testrule",
+ *         sourceAddresses: ["10.0.0.0/16"],
+ *         targetFqdns: ["*.google.com"],
+ *     }],
  *     name: "testcollection",
  *     azureFirewallName: exampleFirewall.name,
  *     resourceGroupName: example.name,
  *     priority: 100,
  *     action: "Allow",
- *     rules: [{
- *         name: "testrule",
- *         sourceAddresses: ["10.0.0.0/16"],
- *         targetFqdns: ["*.google.com"],
- *         protocols: [{
- *             port: 443,
- *             type: "Https",
- *         }],
- *     }],
  * });
  * ```
  *

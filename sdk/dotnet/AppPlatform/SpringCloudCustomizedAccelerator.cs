@@ -46,14 +46,14 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudCustomizedAccelerator = new Azure.AppPlatform.SpringCloudCustomizedAccelerator("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SpringCloudAcceleratorId = exampleSpringCloudAccelerator.Id,
     ///         GitRepository = new Azure.AppPlatform.Inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs
     ///         {
     ///             Url = "https://github.com/Azure-Samples/piggymetrics",
     ///             GitTag = "spring.version.2.0.3",
     ///             IntervalInSeconds = 100,
     ///         },
+    ///         Name = "example",
+    ///         SpringCloudAcceleratorId = exampleSpringCloudAccelerator.Id,
     ///         AcceleratorTags = new[]
     ///         {
     ///             "tag-a",

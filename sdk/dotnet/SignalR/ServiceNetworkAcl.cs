@@ -30,14 +30,14 @@ namespace Pulumi.Azure.SignalR
     /// 
     ///     var exampleService = new Azure.SignalR.Service("example", new()
     ///     {
-    ///         Name = "example-signalr",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Standard_S1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example-signalr",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
@@ -65,10 +65,6 @@ namespace Pulumi.Azure.SignalR
     /// 
     ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
     ///     {
-    ///         Name = "example-privateendpoint",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SubnetId = exampleSubnet.Id,
     ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///         {
     ///             Name = "psc-sig-test",
@@ -79,12 +75,14 @@ namespace Pulumi.Azure.SignalR
     ///                 "signalr",
     ///             },
     ///         },
+    ///         Name = "example-privateendpoint",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SubnetId = exampleSubnet.Id,
     ///     });
     /// 
     ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("example", new()
     ///     {
-    ///         SignalrServiceId = exampleService.Id,
-    ///         DefaultAction = "Deny",
     ///         PublicNetwork = new Azure.SignalR.Inputs.ServiceNetworkAclPublicNetworkArgs
     ///         {
     ///             AllowedRequestTypes = new[]
@@ -103,6 +101,8 @@ namespace Pulumi.Azure.SignalR
     ///                 },
     ///             },
     ///         },
+    ///         SignalrServiceId = exampleService.Id,
+    ///         DefaultAction = "Deny",
     ///     });
     /// 
     /// });

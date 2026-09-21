@@ -70,13 +70,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -90,6 +83,13 @@ import javax.annotation.Nullable;
  *                     "Purge",
  *                     "Recover")
  *                 .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()
@@ -105,16 +105,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCredentialServicePrincipal = new CredentialServicePrincipal("exampleCredentialServicePrincipal", CredentialServicePrincipalArgs.builder()
- *             .name("example")
- *             .description("example description")
- *             .dataFactoryId(exampleFactory.id())
- *             .tenantId(current.tenantId())
- *             .servicePrincipalId(current.clientId())
  *             .servicePrincipalKey(CredentialServicePrincipalServicePrincipalKeyArgs.builder()
  *                 .linkedServiceName(exampleLinkedServiceKeyVault.name())
  *                 .secretName(exampleSecret.name())
  *                 .secretVersion(exampleSecret.version())
  *                 .build())
+ *             .name("example")
+ *             .description("example description")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .tenantId(current.tenantId())
+ *             .servicePrincipalId(current.clientId())
  *             .annotations(            
  *                 "1",
  *                 "2")

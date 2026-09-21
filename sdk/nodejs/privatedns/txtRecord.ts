@@ -24,13 +24,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleTxtRecord = new azure.privatedns.TxtRecord("example", {
+ *     records: [{
+ *         value: "v=spf1 mx ~all",
+ *     }],
  *     name: "test",
  *     resourceGroupName: example.name,
  *     zoneName: exampleZone.name,
  *     ttl: 300,
- *     records: [{
- *         value: "v=spf1 mx ~all",
- *     }],
  * });
  * ```
  *

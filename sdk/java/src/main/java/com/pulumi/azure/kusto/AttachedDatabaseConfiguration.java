@@ -57,23 +57,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var followerCluster = new Cluster("followerCluster", ClusterArgs.builder()
+ *             .sku(ClusterSkuArgs.builder()
+ *                 .name("Dev(No SLA)_Standard_D11_v2")
+ *                 .capacity(1)
+ *                 .build())
  *             .name("cluster1")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(ClusterSkuArgs.builder()
- *                 .name("Dev(No SLA)_Standard_D11_v2")
- *                 .capacity(1)
- *                 .build())
  *             .build());
  * 
  *         var followedCluster = new Cluster("followedCluster", ClusterArgs.builder()
- *             .name("cluster2")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Dev(No SLA)_Standard_D11_v2")
  *                 .capacity(1)
  *                 .build())
+ *             .name("cluster2")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var followedDatabase = new Database("followedDatabase", DatabaseArgs.builder()
@@ -91,12 +91,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAttachedDatabaseConfiguration = new AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", AttachedDatabaseConfigurationArgs.builder()
- *             .name("configuration1")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .clusterName(followerCluster.name())
- *             .clusterId(followedCluster.id())
- *             .databaseName(exampleDatabase.name())
  *             .sharing(AttachedDatabaseConfigurationSharingArgs.builder()
  *                 .externalTablesToExcludes("ExternalTable2")
  *                 .externalTablesToIncludes("ExternalTable1")
@@ -107,6 +101,12 @@ import javax.annotation.Nullable;
  *                 .tablesToExcludes("Table2")
  *                 .tablesToIncludes("Table1")
  *                 .build())
+ *             .name("configuration1")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .clusterName(followerCluster.name())
+ *             .clusterId(followedCluster.id())
+ *             .databaseName(exampleDatabase.name())
  *             .build());
  * 
  *     }

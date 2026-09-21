@@ -807,39 +807,6 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example_user_assigned_identity.principal_id)
         example_scheduled_query_rules_alert_v2 = azure.monitoring.ScheduledQueryRulesAlertV2("example",
-            name="example-msqrv2",
-            resource_group_name=example.name,
-            location=example.location,
-            evaluation_frequency="PT10M",
-            window_duration="PT10M",
-            scopes=example_insights.id,
-            severity=4,
-            criterias=[{
-                "query": \"\"\"requests
-          | summarize CountByCountry=count() by client_CountryOrRegion
-        \"\"\",
-                "time_aggregation_method": "Maximum",
-                "threshold": 17.5,
-                "operator": "LessThan",
-                "resource_id_column": "client_CountryOrRegion",
-                "metric_measure_column": "CountByCountry",
-                "dimensions": [{
-                    "name": "client_CountryOrRegion",
-                    "operator": "Exclude",
-                    "values": ["123"],
-                }],
-                "failing_periods": {
-                    "minimum_failing_periods_to_trigger_alert": 1,
-                    "number_of_evaluation_periods": 1,
-                },
-            }],
-            auto_mitigation_enabled=True,
-            workspace_alerts_storage_enabled=False,
-            description="example sqr",
-            display_name="example-sqr",
-            enabled=True,
-            query_time_range_override="PT1H",
-            skip_query_validation=True,
             action={
                 "action_groups": [example_action_group.id],
                 "custom_properties": {
@@ -852,6 +819,39 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
             },
+            criterias=[{
+                "failing_periods": {
+                    "minimum_failing_periods_to_trigger_alert": 1,
+                    "number_of_evaluation_periods": 1,
+                },
+                "dimensions": [{
+                    "name": "client_CountryOrRegion",
+                    "operator": "Exclude",
+                    "values": ["123"],
+                }],
+                "query": \"\"\"requests
+          | summarize CountByCountry=count() by client_CountryOrRegion
+        \"\"\",
+                "time_aggregation_method": "Maximum",
+                "threshold": 17.5,
+                "operator": "LessThan",
+                "resource_id_column": "client_CountryOrRegion",
+                "metric_measure_column": "CountByCountry",
+            }],
+            name="example-msqrv2",
+            resource_group_name=example.name,
+            location=example.location,
+            evaluation_frequency="PT10M",
+            window_duration="PT10M",
+            scopes=example_insights.id,
+            severity=4,
+            auto_mitigation_enabled=True,
+            workspace_alerts_storage_enabled=False,
+            description="example sqr",
+            display_name="example-sqr",
+            enabled=True,
+            query_time_range_override="PT1H",
+            skip_query_validation=True,
             tags={
                 "key": "value",
                 "key2": "value2",
@@ -942,39 +942,6 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example_user_assigned_identity.principal_id)
         example_scheduled_query_rules_alert_v2 = azure.monitoring.ScheduledQueryRulesAlertV2("example",
-            name="example-msqrv2",
-            resource_group_name=example.name,
-            location=example.location,
-            evaluation_frequency="PT10M",
-            window_duration="PT10M",
-            scopes=example_insights.id,
-            severity=4,
-            criterias=[{
-                "query": \"\"\"requests
-          | summarize CountByCountry=count() by client_CountryOrRegion
-        \"\"\",
-                "time_aggregation_method": "Maximum",
-                "threshold": 17.5,
-                "operator": "LessThan",
-                "resource_id_column": "client_CountryOrRegion",
-                "metric_measure_column": "CountByCountry",
-                "dimensions": [{
-                    "name": "client_CountryOrRegion",
-                    "operator": "Exclude",
-                    "values": ["123"],
-                }],
-                "failing_periods": {
-                    "minimum_failing_periods_to_trigger_alert": 1,
-                    "number_of_evaluation_periods": 1,
-                },
-            }],
-            auto_mitigation_enabled=True,
-            workspace_alerts_storage_enabled=False,
-            description="example sqr",
-            display_name="example-sqr",
-            enabled=True,
-            query_time_range_override="PT1H",
-            skip_query_validation=True,
             action={
                 "action_groups": [example_action_group.id],
                 "custom_properties": {
@@ -987,6 +954,39 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
             },
+            criterias=[{
+                "failing_periods": {
+                    "minimum_failing_periods_to_trigger_alert": 1,
+                    "number_of_evaluation_periods": 1,
+                },
+                "dimensions": [{
+                    "name": "client_CountryOrRegion",
+                    "operator": "Exclude",
+                    "values": ["123"],
+                }],
+                "query": \"\"\"requests
+          | summarize CountByCountry=count() by client_CountryOrRegion
+        \"\"\",
+                "time_aggregation_method": "Maximum",
+                "threshold": 17.5,
+                "operator": "LessThan",
+                "resource_id_column": "client_CountryOrRegion",
+                "metric_measure_column": "CountByCountry",
+            }],
+            name="example-msqrv2",
+            resource_group_name=example.name,
+            location=example.location,
+            evaluation_frequency="PT10M",
+            window_duration="PT10M",
+            scopes=example_insights.id,
+            severity=4,
+            auto_mitigation_enabled=True,
+            workspace_alerts_storage_enabled=False,
+            description="example sqr",
+            display_name="example-sqr",
+            enabled=True,
+            query_time_range_override="PT1H",
+            skip_query_validation=True,
             tags={
                 "key": "value",
                 "key2": "value2",

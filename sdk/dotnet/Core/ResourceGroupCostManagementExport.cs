@@ -45,12 +45,6 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleResourceGroupCostManagementExport = new Azure.Core.ResourceGroupCostManagementExport("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupId = example.Id,
-    ///         RecurrenceType = "Monthly",
-    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
-    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
-    ///         FileFormat = "Csv",
     ///         ExportDataStorageLocation = new Azure.Core.Inputs.ResourceGroupCostManagementExportExportDataStorageLocationArgs
     ///         {
     ///             ContainerId = exampleContainer.Id,
@@ -61,6 +55,12 @@ namespace Pulumi.Azure.Core
     ///             Type = "Usage",
     ///             TimeFrame = "WeekToDate",
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupId = example.Id,
+    ///         RecurrenceType = "Monthly",
+    ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
+    ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",
+    ///         FileFormat = "Csv",
     ///     });
     /// 
     /// });

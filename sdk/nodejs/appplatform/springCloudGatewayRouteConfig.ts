@@ -39,10 +39,6 @@ import * as utilities from "../utilities";
  *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * const exampleSpringCloudGatewayRouteConfig = new azure.appplatform.SpringCloudGatewayRouteConfig("example", {
- *     name: "example",
- *     springCloudGatewayId: exampleSpringCloudGateway.id,
- *     springCloudAppId: exampleSpringCloudApp.id,
- *     protocol: "HTTPS",
  *     routes: [{
  *         description: "example description",
  *         filters: [
@@ -60,6 +56,10 @@ import * as utilities from "../utilities";
  *             "tag2",
  *         ],
  *     }],
+ *     name: "example",
+ *     springCloudGatewayId: exampleSpringCloudGateway.id,
+ *     springCloudAppId: exampleSpringCloudApp.id,
+ *     protocol: "HTTPS",
  * });
  * ```
  *

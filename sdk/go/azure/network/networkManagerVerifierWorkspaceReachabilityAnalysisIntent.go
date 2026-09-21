@@ -42,14 +42,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-nm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						pulumi.String(current.Id),
 //					},
 //				},
+//				Name:              pulumi.String("example-nm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ScopeAccesses: pulumi.StringArray{
 //					pulumi.String("Connectivity"),
 //				},
@@ -88,9 +88,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String("example-nic"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -98,21 +95,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.String("example-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String("example-machine"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      example.Location,
-//				Size:                          pulumi.String("Standard_B1ls"),
-//				AdminUsername:                 pulumi.String("adminuser"),
-//				AdminPassword:                 pulumi.String("P@ssw0rd1234!"),
-//				DisablePasswordAuthentication: pulumi.Bool(false),
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
 //					StorageAccountType: pulumi.String("Standard_LRS"),
@@ -123,16 +113,21 @@ import (
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
+//				Name:                          pulumi.String("example-machine"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
+//				Size:                          pulumi.String("Standard_B1ls"),
+//				AdminUsername:                 pulumi.String("adminuser"),
+//				AdminPassword:                 pulumi.String("P@ssw0rd1234!"),
+//				DisablePasswordAuthentication: pulumi.Bool(false),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(ctx, "example", &network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs{
-//				Name:                  pulumi.String("example-intent"),
-//				VerifierWorkspaceId:   exampleNetworkManagerVerifierWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				SourceResourceId:      exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
-//				DestinationResourceId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
-//				Description:           pulumi.String("example"),
 //				IpTraffic: &network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{
 //					SourceIps: pulumi.StringArray{
 //						pulumi.String("10.0.2.1"),
@@ -150,6 +145,11 @@ import (
 //						pulumi.String("Any"),
 //					},
 //				},
+//				Name:                  pulumi.String("example-intent"),
+//				VerifierWorkspaceId:   exampleNetworkManagerVerifierWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SourceResourceId:      exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				DestinationResourceId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				Description:           pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

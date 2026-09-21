@@ -37,15 +37,15 @@ import (
 //				return err
 //			}
 //			srcAccount, err := storage.NewAccount(ctx, "src", &storage.AccountArgs{
+//				BlobProperties: &storage.AccountBlobPropertiesArgs{
+//					VersioningEnabled: pulumi.Bool(true),
+//					ChangeFeedEnabled: pulumi.Bool(true),
+//				},
 //				Name:                   pulumi.String("srcstorageaccount"),
 //				ResourceGroupName:      src.Name,
 //				Location:               src.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
-//				BlobProperties: &storage.AccountBlobPropertiesArgs{
-//					VersioningEnabled: pulumi.Bool(true),
-//					ChangeFeedEnabled: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -66,15 +66,15 @@ import (
 //				return err
 //			}
 //			dstAccount, err := storage.NewAccount(ctx, "dst", &storage.AccountArgs{
+//				BlobProperties: &storage.AccountBlobPropertiesArgs{
+//					VersioningEnabled: pulumi.Bool(true),
+//					ChangeFeedEnabled: pulumi.Bool(true),
+//				},
 //				Name:                   pulumi.String("dststorageaccount"),
 //				ResourceGroupName:      dst.Name,
 //				Location:               dst.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
-//				BlobProperties: &storage.AccountBlobPropertiesArgs{
-//					VersioningEnabled: pulumi.Bool(true),
-//					ChangeFeedEnabled: pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -88,14 +88,14 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewObjectReplication(ctx, "example", &storage.ObjectReplicationArgs{
-//				SourceStorageAccountId:      srcAccount.ID().ToIDOutput().ToStringOutput(),
-//				DestinationStorageAccountId: dstAccount.ID().ToIDOutput().ToStringOutput(),
 //				Rules: storage.ObjectReplicationRuleArray{
 //					&storage.ObjectReplicationRuleArgs{
 //						SourceContainerName:      srcContainer.Name,
 //						DestinationContainerName: dstContainer.Name,
 //					},
 //				},
+//				SourceStorageAccountId:      srcAccount.ID().ToIDOutput().ToStringOutput(),
+//				DestinationStorageAccountId: dstAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

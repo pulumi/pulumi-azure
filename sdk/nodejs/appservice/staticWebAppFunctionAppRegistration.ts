@@ -39,13 +39,15 @@ import * as utilities from "../utilities";
  *     skuName: "S1",
  * });
  * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-function-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
- *     siteConfig: {},
+ * }, {
+ *     ignoreChanges: ["authSettingsV2"],
  * });
  * const exampleStaticWebAppFunctionAppRegistration = new azure.appservice.StaticWebAppFunctionAppRegistration("example", {
  *     staticWebAppId: exampleStaticWebApp.id,

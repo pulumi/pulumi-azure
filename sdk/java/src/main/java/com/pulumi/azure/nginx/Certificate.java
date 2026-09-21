@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -81,42 +80,36 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("NGINX.NGINXPLUS/nginxDeployments")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("delegation")
  *                 .build())
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var exampleDeployment = new Deployment("exampleDeployment", DeploymentArgs.builder()
- *             .name("example-nginx")
- *             .resourceGroupName(example.name())
- *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
- *             .location(example.location())
- *             .managedResourceGroup("example")
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
  *                 .ipAddresses(examplePublicIp.id())
  *                 .build())
  *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
+ *             .name("example-nginx")
+ *             .resourceGroupName(example.name())
+ *             .sku("publicpreview_Monthly_gmz7xq9ge3py")
+ *             .location(example.location())
+ *             .managedResourceGroup("example")
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -134,17 +127,21 @@ import javax.annotation.Nullable;
  *                     "SetIssuers",
  *                     "Update")
  *                 .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
  *             .build());
  * 
  *         var exampleCertificate = new com.pulumi.azure.keyvault.Certificate("exampleCertificate", com.pulumi.azure.keyvault.CertificateArgs.builder()
- *             .name("imported-cert")
- *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("certificate-to-import.pfx")
- *                     .build()).result())
+ *                 .contents(StdFunctions.filebase64(Map.of("input", "certificate-to-import.pfx")).result())
  *                 .password("")
  *                 .build())
+ *             .name("imported-cert")
+ *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
  *         var exampleCertificate2 = new com.pulumi.azure.nginx.Certificate("exampleCertificate2", com.pulumi.azure.nginx.CertificateArgs.builder()

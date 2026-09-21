@@ -282,13 +282,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name)
         example_account = azure.storage.Account("example",
             name="examplesa",
             resource_group_name=example.name,
@@ -351,13 +351,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="examplekc",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
+            },
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name)
         example_account = azure.storage.Account("example",
             name="examplesa",
             resource_group_name=example.name,

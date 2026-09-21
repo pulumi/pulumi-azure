@@ -40,22 +40,23 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingPredictiveArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleMetricTriggerArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleScaleActionArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingPredictiveArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -89,26 +90,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("exampleset")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .upgradeMode("Manual")
- *             .sku("Standard_F2")
- *             .instances(2)
- *             .adminUsername("myadmin")
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username("myadmin")
- *                 .publicKey("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello}{@literal @}{@code world.com")
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("TestNetworkProfile")
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name("TestIPConfiguration")
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("StandardSSD_LRS")
@@ -119,15 +100,43 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
- *             .build());
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username("myadmin")
+ *                 .publicKey("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello}{@literal @}{@code world.com")
+ *                 .build())
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
+ *                     .name("TestIPConfiguration")
+ *                     .primary(true)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .build())
+ *                 .name("TestNetworkProfile")
+ *                 .primary(true)
+ *                 .build())
+ *             .name("exampleset")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .upgradeMode("Manual")
+ *             .sku("Standard_F2")
+ *             .instances(2)
+ *             .adminUsername("myadmin")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("instances")
+ *                 .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()
- *             .name("myAutoscaleSetting")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
+ *             .predictive(AutoscaleSettingPredictiveArgs.builder()
+ *                 .scaleMode("Enabled")
+ *                 .lookAheadTime("PT5M")
+ *                 .build())
+ *             .notification(AutoscaleSettingNotificationArgs.builder()
+ *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
+ *                     .sendToSubscriptionAdministrator(true)
+ *                     .sendToSubscriptionCoAdministrator(true)
+ *                     .customEmails("admin}{@literal @}{@code contoso.com")
+ *                     .build())
+ *                 .build())
  *             .profiles(AutoscaleSettingProfileArgs.builder()
- *                 .name("defaultProfile")
  *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
  *                     .default_(1)
  *                     .minimum(1)
@@ -136,6 +145,11 @@ import javax.annotation.Nullable;
  *                 .rules(                
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
+ *                             .dimensions(AutoscaleSettingProfileRuleMetricTriggerDimensionArgs.builder()
+ *                                 .name("AppName")
+ *                                 .operator("Equals")
+ *                                 .values("App1")
+ *                                 .build())
  *                             .metricName("Percentage CPU")
  *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain("PT1M")
@@ -145,11 +159,6 @@ import javax.annotation.Nullable;
  *                             .operator("GreaterThan")
  *                             .threshold(75.0)
  *                             .metricNamespace("microsoft.compute/virtualmachinescalesets")
- *                             .dimensions(AutoscaleSettingProfileRuleMetricTriggerDimensionArgs.builder()
- *                                 .name("AppName")
- *                                 .operator("Equals")
- *                                 .values("App1")
- *                                 .build())
  *                             .build())
  *                         .scaleAction(AutoscaleSettingProfileRuleScaleActionArgs.builder()
  *                             .direction("Increase")
@@ -176,18 +185,12 @@ import javax.annotation.Nullable;
  *                             .cooldown("PT1M")
  *                             .build())
  *                         .build())
+ *                 .name("defaultProfile")
  *                 .build())
- *             .predictive(AutoscaleSettingPredictiveArgs.builder()
- *                 .scaleMode("Enabled")
- *                 .lookAheadTime("PT5M")
- *                 .build())
- *             .notification(AutoscaleSettingNotificationArgs.builder()
- *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
- *                     .sendToSubscriptionAdministrator(true)
- *                     .sendToSubscriptionCoAdministrator(true)
- *                     .customEmails("admin}{@literal @}{@code contoso.com")
- *                     .build())
- *                 .build())
+ *             .name("myAutoscaleSetting")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .build());
  * 
  *     }}{@code
@@ -212,21 +215,22 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRecurrenceArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleMetricTriggerArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleScaleActionArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRecurrenceArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -260,26 +264,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("exampleset")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .upgradeMode("Manual")
- *             .sku("Standard_F2")
- *             .instances(2)
- *             .adminUsername("myadmin")
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username("myadmin")
- *                 .publicKey("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello}{@literal @}{@code world.com")
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("TestNetworkProfile")
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name("TestIPConfiguration")
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("StandardSSD_LRS")
@@ -290,19 +274,51 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
- *             .build());
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username("myadmin")
+ *                 .publicKey("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello}{@literal @}{@code world.com")
+ *                 .build())
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
+ *                     .name("TestIPConfiguration")
+ *                     .primary(true)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .build())
+ *                 .name("TestNetworkProfile")
+ *                 .primary(true)
+ *                 .build())
+ *             .name("exampleset")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .upgradeMode("Manual")
+ *             .sku("Standard_F2")
+ *             .instances(2)
+ *             .adminUsername("myadmin")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("instances")
+ *                 .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()
- *             .name("myAutoscaleSetting")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
+ *             .notification(AutoscaleSettingNotificationArgs.builder()
+ *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
+ *                     .sendToSubscriptionAdministrator(true)
+ *                     .sendToSubscriptionCoAdministrator(true)
+ *                     .customEmails("admin}{@literal @}{@code contoso.com")
+ *                     .build())
+ *                 .build())
  *             .profiles(AutoscaleSettingProfileArgs.builder()
- *                 .name("Weekends")
  *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
  *                     .default_(1)
  *                     .minimum(1)
  *                     .maximum(10)
+ *                     .build())
+ *                 .recurrence(AutoscaleSettingProfileRecurrenceArgs.builder()
+ *                     .timezone("Pacific Standard Time")
+ *                     .days(                    
+ *                         "Saturday",
+ *                         "Sunday")
+ *                     .hours(12)
+ *                     .minutes(0)
  *                     .build())
  *                 .rules(                
  *                     AutoscaleSettingProfileRuleArgs.builder()
@@ -341,22 +357,12 @@ import javax.annotation.Nullable;
  *                             .cooldown("PT1M")
  *                             .build())
  *                         .build())
- *                 .recurrence(AutoscaleSettingProfileRecurrenceArgs.builder()
- *                     .timezone("Pacific Standard Time")
- *                     .days(                    
- *                         "Saturday",
- *                         "Sunday")
- *                     .hours(12)
- *                     .minutes(0)
- *                     .build())
+ *                 .name("Weekends")
  *                 .build())
- *             .notification(AutoscaleSettingNotificationArgs.builder()
- *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
- *                     .sendToSubscriptionAdministrator(true)
- *                     .sendToSubscriptionCoAdministrator(true)
- *                     .customEmails("admin}{@literal @}{@code contoso.com")
- *                     .build())
- *                 .build())
+ *             .name("myAutoscaleSetting")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .build());
  * 
  *     }}{@code
@@ -381,21 +387,22 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileCapacityArgs;
+ * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileFixedDateArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleMetricTriggerArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileRuleScaleActionArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileFixedDateArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationArgs;
- * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingNotificationEmailArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -429,26 +436,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("exampleset")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .upgradeMode("Manual")
- *             .sku("Standard_F2")
- *             .instances(2)
- *             .adminUsername("myadmin")
- *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
- *                 .username("myadmin")
- *                 .publicKey("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello}{@literal @}{@code world.com")
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("TestNetworkProfile")
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name("TestIPConfiguration")
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .build())
- *                 .build())
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("StandardSSD_LRS")
@@ -459,20 +446,48 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
- *             .build());
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username("myadmin")
+ *                 .publicKey("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello}{@literal @}{@code world.com")
+ *                 .build())
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
+ *                     .name("TestIPConfiguration")
+ *                     .primary(true)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .build())
+ *                 .name("TestNetworkProfile")
+ *                 .primary(true)
+ *                 .build())
+ *             .name("exampleset")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .upgradeMode("Manual")
+ *             .sku("Standard_F2")
+ *             .instances(2)
+ *             .adminUsername("myadmin")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("instances")
+ *                 .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting("exampleAutoscaleSetting", AutoscaleSettingArgs.builder()
- *             .name("myAutoscaleSetting")
- *             .enabled(true)
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
+ *             .notification(AutoscaleSettingNotificationArgs.builder()
+ *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
+ *                     .sendToSubscriptionAdministrator(true)
+ *                     .sendToSubscriptionCoAdministrator(true)
+ *                     .customEmails("admin}{@literal @}{@code contoso.com")
+ *                     .build())
+ *                 .build())
  *             .profiles(AutoscaleSettingProfileArgs.builder()
- *                 .name("forJuly")
  *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
  *                     .default_(1)
  *                     .minimum(1)
  *                     .maximum(10)
+ *                     .build())
+ *                 .fixedDate(AutoscaleSettingProfileFixedDateArgs.builder()
+ *                     .timezone("Pacific Standard Time")
+ *                     .start("2020-07-01T00:00:00Z")
+ *                     .end("2020-07-31T23:59:59Z")
  *                     .build())
  *                 .rules(                
  *                     AutoscaleSettingProfileRuleArgs.builder()
@@ -511,19 +526,13 @@ import javax.annotation.Nullable;
  *                             .cooldown("PT1M")
  *                             .build())
  *                         .build())
- *                 .fixedDate(AutoscaleSettingProfileFixedDateArgs.builder()
- *                     .timezone("Pacific Standard Time")
- *                     .start("2020-07-01T00:00:00Z")
- *                     .end("2020-07-31T23:59:59Z")
- *                     .build())
+ *                 .name("forJuly")
  *                 .build())
- *             .notification(AutoscaleSettingNotificationArgs.builder()
- *                 .email(AutoscaleSettingNotificationEmailArgs.builder()
- *                     .sendToSubscriptionAdministrator(true)
- *                     .sendToSubscriptionCoAdministrator(true)
- *                     .customEmails("admin}{@literal @}{@code contoso.com")
- *                     .build())
- *                 .build())
+ *             .name("myAutoscaleSetting")
+ *             .enabled(true)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .build());
  * 
  *     }}{@code

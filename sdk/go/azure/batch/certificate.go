@@ -64,8 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "certificate.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "certificate.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -73,7 +73,7 @@ import (
 //			_, err = batch.NewCertificate(ctx, "example", &batch.CertificateArgs{
 //				ResourceGroupName:   example.Name,
 //				AccountName:         exampleAccount2.Name,
-//				Certificate:         pulumi.String(invokeFilebase64.Result),
+//				Certificate:         invokeFilebase64.Result,
 //				Format:              pulumi.String("Pfx"),
 //				Password:            pulumi.String("password"),
 //				Thumbprint:          pulumi.String("42C107874FD0E4A9583292A2F1098E8FE4B2EDDA"),

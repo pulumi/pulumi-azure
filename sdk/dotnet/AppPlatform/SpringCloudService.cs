@@ -40,10 +40,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         Name = "example-springcloud",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SkuName = "S0",
     ///         ConfigServerGitSetting = new Azure.AppPlatform.Inputs.SpringCloudServiceConfigServerGitSettingArgs
     ///         {
     ///             Uri = "https://github.com/Azure-Samples/piggymetrics",
@@ -59,6 +55,10 @@ namespace Pulumi.Azure.AppPlatform
     ///             ConnectionString = exampleInsights.ConnectionString,
     ///             SampleRate = 10,
     ///         },
+    ///         Name = "example-springcloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "S0",
     ///         Tags = 
     ///         {
     ///             { "Env", "staging" },

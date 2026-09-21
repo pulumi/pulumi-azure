@@ -29,21 +29,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewSubscriptionCostManagementView(ctx, "example", &core.SubscriptionCostManagementViewArgs{
-//				Name:           pulumi.String("example"),
-//				DisplayName:    pulumi.String("Cost View per Month"),
-//				ChartType:      pulumi.String("StackedColumn"),
-//				Accumulated:    pulumi.Bool(false),
-//				SubscriptionId: pulumi.String("/subscription/00000000-0000-0000-0000-000000000000"),
-//				ReportType:     pulumi.String("Usage"),
-//				Timeframe:      pulumi.String("MonthToDate"),
 //				Dataset: &core.SubscriptionCostManagementViewDatasetArgs{
-//					Granularity: pulumi.String("Monthly"),
 //					Aggregations: core.SubscriptionCostManagementViewDatasetAggregationArray{
 //						&core.SubscriptionCostManagementViewDatasetAggregationArgs{
 //							Name:       pulumi.String("totalCost"),
 //							ColumnName: pulumi.String("Cost"),
 //						},
 //					},
+//					Granularity: pulumi.String("Monthly"),
 //				},
 //				Pivots: core.SubscriptionCostManagementViewPivotArray{
 //					&core.SubscriptionCostManagementViewPivotArgs{
@@ -59,6 +52,13 @@ import (
 //						Name: pulumi.String("ResourceGroupName"),
 //					},
 //				},
+//				Name:           pulumi.String("example"),
+//				DisplayName:    pulumi.String("Cost View per Month"),
+//				ChartType:      pulumi.String("StackedColumn"),
+//				Accumulated:    pulumi.Bool(false),
+//				SubscriptionId: pulumi.String("/subscription/00000000-0000-0000-0000-000000000000"),
+//				ReportType:     pulumi.String("Usage"),
+//				Timeframe:      pulumi.String("MonthToDate"),
 //			})
 //			if err != nil {
 //				return err

@@ -51,6 +51,11 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleOutputServicebusTopic = new Azure.StreamAnalytics.OutputServicebusTopic("example", new()
     ///     {
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServicebusTopicSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Format = "Array",
+    ///         },
     ///         Name = "service-bus-topic-output",
     ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
     ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
@@ -62,11 +67,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         {
     ///             "col1",
     ///             "col2",
-    ///         },
-    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputServicebusTopicSerializationArgs
-    ///         {
-    ///             Type = "Csv",
-    ///             Format = "Array",
     ///         },
     ///     });
     /// 

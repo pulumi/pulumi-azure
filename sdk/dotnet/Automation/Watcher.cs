@@ -45,6 +45,10 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
     ///     {
+    ///         PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
+    ///         {
+    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///         },
     ///         Name = "Get-AzureVMTutorial",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -53,10 +57,6 @@ namespace Pulumi.Azure.Automation
     ///         LogProgress = true,
     ///         Description = "This is an example runbook",
     ///         RunbookType = "PowerShellWorkflow",
-    ///         PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
-    ///         {
-    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-    ///         },
     ///     });
     /// 
     ///     var exampleWatcher = new Azure.Automation.Watcher("example", new()

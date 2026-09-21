@@ -92,15 +92,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFhirService = new FhirService("exampleFhirService", FhirServiceArgs.builder()
+ *             .authentication(FhirServiceAuthenticationArgs.builder()
+ *                 .authority("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
+ *                 .audience("https://examplefhir.fhir.azurehealthcareapis.com")
+ *                 .build())
  *             .name("examplefhir")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .workspaceId(exampleWorkspace.id())
  *             .kind("fhir-R4")
- *             .authentication(FhirServiceAuthenticationArgs.builder()
- *                 .authority("https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx")
- *                 .audience("https://examplefhir.fhir.azurehealthcareapis.com")
- *                 .build())
  *             .build());
  * 
  *         var exampleMedtechService = new MedtechService("exampleMedtechService", MedtechServiceArgs.builder()

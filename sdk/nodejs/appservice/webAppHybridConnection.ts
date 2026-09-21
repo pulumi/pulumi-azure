@@ -36,11 +36,11 @@ import * as utilities from "../utilities";
  *     relayNamespaceName: exampleNamespace.name,
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     siteConfig: {},
  *     name: "example-web-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWebAppHybridConnection = new azure.appservice.WebAppHybridConnection("example", {
  *     webAppId: exampleWindowsWebApp.id,

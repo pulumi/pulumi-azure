@@ -825,9 +825,6 @@ class Service(pulumi.CustomResource):
             name="my-signalr",
             location="West US")
         example_service = azure.signalr.Service("example",
-            name="tfex-signalr",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Free_F1",
                 "capacity": 1,
@@ -835,10 +832,6 @@ class Service(pulumi.CustomResource):
             cors=[{
                 "allowed_origins": ["http://www.example.com"],
             }],
-            public_network_access_enabled=False,
-            connectivity_logs_enabled=True,
-            messaging_logs_enabled=True,
-            service_mode="Default",
             upstream_endpoints=[{
                 "category_patterns": [
                     "connections",
@@ -847,7 +840,14 @@ class Service(pulumi.CustomResource):
                 "event_patterns": ["*"],
                 "hub_patterns": ["hub1"],
                 "url_template": "http://foo.com",
-            }])
+            }],
+            name="tfex-signalr",
+            location=example.location,
+            resource_group_name=example.name,
+            public_network_access_enabled=False,
+            connectivity_logs_enabled=True,
+            messaging_logs_enabled=True,
+            service_mode="Default")
         ```
 
         ## API Providers
@@ -910,9 +910,6 @@ class Service(pulumi.CustomResource):
             name="my-signalr",
             location="West US")
         example_service = azure.signalr.Service("example",
-            name="tfex-signalr",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Free_F1",
                 "capacity": 1,
@@ -920,10 +917,6 @@ class Service(pulumi.CustomResource):
             cors=[{
                 "allowed_origins": ["http://www.example.com"],
             }],
-            public_network_access_enabled=False,
-            connectivity_logs_enabled=True,
-            messaging_logs_enabled=True,
-            service_mode="Default",
             upstream_endpoints=[{
                 "category_patterns": [
                     "connections",
@@ -932,7 +925,14 @@ class Service(pulumi.CustomResource):
                 "event_patterns": ["*"],
                 "hub_patterns": ["hub1"],
                 "url_template": "http://foo.com",
-            }])
+            }],
+            name="tfex-signalr",
+            location=example.location,
+            resource_group_name=example.name,
+            public_network_access_enabled=False,
+            connectivity_logs_enabled=True,
+            messaging_logs_enabled=True,
+            service_mode="Default")
         ```
 
         ## API Providers

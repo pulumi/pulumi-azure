@@ -478,9 +478,9 @@ class Prefix(pulumi.CustomResource):
             location=test["location"],
             resource_group_name=test["name"],
             parent_custom_ip_prefix_id=global_.id,
-            cidr=std.cidrsubnet_output(input=global_.cidr,
+            cidr=std.cidrsubnet(input=global_.cidr,
                 newbits=16,
-                netnum=1).result,
+                netnum=1)["result"],
             zones=["1"])
         ```
 
@@ -571,9 +571,9 @@ class Prefix(pulumi.CustomResource):
             location=test["location"],
             resource_group_name=test["name"],
             parent_custom_ip_prefix_id=global_.id,
-            cidr=std.cidrsubnet_output(input=global_.cidr,
+            cidr=std.cidrsubnet(input=global_.cidr,
                 newbits=16,
-                netnum=1).result,
+                netnum=1)["result"],
             zones=["1"])
         ```
 

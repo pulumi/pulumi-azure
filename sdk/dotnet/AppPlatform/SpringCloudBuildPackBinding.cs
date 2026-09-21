@@ -42,8 +42,11 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
+    ///         {
+    ///             Id = "io.Build Packs.stacks.bionic",
+    ///             Version = "base",
+    ///         },
     ///         BuildPackGroups = new[]
     ///         {
     ///             new Azure.AppPlatform.Inputs.SpringCloudBuilderBuildPackGroupArgs
@@ -55,18 +58,12 @@ namespace Pulumi.Azure.AppPlatform
     ///                 },
     ///             },
     ///         },
-    ///         Stack = new Azure.AppPlatform.Inputs.SpringCloudBuilderStackArgs
-    ///         {
-    ///             Id = "io.Build Packs.stacks.bionic",
-    ///             Version = "base",
-    ///         },
+    ///         Name = "example",
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
     ///     var exampleSpringCloudBuildPackBinding = new Azure.AppPlatform.SpringCloudBuildPackBinding("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SpringCloudBuilderId = exampleSpringCloudBuilder.Id,
-    ///         BindingType = "ApplicationInsights",
     ///         Launch = new Azure.AppPlatform.Inputs.SpringCloudBuildPackBindingLaunchArgs
     ///         {
     ///             Properties = 
@@ -80,6 +77,9 @@ namespace Pulumi.Azure.AppPlatform
     ///                 { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         SpringCloudBuilderId = exampleSpringCloudBuilder.Id,
+    ///         BindingType = "ApplicationInsights",
     ///     });
     /// 
     /// });

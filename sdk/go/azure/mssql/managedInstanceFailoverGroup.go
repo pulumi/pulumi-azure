@@ -40,7 +40,7 @@ import (
 //			primaryLocation := "West Europe"
 //			failoverName := fmt.Sprintf("%v-failover", name)
 //			failoverLocation := "North Europe"
-//			// # Primary SQL Managed Instance
+//			//# Primary SQL Managed Instance
 //			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
 //				Name:     pulumi.String(primaryName),
 //				Location: pulumi.String(primaryLocation),
@@ -76,15 +76,8 @@ import (
 //				return err
 //			}
 //			primarySubnet, err := network.NewSubnet(ctx, "primary", &network.SubnetArgs{
-//				Name:               pulumi.String(primaryName),
-//				ResourceGroupName:  primary.Name,
-//				VirtualNetworkName: primaryVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
@@ -93,7 +86,14 @@ import (
 //							},
 //							Name: pulumi.String("Microsoft.Sql/managedInstances"),
 //						},
+//						Name: pulumi.String("delegation"),
 //					},
+//				},
+//				Name:               pulumi.String(primaryName),
+//				ResourceGroupName:  primary.Name,
+//				VirtualNetworkName: primaryVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -147,7 +147,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// # Secondary (Fail-over) SQL Managed Instance
+//			//# Secondary (Fail-over) SQL Managed Instance
 //			failover, err := core.NewResourceGroup(ctx, "failover", &core.ResourceGroupArgs{
 //				Name:     pulumi.String(failoverName),
 //				Location: pulumi.String(failoverLocation),
@@ -176,15 +176,8 @@ import (
 //				return err
 //			}
 //			failoverSubnet, err := network.NewSubnet(ctx, "failover", &network.SubnetArgs{
-//				Name:               pulumi.String("ManagedInstance"),
-//				ResourceGroupName:  failover.Name,
-//				VirtualNetworkName: failoverVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.1.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
@@ -193,7 +186,14 @@ import (
 //							},
 //							Name: pulumi.String("Microsoft.Sql/managedInstances"),
 //						},
+//						Name: pulumi.String("delegation"),
 //					},
+//				},
+//				Name:               pulumi.String("ManagedInstance"),
+//				ResourceGroupName:  failover.Name,
+//				VirtualNetworkName: failoverVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.1.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -249,15 +249,15 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceFailoverGroup(ctx, "example", &mssql.ManagedInstanceFailoverGroupArgs{
+//				ReadWriteEndpointFailoverPolicy: &mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{
+//					Mode:         pulumi.String("Automatic"),
+//					GraceMinutes: pulumi.Int(60),
+//				},
 //				Name:                     pulumi.String("example-failover-group"),
 //				Location:                 primaryManagedInstance.Location,
 //				ManagedInstanceId:        primaryManagedInstance.ID().ToIDOutput().ToStringOutput(),
 //				PartnerManagedInstanceId: failoverManagedInstance.ID().ToIDOutput().ToStringOutput(),
 //				SecondaryType:            pulumi.String("Geo"),
-//				ReadWriteEndpointFailoverPolicy: &mssql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs{
-//					Mode:         pulumi.String("Automatic"),
-//					GraceMinutes: pulumi.Int(60),
-//				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				primaryZoneVirtualNetworkLink,
 //				failoverZoneVirtualNetworkLink,

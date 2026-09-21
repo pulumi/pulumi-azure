@@ -64,9 +64,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("main", new()
     ///     {
-    ///         Name = $"{prefix}-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -76,18 +73,13 @@ namespace Pulumi.Azure.Compute
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = $"{prefix}-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var mainVirtualMachine = new Azure.Compute.VirtualMachine("main", new()
     ///     {
-    ///         Name = $"{prefix}-vm",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             mainNetworkInterface.Id,
-    ///         },
-    ///         VmSize = "Standard_DS1_v2",
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -112,6 +104,14 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             DisablePasswordAuthentication = false,
     ///         },
+    ///         Name = $"{prefix}-vm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             mainNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_DS1_v2",
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },

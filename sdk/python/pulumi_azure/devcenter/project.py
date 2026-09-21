@@ -334,12 +334,12 @@ class Project(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example = azure.devcenter.DevCenter("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
             identity={
                 "type": "example-value",
-            })
+            },
+            name="example",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_project = azure.devcenter.Project("example",
             dev_center_id=example.id,
             location=example_resource_group.location,
@@ -397,12 +397,12 @@ class Project(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example = azure.devcenter.DevCenter("example",
-            name="example",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
             identity={
                 "type": "example-value",
-            })
+            },
+            name="example",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
         example_project = azure.devcenter.Project("example",
             dev_center_id=example.id,
             location=example_resource_group.location,

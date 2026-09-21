@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomProvider = new CustomProvider("exampleCustomProvider", CustomProviderArgs.builder()
- *             .name("example_provider")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .resourceTypes(CustomProviderResourceTypeArgs.builder()
  *                 .name("dEf1")
  *                 .endpoint("https://testendpoint.com/")
  *                 .build())
+ *             .name("example_provider")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

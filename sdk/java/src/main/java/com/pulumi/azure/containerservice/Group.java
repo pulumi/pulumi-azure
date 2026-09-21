@@ -62,22 +62,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
- *             .name("example-continst")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .ipAddressType("Public")
- *             .dnsNameLabel("aci-label")
- *             .osType("Linux")
  *             .containers(            
  *                 GroupContainerArgs.builder()
- *                     .name("hello-world")
- *                     .image("mcr.microsoft.com/azuredocs/aci-helloworld:latest")
- *                     .cpu(0.5)
- *                     .memory(1.5)
  *                     .ports(GroupContainerPortArgs.builder()
  *                         .port(443)
  *                         .protocol("TCP")
  *                         .build())
+ *                     .name("hello-world")
+ *                     .image("mcr.microsoft.com/azuredocs/aci-helloworld:latest")
+ *                     .cpu(0.5)
+ *                     .memory(1.5)
  *                     .build(),
  *                 GroupContainerArgs.builder()
  *                     .name("sidecar")
@@ -85,6 +79,12 @@ import javax.annotation.Nullable;
  *                     .cpu(0.5)
  *                     .memory(1.5)
  *                     .build())
+ *             .name("example-continst")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .ipAddressType("Public")
+ *             .dnsNameLabel("aci-label")
+ *             .osType("Linux")
  *             .tags(Map.of("environment", "testing"))
  *             .build());
  * 

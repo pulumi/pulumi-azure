@@ -67,30 +67,30 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("examplesubnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.1.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("delegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.ContainerInstance/containerGroups")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
  *                     .build())
+ *                 .name("delegation")
  *                 .build())
+ *             .name("examplesubnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.1.0.0/24")
  *             .build());
  * 
  *         var exampleProfile = new Profile("exampleProfile", ProfileArgs.builder()
- *             .name("examplenetprofile")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .containerNetworkInterface(ProfileContainerNetworkInterfaceArgs.builder()
- *                 .name("examplecnic")
  *                 .ipConfigurations(ProfileContainerNetworkInterfaceIpConfigurationArgs.builder()
  *                     .name("exampleipconfig")
  *                     .subnetId(exampleSubnet.id())
  *                     .build())
+ *                 .name("examplecnic")
  *                 .build())
+ *             .name("examplenetprofile")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

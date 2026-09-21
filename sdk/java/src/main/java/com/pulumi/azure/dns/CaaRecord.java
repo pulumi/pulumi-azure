@@ -63,10 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCaaRecord = new CaaRecord("exampleCaaRecord", CaaRecordArgs.builder()
- *             .name("test")
- *             .zoneName(exampleZone.name())
- *             .resourceGroupName(example.name())
- *             .ttl(300)
  *             .records(            
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
@@ -88,6 +84,10 @@ import javax.annotation.Nullable;
  *                     .tag("iodef")
  *                     .value("mailto:user}{@literal @}{@code nonexisting.tld")
  *                     .build())
+ *             .name("test")
+ *             .zoneName(exampleZone.name())
+ *             .resourceGroupName(example.name())
+ *             .ttl(300)
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

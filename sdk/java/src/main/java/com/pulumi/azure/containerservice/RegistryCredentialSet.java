@@ -65,9 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistryCredentialSet = new RegistryCredentialSet("exampleRegistryCredentialSet", RegistryCredentialSetArgs.builder()
- *             .name("exampleCredentialSet")
- *             .containerRegistryId(exampleRegistry.id())
- *             .loginServer("docker.io")
  *             .identity(RegistryCredentialSetIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -75,6 +72,9 @@ import javax.annotation.Nullable;
  *                 .usernameSecretId("https://example-keyvault.vault.azure.net/secrets/example-user-name")
  *                 .passwordSecretId("https://example-keyvault.vault.azure.net/secrets/example-user-password")
  *                 .build())
+ *             .name("exampleCredentialSet")
+ *             .containerRegistryId(exampleRegistry.id())
+ *             .loginServer("docker.io")
  *             .build());
  * 
  *     }
@@ -130,13 +130,6 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("standard")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -148,6 +141,13 @@ import javax.annotation.Nullable;
  *                     "Delete",
  *                     "Purge")
  *                 .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var exampleUser = new Secret("exampleUser", SecretArgs.builder()
@@ -170,9 +170,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistryCredentialSet = new RegistryCredentialSet("exampleRegistryCredentialSet", RegistryCredentialSetArgs.builder()
- *             .name("exampleCredentialSet")
- *             .containerRegistryId(exampleRegistry.id())
- *             .loginServer("docker.io")
  *             .identity(RegistryCredentialSetIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -180,6 +177,9 @@ import javax.annotation.Nullable;
  *                 .usernameSecretId(exampleUser.versionlessId())
  *                 .passwordSecretId(examplePassword.versionlessId())
  *                 .build())
+ *             .name("exampleCredentialSet")
+ *             .containerRegistryId(exampleRegistry.id())
+ *             .loginServer("docker.io")
  *             .build());
  * 
  *         var readSecrets = new AccessPolicy("readSecrets", AccessPolicyArgs.builder()

@@ -24,9 +24,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
- *     name: "acceptanceTestSecurityGroup1",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     securityRules: [{
  *         name: "test123",
  *         priority: 100,
@@ -38,6 +35,9 @@ import * as utilities from "../utilities";
  *         sourceAddressPrefix: "*",
  *         destinationAddressPrefix: "*",
  *     }],
+ *     name: "acceptanceTestSecurityGroup1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         environment: "Production",
  *     },

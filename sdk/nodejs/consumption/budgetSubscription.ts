@@ -26,10 +26,6 @@ import * as utilities from "../utilities";
  *     shortName: "example",
  * });
  * const exampleBudgetSubscription = new azure.consumption.BudgetSubscription("example", {
- *     name: "example",
- *     subscriptionId: current.then(current => current.id),
- *     amount: 1000,
- *     timeGrain: "Monthly",
  *     timePeriod: {
  *         startDate: "2022-06-01T00:00:00Z",
  *         endDate: "2022-07-01T00:00:00Z",
@@ -70,6 +66,10 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "example",
+ *     subscriptionId: current.then(current => current.id),
+ *     amount: 1000,
+ *     timeGrain: "Monthly",
  * });
  * ```
  *

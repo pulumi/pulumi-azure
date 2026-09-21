@@ -43,14 +43,14 @@ import (
 //				return err
 //			}
 //			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
-//				Name:              pulumi.String("example-network-manager"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						pulumi.String(current.Id),
 //					},
 //				},
+//				Name:              pulumi.String("example-network-manager"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ScopeAccesses: pulumi.StringArray{
 //					pulumi.String("Connectivity"),
 //					pulumi.String("SecurityAdmin"),
@@ -87,9 +87,10 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerConnectivityConfiguration(ctx, "example", &network.NetworkManagerConnectivityConfigurationArgs{
-//				Name:                 pulumi.String("example-connectivity-conf"),
-//				NetworkManagerId:     exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
-//				ConnectivityTopology: pulumi.String("HubAndSpoke"),
+//				Hub: &network.NetworkManagerConnectivityConfigurationHubArgs{
+//					ResourceId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//					ResourceType: pulumi.String("Microsoft.Network/virtualNetworks"),
+//				},
 //				AppliesToGroups: network.NetworkManagerConnectivityConfigurationAppliesToGroupArray{
 //					&network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs{
 //						GroupConnectivity: pulumi.String("DirectlyConnected"),
@@ -100,10 +101,9 @@ import (
 //						NetworkGroupId:    example2.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				Hub: &network.NetworkManagerConnectivityConfigurationHubArgs{
-//					ResourceId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//					ResourceType: pulumi.String("Microsoft.Network/virtualNetworks"),
-//				},
+//				Name:                 pulumi.String("example-connectivity-conf"),
+//				NetworkManagerId:     exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
+//				ConnectivityTopology: pulumi.String("HubAndSpoke"),
 //			})
 //			if err != nil {
 //				return err

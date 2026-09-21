@@ -90,21 +90,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster("exampleKubernetesCluster", KubernetesClusterArgs.builder()
- *             .name("example")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .dnsPrefix("acctestaksexample")
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
- *                 .name("example-value")
- *                 .nodeCount("example-value")
- *                 .vmSize("example-value")
  *                 .upgradeSettings(KubernetesClusterDefaultNodePoolUpgradeSettingsArgs.builder()
  *                     .maxSurge("example-value")
  *                     .build())
+ *                 .name("example-value")
+ *                 .nodeCount("example-value")
+ *                 .vmSize("example-value")
  *                 .build())
  *             .identity(KubernetesClusterIdentityArgs.builder()
  *                 .type("example-value")
  *                 .build())
+ *             .name("example")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .dnsPrefix("acctestaksexample")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -116,15 +116,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("example-value")
+ *                 .build())
  *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .applicationInsightsId(example.id())
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("example-value")
- *                 .build())
  *             .build());
  * 
  *         var exampleClusterTrustedAccessRoleBinding = new ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding", ClusterTrustedAccessRoleBindingArgs.builder()

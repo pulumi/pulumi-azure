@@ -49,22 +49,22 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("outbounddns"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.0.64/28"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //							Name: pulumi.String("Microsoft.Network/dnsResolvers"),
 //						},
+//						Name: pulumi.String("Microsoft.Network.dnsResolvers"),
 //					},
+//				},
+//				Name:               pulumi.String("outbounddns"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.64/28"),
 //				},
 //			})
 //			if err != nil {
@@ -103,16 +103,16 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewResolverForwardingRule(ctx, "example", &privatedns.ResolverForwardingRuleArgs{
-//				Name:                   pulumi.String("example-rule"),
-//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID().ToIDOutput().ToStringOutput(),
-//				DomainName:             pulumi.String("onprem.local."),
-//				Enabled:                pulumi.Bool(true),
 //				TargetDnsServers: privatedns.ResolverForwardingRuleTargetDnsServerArray{
 //					&privatedns.ResolverForwardingRuleTargetDnsServerArgs{
 //						IpAddress: pulumi.String("10.10.0.1"),
 //						Port:      pulumi.Int(53),
 //					},
 //				},
+//				Name:                   pulumi.String("example-rule"),
+//				DnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.ID().ToIDOutput().ToStringOutput(),
+//				DomainName:             pulumi.String("onprem.local."),
+//				Enabled:                pulumi.Bool(true),
 //				Metadata: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

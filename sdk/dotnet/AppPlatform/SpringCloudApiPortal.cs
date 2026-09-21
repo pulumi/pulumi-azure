@@ -48,16 +48,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudApiPortal = new Azure.AppPlatform.SpringCloudApiPortal("example", new()
     ///     {
-    ///         Name = "default",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         GatewayIds = new[]
-    ///         {
-    ///             exampleSpringCloudGateway.Id,
-    ///         },
-    ///         HttpsOnlyEnabled = false,
-    ///         PublicNetworkAccessEnabled = true,
-    ///         InstanceCount = 1,
-    ///         ApiTryOutEnabled = true,
     ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudApiPortalSsoArgs
     ///         {
     ///             ClientId = "test",
@@ -68,6 +58,16 @@ namespace Pulumi.Azure.AppPlatform
     ///                 "read",
     ///             },
     ///         },
+    ///         Name = "default",
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         GatewayIds = new[]
+    ///         {
+    ///             exampleSpringCloudGateway.Id,
+    ///         },
+    ///         HttpsOnlyEnabled = false,
+    ///         PublicNetworkAccessEnabled = true,
+    ///         InstanceCount = 1,
+    ///         ApiTryOutEnabled = true,
     ///     });
     /// 
     /// });

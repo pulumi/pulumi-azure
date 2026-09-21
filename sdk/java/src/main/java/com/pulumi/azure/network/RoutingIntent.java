@@ -72,25 +72,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewall = new Firewall("exampleFirewall", FirewallArgs.builder()
+ *             .virtualHub(FirewallVirtualHubArgs.builder()
+ *                 .virtualHubId(exampleVirtualHub.id())
+ *                 .publicIpCount(1)
+ *                 .build())
  *             .name("example-fw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("AZFW_Hub")
  *             .skuTier("Standard")
- *             .virtualHub(FirewallVirtualHubArgs.builder()
- *                 .virtualHubId(exampleVirtualHub.id())
- *                 .publicIpCount(1)
- *                 .build())
  *             .build());
  * 
  *         var exampleRoutingIntent = new RoutingIntent("exampleRoutingIntent", RoutingIntentArgs.builder()
- *             .name("example-routingintent")
- *             .virtualHubId(exampleVirtualHub.id())
  *             .routingPolicies(RoutingIntentRoutingPolicyArgs.builder()
  *                 .name("InternetTrafficPolicy")
  *                 .destinations("Internet")
  *                 .nextHop(exampleFirewall.id())
  *                 .build())
+ *             .name("example-routingintent")
+ *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
  *     }

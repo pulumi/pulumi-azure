@@ -401,12 +401,7 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-delegated",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -414,7 +409,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name="example-delegated",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.netapp.Account("example",
             name="example-anfaccount",
             location=example.location,
@@ -441,10 +441,10 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             algorithm=RSA,
             rsa_bits=2048)
         bucket_self_signed_cert = tls.SelfSignedCert("bucket",
-            private_key_pem=bucket.private_key_pem,
             subject=[{
                 commonName: example-bucket.example.internal,
             }],
+            private_key_pem=bucket.private_key_pem,
             dns_names=[example-bucket.example.internal],
             validity_period_hours=8760,
             allowed_uses=[
@@ -453,16 +453,16 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                 server_auth,
             ])
         example_volume_bucket_with_server = azure.netapp.VolumeBucketWithServer("example",
-            name="example-bucket",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 1000,
                 "user_id": 1000,
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
-            })
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
+            },
+            name="example-bucket",
+            volume_id=example_volume.id)
         ```
 
         ### Azure Key Vault)
@@ -483,12 +483,7 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-delegated",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -496,14 +491,19 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
-        example_account = azure.netapp.Account("example",
-            name="example-anfaccount",
-            location=example.location,
+                "name": "netapp",
+            }],
+            name="example-delegated",
             resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_account = azure.netapp.Account("example",
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-anfaccount",
+            location=example.location,
+            resource_group_name=example.name)
         example_pool = azure.netapp.Pool("example",
             name="example-anfpool",
             location=example.location,
@@ -593,8 +593,6 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                 "Delete",
             ])
         bucket = azure.keyvault.Certificate("bucket",
-            name="example-bucket-cert",
-            key_vault_id=certificate.id,
             certificate_policy={
                 "issuer_parameters": {
                     "name": "Self",
@@ -609,22 +607,22 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                     "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
+                    "subject_alternative_names": {
+                        "dns_names": ["example-bucket.example.internal"],
+                    },
                     "key_usages": [
                         "digitalSignature",
                         "keyEncipherment",
                     ],
                     "extended_key_usages": ["1.3.6.1.5.5.7.3.1"],
                     "subject": "CN=example-bucket.example.internal",
-                    "subject_alternative_names": {
-                        "dns_names": ["example-bucket.example.internal"],
-                    },
                     "validity_in_months": 12,
                 },
             },
+            name="example-bucket-cert",
+            key_vault_id=certificate.id,
             opts = pulumi.ResourceOptions(depends_on=[deployer_certificate]))
         example_volume_bucket_with_server = azure.netapp.VolumeBucketWithServer("example",
-            name="example-bucket",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 1000,
                 "user_id": 1000,
@@ -638,6 +636,8 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                 "credentials_key_vault_uri": credentials.vault_uri,
                 "credentials_secret_name": "example-bucket-creds",
             },
+            name="example-bucket",
+            volume_id=example_volume.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     anf_certificate,
                     anf_credentials,
@@ -709,12 +709,7 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-delegated",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -722,7 +717,12 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "netapp",
+            }],
+            name="example-delegated",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
         example_account = azure.netapp.Account("example",
             name="example-anfaccount",
             location=example.location,
@@ -749,10 +749,10 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             algorithm=RSA,
             rsa_bits=2048)
         bucket_self_signed_cert = tls.SelfSignedCert("bucket",
-            private_key_pem=bucket.private_key_pem,
             subject=[{
                 commonName: example-bucket.example.internal,
             }],
+            private_key_pem=bucket.private_key_pem,
             dns_names=[example-bucket.example.internal],
             validity_period_hours=8760,
             allowed_uses=[
@@ -761,16 +761,16 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                 server_auth,
             ])
         example_volume_bucket_with_server = azure.netapp.VolumeBucketWithServer("example",
-            name="example-bucket",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 1000,
                 "user_id": 1000,
             },
             server={
                 "fqdn": "example-bucket.example.internal",
-                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}").result,
-            })
+                "certificate_pem": std.base64encode(input=f"{bucket_self_signed_cert['certPem']}{bucket['privateKeyPem']}")["result"],
+            },
+            name="example-bucket",
+            volume_id=example_volume.id)
         ```
 
         ### Azure Key Vault)
@@ -791,12 +791,7 @@ class VolumeBucketWithServer(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-delegated",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "netapp",
                 "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
@@ -804,14 +799,19 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
-        example_account = azure.netapp.Account("example",
-            name="example-anfaccount",
-            location=example.location,
+                "name": "netapp",
+            }],
+            name="example-delegated",
             resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_account = azure.netapp.Account("example",
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-anfaccount",
+            location=example.location,
+            resource_group_name=example.name)
         example_pool = azure.netapp.Pool("example",
             name="example-anfpool",
             location=example.location,
@@ -901,8 +901,6 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                 "Delete",
             ])
         bucket = azure.keyvault.Certificate("bucket",
-            name="example-bucket-cert",
-            key_vault_id=certificate.id,
             certificate_policy={
                 "issuer_parameters": {
                     "name": "Self",
@@ -917,22 +915,22 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                     "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
+                    "subject_alternative_names": {
+                        "dns_names": ["example-bucket.example.internal"],
+                    },
                     "key_usages": [
                         "digitalSignature",
                         "keyEncipherment",
                     ],
                     "extended_key_usages": ["1.3.6.1.5.5.7.3.1"],
                     "subject": "CN=example-bucket.example.internal",
-                    "subject_alternative_names": {
-                        "dns_names": ["example-bucket.example.internal"],
-                    },
                     "validity_in_months": 12,
                 },
             },
+            name="example-bucket-cert",
+            key_vault_id=certificate.id,
             opts = pulumi.ResourceOptions(depends_on=[deployer_certificate]))
         example_volume_bucket_with_server = azure.netapp.VolumeBucketWithServer("example",
-            name="example-bucket",
-            volume_id=example_volume.id,
             file_system_nfs_user={
                 "group_id": 1000,
                 "user_id": 1000,
@@ -946,6 +944,8 @@ class VolumeBucketWithServer(pulumi.CustomResource):
                 "credentials_key_vault_uri": credentials.vault_uri,
                 "credentials_secret_name": "example-bucket-creds",
             },
+            name="example-bucket",
+            volume_id=example_volume.id,
             opts = pulumi.ResourceOptions(depends_on=[
                     anf_certificate,
                     anf_credentials,

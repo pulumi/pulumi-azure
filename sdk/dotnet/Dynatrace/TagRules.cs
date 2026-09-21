@@ -30,11 +30,6 @@ namespace Pulumi.Azure.Dynatrace
     /// 
     ///     var exampleMonitor = new Azure.Dynatrace.Monitor("example", new()
     ///     {
-    ///         Name = "exmpledynatracemonitor",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = test.Location,
-    ///         MonitoringEnabled = true,
-    ///         MarketplaceSubscriptionStatus = "Active",
     ///         Identity = new Azure.Dynatrace.Inputs.MonitorIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -54,12 +49,15 @@ namespace Pulumi.Azure.Dynatrace
     ///             Plan = "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
     ///             EffectiveDate = "2019-08-30T15:14:33Z",
     ///         },
+    ///         Name = "exmpledynatracemonitor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = test.Location,
+    ///         MonitoringEnabled = true,
+    ///         MarketplaceSubscriptionStatus = "Active",
     ///     });
     /// 
     ///     var exampleTagRules = new Azure.Dynatrace.TagRules("example", new()
     ///     {
-    ///         Name = "default",
-    ///         MonitorId = testAzurermDynatraceMonitors.Id,
     ///         LogRule = new Azure.Dynatrace.Inputs.TagRulesLogRuleArgs
     ///         {
     ///             FilteringTags = new[]
@@ -87,6 +85,8 @@ namespace Pulumi.Azure.Dynatrace
     ///                 },
     ///             },
     ///         },
+    ///         Name = "default",
+    ///         MonitorId = testAzurermDynatraceMonitors.Id,
     ///     });
     /// 
     /// });

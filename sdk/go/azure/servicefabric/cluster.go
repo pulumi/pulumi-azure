@@ -37,14 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = servicefabric.NewCluster(ctx, "example", &servicefabric.ClusterArgs{
-//				Name:               pulumi.String("example-servicefabric"),
-//				ResourceGroupName:  example.Name,
-//				Location:           example.Location,
-//				ReliabilityLevel:   pulumi.String("Bronze"),
-//				UpgradeMode:        pulumi.String("Manual"),
-//				ClusterCodeVersion: pulumi.String("7.1.456.959"),
-//				VmImage:            pulumi.String("Windows"),
-//				ManagementEndpoint: pulumi.String("https://example:80"),
 //				NodeTypes: servicefabric.ClusterNodeTypeArray{
 //					&servicefabric.ClusterNodeTypeArgs{
 //						Name:               pulumi.String("first"),
@@ -54,6 +46,14 @@ import (
 //						HttpEndpointPort:   pulumi.Int(80),
 //					},
 //				},
+//				Name:               pulumi.String("example-servicefabric"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
+//				ReliabilityLevel:   pulumi.String("Bronze"),
+//				UpgradeMode:        pulumi.String("Manual"),
+//				ClusterCodeVersion: pulumi.String("7.1.456.959"),
+//				VmImage:            pulumi.String("Windows"),
+//				ManagementEndpoint: pulumi.String("https://example:80"),
 //			})
 //			if err != nil {
 //				return err

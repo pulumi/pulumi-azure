@@ -27,9 +27,6 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "GRS",
  * });
  * const exampleSubnetServiceEndpointStoragePolicy = new azure.network.SubnetServiceEndpointStoragePolicy("example", {
- *     name: "example-policy",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     definitions: [
  *         {
  *             name: "name1",
@@ -55,6 +52,9 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "example-policy",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

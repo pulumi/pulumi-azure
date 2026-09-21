@@ -49,41 +49,41 @@ import (
 //				return err
 //			}
 //			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "example", &devtest.VirtualNetworkArgs{
-//				Name:              pulumi.String("example-network"),
-//				LabName:           exampleLab.Name,
-//				ResourceGroupName: example.Name,
 //				Subnet: &devtest.VirtualNetworkSubnetArgs{
 //					UsePublicIpAddress:          pulumi.String("Allow"),
 //					UseInVirtualMachineCreation: pulumi.String("Allow"),
 //				},
+//				Name:              pulumi.String("example-network"),
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = devtest.NewLinuxVirtualMachine(ctx, "example", &devtest.LinuxVirtualMachineArgs{
-//				Name:                pulumi.String("example-vm03"),
-//				LabName:             exampleLab.Name,
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				Size:                pulumi.String("Standard_DS2"),
-//				Username:            pulumi.String("exampleuser99"),
-//				SshKey:              pulumi.String(invokeFile.Result),
-//				LabVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
-//				StorageType:         pulumi.String("Premium"),
-//				Notes:               pulumi.String("Some notes about this Virtual Machine."),
 //				GalleryImageReference: &devtest.LinuxVirtualMachineGalleryImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
+//				Name:                pulumi.String("example-vm03"),
+//				LabName:             exampleLab.Name,
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
+//				Size:                pulumi.String("Standard_DS2"),
+//				Username:            pulumi.String("exampleuser99"),
+//				SshKey:              invokeFile.Result,
+//				LabVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
+//				StorageType:         pulumi.String("Premium"),
+//				Notes:               pulumi.String("Some notes about this Virtual Machine."),
 //			})
 //			if err != nil {
 //				return err

@@ -37,10 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-aks"),
-//				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("example-aks"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
 //					NodeCount: pulumi.Int(1),
@@ -49,6 +45,10 @@ import (
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-aks"),
+//				Location:          pulumi.String("West Europe"),
+//				ResourceGroupName: example.Name,
+//				DnsPrefix:         pulumi.String("example-aks"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,9 +62,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewFluxConfiguration(ctx, "example", &containerservice.FluxConfigurationArgs{
-//				Name:      pulumi.String("example-fc"),
-//				ClusterId: pulumi.Any(test.Id),
-//				Namespace: pulumi.String("flux"),
 //				GitRepository: &containerservice.FluxConfigurationGitRepositoryArgs{
 //					Url:            pulumi.String("https://github.com/Azure/arc-k8s-demo"),
 //					ReferenceType:  pulumi.String("branch"),
@@ -72,20 +69,23 @@ import (
 //				},
 //				Kustomizations: containerservice.FluxConfigurationKustomizationArray{
 //					&containerservice.FluxConfigurationKustomizationArgs{
-//						Name: pulumi.String("kustomization-1"),
 //						PostBuild: &containerservice.FluxConfigurationKustomizationPostBuildArgs{
-//							Substitute: pulumi.StringMap{
-//								"example_var": pulumi.String("substitute_with_this"),
-//							},
 //							SubstituteFroms: containerservice.FluxConfigurationKustomizationPostBuildSubstituteFromArray{
 //								&containerservice.FluxConfigurationKustomizationPostBuildSubstituteFromArgs{
 //									Kind: pulumi.String("ConfigMap"),
 //									Name: pulumi.String("example-configmap"),
 //								},
 //							},
+//							Substitute: pulumi.StringMap{
+//								"example_var": pulumi.String("substitute_with_this"),
+//							},
 //						},
+//						Name: pulumi.String("kustomization-1"),
 //					},
 //				},
+//				Name:      pulumi.String("example-fc"),
+//				ClusterId: pulumi.Any(test.Id),
+//				Namespace: pulumi.String("flux"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleKubernetesClusterExtension,
 //			}))

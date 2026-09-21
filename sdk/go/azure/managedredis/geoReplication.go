@@ -39,25 +39,25 @@ import (
 //				return err
 //			}
 //			amr1, err := managedredis.NewManagedRedis(ctx, "amr1", &managedredis.ManagedRedisArgs{
+//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
+//					GeoReplicationGroupName: pulumi.String("example-geo-group"),
+//				},
 //				Name:              pulumi.String("example-managedredis-amr1"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				SkuName:           pulumi.String("Balanced_B3"),
-//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
-//					GeoReplicationGroupName: pulumi.String("example-geo-group"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			amr2, err := managedredis.NewManagedRedis(ctx, "amr2", &managedredis.ManagedRedisArgs{
+//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
+//					GeoReplicationGroupName: pulumi.String("example-geo-group"),
+//				},
 //				Name:              pulumi.String("example-managedredis-amr2"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("Central US"),
 //				SkuName:           pulumi.String("Balanced_B3"),
-//				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
-//					GeoReplicationGroupName: pulumi.String("example-geo-group"),
-//				},
 //			})
 //			if err != nil {
 //				return err

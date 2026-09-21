@@ -32,13 +32,13 @@ import * as utilities from "../utilities";
  *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * const exampleSpringCloudCustomizedAccelerator = new azure.appplatform.SpringCloudCustomizedAccelerator("example", {
- *     name: "example",
- *     springCloudAcceleratorId: exampleSpringCloudAccelerator.id,
  *     gitRepository: {
  *         url: "https://github.com/Azure-Samples/piggymetrics",
  *         gitTag: "spring.version.2.0.3",
  *         intervalInSeconds: 100,
  *     },
+ *     name: "example",
+ *     springCloudAcceleratorId: exampleSpringCloudAccelerator.id,
  *     acceleratorTags: [
  *         "tag-a",
  *         "tag-b",

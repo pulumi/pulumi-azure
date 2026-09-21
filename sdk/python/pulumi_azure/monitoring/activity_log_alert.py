@@ -350,13 +350,13 @@ class ActivityLogAlert(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         main = azure.monitoring.ActionGroup("main",
-            name="example-actiongroup",
-            resource_group_name=example.name,
-            short_name="p0action",
             webhook_receivers=[{
                 "name": "callmyapi",
                 "service_uri": "http://example.com/alert",
-            }])
+            }],
+            name="example-actiongroup",
+            resource_group_name=example.name,
+            short_name="p0action")
         to_monitor = azure.storage.Account("to_monitor",
             name="examplesa",
             resource_group_name=example.name,
@@ -364,11 +364,6 @@ class ActivityLogAlert(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         main_activity_log_alert = azure.monitoring.ActivityLogAlert("main",
-            name="example-activitylogalert",
-            resource_group_name=example.name,
-            location=example.location,
-            scopes=[example.id],
-            description="This alert will monitor a specific storage account updates.",
             criteria={
                 "resource_id": to_monitor.id,
                 "operation_name": "Microsoft.Storage/storageAccounts/write",
@@ -379,7 +374,12 @@ class ActivityLogAlert(pulumi.CustomResource):
                 "webhook_properties": {
                     "from": "source",
                 },
-            }])
+            }],
+            name="example-activitylogalert",
+            resource_group_name=example.name,
+            location=example.location,
+            scopes=[example.id],
+            description="This alert will monitor a specific storage account updates.")
         ```
 
         ## API Providers
@@ -429,13 +429,13 @@ class ActivityLogAlert(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         main = azure.monitoring.ActionGroup("main",
-            name="example-actiongroup",
-            resource_group_name=example.name,
-            short_name="p0action",
             webhook_receivers=[{
                 "name": "callmyapi",
                 "service_uri": "http://example.com/alert",
-            }])
+            }],
+            name="example-actiongroup",
+            resource_group_name=example.name,
+            short_name="p0action")
         to_monitor = azure.storage.Account("to_monitor",
             name="examplesa",
             resource_group_name=example.name,
@@ -443,11 +443,6 @@ class ActivityLogAlert(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         main_activity_log_alert = azure.monitoring.ActivityLogAlert("main",
-            name="example-activitylogalert",
-            resource_group_name=example.name,
-            location=example.location,
-            scopes=[example.id],
-            description="This alert will monitor a specific storage account updates.",
             criteria={
                 "resource_id": to_monitor.id,
                 "operation_name": "Microsoft.Storage/storageAccounts/write",
@@ -458,7 +453,12 @@ class ActivityLogAlert(pulumi.CustomResource):
                 "webhook_properties": {
                     "from": "source",
                 },
-            }])
+            }],
+            name="example-activitylogalert",
+            resource_group_name=example.name,
+            location=example.location,
+            scopes=[example.id],
+            description="This alert will monitor a specific storage account updates.")
         ```
 
         ## API Providers

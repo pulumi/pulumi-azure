@@ -31,15 +31,15 @@ import * as utilities from "../utilities";
  *     shortName: "example",
  * });
  * const exampleSmartDetectorAlertRule = new azure.monitoring.SmartDetectorAlertRule("example", {
+ *     actionGroup: {
+ *         ids: [exampleActionGroup.id],
+ *     },
  *     name: "example-smart-detector-alert-rule",
  *     resourceGroupName: example.name,
  *     severity: "Sev0",
  *     scopeResourceIds: [exampleInsights.id],
  *     frequency: "PT1M",
  *     detectorType: "FailureAnomaliesDetector",
- *     actionGroup: {
- *         ids: [exampleActionGroup.id],
- *     },
  * });
  * ```
  *

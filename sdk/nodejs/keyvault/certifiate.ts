@@ -26,12 +26,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -78,16 +72,22 @@ import * as utilities from "../utilities";
  *             "Set",
  *         ],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "imported-cert",
- *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "certificate-to-import.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "",
  *     },
+ *     name: "imported-cert",
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * ```
  *
@@ -103,13 +103,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -157,10 +150,15 @@ import * as utilities from "../utilities";
  *             "Set",
  *         ],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "generated-cert",
- *     keyVaultId: exampleKeyVault.id,
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -171,18 +169,16 @@ import * as utilities from "../utilities";
  *             keyType: "RSA",
  *             reuseKey: true,
  *         },
- *         lifetimeActions: [{
- *             action: {
- *                 actionType: "AutoRenew",
- *             },
- *             trigger: {
- *                 daysBeforeExpiry: 30,
- *             },
- *         }],
  *         secretProperties: {
  *             contentType: "application/x-pkcs12",
  *         },
  *         x509CertificateProperties: {
+ *             subjectAlternativeNames: {
+ *                 dnsNames: [
+ *                     "internal.contoso.com",
+ *                     "domain.hello.world",
+ *                 ],
+ *             },
  *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
  *             keyUsages: [
  *                 "cRLSign",
@@ -192,16 +188,20 @@ import * as utilities from "../utilities";
  *                 "keyCertSign",
  *                 "keyEncipherment",
  *             ],
- *             subjectAlternativeNames: {
- *                 dnsNames: [
- *                     "internal.contoso.com",
- *                     "domain.hello.world",
- *                 ],
- *             },
  *             subject: "CN=hello-world",
  *             validityInMonths: 12,
  *         },
+ *         lifetimeActions: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
  *     },
+ *     name: "generated-cert",
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * ```
  *

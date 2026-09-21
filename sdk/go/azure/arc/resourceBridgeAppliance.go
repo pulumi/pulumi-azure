@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			_, err = arc.NewResourceBridgeAppliance(ctx, "example", &arc.ResourceBridgeApplianceArgs{
+//				Identity: &arc.ResourceBridgeApplianceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                   pulumi.String("example-appliance"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
 //				Distro:                 pulumi.String("AKSEdge"),
 //				InfrastructureProvider: pulumi.String("VMWare"),
-//				Identity: &arc.ResourceBridgeApplianceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"hello": pulumi.String("world"),
 //				},

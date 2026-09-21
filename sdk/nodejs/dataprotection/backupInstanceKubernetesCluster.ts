@@ -25,20 +25,16 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefix: "dns",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
@@ -48,6 +44,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "dns",
  * });
  * const aksClusterTrustedAccess = new azure.containerservice.ClusterTrustedAccessRoleBinding("aks_cluster_trusted_access", {
  *     kubernetesClusterId: exampleKubernetesCluster.id,
@@ -117,38 +117,32 @@ import * as utilities from "../utilities";
  *     principalId: exampleKubernetesCluster.identity.apply(identity => identity?.principalId),
  * });
  * const exampleBackupPolicyKubernetesCluster = new azure.dataprotection.BackupPolicyKubernetesCluster("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     vaultName: exampleBackupVault.name,
- *     backupRepeatingTimeIntervals: ["R/2023-05-23T02:30:00+00:00/P1W"],
- *     retentionRules: [{
- *         name: "Daily",
- *         priority: 25,
- *         lifeCycles: [{
- *             duration: "P84D",
- *             dataStoreType: "OperationalStore",
- *         }],
- *         criteria: {
- *             daysOfWeeks: ["Thursday"],
- *             monthsOfYears: ["November"],
- *             weeksOfMonths: ["First"],
- *             scheduledBackupTimes: ["2023-05-23T02:30:00Z"],
- *         },
- *     }],
  *     defaultRetentionRule: {
  *         lifeCycles: [{
  *             duration: "P14D",
  *             dataStoreType: "OperationalStore",
  *         }],
  *     },
+ *     retentionRules: [{
+ *         criteria: {
+ *             daysOfWeeks: ["Thursday"],
+ *             monthsOfYears: ["November"],
+ *             weeksOfMonths: ["First"],
+ *             scheduledBackupTimes: ["2023-05-23T02:30:00Z"],
+ *         },
+ *         lifeCycles: [{
+ *             duration: "P84D",
+ *             dataStoreType: "OperationalStore",
+ *         }],
+ *         name: "Daily",
+ *         priority: 25,
+ *     }],
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     vaultName: exampleBackupVault.name,
+ *     backupRepeatingTimeIntervals: ["R/2023-05-23T02:30:00+00:00/P1W"],
  * });
  * const exampleBackupInstanceKubernetesCluster = new azure.dataprotection.BackupInstanceKubernetesCluster("example", {
- *     name: "example",
- *     location: example.location,
- *     vaultId: exampleBackupVault.id,
- *     kubernetesClusterId: exampleKubernetesCluster.id,
- *     snapshotResourceGroupName: snap.name,
- *     backupPolicyId: exampleBackupPolicyKubernetesCluster.id,
  *     backupDatasourceParameters: {
  *         excludedNamespaces: ["test-excluded-namespaces"],
  *         excludedResourceTypes: ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
@@ -158,6 +152,12 @@ import * as utilities from "../utilities";
  *         labelSelectors: ["kubernetes.io/metadata.name:test"],
  *         volumeSnapshotEnabled: true,
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     vaultId: exampleBackupVault.id,
+ *     kubernetesClusterId: exampleKubernetesCluster.id,
+ *     snapshotResourceGroupName: snap.name,
+ *     backupPolicyId: exampleBackupPolicyKubernetesCluster.id,
  * }, {
  *     dependsOn: [
  *         testExtensionAndStorageAccountPermission,

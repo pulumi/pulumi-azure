@@ -35,14 +35,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleNetworkInterfaceApplicationSecurityGroupAssociation = new azure.network.NetworkInterfaceApplicationSecurityGroupAssociation("example", {
  *     networkInterfaceId: exampleNetworkInterface.id,

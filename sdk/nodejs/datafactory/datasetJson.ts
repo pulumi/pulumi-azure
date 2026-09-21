@@ -31,14 +31,14 @@ import * as utilities from "../utilities";
  *     url: "https://www.bing.com",
  * });
  * const exampleDatasetJson = new azure.datafactory.DatasetJson("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     httpServerLocation: {
  *         relativeUrl: "/fizz/buzz/",
  *         path: "foo/bar/",
  *         filename: "foo.txt",
  *     },
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     linkedServiceName: exampleLinkedServiceWeb.name,
  *     encoding: "UTF-8",
  * });
  * ```

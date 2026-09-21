@@ -37,13 +37,10 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleFleetUpdateStrategy = new Azure.ContainerService.FleetUpdateStrategy("example", new()
     ///     {
-    ///         Name = "example",
-    ///         KubernetesFleetManagerId = exampleKubernetesFleetManager.Id,
     ///         Stages = new[]
     ///         {
     ///             new Azure.ContainerService.Inputs.FleetUpdateStrategyStageArgs
     ///             {
-    ///                 Name = "example-stage-1",
     ///                 Groups = new[]
     ///                 {
     ///                     new Azure.ContainerService.Inputs.FleetUpdateStrategyStageGroupArgs
@@ -51,9 +48,12 @@ namespace Pulumi.Azure.ContainerService
     ///                         Name = "example-group-1",
     ///                     },
     ///                 },
+    ///                 Name = "example-stage-1",
     ///                 AfterStageWaitInSeconds = 21,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         KubernetesFleetManagerId = exampleKubernetesFleetManager.Id,
     ///     });
     /// 
     /// });

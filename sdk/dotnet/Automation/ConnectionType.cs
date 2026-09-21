@@ -40,9 +40,6 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var exampleConnectionType = new Azure.Automation.ConnectionType("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AutomationAccountName = exampleAccount.Name,
     ///         Fields = new[]
     ///         {
     ///             new Azure.Automation.Inputs.ConnectionTypeFieldArgs
@@ -51,6 +48,9 @@ namespace Pulumi.Azure.Automation
     ///                 Type = "string",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
     ///     });
     /// 
     /// });

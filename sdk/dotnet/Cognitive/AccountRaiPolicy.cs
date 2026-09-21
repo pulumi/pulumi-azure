@@ -39,9 +39,6 @@ namespace Pulumi.Azure.Cognitive
     /// 
     ///     var exampleAccountRaiPolicy = new Azure.Cognitive.AccountRaiPolicy("example", new()
     ///     {
-    ///         Name = "example-rai-policy",
-    ///         CognitiveAccountId = exampleAccount.Id,
-    ///         BasePolicyName = "Microsoft.Default",
     ///         ContentFilters = new[]
     ///         {
     ///             new Azure.Cognitive.Inputs.AccountRaiPolicyContentFilterArgs
@@ -53,6 +50,9 @@ namespace Pulumi.Azure.Cognitive
     ///                 Source = "Prompt",
     ///             },
     ///         },
+    ///         Name = "example-rai-policy",
+    ///         CognitiveAccountId = exampleAccount.Id,
+    ///         BasePolicyName = "Microsoft.Default",
     ///     });
     /// 
     /// });

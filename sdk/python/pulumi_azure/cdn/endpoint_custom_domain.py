@@ -244,14 +244,14 @@ class EndpointCustomDomain(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard_Microsoft")
         example_endpoint = azure.cdn.Endpoint("example",
-            name="example-endpoint",
-            profile_name=example_profile.name,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             origins=[{
                 "name": "example",
                 "host_name": example_account.primary_blob_host,
-            }])
+            }],
+            name="example-endpoint",
+            profile_name=example_profile.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example = azure.dns.get_zone(name="example-domain.com",
             resource_group_name="domain-rg")
         example_c_name_record = azure.dns.CNameRecord("example",
@@ -321,14 +321,14 @@ class EndpointCustomDomain(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard_Microsoft")
         example_endpoint = azure.cdn.Endpoint("example",
-            name="example-endpoint",
-            profile_name=example_profile.name,
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
             origins=[{
                 "name": "example",
                 "host_name": example_account.primary_blob_host,
-            }])
+            }],
+            name="example-endpoint",
+            profile_name=example_profile.name,
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
         example = azure.dns.get_zone(name="example-domain.com",
             resource_group_name="domain-rg")
         example_c_name_record = azure.dns.CNameRecord("example",

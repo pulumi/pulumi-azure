@@ -55,6 +55,7 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleAppFlexConsumption = new Azure.AppService.AppFlexConsumption("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example-linux-function-app",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -72,7 +73,6 @@ namespace Pulumi.Azure.AppService
     ///         RuntimeVersion = "20",
     ///         MaximumInstanceCount = 50,
     ///         InstanceMemoryInMb = 2048,
-    ///         SiteConfig = null,
     ///     });
     /// 
     /// });

@@ -59,9 +59,6 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -71,21 +68,13 @@ namespace Pulumi.Azure.ChaosStudio
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Size = "Standard_F2",
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "example",
-    ///         DisablePasswordAuthentication = false,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -97,6 +86,17 @@ namespace Pulumi.Azure.ChaosStudio
     ///             Offer = "0001-com-ubuntu-server-jammy",
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
+    ///         },
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "example",
+    ///         DisablePasswordAuthentication = false,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
     ///         },
     ///     });
     /// 
@@ -115,9 +115,6 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     ///     var exampleExperiment = new Azure.ChaosStudio.Experiment("example", new()
     ///     {
-    ///         Location = example.Location,
-    ///         Name = "example",
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.ChaosStudio.Inputs.ExperimentIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -137,12 +134,10 @@ namespace Pulumi.Azure.ChaosStudio
     ///         {
     ///             new Azure.ChaosStudio.Inputs.ExperimentStepArgs
     ///             {
-    ///                 Name = "example",
     ///                 Branches = new[]
     ///                 {
     ///                     new Azure.ChaosStudio.Inputs.ExperimentStepBranchArgs
     ///                     {
-    ///                         Name = "example",
     ///                         Actions = new[]
     ///                         {
     ///                             new Azure.ChaosStudio.Inputs.ExperimentStepBranchActionArgs
@@ -157,10 +152,15 @@ namespace Pulumi.Azure.ChaosStudio
     ///                                 Duration = "PT10M",
     ///                             },
     ///                         },
+    ///                         Name = "example",
     ///                     },
     ///                 },
+    ///                 Name = "example",
     ///             },
     ///         },
+    ///         Location = example.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

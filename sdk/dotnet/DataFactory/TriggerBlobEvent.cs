@@ -52,6 +52,17 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleTriggerBlobEvent = new Azure.DataFactory.TriggerBlobEvent("example", new()
     ///     {
+    ///         Pipelines = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.TriggerBlobEventPipelineArgs
+    ///             {
+    ///                 Name = examplePipeline.Name,
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "Env", "Prod" },
+    ///                 },
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         StorageAccountId = exampleAccount.Id,
@@ -70,17 +81,6 @@ namespace Pulumi.Azure.DataFactory
     ///             "test3",
     ///         },
     ///         Description = "example description",
-    ///         Pipelines = new[]
-    ///         {
-    ///             new Azure.DataFactory.Inputs.TriggerBlobEventPipelineArgs
-    ///             {
-    ///                 Name = examplePipeline.Name,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "Env", "Prod" },
-    ///                 },
-    ///             },
-    ///         },
     ///         AdditionalProperties = 
     ///         {
     ///             { "foo", "foo1" },

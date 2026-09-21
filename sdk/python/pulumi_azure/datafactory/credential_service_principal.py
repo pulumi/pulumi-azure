@@ -289,13 +289,6 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -310,7 +303,14 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                     "Purge",
                     "Recover",
                 ],
-            }])
+            }],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         example_secret = azure.keyvault.Secret("example",
             name="example",
             value="example-secret",
@@ -320,16 +320,16 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         example_credential_service_principal = azure.datafactory.CredentialServicePrincipal("example",
-            name="example",
-            description="example description",
-            data_factory_id=example_factory.id,
-            tenant_id=current.tenant_id,
-            service_principal_id=current.client_id,
             service_principal_key={
                 "linked_service_name": example_linked_service_key_vault.name,
                 "secret_name": example_secret.name,
                 "secret_version": example_secret.version,
             },
+            name="example",
+            description="example description",
+            data_factory_id=example_factory.id,
+            tenant_id=current.tenant_id,
+            service_principal_id=current.client_id,
             annotations=[
                 "1",
                 "2",
@@ -386,13 +386,6 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
-            soft_delete_retention_days=7,
             access_policies=[{
                 "tenant_id": current.tenant_id,
                 "object_id": current.object_id,
@@ -407,7 +400,14 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                     "Purge",
                     "Recover",
                 ],
-            }])
+            }],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium",
+            soft_delete_retention_days=7)
         example_secret = azure.keyvault.Secret("example",
             name="example",
             value="example-secret",
@@ -417,16 +417,16 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         example_credential_service_principal = azure.datafactory.CredentialServicePrincipal("example",
-            name="example",
-            description="example description",
-            data_factory_id=example_factory.id,
-            tenant_id=current.tenant_id,
-            service_principal_id=current.client_id,
             service_principal_key={
                 "linked_service_name": example_linked_service_key_vault.name,
                 "secret_name": example_secret.name,
                 "secret_version": example_secret.version,
             },
+            name="example",
+            description="example description",
+            data_factory_id=example_factory.id,
+            tenant_id=current.tenant_id,
+            service_principal_id=current.client_id,
             annotations=[
                 "1",
                 "2",

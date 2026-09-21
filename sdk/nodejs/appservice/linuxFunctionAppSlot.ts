@@ -34,18 +34,18 @@ import * as utilities from "../utilities";
  *     skuName: "Y1",
  * });
  * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-linux-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
- *     siteConfig: {},
  * });
  * const exampleLinuxFunctionAppSlot = new azure.appservice.LinuxFunctionAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-linux-function-app-slot",
  *     functionAppId: exampleLinuxFunctionApp.id,
  *     storageAccountName: exampleAccount.name,
- *     siteConfig: {},
  * });
  * ```
  *

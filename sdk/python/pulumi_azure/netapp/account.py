@@ -260,9 +260,6 @@ class Account(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_account = azure.netapp.Account("example",
-            name="netappaccount",
-            location=example.location,
-            resource_group_name=example.name,
             active_directory={
                 "username": "aduser",
                 "password": "aduserpwd",
@@ -274,7 +271,10 @@ class Account(pulumi.CustomResource):
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -330,9 +330,6 @@ class Account(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_account = azure.netapp.Account("example",
-            name="netappaccount",
-            location=example.location,
-            resource_group_name=example.name,
             active_directory={
                 "username": "aduser",
                 "password": "aduserpwd",
@@ -344,7 +341,10 @@ class Account(pulumi.CustomResource):
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
-            })
+            },
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

@@ -45,19 +45,19 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewFleetUpdateStrategy(ctx, "example", &containerservice.FleetUpdateStrategyArgs{
-//				Name:                     pulumi.String("example"),
-//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
 //				Stages: containerservice.FleetUpdateStrategyStageArray{
 //					&containerservice.FleetUpdateStrategyStageArgs{
-//						Name: pulumi.String("example-stage-1"),
 //						Groups: containerservice.FleetUpdateStrategyStageGroupArray{
 //							&containerservice.FleetUpdateStrategyStageGroupArgs{
 //								Name: pulumi.String("example-group-1"),
 //							},
 //						},
+//						Name:                    pulumi.String("example-stage-1"),
 //						AfterStageWaitInSeconds: pulumi.Int(21),
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

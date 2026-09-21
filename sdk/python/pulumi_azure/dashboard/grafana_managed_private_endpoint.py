@@ -356,14 +356,14 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             location=example.location,
             public_network_access_enabled=False)
         example_grafana = azure.dashboard.Grafana("example",
+            azure_monitor_workspace_integrations=[{
+                "resource_id": example_workspace.id,
+            }],
             name="example-dg",
             resource_group_name=example.name,
             location=example.location,
             grafana_major_version="12",
-            public_network_access_enabled=False,
-            azure_monitor_workspace_integrations=[{
-                "resource_id": example_workspace.id,
-            }])
+            public_network_access_enabled=False)
         example_grafana_managed_private_endpoint = azure.dashboard.GrafanaManagedPrivateEndpoint("example",
             grafana_id=example_grafana.id,
             name="example-mpe",
@@ -427,14 +427,14 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             location=example.location,
             public_network_access_enabled=False)
         example_grafana = azure.dashboard.Grafana("example",
+            azure_monitor_workspace_integrations=[{
+                "resource_id": example_workspace.id,
+            }],
             name="example-dg",
             resource_group_name=example.name,
             location=example.location,
             grafana_major_version="12",
-            public_network_access_enabled=False,
-            azure_monitor_workspace_integrations=[{
-                "resource_id": example_workspace.id,
-            }])
+            public_network_access_enabled=False)
         example_grafana_managed_private_endpoint = azure.dashboard.GrafanaManagedPrivateEndpoint("example",
             grafana_id=example_grafana.id,
             name="example-mpe",

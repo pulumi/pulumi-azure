@@ -54,10 +54,6 @@ import (
 //				return err
 //			}
 //			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example-cluster"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("example-aks"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:                  pulumi.String("default"),
 //					NodeCount:             pulumi.Int(1),
@@ -67,21 +63,15 @@ import (
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-cluster"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DnsPrefix:         pulumi.String("example-aks"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = monitoring.NewAlertPrometheusRuleGroup(ctx, "example", &monitoring.AlertPrometheusRuleGroupArgs{
-//				Name:              pulumi.String("example-amprg"),
-//				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: example.Name,
-//				ClusterName:       exampleKubernetesCluster.Name,
-//				Description:       pulumi.String("This is the description of the following rule group"),
-//				RuleGroupEnabled:  pulumi.Bool(false),
-//				Interval:          pulumi.String("PT1M"),
-//				Scopes: pulumi.StringArray{
-//					exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				Rules: monitoring.AlertPrometheusRuleGroupRuleArray{
 //					&monitoring.AlertPrometheusRuleGroupRuleArgs{
 //						Enabled:    pulumi.Bool(false),
@@ -92,20 +82,20 @@ import (
 //						},
 //					},
 //					&monitoring.AlertPrometheusRuleGroupRuleArgs{
-//						Alert:      pulumi.String("Billing_Processing_Very_Slow"),
-//						Enabled:    pulumi.Bool(true),
-//						Expression: pulumi.String("histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n"),
-//						For:        pulumi.String("PT5M"),
-//						Severity:   pulumi.Int(2),
+//						AlertResolution: &monitoring.AlertPrometheusRuleGroupRuleAlertResolutionArgs{
+//							AutoResolved:  pulumi.Bool(true),
+//							TimeToResolve: pulumi.String("PT10M"),
+//						},
 //						Actions: monitoring.AlertPrometheusRuleGroupRuleActionArray{
 //							&monitoring.AlertPrometheusRuleGroupRuleActionArgs{
 //								ActionGroupId: exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
-//						AlertResolution: &monitoring.AlertPrometheusRuleGroupRuleAlertResolutionArgs{
-//							AutoResolved:  pulumi.Bool(true),
-//							TimeToResolve: pulumi.String("PT10M"),
-//						},
+//						Alert:      pulumi.String("Billing_Processing_Very_Slow"),
+//						Enabled:    pulumi.Bool(true),
+//						Expression: pulumi.String("histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n"),
+//						For:        pulumi.String("PT5M"),
+//						Severity:   pulumi.Int(2),
 //						Annotations: pulumi.StringMap{
 //							"annotationName": pulumi.String("annotationValue"),
 //						},
@@ -113,6 +103,16 @@ import (
 //							"team": pulumi.String("prod"),
 //						},
 //					},
+//				},
+//				Name:              pulumi.String("example-amprg"),
+//				Location:          pulumi.String("West Europe"),
+//				ResourceGroupName: example.Name,
+//				ClusterName:       exampleKubernetesCluster.Name,
+//				Description:       pulumi.String("This is the description of the following rule group"),
+//				RuleGroupEnabled:  pulumi.Bool(false),
+//				Interval:          pulumi.String("PT1M"),
+//				Scopes: pulumi.StringArray{
+//					exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),

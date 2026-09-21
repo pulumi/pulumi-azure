@@ -37,11 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = dynatrace.NewMonitor(ctx, "example", &dynatrace.MonitorArgs{
-//				Name:                          pulumi.String("exmpledynatracemonitor"),
-//				ResourceGroupName:             example.Name,
-//				Location:                      pulumi.Any(test.Location),
-//				MonitoringEnabled:             pulumi.Bool(true),
-//				MarketplaceSubscriptionStatus: "Active",
 //				Identity: &dynatrace.MonitorIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -58,6 +53,11 @@ import (
 //					Plan:          pulumi.String("azureportalintegration_privatepreview@TIDhjdtn7tfnxcy"),
 //					EffectiveDate: pulumi.String("2019-08-30T15:14:33Z"),
 //				},
+//				Name:                          pulumi.String("exmpledynatracemonitor"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      pulumi.Any(test.Location),
+//				MonitoringEnabled:             pulumi.Bool(true),
+//				MarketplaceSubscriptionStatus: "Active",
 //			})
 //			if err != nil {
 //				return err

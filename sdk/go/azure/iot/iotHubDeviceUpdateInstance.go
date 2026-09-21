@@ -46,13 +46,13 @@ import (
 //				return err
 //			}
 //			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
@@ -68,14 +68,14 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewIotHubDeviceUpdateInstance(ctx, "example", &iot.IotHubDeviceUpdateInstanceArgs{
-//				Name:                  pulumi.String("example"),
-//				DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.ID().ToIDOutput().ToStringOutput(),
-//				IothubId:              exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
-//				DiagnosticEnabled:     pulumi.Bool(true),
 //				DiagnosticStorageAccount: &iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{
 //					ConnectionString: exampleAccount.PrimaryConnectionString,
 //					Id:               exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:                  pulumi.String("example"),
+//				DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.ID().ToIDOutput().ToStringOutput(),
+//				IothubId:              exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
+//				DiagnosticEnabled:     pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

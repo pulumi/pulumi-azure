@@ -32,13 +32,15 @@ import * as utilities from "../utilities";
  *     containerAccessType: "private",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * }, {
+ *     ignoreChanges: ["fileUpload"],
  * });
  * const exampleFileUpload = new azure.iot.FileUpload("example", {
  *     iothubId: exampleIoTHub.id,

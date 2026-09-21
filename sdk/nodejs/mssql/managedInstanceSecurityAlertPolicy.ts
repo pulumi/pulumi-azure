@@ -143,12 +143,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "subnet-mi",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.0/24"],
  *     delegations: [{
- *         name: "managedinstancedelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Sql/managedInstances",
  *             actions: [
@@ -157,7 +152,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
  *             ],
  *         },
+ *         name: "managedinstancedelegation",
  *     }],
+ *     name: "subnet-mi",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.0/24"],
  * });
  * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
  *     subnetId: exampleSubnet.id,

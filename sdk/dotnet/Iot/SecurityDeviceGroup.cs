@@ -30,14 +30,14 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
-    ///         Name = "example-IoTHub",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
     ///         {
     ///             Name = "S1",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example-IoTHub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleSecuritySolution = new Azure.Iot.SecuritySolution("example", new()
@@ -54,8 +54,6 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleSecurityDeviceGroup = new Azure.Iot.SecurityDeviceGroup("example", new()
     ///     {
-    ///         Name = "example-device-security-group",
-    ///         IothubId = exampleIoTHub.Id,
     ///         AllowRule = new Azure.Iot.Inputs.SecurityDeviceGroupAllowRuleArgs
     ///         {
     ///             ConnectionToIpsNotAlloweds = new[]
@@ -73,6 +71,8 @@ namespace Pulumi.Azure.Iot
     ///                 Duration = "PT5M",
     ///             },
     ///         },
+    ///         Name = "example-device-security-group",
+    ///         IothubId = exampleIoTHub.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

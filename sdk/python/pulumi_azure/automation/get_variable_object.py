@@ -129,7 +129,7 @@ def get_variable_object(automation_account_name: Optional[_builtins.str] = None,
     example = azure.automation.get_variable_object(name="tfex-example-var",
         resource_group_name="tfex-example-rg",
         automation_account_name="tfex-example-account")
-    pulumi.export("variable", std.jsondecode(input=example.value).result)
+    pulumi.export("variable", std.jsondecode(input=example.value)["result"])
     ```
 
 
@@ -169,7 +169,7 @@ def get_variable_object_output(automation_account_name: pulumi.Input[Optional[_b
     example = azure.automation.get_variable_object(name="tfex-example-var",
         resource_group_name="tfex-example-rg",
         automation_account_name="tfex-example-account")
-    pulumi.export("variable", std.jsondecode(input=example.value).result)
+    pulumi.export("variable", std.jsondecode(input=example.value)["result"])
     ```
 
 

@@ -503,20 +503,13 @@ class FhirService(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_fhir_service = azure.healthcare.FhirService("example",
-            name="tfexfhir",
-            location="east us",
-            resource_group_name="tfex-resource_group",
-            workspace_id=example_workspace.id,
-            kind="fhir-R4",
             authentication={
                 "authority": "https://login.microsoftonline.com/tenantId",
                 "audience": "https://tfexfhir.fhir.azurehealthcareapis.com",
             },
-            access_policy_object_ids=[current.object_id],
             identity={
                 "type": "SystemAssigned",
             },
-            container_registry_login_server_urls=["tfex-container_registry_login_server"],
             cors={
                 "allowed_origins": [
                     "https://tfex.com:123",
@@ -531,6 +524,13 @@ class FhirService(pulumi.CustomResource):
                 "max_age_in_seconds": 3600,
                 "credentials_allowed": True,
             },
+            name="tfexfhir",
+            location="east us",
+            resource_group_name="tfex-resource_group",
+            workspace_id=example_workspace.id,
+            kind="fhir-R4",
+            access_policy_object_ids=[current.object_id],
+            container_registry_login_server_urls=["tfex-container_registry_login_server"],
             configuration_export_storage_account_name="storage_account_name")
         ```
 
@@ -590,20 +590,13 @@ class FhirService(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_fhir_service = azure.healthcare.FhirService("example",
-            name="tfexfhir",
-            location="east us",
-            resource_group_name="tfex-resource_group",
-            workspace_id=example_workspace.id,
-            kind="fhir-R4",
             authentication={
                 "authority": "https://login.microsoftonline.com/tenantId",
                 "audience": "https://tfexfhir.fhir.azurehealthcareapis.com",
             },
-            access_policy_object_ids=[current.object_id],
             identity={
                 "type": "SystemAssigned",
             },
-            container_registry_login_server_urls=["tfex-container_registry_login_server"],
             cors={
                 "allowed_origins": [
                     "https://tfex.com:123",
@@ -618,6 +611,13 @@ class FhirService(pulumi.CustomResource):
                 "max_age_in_seconds": 3600,
                 "credentials_allowed": True,
             },
+            name="tfexfhir",
+            location="east us",
+            resource_group_name="tfex-resource_group",
+            workspace_id=example_workspace.id,
+            kind="fhir-R4",
+            access_policy_object_ids=[current.object_id],
+            container_registry_login_server_urls=["tfex-container_registry_login_server"],
             configuration_export_storage_account_name="storage_account_name")
         ```
 

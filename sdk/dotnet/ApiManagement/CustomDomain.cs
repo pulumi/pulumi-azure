@@ -50,8 +50,6 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "example-certificate",
-    ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///         {
     ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
@@ -64,6 +62,32 @@ namespace Pulumi.Azure.ApiManagement
     ///                 KeySize = 2048,
     ///                 KeyType = "RSA",
     ///                 ReuseKey = true,
+    ///             },
+    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///             {
+    ///                 ContentType = "application/x-pkcs12",
+    ///             },
+    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
+    ///             {
+    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
+    ///                 {
+    ///                     DnsNames = new[]
+    ///                     {
+    ///                         "api.example.com",
+    ///                         "portal.example.com",
+    ///                     },
+    ///                 },
+    ///                 KeyUsages = new[]
+    ///                 {
+    ///                     "cRLSign",
+    ///                     "dataEncipherment",
+    ///                     "digitalSignature",
+    ///                     "keyAgreement",
+    ///                     "keyCertSign",
+    ///                     "keyEncipherment",
+    ///                 },
+    ///                 Subject = "CN=api.example.com",
+    ///                 ValidityInMonths = 12,
     ///             },
     ///             LifetimeActions = new[]
     ///             {
@@ -79,46 +103,13 @@ namespace Pulumi.Azure.ApiManagement
     ///                     },
     ///                 },
     ///             },
-    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
-    ///             {
-    ///                 ContentType = "application/x-pkcs12",
-    ///             },
-    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
-    ///             {
-    ///                 KeyUsages = new[]
-    ///                 {
-    ///                     "cRLSign",
-    ///                     "dataEncipherment",
-    ///                     "digitalSignature",
-    ///                     "keyAgreement",
-    ///                     "keyCertSign",
-    ///                     "keyEncipherment",
-    ///                 },
-    ///                 Subject = "CN=api.example.com",
-    ///                 ValidityInMonths = 12,
-    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
-    ///                 {
-    ///                     DnsNames = new[]
-    ///                     {
-    ///                         "api.example.com",
-    ///                         "portal.example.com",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "example-certificate",
+    ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
     ///     });
     /// 
     ///     var exampleCustomDomain = new Azure.ApiManagement.CustomDomain("example", new()
     ///     {
-    ///         ApiManagementId = exampleService.Id,
-    ///         Gateways = new[]
-    ///         {
-    ///             new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
-    ///             {
-    ///                 HostName = "api.example.com",
-    ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
-    ///             },
-    ///         },
     ///         DeveloperPortals = new[]
     ///         {
     ///             new Azure.ApiManagement.Inputs.CustomDomainDeveloperPortalArgs
@@ -127,6 +118,15 @@ namespace Pulumi.Azure.ApiManagement
     ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
     ///             },
     ///         },
+    ///         Gateways = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
+    ///             {
+    ///                 HostName = "api.example.com",
+    ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
+    ///             },
+    ///         },
+    ///         ApiManagementId = exampleService.Id,
     ///     });
     /// 
     /// });

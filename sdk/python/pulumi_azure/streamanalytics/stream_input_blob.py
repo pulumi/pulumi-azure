@@ -422,6 +422,10 @@ class StreamInputBlob(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_stream_input_blob = azure.streamanalytics.StreamInputBlob("example",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            },
             name="blob-stream-input",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -430,11 +434,7 @@ class StreamInputBlob(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="some-random-pattern",
             date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization={
-                "type": "Json",
-                "encoding": "UTF8",
-            })
+            time_format="HH")
         ```
 
         ## API Providers
@@ -498,6 +498,10 @@ class StreamInputBlob(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_stream_input_blob = azure.streamanalytics.StreamInputBlob("example",
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            },
             name="blob-stream-input",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -506,11 +510,7 @@ class StreamInputBlob(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="some-random-pattern",
             date_format="yyyy/MM/dd",
-            time_format="HH",
-            serialization={
-                "type": "Json",
-                "encoding": "UTF8",
-            })
+            time_format="HH")
         ```
 
         ## API Providers

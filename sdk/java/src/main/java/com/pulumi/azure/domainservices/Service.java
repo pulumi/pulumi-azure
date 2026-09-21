@@ -95,9 +95,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var deployNetworkSecurityGroup = new NetworkSecurityGroup("deployNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
- *             .name("deploy-nsg")
- *             .location(deploy.location())
- *             .resourceGroupName(deploy.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
  *                     .name("AllowSyncWithAzureAD")
@@ -143,6 +140,9 @@ import javax.annotation.Nullable;
  *                     .sourceAddressPrefix("*")
  *                     .destinationAddressPrefix("*")
  *                     .build())
+ *             .name("deploy-nsg")
+ *             .location(deploy.location())
+ *             .resourceGroupName(deploy.name())
  *             .build());
  * 
  *         var deploySubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
@@ -176,12 +176,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
- *             .name("example-aadds")
- *             .location(aadds.location())
- *             .resourceGroupName(aadds.name())
- *             .domainName("widgetslogin.net")
- *             .sku("Enterprise")
- *             .filteredSyncEnabled(false)
  *             .initialReplicaSet(ServiceInitialReplicaSetArgs.builder()
  *                 .subnetId(deploySubnet.id())
  *                 .build())
@@ -197,6 +191,12 @@ import javax.annotation.Nullable;
  *                 .syncNtlmPasswords(true)
  *                 .syncOnPremPasswords(true)
  *                 .build())
+ *             .name("example-aadds")
+ *             .location(aadds.location())
+ *             .resourceGroupName(aadds.name())
+ *             .domainName("widgetslogin.net")
+ *             .sku("Enterprise")
+ *             .filteredSyncEnabled(false)
  *             .tags(Map.of("Environment", "prod"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                

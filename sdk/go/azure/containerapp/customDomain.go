@@ -66,10 +66,6 @@ import (
 //				return err
 //			}
 //			exampleApp, err := containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
-//				Name:                      pulumi.String("example-app"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				ResourceGroupName:         example.Name,
-//				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
 //					Containers: containerapp.AppTemplateContainerArray{
 //						&containerapp.AppTemplateContainerArgs{
@@ -81,37 +77,41 @@ import (
 //					},
 //				},
 //				Ingress: &containerapp.AppIngressArgs{
-//					AllowInsecureConnections: pulumi.Bool(false),
-//					ExternalEnabled:          pulumi.Bool(true),
-//					TargetPort:               pulumi.Int(5000),
-//					Transport:                pulumi.String("http"),
 //					TrafficWeights: containerapp.AppIngressTrafficWeightArray{
 //						&containerapp.AppIngressTrafficWeightArgs{
 //							LatestRevision: pulumi.Bool(true),
 //							Percentage:     pulumi.Int(100),
 //						},
 //					},
+//					AllowInsecureConnections: pulumi.Bool(false),
+//					ExternalEnabled:          pulumi.Bool(true),
+//					TargetPort:               pulumi.Int(5000),
+//					Transport:                pulumi.String("http"),
 //				},
+//				Name:                      pulumi.String("example-app"),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ResourceGroupName:         example.Name,
+//				RevisionMode:              pulumi.String("Single"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String("asuid.example"),
-//				ResourceGroupName: exampleZone.ResourceGroupName,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
 //						Value: exampleApp.CustomDomainVerificationId,
 //					},
 //				},
+//				Name:              pulumi.String("asuid.example"),
+//				ResourceGroupName: exampleZone.ResourceGroupName,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "path/to/certificate_file.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "path/to/certificate_file.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -125,18 +125,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeTrimsuffix1, err := std.Trimsuffix(ctx, &std.TrimsuffixArgs{
-//				Input: std.Trimprefix(ctx, std.TrimprefixArgs{
-//					Input:  api.Fqdn,
-//					Prefix: "asuid.",
+//			invokeTrimsuffix1, err := std.Trimsuffix(ctx, map[string]interface{}{
+//				"input": std.Trimprefix(ctx, map[string]interface{}{
+//					"input":  api.Fqdn,
+//					"prefix": "asuid.",
 //				}, nil).Result,
-//				Suffix: ".",
+//				"suffix": ".",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
-//				Name:                                 pulumi.String(invokeTrimsuffix1.Result),
+//				Name:                                 invokeTrimsuffix1.Result,
 //				ContainerAppId:                       exampleApp.ID().ToIDOutput().ToStringOutput(),
 //				ContainerAppEnvironmentCertificateId: exampleEnvironmentCertificate.ID().ToIDOutput().ToStringOutput(),
 //				CertificateBindingType:               pulumi.String("SniEnabled"),
@@ -165,20 +165,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeTrimsuffix, err := std.Trimsuffix(ctx, &std.TrimsuffixArgs{
-//				Input: std.Trimprefix(ctx, std.TrimprefixArgs{
-//					Input:  api.Fqdn,
-//					Prefix: "asuid.",
+//			invokeTrimsuffix, err := std.Trimsuffix(ctx, map[string]interface{}{
+//				"input": std.Trimprefix(ctx, map[string]interface{}{
+//					"input":  api.Fqdn,
+//					"prefix": "asuid.",
 //				}, nil).Result,
-//				Suffix: ".",
+//				"suffix": ".",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
-//				Name:           pulumi.String(invokeTrimsuffix.Result),
+//				Name:           invokeTrimsuffix.Result,
 //				ContainerAppId: pulumi.Any(exampleAzurermContainerApp.Id),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"certificateBindingType",
+//				"containerAppEnvironmentCertificateId",
+//			}))
 //			if err != nil {
 //				return err
 //			}

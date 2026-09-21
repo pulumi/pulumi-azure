@@ -72,30 +72,30 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("example-appserviceplan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("example-appserviceplan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
- *             .name("example-app-service")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(AppServiceSiteConfigArgs.builder()
  *                 .dotnetFrameworkVersion("v4.0")
  *                 .scmType("LocalGit")
  *                 .build())
- *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .connectionStrings(AppServiceConnectionStringArgs.builder()
  *                 .name("Database")
  *                 .type("SQLServer")
  *                 .value("Server=some-server.mydomain.com;Integrated Security=SSPI")
  *                 .build())
+ *             .name("example-app-service")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .build());
  * 
  *     }

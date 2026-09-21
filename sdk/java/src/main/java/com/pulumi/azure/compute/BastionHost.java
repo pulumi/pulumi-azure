@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBastionHost = new BastionHost("exampleBastionHost", BastionHostArgs.builder()
- *             .name("examplebastion")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfiguration(BastionHostIpConfigurationArgs.builder()
  *                 .name("configuration")
  *                 .subnetId(exampleSubnet.id())
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("examplebastion")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

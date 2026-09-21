@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.ConnectionServicePrincipal;
  * import com.pulumi.azure.automation.ConnectionServicePrincipalArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,9 +68,7 @@ import javax.annotation.Nullable;
  *             .applicationId("00000000-0000-0000-0000-000000000000")
  *             .tenantId(example.tenantId())
  *             .subscriptionId(example.subscriptionId())
- *             .certificateThumbprint(StdFunctions.file(FileArgs.builder()
- *                 .input("automation_certificate_test.thumb")
- *                 .build()).result())
+ *             .certificateThumbprint(StdFunctions.file(Map.of("input", "automation_certificate_test.thumb")).result())
  *             .build());
  * 
  *     }

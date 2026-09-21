@@ -42,18 +42,25 @@ namespace Pulumi.Azure.DevTest
     /// 
     ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("example", new()
     ///     {
-    ///         Name = "example-network",
-    ///         LabName = exampleLab.Name,
-    ///         ResourceGroupName = example.Name,
     ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
     ///         {
     ///             UsePublicIpAddress = "Allow",
     ///             UseInVirtualMachineCreation = "Allow",
     ///         },
+    ///         Name = "example-network",
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.DevTest.LinuxVirtualMachine("example", new()
     ///     {
+    ///         GalleryImageReference = new Azure.DevTest.Inputs.LinuxVirtualMachineGalleryImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
+    ///             Version = "latest",
+    ///         },
     ///         Name = "example-vm03",
     ///         LabName = exampleLab.Name,
     ///         ResourceGroupName = example.Name,
@@ -63,18 +70,11 @@ namespace Pulumi.Azure.DevTest
     ///         SshKey = Std.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         LabVirtualNetworkId = exampleVirtualNetwork.Id,
     ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
     ///         StorageType = "Premium",
     ///         Notes = "Some notes about this Virtual Machine.",
-    ///         GalleryImageReference = new Azure.DevTest.Inputs.LinuxVirtualMachineGalleryImageReferenceArgs
-    ///         {
-    ///             Publisher = "Canonical",
-    ///             Offer = "0001-com-ubuntu-server-jammy",
-    ///             Sku = "22_04-lts",
-    ///             Version = "latest",
-    ///         },
     ///     });
     /// 
     /// });

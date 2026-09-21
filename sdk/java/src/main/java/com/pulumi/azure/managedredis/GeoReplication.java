@@ -54,23 +54,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var amr1 = new ManagedRedis("amr1", ManagedRedisArgs.builder()
+ *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
+ *                 .geoReplicationGroupName("example-geo-group")
+ *                 .build())
  *             .name("example-managedredis-amr1")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
  *             .skuName("Balanced_B3")
- *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
- *                 .geoReplicationGroupName("example-geo-group")
- *                 .build())
  *             .build());
  * 
  *         var amr2 = new ManagedRedis("amr2", ManagedRedisArgs.builder()
+ *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
+ *                 .geoReplicationGroupName("example-geo-group")
+ *                 .build())
  *             .name("example-managedredis-amr2")
  *             .resourceGroupName(example.name())
  *             .location("Central US")
  *             .skuName("Balanced_B3")
- *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
- *                 .geoReplicationGroupName("example-geo-group")
- *                 .build())
  *             .build());
  * 
  *         var exampleGeoReplication = new GeoReplication("exampleGeoReplication", GeoReplicationArgs.builder()

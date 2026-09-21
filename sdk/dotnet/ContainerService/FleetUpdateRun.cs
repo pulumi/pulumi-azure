@@ -37,10 +37,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         DnsPrefix = "example",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "default",
@@ -51,6 +47,10 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "example",
     ///     });
     /// 
     ///     var exampleFleetMember = new Azure.ContainerService.FleetMember("example", new()
@@ -63,8 +63,6 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleFleetUpdateRun = new Azure.ContainerService.FleetUpdateRun("example", new()
     ///     {
-    ///         Name = "example",
-    ///         KubernetesFleetManagerId = exampleKubernetesFleetManager.Id,
     ///         ManagedClusterUpdate = new Azure.ContainerService.Inputs.FleetUpdateRunManagedClusterUpdateArgs
     ///         {
     ///             Upgrade = new Azure.ContainerService.Inputs.FleetUpdateRunManagedClusterUpdateUpgradeArgs
@@ -81,7 +79,6 @@ namespace Pulumi.Azure.ContainerService
     ///         {
     ///             new Azure.ContainerService.Inputs.FleetUpdateRunStageArgs
     ///             {
-    ///                 Name = "example",
     ///                 Groups = new[]
     ///                 {
     ///                     new Azure.ContainerService.Inputs.FleetUpdateRunStageGroupArgs
@@ -89,9 +86,12 @@ namespace Pulumi.Azure.ContainerService
     ///                         Name = "example-group",
     ///                     },
     ///                 },
+    ///                 Name = "example",
     ///                 AfterStageWaitInSeconds = 21,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         KubernetesFleetManagerId = exampleKubernetesFleetManager.Id,
     ///     });
     /// 
     /// });

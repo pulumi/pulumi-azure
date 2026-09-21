@@ -82,23 +82,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .identity(WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleSparkPool = new SparkPool("exampleSparkPool", SparkPoolArgs.builder()
- *             .name("example")
- *             .synapseWorkspaceId(exampleWorkspace.id())
- *             .nodeSizeFamily("MemoryOptimized")
- *             .nodeSize("Small")
- *             .cacheSize(100)
  *             .autoScale(SparkPoolAutoScaleArgs.builder()
  *                 .maxNodeCount(50)
  *                 .minNodeCount(3)
@@ -119,6 +114,11 @@ import javax.annotation.Nullable;
  *                 """)
  *                 .filename("config.txt")
  *                 .build())
+ *             .name("example")
+ *             .synapseWorkspaceId(exampleWorkspace.id())
+ *             .nodeSizeFamily("MemoryOptimized")
+ *             .nodeSize("Small")
+ *             .cacheSize(100)
  *             .sparkVersion("3.5")
  *             .tags(Map.of("ENV", "Production"))
  *             .build());

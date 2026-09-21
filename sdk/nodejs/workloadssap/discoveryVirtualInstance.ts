@@ -22,6 +22,10 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleDiscoveryVirtualInstance = new azure.workloadssap.DiscoveryVirtualInstance("example", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+ *     },
  *     name: "X01",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -29,10 +33,8 @@ import * as utilities from "../utilities";
  *     sapProduct: "S4HANA",
  *     centralServerVirtualMachineId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
  *     managedStorageAccountName: "managedsa",
- *     identity: {
- *         type: "UserAssigned",
- *         identityIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
- *     },
+ * }, {
+ *     ignoreChanges: ["managedResourceGroupName"],
  * });
  * ```
  *

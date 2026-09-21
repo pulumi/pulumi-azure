@@ -381,13 +381,13 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             send=True,
             manage=False)
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "B1",
                 "capacity": 1,
             },
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "example",
             })
@@ -458,13 +458,13 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             send=True,
             manage=False)
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="exampleIothub",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "B1",
                 "capacity": 1,
             },
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "purpose": "example",
             })

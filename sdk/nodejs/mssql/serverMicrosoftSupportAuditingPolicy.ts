@@ -69,6 +69,9 @@ import * as utilities from "../utilities";
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
  * const exampleServer = new azure.mssql.Server("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-sqlserver",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
@@ -76,9 +79,6 @@ import * as utilities from "../utilities";
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "AdminPassword123!",
  *     minimumTlsVersion: "1.2",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: primary.then(primary => primary.id),
@@ -99,13 +99,6 @@ import * as utilities from "../utilities";
  *     endIpAddress: "0.0.0.0",
  * });
  * const exampleAccount = new azure.storage.Account("example", {
- *     name: "examplesa",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     accountTier: "Standard",
- *     accountReplicationType: "LRS",
- *     accountKind: "StorageV2",
- *     allowNestedItemsToBePublic: false,
  *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["127.0.0.1"],
@@ -115,6 +108,13 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "examplesa",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     allowNestedItemsToBePublic: false,
  * });
  * const exampleServerMicrosoftSupportAuditingPolicy = new azure.mssql.ServerMicrosoftSupportAuditingPolicy("example", {
  *     blobStorageEndpoint: exampleAccount.primaryBlobEndpoint,

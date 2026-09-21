@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspaceTableCustomLog = new WorkspaceTableCustomLog("exampleWorkspaceTableCustomLog", WorkspaceTableCustomLogArgs.builder()
- *             .name("example_CL")
- *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .columns(WorkspaceTableCustomLogColumnArgs.builder()
  *                 .name("TimeGenerated")
  *                 .type("dateTime")
  *                 .build())
+ *             .name("example_CL")
+ *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *     }

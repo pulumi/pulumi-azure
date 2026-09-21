@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_AzureFrontDoor",
  * });
  * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("example", {
- *     name: "examplecdnfrontdoorfirewallpolicy",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: exampleFrontdoorProfile.skuName,
- *     enabled: true,
- *     mode: "Prevention",
- *     redirectUrl: "https://www.example.com",
  *     customRules: [{
+ *         matchConditions: [{
+ *             matchVariable: "RemoteAddr",
+ *             operator: "IPMatch",
+ *             negationCondition: false,
+ *             matchValues: ["192.168.1.0/24"],
+ *         }],
  *         name: "Rule1",
  *         enabled: true,
  *         priority: 1,
@@ -39,42 +39,42 @@ import * as utilities from "../utilities";
  *         rateLimitThreshold: 10,
  *         type: "MatchRule",
  *         action: "Block",
- *         matchConditions: [{
- *             matchVariable: "RemoteAddr",
- *             operator: "IPMatch",
- *             negationCondition: false,
- *             matchValues: ["192.168.1.0/24"],
- *         }],
  *     }],
+ *     name: "examplecdnfrontdoorfirewallpolicy",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: exampleFrontdoorProfile.skuName,
+ *     enabled: true,
+ *     mode: "Prevention",
+ *     redirectUrl: "https://www.example.com",
  * });
  * const exampleZone = new azure.dns.Zone("example", {
  *     name: "example-frontdoor.com",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
- *     name: "example-custom-domain",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     dnsZoneId: exampleZone.id,
- *     hostName: "www.example-frontdoor.com",
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumTlsVersion: "TLS12",
  *     },
+ *     name: "example-custom-domain",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     dnsZoneId: exampleZone.id,
+ *     hostName: "www.example-frontdoor.com",
  * });
  * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("example", {
- *     name: "example-security-policy",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     securityPolicies: {
  *         firewall: {
- *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *             association: {
  *                 domains: [{
  *                     cdnFrontdoorDomainId: exampleFrontdoorCustomDomain.id,
  *                 }],
  *                 patternsToMatch: "/*",
  *             },
+ *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *         },
  *     },
+ *     name: "example-security-policy",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const example = azure.cdn.getFrontdoorSecurityPolicyOutput({
  *     name: exampleFrontdoorSecurityPolicy.name,
@@ -156,13 +156,13 @@ export interface GetFrontdoorSecurityPolicyResult {
  *     skuName: "Standard_AzureFrontDoor",
  * });
  * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("example", {
- *     name: "examplecdnfrontdoorfirewallpolicy",
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: exampleFrontdoorProfile.skuName,
- *     enabled: true,
- *     mode: "Prevention",
- *     redirectUrl: "https://www.example.com",
  *     customRules: [{
+ *         matchConditions: [{
+ *             matchVariable: "RemoteAddr",
+ *             operator: "IPMatch",
+ *             negationCondition: false,
+ *             matchValues: ["192.168.1.0/24"],
+ *         }],
  *         name: "Rule1",
  *         enabled: true,
  *         priority: 1,
@@ -170,42 +170,42 @@ export interface GetFrontdoorSecurityPolicyResult {
  *         rateLimitThreshold: 10,
  *         type: "MatchRule",
  *         action: "Block",
- *         matchConditions: [{
- *             matchVariable: "RemoteAddr",
- *             operator: "IPMatch",
- *             negationCondition: false,
- *             matchValues: ["192.168.1.0/24"],
- *         }],
  *     }],
+ *     name: "examplecdnfrontdoorfirewallpolicy",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     skuName: exampleFrontdoorProfile.skuName,
+ *     enabled: true,
+ *     mode: "Prevention",
+ *     redirectUrl: "https://www.example.com",
  * });
  * const exampleZone = new azure.dns.Zone("example", {
  *     name: "example-frontdoor.com",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
- *     name: "example-custom-domain",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     dnsZoneId: exampleZone.id,
- *     hostName: "www.example-frontdoor.com",
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumTlsVersion: "TLS12",
  *     },
+ *     name: "example-custom-domain",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     dnsZoneId: exampleZone.id,
+ *     hostName: "www.example-frontdoor.com",
  * });
  * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("example", {
- *     name: "example-security-policy",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     securityPolicies: {
  *         firewall: {
- *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *             association: {
  *                 domains: [{
  *                     cdnFrontdoorDomainId: exampleFrontdoorCustomDomain.id,
  *                 }],
  *                 patternsToMatch: "/*",
  *             },
+ *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *         },
  *     },
+ *     name: "example-security-policy",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * const example = azure.cdn.getFrontdoorSecurityPolicyOutput({
  *     name: exampleFrontdoorSecurityPolicy.name,

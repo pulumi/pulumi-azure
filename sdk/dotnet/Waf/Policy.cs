@@ -30,16 +30,66 @@ namespace Pulumi.Azure.Waf
     /// 
     ///     var examplePolicy = new Azure.Waf.Policy("example", new()
     ///     {
-    ///         Name = "example-wafpolicy",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
+    ///         PolicySettings = new Azure.Waf.Inputs.PolicyPolicySettingsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Mode = "Prevention",
+    ///             RequestBodyCheck = true,
+    ///             FileUploadLimitInMb = 100,
+    ///             MaxRequestBodySizeInKb = 128,
+    ///         },
+    ///         ManagedRules = new Azure.Waf.Inputs.PolicyManagedRulesArgs
+    ///         {
+    ///             Exclusions = new[]
+    ///             {
+    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs
+    ///                 {
+    ///                     MatchVariable = "RequestHeaderNames",
+    ///                     Selector = "x-company-secret-header",
+    ///                     SelectorMatchOperator = "Equals",
+    ///                 },
+    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs
+    ///                 {
+    ///                     MatchVariable = "RequestCookieNames",
+    ///                     Selector = "too-tasty",
+    ///                     SelectorMatchOperator = "EndsWith",
+    ///                 },
+    ///             },
+    ///             ManagedRuleSets = new[]
+    ///             {
+    ///                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetArgs
+    ///                 {
+    ///                     RuleGroupOverrides = new[]
+    ///                     {
+    ///                         new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs
+    ///                         {
+    ///                             Rules = new[]
+    ///                             {
+    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
+    ///                                 {
+    ///                                     Id = "920300",
+    ///                                     Enabled = true,
+    ///                                     Action = "Log",
+    ///                                 },
+    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
+    ///                                 {
+    ///                                     Id = "920440",
+    ///                                     Enabled = true,
+    ///                                     Action = "Block",
+    ///                                 },
+    ///                             },
+    ///                             RuleGroupName = "REQUEST-920-PROTOCOL-ENFORCEMENT",
+    ///                         },
+    ///                     },
+    ///                     Type = "OWASP",
+    ///                     Version = "3.2",
+    ///                 },
+    ///             },
+    ///         },
     ///         CustomRules = new[]
     ///         {
     ///             new Azure.Waf.Inputs.PolicyCustomRuleArgs
     ///             {
-    ///                 Name = "Rule1",
-    ///                 Priority = 1,
-    ///                 RuleType = "MatchRule",
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionArgs
@@ -60,13 +110,13 @@ namespace Pulumi.Azure.Waf
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Rule1",
+    ///                 Priority = 1,
+    ///                 RuleType = "MatchRule",
     ///                 Action = "Block",
     ///             },
     ///             new Azure.Waf.Inputs.PolicyCustomRuleArgs
     ///             {
-    ///                 Name = "Rule2",
-    ///                 Priority = 2,
-    ///                 RuleType = "MatchRule",
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.Waf.Inputs.PolicyCustomRuleMatchConditionArgs
@@ -103,65 +153,15 @@ namespace Pulumi.Azure.Waf
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Rule2",
+    ///                 Priority = 2,
+    ///                 RuleType = "MatchRule",
     ///                 Action = "Block",
     ///             },
     ///         },
-    ///         PolicySettings = new Azure.Waf.Inputs.PolicyPolicySettingsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Mode = "Prevention",
-    ///             RequestBodyCheck = true,
-    ///             FileUploadLimitInMb = 100,
-    ///             MaxRequestBodySizeInKb = 128,
-    ///         },
-    ///         ManagedRules = new Azure.Waf.Inputs.PolicyManagedRulesArgs
-    ///         {
-    ///             Exclusions = new[]
-    ///             {
-    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs
-    ///                 {
-    ///                     MatchVariable = "RequestHeaderNames",
-    ///                     Selector = "x-company-secret-header",
-    ///                     SelectorMatchOperator = "Equals",
-    ///                 },
-    ///                 new Azure.Waf.Inputs.PolicyManagedRulesExclusionArgs
-    ///                 {
-    ///                     MatchVariable = "RequestCookieNames",
-    ///                     Selector = "too-tasty",
-    ///                     SelectorMatchOperator = "EndsWith",
-    ///                 },
-    ///             },
-    ///             ManagedRuleSets = new[]
-    ///             {
-    ///                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetArgs
-    ///                 {
-    ///                     Type = "OWASP",
-    ///                     Version = "3.2",
-    ///                     RuleGroupOverrides = new[]
-    ///                     {
-    ///                         new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs
-    ///                         {
-    ///                             RuleGroupName = "REQUEST-920-PROTOCOL-ENFORCEMENT",
-    ///                             Rules = new[]
-    ///                             {
-    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
-    ///                                 {
-    ///                                     Id = "920300",
-    ///                                     Enabled = true,
-    ///                                     Action = "Log",
-    ///                                 },
-    ///                                 new Azure.Waf.Inputs.PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs
-    ///                                 {
-    ///                                     Id = "920440",
-    ///                                     Enabled = true,
-    ///                                     Action = "Block",
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
+    ///         Name = "example-wafpolicy",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

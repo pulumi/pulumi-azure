@@ -50,13 +50,6 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                     pulumi.String("example"),
-//				Location:                 example.Location,
-//				ResourceGroupName:        example.Name,
-//				RbacAuthorizationEnabled: pulumi.Bool(false),
-//				TenantId:                 pulumi.String(current.TenantId),
-//				SkuName:                  pulumi.String("premium"),
-//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -74,6 +67,13 @@ import (
 //						},
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
@@ -95,16 +95,16 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewCredentialServicePrincipal(ctx, "example", &datafactory.CredentialServicePrincipalArgs{
-//				Name:               pulumi.String("example"),
-//				Description:        pulumi.String("example description"),
-//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				TenantId:           pulumi.String(current.TenantId),
-//				ServicePrincipalId: pulumi.String(current.ClientId),
 //				ServicePrincipalKey: &datafactory.CredentialServicePrincipalServicePrincipalKeyArgs{
 //					LinkedServiceName: exampleLinkedServiceKeyVault.Name,
 //					SecretName:        exampleSecret.Name,
 //					SecretVersion:     exampleSecret.Version,
 //				},
+//				Name:               pulumi.String("example"),
+//				Description:        pulumi.String("example description"),
+//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				TenantId:           pulumi.String(current.TenantId),
+//				ServicePrincipalId: pulumi.String(current.ClientId),
 //				Annotations: pulumi.StringArray{
 //					pulumi.String("1"),
 //					pulumi.String("2"),

@@ -26,8 +26,8 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/pim"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -52,20 +52,20 @@ import (
 //				return err
 //			}
 //			_, err = pim.NewEligibleRoleAssignment(ctx, "example", &pim.EligibleRoleAssignmentArgs{
-//				Scope:            pulumi.String(primary.Id),
-//				RoleDefinitionId: pulumi.Sprintf("%v%v", primary.Id, exampleGetRoleDefinition.Id),
-//				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.EligibleRoleAssignmentScheduleArgs{
-//					StartDateTime: exampleStatic.Rfc3339,
 //					Expiration: &pim.EligibleRoleAssignmentScheduleExpirationArgs{
 //						DurationHours: pulumi.Int(8),
 //					},
+//					StartDateTime: exampleStatic.Rfc3339,
 //				},
-//				Justification: pulumi.String("Expiration Duration Set"),
 //				Ticket: &pim.EligibleRoleAssignmentTicketArgs{
 //					Number: pulumi.String("1"),
 //					System: pulumi.String("example ticket system"),
 //				},
+//				Scope:            pulumi.String(primary.Id),
+//				RoleDefinitionId: pulumi.Sprintf("%v%v", primary.Id, exampleGetRoleDefinition.Id),
+//				PrincipalId:      pulumi.String(example.ObjectId),
+//				Justification:    pulumi.String("Expiration Duration Set"),
 //			})
 //			if err != nil {
 //				return err
@@ -87,8 +87,8 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/pim"
+//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -115,20 +115,20 @@ import (
 //				return err
 //			}
 //			_, err = pim.NewEligibleRoleAssignment(ctx, "example", &pim.EligibleRoleAssignmentArgs{
-//				Scope:            exampleGroup.ID().ToIDOutput().ToStringOutput(),
-//				RoleDefinitionId: pulumi.String(exampleGetRoleDefinition.Id),
-//				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.EligibleRoleAssignmentScheduleArgs{
-//					StartDateTime: exampleStatic.Rfc3339,
 //					Expiration: &pim.EligibleRoleAssignmentScheduleExpirationArgs{
 //						DurationHours: pulumi.Int(8),
 //					},
+//					StartDateTime: exampleStatic.Rfc3339,
 //				},
-//				Justification: pulumi.String("Expiration Duration Set"),
 //				Ticket: &pim.EligibleRoleAssignmentTicketArgs{
 //					Number: pulumi.String("1"),
 //					System: pulumi.String("example ticket system"),
 //				},
+//				Scope:            exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionId: pulumi.String(exampleGetRoleDefinition.Id),
+//				PrincipalId:      pulumi.String(example.ObjectId),
+//				Justification:    pulumi.String("Expiration Duration Set"),
 //			})
 //			if err != nil {
 //				return err

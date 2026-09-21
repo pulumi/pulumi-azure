@@ -48,8 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "policy-fragment-1.xml",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "policy-fragment-1.xml",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -58,7 +58,7 @@ import (
 //				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				Name:            pulumi.String("example-policy-fragment"),
 //				Format:          pulumi.String("xml"),
-//				Value:           pulumi.String(invokeFile.Result),
+//				Value:           invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

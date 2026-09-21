@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleFactory = new azure.datafactory.Factory("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "example",

@@ -271,16 +271,16 @@ class SrvRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_srv_record = azure.dns.SrvRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[{
                 "priority": 1,
                 "weight": 5,
                 "port": 8080,
                 "target": "target1.contoso.com",
             }],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })
@@ -335,16 +335,16 @@ class SrvRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_srv_record = azure.dns.SrvRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[{
                 "priority": 1,
                 "weight": 5,
                 "port": 8080,
                 "target": "target1.contoso.com",
             }],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })

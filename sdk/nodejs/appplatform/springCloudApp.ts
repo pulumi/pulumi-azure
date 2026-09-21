@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
- *     name: "example-springcloudapp",
- *     resourceGroupName: example.name,
- *     serviceName: exampleSpringCloudService.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-springcloudapp",
+ *     resourceGroupName: example.name,
+ *     serviceName: exampleSpringCloudService.name,
  * });
  * ```
  *

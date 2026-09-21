@@ -329,11 +329,14 @@ class LocalUser(pulumi.CustomResource):
             name="example-container",
             storage_account_name=example_account.name)
         example_local_user = azure.storage.LocalUser("example",
-            name="user1",
-            storage_account_id=example_account.id,
-            ssh_key_enabled=True,
-            ssh_password_enabled=True,
-            home_directory="example_path",
+            permission_scopes=[{
+                "permissions": {
+                    "read": True,
+                    "create": True,
+                },
+                "service": "blob",
+                "resource_name": example_container.name,
+            }],
             ssh_authorized_keys=[
                 {
                     "description": "key1",
@@ -344,14 +347,11 @@ class LocalUser(pulumi.CustomResource):
                     "key": second_public_key,
                 },
             ],
-            permission_scopes=[{
-                "permissions": {
-                    "read": True,
-                    "create": True,
-                },
-                "service": "blob",
-                "resource_name": example_container.name,
-            }])
+            name="user1",
+            storage_account_id=example_account.id,
+            ssh_key_enabled=True,
+            ssh_password_enabled=True,
+            home_directory="example_path")
         ```
 
         ## API Providers
@@ -410,11 +410,14 @@ class LocalUser(pulumi.CustomResource):
             name="example-container",
             storage_account_name=example_account.name)
         example_local_user = azure.storage.LocalUser("example",
-            name="user1",
-            storage_account_id=example_account.id,
-            ssh_key_enabled=True,
-            ssh_password_enabled=True,
-            home_directory="example_path",
+            permission_scopes=[{
+                "permissions": {
+                    "read": True,
+                    "create": True,
+                },
+                "service": "blob",
+                "resource_name": example_container.name,
+            }],
             ssh_authorized_keys=[
                 {
                     "description": "key1",
@@ -425,14 +428,11 @@ class LocalUser(pulumi.CustomResource):
                     "key": second_public_key,
                 },
             ],
-            permission_scopes=[{
-                "permissions": {
-                    "read": True,
-                    "create": True,
-                },
-                "service": "blob",
-                "resource_name": example_container.name,
-            }])
+            name="user1",
+            storage_account_id=example_account.id,
+            ssh_key_enabled=True,
+            ssh_password_enabled=True,
+            home_directory="example_path")
         ```
 
         ## API Providers

@@ -223,15 +223,15 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "Env": "production",
             })
@@ -318,15 +318,15 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
             ],
             opts = pulumi.ResourceOptions(depends_on=[deployer]))
         example_workspace = azure.synapse.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example",
             resource_group_name=example.name,
             location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity={
-                "type": "SystemAssigned",
-            },
             tags={
                 "Env": "production",
             })

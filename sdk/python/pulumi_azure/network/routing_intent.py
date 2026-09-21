@@ -163,23 +163,23 @@ class RoutingIntent(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.1.0/24")
         example_firewall = azure.network.Firewall("example",
+            virtual_hub={
+                "virtual_hub_id": example_virtual_hub.id,
+                "public_ip_count": 1,
+            },
             name="example-fw",
             location=example.location,
             resource_group_name=example.name,
             sku_name="AZFW_Hub",
-            sku_tier="Standard",
-            virtual_hub={
-                "virtual_hub_id": example_virtual_hub.id,
-                "public_ip_count": 1,
-            })
+            sku_tier="Standard")
         example_routing_intent = azure.network.RoutingIntent("example",
-            name="example-routingintent",
-            virtual_hub_id=example_virtual_hub.id,
             routing_policies=[{
                 "name": "InternetTrafficPolicy",
                 "destinations": ["Internet"],
                 "next_hop": example_firewall.id,
-            }])
+            }],
+            name="example-routingintent",
+            virtual_hub_id=example_virtual_hub.id)
         ```
 
         ## API Providers
@@ -233,23 +233,23 @@ class RoutingIntent(pulumi.CustomResource):
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.1.0/24")
         example_firewall = azure.network.Firewall("example",
+            virtual_hub={
+                "virtual_hub_id": example_virtual_hub.id,
+                "public_ip_count": 1,
+            },
             name="example-fw",
             location=example.location,
             resource_group_name=example.name,
             sku_name="AZFW_Hub",
-            sku_tier="Standard",
-            virtual_hub={
-                "virtual_hub_id": example_virtual_hub.id,
-                "public_ip_count": 1,
-            })
+            sku_tier="Standard")
         example_routing_intent = azure.network.RoutingIntent("example",
-            name="example-routingintent",
-            virtual_hub_id=example_virtual_hub.id,
             routing_policies=[{
                 "name": "InternetTrafficPolicy",
                 "destinations": ["Internet"],
                 "next_hop": example_firewall.id,
-            }])
+            }],
+            name="example-routingintent",
+            virtual_hub_id=example_virtual_hub.id)
         ```
 
         ## API Providers

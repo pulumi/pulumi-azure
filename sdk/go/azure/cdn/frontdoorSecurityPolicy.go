@@ -47,23 +47,8 @@ import (
 //				return err
 //			}
 //			exampleFrontdoorFirewallPolicy, err := cdn.NewFrontdoorFirewallPolicy(ctx, "example", &cdn.FrontdoorFirewallPolicyArgs{
-//				Name:                          pulumi.String("exampleWAF"),
-//				ResourceGroupName:             example.Name,
-//				SkuName:                       exampleFrontdoorProfile.SkuName,
-//				Enabled:                       pulumi.Bool(true),
-//				Mode:                          pulumi.String("Prevention"),
-//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
-//				CustomBlockResponseStatusCode: pulumi.Int(403),
-//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
 //				CustomRules: cdn.FrontdoorFirewallPolicyCustomRuleArray{
 //					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
-//						Name:                       pulumi.String("Rule1"),
-//						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(1),
-//						RateLimitDurationInMinutes: pulumi.Int(1),
-//						RateLimitThreshold:         pulumi.Int(10),
-//						Type:                       pulumi.String("MatchRule"),
-//						Action:                     pulumi.String("Block"),
 //						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
 //							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
 //								MatchVariable:     pulumi.String("RemoteAddr"),
@@ -75,8 +60,23 @@ import (
 //								},
 //							},
 //						},
+//						Name:                       pulumi.String("Rule1"),
+//						Enabled:                    pulumi.Bool(true),
+//						Priority:                   pulumi.Int(1),
+//						RateLimitDurationInMinutes: pulumi.Int(1),
+//						RateLimitThreshold:         pulumi.Int(10),
+//						Type:                       pulumi.String("MatchRule"),
+//						Action:                     pulumi.String("Block"),
 //					},
 //				},
+//				Name:                          pulumi.String("exampleWAF"),
+//				ResourceGroupName:             example.Name,
+//				SkuName:                       exampleFrontdoorProfile.SkuName,
+//				Enabled:                       pulumi.Bool(true),
+//				Mode:                          pulumi.String("Prevention"),
+//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
+//				CustomBlockResponseStatusCode: pulumi.Int(403),
+//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
 //			})
 //			if err != nil {
 //				return err
@@ -88,31 +88,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": []interface{}{
+//					"contoso",
+//					exampleZone.Name,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
-//				Name:                  pulumi.String("example-customDomain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
-//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						pulumi.String("contoso"),
-//						exampleZone.Name,
-//					},
-//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: pulumi.String("TLS12"),
 //				},
+//				Name:                  pulumi.String("example-customDomain"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				HostName:              invokeJoin.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorSecurityPolicy(ctx, "example", &cdn.FrontdoorSecurityPolicyArgs{
-//				Name:                  pulumi.String("Example-Security-Policy"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SecurityPolicies: &cdn.FrontdoorSecurityPolicySecurityPoliciesArgs{
 //					Firewall: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{
-//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //						Association: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{
 //							Domains: cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{
 //								&cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{
@@ -121,8 +122,11 @@ import (
 //							},
 //							PatternsToMatch: pulumi.String("/*"),
 //						},
+//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                  pulumi.String("Example-Security-Policy"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

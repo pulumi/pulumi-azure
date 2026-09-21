@@ -32,22 +32,22 @@ import * as utilities from "../utilities";
  *     addressPrefix: "10.0.1.0/24",
  * });
  * const exampleRouteMap = new azure.network.RouteMap("example", {
- *     name: "example-rm",
- *     virtualHubId: exampleVirtualHub.id,
  *     rules: [{
- *         name: "rule1",
- *         nextStepIfMatched: "Continue",
  *         actions: [{
- *             type: "Add",
  *             parameters: [{
  *                 asPaths: ["22334"],
  *             }],
+ *             type: "Add",
  *         }],
  *         matchCriterions: [{
  *             matchCondition: "Contains",
  *             routePrefixes: ["10.0.0.0/8"],
  *         }],
+ *         name: "rule1",
+ *         nextStepIfMatched: "Continue",
  *     }],
+ *     name: "example-rm",
+ *     virtualHubId: exampleVirtualHub.id,
  * });
  * ```
  *

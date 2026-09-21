@@ -85,6 +85,11 @@ import (
 //				return err
 //			}
 //			exampleStreamInputBlob, err := streamanalytics.NewStreamInputBlob(ctx, "example", &streamanalytics.StreamInputBlobArgs{
+//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
+//					Type:           pulumi.String("Csv"),
+//					Encoding:       pulumi.String("UTF8"),
+//					FieldDelimiter: pulumi.String(","),
+//				},
 //				Name:                   pulumi.String("exampleinput"),
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
@@ -94,16 +99,14 @@ import (
 //				PathPattern:            pulumi.String(""),
 //				DateFormat:             pulumi.String("yyyy/MM/dd"),
 //				TimeFormat:             pulumi.String("HH"),
-//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
-//					Type:           pulumi.String("Csv"),
-//					Encoding:       pulumi.String("UTF8"),
-//					FieldDelimiter: pulumi.String(","),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleOutputBlob, err := streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
+//				Serialization: &streamanalytics.OutputBlobSerializationArgs{
+//					Type: pulumi.String("Avro"),
+//				},
 //				Name:                   pulumi.String("exampleoutput"),
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
@@ -113,9 +116,6 @@ import (
 //				PathPattern:            pulumi.String("example-{date}-{time}"),
 //				DateFormat:             pulumi.String("yyyy-MM-dd"),
 //				TimeFormat:             pulumi.String("HH"),
-//				Serialization: &streamanalytics.OutputBlobSerializationArgs{
-//					Type: pulumi.String("Avro"),
-//				},
 //			})
 //			if err != nil {
 //				return err

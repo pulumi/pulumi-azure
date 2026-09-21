@@ -325,7 +325,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             assembly_name="TestAssembly",
-            content=std.filebase64(input="testdata/log4net.dll").result)
+            content=std.filebase64(input="testdata/log4net.dll")["result"])
         ```
 
         ## API Providers
@@ -384,7 +384,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             assembly_name="TestAssembly",
-            content=std.filebase64(input="testdata/log4net.dll").result)
+            content=std.filebase64(input="testdata/log4net.dll")["result"])
         ```
 
         ## API Providers

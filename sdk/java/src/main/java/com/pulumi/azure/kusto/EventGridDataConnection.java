@@ -67,13 +67,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("examplekustocluster")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Standard_D13_v2")
  *                 .capacity(2)
  *                 .build())
+ *             .name("examplekustocluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
@@ -115,6 +115,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventSubscription = new EventSubscription("exampleEventSubscription", EventSubscriptionArgs.builder()
+ *             .retryPolicy(EventSubscriptionRetryPolicyArgs.builder()
+ *                 .eventTimeToLive(144)
+ *                 .maxDeliveryAttempts(10)
+ *                 .build())
  *             .name("eventgrid-example")
  *             .scope(exampleAccount.id())
  *             .eventhubEndpointId(exampleEventHub.id())
@@ -122,10 +126,6 @@ import javax.annotation.Nullable;
  *             .includedEventTypes(            
  *                 "Microsoft.Storage.BlobCreated",
  *                 "Microsoft.Storage.BlobRenamed")
- *             .retryPolicy(EventSubscriptionRetryPolicyArgs.builder()
- *                 .eventTimeToLive(144)
- *                 .maxDeliveryAttempts(10)
- *                 .build())
  *             .build());
  * 
  *         var exampleEventGridDataConnection = new EventGridDataConnection("exampleEventGridDataConnection", EventGridDataConnectionArgs.builder()

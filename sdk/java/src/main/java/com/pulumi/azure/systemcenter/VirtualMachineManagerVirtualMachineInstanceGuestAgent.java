@@ -68,13 +68,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleArcMachine = new ArcMachine("exampleArcMachine", ArcMachineArgs.builder()
+ *             .identity(ArcMachineIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-arcmachine")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .kind("SCVMM")
- *             .identity(ArcMachineIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleVirtualMachineManagerServer = new VirtualMachineManagerServer("exampleVirtualMachineManagerServer", VirtualMachineManagerServerArgs.builder()
@@ -114,8 +114,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachineManagerVirtualMachineInstance = new VirtualMachineManagerVirtualMachineInstance("exampleVirtualMachineManagerVirtualMachineInstance", VirtualMachineManagerVirtualMachineInstanceArgs.builder()
- *             .scopedResourceId(exampleArcMachine.id())
- *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
  *             .infrastructure(VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs.builder()
  *                 .checkpointType("Standard")
  *                 .systemCenterVirtualMachineManagerCloudId(exampleVirtualMachineManagerCloud.id())
@@ -125,7 +123,11 @@ import javax.annotation.Nullable;
  *             .operatingSystem(VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs.builder()
  *                 .adminPassword("AdminPassword123!")
  *                 .build())
- *             .build());
+ *             .scopedResourceId(exampleArcMachine.id())
+ *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("storageDisks", "hardware", "networkInterfaces", "operatingSystem.computerName")
+ *                 .build());
  * 
  *         var exampleVirtualMachineManagerVirtualMachineInstanceGuestAgent = new VirtualMachineManagerVirtualMachineInstanceGuestAgent("exampleVirtualMachineManagerVirtualMachineInstanceGuestAgent", VirtualMachineManagerVirtualMachineInstanceGuestAgentArgs.builder()
  *             .scopedResourceId(exampleArcMachine.id())

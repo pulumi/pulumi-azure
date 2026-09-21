@@ -2104,14 +2104,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_windows_virtual_machine_scale_set = azure.compute.WindowsVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            instances=1,
-            admin_password="P@55w0rd1234!",
-            admin_username="adminuser",
-            computer_name_prefix="vm-",
             source_image_reference={
                 "publisher": "MicrosoftWindowsServer",
                 "offer": "WindowsServer",
@@ -2123,14 +2115,22 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": internal.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            instances=1,
+            admin_password="P@55w0rd1234!",
+            admin_username="adminuser",
+            computer_name_prefix="vm-")
         ```
 
         ## API Providers
@@ -2284,14 +2284,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_windows_virtual_machine_scale_set = azure.compute.WindowsVirtualMachineScaleSet("example",
-            name="example-vmss",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Standard_D4_v5",
-            instances=1,
-            admin_password="P@55w0rd1234!",
-            admin_username="adminuser",
-            computer_name_prefix="vm-",
             source_image_reference={
                 "publisher": "MicrosoftWindowsServer",
                 "offer": "WindowsServer",
@@ -2303,14 +2295,22 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
-                "name": "example",
-                "primary": True,
                 "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
                     "subnet_id": internal.id,
                 }],
-            }])
+                "name": "example",
+                "primary": True,
+            }],
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Standard_D4_v5",
+            instances=1,
+            admin_password="P@55w0rd1234!",
+            admin_username="adminuser",
+            computer_name_prefix="vm-")
         ```
 
         ## API Providers

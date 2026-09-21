@@ -381,6 +381,9 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_exascale_database_storage_vault = azure.oracle.ExascaleDatabaseStorageVault("example",
+            high_capacity_database_storage={
+                "total_size_in_gb": 300,
+            },
             name="example-exascale-db-storage-vault",
             resource_group_name=example.name,
             location=example.location,
@@ -388,9 +391,6 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
             display_name="example-exascale-db-storage-vault",
             description="description",
             additional_flash_cache_percentage=100,
-            high_capacity_database_storage={
-                "total_size_in_gb": 300,
-            },
             time_zone="UTC")
         ```
 
@@ -442,6 +442,9 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_exascale_database_storage_vault = azure.oracle.ExascaleDatabaseStorageVault("example",
+            high_capacity_database_storage={
+                "total_size_in_gb": 300,
+            },
             name="example-exascale-db-storage-vault",
             resource_group_name=example.name,
             location=example.location,
@@ -449,9 +452,6 @@ class ExascaleDatabaseStorageVault(pulumi.CustomResource):
             display_name="example-exascale-db-storage-vault",
             description="description",
             additional_flash_cache_percentage=100,
-            high_capacity_database_storage={
-                "total_size_in_gb": 300,
-            },
             time_zone="UTC")
         ```
 

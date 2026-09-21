@@ -62,15 +62,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGateway = new Gateway("exampleGateway", GatewayArgs.builder()
- *             .name("example-gateway")
- *             .apiManagementId(exampleService.id())
- *             .description("Example API Management gateway")
  *             .locationData(GatewayLocationDataArgs.builder()
  *                 .name("example name")
  *                 .city("example city")
  *                 .district("example district")
  *                 .region("example region")
  *                 .build())
+ *             .name("example-gateway")
+ *             .apiManagementId(exampleService.id())
+ *             .description("Example API Management gateway")
  *             .build());
  * 
  *     }}{@code

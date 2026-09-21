@@ -34,9 +34,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Name = "example-network-manager",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -44,6 +41,9 @@ namespace Pulumi.Azure.Network
     ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ScopeAccesses = new[]
     ///         {
     ///             "Connectivity",
@@ -78,9 +78,11 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("example", new()
     ///     {
-    ///         Name = "example-connectivity-conf",
-    ///         NetworkManagerId = exampleNetworkManager.Id,
-    ///         ConnectivityTopology = "HubAndSpoke",
+    ///         Hub = new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationHubArgs
+    ///         {
+    ///             ResourceId = exampleVirtualNetwork.Id,
+    ///             ResourceType = "Microsoft.Network/virtualNetworks",
+    ///         },
     ///         AppliesToGroups = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupArgs
@@ -94,11 +96,9 @@ namespace Pulumi.Azure.Network
     ///                 NetworkGroupId = example2.Id,
     ///             },
     ///         },
-    ///         Hub = new Azure.Network.Inputs.NetworkManagerConnectivityConfigurationHubArgs
-    ///         {
-    ///             ResourceId = exampleVirtualNetwork.Id,
-    ///             ResourceType = "Microsoft.Network/virtualNetworks",
-    ///         },
+    ///         Name = "example-connectivity-conf",
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         ConnectivityTopology = "HubAndSpoke",
     ///     });
     /// 
     /// });

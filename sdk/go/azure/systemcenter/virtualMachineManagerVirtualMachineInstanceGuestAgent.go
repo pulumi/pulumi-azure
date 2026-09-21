@@ -40,13 +40,13 @@ import (
 //				return err
 //			}
 //			exampleArcMachine, err := arcmachine.NewArcMachine(ctx, "example", &arcmachine.ArcMachineArgs{
+//				Identity: &arcmachine.ArcMachineIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example-arcmachine"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				Kind:              pulumi.String("SCVMM"),
-//				Identity: &arcmachine.ArcMachineIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -96,8 +96,6 @@ import (
 //				return err
 //			}
 //			exampleVirtualMachineManagerVirtualMachineInstance, err := systemcenter.NewVirtualMachineManagerVirtualMachineInstance(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineInstanceArgs{
-//				ScopedResourceId: exampleArcMachine.ID().ToIDOutput().ToStringOutput(),
-//				CustomLocationId: exampleVirtualMachineManagerServer.CustomLocationId,
 //				Infrastructure: &systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{
 //					CheckpointType:                                          pulumi.String("Standard"),
 //					SystemCenterVirtualMachineManagerCloudId:                exampleVirtualMachineManagerCloud.ID().ToIDOutput().ToStringOutput(),
@@ -107,7 +105,14 @@ import (
 //				OperatingSystem: &systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{
 //					AdminPassword: pulumi.String("AdminPassword123!"),
 //				},
-//			})
+//				ScopedResourceId: exampleArcMachine.ID().ToIDOutput().ToStringOutput(),
+//				CustomLocationId: exampleVirtualMachineManagerServer.CustomLocationId,
+//			}, pulumi.IgnoreChanges([]string{
+//				"storageDisks",
+//				"hardware",
+//				"networkInterfaces",
+//				"operatingSystem.computerName",
+//			}))
 //			if err != nil {
 //				return err
 //			}

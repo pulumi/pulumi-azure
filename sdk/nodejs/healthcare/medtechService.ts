@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleMedtechService = new azure.healthcare.MedtechService("example", {
- *     name: "examplemed",
- *     workspaceId: exampleWorkspace.id,
- *     location: "east us",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "examplemed",
+ *     workspaceId: exampleWorkspace.id,
+ *     location: "east us",
  *     eventhubNamespaceName: "example-eventhub-namespace",
  *     eventhubName: "example-eventhub",
  *     eventhubConsumerGroupName: "$Default",

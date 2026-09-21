@@ -36,11 +36,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.ApplicationGateway;
  * import com.pulumi.azure.network.ApplicationGatewayArgs;
  * import com.pulumi.azure.network.inputs.ApplicationGatewaySkuArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendPortArgs;
- * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendAddressPoolArgs;
  * import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendPortArgs;
+ * import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.ApplicationGatewayHttpListenerArgs;
  * import com.pulumi.azure.network.inputs.ApplicationGatewayRequestRoutingRuleArgs;
  * import com.pulumi.azure.network.NetworkInterface;
@@ -107,25 +107,10 @@ import javax.annotation.Nullable;
  *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-rqrt", _name));
  * 
  *         var network = new ApplicationGateway("network", ApplicationGatewayArgs.builder()
- *             .name("example-appgateway")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(ApplicationGatewaySkuArgs.builder()
  *                 .name("Standard_v2")
  *                 .tier("Standard_v2")
  *                 .capacity(2)
- *                 .build())
- *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
- *                 .name("my-gateway-ip-configuration")
- *                 .subnetId(backend.id())
- *                 .build())
- *             .frontendPorts(ApplicationGatewayFrontendPortArgs.builder()
- *                 .name(frontendPortName)
- *                 .port(80)
- *                 .build())
- *             .frontendIpConfigurations(ApplicationGatewayFrontendIpConfigurationArgs.builder()
- *                 .name(frontendIpConfigurationName)
- *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
  *             .backendAddressPools(ApplicationGatewayBackendAddressPoolArgs.builder()
  *                 .name(backendAddressPoolName)
@@ -136,6 +121,18 @@ import javax.annotation.Nullable;
  *                 .port(80)
  *                 .protocol("Http")
  *                 .requestTimeout(1)
+ *                 .build())
+ *             .frontendIpConfigurations(ApplicationGatewayFrontendIpConfigurationArgs.builder()
+ *                 .name(frontendIpConfigurationName)
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .build())
+ *             .frontendPorts(ApplicationGatewayFrontendPortArgs.builder()
+ *                 .name(frontendPortName)
+ *                 .port(80)
+ *                 .build())
+ *             .gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs.builder()
+ *                 .name("my-gateway-ip-configuration")
+ *                 .subnetId(backend.id())
  *                 .build())
  *             .httpListeners(ApplicationGatewayHttpListenerArgs.builder()
  *                 .name(listenerName)
@@ -151,17 +148,20 @@ import javax.annotation.Nullable;
  *                 .backendAddressPoolName(backendAddressPoolName)
  *                 .backendHttpSettingsName(httpSettingName)
  *                 .build())
+ *             .name("example-appgateway")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("testconfiguration1")
  *                 .subnetId(frontend.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs.builder()

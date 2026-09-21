@@ -48,14 +48,14 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleLogger = new Azure.ApiManagement.Logger("example", new()
     ///     {
-    ///         Name = "example-logger",
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         ResourceId = exampleInsights.Id,
     ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
     ///         {
     ///             InstrumentationKey = exampleInsights.InstrumentationKey,
     ///         },
+    ///         Name = "example-logger",
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         ResourceId = exampleInsights.Id,
     ///     });
     /// 
     /// });

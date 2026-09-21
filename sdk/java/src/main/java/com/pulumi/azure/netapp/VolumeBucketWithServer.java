@@ -64,7 +64,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerFileSystemNfsUserArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerServerArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -91,19 +90,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-delegated")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("netapp")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("netapp")
  *                 .build())
+ *             .name("example-delegated")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -140,8 +139,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketSelfSignedCert = new SelfSignedCert("bucketSelfSignedCert", SelfSignedCertArgs.builder()
- *             .privateKeyPem(bucket.privateKeyPem())
  *             .subject(Arrays.asList(Map.of("commonName", "example-bucket.example.internal")))
+ *             .privateKeyPem(bucket.privateKeyPem())
  *             .dnsNames(Arrays.asList("example-bucket.example.internal"))
  *             .validityPeriodHours(8760)
  *             .allowedUses(Arrays.asList(            
@@ -151,18 +150,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVolumeBucketWithServer = new VolumeBucketWithServer("exampleVolumeBucketWithServer", VolumeBucketWithServerArgs.builder()
- *             .name("example-bucket")
- *             .volumeId(exampleVolume.id())
  *             .fileSystemNfsUser(VolumeBucketWithServerFileSystemNfsUserArgs.builder()
  *                 .groupId(1000)
  *                 .userId(1000)
  *                 .build())
  *             .server(VolumeBucketWithServerServerArgs.builder()
  *                 .fqdn("example-bucket.example.internal")
- *                 .certificatePem(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                     .input(String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))
- *                     .build()).result())
+ *                 .certificatePem(StdFunctions.base64encode(Map.of("input", String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))).result())
  *                 .build())
+ *             .name("example-bucket")
+ *             .volumeId(exampleVolume.id())
  *             .build());
  * 
  *     }
@@ -243,28 +240,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-delegated")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("netapp")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("netapp")
  *                 .build())
+ *             .name("example-delegated")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-anfaccount")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-anfaccount")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var examplePool = new Pool("examplePool", PoolArgs.builder()
@@ -365,8 +362,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucket = new Certificate("bucket", CertificateArgs.builder()
- *             .name("example-bucket-cert")
- *             .keyVaultId(certificate.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
  *                     .name("Self")
@@ -381,24 +376,24 @@ import javax.annotation.Nullable;
  *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .x509CertificateProperties(CertificateCertificatePolicyX509CertificatePropertiesArgs.builder()
+ *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
+ *                         .dnsNames("example-bucket.example.internal")
+ *                         .build())
  *                     .keyUsages(                    
  *                         "digitalSignature",
  *                         "keyEncipherment")
  *                     .extendedKeyUsages("1.3.6.1.5.5.7.3.1")
  *                     .subject("CN=example-bucket.example.internal")
- *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
- *                         .dnsNames("example-bucket.example.internal")
- *                         .build())
  *                     .validityInMonths(12)
  *                     .build())
  *                 .build())
+ *             .name("example-bucket-cert")
+ *             .keyVaultId(certificate.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(deployerCertificate)
  *                 .build());
  * 
  *         var exampleVolumeBucketWithServer = new VolumeBucketWithServer("exampleVolumeBucketWithServer", VolumeBucketWithServerArgs.builder()
- *             .name("example-bucket")
- *             .volumeId(exampleVolume.id())
  *             .fileSystemNfsUser(VolumeBucketWithServerFileSystemNfsUserArgs.builder()
  *                 .groupId(1000)
  *                 .userId(1000)
@@ -412,6 +407,8 @@ import javax.annotation.Nullable;
  *                 .credentialsKeyVaultUri(credentials.vaultUri())
  *                 .credentialsSecretName("example-bucket-creds")
  *                 .build())
+ *             .name("example-bucket")
+ *             .volumeId(exampleVolume.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     anfCertificate,

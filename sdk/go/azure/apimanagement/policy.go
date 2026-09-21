@@ -60,15 +60,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "example.xml",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "example.xml",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewPolicy(ctx, "example", &apimanagement.PolicyArgs{
 //				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
-//				XmlContent:      pulumi.String(invokeFile.Result),
+//				XmlContent:      invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

@@ -470,13 +470,13 @@ class DatasetBinary(pulumi.CustomResource):
             username="foo",
             password="bar")
         example_dataset_binary = azure.datafactory.DatasetBinary("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_sftp.name,
             sftp_server_location={
                 "path": "/test/",
                 "filename": "**",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_sftp.name)
         ```
 
         ## Import
@@ -536,13 +536,13 @@ class DatasetBinary(pulumi.CustomResource):
             username="foo",
             password="bar")
         example_dataset_binary = azure.datafactory.DatasetBinary("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_sftp.name,
             sftp_server_location={
                 "path": "/test/",
                 "filename": "**",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_sftp.name)
         ```
 
         ## Import

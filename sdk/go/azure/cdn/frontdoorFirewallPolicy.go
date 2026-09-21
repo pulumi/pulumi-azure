@@ -45,23 +45,8 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorFirewallPolicy(ctx, "example", &cdn.FrontdoorFirewallPolicyArgs{
-//				Name:                          pulumi.String("examplecdnfdwafpolicy"),
-//				ResourceGroupName:             example.Name,
-//				SkuName:                       exampleFrontdoorProfile.SkuName,
-//				Enabled:                       pulumi.Bool(true),
-//				Mode:                          pulumi.String("Prevention"),
-//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
-//				CustomBlockResponseStatusCode: pulumi.Int(403),
-//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
 //				CustomRules: cdn.FrontdoorFirewallPolicyCustomRuleArray{
 //					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
-//						Name:                       pulumi.String("Rule1"),
-//						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(1),
-//						RateLimitDurationInMinutes: pulumi.Int(1),
-//						RateLimitThreshold:         pulumi.Int(10),
-//						Type:                       pulumi.String("MatchRule"),
-//						Action:                     pulumi.String("Block"),
 //						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
 //							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
 //								MatchVariable:     pulumi.String("SocketAddr"),
@@ -73,15 +58,15 @@ import (
 //								},
 //							},
 //						},
-//					},
-//					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
-//						Name:                       pulumi.String("Rule2"),
+//						Name:                       pulumi.String("Rule1"),
 //						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(50),
+//						Priority:                   pulumi.Int(1),
 //						RateLimitDurationInMinutes: pulumi.Int(1),
 //						RateLimitThreshold:         pulumi.Int(10),
 //						Type:                       pulumi.String("MatchRule"),
 //						Action:                     pulumi.String("Block"),
+//					},
+//					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
 //						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
 //							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
 //								MatchVariable:     pulumi.String("SocketAddr"),
@@ -105,13 +90,17 @@ import (
 //								},
 //							},
 //						},
+//						Name:                       pulumi.String("Rule2"),
+//						Enabled:                    pulumi.Bool(true),
+//						Priority:                   pulumi.Int(50),
+//						RateLimitDurationInMinutes: pulumi.Int(1),
+//						RateLimitThreshold:         pulumi.Int(10),
+//						Type:                       pulumi.String("MatchRule"),
+//						Action:                     pulumi.String("Block"),
 //					},
 //				},
 //				ManagedRules: cdn.FrontdoorFirewallPolicyManagedRuleArray{
 //					&cdn.FrontdoorFirewallPolicyManagedRuleArgs{
-//						Type:    pulumi.String("DefaultRuleSet"),
-//						Version: pulumi.String("1.0"),
-//						Action:  pulumi.String("Log"),
 //						Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleExclusionArray{
 //							&cdn.FrontdoorFirewallPolicyManagedRuleExclusionArgs{
 //								MatchVariable: pulumi.String("QueryStringArgNames"),
@@ -121,7 +110,6 @@ import (
 //						},
 //						Overrides: cdn.FrontdoorFirewallPolicyManagedRuleOverrideArray{
 //							&cdn.FrontdoorFirewallPolicyManagedRuleOverrideArgs{
-//								RuleGroupName: pulumi.String("PHP"),
 //								Rules: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{
 //									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{
 //										RuleId:  pulumi.String("933100"),
@@ -129,9 +117,9 @@ import (
 //										Action:  pulumi.String("Block"),
 //									},
 //								},
+//								RuleGroupName: pulumi.String("PHP"),
 //							},
 //							&cdn.FrontdoorFirewallPolicyManagedRuleOverrideArgs{
-//								RuleGroupName: pulumi.String("SQLI"),
 //								Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray{
 //									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs{
 //										MatchVariable: pulumi.String("QueryStringArgNames"),
@@ -141,8 +129,6 @@ import (
 //								},
 //								Rules: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{
 //									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{
-//										RuleId: pulumi.String("942200"),
-//										Action: pulumi.String("Block"),
 //										Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray{
 //											&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs{
 //												MatchVariable: pulumi.String("QueryStringArgNames"),
@@ -150,10 +136,16 @@ import (
 //												Selector:      pulumi.String("innocent"),
 //											},
 //										},
+//										RuleId: pulumi.String("942200"),
+//										Action: pulumi.String("Block"),
 //									},
 //								},
+//								RuleGroupName: pulumi.String("SQLI"),
 //							},
 //						},
+//						Type:    pulumi.String("DefaultRuleSet"),
+//						Version: pulumi.String("1.0"),
+//						Action:  pulumi.String("Log"),
 //					},
 //					&cdn.FrontdoorFirewallPolicyManagedRuleArgs{
 //						Type:    pulumi.String("Microsoft_BotManagerRuleSet"),
@@ -161,6 +153,14 @@ import (
 //						Action:  pulumi.String("Log"),
 //					},
 //				},
+//				Name:                          pulumi.String("examplecdnfdwafpolicy"),
+//				ResourceGroupName:             example.Name,
+//				SkuName:                       exampleFrontdoorProfile.SkuName,
+//				Enabled:                       pulumi.Bool(true),
+//				Mode:                          pulumi.String("Prevention"),
+//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
+//				CustomBlockResponseStatusCode: pulumi.Int(403),
+//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
 //			})
 //			if err != nil {
 //				return err

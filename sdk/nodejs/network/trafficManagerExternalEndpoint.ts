@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
- *     name: "example-profile",
- *     resourceGroupName: example.name,
- *     trafficRoutingMethod: "Weighted",
  *     dnsConfig: {
  *         relativeName: "example-profile",
  *         ttl: 100,
@@ -35,6 +32,9 @@ import * as utilities from "../utilities";
  *         timeoutInSeconds: 9,
  *         toleratedNumberOfFailures: 3,
  *     },
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
+ *     trafficRoutingMethod: "Weighted",
  *     tags: {
  *         environment: "Production",
  *     },

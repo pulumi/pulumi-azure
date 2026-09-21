@@ -61,7 +61,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerFileSystemNfsUserArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketWithServerServerArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Base64encodeArgs;
  * import com.pulumi.azure.netapp.VolumeBucket;
  * import com.pulumi.azure.netapp.VolumeBucketArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeBucketFileSystemNfsUserArgs;
@@ -92,19 +91,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-delegated")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("netapp")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Netapp/volumes")
  *                     .actions(                    
  *                         "Microsoft.Network/networkinterfaces/*",
  *                         "Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("netapp")
  *                 .build())
+ *             .name("example-delegated")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -141,8 +140,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketSelfSignedCert = new SelfSignedCert("bucketSelfSignedCert", SelfSignedCertArgs.builder()
- *             .privateKeyPem(bucket.privateKeyPem())
  *             .subject(Arrays.asList(Map.of("commonName", "example-bucket.example.internal")))
+ *             .privateKeyPem(bucket.privateKeyPem())
  *             .dnsNames(Arrays.asList("example-bucket.example.internal"))
  *             .validityPeriodHours(8760)
  *             .allowedUses(Arrays.asList(            
@@ -153,28 +152,26 @@ import javax.annotation.Nullable;
  * 
  *         // First bucket - establishes the shared bucket server.
  *         var first = new VolumeBucketWithServer("first", VolumeBucketWithServerArgs.builder()
- *             .name("example-bucket-first")
- *             .volumeId(exampleVolume.id())
  *             .fileSystemNfsUser(VolumeBucketWithServerFileSystemNfsUserArgs.builder()
  *                 .groupId(1000)
  *                 .userId(1000)
  *                 .build())
  *             .server(VolumeBucketWithServerServerArgs.builder()
  *                 .fqdn("example-bucket.example.internal")
- *                 .certificatePem(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                     .input(String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))
- *                     .build()).result())
+ *                 .certificatePem(StdFunctions.base64encode(Map.of("input", String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))).result())
  *                 .build())
+ *             .name("example-bucket-first")
+ *             .volumeId(exampleVolume.id())
  *             .build());
  * 
  *         // Subsequent bucket - reuses the server configured by the first bucket.
  *         var exampleVolumeBucket = new VolumeBucket("exampleVolumeBucket", VolumeBucketArgs.builder()
- *             .name("example-bucket-second")
- *             .volumeId(exampleVolume.id())
  *             .fileSystemNfsUser(VolumeBucketFileSystemNfsUserArgs.builder()
  *                 .groupId(2000)
  *                 .userId(2000)
  *                 .build())
+ *             .name("example-bucket-second")
+ *             .volumeId(exampleVolume.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(first)
  *                 .build());

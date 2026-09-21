@@ -32,26 +32,26 @@ namespace Pulumi.Azure.ManagedRedis
     /// 
     ///     var amr1 = new Azure.ManagedRedis.ManagedRedis("amr1", new()
     ///     {
+    ///         DefaultDatabase = new Azure.ManagedRedis.Inputs.ManagedRedisDefaultDatabaseArgs
+    ///         {
+    ///             GeoReplicationGroupName = "example-geo-group",
+    ///         },
     ///         Name = "example-managedredis-amr1",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         SkuName = "Balanced_B3",
-    ///         DefaultDatabase = new Azure.ManagedRedis.Inputs.ManagedRedisDefaultDatabaseArgs
-    ///         {
-    ///             GeoReplicationGroupName = "example-geo-group",
-    ///         },
     ///     });
     /// 
     ///     var amr2 = new Azure.ManagedRedis.ManagedRedis("amr2", new()
     ///     {
-    ///         Name = "example-managedredis-amr2",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "Central US",
-    ///         SkuName = "Balanced_B3",
     ///         DefaultDatabase = new Azure.ManagedRedis.Inputs.ManagedRedisDefaultDatabaseArgs
     ///         {
     ///             GeoReplicationGroupName = "example-geo-group",
     ///         },
+    ///         Name = "example-managedredis-amr2",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "Central US",
+    ///         SkuName = "Balanced_B3",
     ///     });
     /// 
     ///     var exampleGeoReplication = new Azure.ManagedRedis.GeoReplication("example", new()

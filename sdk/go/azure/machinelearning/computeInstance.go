@@ -80,15 +80,15 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Identity: &machinelearning.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				Identity: &machinelearning.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -121,15 +121,15 @@ import (
 //				sshKey = param
 //			}
 //			_, err = machinelearning.NewComputeInstance(ctx, "example", &machinelearning.ComputeInstanceArgs{
+//				Ssh: &machinelearning.ComputeInstanceSshArgs{
+//					PublicKey: pulumi.String(sshKey),
+//				},
 //				Name:                       pulumi.String("example"),
 //				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				VirtualMachineSize:         pulumi.String("STANDARD_DS2_V2"),
 //				AuthorizationType:          pulumi.String("personal"),
-//				Ssh: &machinelearning.ComputeInstanceSshArgs{
-//					PublicKey: pulumi.String(sshKey),
-//				},
-//				SubnetResourceId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//				Description:      pulumi.String("foo"),
+//				SubnetResourceId:           exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				Description:                pulumi.String("foo"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

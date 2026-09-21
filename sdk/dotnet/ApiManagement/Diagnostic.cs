@@ -48,26 +48,17 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     ///     var exampleLogger = new Azure.ApiManagement.Logger("example", new()
     ///     {
-    ///         Name = "example-apimlogger",
-    ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = example.Name,
     ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
     ///         {
     ///             InstrumentationKey = exampleInsights.InstrumentationKey,
     ///         },
+    ///         Name = "example-apimlogger",
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleDiagnostic = new Azure.ApiManagement.Diagnostic("example", new()
     ///     {
-    ///         Identifier = "applicationinsights",
-    ///         ResourceGroupName = example.Name,
-    ///         ApiManagementName = exampleService.Name,
-    ///         ApiManagementLoggerId = exampleLogger.Id,
-    ///         SamplingPercentage = 5,
-    ///         AlwaysLogErrors = true,
-    ///         LogClientIp = true,
-    ///         Verbosity = "verbose",
-    ///         HttpCorrelationProtocol = "W3C",
     ///         FrontendRequest = new Azure.ApiManagement.Inputs.DiagnosticFrontendRequestArgs
     ///         {
     ///             BodyBytes = 32,
@@ -108,6 +99,15 @@ namespace Pulumi.Azure.ApiManagement
     ///                 "origin",
     ///             },
     ///         },
+    ///         Identifier = "applicationinsights",
+    ///         ResourceGroupName = example.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ApiManagementLoggerId = exampleLogger.Id,
+    ///         SamplingPercentage = 5,
+    ///         AlwaysLogErrors = true,
+    ///         LogClientIp = true,
+    ///         Verbosity = "verbose",
+    ///         HttpCorrelationProtocol = "W3C",
     ///     });
     /// 
     /// });

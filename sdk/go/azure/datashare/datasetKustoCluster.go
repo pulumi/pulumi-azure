@@ -39,12 +39,12 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
-//				Name:              pulumi.String("example-dsa"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &datashare.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-dsa"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -58,13 +58,13 @@ import (
 //				return err
 //			}
 //			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("examplekc"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("examplekc"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -40,12 +40,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-delegated",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "netapp",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -53,7 +48,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "netapp",
  *     }],
+ *     name: "example-delegated",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     name: "example-anfaccount",
@@ -85,10 +85,10 @@ import * as utilities from "../utilities";
  *     rsaBits: 2048,
  * });
  * const bucketSelfSignedCert = new tls.index.SelfSignedCert("bucket", {
- *     privateKeyPem: bucket.privateKeyPem,
  *     subject: [{
  *         commonName: "example-bucket.example.internal",
  *     }],
+ *     privateKeyPem: bucket.privateKeyPem,
  *     dnsNames: ["example-bucket.example.internal"],
  *     validityPeriodHours: 8760,
  *     allowedUses: [
@@ -98,8 +98,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const exampleVolumeBucketWithServer = new azure.netapp.VolumeBucketWithServer("example", {
- *     name: "example-bucket",
- *     volumeId: exampleVolume.id,
  *     fileSystemNfsUser: {
  *         groupId: 1000,
  *         userId: 1000,
@@ -108,8 +106,10 @@ import * as utilities from "../utilities";
  *         fqdn: "example-bucket.example.internal",
  *         certificatePem: std.base64encode({
  *             input: `${bucketSelfSignedCert.certPem}${bucket.privateKeyPem}`,
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *     },
+ *     name: "example-bucket",
+ *     volumeId: exampleVolume.id,
  * });
  * ```
  *
@@ -133,12 +133,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-delegated",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "netapp",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -146,15 +141,20 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "netapp",
  *     }],
+ *     name: "example-delegated",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
- *     name: "example-anfaccount",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-anfaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const examplePool = new azure.netapp.Pool("example", {
  *     name: "example-anfpool",
@@ -252,8 +252,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const bucket = new azure.keyvault.Certificate("bucket", {
- *     name: "example-bucket-cert",
- *     keyVaultId: certificate.id,
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -268,24 +266,24 @@ import * as utilities from "../utilities";
  *             contentType: "application/x-pkcs12",
  *         },
  *         x509CertificateProperties: {
+ *             subjectAlternativeNames: {
+ *                 dnsNames: ["example-bucket.example.internal"],
+ *             },
  *             keyUsages: [
  *                 "digitalSignature",
  *                 "keyEncipherment",
  *             ],
  *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
  *             subject: "CN=example-bucket.example.internal",
- *             subjectAlternativeNames: {
- *                 dnsNames: ["example-bucket.example.internal"],
- *             },
  *             validityInMonths: 12,
  *         },
  *     },
+ *     name: "example-bucket-cert",
+ *     keyVaultId: certificate.id,
  * }, {
  *     dependsOn: [deployerCertificate],
  * });
  * const exampleVolumeBucketWithServer = new azure.netapp.VolumeBucketWithServer("example", {
- *     name: "example-bucket",
- *     volumeId: exampleVolume.id,
  *     fileSystemNfsUser: {
  *         groupId: 1000,
  *         userId: 1000,
@@ -299,6 +297,8 @@ import * as utilities from "../utilities";
  *         credentialsKeyVaultUri: credentials.vaultUri,
  *         credentialsSecretName: "example-bucket-creds",
  *     },
+ *     name: "example-bucket",
+ *     volumeId: exampleVolume.id,
  * }, {
  *     dependsOn: [
  *         anfCertificate,

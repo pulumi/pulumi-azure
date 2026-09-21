@@ -30,14 +30,14 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "example",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
@@ -75,11 +75,6 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var example = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new()
     ///     {
-    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
-    ///         ContainerName = exampleContainer.Name,
-    ///         HttpsOnly = true,
-    ///         Start = "2017-03-21",
-    ///         Expiry = "2022-03-21",
     ///         Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
     ///         {
     ///             Read = true,
@@ -89,6 +84,11 @@ namespace Pulumi.Azure.Kusto
     ///             Delete = false,
     ///             List = true,
     ///         },
+    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///         ContainerName = exampleContainer.Name,
+    ///         HttpsOnly = true,
+    ///         Start = "2017-03-21",
+    ///         Expiry = "2022-03-21",
     ///     });
     /// 
     ///     var exampleScript = new Azure.Kusto.Script("example", new()

@@ -32,23 +32,17 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     ///     var exampleCluster = new Azure.LogAnalytics.Cluster("example", new()
     ///     {
-    ///         Name = "example-cluster",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-cluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "keyvaultkeyexample",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -78,6 +72,12 @@ namespace Pulumi.Azure.LogAnalytics
     ///                 },
     ///             },
     ///         },
+    ///         Name = "keyvaultkeyexample",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

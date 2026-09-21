@@ -43,7 +43,24 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleAccountTableProperties = new Azure.Storage.AccountTableProperties("example", new()
     ///     {
-    ///         StorageAccountId = exampleAccount.Id,
+    ///         Logging = new Azure.Storage.Inputs.AccountTablePropertiesLoggingArgs
+    ///         {
+    ///             Version = "1.0",
+    ///             Delete = true,
+    ///             Read = true,
+    ///             Write = true,
+    ///             RetentionPolicyDays = 7,
+    ///         },
+    ///         HourMetrics = new Azure.Storage.Inputs.AccountTablePropertiesHourMetricsArgs
+    ///         {
+    ///             Version = "1.0",
+    ///             RetentionPolicyDays = 7,
+    ///         },
+    ///         MinuteMetrics = new Azure.Storage.Inputs.AccountTablePropertiesMinuteMetricsArgs
+    ///         {
+    ///             Version = "1.0",
+    ///             RetentionPolicyDays = 7,
+    ///         },
     ///         CorsRules = new[]
     ///         {
     ///             new Azure.Storage.Inputs.AccountTablePropertiesCorsRuleArgs
@@ -68,24 +85,7 @@ namespace Pulumi.Azure.Storage
     ///                 MaxAgeInSeconds = 500,
     ///             },
     ///         },
-    ///         Logging = new Azure.Storage.Inputs.AccountTablePropertiesLoggingArgs
-    ///         {
-    ///             Version = "1.0",
-    ///             Delete = true,
-    ///             Read = true,
-    ///             Write = true,
-    ///             RetentionPolicyDays = 7,
-    ///         },
-    ///         HourMetrics = new Azure.Storage.Inputs.AccountTablePropertiesHourMetricsArgs
-    ///         {
-    ///             Version = "1.0",
-    ///             RetentionPolicyDays = 7,
-    ///         },
-    ///         MinuteMetrics = new Azure.Storage.Inputs.AccountTablePropertiesMinuteMetricsArgs
-    ///         {
-    ///             Version = "1.0",
-    ///             RetentionPolicyDays = 7,
-    ///         },
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

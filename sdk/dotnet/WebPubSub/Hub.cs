@@ -46,8 +46,6 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     ///     var exampleHub = new Azure.WebPubSub.Hub("example", new()
     ///     {
-    ///         Name = "tfex_wpsh",
-    ///         WebPubsubId = exampleService.Id,
     ///         EventHandlers = new[]
     ///         {
     ///             new Azure.WebPubSub.Inputs.HubEventHandlerArgs
@@ -62,15 +60,15 @@ namespace Pulumi.Azure.WebPubSub
     ///             },
     ///             new Azure.WebPubSub.Inputs.HubEventHandlerArgs
     ///             {
+    ///                 Auth = new Azure.WebPubSub.Inputs.HubEventHandlerAuthArgs
+    ///                 {
+    ///                     ManagedIdentityId = exampleUserAssignedIdentity.Id,
+    ///                 },
     ///                 UrlTemplate = "https://test.com/api/{hub}/{event}",
     ///                 UserEventPattern = "event1, event2",
     ///                 SystemEvents = new[]
     ///                 {
     ///                     "connected",
-    ///                 },
-    ///                 Auth = new Azure.WebPubSub.Inputs.HubEventHandlerAuthArgs
-    ///                 {
-    ///                     ManagedIdentityId = exampleUserAssignedIdentity.Id,
     ///                 },
     ///             },
     ///         },
@@ -117,6 +115,8 @@ namespace Pulumi.Azure.WebPubSub
     ///                 EventhubName = test1.Name,
     ///             },
     ///         },
+    ///         Name = "tfex_wpsh",
+    ///         WebPubsubId = exampleService.Id,
     ///         AnonymousConnectionsEnabled = true,
     ///     }, new CustomResourceOptions
     ///     {

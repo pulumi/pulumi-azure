@@ -70,22 +70,22 @@ import (
 //				return err
 //			}
 //			trust, err := network.NewSubnet(ctx, "trust", &network.SubnetArgs{
-//				Name:               pulumi.String("example-trust-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("trusted"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("PaloAltoNetworks.Cloudngfw/firewalls"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("trusted"),
 //					},
+//				},
+//				Name:               pulumi.String("example-trust-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -99,22 +99,22 @@ import (
 //				return err
 //			}
 //			untrust, err := network.NewSubnet(ctx, "untrust", &network.SubnetArgs{
-//				Name:               pulumi.String("example-untrust-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("untrusted"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("PaloAltoNetworks.Cloudngfw/firewalls"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("untrusted"),
 //					},
+//				},
+//				Name:               pulumi.String("example-untrust-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -136,13 +136,6 @@ import (
 //				return err
 //			}
 //			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
-//				Name:        pulumi.String("example-rulestack-rule"),
-//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
-//				Priority:    pulumi.Int(1001),
-//				Action:      pulumi.String("Allow"),
-//				Applications: pulumi.StringArray{
-//					pulumi.String("any"),
-//				},
 //				Destination: &paloalto.LocalRulestackRuleDestinationArgs{
 //					Cidrs: pulumi.StringArray{
 //						pulumi.String("any"),
@@ -153,24 +146,31 @@ import (
 //						pulumi.String("any"),
 //					},
 //				},
+//				Name:        pulumi.String("example-rulestack-rule"),
+//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
+//				Priority:    pulumi.Int(1001),
+//				Action:      pulumi.String("Allow"),
+//				Applications: pulumi.StringArray{
+//					pulumi.String("any"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = paloalto.NewNextGenerationFirewallVirtualNetworkLocalRulestack(ctx, "example", &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackArgs{
-//				Name:              pulumi.String("example-ngfwvn"),
-//				ResourceGroupName: example.Name,
-//				RulestackId:       exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs{
-//					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
-//					},
 //					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs{
 //						VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //						TrustedSubnetId:   trust.ID().ToIDOutput().ToStringOutput(),
 //						UntrustedSubnetId: untrust.ID().ToIDOutput().ToStringOutput(),
 //					},
+//					PublicIpAddressIds: pulumi.StringArray{
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//					},
 //				},
+//				Name:              pulumi.String("example-ngfwvn"),
+//				ResourceGroupName: example.Name,
+//				RulestackId:       exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

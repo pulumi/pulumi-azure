@@ -103,13 +103,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
- *             .name("example_data_factory")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .identityIds(exampleAzurermUserAssignedIdentity.id())
  *                 .build())
+ *             .name("example_data_factory")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var datafactory = new AccessPolicy("datafactory", AccessPolicyArgs.builder()

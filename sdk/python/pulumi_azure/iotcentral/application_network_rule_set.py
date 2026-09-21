@@ -197,7 +197,6 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                 "Foo": "Bar",
             })
         example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("example",
-            iotcentral_application_id=example_application.id,
             ip_rules=[
                 {
                     "name": "rule1",
@@ -207,7 +206,8 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                     "name": "rule2",
                     "ip_mask": "10.1.1.0/24",
                 },
-            ])
+            ],
+            iotcentral_application_id=example_application.id)
         ```
 
         ## API Providers
@@ -262,7 +262,6 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                 "Foo": "Bar",
             })
         example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("example",
-            iotcentral_application_id=example_application.id,
             ip_rules=[
                 {
                     "name": "rule1",
@@ -272,7 +271,8 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                     "name": "rule2",
                     "ip_mask": "10.1.1.0/24",
                 },
-            ])
+            ],
+            iotcentral_application_id=example_application.id)
         ```
 
         ## API Providers

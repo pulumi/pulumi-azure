@@ -265,22 +265,17 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             allocation_method="Static",
             sku="Standard")
         example_firewall = azure.network.Firewall("example",
-            name="testfirewall",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
                 "public_ip_address_id": example_public_ip.id,
-            }])
-        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
-            name="testcollection",
-            azure_firewall_name=example_firewall.name,
+            }],
+            name="testfirewall",
+            location=example.location,
             resource_group_name=example.name,
-            priority=100,
-            action="Allow",
+            sku_name="AZFW_VNet",
+            sku_tier="Standard")
+        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
             rules=[{
                 "name": "testrule",
                 "source_addresses": ["10.0.0.0/16"],
@@ -293,7 +288,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                     "TCP",
                     "UDP",
                 ],
-            }])
+            }],
+            name="testcollection",
+            azure_firewall_name=example_firewall.name,
+            resource_group_name=example.name,
+            priority=100,
+            action="Allow")
         ```
 
         ## API Providers
@@ -356,22 +356,17 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             allocation_method="Static",
             sku="Standard")
         example_firewall = azure.network.Firewall("example",
-            name="testfirewall",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="AZFW_VNet",
-            sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
                 "public_ip_address_id": example_public_ip.id,
-            }])
-        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
-            name="testcollection",
-            azure_firewall_name=example_firewall.name,
+            }],
+            name="testfirewall",
+            location=example.location,
             resource_group_name=example.name,
-            priority=100,
-            action="Allow",
+            sku_name="AZFW_VNet",
+            sku_tier="Standard")
+        example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
             rules=[{
                 "name": "testrule",
                 "source_addresses": ["10.0.0.0/16"],
@@ -384,7 +379,12 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                     "TCP",
                     "UDP",
                 ],
-            }])
+            }],
+            name="testcollection",
+            azure_firewall_name=example_firewall.name,
+            resource_group_name=example.name,
+            priority=100,
+            action="Allow")
         ```
 
         ## API Providers

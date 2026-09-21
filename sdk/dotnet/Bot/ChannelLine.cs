@@ -43,9 +43,6 @@ namespace Pulumi.Azure.Bot
     /// 
     ///     var exampleChannelLine = new Azure.Bot.ChannelLine("example", new()
     ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = example.Name,
     ///         LineChannels = new[]
     ///         {
     ///             new Azure.Bot.Inputs.ChannelLineLineChannelArgs
@@ -54,6 +51,9 @@ namespace Pulumi.Azure.Bot
     ///                 Secret = "aagfdgfd123567",
     ///             },
     ///         },
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

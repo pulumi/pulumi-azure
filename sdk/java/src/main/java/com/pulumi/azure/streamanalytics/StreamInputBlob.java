@@ -77,6 +77,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamInputBlob = new StreamInputBlob("exampleStreamInputBlob", StreamInputBlobArgs.builder()
+ *             .serialization(StreamInputBlobSerializationArgs.builder()
+ *                 .type("Json")
+ *                 .encoding("UTF8")
+ *                 .build())
  *             .name("blob-stream-input")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -86,10 +90,6 @@ import javax.annotation.Nullable;
  *             .pathPattern("some-random-pattern")
  *             .dateFormat("yyyy/MM/dd")
  *             .timeFormat("HH")
- *             .serialization(StreamInputBlobSerializationArgs.builder()
- *                 .type("Json")
- *                 .encoding("UTF8")
- *                 .build())
  *             .build());
  * 
  *     }

@@ -60,6 +60,10 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewStreamInputBlob(ctx, "example", &streamanalytics.StreamInputBlobArgs{
+//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
+//					Type:     pulumi.String("Json"),
+//					Encoding: pulumi.String("UTF8"),
+//				},
 //				Name:                   pulumi.String("blob-stream-input"),
 //				StreamAnalyticsJobName: example.Name(),
 //				ResourceGroupName:      example.ResourceGroupName(),
@@ -69,10 +73,6 @@ import (
 //				PathPattern:            pulumi.String("some-random-pattern"),
 //				DateFormat:             pulumi.String("yyyy/MM/dd"),
 //				TimeFormat:             pulumi.String("HH"),
-//				Serialization: &streamanalytics.StreamInputBlobSerializationArgs{
-//					Type:     pulumi.String("Json"),
-//					Encoding: pulumi.String("UTF8"),
-//				},
 //			})
 //			if err != nil {
 //				return err

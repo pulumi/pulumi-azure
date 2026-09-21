@@ -32,13 +32,6 @@ namespace Pulumi.Azure.ManagedApplication
     /// 
     ///     var exampleDefinition = new Azure.ManagedApplication.Definition("example", new()
     ///     {
-    ///         Name = "examplemanagedapplicationdefinition",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         LockLevel = "ReadOnly",
-    ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-    ///         DisplayName = "TestManagedApplicationDefinition",
-    ///         Description = "Test Managed Application Definition",
     ///         Authorizations = new[]
     ///         {
     ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
@@ -47,6 +40,13 @@ namespace Pulumi.Azure.ManagedApplication
     ///                 RoleDefinitionId = "a094b430-dad3-424d-ae58-13f72fd72591",
     ///             },
     ///         },
+    ///         Name = "examplemanagedapplicationdefinition",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         LockLevel = "ReadOnly",
+    ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+    ///         DisplayName = "TestManagedApplicationDefinition",
+    ///         Description = "Test Managed Application Definition",
     ///     });
     /// 
     /// });

@@ -476,21 +476,8 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
             location="West Europe",
             opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_single_node_virtual_instance = azure.workloadssap.SingleNodeVirtualInstance("example",
-            name="X05",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            environment="NonProd",
-            sap_product="S4HANA",
-            managed_resource_group_name="managedTestRG",
-            app_location=app.location,
-            sap_fqdn="sap.bpaas.com",
             single_server_configuration={
-                "app_resource_group_name": app.name,
-                "subnet_id": example_subnet.id,
-                "database_type": "HANA",
-                "secondary_ip_enabled": True,
                 "virtual_machine_configuration": {
-                    "virtual_machine_size": "Standard_E32ds_v4",
                     "image": {
                         "offer": "RHEL-SAP-HA",
                         "publisher": "RedHat",
@@ -502,6 +489,17 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                         "ssh_private_key": example_private_key["privateKeyPem"],
                         "ssh_public_key": example["publicKeyOpenssh"],
                     },
+                    "virtual_machine_size": "Standard_E32ds_v4",
+                },
+                "virtual_machine_resource_names": {
+                    "data_disks": [{
+                        "volume_name": "default",
+                        "names": ["app0disk0"],
+                    }],
+                    "host_name": "apphostName0",
+                    "os_disk_name": "app0osdisk",
+                    "virtual_machine_name": "appvm0",
+                    "network_interface_names": ["appnic0"],
                 },
                 "disk_volume_configurations": [
                     {
@@ -541,21 +539,23 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                         "sku_name": "StandardSSD_LRS",
                     },
                 ],
-                "virtual_machine_resource_names": {
-                    "host_name": "apphostName0",
-                    "os_disk_name": "app0osdisk",
-                    "virtual_machine_name": "appvm0",
-                    "network_interface_names": ["appnic0"],
-                    "data_disks": [{
-                        "volume_name": "default",
-                        "names": ["app0disk0"],
-                    }],
-                },
+                "app_resource_group_name": app.name,
+                "subnet_id": example_subnet.id,
+                "database_type": "HANA",
+                "secondary_ip_enabled": True,
             },
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
             },
+            name="X05",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            environment="NonProd",
+            sap_product="S4HANA",
+            managed_resource_group_name="managedTestRG",
+            app_location=app.location,
+            sap_fqdn="sap.bpaas.com",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
@@ -639,21 +639,8 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
             location="West Europe",
             opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_single_node_virtual_instance = azure.workloadssap.SingleNodeVirtualInstance("example",
-            name="X05",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            environment="NonProd",
-            sap_product="S4HANA",
-            managed_resource_group_name="managedTestRG",
-            app_location=app.location,
-            sap_fqdn="sap.bpaas.com",
             single_server_configuration={
-                "app_resource_group_name": app.name,
-                "subnet_id": example_subnet.id,
-                "database_type": "HANA",
-                "secondary_ip_enabled": True,
                 "virtual_machine_configuration": {
-                    "virtual_machine_size": "Standard_E32ds_v4",
                     "image": {
                         "offer": "RHEL-SAP-HA",
                         "publisher": "RedHat",
@@ -665,6 +652,17 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                         "ssh_private_key": example_private_key["privateKeyPem"],
                         "ssh_public_key": example["publicKeyOpenssh"],
                     },
+                    "virtual_machine_size": "Standard_E32ds_v4",
+                },
+                "virtual_machine_resource_names": {
+                    "data_disks": [{
+                        "volume_name": "default",
+                        "names": ["app0disk0"],
+                    }],
+                    "host_name": "apphostName0",
+                    "os_disk_name": "app0osdisk",
+                    "virtual_machine_name": "appvm0",
+                    "network_interface_names": ["appnic0"],
                 },
                 "disk_volume_configurations": [
                     {
@@ -704,21 +702,23 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                         "sku_name": "StandardSSD_LRS",
                     },
                 ],
-                "virtual_machine_resource_names": {
-                    "host_name": "apphostName0",
-                    "os_disk_name": "app0osdisk",
-                    "virtual_machine_name": "appvm0",
-                    "network_interface_names": ["appnic0"],
-                    "data_disks": [{
-                        "volume_name": "default",
-                        "names": ["app0disk0"],
-                    }],
-                },
+                "app_resource_group_name": app.name,
+                "subnet_id": example_subnet.id,
+                "database_type": "HANA",
+                "secondary_ip_enabled": True,
             },
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
             },
+            name="X05",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            environment="NonProd",
+            sap_product="S4HANA",
+            managed_resource_group_name="managedTestRG",
+            app_location=app.location,
+            sap_fqdn="sap.bpaas.com",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 

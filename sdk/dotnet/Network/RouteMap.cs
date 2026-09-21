@@ -46,19 +46,14 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleRouteMap = new Azure.Network.RouteMap("example", new()
     ///     {
-    ///         Name = "example-rm",
-    ///         VirtualHubId = exampleVirtualHub.Id,
     ///         Rules = new[]
     ///         {
     ///             new Azure.Network.Inputs.RouteMapRuleArgs
     ///             {
-    ///                 Name = "rule1",
-    ///                 NextStepIfMatched = "Continue",
     ///                 Actions = new[]
     ///                 {
     ///                     new Azure.Network.Inputs.RouteMapRuleActionArgs
     ///                     {
-    ///                         Type = "Add",
     ///                         Parameters = new[]
     ///                         {
     ///                             new Azure.Network.Inputs.RouteMapRuleActionParameterArgs
@@ -69,6 +64,7 @@ namespace Pulumi.Azure.Network
     ///                                 },
     ///                             },
     ///                         },
+    ///                         Type = "Add",
     ///                     },
     ///                 },
     ///                 MatchCriterions = new[]
@@ -82,8 +78,12 @@ namespace Pulumi.Azure.Network
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "rule1",
+    ///                 NextStepIfMatched = "Continue",
     ///             },
     ///         },
+    ///         Name = "example-rm",
+    ///         VirtualHubId = exampleVirtualHub.Id,
     ///     });
     /// 
     /// });

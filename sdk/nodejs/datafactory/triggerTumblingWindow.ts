@@ -29,19 +29,6 @@ import * as utilities from "../utilities";
  *     dataFactoryId: exampleFactory.id,
  * });
  * const exampleTriggerTumblingWindow = new azure.datafactory.TriggerTumblingWindow("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     startTime: "2022-09-21T00:00:00Z",
- *     endTime: "2022-09-21T08:00:00Z",
- *     frequency: "Minute",
- *     interval: 15,
- *     delay: "16:00:00",
- *     annotations: [
- *         "example1",
- *         "example2",
- *         "example3",
- *     ],
- *     description: "example description",
  *     retry: {
  *         count: 1,
  *         interval: 30,
@@ -56,6 +43,19 @@ import * as utilities from "../utilities";
  *         size: "24:00:00",
  *         offset: "-24:00:00",
  *     }],
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     startTime: "2022-09-21T00:00:00Z",
+ *     endTime: "2022-09-21T08:00:00Z",
+ *     frequency: "Minute",
+ *     interval: 15,
+ *     delay: "16:00:00",
+ *     annotations: [
+ *         "example1",
+ *         "example2",
+ *         "example3",
+ *     ],
+ *     description: "example description",
  *     additionalProperties: {
  *         foo: "value1",
  *         bar: "value2",

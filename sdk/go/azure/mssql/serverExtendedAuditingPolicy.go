@@ -136,6 +136,9 @@ import (
 //				return err
 //			}
 //			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Identity: &mssql.ServerIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                       pulumi.String("example-sqlserver"),
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
@@ -143,9 +146,6 @@ import (
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
 //				MinimumTlsVersion:          pulumi.String("1.2"),
-//				Identity: &mssql.ServerIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -178,13 +178,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
-//				Name:                       pulumi.String("examplesa"),
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
-//				AccountTier:                pulumi.String("Standard"),
-//				AccountReplicationType:     pulumi.String("LRS"),
-//				AccountKind:                pulumi.String("StorageV2"),
-//				AllowNestedItemsToBePublic: pulumi.Bool(false),
 //				NetworkRules: &storage.AccountNetworkRulesTypeArgs{
 //					DefaultAction: pulumi.String("Deny"),
 //					IpRules: pulumi.StringArray{
@@ -200,6 +193,13 @@ import (
 //				Identity: &storage.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                       pulumi.String("examplesa"),
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AccountTier:                pulumi.String("Standard"),
+//				AccountReplicationType:     pulumi.String("LRS"),
+//				AccountKind:                pulumi.String("StorageV2"),
+//				AllowNestedItemsToBePublic: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

@@ -47,6 +47,24 @@ import (
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupPolicyDisk(ctx, "example", &dataprotection.BackupPolicyDiskArgs{
+//				RetentionRules: dataprotection.BackupPolicyDiskRetentionRuleArray{
+//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
+//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
+//						},
+//						Name:     pulumi.String("Daily"),
+//						Duration: pulumi.String("P7D"),
+//						Priority: pulumi.Int(25),
+//					},
+//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
+//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
+//						},
+//						Name:     pulumi.String("Weekly"),
+//						Duration: pulumi.String("P7D"),
+//						Priority: pulumi.Int(20),
+//					},
+//				},
 //				Name:    pulumi.String("example-backup-policy"),
 //				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
@@ -54,24 +72,6 @@ import (
 //				},
 //				DefaultRetentionDuration: pulumi.String("P7D"),
 //				TimeZone:                 pulumi.String("W. Europe Standard Time"),
-//				RetentionRules: dataprotection.BackupPolicyDiskRetentionRuleArray{
-//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
-//						Name:     pulumi.String("Daily"),
-//						Duration: pulumi.String("P7D"),
-//						Priority: pulumi.Int(25),
-//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfDay"),
-//						},
-//					},
-//					&dataprotection.BackupPolicyDiskRetentionRuleArgs{
-//						Name:     pulumi.String("Weekly"),
-//						Duration: pulumi.String("P7D"),
-//						Priority: pulumi.Int(20),
-//						Criteria: &dataprotection.BackupPolicyDiskRetentionRuleCriteriaArgs{
-//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

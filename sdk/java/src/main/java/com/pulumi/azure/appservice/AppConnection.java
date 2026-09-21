@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.AppConnection;
  * import com.pulumi.azure.appservice.AppConnectionArgs;
  * import com.pulumi.azure.appservice.inputs.AppConnectionAuthenticationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -62,11 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new com.pulumi.azure.cosmosdb.Account("exampleAccount", com.pulumi.azure.cosmosdb.AccountArgs.builder()
- *             .name("example-cosmosdb-account")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .offerType("Standard")
- *             .kind("GlobalDocumentDB")
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("BoundedStaleness")
  *                 .maxIntervalInSeconds(10)
@@ -76,6 +72,11 @@ import javax.annotation.Nullable;
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("example-cosmosdb-account")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .kind("GlobalDocumentDB")
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
@@ -116,15 +117,17 @@ import javax.annotation.Nullable;
  *             .appServicePlanId(testAzurermAppServicePlan.id())
  *             .storageAccountName(testAzurermStorageAccount.name())
  *             .storageAccountAccessKey(testAzurermStorageAccount.primaryAccessKey())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("identity")
+ *                 .build());
  * 
  *         var exampleAppConnection = new AppConnection("exampleAppConnection", AppConnectionArgs.builder()
- *             .name("example-serviceconnector")
- *             .functionAppId(exampleAzurermFunctionApp.id())
- *             .targetResourceId(testAzurermCosmosdbAccount.id())
  *             .authentication(AppConnectionAuthenticationArgs.builder()
  *                 .type("systemAssignedIdentity")
  *                 .build())
+ *             .name("example-serviceconnector")
+ *             .functionAppId(exampleAzurermFunctionApp.id())
+ *             .targetResourceId(testAzurermCosmosdbAccount.id())
  *             .build());
  * 
  *     }

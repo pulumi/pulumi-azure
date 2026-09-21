@@ -65,15 +65,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-delegated"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("netapp"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -81,7 +74,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("netapp"),
 //					},
+//				},
+//				Name:               pulumi.String("example-delegated"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -131,12 +131,12 @@ import (
 //				return err
 //			}
 //			bucketSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "bucket", &tls.SelfSignedCertArgs{
-//				PrivateKeyPem: bucket.PrivateKeyPem,
 //				Subject: []map[string]string{
 //					{
 //						"commonName": "example-bucket.example.internal",
 //					},
 //				},
+//				PrivateKeyPem: bucket.PrivateKeyPem,
 //				DnsNames: []string{
 //					"example-bucket.example.internal",
 //				},
@@ -150,23 +150,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: fmt.Sprintf("%v%v", bucketSelfSignedCert.CertPem, bucket.PrivateKeyPem),
+//			invokeBase64encode, err := std.Base64encode(ctx, map[string]string{
+//				"input": fmt.Sprintf("%v%v", bucketSelfSignedCert.CertPem, bucket.PrivateKeyPem),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = netapp.NewVolumeBucketWithServer(ctx, "example", &netapp.VolumeBucketWithServerArgs{
-//				Name:     pulumi.String("example-bucket"),
-//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				FileSystemNfsUser: &netapp.VolumeBucketWithServerFileSystemNfsUserArgs{
 //					GroupId: pulumi.Int(1000),
 //					UserId:  pulumi.Int(1000),
 //				},
 //				Server: &netapp.VolumeBucketWithServerServerArgs{
 //					Fqdn:           pulumi.String("example-bucket.example.internal"),
-//					CertificatePem: pulumi.String(invokeBase64encode.Result),
+//					CertificatePem: invokeBase64encode.Result,
 //				},
+//				Name:     pulumi.String("example-bucket"),
+//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -219,15 +219,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-delegated"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("netapp"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -235,19 +228,26 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("netapp"),
 //					},
+//				},
+//				Name:               pulumi.String("example-delegated"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String("example-anfaccount"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &netapp.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-anfaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -371,8 +371,6 @@ import (
 //				return err
 //			}
 //			bucket, err := keyvault.NewCertificate(ctx, "bucket", &keyvault.CertificateArgs{
-//				Name:       pulumi.String("example-bucket-cert"),
-//				KeyVaultId: certificate.ID().ToIDOutput().ToStringOutput(),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 //						Name: pulumi.String("Self"),
@@ -387,6 +385,11 @@ import (
 //						ContentType: pulumi.String("application/x-pkcs12"),
 //					},
 //					X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
+//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
+//							DnsNames: pulumi.StringArray{
+//								pulumi.String("example-bucket.example.internal"),
+//							},
+//						},
 //						KeyUsages: pulumi.StringArray{
 //							pulumi.String("digitalSignature"),
 //							pulumi.String("keyEncipherment"),
@@ -394,15 +397,12 @@ import (
 //						ExtendedKeyUsages: pulumi.StringArray{
 //							pulumi.String("1.3.6.1.5.5.7.3.1"),
 //						},
-//						Subject: pulumi.String("CN=example-bucket.example.internal"),
-//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
-//							DnsNames: pulumi.StringArray{
-//								pulumi.String("example-bucket.example.internal"),
-//							},
-//						},
+//						Subject:          pulumi.String("CN=example-bucket.example.internal"),
 //						ValidityInMonths: pulumi.Int(12),
 //					},
 //				},
+//				Name:       pulumi.String("example-bucket-cert"),
+//				KeyVaultId: certificate.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				deployerCertificate,
 //			}))
@@ -410,8 +410,6 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeBucketWithServer(ctx, "example", &netapp.VolumeBucketWithServerArgs{
-//				Name:     pulumi.String("example-bucket"),
-//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				FileSystemNfsUser: &netapp.VolumeBucketWithServerFileSystemNfsUserArgs{
 //					GroupId: pulumi.Int(1000),
 //					UserId:  pulumi.Int(1000),
@@ -425,6 +423,8 @@ import (
 //					CredentialsKeyVaultUri: credentials.VaultUri,
 //					CredentialsSecretName:  pulumi.String("example-bucket-creds"),
 //				},
+//				Name:     pulumi.String("example-bucket"),
+//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				anfCertificate,
 //				anfCredentials,

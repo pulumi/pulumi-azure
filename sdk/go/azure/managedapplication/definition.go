@@ -41,6 +41,12 @@ import (
 //				return err
 //			}
 //			_, err = managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
+//				Authorizations: managedapplication.DefinitionAuthorizationArray{
+//					&managedapplication.DefinitionAuthorizationArgs{
+//						ServicePrincipalId: pulumi.String(current.ObjectId),
+//						RoleDefinitionId:   pulumi.String("a094b430-dad3-424d-ae58-13f72fd72591"),
+//					},
+//				},
 //				Name:              pulumi.String("examplemanagedapplicationdefinition"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
@@ -48,12 +54,6 @@ import (
 //				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
 //				DisplayName:       pulumi.String("TestManagedApplicationDefinition"),
 //				Description:       pulumi.String("Test Managed Application Definition"),
-//				Authorizations: managedapplication.DefinitionAuthorizationArray{
-//					&managedapplication.DefinitionAuthorizationArgs{
-//						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   pulumi.String("a094b430-dad3-424d-ae58-13f72fd72591"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

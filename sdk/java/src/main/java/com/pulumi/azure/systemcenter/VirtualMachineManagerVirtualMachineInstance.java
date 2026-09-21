@@ -49,6 +49,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.systemcenter.inputs.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs;
  * import com.pulumi.azure.systemcenter.inputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs;
  * import com.pulumi.azure.systemcenter.inputs.VirtualMachineManagerVirtualMachineInstanceHardwareArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -111,8 +112,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachineManagerVirtualMachineInstance = new VirtualMachineManagerVirtualMachineInstance("exampleVirtualMachineManagerVirtualMachineInstance", VirtualMachineManagerVirtualMachineInstanceArgs.builder()
- *             .scopedResourceId(exampleArcMachine.id())
- *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
  *             .infrastructure(VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs.builder()
  *                 .systemCenterVirtualMachineManagerCloudId(exampleVirtualMachineManagerCloud.id())
  *                 .systemCenterVirtualMachineManagerTemplateId(exampleVirtualMachineManagerVirtualMachineTemplate.id())
@@ -125,7 +124,11 @@ import javax.annotation.Nullable;
  *                 .cpuCount(1)
  *                 .memoryInMb(1024)
  *                 .build())
- *             .build());
+ *             .scopedResourceId(exampleArcMachine.id())
+ *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("storageDisks")
+ *                 .build());
  * 
  *     }}{@code
  * }}{@code

@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     skuName: "B1",
  * });
  * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-linux-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * ```
  *

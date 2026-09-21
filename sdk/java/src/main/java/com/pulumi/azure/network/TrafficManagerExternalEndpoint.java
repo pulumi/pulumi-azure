@@ -58,9 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()
- *             .name("example-profile")
- *             .resourceGroupName(example.name())
- *             .trafficRoutingMethod("Weighted")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName("example-profile")
  *                 .ttl(100)
@@ -73,6 +70,9 @@ import javax.annotation.Nullable;
  *                 .timeoutInSeconds(9)
  *                 .toleratedNumberOfFailures(3)
  *                 .build())
+ *             .name("example-profile")
+ *             .resourceGroupName(example.name())
+ *             .trafficRoutingMethod("Weighted")
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

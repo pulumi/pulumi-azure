@@ -22,22 +22,16 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleGroup = new azure.containerservice.Group("example", {
- *     name: "example-continst",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     ipAddressType: "Public",
- *     dnsNameLabel: "aci-label",
- *     osType: "Linux",
  *     containers: [
  *         {
- *             name: "hello-world",
- *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
- *             cpu: 0.5,
- *             memory: 1.5,
  *             ports: [{
  *                 port: 443,
  *                 protocol: "TCP",
  *             }],
+ *             name: "hello-world",
+ *             image: "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+ *             cpu: 0.5,
+ *             memory: 1.5,
  *         },
  *         {
  *             name: "sidecar",
@@ -46,6 +40,12 @@ import * as utilities from "../utilities";
  *             memory: 1.5,
  *         },
  *     ],
+ *     name: "example-continst",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     ipAddressType: "Public",
+ *     dnsNameLabel: "aci-label",
+ *     osType: "Linux",
  *     tags: {
  *         environment: "testing",
  *     },

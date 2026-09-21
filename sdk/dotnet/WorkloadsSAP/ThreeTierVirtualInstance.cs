@@ -103,25 +103,12 @@ namespace Pulumi.Azure.WorkloadsSAP
     /// 
     ///     var exampleThreeTierVirtualInstance = new Azure.WorkloadsSAP.ThreeTierVirtualInstance("example", new()
     ///     {
-    ///         Name = "X05",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Environment = "NonProd",
-    ///         SapProduct = "S4HANA",
-    ///         ManagedResourceGroupName = "exampleManagedRG",
-    ///         AppLocation = app.Location,
-    ///         SapFqdn = "sap.bpaas.com",
     ///         ThreeTierConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationArgs
     ///         {
-    ///             AppResourceGroupName = app.Name,
-    ///             SecondaryIpEnabled = true,
     ///             ApplicationServerConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs
     ///             {
-    ///                 InstanceCount = 1,
-    ///                 SubnetId = exampleSubnet.Id,
     ///                 VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs
     ///                 {
-    ///                     VirtualMachineSize = "Standard_D16ds_v4",
     ///                     Image = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs
     ///                     {
     ///                         Offer = "RHEL-SAP-HA",
@@ -135,15 +122,15 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                         SshPrivateKey = examplePrivateKey.PrivateKeyPem,
     ///                         SshPublicKey = example.PublicKeyOpenssh,
     ///                     },
+    ///                     VirtualMachineSize = "Standard_D16ds_v4",
     ///                 },
+    ///                 InstanceCount = 1,
+    ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///             CentralServerConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs
     ///             {
-    ///                 InstanceCount = 1,
-    ///                 SubnetId = exampleSubnet.Id,
     ///                 VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs
     ///                 {
-    ///                     VirtualMachineSize = "Standard_D16ds_v4",
     ///                     Image = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs
     ///                     {
     ///                         Offer = "RHEL-SAP-HA",
@@ -157,16 +144,15 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                         SshPrivateKey = examplePrivateKey.PrivateKeyPem,
     ///                         SshPublicKey = example.PublicKeyOpenssh,
     ///                     },
+    ///                     VirtualMachineSize = "Standard_D16ds_v4",
     ///                 },
+    ///                 InstanceCount = 1,
+    ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///             DatabaseServerConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs
     ///             {
-    ///                 InstanceCount = 1,
-    ///                 SubnetId = exampleSubnet.Id,
-    ///                 DatabaseType = "HANA",
     ///                 VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs
     ///                 {
-    ///                     VirtualMachineSize = "Standard_E16ds_v4",
     ///                     Image = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs
     ///                     {
     ///                         Offer = "RHEL-SAP-HA",
@@ -180,6 +166,7 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                         SshPrivateKey = examplePrivateKey.PrivateKeyPem,
     ///                         SshPublicKey = example.PublicKeyOpenssh,
     ///                     },
+    ///                     VirtualMachineSize = "Standard_E16ds_v4",
     ///                 },
     ///                 DiskVolumeConfigurations = new[]
     ///                 {
@@ -226,23 +213,18 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                         SkuName = "StandardSSD_LRS",
     ///                     },
     ///                 },
+    ///                 InstanceCount = 1,
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 DatabaseType = "HANA",
     ///             },
     ///             ResourceNames = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs
     ///             {
     ///                 ApplicationServer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs
     ///                 {
-    ///                     AvailabilitySetName = "appAvSet",
     ///                     VirtualMachines = new[]
     ///                     {
     ///                         new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs
     ///                         {
-    ///                             HostName = "apphostName0",
-    ///                             OsDiskName = "app0osdisk",
-    ///                             VirtualMachineName = "appvm0",
-    ///                             NetworkInterfaceNames = new[]
-    ///                             {
-    ///                                 "appnic0",
-    ///                             },
     ///                             DataDisks = new[]
     ///                             {
     ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs
@@ -254,12 +236,19 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                                     },
     ///                                 },
     ///                             },
+    ///                             HostName = "apphostName0",
+    ///                             OsDiskName = "app0osdisk",
+    ///                             VirtualMachineName = "appvm0",
+    ///                             NetworkInterfaceNames = new[]
+    ///                             {
+    ///                                 "appnic0",
+    ///                             },
     ///                         },
     ///                     },
+    ///                     AvailabilitySetName = "appAvSet",
     ///                 },
     ///                 CentralServer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs
     ///                 {
-    ///                     AvailabilitySetName = "csAvSet",
     ///                     LoadBalancer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs
     ///                     {
     ///                         Name = "ascslb",
@@ -280,13 +269,6 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     {
     ///                         new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs
     ///                         {
-    ///                             HostName = "ascshostName",
-    ///                             OsDiskName = "ascsosdisk",
-    ///                             VirtualMachineName = "ascsvm",
-    ///                             NetworkInterfaceNames = new[]
-    ///                             {
-    ///                                 "ascsnic",
-    ///                             },
     ///                             DataDisks = new[]
     ///                             {
     ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs
@@ -298,12 +280,19 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                                     },
     ///                                 },
     ///                             },
+    ///                             HostName = "ascshostName",
+    ///                             OsDiskName = "ascsosdisk",
+    ///                             VirtualMachineName = "ascsvm",
+    ///                             NetworkInterfaceNames = new[]
+    ///                             {
+    ///                                 "ascsnic",
+    ///                             },
     ///                         },
     ///                     },
+    ///                     AvailabilitySetName = "csAvSet",
     ///                 },
     ///                 DatabaseServer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs
     ///                 {
-    ///                     AvailabilitySetName = "dbAvSet",
     ///                     LoadBalancer = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs
     ///                     {
     ///                         Name = "dblb",
@@ -324,13 +313,6 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     {
     ///                         new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs
     ///                         {
-    ///                             HostName = "dbprhost",
-    ///                             OsDiskName = "dbprosdisk",
-    ///                             VirtualMachineName = "dbvmpr",
-    ///                             NetworkInterfaceNames = new[]
-    ///                             {
-    ///                                 "dbprnic",
-    ///                             },
     ///                             DataDisks = new[]
     ///                             {
     ///                                 new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs
@@ -370,8 +352,16 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                                     },
     ///                                 },
     ///                             },
+    ///                             HostName = "dbprhost",
+    ///                             OsDiskName = "dbprosdisk",
+    ///                             VirtualMachineName = "dbvmpr",
+    ///                             NetworkInterfaceNames = new[]
+    ///                             {
+    ///                                 "dbprnic",
+    ///                             },
     ///                         },
     ///                     },
+    ///                     AvailabilitySetName = "dbAvSet",
     ///                 },
     ///                 SharedStorage = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs
     ///                 {
@@ -384,6 +374,8 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                 ResourceGroupId = app.Id,
     ///                 StorageAccountName = "exampletranssa",
     ///             },
+    ///             AppResourceGroupName = app.Name,
+    ///             SecondaryIpEnabled = true,
     ///         },
     ///         Identity = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceIdentityArgs
     ///         {
@@ -393,6 +385,14 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "X05",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Environment = "NonProd",
+    ///         SapProduct = "S4HANA",
+    ///         ManagedResourceGroupName = "exampleManagedRG",
+    ///         AppLocation = app.Location,
+    ///         SapFqdn = "sap.bpaas.com",
     ///         Tags = 
     ///         {
     ///             { "Env", "Test" },

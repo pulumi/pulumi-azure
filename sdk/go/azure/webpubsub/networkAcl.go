@@ -72,10 +72,6 @@ import (
 //				return err
 //			}
 //			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
-//				Name:              pulumi.String("example-privateendpoint"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.String("psc-sig-test"),
 //					IsManualConnection:          pulumi.Bool(false),
@@ -84,13 +80,15 @@ import (
 //						pulumi.String("webpubsub"),
 //					},
 //				},
+//				Name:              pulumi.String("example-privateendpoint"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = webpubsub.NewNetworkAcl(ctx, "example", &webpubsub.NetworkAclArgs{
-//				WebPubsubId:   exampleService.ID().ToIDOutput().ToStringOutput(),
-//				DefaultAction: pulumi.String("Allow"),
 //				PublicNetwork: &webpubsub.NetworkAclPublicNetworkArgs{
 //					DeniedRequestTypes: pulumi.StringArray{
 //						pulumi.String("ClientConnection"),
@@ -105,6 +103,8 @@ import (
 //						},
 //					},
 //				},
+//				WebPubsubId:   exampleService.ID().ToIDOutput().ToStringOutput(),
+//				DefaultAction: pulumi.String("Allow"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleEndpoint,
 //			}))

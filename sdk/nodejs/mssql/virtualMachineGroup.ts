@@ -20,15 +20,15 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleVirtualMachineGroup = new azure.mssql.VirtualMachineGroup("example", {
+ *     wsfcDomainProfile: {
+ *         fqdn: "testdomain.com",
+ *         clusterSubnetType: "SingleSubnet",
+ *     },
  *     name: "examplegroup",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     sqlImageOffer: "SQL2017-WS2016",
  *     sqlImageSku: "Developer",
- *     wsfcDomainProfile: {
- *         fqdn: "testdomain.com",
- *         clusterSubnetType: "SingleSubnet",
- *     },
  * });
  * ```
  *

@@ -56,14 +56,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIotHubDps = new IotHubDps("exampleIotHubDps", IotHubDpsArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .allocationPolicy("Hashed")
  *             .sku(IotHubDpsSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .allocationPolicy("Hashed")
  *             .build());
  * 
  *     }

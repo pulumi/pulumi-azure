@@ -376,19 +376,12 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.SubscriptionCostManagementView("example",
-            name="example",
-            display_name="Cost View per Month",
-            chart_type="StackedColumn",
-            accumulated=False,
-            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
-            report_type="Usage",
-            timeframe="MonthToDate",
             dataset={
-                "granularity": "Monthly",
                 "aggregations": [{
                     "name": "totalCost",
                     "column_name": "Cost",
                 }],
+                "granularity": "Monthly",
             },
             pivots=[
                 {
@@ -403,7 +396,14 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                     "type": "Dimension",
                     "name": "ResourceGroupName",
                 },
-            ])
+            ],
+            name="example",
+            display_name="Cost View per Month",
+            chart_type="StackedColumn",
+            accumulated=False,
+            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
+            report_type="Usage",
+            timeframe="MonthToDate")
         ```
 
         ## API Providers
@@ -451,19 +451,12 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.SubscriptionCostManagementView("example",
-            name="example",
-            display_name="Cost View per Month",
-            chart_type="StackedColumn",
-            accumulated=False,
-            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
-            report_type="Usage",
-            timeframe="MonthToDate",
             dataset={
-                "granularity": "Monthly",
                 "aggregations": [{
                     "name": "totalCost",
                     "column_name": "Cost",
                 }],
+                "granularity": "Monthly",
             },
             pivots=[
                 {
@@ -478,7 +471,14 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                     "type": "Dimension",
                     "name": "ResourceGroupName",
                 },
-            ])
+            ],
+            name="example",
+            display_name="Cost View per Month",
+            chart_type="StackedColumn",
+            accumulated=False,
+            subscription_id="/subscription/00000000-0000-0000-0000-000000000000",
+            report_type="Usage",
+            timeframe="MonthToDate")
         ```
 
         ## API Providers

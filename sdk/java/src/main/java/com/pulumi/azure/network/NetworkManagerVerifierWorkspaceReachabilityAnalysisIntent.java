@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-nm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-nm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scopeAccesses("Connectivity")
  *             .build());
  * 
@@ -102,25 +102,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("example-machine")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_B1ls")
- *             .adminUsername("adminuser")
- *             .adminPassword("P}{@literal @}{@code ssw0rd1234!")
- *             .disablePasswordAuthentication(false)
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
@@ -131,14 +123,17 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .name("example-machine")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_B1ls")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P}{@literal @}{@code ssw0rd1234!")
+ *             .disablePasswordAuthentication(false)
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent = new NetworkManagerVerifierWorkspaceReachabilityAnalysisIntent("exampleNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent", NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs.builder()
- *             .name("example-intent")
- *             .verifierWorkspaceId(exampleNetworkManagerVerifierWorkspace.id())
- *             .sourceResourceId(exampleLinuxVirtualMachine.id())
- *             .destinationResourceId(exampleLinuxVirtualMachine.id())
- *             .description("example")
  *             .ipTraffic(NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs.builder()
  *                 .sourceIps("10.0.2.1")
  *                 .sourcePorts("80")
@@ -146,6 +141,11 @@ import javax.annotation.Nullable;
  *                 .destinationPorts("*")
  *                 .protocols("Any")
  *                 .build())
+ *             .name("example-intent")
+ *             .verifierWorkspaceId(exampleNetworkManagerVerifierWorkspace.id())
+ *             .sourceResourceId(exampleLinuxVirtualMachine.id())
+ *             .destinationResourceId(exampleLinuxVirtualMachine.id())
+ *             .description("example")
  *             .build());
  * 
  *     }}{@code

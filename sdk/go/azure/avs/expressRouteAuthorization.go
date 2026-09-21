@@ -37,13 +37,13 @@ import (
 //				return err
 //			}
 //			examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "example", &avs.PrivateCloudArgs{
-//				Name:              pulumi.String("example-vmware-private-cloud"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SkuName:           pulumi.String("av36"),
 //				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
 //					Size: pulumi.Int(3),
 //				},
+//				Name:                      pulumi.String("example-vmware-private-cloud"),
+//				ResourceGroupName:         example.Name,
+//				Location:                  example.Location,
+//				SkuName:                   pulumi.String("av36"),
 //				NetworkSubnetCidr:         pulumi.String("192.168.48.0/22"),
 //				InternetConnectionEnabled: pulumi.Bool(false),
 //				NsxtPassword:              pulumi.String("QazWsx13$Edc"),

@@ -74,6 +74,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudApiPortal = new SpringCloudApiPortal("exampleSpringCloudApiPortal", SpringCloudApiPortalArgs.builder()
+ *             .sso(SpringCloudApiPortalSsoArgs.builder()
+ *                 .clientId("test")
+ *                 .clientSecret("secret")
+ *                 .issuerUri("https://www.example.com/issueToken")
+ *                 .scopes("read")
+ *                 .build())
  *             .name("default")
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .gatewayIds(exampleSpringCloudGateway.id())
@@ -81,12 +87,6 @@ import javax.annotation.Nullable;
  *             .publicNetworkAccessEnabled(true)
  *             .instanceCount(1)
  *             .apiTryOutEnabled(true)
- *             .sso(SpringCloudApiPortalSsoArgs.builder()
- *                 .clientId("test")
- *                 .clientSecret("secret")
- *                 .issuerUri("https://www.example.com/issueToken")
- *                 .scopes("read")
- *                 .build())
  *             .build());
  * 
  *     }

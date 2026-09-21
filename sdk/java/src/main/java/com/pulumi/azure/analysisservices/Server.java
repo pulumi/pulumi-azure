@@ -54,17 +54,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var server = new Server("server", ServerArgs.builder()
+ *             .ipv4FirewallRules(ServerIpv4FirewallRuleArgs.builder()
+ *                 .name("myRule1")
+ *                 .rangeStart("210.117.252.0")
+ *                 .rangeEnd("210.117.252.255")
+ *                 .build())
  *             .name("analysisservicesserver")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("S0")
  *             .adminUsers("myuser}{@literal @}{@code domain.tld")
  *             .powerBiServiceEnabled(true)
- *             .ipv4FirewallRules(ServerIpv4FirewallRuleArgs.builder()
- *                 .name("myRule1")
- *                 .rangeStart("210.117.252.0")
- *                 .rangeEnd("210.117.252.255")
- *                 .build())
  *             .tags(Map.of("abc", "123"))
  *             .build());
  * 

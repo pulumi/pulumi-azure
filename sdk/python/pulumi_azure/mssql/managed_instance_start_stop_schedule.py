@@ -333,12 +333,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=example.location)
         example_subnet = azure.network.Subnet("example",
-            name="subnet-mi",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
             delegations=[{
-                "name": "managedinstancedelegation",
                 "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
@@ -347,7 +342,12 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
                 },
-            }])
+                "name": "managedinstancedelegation",
+            }],
+            name="subnet-mi",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -376,8 +376,6 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                     example_subnet_route_table_association,
                 ]))
         example_managed_instance_start_stop_schedule = azure.mssql.ManagedInstanceStartStopSchedule("example",
-            managed_instance_id=example_managed_instance.id,
-            timezone_id="Central European Standard Time",
             schedules=[
                 {
                     "start_day": "Monday",
@@ -391,7 +389,9 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                     "stop_day": "Tuesday",
                     "stop_time": "18:00",
                 },
-            ])
+            ],
+            managed_instance_id=example_managed_instance.id,
+            timezone_id="Central European Standard Time")
         ```
 
         ## API Providers
@@ -551,12 +551,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=example.location)
         example_subnet = azure.network.Subnet("example",
-            name="subnet-mi",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
             delegations=[{
-                "name": "managedinstancedelegation",
                 "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
@@ -565,7 +560,12 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
                 },
-            }])
+                "name": "managedinstancedelegation",
+            }],
+            name="subnet-mi",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -594,8 +594,6 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                     example_subnet_route_table_association,
                 ]))
         example_managed_instance_start_stop_schedule = azure.mssql.ManagedInstanceStartStopSchedule("example",
-            managed_instance_id=example_managed_instance.id,
-            timezone_id="Central European Standard Time",
             schedules=[
                 {
                     "start_day": "Monday",
@@ -609,7 +607,9 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                     "stop_day": "Tuesday",
                     "stop_time": "18:00",
                 },
-            ])
+            ],
+            managed_instance_id=example_managed_instance.id,
+            timezone_id="Central European Standard Time")
         ```
 
         ## API Providers

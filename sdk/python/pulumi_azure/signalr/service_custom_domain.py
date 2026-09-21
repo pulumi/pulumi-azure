@@ -193,23 +193,17 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_service = azure.signalr.Service("example",
-            name="example-signalr",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
             sku={
                 "name": "Premium_P1",
                 "capacity": 1,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-signalr",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"])
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-keyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -237,14 +231,20 @@ class ServiceCustomDomain(pulumi.CustomResource):
                         "List",
                     ],
                 },
-            ])
+            ],
+            name="example-keyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
         example_certificate = azure.keyvault.Certificate("example",
-            name="imported-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
-            })
+            },
+            name="imported-cert",
+            key_vault_id=example_key_vault.id)
         test = azure.signalr.ServiceCustomCertificate("test",
             name="example-cert",
             signalr_service_id=example_service.id,
@@ -303,23 +303,17 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_service = azure.signalr.Service("example",
-            name="example-signalr",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
             sku={
                 "name": "Premium_P1",
                 "capacity": 1,
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-signalr",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"])
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-keyvault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="premium",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -347,14 +341,20 @@ class ServiceCustomDomain(pulumi.CustomResource):
                         "List",
                     ],
                 },
-            ])
+            ],
+            name="example-keyvault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="premium")
         example_certificate = azure.keyvault.Certificate("example",
-            name="imported-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "contents": std.filebase64(input="certificate-to-import.pfx")["result"],
                 "password": "",
-            })
+            },
+            name="imported-cert",
+            key_vault_id=example_key_vault.id)
         test = azure.signalr.ServiceCustomCertificate("test",
             name="example-cert",
             signalr_service_id=example_service.id,

@@ -32,15 +32,15 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleSqlPool = new azure.synapse.SqlPool("example", {
  *     name: "examplesqlpool",

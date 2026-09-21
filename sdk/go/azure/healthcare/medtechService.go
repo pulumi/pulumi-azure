@@ -72,12 +72,12 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
-//				Name:        pulumi.String("examplemed"),
-//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
-//				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.MedtechServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:                      pulumi.String("examplemed"),
+//				WorkspaceId:               exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				Location:                  pulumi.String("east us"),
 //				EventhubNamespaceName:     pulumi.String("example-eventhub-namespace"),
 //				EventhubName:              pulumi.String("example-eventhub"),
 //				EventhubConsumerGroupName: pulumi.String("$Default"),

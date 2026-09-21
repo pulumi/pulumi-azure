@@ -70,13 +70,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", SpringCloudCustomizedAcceleratorArgs.builder()
- *             .name("example")
- *             .springCloudAcceleratorId(exampleSpringCloudAccelerator.id())
  *             .gitRepository(SpringCloudCustomizedAcceleratorGitRepositoryArgs.builder()
  *                 .url("https://github.com/Azure-Samples/piggymetrics")
  *                 .gitTag("spring.version.2.0.3")
  *                 .intervalInSeconds(100)
  *                 .build())
+ *             .name("example")
+ *             .springCloudAcceleratorId(exampleSpringCloudAccelerator.id())
  *             .acceleratorTags(            
  *                 "tag-a",
  *                 "tag-b")

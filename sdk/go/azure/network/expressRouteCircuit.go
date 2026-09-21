@@ -37,16 +37,16 @@ import (
 //				return err
 //			}
 //			_, err = network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
 //				Name:                pulumi.String("expressRoute1"),
 //				ResourceGroupName:   example.Name,
 //				Location:            example.Location,
 //				ServiceProviderName: pulumi.String("Equinix"),
 //				PeeringLocation:     pulumi.String("Silicon Valley"),
 //				BandwidthInMbps:     pulumi.Int(50),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

@@ -39,10 +39,6 @@ namespace Pulumi.Azure.Backup
     /// 
     ///     var examplePolicyVMWorkload = new Azure.Backup.PolicyVMWorkload("example", new()
     ///     {
-    ///         Name = "example-bpvmw",
-    ///         ResourceGroupName = example.Name,
-    ///         RecoveryVaultName = exampleVault.Name,
-    ///         WorkloadType = "SQLDataBase",
     ///         Settings = new Azure.Backup.Inputs.PolicyVMWorkloadSettingsArgs
     ///         {
     ///             TimeZone = "UTC",
@@ -52,7 +48,6 @@ namespace Pulumi.Azure.Backup
     ///         {
     ///             new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyArgs
     ///             {
-    ///                 PolicyType = "Full",
     ///                 Backup = new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyBackupArgs
     ///                 {
     ///                     Frequency = "Daily",
@@ -62,10 +57,10 @@ namespace Pulumi.Azure.Backup
     ///                 {
     ///                     Count = 8,
     ///                 },
+    ///                 PolicyType = "Full",
     ///             },
     ///             new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyArgs
     ///             {
-    ///                 PolicyType = "Log",
     ///                 Backup = new Azure.Backup.Inputs.PolicyVMWorkloadProtectionPolicyBackupArgs
     ///                 {
     ///                     FrequencyInMinutes = 15,
@@ -74,8 +69,13 @@ namespace Pulumi.Azure.Backup
     ///                 {
     ///                     Count = 8,
     ///                 },
+    ///                 PolicyType = "Log",
     ///             },
     ///         },
+    ///         Name = "example-bpvmw",
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         WorkloadType = "SQLDataBase",
     ///     });
     /// 
     /// });

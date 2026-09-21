@@ -64,15 +64,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
+ *             .plan(AnalyticsSolutionPlanArgs.builder()
+ *                 .publisher("Microsoft")
+ *                 .product("OMSGallery/SecurityInsights")
+ *                 .build())
  *             .solutionName("SecurityInsights")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher("Microsoft")
- *                 .product("OMSGallery/SecurityInsights")
- *                 .build())
  *             .build());
  * 
  *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()

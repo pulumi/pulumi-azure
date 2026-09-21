@@ -19,11 +19,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-cosmosdb",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
@@ -31,16 +26,21 @@ import * as utilities from "../utilities";
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-cosmosdb",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlRoleDefinition = new azure.cosmosdb.SqlRoleDefinition("example", {
+ *     permissions: [{
+ *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+ *     }],
  *     name: "examplesqlroledef",
  *     resourceGroupName: example.name,
  *     accountName: exampleAccount.name,
  *     type: "CustomRole",
  *     assignableScopes: [exampleAccount.id],
- *     permissions: [{
- *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
- *     }],
  * });
  * const exampleSqlRoleAssignment = new azure.cosmosdb.SqlRoleAssignment("example", {
  *     name: "736180af-7fbc-4c7f-9004-22735173c1c3",

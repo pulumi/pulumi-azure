@@ -2939,12 +2939,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -3015,12 +3015,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -3091,12 +3091,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -3167,12 +3167,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -3243,12 +3243,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -3566,12 +3566,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleNetworkManagerIpamPool = new NetworkManagerIpamPool("exampleNetworkManagerIpamPool", NetworkManagerIpamPoolArgs.builder()
@@ -3649,12 +3649,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleNetworkManagerIpamPool = new NetworkManagerIpamPool("exampleNetworkManagerIpamPool", NetworkManagerIpamPoolArgs.builder()
@@ -3732,12 +3732,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleNetworkManagerIpamPool = new NetworkManagerIpamPool("exampleNetworkManagerIpamPool", NetworkManagerIpamPoolArgs.builder()
@@ -3815,12 +3815,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleNetworkManagerIpamPool = new NetworkManagerIpamPool("exampleNetworkManagerIpamPool", NetworkManagerIpamPoolArgs.builder()
@@ -3898,12 +3898,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleNetworkManagerIpamPool = new NetworkManagerIpamPool("exampleNetworkManagerIpamPool", NetworkManagerIpamPoolArgs.builder()
@@ -3981,12 +3981,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -4064,12 +4064,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -4147,12 +4147,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -4230,12 +4230,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -4313,12 +4313,12 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
-     *             .name("example-network-manager")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
      *                 .subscriptionIds(current.id())
      *                 .build())
+     *             .name("example-network-manager")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .scopeAccesses(            
      *                 "Connectivity",
      *                 "SecurityAdmin")
@@ -5468,9 +5468,6 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
-     *             .name("test-nic")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
      *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
@@ -5478,6 +5475,9 @@ public final class NetworkFunctions {
      *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
+     *             .name("test-nic")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
@@ -5616,9 +5616,6 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
-     *             .name("test-nic")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
      *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
@@ -5626,6 +5623,9 @@ public final class NetworkFunctions {
      *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
+     *             .name("test-nic")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
@@ -5764,9 +5764,6 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
-     *             .name("test-nic")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
      *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
@@ -5774,6 +5771,9 @@ public final class NetworkFunctions {
      *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
+     *             .name("test-nic")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
@@ -5912,9 +5912,6 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
-     *             .name("test-nic")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
      *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
@@ -5922,6 +5919,9 @@ public final class NetworkFunctions {
      *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
+     *             .name("test-nic")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
@@ -6060,9 +6060,6 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
-     *             .name("test-nic")
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
      *                 .name("testconfiguration1")
      *                 .subnetId(exampleSubnet.id())
@@ -6070,6 +6067,9 @@ public final class NetworkFunctions {
      *                 .privateIpAddress("10.0.2.5")
      *                 .publicIpAddressId(examplePublicIp.id())
      *                 .build())
+     *             .name("test-nic")
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()

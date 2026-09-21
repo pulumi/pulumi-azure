@@ -432,13 +432,13 @@ class ManagedRedis(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_managed_redis = azure.managedredis.ManagedRedis("example",
+            default_database={
+                "geo_replication_group_name": "myGeoGroup",
+            },
             name="example-managed-redis",
             resource_group_name=example.name,
             location=example.location,
-            sku_name="Balanced_B3",
-            default_database={
-                "geo_replication_group_name": "myGeoGroup",
-            })
+            sku_name="Balanced_B3")
         ```
 
         ### With Customer Managed Key
@@ -456,13 +456,6 @@ class ManagedRedis(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True,
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -488,7 +481,14 @@ class ManagedRedis(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True)
         example_key = azure.keyvault.Key("example",
             name="managedrediscmk",
             key_vault_id=example_key_vault.id,
@@ -499,10 +499,6 @@ class ManagedRedis(pulumi.CustomResource):
                 "wrapKey",
             ])
         example_managed_redis = azure.managedredis.ManagedRedis("example",
-            name="example-managed-redis",
-            resource_group_name=example.name,
-            location=example.location,
-            sku_name="Balanced_B3",
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
@@ -513,7 +509,11 @@ class ManagedRedis(pulumi.CustomResource):
             },
             default_database={
                 "geo_replication_group_name": "myGeoGroup",
-            })
+            },
+            name="example-managed-redis",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Balanced_B3")
         ```
 
         ## API Providers
@@ -572,13 +572,13 @@ class ManagedRedis(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_managed_redis = azure.managedredis.ManagedRedis("example",
+            default_database={
+                "geo_replication_group_name": "myGeoGroup",
+            },
             name="example-managed-redis",
             resource_group_name=example.name,
             location=example.location,
-            sku_name="Balanced_B3",
-            default_database={
-                "geo_replication_group_name": "myGeoGroup",
-            })
+            sku_name="Balanced_B3")
         ```
 
         ### With Customer Managed Key
@@ -596,13 +596,6 @@ class ManagedRedis(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            tenant_id=current.tenant_id,
-            sku_name="standard",
-            purge_protection_enabled=True,
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -628,7 +621,14 @@ class ManagedRedis(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            tenant_id=current.tenant_id,
+            sku_name="standard",
+            purge_protection_enabled=True)
         example_key = azure.keyvault.Key("example",
             name="managedrediscmk",
             key_vault_id=example_key_vault.id,
@@ -639,10 +639,6 @@ class ManagedRedis(pulumi.CustomResource):
                 "wrapKey",
             ])
         example_managed_redis = azure.managedredis.ManagedRedis("example",
-            name="example-managed-redis",
-            resource_group_name=example.name,
-            location=example.location,
-            sku_name="Balanced_B3",
             identity={
                 "type": "UserAssigned",
                 "identity_ids": [example_user_assigned_identity.id],
@@ -653,7 +649,11 @@ class ManagedRedis(pulumi.CustomResource):
             },
             default_database={
                 "geo_replication_group_name": "myGeoGroup",
-            })
+            },
+            name="example-managed-redis",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Balanced_B3")
         ```
 
         ## API Providers

@@ -372,12 +372,7 @@ class Module(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.0.0/24"])
         example2 = azure.network.Subnet("example2",
-            name="example-hsmsubnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.1.0/24"],
             delegations=[{
-                "name": "first",
                 "service_delegation": {
                     "name": "Microsoft.HardwareSecurityModules/dedicatedHSMs",
                     "actions": [
@@ -385,7 +380,12 @@ class Module(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "first",
+            }],
+            name="example-hsmsubnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.1.0/24"])
         example3 = azure.network.Subnet("example3",
             name="gatewaysubnet",
             resource_group_name=example.name,
@@ -397,22 +397,18 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
+            ip_configurations=[{
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example3.id,
+            }],
             name="example-vnetgateway",
             location=example.location,
             resource_group_name=example.name,
             type="ExpressRoute",
             vpn_type="PolicyBased",
-            sku="Standard",
-            ip_configurations=[{
-                "public_ip_address_id": example_public_ip.id,
-                "private_ip_address_allocation": "Dynamic",
-                "subnet_id": example3.id,
-            }])
+            sku="Standard")
         example_module = azure.hsm.Module("example",
-            name="example-hsm",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="payShield10K_LMK1_CPS60",
             management_network_profile={
                 "network_interface_private_ip_addresses": ["10.2.1.7"],
                 "subnet_id": example2.id,
@@ -421,6 +417,10 @@ class Module(pulumi.CustomResource):
                 "network_interface_private_ip_addresses": ["10.2.1.8"],
                 "subnet_id": example2.id,
             },
+            name="example-hsm",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="payShield10K_LMK1_CPS60",
             stamp_id="stamp2",
             tags={
                 "env": "Test",
@@ -491,12 +491,7 @@ class Module(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.0.0/24"])
         example2 = azure.network.Subnet("example2",
-            name="example-hsmsubnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.2.1.0/24"],
             delegations=[{
-                "name": "first",
                 "service_delegation": {
                     "name": "Microsoft.HardwareSecurityModules/dedicatedHSMs",
                     "actions": [
@@ -504,7 +499,12 @@ class Module(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
                 },
-            }])
+                "name": "first",
+            }],
+            name="example-hsmsubnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.2.1.0/24"])
         example3 = azure.network.Subnet("example3",
             name="gatewaysubnet",
             resource_group_name=example.name,
@@ -516,22 +516,18 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Static")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
+            ip_configurations=[{
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example3.id,
+            }],
             name="example-vnetgateway",
             location=example.location,
             resource_group_name=example.name,
             type="ExpressRoute",
             vpn_type="PolicyBased",
-            sku="Standard",
-            ip_configurations=[{
-                "public_ip_address_id": example_public_ip.id,
-                "private_ip_address_allocation": "Dynamic",
-                "subnet_id": example3.id,
-            }])
+            sku="Standard")
         example_module = azure.hsm.Module("example",
-            name="example-hsm",
-            location=example.location,
-            resource_group_name=example.name,
-            sku_name="payShield10K_LMK1_CPS60",
             management_network_profile={
                 "network_interface_private_ip_addresses": ["10.2.1.7"],
                 "subnet_id": example2.id,
@@ -540,6 +536,10 @@ class Module(pulumi.CustomResource):
                 "network_interface_private_ip_addresses": ["10.2.1.8"],
                 "subnet_id": example2.id,
             },
+            name="example-hsm",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="payShield10K_LMK1_CPS60",
             stamp_id="stamp2",
             tags={
                 "env": "Test",

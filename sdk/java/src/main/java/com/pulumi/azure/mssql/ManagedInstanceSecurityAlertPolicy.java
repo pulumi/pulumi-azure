@@ -204,12 +204,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("subnet-mi")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("managedinstancedelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Sql/managedInstances")
  *                     .actions(                    
@@ -217,7 +212,12 @@ import javax.annotation.Nullable;
  *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
  *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .build())
+ *                 .name("managedinstancedelegation")
  *                 .build())
+ *             .name("subnet-mi")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.0/24")
  *             .build());
  * 
  *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()

@@ -34,14 +34,14 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "api-appserviceplan-pro",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });
@@ -65,15 +65,15 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "api-appserviceplan-pro",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "FunctionApp",
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Dynamic",
     ///             Size = "Y1",
     ///         },
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "FunctionApp",
     ///     });
     /// 
     /// });
@@ -97,16 +97,16 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "api-appserviceplan-pro",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "Linux",
-    ///         Reserved = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "Linux",
+    ///         Reserved = true,
     ///     });
     /// 
     /// });
@@ -130,16 +130,16 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "api-appserviceplan-pro",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "xenon",
-    ///         IsXenon = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "PremiumContainer",
     ///             Size = "PC2",
     ///         },
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "xenon",
+    ///         IsXenon = true,
     ///     });
     /// 
     /// });

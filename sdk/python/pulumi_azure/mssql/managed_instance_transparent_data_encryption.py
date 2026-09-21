@@ -212,12 +212,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=test["location"])
         example_subnet = azure.network.Subnet("example",
-            name="subnet1-mssql",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
             delegations=[{
-                "name": "managedinstancedelegation",
                 "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
@@ -226,8 +221,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
                 },
-            }])
+                "name": "managedinstancedelegation",
+            }],
+            name="subnet1-mssql",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"])
         example_managed_instance = azure.mssql.ManagedInstance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="mssqlinstance",
             resource_group_name=example.name,
             location=example.location,
@@ -237,10 +240,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="missadministrator",
-            administrator_login_password="NCC-1701-D",
-            identity={
-                "type": "SystemAssigned",
-            })
+            administrator_login_password="NCC-1701-D")
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
 
@@ -260,12 +260,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=test["location"])
         example_subnet = azure.network.Subnet("example",
-            name="subnet1-mssql",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
             delegations=[{
-                "name": "managedinstancedelegation",
                 "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
@@ -274,8 +269,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
                 },
-            }])
+                "name": "managedinstancedelegation",
+            }],
+            name="subnet1-mssql",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"])
         example_managed_instance = azure.mssql.ManagedInstance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="mssqlinstance",
             resource_group_name=example.name,
             location=example.location,
@@ -285,21 +288,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="missadministrator",
-            administrator_login_password="NCC-1701-D",
-            identity={
-                "type": "SystemAssigned",
-            })
+            administrator_login_password="NCC-1701-D")
         # Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -324,7 +315,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="byok",
             key_vault_id=example_key_vault.id,
@@ -400,12 +400,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=test["location"])
         example_subnet = azure.network.Subnet("example",
-            name="subnet1-mssql",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
             delegations=[{
-                "name": "managedinstancedelegation",
                 "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
@@ -414,8 +409,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
                 },
-            }])
+                "name": "managedinstancedelegation",
+            }],
+            name="subnet1-mssql",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"])
         example_managed_instance = azure.mssql.ManagedInstance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="mssqlinstance",
             resource_group_name=example.name,
             location=example.location,
@@ -425,10 +428,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="missadministrator",
-            administrator_login_password="NCC-1701-D",
-            identity={
-                "type": "SystemAssigned",
-            })
+            administrator_login_password="NCC-1701-D")
         example_managed_instance_transparent_data_encryption = azure.mssql.ManagedInstanceTransparentDataEncryption("example", managed_instance_id=example_managed_instance.id)
         ```
 
@@ -448,12 +448,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=test["location"])
         example_subnet = azure.network.Subnet("example",
-            name="subnet1-mssql",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/24"],
             delegations=[{
-                "name": "managedinstancedelegation",
                 "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
@@ -462,8 +457,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
                 },
-            }])
+                "name": "managedinstancedelegation",
+            }],
+            name="subnet1-mssql",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/24"])
         example_managed_instance = azure.mssql.ManagedInstance("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="mssqlinstance",
             resource_group_name=example.name,
             location=example.location,
@@ -473,21 +476,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="missadministrator",
-            administrator_login_password="NCC-1701-D",
-            identity={
-                "type": "SystemAssigned",
-            })
+            administrator_login_password="NCC-1701-D")
         # Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=False,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -512,7 +503,16 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                         "UnwrapKey",
                     ],
                 },
-            ])
+            ],
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=False,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="byok",
             key_vault_id=example_key_vault.id,

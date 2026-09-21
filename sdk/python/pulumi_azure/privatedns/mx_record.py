@@ -269,10 +269,6 @@ class MxRecord(pulumi.CustomResource):
             name="contoso.com",
             resource_group_name=example.name)
         example_mx_record = azure.privatedns.MxRecord("example",
-            name="example",
-            resource_group_name=example.name,
-            zone_name=example_zone.name,
-            ttl=300,
             records=[
                 {
                     "preference": 10,
@@ -283,6 +279,10 @@ class MxRecord(pulumi.CustomResource):
                     "exchange": "backupmx.contoso.com",
                 },
             ],
+            name="example",
+            resource_group_name=example.name,
+            zone_name=example_zone.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })
@@ -335,10 +335,6 @@ class MxRecord(pulumi.CustomResource):
             name="contoso.com",
             resource_group_name=example.name)
         example_mx_record = azure.privatedns.MxRecord("example",
-            name="example",
-            resource_group_name=example.name,
-            zone_name=example_zone.name,
-            ttl=300,
             records=[
                 {
                     "preference": 10,
@@ -349,6 +345,10 @@ class MxRecord(pulumi.CustomResource):
                     "exchange": "backupmx.contoso.com",
                 },
             ],
+            name="example",
+            resource_group_name=example.name,
+            zone_name=example_zone.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })

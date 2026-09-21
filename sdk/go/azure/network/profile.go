@@ -48,40 +48,40 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("examplesubnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.1.0.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
 //						},
+//						Name: pulumi.String("delegation"),
 //					},
+//				},
+//				Name:               pulumi.String("examplesubnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.1.0.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewProfile(ctx, "example", &network.ProfileArgs{
-//				Name:              pulumi.String("examplenetprofile"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				ContainerNetworkInterface: &network.ProfileContainerNetworkInterfaceArgs{
-//					Name: pulumi.String("examplecnic"),
 //					IpConfigurations: network.ProfileContainerNetworkInterfaceIpConfigurationArray{
 //						&network.ProfileContainerNetworkInterfaceIpConfigurationArgs{
 //							Name:     pulumi.String("exampleipconfig"),
 //							SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
+//					Name: pulumi.String("examplecnic"),
 //				},
+//				Name:              pulumi.String("examplenetprofile"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

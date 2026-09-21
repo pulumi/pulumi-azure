@@ -85,21 +85,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleLinuxFunctionAppSlot = new LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", LinuxFunctionAppSlotArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-function-app-slot")
  *             .functionAppId(exampleLinuxFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig(LinuxFunctionAppSlotSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *     }

@@ -54,14 +54,10 @@ namespace Pulumi.Azure.Storage
     /// 
     ///     var exampleShare = new Azure.Storage.Share("example", new()
     ///     {
-    ///         Name = "example-storage-share",
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         Quota = 1,
     ///         Acls = new[]
     ///         {
     ///             new Azure.Storage.Inputs.ShareAclArgs
     ///             {
-    ///                 Id = "GhostedRecall",
     ///                 AccessPolicies = new[]
     ///                 {
     ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
@@ -69,8 +65,12 @@ namespace Pulumi.Azure.Storage
     ///                         Permissions = "r",
     ///                     },
     ///                 },
+    ///                 Id = "GhostedRecall",
     ///             },
     ///         },
+    ///         Name = "example-storage-share",
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 1,
     ///     });
     /// 
     ///     var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint("example", new()

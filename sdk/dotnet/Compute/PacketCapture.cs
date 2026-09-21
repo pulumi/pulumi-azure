@@ -59,9 +59,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -71,18 +68,13 @@ namespace Pulumi.Azure.Compute
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
     ///     {
-    ///         Name = "example-vm",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
-    ///         VmSize = "Standard_D4_v5",
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -107,6 +99,14 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             DisablePasswordAuthentication = false,
     ///         },
+    ///         Name = "example-vm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_D4_v5",
     ///     });
     /// 
     ///     var exampleExtension = new Azure.Compute.Extension("example", new()
@@ -130,13 +130,13 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var examplePacketCapture = new Azure.Compute.PacketCapture("example", new()
     ///     {
-    ///         Name = "example-pc",
-    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
-    ///         VirtualMachineId = exampleVirtualMachine.Id,
     ///         StorageLocation = new Azure.Compute.Inputs.PacketCaptureStorageLocationArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,
     ///         },
+    ///         Name = "example-pc",
+    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
+    ///         VirtualMachineId = exampleVirtualMachine.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

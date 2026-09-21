@@ -37,12 +37,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "examplekeyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -96,20 +90,26 @@ namespace Pulumi.Azure.KeyVault
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
     ///     });
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "imported-cert",
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "",
     ///         },
+    ///         Name = "imported-cert",
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
     /// });
@@ -135,13 +135,6 @@ namespace Pulumi.Azure.KeyVault
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "examplekeyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -196,12 +189,17 @@ namespace Pulumi.Azure.KeyVault
     ///                 },
     ///             },
     ///         },
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "generated-cert",
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///         {
     ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
@@ -214,6 +212,36 @@ namespace Pulumi.Azure.KeyVault
     ///                 KeySize = 2048,
     ///                 KeyType = "RSA",
     ///                 ReuseKey = true,
+    ///             },
+    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///             {
+    ///                 ContentType = "application/x-pkcs12",
+    ///             },
+    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
+    ///             {
+    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
+    ///                 {
+    ///                     DnsNames = new[]
+    ///                     {
+    ///                         "internal.contoso.com",
+    ///                         "domain.hello.world",
+    ///                     },
+    ///                 },
+    ///                 ExtendedKeyUsages = new[]
+    ///                 {
+    ///                     "1.3.6.1.5.5.7.3.1",
+    ///                 },
+    ///                 KeyUsages = new[]
+    ///                 {
+    ///                     "cRLSign",
+    ///                     "dataEncipherment",
+    ///                     "digitalSignature",
+    ///                     "keyAgreement",
+    ///                     "keyCertSign",
+    ///                     "keyEncipherment",
+    ///                 },
+    ///                 Subject = "CN=hello-world",
+    ///                 ValidityInMonths = 12,
     ///             },
     ///             LifetimeActions = new[]
     ///             {
@@ -229,37 +257,9 @@ namespace Pulumi.Azure.KeyVault
     ///                     },
     ///                 },
     ///             },
-    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
-    ///             {
-    ///                 ContentType = "application/x-pkcs12",
-    ///             },
-    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
-    ///             {
-    ///                 ExtendedKeyUsages = new[]
-    ///                 {
-    ///                     "1.3.6.1.5.5.7.3.1",
-    ///                 },
-    ///                 KeyUsages = new[]
-    ///                 {
-    ///                     "cRLSign",
-    ///                     "dataEncipherment",
-    ///                     "digitalSignature",
-    ///                     "keyAgreement",
-    ///                     "keyCertSign",
-    ///                     "keyEncipherment",
-    ///                 },
-    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
-    ///                 {
-    ///                     DnsNames = new[]
-    ///                     {
-    ///                         "internal.contoso.com",
-    ///                         "domain.hello.world",
-    ///                     },
-    ///                 },
-    ///                 Subject = "CN=hello-world",
-    ///                 ValidityInMonths = 12,
-    ///             },
     ///         },
+    ///         Name = "generated-cert",
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
     /// });

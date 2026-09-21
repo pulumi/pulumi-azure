@@ -39,16 +39,10 @@ namespace Pulumi.Azure.DataProtection
     /// 
     ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("example", new()
     ///     {
-    ///         Name = "example-backup-policy",
-    ///         VaultId = exampleBackupVault.Id,
-    ///         OperationalDefaultRetentionDuration = "P30D",
-    ///         VaultDefaultRetentionDuration = "P7D",
     ///         RetentionRules = new[]
     ///         {
     ///             new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleArgs
     ///             {
-    ///                 Name = "Weekly",
-    ///                 Priority = 20,
     ///                 LifeCycle = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs
     ///                 {
     ///                     Duration = "P90D",
@@ -61,11 +55,11 @@ namespace Pulumi.Azure.DataProtection
     ///                         "Monday",
     ///                     },
     ///                 },
+    ///                 Name = "Weekly",
+    ///                 Priority = 20,
     ///             },
     ///             new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleArgs
     ///             {
-    ///                 Name = "Monthly",
-    ///                 Priority = 10,
     ///                 LifeCycle = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs
     ///                 {
     ///                     Duration = "P180D",
@@ -78,11 +72,11 @@ namespace Pulumi.Azure.DataProtection
     ///                         1,
     ///                     },
     ///                 },
+    ///                 Name = "Monthly",
+    ///                 Priority = 10,
     ///             },
     ///             new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleArgs
     ///             {
-    ///                 Name = "Yearly",
-    ///                 Priority = 5,
     ///                 LifeCycle = new Azure.DataProtection.Inputs.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs
     ///                 {
     ///                     Duration = "P365D",
@@ -99,8 +93,14 @@ namespace Pulumi.Azure.DataProtection
     ///                         1,
     ///                     },
     ///                 },
+    ///                 Name = "Yearly",
+    ///                 Priority = 5,
     ///             },
     ///         },
+    ///         Name = "example-backup-policy",
+    ///         VaultId = exampleBackupVault.Id,
+    ///         OperationalDefaultRetentionDuration = "P30D",
+    ///         VaultDefaultRetentionDuration = "P7D",
     ///     });
     /// 
     /// });

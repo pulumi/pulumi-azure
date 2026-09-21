@@ -2445,10 +2445,6 @@ class KubernetesCluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -2457,6 +2453,10 @@ class KubernetesCluster(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="exampleaks1",
             tags={
                 "Environment": "Production",
             })
@@ -2631,10 +2631,6 @@ class KubernetesCluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example-aks1",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -2643,6 +2639,10 @@ class KubernetesCluster(pulumi.CustomResource):
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="exampleaks1",
             tags={
                 "Environment": "Production",
             })

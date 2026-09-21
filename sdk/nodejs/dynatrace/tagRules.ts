@@ -20,11 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleMonitor = new azure.dynatrace.Monitor("example", {
- *     name: "exmpledynatracemonitor",
- *     resourceGroupName: example.name,
- *     location: test.location,
- *     monitoringEnabled: true,
- *     marketplaceSubscriptionStatus: "Active",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -41,10 +36,13 @@ import * as utilities from "../utilities";
  *         plan: "azureportalintegration_privatepreview@TIDhjdtn7tfnxcy",
  *         effectiveDate: "2019-08-30T15:14:33Z",
  *     },
+ *     name: "exmpledynatracemonitor",
+ *     resourceGroupName: example.name,
+ *     location: test.location,
+ *     monitoringEnabled: true,
+ *     marketplaceSubscriptionStatus: "Active",
  * });
  * const exampleTagRules = new azure.dynatrace.TagRules("example", {
- *     name: "default",
- *     monitorId: testAzurermDynatraceMonitors.id,
  *     logRule: {
  *         filteringTags: [{
  *             name: "Environment",
@@ -62,6 +60,8 @@ import * as utilities from "../utilities";
  *             action: "Include",
  *         }],
  *     },
+ *     name: "default",
+ *     monitorId: testAzurermDynatraceMonitors.id,
  * });
  * ```
  *

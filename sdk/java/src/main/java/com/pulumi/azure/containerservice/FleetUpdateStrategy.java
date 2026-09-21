@@ -60,15 +60,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy("exampleFleetUpdateStrategy", FleetUpdateStrategyArgs.builder()
- *             .name("example")
- *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .stages(FleetUpdateStrategyStageArgs.builder()
- *                 .name("example-stage-1")
  *                 .groups(FleetUpdateStrategyStageGroupArgs.builder()
  *                     .name("example-group-1")
  *                     .build())
+ *                 .name("example-stage-1")
  *                 .afterStageWaitInSeconds(21)
  *                 .build())
+ *             .name("example")
+ *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .build());
  * 
  *     }

@@ -160,6 +160,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .identity(ServerIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-sqlserver")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -167,9 +170,6 @@ import javax.annotation.Nullable;
  *             .administratorLogin("missadministrator")
  *             .administratorLoginPassword("AdminPassword123!")
  *             .minimumTlsVersion("1.2")
- *             .identity(ServerIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
@@ -194,13 +194,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("examplesa")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .accountTier("Standard")
- *             .accountReplicationType("LRS")
- *             .accountKind("StorageV2")
- *             .allowNestedItemsToBePublic(false)
  *             .networkRules(AccountNetworkRulesArgs.builder()
  *                 .defaultAction("Deny")
  *                 .ipRules("127.0.0.1")
@@ -210,6 +203,13 @@ import javax.annotation.Nullable;
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("examplesa")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier("Standard")
+ *             .accountReplicationType("LRS")
+ *             .accountKind("StorageV2")
+ *             .allowNestedItemsToBePublic(false)
  *             .build());
  * 
  *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()

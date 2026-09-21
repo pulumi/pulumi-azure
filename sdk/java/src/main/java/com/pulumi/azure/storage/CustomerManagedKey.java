@@ -74,15 +74,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("examplestor")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Standard")
  *             .accountReplicationType("GRS")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("customerManagedKey")
+ *                 .build());
  * 
  *         var storage = new AccessPolicy("storage", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())

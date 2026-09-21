@@ -522,6 +522,11 @@ class OutputBlob(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_output_blob = azure.streamanalytics.OutputBlob("example",
+            serialization={
+                "type": "Csv",
+                "encoding": "UTF8",
+                "field_delimiter": ",",
+            },
             name="output-to-blob-storage",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -530,12 +535,7 @@ class OutputBlob(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="some-pattern",
             date_format="yyyy-MM-dd",
-            time_format="HH",
-            serialization={
-                "type": "Csv",
-                "encoding": "UTF8",
-                "field_delimiter": ",",
-            })
+            time_format="HH")
         ```
 
         ## API Providers
@@ -602,6 +602,11 @@ class OutputBlob(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_output_blob = azure.streamanalytics.OutputBlob("example",
+            serialization={
+                "type": "Csv",
+                "encoding": "UTF8",
+                "field_delimiter": ",",
+            },
             name="output-to-blob-storage",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -610,12 +615,7 @@ class OutputBlob(pulumi.CustomResource):
             storage_container_name=example_container.name,
             path_pattern="some-pattern",
             date_format="yyyy-MM-dd",
-            time_format="HH",
-            serialization={
-                "type": "Csv",
-                "encoding": "UTF8",
-                "field_delimiter": ",",
-            })
+            time_format="HH")
         ```
 
         ## API Providers

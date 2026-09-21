@@ -46,10 +46,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
     ///     {
-    ///         Name = "example-origin-group",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         SessionAffinityEnabled = true,
-    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
     ///         {
     ///             IntervalInSeconds = 240,
@@ -63,6 +59,10 @@ namespace Pulumi.Azure.Cdn
     ///             SampleSize = 16,
     ///             SuccessfulSamplesRequired = 3,
     ///         },
+    ///         Name = "example-origin-group",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
@@ -93,6 +93,11 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
     ///     {
+    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         {
+    ///             CertificateType = "ManagedCertificate",
+    ///             MinimumTlsVersion = "TLS12",
+    ///         },
     ///         Name = "example-customDomain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
@@ -104,12 +109,7 @@ namespace Pulumi.Azure.Cdn
     ///                 "contoso",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
-    ///         {
-    ///             CertificateType = "ManagedCertificate",
-    ///             MinimumTlsVersion = "TLS12",
-    ///         },
+    ///         }).Result,
     ///     });
     /// 
     ///     var exampleFrontdoorRoute = new Azure.Cdn.FrontdoorRoute("example", new()

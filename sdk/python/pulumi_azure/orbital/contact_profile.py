@@ -388,12 +388,7 @@ class ContactProfile(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="testsubnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "orbitalgateway",
                 "service_delegation": {
                     "name": "Microsoft.Orbital/orbitalGateways",
                     "actions": [
@@ -403,29 +398,34 @@ class ContactProfile(pulumi.CustomResource):
                         "Microsoft.Network/publicIPAddresses/read",
                     ],
                 },
-            }])
-        example_contact_profile = azure.orbital.ContactProfile("example",
-            name="example-contact-profile",
+                "name": "orbitalgateway",
+            }],
+            name="testsubnet",
             resource_group_name=example.name,
-            location=example.location,
-            minimum_variable_contact_duration="PT1M",
-            auto_tracking="disabled",
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_contact_profile = azure.orbital.ContactProfile("example",
             links=[{
                 "channels": [{
-                    "name": "channelname",
-                    "bandwidth_mhz": float(100),
-                    "center_frequency_mhz": float(101),
                     "end_points": [{
                         "end_point_name": "AQUA_command",
                         "ip_address": "10.0.1.0",
                         "port": "49513",
                         "protocol": "TCP",
                     }],
+                    "name": "channelname",
+                    "bandwidth_mhz": float(100),
+                    "center_frequency_mhz": float(101),
                 }],
                 "direction": "Uplink",
                 "name": "RHCP_UL",
                 "polarization": "RHCP",
             }],
+            name="example-contact-profile",
+            resource_group_name=example.name,
+            location=example.location,
+            minimum_variable_contact_duration="PT1M",
+            auto_tracking="disabled",
             network_configuration_subnet_id=example_subnet.id)
         ```
 
@@ -484,12 +484,7 @@ class ContactProfile(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="testsubnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "orbitalgateway",
                 "service_delegation": {
                     "name": "Microsoft.Orbital/orbitalGateways",
                     "actions": [
@@ -499,29 +494,34 @@ class ContactProfile(pulumi.CustomResource):
                         "Microsoft.Network/publicIPAddresses/read",
                     ],
                 },
-            }])
-        example_contact_profile = azure.orbital.ContactProfile("example",
-            name="example-contact-profile",
+                "name": "orbitalgateway",
+            }],
+            name="testsubnet",
             resource_group_name=example.name,
-            location=example.location,
-            minimum_variable_contact_duration="PT1M",
-            auto_tracking="disabled",
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example_contact_profile = azure.orbital.ContactProfile("example",
             links=[{
                 "channels": [{
-                    "name": "channelname",
-                    "bandwidth_mhz": float(100),
-                    "center_frequency_mhz": float(101),
                     "end_points": [{
                         "end_point_name": "AQUA_command",
                         "ip_address": "10.0.1.0",
                         "port": "49513",
                         "protocol": "TCP",
                     }],
+                    "name": "channelname",
+                    "bandwidth_mhz": float(100),
+                    "center_frequency_mhz": float(101),
                 }],
                 "direction": "Uplink",
                 "name": "RHCP_UL",
                 "polarization": "RHCP",
             }],
+            name="example-contact-profile",
+            resource_group_name=example.name,
+            location=example.location,
+            minimum_variable_contact_duration="PT1M",
+            auto_tracking="disabled",
             network_configuration_subnet_id=example_subnet.id)
         ```
 

@@ -59,9 +59,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
- *             .name("example-nrm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .plan(MonitorPlanArgs.builder()
  *                 .effectiveDate("2023-06-06T00:00:00Z")
  *                 .build())
@@ -71,14 +68,12 @@ import javax.annotation.Nullable;
  *                 .lastName("User")
  *                 .phoneNumber("+12313803556")
  *                 .build())
+ *             .name("example-nrm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleTagRule = new TagRule("exampleTagRule", TagRuleArgs.builder()
- *             .monitorId(exampleMonitor.id())
- *             .azureActiveDirectoryLogEnabled(true)
- *             .activityLogEnabled(true)
- *             .metricEnabled(true)
- *             .subscriptionLogEnabled(true)
  *             .logTagFilters(TagRuleLogTagFilterArgs.builder()
  *                 .name("key")
  *                 .action("Include")
@@ -89,6 +84,11 @@ import javax.annotation.Nullable;
  *                 .action("Exclude")
  *                 .value("value")
  *                 .build())
+ *             .monitorId(exampleMonitor.id())
+ *             .azureActiveDirectoryLogEnabled(true)
+ *             .activityLogEnabled(true)
+ *             .metricEnabled(true)
+ *             .subscriptionLogEnabled(true)
  *             .build());
  * 
  *     }}{@code

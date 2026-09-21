@@ -20,23 +20,18 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "exampleIothub",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
  *     },
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     tags: {
  *         purpose: "example",
  *     },
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "cosmosdb-account",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
@@ -44,6 +39,11 @@ import * as utilities from "../utilities";
  *         location: example.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
  *     name: "cosmos-sql-db",

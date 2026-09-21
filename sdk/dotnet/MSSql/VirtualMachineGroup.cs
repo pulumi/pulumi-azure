@@ -30,16 +30,16 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleVirtualMachineGroup = new Azure.MSSql.VirtualMachineGroup("example", new()
     ///     {
-    ///         Name = "examplegroup",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         SqlImageOffer = "SQL2017-WS2016",
-    ///         SqlImageSku = "Developer",
     ///         WsfcDomainProfile = new Azure.MSSql.Inputs.VirtualMachineGroupWsfcDomainProfileArgs
     ///         {
     ///             Fqdn = "testdomain.com",
     ///             ClusterSubnetType = "SingleSubnet",
     ///         },
+    ///         Name = "examplegroup",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SqlImageOffer = "SQL2017-WS2016",
+    ///         SqlImageSku = "Developer",
     ///     });
     /// 
     /// });

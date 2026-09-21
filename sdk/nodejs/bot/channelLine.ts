@@ -30,13 +30,13 @@ import * as utilities from "../utilities";
  *     microsoftAppId: current.then(current => current.clientId),
  * });
  * const exampleChannelLine = new azure.bot.ChannelLine("example", {
- *     botName: exampleChannelsRegistration.name,
- *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: example.name,
  *     lineChannels: [{
  *         accessToken: "asdfdsdfTYUIOIoj1231hkjhk",
  *         secret: "aagfdgfd123567",
  *     }],
+ *     botName: exampleChannelsRegistration.name,
+ *     location: exampleChannelsRegistration.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

@@ -74,8 +74,6 @@ import (
 //				return err
 //			}
 //			exampleJobTargetGroup, err := mssql.NewJobTargetGroup(ctx, "example", &mssql.JobTargetGroupArgs{
-//				Name:       pulumi.String("example-target-group"),
-//				JobAgentId: exampleJobAgent.ID().ToIDOutput().ToStringOutput(),
 //				JobTargets: mssql.JobTargetGroupJobTargetArray{
 //					&mssql.JobTargetGroupJobTargetArgs{
 //						ServerName:      exampleServer.Name,
@@ -83,6 +81,8 @@ import (
 //						JobCredentialId: exampleJobCredential.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:       pulumi.String("example-target-group"),
+//				JobAgentId: exampleJobAgent.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  *
  * const primary = azure.core.getSubscription({});
  * const example = new azure.authorization.RoleDefinition("example", {
- *     name: "my-custom-role",
- *     scope: primary.then(primary => primary.id),
- *     description: "This is a custom role created",
  *     permissions: [{
  *         actions: ["*"],
  *         notActions: [],
  *     }],
+ *     name: "my-custom-role",
+ *     scope: primary.then(primary => primary.id),
+ *     description: "This is a custom role created",
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
  * ```
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  *     subscriptionIds: [current.then(current => current.subscriptionId)],
  * });
  * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
- *     name: "example-mg-role",
- *     scope: example.id,
- *     description: "Example custom role scoped to a management group.",
  *     permissions: [{
  *         actions: ["Microsoft.Insights/alertRules/*"],
  *         notActions: [],
  *     }],
+ *     name: "example-mg-role",
+ *     scope: example.id,
+ *     description: "Example custom role scoped to a management group.",
  *     assignableScopes: [example.id],
  * });
  * ```

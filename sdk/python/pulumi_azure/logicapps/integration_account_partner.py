@@ -223,13 +223,13 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard")
         example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("example",
-            name="example-iap",
-            resource_group_name=example.name,
-            integration_account_name=example_integration_account.name,
             business_identities=[{
                 "qualifier": "ZZ",
                 "value": "AA",
-            }])
+            }],
+            name="example-iap",
+            resource_group_name=example.name,
+            integration_account_name=example_integration_account.name)
         ```
 
         ## API Providers
@@ -280,13 +280,13 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard")
         example_integration_account_partner = azure.logicapps.IntegrationAccountPartner("example",
-            name="example-iap",
-            resource_group_name=example.name,
-            integration_account_name=example_integration_account.name,
             business_identities=[{
                 "qualifier": "ZZ",
                 "value": "AA",
-            }])
+            }],
+            name="example-iap",
+            resource_group_name=example.name,
+            integration_account_name=example_integration_account.name)
         ```
 
         ## API Providers

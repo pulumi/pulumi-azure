@@ -56,18 +56,10 @@ namespace Pulumi.Azure.Hsm
     /// 
     ///     var example2 = new Azure.Network.Subnet("example2", new()
     ///     {
-    ///         Name = "example-hsmsubnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.2.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "first",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.HardwareSecurityModules/dedicatedHSMs",
@@ -77,7 +69,15 @@ namespace Pulumi.Azure.Hsm
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "first",
     ///             },
+    ///         },
+    ///         Name = "example-hsmsubnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.2.1.0/24",
     ///         },
     ///     });
     /// 
@@ -102,12 +102,6 @@ namespace Pulumi.Azure.Hsm
     /// 
     ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
     ///     {
-    ///         Name = "example-vnetgateway",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Type = "ExpressRoute",
-    ///         VpnType = "PolicyBased",
-    ///         Sku = "Standard",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
@@ -117,14 +111,16 @@ namespace Pulumi.Azure.Hsm
     ///                 SubnetId = example3.Id,
     ///             },
     ///         },
+    ///         Name = "example-vnetgateway",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "ExpressRoute",
+    ///         VpnType = "PolicyBased",
+    ///         Sku = "Standard",
     ///     });
     /// 
     ///     var exampleModule = new Azure.Hsm.Module("example", new()
     ///     {
-    ///         Name = "example-hsm",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "payShield10K_LMK1_CPS60",
     ///         ManagementNetworkProfile = new Azure.Hsm.Inputs.ModuleManagementNetworkProfileArgs
     ///         {
     ///             NetworkInterfacePrivateIpAddresses = new[]
@@ -141,6 +137,10 @@ namespace Pulumi.Azure.Hsm
     ///             },
     ///             SubnetId = example2.Id,
     ///         },
+    ///         Name = "example-hsm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "payShield10K_LMK1_CPS60",
     ///         StampId = "stamp2",
     ///         Tags = 
     ///         {

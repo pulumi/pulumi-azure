@@ -60,12 +60,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
     ///     {
-    ///         Name = "example-vnetgw",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Type = "Vpn",
-    ///         VpnType = "RouteBased",
-    ///         Sku = "Basic",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
@@ -75,6 +69,12 @@ namespace Pulumi.Azure.Network
     ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "example-vnetgw",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         Sku = "Basic",
     ///     });
     /// 
     ///     var example = Azure.Network.GetVirtualNetworkGateway.Invoke(new()
@@ -85,12 +85,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleVirtualNetworkGatewayNatRule = new Azure.Network.VirtualNetworkGatewayNatRule("example", new()
     ///     {
-    ///         Name = "example-vnetgwnatrule",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkGatewayId = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.Id),
-    ///         Mode = "EgressSnat",
-    ///         Type = "Dynamic",
-    ///         IpConfigurationId = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.IpConfigurations[0]?.Id),
     ///         ExternalMappings = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkGatewayNatRuleExternalMappingArgs
@@ -107,6 +101,12 @@ namespace Pulumi.Azure.Network
     ///                 PortRange = "400",
     ///             },
     ///         },
+    ///         Name = "example-vnetgwnatrule",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkGatewayId = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.Id),
+    ///         Mode = "EgressSnat",
+    ///         Type = "Dynamic",
+    ///         IpConfigurationId = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.IpConfigurations[0]?.Id),
     ///     });
     /// 
     /// });

@@ -97,16 +97,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAssignment = new com.pulumi.azure.blueprint.Assignment("exampleAssignment", com.pulumi.azure.blueprint.AssignmentArgs.builder()
+ *             .identity(AssignmentIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("testAccBPAssignment")
  *             .targetSubscriptionId(example.id())
  *             .versionId(exampleGetPublishedVersion.id())
  *             .location(exampleResourceGroup.location())
  *             .lockMode("AllResourcesDoNotDelete")
  *             .lockExcludePrincipals(current.objectId())
- *             .identity(AssignmentIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .resourceGroups("""
  *     {
  *       \"ResourceGroup\": {

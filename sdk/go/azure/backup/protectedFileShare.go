@@ -74,9 +74,6 @@ import (
 //				return err
 //			}
 //			examplePolicyFileShare, err := backup.NewPolicyFileShare(ctx, "example", &backup.PolicyFileShareArgs{
-//				Name:              pulumi.String("tfex-recovery-vault-policy"),
-//				ResourceGroupName: example.Name,
-//				RecoveryVaultName: vault.Name,
 //				Backup: &backup.PolicyFileShareBackupArgs{
 //					Frequency: pulumi.String("Daily"),
 //					Time:      pulumi.String("23:00"),
@@ -84,6 +81,9 @@ import (
 //				RetentionDaily: &backup.PolicyFileShareRetentionDailyArgs{
 //					Count: pulumi.Int(10),
 //				},
+//				Name:              pulumi.String("tfex-recovery-vault-policy"),
+//				ResourceGroupName: example.Name,
+//				RecoveryVaultName: vault.Name,
 //			})
 //			if err != nil {
 //				return err

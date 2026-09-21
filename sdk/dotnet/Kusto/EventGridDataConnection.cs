@@ -30,14 +30,14 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Name = "examplekustocluster",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
     ///             Capacity = 2,
     ///         },
+    ///         Name = "examplekustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
@@ -85,6 +85,11 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("example", new()
     ///     {
+    ///         RetryPolicy = new Azure.EventGrid.Inputs.EventSubscriptionRetryPolicyArgs
+    ///         {
+    ///             EventTimeToLive = 144,
+    ///             MaxDeliveryAttempts = 10,
+    ///         },
     ///         Name = "eventgrid-example",
     ///         Scope = exampleAccount.Id,
     ///         EventhubEndpointId = exampleEventHub.Id,
@@ -93,11 +98,6 @@ namespace Pulumi.Azure.Kusto
     ///         {
     ///             "Microsoft.Storage.BlobCreated",
     ///             "Microsoft.Storage.BlobRenamed",
-    ///         },
-    ///         RetryPolicy = new Azure.EventGrid.Inputs.EventSubscriptionRetryPolicyArgs
-    ///         {
-    ///             EventTimeToLive = 144,
-    ///             MaxDeliveryAttempts = 10,
     ///         },
     ///     });
     /// 

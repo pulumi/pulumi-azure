@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleResourceBridgeAppliance = new azure.arc.ResourceBridgeAppliance("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-appliance",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     distro: "AKSEdge",
  *     infrastructureProvider: "VMWare",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  *     tags: {
  *         hello: "world",
  *     },

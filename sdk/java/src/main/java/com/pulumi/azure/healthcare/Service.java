@@ -55,20 +55,9 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("uniquefhirname")
- *             .resourceGroupName("sample-resource-group")
- *             .location("westus2")
- *             .kind("fhir-R4")
- *             .cosmosdbThroughput(2000)
  *             .identity(ServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
- *             .accessPolicyObjectIds(current.objectId())
- *             .configurationExportStorageAccountName("teststorage")
- *             .tags(Map.ofEntries(
- *                 Map.entry("environment", "testenv"),
- *                 Map.entry("purpose", "AcceptanceTests")
- *             ))
  *             .authenticationConfiguration(ServiceAuthenticationConfigurationArgs.builder()
  *                 .authority("https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D")
  *                 .audience("https://azurehealthcareapis.com/")
@@ -87,6 +76,17 @@ import javax.annotation.Nullable;
  *                 .maxAgeInSeconds(500)
  *                 .allowCredentials(true)
  *                 .build())
+ *             .name("uniquefhirname")
+ *             .resourceGroupName("sample-resource-group")
+ *             .location("westus2")
+ *             .kind("fhir-R4")
+ *             .cosmosdbThroughput(2000)
+ *             .accessPolicyObjectIds(current.objectId())
+ *             .configurationExportStorageAccountName("teststorage")
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("environment", "testenv"),
+ *                 Map.entry("purpose", "AcceptanceTests")
+ *             ))
  *             .build());
  * 
  *     }

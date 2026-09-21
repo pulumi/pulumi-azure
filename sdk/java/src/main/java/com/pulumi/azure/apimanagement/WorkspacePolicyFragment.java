@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.WorkspacePolicyFragment;
  * import com.pulumi.azure.apimanagement.WorkspacePolicyFragmentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -74,9 +73,7 @@ import javax.annotation.Nullable;
  *             .name("example-policy-fragment")
  *             .apiManagementWorkspaceId(exampleWorkspace.id())
  *             .xmlFormat("xml")
- *             .xmlContent(StdFunctions.file(FileArgs.builder()
- *                 .input("policy-fragment-1.xml")
- *                 .build()).result())
+ *             .xmlContent(StdFunctions.file(Map.of("input", "policy-fragment-1.xml")).result())
  *             .build());
  * 
  *     }}{@code

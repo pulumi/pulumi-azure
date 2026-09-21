@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePrivateCloud = new azure.avs.PrivateCloud("example", {
+ *     managementCluster: {
+ *         size: 3,
+ *     },
  *     name: "example-vmware-private-cloud",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     skuName: "av36",
- *     managementCluster: {
- *         size: 3,
- *     },
  *     networkSubnetCidr: "192.168.48.0/22",
  *     internetConnectionEnabled: false,
  *     nsxtPassword: "QazWsx13$Edc",

@@ -76,9 +76,6 @@ import (
 //				return err
 //			}
 //			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.Sprintf("%v-nic", prefix),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -86,18 +83,14 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.Sprintf("%v-nic", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = compute.NewVirtualMachine(ctx, "main", &compute.VirtualMachineArgs{
-//				Name:              pulumi.Sprintf("%v-vm", prefix),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				NetworkInterfaceIds: pulumi.StringArray{
-//					mainNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				VmSize: pulumi.String("Standard_DS1_v2"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
@@ -118,6 +111,13 @@ import (
 //				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
 //					DisablePasswordAuthentication: pulumi.Bool(false),
 //				},
+//				Name:              pulumi.Sprintf("%v-vm", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					mainNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				VmSize: pulumi.String("Standard_DS1_v2"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),
 //				},

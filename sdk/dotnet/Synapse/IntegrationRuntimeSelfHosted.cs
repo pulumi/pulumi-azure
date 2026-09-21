@@ -52,6 +52,10 @@ namespace Pulumi.Azure.Synapse
     /// 
     ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -59,10 +63,6 @@ namespace Pulumi.Azure.Synapse
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
     ///         ManagedVirtualNetworkEnabled = true,
-    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("example", new()

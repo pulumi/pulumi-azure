@@ -46,10 +46,6 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ProfileName = exampleProfile.Name,
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Origins = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.EndpointOriginArgs
@@ -58,6 +54,10 @@ namespace Pulumi.Azure.Cdn
     ///                 HostName = "www.contoso.com",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ProfileName = exampleProfile.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

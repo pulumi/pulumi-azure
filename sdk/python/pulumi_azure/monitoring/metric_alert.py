@@ -628,33 +628,33 @@ class MetricAlert(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         main = azure.monitoring.ActionGroup("main",
-            name="example-actiongroup",
-            resource_group_name=example.name,
-            short_name="exampleact",
             webhook_receivers=[{
                 "name": "callmyapi",
                 "service_uri": "http://example.com/alert",
-            }])
-        example_metric_alert = azure.monitoring.MetricAlert("example",
-            name="example-metricalert",
+            }],
+            name="example-actiongroup",
             resource_group_name=example.name,
-            scopes=[to_monitor.id],
-            description="Action will be triggered when Transactions count is greater than 50.",
+            short_name="exampleact")
+        example_metric_alert = azure.monitoring.MetricAlert("example",
+            actions=[{
+                "action_group_id": main.id,
+            }],
             criterias=[{
-                "metric_namespace": "Microsoft.Storage/storageAccounts",
-                "metric_name": "Transactions",
-                "aggregation": "Total",
-                "operator": "GreaterThan",
-                "threshold": float(50),
                 "dimensions": [{
                     "name": "ApiName",
                     "operator": "Include",
                     "values": ["*"],
                 }],
+                "metric_namespace": "Microsoft.Storage/storageAccounts",
+                "metric_name": "Transactions",
+                "aggregation": "Total",
+                "operator": "GreaterThan",
+                "threshold": float(50),
             }],
-            actions=[{
-                "action_group_id": main.id,
-            }])
+            name="example-metricalert",
+            resource_group_name=example.name,
+            scopes=[to_monitor.id],
+            description="Action will be triggered when Transactions count is greater than 50.")
         ```
 
         ## API Providers
@@ -727,33 +727,33 @@ class MetricAlert(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         main = azure.monitoring.ActionGroup("main",
-            name="example-actiongroup",
-            resource_group_name=example.name,
-            short_name="exampleact",
             webhook_receivers=[{
                 "name": "callmyapi",
                 "service_uri": "http://example.com/alert",
-            }])
-        example_metric_alert = azure.monitoring.MetricAlert("example",
-            name="example-metricalert",
+            }],
+            name="example-actiongroup",
             resource_group_name=example.name,
-            scopes=[to_monitor.id],
-            description="Action will be triggered when Transactions count is greater than 50.",
+            short_name="exampleact")
+        example_metric_alert = azure.monitoring.MetricAlert("example",
+            actions=[{
+                "action_group_id": main.id,
+            }],
             criterias=[{
-                "metric_namespace": "Microsoft.Storage/storageAccounts",
-                "metric_name": "Transactions",
-                "aggregation": "Total",
-                "operator": "GreaterThan",
-                "threshold": float(50),
                 "dimensions": [{
                     "name": "ApiName",
                     "operator": "Include",
                     "values": ["*"],
                 }],
+                "metric_namespace": "Microsoft.Storage/storageAccounts",
+                "metric_name": "Transactions",
+                "aggregation": "Total",
+                "operator": "GreaterThan",
+                "threshold": float(50),
             }],
-            actions=[{
-                "action_group_id": main.id,
-            }])
+            name="example-metricalert",
+            resource_group_name=example.name,
+            scopes=[to_monitor.id],
+            description="Action will be triggered when Transactions count is greater than 50.")
         ```
 
         ## API Providers

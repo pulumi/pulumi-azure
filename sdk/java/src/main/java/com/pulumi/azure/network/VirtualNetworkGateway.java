@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.PublicIpArgs;
  * import com.pulumi.azure.network.VirtualNetworkGateway;
  * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationArgs;
- * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs;
  * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs;
+ * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs;
+ * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -91,22 +91,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetworkGateway = new VirtualNetworkGateway("exampleVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
- *             .name("test")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .type("Vpn")
- *             .vpnType("RouteBased")
- *             .activeActive(false)
- *             .bgpEnabled(false)
- *             .sku("Basic")
- *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
- *                 .name("vnetGatewayConfig")
- *                 .publicIpAddressId(examplePublicIp.id())
- *                 .privateIpAddressAllocation("Dynamic")
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
  *             .vpnClientConfiguration(VirtualNetworkGatewayVpnClientConfigurationArgs.builder()
- *                 .addressSpaces("10.2.0.0/24")
+ *                 .revokedCertificates(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs.builder()
+ *                     .name("Verizon-Global-Root-CA")
+ *                     .thumbprint("912198EEF23DCAC40939312FEE97DD560BAE49B1")
+ *                     .build())
  *                 .rootCertificates(VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs.builder()
  *                     .name("DigiCert-Federated-ID-Root-CA")
  *                     .publicCertData("""
@@ -132,11 +121,22 @@ import javax.annotation.Nullable;
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
  *                     """)
  *                     .build())
- *                 .revokedCertificates(VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs.builder()
- *                     .name("Verizon-Global-Root-CA")
- *                     .thumbprint("912198EEF23DCAC40939312FEE97DD560BAE49B1")
- *                     .build())
+ *                 .addressSpaces("10.2.0.0/24")
  *                 .build())
+ *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
+ *                 .name("vnetGatewayConfig")
+ *                 .publicIpAddressId(examplePublicIp.id())
+ *                 .privateIpAddressAllocation("Dynamic")
+ *                 .subnetId(exampleSubnet.id())
+ *                 .build())
+ *             .name("test")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .type("Vpn")
+ *             .vpnType("RouteBased")
+ *             .activeActive(false)
+ *             .bgpEnabled(false)
+ *             .sku("Basic")
  *             .build());
  * 
  *     }

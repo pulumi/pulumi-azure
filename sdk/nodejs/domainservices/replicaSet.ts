@@ -31,9 +31,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primary", {
- *     name: "aadds-primary-nsg",
- *     location: primary.location,
- *     resourceGroupName: primary.name,
  *     securityRules: [
  *         {
  *             name: "AllowSyncWithAzureAD",
@@ -80,36 +77,33 @@ import * as utilities from "../utilities";
  *             destinationAddressPrefix: "*",
  *         },
  *     ],
+ *     name: "aadds-primary-nsg",
+ *     location: primary.location,
+ *     resourceGroupName: primary.name,
  * });
  * const primarySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("primary", {
  *     subnetId: primarySubnet.id,
  *     networkSecurityGroupId: primaryNetworkSecurityGroup.id,
  * });
- * const dcAdmins = new azuread.Group("dc_admins", {
+ * const dcAdmins = new azuread.index.Group("dc_admins", {
  *     displayName: "aad-dc-administrators",
  *     securityEnabled: true,
  * });
- * const admin = new azuread.User("admin", {
+ * const admin = new azuread.index.User("admin", {
  *     userPrincipalName: "dc-admin@hashicorp-example.net",
  *     displayName: "DC Administrator",
  *     password: "Pa55w0Rd!!1",
  * });
- * const adminGroupMember = new azuread.GroupMember("admin", {
+ * const adminGroupMember = new azuread.index.GroupMember("admin", {
  *     groupObjectId: dcAdmins.objectId,
  *     memberObjectId: admin.objectId,
  * });
- * const example = new azuread.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * const example = new azuread.index.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
  * const aadds = new azure.core.ResourceGroup("aadds", {
  *     name: "aadds-rg",
  *     location: "westeurope",
  * });
  * const exampleService = new azure.domainservices.Service("example", {
- *     name: "example-aadds",
- *     location: aadds.location,
- *     resourceGroupName: aadds.name,
- *     domainName: "widgetslogin.net",
- *     sku: "Enterprise",
- *     filteredSyncEnabled: false,
  *     initialReplicaSet: {
  *         location: primaryVirtualNetwork.location,
  *         subnetId: primarySubnet.id,
@@ -127,6 +121,12 @@ import * as utilities from "../utilities";
  *         syncNtlmPasswords: true,
  *         syncOnPremPasswords: true,
  *     },
+ *     name: "example-aadds",
+ *     location: aadds.location,
+ *     resourceGroupName: aadds.name,
+ *     domainName: "widgetslogin.net",
+ *     sku: "Enterprise",
+ *     filteredSyncEnabled: false,
  *     tags: {
  *         Environment: "prod",
  *     },
@@ -153,9 +153,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.20.0.0/24"],
  * });
  * const aaddsReplicaNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("aadds_replica", {
- *     name: "aadds-replica-nsg",
- *     location: replica.location,
- *     resourceGroupName: replica.name,
  *     securityRules: [
  *         {
  *             name: "AllowSyncWithAzureAD",
@@ -202,6 +199,9 @@ import * as utilities from "../utilities";
  *             destinationAddressPrefix: "*",
  *         },
  *     ],
+ *     name: "aadds-replica-nsg",
+ *     location: replica.location,
+ *     resourceGroupName: replica.name,
  * });
  * const replicaSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("replica", {
  *     subnetId: aaddsReplica.id,

@@ -51,9 +51,9 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
     ///     {
+    ///         LoadBalancing = null,
     ///         Name = "example-cdn-frontdoor-origin-group",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         LoadBalancing = null,
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
@@ -66,15 +66,15 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
     ///     {
-    ///         Name = "example-cdn-frontdoor-custom-domain",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         DnsZoneId = exampleZone.Id,
-    ///         HostName = exampleFrontdoorOrigin.HostName,
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
     ///             MinimumVersion = "TLS12",
     ///         },
+    ///         Name = "example-cdn-frontdoor-custom-domain",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         DnsZoneId = exampleZone.Id,
+    ///         HostName = exampleFrontdoorOrigin.HostName,
     ///     });
     /// 
     ///     var exampleFrontdoorRoute = new Azure.Cdn.FrontdoorRoute("example", new()
@@ -111,13 +111,10 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var exampleFrontdoorSecurityPolicy = new Azure.Cdn.FrontdoorSecurityPolicy("example", new()
     ///     {
-    ///         Name = "example-cdn-frontdoor-security-policy",
-    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         SecurityPolicies = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesArgs
     ///         {
     ///             Firewall = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs
     ///             {
-    ///                 CdnFrontdoorFirewallPolicyId = exampleFrontdoorFirewallPolicy.Id,
     ///                 Association = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs
     ///                 {
     ///                     Domains = new[]
@@ -129,8 +126,11 @@ namespace Pulumi.Azure.Cdn
     ///                     },
     ///                     PatternsToMatch = "/*",
     ///                 },
+    ///                 CdnFrontdoorFirewallPolicyId = exampleFrontdoorFirewallPolicy.Id,
     ///             },
     ///         },
+    ///         Name = "example-cdn-frontdoor-security-policy",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///     });
     /// 
     /// });
@@ -155,22 +155,6 @@ namespace Pulumi.Azure.Cdn
     /// {
     ///     var example = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = Std.Split.Invoke(new()
-    ///         {
-    ///             Separator = ".",
-    ///             Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
-    ///         }).Apply(invoke =&gt; Std.Join.Invoke(new()
-    ///         {
-    ///             Separator = ".",
-    ///             Input = new[]
-    ///             {
-    ///                 "_dnsauth",
-    ///                 invoke.Result[0],
-    ///             },
-    ///         })).Apply(invoke =&gt; invoke.Result),
-    ///         ZoneName = exampleAzurermDnsZone.Name,
-    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
-    ///         Ttl = 3600,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
@@ -178,6 +162,22 @@ namespace Pulumi.Azure.Cdn
     ///                 Value = exampleAzurermCdnFrontdoorCustomDomain.ValidationToken,
     ///             },
     ///         },
+    ///         Name = Std.Join.Invoke(new()
+    ///         {
+    ///             Separator = ".",
+    ///             Input = new[]
+    ///             {
+    ///                 "_dnsauth",
+    ///                 Std.Split.Invoke(new()
+    ///                 {
+    ///                     Separator = ".",
+    ///                     Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
+    ///                 }).Result[0],
+    ///             },
+    ///         }).Result,
+    ///         ZoneName = exampleAzurermDnsZone.Name,
+    ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+    ///         Ttl = 3600,
     ///     });
     /// 
     /// });
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Cdn
     ///         {
     ///             Separator = ".",
     ///             Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
-    ///         }).Apply(invoke =&gt; invoke.Result[0]),
+    ///         }).Result[0],
     ///         ZoneName = exampleAzurermDnsZone.Name,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
     ///         Ttl = 3600,

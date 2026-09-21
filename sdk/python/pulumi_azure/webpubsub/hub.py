@@ -250,8 +250,6 @@ class Hub(pulumi.CustomResource):
             sku="Standard_S1",
             capacity=1)
         example_hub = azure.webpubsub.Hub("example",
-            name="tfex_wpsh",
-            web_pubsub_id=example_service.id,
             event_handlers=[
                 {
                     "url_template": "https://test.com/api/{hub}/{event}",
@@ -262,12 +260,12 @@ class Hub(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "url_template": "https://test.com/api/{hub}/{event}",
-                    "user_event_pattern": "event1, event2",
-                    "system_events": ["connected"],
                     "auth": {
                         "managed_identity_id": example_user_assigned_identity.id,
                     },
+                    "url_template": "https://test.com/api/{hub}/{event}",
+                    "user_event_pattern": "event1, event2",
+                    "system_events": ["connected"],
                 },
             ],
             event_listeners=[
@@ -293,6 +291,8 @@ class Hub(pulumi.CustomResource):
                     "eventhub_name": test1["name"],
                 },
             ],
+            name="tfex_wpsh",
+            web_pubsub_id=example_service.id,
             anonymous_connections_enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_service]))
         ```
@@ -355,8 +355,6 @@ class Hub(pulumi.CustomResource):
             sku="Standard_S1",
             capacity=1)
         example_hub = azure.webpubsub.Hub("example",
-            name="tfex_wpsh",
-            web_pubsub_id=example_service.id,
             event_handlers=[
                 {
                     "url_template": "https://test.com/api/{hub}/{event}",
@@ -367,12 +365,12 @@ class Hub(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "url_template": "https://test.com/api/{hub}/{event}",
-                    "user_event_pattern": "event1, event2",
-                    "system_events": ["connected"],
                     "auth": {
                         "managed_identity_id": example_user_assigned_identity.id,
                     },
+                    "url_template": "https://test.com/api/{hub}/{event}",
+                    "user_event_pattern": "event1, event2",
+                    "system_events": ["connected"],
                 },
             ],
             event_listeners=[
@@ -398,6 +396,8 @@ class Hub(pulumi.CustomResource):
                     "eventhub_name": test1["name"],
                 },
             ],
+            name="tfex_wpsh",
+            web_pubsub_id=example_service.id,
             anonymous_connections_enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_service]))
         ```

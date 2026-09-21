@@ -37,9 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = newrelic.NewMonitor(ctx, "example", &newrelic.MonitorArgs{
-//				Name:              pulumi.String("example-nrm"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Plan: &newrelic.MonitorPlanArgs{
 //					EffectiveDate: pulumi.String("2023-06-06T00:00:00Z"),
 //				},
@@ -52,6 +49,9 @@ import (
 //				Identity: &newrelic.MonitorIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-nrm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

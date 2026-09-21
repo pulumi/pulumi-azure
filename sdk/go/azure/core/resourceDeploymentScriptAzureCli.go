@@ -45,6 +45,12 @@ import (
 //				return err
 //			}
 //			_, err = core.NewResourceDeploymentScriptAzureCli(ctx, "example", &core.ResourceDeploymentScriptAzureCliArgs{
+//				Identity: &core.ResourceDeploymentScriptAzureCliIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:              pulumi.String("example-rdsac"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
@@ -55,12 +61,6 @@ import (
 //				ForceUpdateTag:    pulumi.String("1"),
 //				Timeout:           pulumi.String("PT30M"),
 //				ScriptContent:     pulumi.String("            echo \\\"{\\\\\\\"name\\\\\\\":{\\\\\\\"displayName\\\\\\\":\\\\\\\"$1 $2\\\\\\\"}}\\\" > $AZ_SCRIPTS_OUTPUT_PATH\n"),
-//				Identity: &core.ResourceDeploymentScriptAzureCliIdentityArgs{
-//					Type: pulumi.String("UserAssigned"),
-//					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

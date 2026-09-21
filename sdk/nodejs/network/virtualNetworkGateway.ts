@@ -40,22 +40,11 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Dynamic",
  * });
  * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
- *     name: "test",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     type: "Vpn",
- *     vpnType: "RouteBased",
- *     activeActive: false,
- *     bgpEnabled: false,
- *     sku: "Basic",
- *     ipConfigurations: [{
- *         name: "vnetGatewayConfig",
- *         publicIpAddressId: examplePublicIp.id,
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: exampleSubnet.id,
- *     }],
  *     vpnClientConfiguration: {
- *         addressSpaces: ["10.2.0.0/24"],
+ *         revokedCertificates: [{
+ *             name: "Verizon-Global-Root-CA",
+ *             thumbprint: "912198EEF23DCAC40939312FEE97DD560BAE49B1",
+ *         }],
  *         rootCertificates: [{
  *             name: "DigiCert-Federated-ID-Root-CA",
  *             publicCertData: `MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -80,11 +69,22 @@ import * as utilities from "../utilities";
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
  * `,
  *         }],
- *         revokedCertificates: [{
- *             name: "Verizon-Global-Root-CA",
- *             thumbprint: "912198EEF23DCAC40939312FEE97DD560BAE49B1",
- *         }],
+ *         addressSpaces: ["10.2.0.0/24"],
  *     },
+ *     ipConfigurations: [{
+ *         name: "vnetGatewayConfig",
+ *         publicIpAddressId: examplePublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: exampleSubnet.id,
+ *     }],
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     type: "Vpn",
+ *     vpnType: "RouteBased",
+ *     activeActive: false,
+ *     bgpEnabled: false,
+ *     sku: "Basic",
  * });
  * ```
  *

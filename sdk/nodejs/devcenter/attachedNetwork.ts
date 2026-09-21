@@ -30,12 +30,12 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleDevCenter = new azure.devcenter.DevCenter("example", {
- *     name: "example-dc",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-dc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleNetworkConnection = new azure.devcenter.NetworkConnection("example", {
  *     name: "example-dcnc",

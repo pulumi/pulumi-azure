@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     accountName: exampleAccount2.name,
  *     certificate: std.filebase64({
  *         input: "certificate.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     format: "Pfx",
  *     password: "password",
  *     thumbprint: "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",

@@ -105,14 +105,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
@@ -122,14 +122,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("example-VM")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .size("Standard_B2s")
- *             .adminUsername("adminuser")
- *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
- *             .disablePasswordAuthentication(false)
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Premium_LRS")
@@ -144,6 +136,14 @@ import javax.annotation.Nullable;
  *                 .type("SystemAssigned, UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .name("example-VM")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .size("Standard_B2s")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
+ *             .disablePasswordAuthentication(false)
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
@@ -189,11 +189,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
- *             .connectionString(exampleAccount.primaryConnectionString())
- *             .httpsOnly(true)
- *             .signedVersion("2019-10-10")
- *             .start("2023-04-01T00:00:00Z")
- *             .expiry("2024-04-01T00:00:00Z")
  *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
  *                 .service(false)
  *                 .container(false)
@@ -217,32 +212,30 @@ import javax.annotation.Nullable;
  *                 .tag(false)
  *                 .filter(false)
  *                 .build())
+ *             .connectionString(exampleAccount.primaryConnectionString())
+ *             .httpsOnly(true)
+ *             .signedVersion("2019-10-10")
+ *             .start("2023-04-01T00:00:00Z")
+ *             .expiry("2024-04-01T00:00:00Z")
  *             .build());
  * 
  *         // basic example
  *         var exampleRunCommand = new RunCommand("exampleRunCommand", RunCommandArgs.builder()
- *             .name("example-vmrc")
- *             .location(exampleResourceGroup.location())
- *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .source(RunCommandSourceArgs.builder()
  *                 .script("echo 'hello world'")
  *                 .build())
+ *             .name("example-vmrc")
+ *             .location(exampleResourceGroup.location())
+ *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .build());
  * 
  *         // authorize to storage blob using user assigned identity
  *         var example2RunCommand = new RunCommand("example2RunCommand", RunCommandArgs.builder()
- *             .location(exampleResourceGroup.location())
- *             .name("example2-vmrc")
- *             .virtualMachineId(exampleLinuxVirtualMachine.id())
- *             .outputBlobUri(example2.id())
- *             .errorBlobUri(example3.id())
- *             .runAsPassword("P}{@literal @}{@code $$w0rd1234!")
- *             .runAsUser("adminuser")
  *             .source(RunCommandSourceArgs.builder()
- *                 .scriptUri(example1.id())
  *                 .scriptUriManagedIdentity(RunCommandSourceScriptUriManagedIdentityArgs.builder()
  *                     .clientId(exampleUserAssignedIdentity.clientId())
  *                     .build())
+ *                 .scriptUri(example1.id())
  *                 .build())
  *             .errorBlobManagedIdentity(RunCommandErrorBlobManagedIdentityArgs.builder()
  *                 .clientId(exampleUserAssignedIdentity.clientId())
@@ -258,6 +251,13 @@ import javax.annotation.Nullable;
  *                 .name("examplev2")
  *                 .value("val2")
  *                 .build())
+ *             .location(exampleResourceGroup.location())
+ *             .name("example2-vmrc")
+ *             .virtualMachineId(exampleLinuxVirtualMachine.id())
+ *             .outputBlobUri(example2.id())
+ *             .errorBlobUri(example3.id())
+ *             .runAsPassword("P}{@literal @}{@code $$w0rd1234!")
+ *             .runAsUser("adminuser")
  *             .tags(Map.ofEntries(
  *                 Map.entry("environment", "terraform-examples"),
  *                 Map.entry("some_key", "some-value")
@@ -268,6 +268,17 @@ import javax.annotation.Nullable;
  * 
  *         // authorize to storage blob using SAS token
  *         var example3RunCommand = new RunCommand("example3RunCommand", RunCommandArgs.builder()
+ *             .source(RunCommandSourceArgs.builder()
+ *                 .scriptUri(Output.tuple(example1.id(), example).applyValue(values -> }{{@code
+ *                     var id = values.t1;
+ *                     var example = values.t2;
+ *                     return String.format("%s%s", id,example.sas());
+ *                 }}{@code ))
+ *                 .build())
+ *             .parameters(RunCommandParameterArgs.builder()
+ *                 .name("example-vm1")
+ *                 .value("val1")
+ *                 .build())
  *             .location(exampleResourceGroup.location())
  *             .name("example3-vmrc")
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
@@ -283,17 +294,6 @@ import javax.annotation.Nullable;
  *                 var example = values.t2;
  *                 return String.format("%s%s", id,example.sas());
  *             }}{@code ))
- *             .source(RunCommandSourceArgs.builder()
- *                 .scriptUri(Output.tuple(example1.id(), example).applyValue(values -> }{{@code
- *                     var id = values.t1;
- *                     var example = values.t2;
- *                     return String.format("%s%s", id,example.sas());
- *                 }}{@code ))
- *                 .build())
- *             .parameters(RunCommandParameterArgs.builder()
- *                 .name("example-vm1")
- *                 .value("val1")
- *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry("environment", "terraform-example-s"),
  *                 Map.entry("some_key", "some-value")

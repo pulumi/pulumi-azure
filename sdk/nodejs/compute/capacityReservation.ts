@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleCapacityReservation = new azure.compute.CapacityReservation("example", {
- *     name: "example-capacity-reservation",
- *     capacityReservationGroupId: exampleCapacityReservationGroup.id,
  *     sku: {
  *         name: "Standard_D2s_v3",
  *         capacity: 1,
  *     },
+ *     name: "example-capacity-reservation",
+ *     capacityReservationGroupId: exampleCapacityReservationGroup.id,
  * });
  * ```
  *

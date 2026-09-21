@@ -94,23 +94,10 @@ namespace Pulumi.Azure.WorkloadsSAP
     /// 
     ///     var exampleSingleNodeVirtualInstance = new Azure.WorkloadsSAP.SingleNodeVirtualInstance("example", new()
     ///     {
-    ///         Name = "X05",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Environment = "NonProd",
-    ///         SapProduct = "S4HANA",
-    ///         ManagedResourceGroupName = "managedTestRG",
-    ///         AppLocation = app.Location,
-    ///         SapFqdn = "sap.bpaas.com",
     ///         SingleServerConfiguration = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationArgs
     ///         {
-    ///             AppResourceGroupName = app.Name,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             DatabaseType = "HANA",
-    ///             SecondaryIpEnabled = true,
     ///             VirtualMachineConfiguration = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationArgs
     ///             {
-    ///                 VirtualMachineSize = "Standard_E32ds_v4",
     ///                 Image = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs
     ///                 {
     ///                     Offer = "RHEL-SAP-HA",
@@ -123,6 +110,28 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     AdminUsername = "testAdmin",
     ///                     SshPrivateKey = examplePrivateKey.PrivateKeyPem,
     ///                     SshPublicKey = example.PublicKeyOpenssh,
+    ///                 },
+    ///                 VirtualMachineSize = "Standard_E32ds_v4",
+    ///             },
+    ///             VirtualMachineResourceNames = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs
+    ///             {
+    ///                 DataDisks = new[]
+    ///                 {
+    ///                     new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs
+    ///                     {
+    ///                         VolumeName = "default",
+    ///                         Names = new[]
+    ///                         {
+    ///                             "app0disk0",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 HostName = "apphostName0",
+    ///                 OsDiskName = "app0osdisk",
+    ///                 VirtualMachineName = "appvm0",
+    ///                 NetworkInterfaceNames = new[]
+    ///                 {
+    ///                     "appnic0",
     ///                 },
     ///             },
     ///             DiskVolumeConfigurations = new[]
@@ -170,27 +179,10 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     SkuName = "StandardSSD_LRS",
     ///                 },
     ///             },
-    ///             VirtualMachineResourceNames = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs
-    ///             {
-    ///                 HostName = "apphostName0",
-    ///                 OsDiskName = "app0osdisk",
-    ///                 VirtualMachineName = "appvm0",
-    ///                 NetworkInterfaceNames = new[]
-    ///                 {
-    ///                     "appnic0",
-    ///                 },
-    ///                 DataDisks = new[]
-    ///                 {
-    ///                     new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs
-    ///                     {
-    ///                         VolumeName = "default",
-    ///                         Names = new[]
-    ///                         {
-    ///                             "app0disk0",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
+    ///             AppResourceGroupName = app.Name,
+    ///             SubnetId = exampleSubnet.Id,
+    ///             DatabaseType = "HANA",
+    ///             SecondaryIpEnabled = true,
     ///         },
     ///         Identity = new Azure.WorkloadsSAP.Inputs.SingleNodeVirtualInstanceIdentityArgs
     ///         {
@@ -200,6 +192,14 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "X05",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Environment = "NonProd",
+    ///         SapProduct = "S4HANA",
+    ///         ManagedResourceGroupName = "managedTestRG",
+    ///         AppLocation = app.Location,
+    ///         SapFqdn = "sap.bpaas.com",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

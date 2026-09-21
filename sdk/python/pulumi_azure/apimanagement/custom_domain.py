@@ -266,8 +266,6 @@ class CustomDomain(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
         example_certificate = azure.keyvault.Certificate("example",
-            name="example-certificate",
-            key_vault_id=example.id,
             certificate_policy={
                 "issuer_parameters": {
                     "name": "Self",
@@ -278,18 +276,16 @@ class CustomDomain(pulumi.CustomResource):
                     "key_type": "RSA",
                     "reuse_key": True,
                 },
-                "lifetime_actions": [{
-                    "action": {
-                        "action_type": "AutoRenew",
-                    },
-                    "trigger": {
-                        "days_before_expiry": 30,
-                    },
-                }],
                 "secret_properties": {
                     "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
+                    "subject_alternative_names": {
+                        "dns_names": [
+                            "api.example.com",
+                            "portal.example.com",
+                        ],
+                    },
                     "key_usages": [
                         "cRLSign",
                         "dataEncipherment",
@@ -300,24 +296,28 @@ class CustomDomain(pulumi.CustomResource):
                     ],
                     "subject": "CN=api.example.com",
                     "validity_in_months": 12,
-                    "subject_alternative_names": {
-                        "dns_names": [
-                            "api.example.com",
-                            "portal.example.com",
-                        ],
-                    },
                 },
-            })
+                "lifetime_actions": [{
+                    "action": {
+                        "action_type": "AutoRenew",
+                    },
+                    "trigger": {
+                        "days_before_expiry": 30,
+                    },
+                }],
+            },
+            name="example-certificate",
+            key_vault_id=example.id)
         example_custom_domain = azure.apimanagement.CustomDomain("example",
-            api_management_id=example_service.id,
+            developer_portals=[{
+                "host_name": "portal.example.com",
+                "key_vault_id": example_certificate.versionless_secret_id,
+            }],
             gateways=[{
                 "host_name": "api.example.com",
                 "key_vault_id": example_certificate.versionless_secret_id,
             }],
-            developer_portals=[{
-                "host_name": "portal.example.com",
-                "key_vault_id": example_certificate.versionless_secret_id,
-            }])
+            api_management_id=example_service.id)
         ```
 
         ## API Providers
@@ -377,8 +377,6 @@ class CustomDomain(pulumi.CustomResource):
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
         example_certificate = azure.keyvault.Certificate("example",
-            name="example-certificate",
-            key_vault_id=example.id,
             certificate_policy={
                 "issuer_parameters": {
                     "name": "Self",
@@ -389,18 +387,16 @@ class CustomDomain(pulumi.CustomResource):
                     "key_type": "RSA",
                     "reuse_key": True,
                 },
-                "lifetime_actions": [{
-                    "action": {
-                        "action_type": "AutoRenew",
-                    },
-                    "trigger": {
-                        "days_before_expiry": 30,
-                    },
-                }],
                 "secret_properties": {
                     "content_type": "application/x-pkcs12",
                 },
                 "x509_certificate_properties": {
+                    "subject_alternative_names": {
+                        "dns_names": [
+                            "api.example.com",
+                            "portal.example.com",
+                        ],
+                    },
                     "key_usages": [
                         "cRLSign",
                         "dataEncipherment",
@@ -411,24 +407,28 @@ class CustomDomain(pulumi.CustomResource):
                     ],
                     "subject": "CN=api.example.com",
                     "validity_in_months": 12,
-                    "subject_alternative_names": {
-                        "dns_names": [
-                            "api.example.com",
-                            "portal.example.com",
-                        ],
-                    },
                 },
-            })
+                "lifetime_actions": [{
+                    "action": {
+                        "action_type": "AutoRenew",
+                    },
+                    "trigger": {
+                        "days_before_expiry": 30,
+                    },
+                }],
+            },
+            name="example-certificate",
+            key_vault_id=example.id)
         example_custom_domain = azure.apimanagement.CustomDomain("example",
-            api_management_id=example_service.id,
+            developer_portals=[{
+                "host_name": "portal.example.com",
+                "key_vault_id": example_certificate.versionless_secret_id,
+            }],
             gateways=[{
                 "host_name": "api.example.com",
                 "key_vault_id": example_certificate.versionless_secret_id,
             }],
-            developer_portals=[{
-                "host_name": "portal.example.com",
-                "key_vault_id": example_certificate.versionless_secret_id,
-            }])
+            api_management_id=example_service.id)
         ```
 
         ## API Providers

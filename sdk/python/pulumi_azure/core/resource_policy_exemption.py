@@ -354,13 +354,13 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"])
         example = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
         example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="assignment1",
             resource_id=example_virtual_network.id,
             policy_definition_id=example.id,
-            location=example_resource_group.location,
-            identity={
-                "type": "SystemAssigned",
-            })
+            location=example_resource_group.location)
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
             name="exemption1",
             resource_id=example_resource_policy_assignment.resource_id,
@@ -414,13 +414,13 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"])
         example = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
         example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="assignment1",
             resource_id=example_virtual_network.id,
             policy_definition_id=example.id,
-            location=example_resource_group.location,
-            identity={
-                "type": "SystemAssigned",
-            })
+            location=example_resource_group.location)
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
             name="exemption1",
             resource_id=example_resource_policy_assignment.resource_id,

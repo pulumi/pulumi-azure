@@ -92,15 +92,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new com.pulumi.azure.machinelearning.Workspace("exampleWorkspace", com.pulumi.azure.machinelearning.WorkspaceArgs.builder()
+ *             .identity(com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-mlw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .identity(com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
@@ -109,15 +109,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace2 = new com.pulumi.azure.synapse.Workspace("exampleWorkspace2", com.pulumi.azure.synapse.WorkspaceArgs.builder()
+ *             .identity(com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .identity(com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleSparkPool = new SparkPool("exampleSparkPool", SparkPoolArgs.builder()
@@ -129,13 +129,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSynapseSpark = new SynapseSpark("exampleSynapseSpark", SynapseSparkArgs.builder()
+ *             .identity(SynapseSparkIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example")
  *             .machineLearningWorkspaceId(exampleWorkspace.id())
  *             .location(example.location())
  *             .synapseSparkPoolId(exampleSparkPool.id())
- *             .identity(SynapseSparkIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *     }}{@code

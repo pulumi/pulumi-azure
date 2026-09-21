@@ -26,13 +26,13 @@ import {Kind} from "./index";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "api-appserviceplan-pro",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
+ *     name: "api-appserviceplan-pro",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *
@@ -47,14 +47,14 @@ import {Kind} from "./index";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "api-appserviceplan-pro",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     kind: "FunctionApp",
  *     sku: {
  *         tier: "Dynamic",
  *         size: "Y1",
  *     },
+ *     name: "api-appserviceplan-pro",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     kind: "FunctionApp",
  * });
  * ```
  *
@@ -69,15 +69,15 @@ import {Kind} from "./index";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         size: "S1",
+ *     },
  *     name: "api-appserviceplan-pro",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "Linux",
  *     reserved: true,
- *     sku: {
- *         tier: "Standard",
- *         size: "S1",
- *     },
  * });
  * ```
  *
@@ -92,15 +92,15 @@ import {Kind} from "./index";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
+ *     sku: {
+ *         tier: "PremiumContainer",
+ *         size: "PC2",
+ *     },
  *     name: "api-appserviceplan-pro",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "xenon",
  *     isXenon: true,
- *     sku: {
- *         tier: "PremiumContainer",
- *         size: "PC2",
- *     },
  * });
  * ```
  *

@@ -37,7 +37,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.managedapplication.DefinitionArgs;
  * import com.pulumi.azure.managedapplication.inputs.DefinitionAuthorizationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.azure.managedapplication.Application;
  * import com.pulumi.azure.managedapplication.ApplicationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -66,6 +65,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDefinition = new Definition("exampleDefinition", DefinitionArgs.builder()
+ *             .authorizations(DefinitionAuthorizationArgs.builder()
+ *                 .servicePrincipalId(current.objectId())
+ *                 .roleDefinitionId(StdFunctions.split(Map.ofEntries(
+ *                     Map.entry("separator", "/"),
+ *                     Map.entry("text", builtin.id())
+ *                 )).result()[StdFunctions.split(Map.ofEntries(
+ *                     Map.entry("separator", "/"),
+ *                     Map.entry("text", builtin.id())
+ *                 )).result().size() - 1])
+ *                 .build())
  *             .name("examplemanagedapplicationdefinition")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -73,16 +82,6 @@ import javax.annotation.Nullable;
  *             .packageFileUri("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip")
  *             .displayName("TestManagedAppDefinition")
  *             .description("Test Managed App Definition")
- *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .servicePrincipalId(current.objectId())
- *                 .roleDefinitionId(StdFunctions.split(SplitArgs.builder()
- *                     .separator("/")
- *                     .text(builtin.id())
- *                     .build()).result().size().applyValue(_length -> StdFunctions.split(SplitArgs.builder()
- *                     .separator("/")
- *                     .text(builtin.id())
- *                     .build()).result()[_length - 1]))
- *                 .build())
  *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()

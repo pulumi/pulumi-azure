@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceProviderRegistration("example", ResourceProviderRegistrationArgs.builder()
- *             .name("Microsoft.ContainerService")
  *             .features(ResourceProviderRegistrationFeatureArgs.builder()
  *                 .name("AKS-DataPlaneAutoApprove")
  *                 .registered(true)
  *                 .build())
+ *             .name("Microsoft.ContainerService")
  *             .build());
  * 
  *     }

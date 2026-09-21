@@ -33,22 +33,17 @@ import * as utilities from "../utilities";
  *     storageAccountId: exampleAccount.id,
  * });
  * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleSparkPool = new azure.synapse.SparkPool("example", {
- *     name: "example",
- *     synapseWorkspaceId: exampleWorkspace.id,
- *     nodeSizeFamily: "MemoryOptimized",
- *     nodeSize: "Small",
- *     cacheSize: 100,
  *     autoScale: {
  *         maxNodeCount: 50,
  *         minNodeCount: 3,
@@ -66,6 +61,11 @@ import * as utilities from "../utilities";
  *         content: "spark.shuffle.spill                true\n",
  *         filename: "config.txt",
  *     },
+ *     name: "example",
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     nodeSizeFamily: "MemoryOptimized",
+ *     nodeSize: "Small",
+ *     cacheSize: 100,
  *     sparkVersion: "3.5",
  *     tags: {
  *         ENV: "Production",

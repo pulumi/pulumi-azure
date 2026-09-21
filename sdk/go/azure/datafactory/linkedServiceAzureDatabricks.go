@@ -41,19 +41,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Create a Linked Service using managed identity and new cluster config
+//			//Create a Linked Service using managed identity and new cluster config
 //			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
-//				Name:              pulumi.String("TestDtaFactory92783401247"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &datafactory.FactoryIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("TestDtaFactory92783401247"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			// Create a databricks instance
+//			//Create a databricks instance
 //			exampleWorkspace, err := databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
 //				Name:              pulumi.String("databricks-test"),
 //				ResourceGroupName: example.Name,
@@ -64,13 +64,6 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "msi_linked", &datafactory.LinkedServiceAzureDatabricksArgs{
-//				Name:          pulumi.String("ADBLinkedServiceViaMSI"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Description:   pulumi.String("ADB Linked Service via MSI"),
-//				AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
-//					return fmt.Sprintf("https://%v", workspaceUrl), nil
-//				}).(pulumi.StringOutput),
-//				MsiWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				NewClusterConfig: &datafactory.LinkedServiceAzureDatabricksNewClusterConfigArgs{
 //					NodeType:           pulumi.String("Standard_NC12"),
 //					ClusterVersion:     pulumi.String("5.5.x-gpu-scala2.11"),
@@ -95,6 +88,13 @@ import (
 //						pulumi.String("init2.sh"),
 //					},
 //				},
+//				Name:          pulumi.String("ADBLinkedServiceViaMSI"),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				Description:   pulumi.String("ADB Linked Service via MSI"),
+//				AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
+//					return fmt.Sprintf("https://%v", workspaceUrl), nil
+//				}).(pulumi.StringOutput),
+//				MsiWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -130,7 +130,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Link to an existing cluster via access token
+//			//Link to an existing cluster via access token
 //			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
 //				Name:              pulumi.String("TestDtaFactory92783401247"),
 //				Location:          example.Location,
@@ -139,7 +139,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// Create a databricks instance
+//			//Create a databricks instance
 //			exampleWorkspace, err := databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
 //				Name:              pulumi.String("databricks-test"),
 //				ResourceGroupName: example.Name,

@@ -76,6 +76,14 @@ namespace Pulumi.Azure.Blueprint
     /// 
     ///     var exampleAssignment = new Azure.Blueprint.Assignment("example", new()
     ///     {
+    ///         Identity = new Azure.Blueprint.Inputs.AssignmentIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
     ///         Name = "testAccBPAssignment",
     ///         TargetSubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         VersionId = exampleGetPublishedVersion.Apply(getPublishedVersionResult =&gt; getPublishedVersionResult.Id),
@@ -84,14 +92,6 @@ namespace Pulumi.Azure.Blueprint
     ///         LockExcludePrincipals = new[]
     ///         {
     ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         },
-    ///         Identity = new Azure.Blueprint.Inputs.AssignmentIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
     ///         },
     ///         ResourceGroups = @"    {
     ///       \""ResourceGroup\"": {

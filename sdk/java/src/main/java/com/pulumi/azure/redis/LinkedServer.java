@@ -51,6 +51,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_primaryCache = new Cache("example-primaryCache", CacheArgs.builder()
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
  *             .name("example-cache1")
  *             .location(example_primary.location())
  *             .resourceGroupName(example_primary.name())
@@ -58,11 +63,6 @@ import javax.annotation.Nullable;
  *             .family("P")
  *             .skuName("Premium")
  *             .enableNonSslPort(false)
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .maxmemoryReserved(2)
- *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy("allkeys-lru")
- *                 .build())
  *             .build());
  * 
  *         var example_secondary = new ResourceGroup("example-secondary", ResourceGroupArgs.builder()
@@ -71,6 +71,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_secondaryCache = new Cache("example-secondaryCache", CacheArgs.builder()
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .maxmemoryReserved(2)
+ *                 .maxmemoryDelta(2)
+ *                 .maxmemoryPolicy("allkeys-lru")
+ *                 .build())
  *             .name("example-cache2")
  *             .location(example_secondary.location())
  *             .resourceGroupName(example_secondary.name())
@@ -78,11 +83,6 @@ import javax.annotation.Nullable;
  *             .family("P")
  *             .skuName("Premium")
  *             .enableNonSslPort(false)
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .maxmemoryReserved(2)
- *                 .maxmemoryDelta(2)
- *                 .maxmemoryPolicy("allkeys-lru")
- *                 .build())
  *             .build());
  * 
  *         var example_link = new LinkedServer("example-link", LinkedServerArgs.builder()

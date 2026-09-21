@@ -40,12 +40,6 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleElasticPool = new Azure.MSSql.ElasticPool("example", new()
     ///     {
-    ///         Name = "test-epool",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ServerName = exampleServer.Name,
-    ///         LicenseType = "LicenseIncluded",
-    ///         MaxSizeGb = 756,
     ///         Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
     ///         {
     ///             Name = "BasicPool",
@@ -58,6 +52,12 @@ namespace Pulumi.Azure.MSSql
     ///             MinCapacity = 0.25,
     ///             MaxCapacity = 4,
     ///         },
+    ///         Name = "test-epool",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ServerName = exampleServer.Name,
+    ///         LicenseType = "LicenseIncluded",
+    ///         MaxSizeGb = 756,
     ///     });
     /// 
     /// });

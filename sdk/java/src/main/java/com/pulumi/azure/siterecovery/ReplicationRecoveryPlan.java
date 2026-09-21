@@ -118,23 +118,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var vmNetworkInterface = new NetworkInterface("vmNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("vm-nic")
- *             .location(primary.location())
- *             .resourceGroupName(primary.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("vm")
  *                 .subnetId(primarySubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .publicIpAddressId(primaryPublicIp.id())
  *                 .build())
+ *             .name("vm-nic")
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
  *             .build());
  * 
  *         var vm = new VirtualMachine("vm", VirtualMachineArgs.builder()
- *             .name("vm")
- *             .location(primary.location())
- *             .resourceGroupName(primary.name())
- *             .vmSize("Standard_B1s")
- *             .networkInterfaceIds(vmNetworkInterface.id())
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -156,6 +151,11 @@ import javax.annotation.Nullable;
  *             .osProfileLinuxConfig(VirtualMachineOsProfileLinuxConfigArgs.builder()
  *                 .disablePasswordAuthentication(false)
  *                 .build())
+ *             .name("vm")
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
+ *             .vmSize("Standard_B1s")
+ *             .networkInterfaceIds(vmNetworkInterface.id())
  *             .build());
  * 
  *         var vault = new Vault("vault", VaultArgs.builder()
@@ -252,16 +252,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var vm_replication = new ReplicatedVM("vm-replication", ReplicatedVMArgs.builder()
- *             .name("vm-replication")
- *             .resourceGroupName(secondary.name())
- *             .recoveryVaultName(vault.name())
- *             .sourceRecoveryFabricName(primaryFabric.name())
- *             .sourceVmId(vm.id())
- *             .recoveryReplicationPolicyId(policy.id())
- *             .sourceRecoveryProtectionContainerName(primaryProtectionContainer.name())
- *             .targetResourceGroupId(secondary.id())
- *             .targetRecoveryFabricId(secondaryFabric.id())
- *             .targetRecoveryProtectionContainerId(secondaryProtectionContainer.id())
  *             .managedDisks(ReplicatedVMManagedDiskArgs.builder()
  *                 .diskId(vm.storageOsDisk().applyValue(_storageOsDisk -> _storageOsDisk.managedDiskId()))
  *                 .stagingStorageAccountId(primaryAccount.id())
@@ -274,6 +264,16 @@ import javax.annotation.Nullable;
  *                 .targetSubnetName(secondarySubnet.name())
  *                 .recoveryPublicIpAddressId(secondaryPublicIp.id())
  *                 .build())
+ *             .name("vm-replication")
+ *             .resourceGroupName(secondary.name())
+ *             .recoveryVaultName(vault.name())
+ *             .sourceRecoveryFabricName(primaryFabric.name())
+ *             .sourceVmId(vm.id())
+ *             .recoveryReplicationPolicyId(policy.id())
+ *             .sourceRecoveryProtectionContainerName(primaryProtectionContainer.name())
+ *             .targetResourceGroupId(secondary.id())
+ *             .targetRecoveryFabricId(secondaryFabric.id())
+ *             .targetRecoveryProtectionContainerId(secondaryProtectionContainer.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     container_mapping,
@@ -281,10 +281,6 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var example = new ReplicationRecoveryPlan("example", ReplicationRecoveryPlanArgs.builder()
- *             .name("example-recover-plan")
- *             .recoveryVaultId(vault.id())
- *             .sourceRecoveryFabricId(primaryFabric.id())
- *             .targetRecoveryFabricId(secondaryFabric.id())
  *             .shutdownRecoveryGroup(ReplicationRecoveryPlanShutdownRecoveryGroupArgs.builder()
  *                 .build())
  *             .failoverRecoveryGroup(ReplicationRecoveryPlanFailoverRecoveryGroupArgs.builder()
@@ -292,6 +288,10 @@ import javax.annotation.Nullable;
  *             .bootRecoveryGroups(ReplicationRecoveryPlanBootRecoveryGroupArgs.builder()
  *                 .replicatedProtectedItems(vm_replication.id())
  *                 .build())
+ *             .name("example-recover-plan")
+ *             .recoveryVaultId(vault.id())
+ *             .sourceRecoveryFabricId(primaryFabric.id())
+ *             .targetRecoveryFabricId(secondaryFabric.id())
  *             .build());
  * 
  *     }

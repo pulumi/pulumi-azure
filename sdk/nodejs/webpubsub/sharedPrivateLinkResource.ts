@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  *     location: "east us",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -33,6 +26,13 @@ import * as utilities from "../utilities";
  *         keyPermissions: ["create"],
  *         secretPermissions: ["set"],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
  * });
  * const exampleService = new azure.webpubsub.Service("example", {
  *     name: "tfex-webpubsub",

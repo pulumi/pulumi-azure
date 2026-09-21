@@ -56,9 +56,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
- *             .name("example-nrm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .plan(MonitorPlanArgs.builder()
  *                 .effectiveDate("2023-06-06T00:00:00Z")
  *                 .build())
@@ -71,6 +68,9 @@ import javax.annotation.Nullable;
  *             .identity(MonitorIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-nrm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *     }}{@code

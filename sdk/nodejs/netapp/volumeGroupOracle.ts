@@ -31,12 +31,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.88.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: `${prefix}-delegated-subnet`,
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.88.2.0/24"],
  *     delegations: [{
- *         name: "exampledelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -44,7 +39,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "exampledelegation",
  *     }],
+ *     name: `${prefix}-delegated-subnet`,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.88.2.0/24"],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     name: `${prefix}-netapp-account`,
@@ -63,14 +63,17 @@ import * as utilities from "../utilities";
  *     qosType: "Manual",
  * });
  * const exampleVolumeGroupOracle = new azure.netapp.VolumeGroupOracle("example", {
- *     name: `${prefix}-NetAppVolumeGroupOracle`,
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     accountName: exampleAccount.name,
- *     groupDescription: "Example volume group for Oracle",
- *     applicationIdentifier: "TST",
  *     volumes: [
  *         {
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
  *             name: `${prefix}-volume-ora1`,
  *             volumePath: `${prefix}-my-unique-file-ora-path-1`,
  *             serviceLevel: "Standard",
@@ -83,6 +86,8 @@ import * as utilities from "../utilities";
  *             protocols: "NFSv4.1",
  *             securityStyle: "unix",
  *             snapshotDirectoryVisible: false,
+ *         },
+ *         {
  *             exportPolicyRules: [{
  *                 ruleIndex: 1,
  *                 allowedClients: "0.0.0.0/0",
@@ -92,8 +97,6 @@ import * as utilities from "../utilities";
  *                 unixReadWrite: true,
  *                 rootAccessEnabled: false,
  *             }],
- *         },
- *         {
  *             name: `${prefix}-volume-oraLog`,
  *             volumePath: `${prefix}-my-unique-file-oralog-path`,
  *             serviceLevel: "Standard",
@@ -106,17 +109,14 @@ import * as utilities from "../utilities";
  *             protocols: "NFSv4.1",
  *             securityStyle: "unix",
  *             snapshotDirectoryVisible: false,
- *             exportPolicyRules: [{
- *                 ruleIndex: 1,
- *                 allowedClients: "0.0.0.0/0",
- *                 nfsv3Enabled: false,
- *                 nfsv41Enabled: true,
- *                 unixReadOnly: false,
- *                 unixReadWrite: true,
- *                 rootAccessEnabled: false,
- *             }],
  *         },
  *     ],
+ *     name: `${prefix}-NetAppVolumeGroupOracle`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount.name,
+ *     groupDescription: "Example volume group for Oracle",
+ *     applicationIdentifier: "TST",
  * });
  * ```
  *
@@ -141,12 +141,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.47.0.0/16"],
  * });
  * const examplePrimarySubnet = new azure.network.Subnet("example_primary", {
- *     name: `${prefix}-delegated-subnet-primary`,
- *     resourceGroupName: example.name,
- *     virtualNetworkName: examplePrimary.name,
- *     addressPrefixes: ["10.47.2.0/24"],
  *     delegations: [{
- *         name: "exampledelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -154,7 +149,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "exampledelegation",
  *     }],
+ *     name: `${prefix}-delegated-subnet-primary`,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: examplePrimary.name,
+ *     addressPrefixes: ["10.47.2.0/24"],
  * });
  * // Secondary region networking
  * const exampleSecondary = new azure.network.VirtualNetwork("example_secondary", {
@@ -164,12 +164,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.48.0.0/16"],
  * });
  * const exampleSecondarySubnet = new azure.network.Subnet("example_secondary", {
- *     name: `${prefix}-delegated-subnet-secondary`,
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleSecondary.name,
- *     addressPrefixes: ["10.48.2.0/24"],
  *     delegations: [{
- *         name: "exampledelegation",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -177,7 +172,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "exampledelegation",
  *     }],
+ *     name: `${prefix}-delegated-subnet-secondary`,
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleSecondary.name,
+ *     addressPrefixes: ["10.48.2.0/24"],
  * });
  * // Primary region NetApp infrastructure
  * const examplePrimaryAccount = new azure.netapp.Account("example_primary", {
@@ -215,13 +215,16 @@ import * as utilities from "../utilities";
  * });
  * // Primary Oracle volume group
  * const examplePrimaryVolumeGroupOracle = new azure.netapp.VolumeGroupOracle("example_primary", {
- *     name: `${prefix}-NetAppVolumeGroupOracle-primary`,
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     accountName: examplePrimaryAccount.name,
- *     groupDescription: "Primary Oracle volume group for CRR",
- *     applicationIdentifier: "TST",
  *     volumes: [{
+ *         exportPolicyRules: [{
+ *             ruleIndex: 1,
+ *             allowedClients: "0.0.0.0/0",
+ *             nfsv3Enabled: false,
+ *             nfsv41Enabled: true,
+ *             unixReadOnly: false,
+ *             unixReadWrite: true,
+ *             rootAccessEnabled: false,
+ *         }],
  *         name: `${prefix}-volume-ora1-primary`,
  *         volumePath: `${prefix}-my-unique-file-ora-path-1-primary`,
  *         serviceLevel: "Standard",
@@ -233,6 +236,23 @@ import * as utilities from "../utilities";
  *         protocols: "NFSv4.1",
  *         securityStyle: "unix",
  *         snapshotDirectoryVisible: false,
+ *     }],
+ *     name: `${prefix}-NetAppVolumeGroupOracle-primary`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     accountName: examplePrimaryAccount.name,
+ *     groupDescription: "Primary Oracle volume group for CRR",
+ *     applicationIdentifier: "TST",
+ * });
+ * // Secondary Oracle volume group with CRR
+ * const exampleSecondaryVolumeGroupOracle = new azure.netapp.VolumeGroupOracle("example_secondary", {
+ *     volumes: [{
+ *         dataProtectionReplication: {
+ *             endpointType: "dst",
+ *             remoteVolumeLocation: example.location,
+ *             remoteVolumeResourceId: examplePrimaryVolumeGroupOracle.volumes[0].id,
+ *             replicationFrequency: "10minutes",
+ *         },
  *         exportPolicyRules: [{
  *             ruleIndex: 1,
  *             allowedClients: "0.0.0.0/0",
@@ -242,17 +262,6 @@ import * as utilities from "../utilities";
  *             unixReadWrite: true,
  *             rootAccessEnabled: false,
  *         }],
- *     }],
- * });
- * // Secondary Oracle volume group with CRR
- * const exampleSecondaryVolumeGroupOracle = new azure.netapp.VolumeGroupOracle("example_secondary", {
- *     name: `${prefix}-NetAppVolumeGroupOracle-secondary`,
- *     location: altLocation,
- *     resourceGroupName: example.name,
- *     accountName: exampleSecondaryAccount.name,
- *     groupDescription: "Secondary Oracle volume group for CRR",
- *     applicationIdentifier: "TST",
- *     volumes: [{
  *         name: `${prefix}-volume-ora1-secondary`,
  *         volumePath: `${prefix}-my-unique-file-ora-path-1-secondary`,
  *         serviceLevel: "Standard",
@@ -264,22 +273,13 @@ import * as utilities from "../utilities";
  *         protocols: "NFSv4.1",
  *         securityStyle: "unix",
  *         snapshotDirectoryVisible: false,
- *         exportPolicyRules: [{
- *             ruleIndex: 1,
- *             allowedClients: "0.0.0.0/0",
- *             nfsv3Enabled: false,
- *             nfsv41Enabled: true,
- *             unixReadOnly: false,
- *             unixReadWrite: true,
- *             rootAccessEnabled: false,
- *         }],
- *         dataProtectionReplication: {
- *             endpointType: "dst",
- *             remoteVolumeLocation: example.location,
- *             remoteVolumeResourceId: examplePrimaryVolumeGroupOracle.volumes[0].id,
- *             replicationFrequency: "10minutes",
- *         },
  *     }],
+ *     name: `${prefix}-NetAppVolumeGroupOracle-secondary`,
+ *     location: altLocation,
+ *     resourceGroupName: example.name,
+ *     accountName: exampleSecondaryAccount.name,
+ *     groupDescription: "Secondary Oracle volume group for CRR",
+ *     applicationIdentifier: "TST",
  * }, {
  *     dependsOn: [examplePrimaryVolumeGroupOracle],
  * });

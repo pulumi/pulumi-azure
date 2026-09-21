@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomationRule = new AutomationRule("exampleAutomationRule", AutomationRuleArgs.builder()
- *             .name("56094f72-ac3f-40e7-a0c0-47bd95f70336")
- *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
- *             .displayName("automation_rule1")
- *             .order(1)
  *             .actionIncidents(AutomationRuleActionIncidentArgs.builder()
  *                 .order(1)
  *                 .status("Active")
  *                 .build())
+ *             .name("56094f72-ac3f-40e7-a0c0-47bd95f70336")
+ *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
+ *             .displayName("automation_rule1")
+ *             .order(1)
  *             .build());
  * 
  *     }

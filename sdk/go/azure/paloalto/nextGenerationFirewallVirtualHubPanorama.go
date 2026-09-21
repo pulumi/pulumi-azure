@@ -78,9 +78,6 @@ import (
 //				return err
 //			}
 //			_, err = paloalto.NewNextGenerationFirewallVirtualHubPanorama(ctx, "example", &paloalto.NextGenerationFirewallVirtualHubPanoramaArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
 //						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -88,6 +85,9 @@ import (
 //					VirtualHubId:              exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //					NetworkVirtualApplianceId: exampleVirtualNetworkAppliance.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:                 pulumi.String("example"),
+//				ResourceGroupName:    example.Name,
+//				Location:             example.Location,
 //				PanoramaBase64Config: pulumi.String("VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg=="),
 //			})
 //			if err != nil {

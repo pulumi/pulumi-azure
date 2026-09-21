@@ -32,6 +32,10 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleFileSystem = new azure.managedlustre.FileSystem("example", {
+ *     maintenanceWindow: {
+ *         dayOfWeek: "Friday",
+ *         timeOfDayUtc: "22:00",
+ *     },
  *     name: "example-amlfs",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -39,10 +43,6 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  *     storageCapacityInTb: 8,
  *     zones: ["2"],
- *     maintenanceWindow: {
- *         dayOfWeek: "Friday",
- *         timeOfDayUtc: "22:00",
- *     },
  * });
  * ```
  *

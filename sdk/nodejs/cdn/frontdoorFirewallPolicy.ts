@@ -25,23 +25,8 @@ import * as utilities from "../utilities";
  *     skuName: "Premium_AzureFrontDoor",
  * });
  * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("example", {
- *     name: "examplecdnfdwafpolicy",
- *     resourceGroupName: example.name,
- *     skuName: exampleFrontdoorProfile.skuName,
- *     enabled: true,
- *     mode: "Prevention",
- *     redirectUrl: "https://www.contoso.com",
- *     customBlockResponseStatusCode: 403,
- *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
  *     customRules: [
  *         {
- *             name: "Rule1",
- *             enabled: true,
- *             priority: 1,
- *             rateLimitDurationInMinutes: 1,
- *             rateLimitThreshold: 10,
- *             type: "MatchRule",
- *             action: "Block",
  *             matchConditions: [{
  *                 matchVariable: "SocketAddr",
  *                 operator: "IPMatch",
@@ -51,15 +36,15 @@ import * as utilities from "../utilities";
  *                     "10.0.0.0/24",
  *                 ],
  *             }],
- *         },
- *         {
- *             name: "Rule2",
+ *             name: "Rule1",
  *             enabled: true,
- *             priority: 50,
+ *             priority: 1,
  *             rateLimitDurationInMinutes: 1,
  *             rateLimitThreshold: 10,
  *             type: "MatchRule",
  *             action: "Block",
+ *         },
+ *         {
  *             matchConditions: [
  *                 {
  *                     matchVariable: "SocketAddr",
@@ -79,13 +64,17 @@ import * as utilities from "../utilities";
  *                     ],
  *                 },
  *             ],
+ *             name: "Rule2",
+ *             enabled: true,
+ *             priority: 50,
+ *             rateLimitDurationInMinutes: 1,
+ *             rateLimitThreshold: 10,
+ *             type: "MatchRule",
+ *             action: "Block",
  *         },
  *     ],
  *     managedRules: [
  *         {
- *             type: "DefaultRuleSet",
- *             version: "1.0",
- *             action: "Log",
  *             exclusions: [{
  *                 matchVariable: "QueryStringArgNames",
  *                 operator: "Equals",
@@ -93,31 +82,34 @@ import * as utilities from "../utilities";
  *             }],
  *             overrides: [
  *                 {
- *                     ruleGroupName: "PHP",
  *                     rules: [{
  *                         ruleId: "933100",
  *                         enabled: false,
  *                         action: "Block",
  *                     }],
+ *                     ruleGroupName: "PHP",
  *                 },
  *                 {
- *                     ruleGroupName: "SQLI",
  *                     exclusions: [{
  *                         matchVariable: "QueryStringArgNames",
  *                         operator: "Equals",
  *                         selector: "really_not_suspicious",
  *                     }],
  *                     rules: [{
- *                         ruleId: "942200",
- *                         action: "Block",
  *                         exclusions: [{
  *                             matchVariable: "QueryStringArgNames",
  *                             operator: "Equals",
  *                             selector: "innocent",
  *                         }],
+ *                         ruleId: "942200",
+ *                         action: "Block",
  *                     }],
+ *                     ruleGroupName: "SQLI",
  *                 },
  *             ],
+ *             type: "DefaultRuleSet",
+ *             version: "1.0",
+ *             action: "Log",
  *         },
  *         {
  *             type: "Microsoft_BotManagerRuleSet",
@@ -125,6 +117,14 @@ import * as utilities from "../utilities";
  *             action: "Log",
  *         },
  *     ],
+ *     name: "examplecdnfdwafpolicy",
+ *     resourceGroupName: example.name,
+ *     skuName: exampleFrontdoorProfile.skuName,
+ *     enabled: true,
+ *     mode: "Prevention",
+ *     redirectUrl: "https://www.contoso.com",
+ *     customBlockResponseStatusCode: 403,
+ *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
  * });
  * ```
  *

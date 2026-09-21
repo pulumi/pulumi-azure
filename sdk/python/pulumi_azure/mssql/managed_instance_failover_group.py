@@ -337,12 +337,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=primary_virtual_network.id)
         primary_subnet = azure.network.Subnet("primary",
-            name=primary_name,
-            resource_group_name=primary.name,
-            virtual_network_name=primary_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -351,7 +346,12 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                     ],
                     "name": "Microsoft.Sql/managedInstances",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name=primary_name,
+            resource_group_name=primary.name,
+            virtual_network_name=primary_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
             name=primary_name,
             location=primary.location,
@@ -396,12 +396,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=failover_virtual_network.id)
         failover_subnet = azure.network.Subnet("failover",
-            name="ManagedInstance",
-            resource_group_name=failover.name,
-            virtual_network_name=failover_virtual_network.name,
-            address_prefixes=["10.1.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -410,7 +405,12 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                     ],
                     "name": "Microsoft.Sql/managedInstances",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name="ManagedInstance",
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
         failover_network_security_group = azure.network.NetworkSecurityGroup("failover",
             name=failover_name,
             location=failover.location,
@@ -442,15 +442,15 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                     failover_subnet_route_table_association,
                 ]))
         example = azure.mssql.ManagedInstanceFailoverGroup("example",
+            read_write_endpoint_failover_policy={
+                "mode": "Automatic",
+                "grace_minutes": 60,
+            },
             name="example-failover-group",
             location=primary_managed_instance.location,
             managed_instance_id=primary_managed_instance.id,
             partner_managed_instance_id=failover_managed_instance.id,
             secondary_type="Geo",
-            read_write_endpoint_failover_policy={
-                "mode": "Automatic",
-                "grace_minutes": 60,
-            },
             opts = pulumi.ResourceOptions(depends_on=[
                     primary_zone_virtual_network_link,
                     failover_zone_virtual_network_link,
@@ -540,12 +540,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=primary_virtual_network.id)
         primary_subnet = azure.network.Subnet("primary",
-            name=primary_name,
-            resource_group_name=primary.name,
-            virtual_network_name=primary_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -554,7 +549,12 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                     ],
                     "name": "Microsoft.Sql/managedInstances",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name=primary_name,
+            resource_group_name=primary.name,
+            virtual_network_name=primary_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
             name=primary_name,
             location=primary.location,
@@ -599,12 +599,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             private_dns_zone_name=example_zone.name,
             virtual_network_id=failover_virtual_network.id)
         failover_subnet = azure.network.Subnet("failover",
-            name="ManagedInstance",
-            resource_group_name=failover.name,
-            virtual_network_name=failover_virtual_network.name,
-            address_prefixes=["10.1.1.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -613,7 +608,12 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                     ],
                     "name": "Microsoft.Sql/managedInstances",
                 },
-            }])
+                "name": "delegation",
+            }],
+            name="ManagedInstance",
+            resource_group_name=failover.name,
+            virtual_network_name=failover_virtual_network.name,
+            address_prefixes=["10.1.1.0/24"])
         failover_network_security_group = azure.network.NetworkSecurityGroup("failover",
             name=failover_name,
             location=failover.location,
@@ -645,15 +645,15 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                     failover_subnet_route_table_association,
                 ]))
         example = azure.mssql.ManagedInstanceFailoverGroup("example",
+            read_write_endpoint_failover_policy={
+                "mode": "Automatic",
+                "grace_minutes": 60,
+            },
             name="example-failover-group",
             location=primary_managed_instance.location,
             managed_instance_id=primary_managed_instance.id,
             partner_managed_instance_id=failover_managed_instance.id,
             secondary_type="Geo",
-            read_write_endpoint_failover_policy={
-                "mode": "Automatic",
-                "grace_minutes": 60,
-            },
             opts = pulumi.ResourceOptions(depends_on=[
                     primary_zone_virtual_network_link,
                     failover_zone_virtual_network_link,

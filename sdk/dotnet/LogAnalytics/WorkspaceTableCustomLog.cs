@@ -39,8 +39,6 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     ///     var exampleWorkspaceTableCustomLog = new Azure.LogAnalytics.WorkspaceTableCustomLog("example", new()
     ///     {
-    ///         Name = "example_CL",
-    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         Columns = new[]
     ///         {
     ///             new Azure.LogAnalytics.Inputs.WorkspaceTableCustomLogColumnArgs
@@ -49,6 +47,8 @@ namespace Pulumi.Azure.LogAnalytics
     ///                 Type = "dateTime",
     ///             },
     ///         },
+    ///         Name = "example_CL",
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
     /// });

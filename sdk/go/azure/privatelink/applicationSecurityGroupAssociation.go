@@ -89,21 +89,28 @@ import (
 //				return err
 //			}
 //			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
-//				Name:              pulumi.String("examplelb"),
-//				Sku:               pulumi.String("Standard"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("examplelb"),
+//				Sku:               pulumi.String("Standard"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinkService, err := privatedns.NewLinkService(ctx, "example", &privatedns.LinkServiceArgs{
+//				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
+//					&privatedns.LinkServiceNatIpConfigurationArgs{
+//						Name:     pulumi.String("primaryIpConfiguration"),
+//						Primary:  pulumi.Bool(true),
+//						SubnetId: service.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
 //				Name:              pulumi.String("examplePLS"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
@@ -112,13 +119,6 @@ import (
 //				},
 //				VisibilitySubscriptionIds: pulumi.StringArray{
 //					pulumi.String(current.SubscriptionId),
-//				},
-//				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
-//					&privatedns.LinkServiceNatIpConfigurationArgs{
-//						Name:     pulumi.String("primaryIpConfiguration"),
-//						Primary:  pulumi.Bool(true),
-//						SubnetId: service.ID().ToIDOutput().ToStringOutput(),
-//					},
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
 //					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
@@ -130,15 +130,15 @@ import (
 //				return err
 //			}
 //			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
-//				Name:              pulumi.String("example-privatelink"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				SubnetId:          endpoint.ID().ToIDOutput().ToStringOutput(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        exampleLinkService.Name,
 //					IsManualConnection:          pulumi.Bool(false),
 //					PrivateConnectionResourceId: exampleLinkService.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Name:              pulumi.String("example-privatelink"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				SubnetId:          endpoint.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

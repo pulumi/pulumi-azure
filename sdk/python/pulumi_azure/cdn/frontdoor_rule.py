@@ -297,10 +297,6 @@ class FrontdoorRule(pulumi.CustomResource):
                 "endpoint": "contoso.com",
             })
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -311,7 +307,11 @@ class FrontdoorRule(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-originGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -327,10 +327,6 @@ class FrontdoorRule(pulumi.CustomResource):
             name="exampleruleset",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_rule = azure.cdn.FrontdoorRule("example",
-            name="examplerule",
-            cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
-            order=1,
-            behavior_on_match="Continue",
             actions={
                 "route_configuration_override_action": {
                     "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
@@ -397,6 +393,10 @@ class FrontdoorRule(pulumi.CustomResource):
                     ],
                 }],
             },
+            name="examplerule",
+            cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
+            order=1,
+            behavior_on_match="Continue",
             opts = pulumi.ResourceOptions(depends_on=[
                     example_frontdoor_origin_group,
                     example_frontdoor_origin,
@@ -592,10 +592,6 @@ class FrontdoorRule(pulumi.CustomResource):
                 "endpoint": "contoso.com",
             })
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
-            name="example-originGroup",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            session_affinity_enabled=True,
-            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
                 "interval_in_seconds": 240,
                 "path": "/healthProbe",
@@ -606,7 +602,11 @@ class FrontdoorRule(pulumi.CustomResource):
                 "additional_latency_in_milliseconds": 0,
                 "sample_size": 16,
                 "successful_samples_required": 3,
-            })
+            },
+            name="example-originGroup",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            session_affinity_enabled=True,
+            restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
@@ -622,10 +622,6 @@ class FrontdoorRule(pulumi.CustomResource):
             name="exampleruleset",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_rule = azure.cdn.FrontdoorRule("example",
-            name="examplerule",
-            cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
-            order=1,
-            behavior_on_match="Continue",
             actions={
                 "route_configuration_override_action": {
                     "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
@@ -692,6 +688,10 @@ class FrontdoorRule(pulumi.CustomResource):
                     ],
                 }],
             },
+            name="examplerule",
+            cdn_frontdoor_rule_set_id=example_frontdoor_rule_set.id,
+            order=1,
+            behavior_on_match="Continue",
             opts = pulumi.ResourceOptions(depends_on=[
                     example_frontdoor_origin_group,
                     example_frontdoor_origin,

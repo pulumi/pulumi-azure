@@ -72,12 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("subnet1-mssql")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("managedinstancedelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Sql/managedInstances")
  *                     .actions(                    
@@ -85,10 +80,18 @@ import javax.annotation.Nullable;
  *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
  *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .build())
+ *                 .name("managedinstancedelegation")
  *                 .build())
+ *             .name("subnet1-mssql")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.0/24")
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
+ *             .identity(ManagedInstanceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("mssqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -99,9 +102,6 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .administratorLogin("missadministrator")
  *             .administratorLoginPassword("NCC-1701-D")
- *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", ManagedInstanceTransparentDataEncryptionArgs.builder()
@@ -170,12 +170,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("subnet1-mssql")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.0.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("managedinstancedelegation")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Sql/managedInstances")
  *                     .actions(                    
@@ -183,10 +178,18 @@ import javax.annotation.Nullable;
  *                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
  *                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action")
  *                     .build())
+ *                 .name("managedinstancedelegation")
  *                 .build())
+ *             .name("subnet1-mssql")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.0/24")
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance("exampleManagedInstance", ManagedInstanceArgs.builder()
+ *             .identity(ManagedInstanceIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("mssqlinstance")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -197,22 +200,10 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .administratorLogin("missadministrator")
  *             .administratorLoginPassword("NCC-1701-D")
- *             .identity(ManagedInstanceIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         // Create a key vault with policies for the deployer to create a key & SQL Managed Instance to wrap/unwrap/get key
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .enabledForDiskEncryption(true)
- *             .tenantId(current.tenantId())
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(false)
- *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -235,6 +226,15 @@ import javax.annotation.Nullable;
  *                         "WrapKey",
  *                         "UnwrapKey")
  *                     .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(current.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(false)
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()

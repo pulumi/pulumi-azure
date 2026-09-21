@@ -36,6 +36,12 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleTriggerBlobEvent = new azure.datafactory.TriggerBlobEvent("example", {
+ *     pipelines: [{
+ *         name: examplePipeline.name,
+ *         parameters: {
+ *             Env: "Prod",
+ *         },
+ *     }],
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     storageAccountId: exampleAccount.id,
@@ -52,12 +58,6 @@ import * as utilities from "../utilities";
  *         "test3",
  *     ],
  *     description: "example description",
- *     pipelines: [{
- *         name: examplePipeline.name,
- *         parameters: {
- *             Env: "Prod",
- *         },
- *     }],
  *     additionalProperties: {
  *         foo: "foo1",
  *         bar: "bar2",

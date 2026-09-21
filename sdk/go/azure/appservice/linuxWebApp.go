@@ -47,11 +47,11 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

@@ -67,9 +67,6 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var vmNetworkInterface = new Azure.Network.NetworkInterface("vm", new()
     ///     {
-    ///         Name = "vm-nic",
-    ///         Location = primary.Location,
-    ///         ResourceGroupName = primary.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -80,18 +77,13 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 PublicIpAddressId = primaryPublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "vm-nic",
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
     ///     });
     /// 
     ///     var vm = new Azure.Compute.VirtualMachine("vm", new()
     ///     {
-    ///         Name = "vm",
-    ///         Location = primary.Location,
-    ///         ResourceGroupName = primary.Name,
-    ///         VmSize = "Standard_B1s",
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             vmNetworkInterface.Id,
-    ///         },
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -116,6 +108,14 @@ namespace Pulumi.Azure.SiteRecovery
     ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
     ///         {
     ///             DisablePasswordAuthentication = false,
+    ///         },
+    ///         Name = "vm",
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
+    ///         VmSize = "Standard_B1s",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             vmNetworkInterface.Id,
     ///         },
     ///     });
     /// 
@@ -232,16 +232,6 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var vm_replication = new Azure.SiteRecovery.ReplicatedVM("vm-replication", new()
     ///     {
-    ///         Name = "vm-replication",
-    ///         ResourceGroupName = secondary.Name,
-    ///         RecoveryVaultName = vault.Name,
-    ///         SourceRecoveryFabricName = primaryFabric.Name,
-    ///         SourceVmId = vm.Id,
-    ///         RecoveryReplicationPolicyId = policy.Id,
-    ///         SourceRecoveryProtectionContainerName = primaryProtectionContainer.Name,
-    ///         TargetResourceGroupId = secondary.Id,
-    ///         TargetRecoveryFabricId = secondaryFabric.Id,
-    ///         TargetRecoveryProtectionContainerId = secondaryProtectionContainer.Id,
     ///         ManagedDisks = new[]
     ///         {
     ///             new Azure.SiteRecovery.Inputs.ReplicatedVMManagedDiskArgs
@@ -262,6 +252,16 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 RecoveryPublicIpAddressId = secondaryPublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "vm-replication",
+    ///         ResourceGroupName = secondary.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceRecoveryFabricName = primaryFabric.Name,
+    ///         SourceVmId = vm.Id,
+    ///         RecoveryReplicationPolicyId = policy.Id,
+    ///         SourceRecoveryProtectionContainerName = primaryProtectionContainer.Name,
+    ///         TargetResourceGroupId = secondary.Id,
+    ///         TargetRecoveryFabricId = secondaryFabric.Id,
+    ///         TargetRecoveryProtectionContainerId = secondaryProtectionContainer.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -273,10 +273,6 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var example = new Azure.SiteRecovery.ReplicationRecoveryPlan("example", new()
     ///     {
-    ///         Name = "example-recover-plan",
-    ///         RecoveryVaultId = vault.Id,
-    ///         SourceRecoveryFabricId = primaryFabric.Id,
-    ///         TargetRecoveryFabricId = secondaryFabric.Id,
     ///         ShutdownRecoveryGroup = null,
     ///         FailoverRecoveryGroup = null,
     ///         BootRecoveryGroups = new[]
@@ -289,6 +285,10 @@ namespace Pulumi.Azure.SiteRecovery
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-recover-plan",
+    ///         RecoveryVaultId = vault.Id,
+    ///         SourceRecoveryFabricId = primaryFabric.Id,
+    ///         TargetRecoveryFabricId = secondaryFabric.Id,
     ///     });
     /// 
     /// });

@@ -53,17 +53,17 @@ import (
 //				return err
 //			}
 //			_, err = bot.NewChannelFacebook(ctx, "example", &bot.ChannelFacebookArgs{
-//				BotName:                   exampleChannelsRegistration.Name,
-//				Location:                  exampleChannelsRegistration.Location,
-//				ResourceGroupName:         example.Name,
-//				FacebookApplicationId:     pulumi.String("563490254873576"),
-//				FacebookApplicationSecret: pulumi.String("8976d2536445ad5b976dee8437b9beb0"),
 //				Pages: bot.ChannelFacebookPageArray{
 //					&bot.ChannelFacebookPageArgs{
 //						Id:          pulumi.String("876248795081953"),
 //						AccessToken: pulumi.String("CGGCec3UAFPMBAKwK3Ft8SEpO8ZCuvpNBI5DClaJCDfqJj2BgEHCKxcY0FDarmUQap6XxpZC9GWCW4nZCzjcKosAZAP7SO44X8Q8gAntbDIXgYUBGp9xtS8wUkwgKPobUePcOOVFkvClxvYZByuiQxoTiK9fQ9jZCPEorbmZCsKDZAx4VLnrNwCTZAPUwXxO61gfq4ZD"),
 //					},
 //				},
+//				BotName:                   exampleChannelsRegistration.Name,
+//				Location:                  exampleChannelsRegistration.Location,
+//				ResourceGroupName:         example.Name,
+//				FacebookApplicationId:     pulumi.String("563490254873576"),
+//				FacebookApplicationSecret: pulumi.String("8976d2536445ad5b976dee8437b9beb0"),
 //			})
 //			if err != nil {
 //				return err

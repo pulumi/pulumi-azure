@@ -1308,12 +1308,11 @@ class Account(pulumi.CustomResource):
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            name=f"tfex-cosmos-db-{ri['result']}",
-            location=example["location"],
-            resource_group_name=example["name"],
-            offer_type="Standard",
-            kind="MongoDB",
-            automatic_failover_enabled=True,
+            consistency_policy={
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 300,
+                "max_staleness_prefix": 100000,
+            },
             capabilities=[
                 {
                     "name": "EnableAggregationPipeline",
@@ -1328,11 +1327,6 @@ class Account(pulumi.CustomResource):
                     "name": "EnableMongo",
                 },
             ],
-            consistency_policy={
-                "consistency_level": "BoundedStaleness",
-                "max_interval_in_seconds": 300,
-                "max_staleness_prefix": 100000,
-            },
             geo_locations=[
                 {
                     "location": "eastus",
@@ -1342,7 +1336,13 @@ class Account(pulumi.CustomResource):
                     "location": "westus",
                     "failover_priority": 0,
                 },
-            ])
+            ],
+            name=f"tfex-cosmos-db-{ri['result']}",
+            location=example["location"],
+            resource_group_name=example["name"],
+            offer_type="Standard",
+            kind="MongoDB",
+            automatic_failover_enabled=True)
         ```
 
         ## User Assigned Identity Example Usage
@@ -1357,30 +1357,30 @@ class Account(pulumi.CustomResource):
             location=example_azurerm_resource_group["location"],
             name="example-resource")
         example_account = azure.cosmosdb.Account("example",
-            name="example-resource",
-            location=example_azurerm_resource_group["location"],
-            resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join_output(separator="=",
-                input=[
-                    "UserAssignedIdentity",
-                    example.id,
-                ]).result,
-            offer_type="Standard",
-            kind="MongoDB",
-            capabilities=[{
-                "name": "EnableMongo",
-            }],
             consistency_policy={
                 "consistency_level": "Strong",
             },
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example.id],
+            },
+            capabilities=[{
+                "name": "EnableMongo",
+            }],
             geo_locations=[{
                 "location": "westus",
                 "failover_priority": 0,
             }],
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example.id],
-            })
+            name="example-resource",
+            location=example_azurerm_resource_group["location"],
+            resource_group_name=example_azurerm_resource_group["name"],
+            default_identity_type=std.join(separator="=",
+                input=[
+                    "UserAssignedIdentity",
+                    example.id,
+                ])["result"],
+            offer_type="Standard",
+            kind="MongoDB")
         ```
         ## API Providers
 
@@ -1438,12 +1438,11 @@ class Account(pulumi.CustomResource):
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            name=f"tfex-cosmos-db-{ri['result']}",
-            location=example["location"],
-            resource_group_name=example["name"],
-            offer_type="Standard",
-            kind="MongoDB",
-            automatic_failover_enabled=True,
+            consistency_policy={
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 300,
+                "max_staleness_prefix": 100000,
+            },
             capabilities=[
                 {
                     "name": "EnableAggregationPipeline",
@@ -1458,11 +1457,6 @@ class Account(pulumi.CustomResource):
                     "name": "EnableMongo",
                 },
             ],
-            consistency_policy={
-                "consistency_level": "BoundedStaleness",
-                "max_interval_in_seconds": 300,
-                "max_staleness_prefix": 100000,
-            },
             geo_locations=[
                 {
                     "location": "eastus",
@@ -1472,7 +1466,13 @@ class Account(pulumi.CustomResource):
                     "location": "westus",
                     "failover_priority": 0,
                 },
-            ])
+            ],
+            name=f"tfex-cosmos-db-{ri['result']}",
+            location=example["location"],
+            resource_group_name=example["name"],
+            offer_type="Standard",
+            kind="MongoDB",
+            automatic_failover_enabled=True)
         ```
 
         ## User Assigned Identity Example Usage
@@ -1487,30 +1487,30 @@ class Account(pulumi.CustomResource):
             location=example_azurerm_resource_group["location"],
             name="example-resource")
         example_account = azure.cosmosdb.Account("example",
-            name="example-resource",
-            location=example_azurerm_resource_group["location"],
-            resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join_output(separator="=",
-                input=[
-                    "UserAssignedIdentity",
-                    example.id,
-                ]).result,
-            offer_type="Standard",
-            kind="MongoDB",
-            capabilities=[{
-                "name": "EnableMongo",
-            }],
             consistency_policy={
                 "consistency_level": "Strong",
             },
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example.id],
+            },
+            capabilities=[{
+                "name": "EnableMongo",
+            }],
             geo_locations=[{
                 "location": "westus",
                 "failover_priority": 0,
             }],
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": [example.id],
-            })
+            name="example-resource",
+            location=example_azurerm_resource_group["location"],
+            resource_group_name=example_azurerm_resource_group["name"],
+            default_identity_type=std.join(separator="=",
+                input=[
+                    "UserAssignedIdentity",
+                    example.id,
+                ])["result"],
+            offer_type="Standard",
+            kind="MongoDB")
         ```
         ## API Providers
 

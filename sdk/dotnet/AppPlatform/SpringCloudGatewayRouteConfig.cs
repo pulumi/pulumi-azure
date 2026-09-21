@@ -55,10 +55,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudGatewayRouteConfig = new Azure.AppPlatform.SpringCloudGatewayRouteConfig("example", new()
     ///     {
-    ///         Name = "example",
-    ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
-    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///         Protocol = "HTTPS",
     ///         Routes = new[]
     ///         {
     ///             new Azure.AppPlatform.Inputs.SpringCloudGatewayRouteConfigRouteArgs
@@ -85,6 +81,10 @@ namespace Pulumi.Azure.AppPlatform
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         Protocol = "HTTPS",
     ///     });
     /// 
     /// });

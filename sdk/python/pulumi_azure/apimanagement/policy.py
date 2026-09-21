@@ -169,7 +169,7 @@ class Policy(pulumi.CustomResource):
             value="Example Value")
         example_policy = azure.apimanagement.Policy("example",
             api_management_id=example_service.id,
-            xml_content=std.file(input="example.xml").result)
+            xml_content=std.file(input="example.xml")["result"])
         ```
 
         ## API Providers
@@ -230,7 +230,7 @@ class Policy(pulumi.CustomResource):
             value="Example Value")
         example_policy = azure.apimanagement.Policy("example",
             api_management_id=example_service.id,
-            xml_content=std.file(input="example.xml").result)
+            xml_content=std.file(input="example.xml")["result"])
         ```
 
         ## API Providers

@@ -405,6 +405,9 @@ class Watcher(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         example_run_book = azure.automation.RunBook("example",
+            publish_content_link={
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            },
             name="Get-AzureVMTutorial",
             location=example.location,
             resource_group_name=example.name,
@@ -412,10 +415,7 @@ class Watcher(pulumi.CustomResource):
             log_verbose=True,
             log_progress=True,
             description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link={
-                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            })
+            runbook_type="PowerShellWorkflow")
         example_watcher = azure.automation.Watcher("example",
             name="example",
             automation_account_id=example_account.id,
@@ -489,6 +489,9 @@ class Watcher(pulumi.CustomResource):
             resource_group_name=example.name,
             automation_account_name=example_account.name)
         example_run_book = azure.automation.RunBook("example",
+            publish_content_link={
+                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+            },
             name="Get-AzureVMTutorial",
             location=example.location,
             resource_group_name=example.name,
@@ -496,10 +499,7 @@ class Watcher(pulumi.CustomResource):
             log_verbose=True,
             log_progress=True,
             description="This is an example runbook",
-            runbook_type="PowerShellWorkflow",
-            publish_content_link={
-                "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-            })
+            runbook_type="PowerShellWorkflow")
         example_watcher = azure.automation.Watcher("example",
             name="example",
             automation_account_id=example_account.id,

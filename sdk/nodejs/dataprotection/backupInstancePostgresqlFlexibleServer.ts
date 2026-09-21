@@ -31,15 +31,15 @@ import * as utilities from "../utilities";
  *     zone: "2",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-backupvault",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
  *     softDelete: "Off",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: example.id,
@@ -52,15 +52,15 @@ import * as utilities from "../utilities";
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
  * const exampleBackupPolicyPostgresqlFlexibleServer = new azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example", {
- *     name: "example-dp",
- *     vaultId: exampleBackupVault.id,
- *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
  *     defaultRetentionRule: {
  *         lifeCycles: [{
  *             duration: "P4M",
  *             dataStoreType: "VaultStore",
  *         }],
  *     },
+ *     name: "example-dp",
+ *     vaultId: exampleBackupVault.id,
+ *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
  * }, {
  *     dependsOn: [
  *         exampleAssignment,

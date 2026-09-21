@@ -37,10 +37,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.storage.AccountTableProperties;
  * import com.pulumi.azure.storage.AccountTablePropertiesArgs;
- * import com.pulumi.azure.storage.inputs.AccountTablePropertiesCorsRuleArgs;
  * import com.pulumi.azure.storage.inputs.AccountTablePropertiesLoggingArgs;
  * import com.pulumi.azure.storage.inputs.AccountTablePropertiesHourMetricsArgs;
  * import com.pulumi.azure.storage.inputs.AccountTablePropertiesMinuteMetricsArgs;
+ * import com.pulumi.azure.storage.inputs.AccountTablePropertiesCorsRuleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,16 +69,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccountTableProperties = new AccountTableProperties("exampleAccountTableProperties", AccountTablePropertiesArgs.builder()
- *             .storageAccountId(exampleAccount.id())
- *             .corsRules(AccountTablePropertiesCorsRuleArgs.builder()
- *                 .allowedOrigins("http://www.example.com")
- *                 .exposedHeaders("x-tempo-*")
- *                 .allowedHeaders("x-tempo-*")
- *                 .allowedMethods(                
- *                     "GET",
- *                     "PUT")
- *                 .maxAgeInSeconds(500)
- *                 .build())
  *             .logging(AccountTablePropertiesLoggingArgs.builder()
  *                 .version("1.0")
  *                 .delete(true)
@@ -94,6 +84,16 @@ import javax.annotation.Nullable;
  *                 .version("1.0")
  *                 .retentionPolicyDays(7)
  *                 .build())
+ *             .corsRules(AccountTablePropertiesCorsRuleArgs.builder()
+ *                 .allowedOrigins("http://www.example.com")
+ *                 .exposedHeaders("x-tempo-*")
+ *                 .allowedHeaders("x-tempo-*")
+ *                 .allowedMethods(                
+ *                     "GET",
+ *                     "PUT")
+ *                 .maxAgeInSeconds(500)
+ *                 .build())
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

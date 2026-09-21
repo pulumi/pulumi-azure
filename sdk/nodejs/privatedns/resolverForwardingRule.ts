@@ -26,17 +26,17 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "outbounddns",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.0.64/28"],
  *     delegations: [{
- *         name: "Microsoft.Network.dnsResolvers",
  *         serviceDelegation: {
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *             name: "Microsoft.Network/dnsResolvers",
  *         },
+ *         name: "Microsoft.Network.dnsResolvers",
  *     }],
+ *     name: "outbounddns",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.0.64/28"],
  * });
  * const exampleResolver = new azure.privatedns.Resolver("example", {
  *     name: "example-resolver",
@@ -60,14 +60,14 @@ import * as utilities from "../utilities";
  *     privateDnsResolverOutboundEndpointIds: [exampleResolverOutboundEndpoint.id],
  * });
  * const exampleResolverForwardingRule = new azure.privatedns.ResolverForwardingRule("example", {
- *     name: "example-rule",
- *     dnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.id,
- *     domainName: "onprem.local.",
- *     enabled: true,
  *     targetDnsServers: [{
  *         ipAddress: "10.10.0.1",
  *         port: 53,
  *     }],
+ *     name: "example-rule",
+ *     dnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.id,
+ *     domainName: "onprem.local.",
+ *     enabled: true,
  *     metadata: {
  *         key: "value",
  *     },

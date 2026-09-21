@@ -78,6 +78,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputBlob = new OutputBlob("exampleOutputBlob", OutputBlobArgs.builder()
+ *             .serialization(OutputBlobSerializationArgs.builder()
+ *                 .type("Csv")
+ *                 .encoding("UTF8")
+ *                 .fieldDelimiter(",")
+ *                 .build())
  *             .name("output-to-blob-storage")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -87,11 +92,6 @@ import javax.annotation.Nullable;
  *             .pathPattern("some-pattern")
  *             .dateFormat("yyyy-MM-dd")
  *             .timeFormat("HH")
- *             .serialization(OutputBlobSerializationArgs.builder()
- *                 .type("Csv")
- *                 .encoding("UTF8")
- *                 .fieldDelimiter(",")
- *                 .build())
  *             .build());
  * 
  *     }

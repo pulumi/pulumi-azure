@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     skuName: "Developer_1",
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "example-certificate",
- *     keyVaultId: example.then(example => example.id),
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -48,18 +46,16 @@ import * as utilities from "../utilities";
  *             keyType: "RSA",
  *             reuseKey: true,
  *         },
- *         lifetimeActions: [{
- *             action: {
- *                 actionType: "AutoRenew",
- *             },
- *             trigger: {
- *                 daysBeforeExpiry: 30,
- *             },
- *         }],
  *         secretProperties: {
  *             contentType: "application/x-pkcs12",
  *         },
  *         x509CertificateProperties: {
+ *             subjectAlternativeNames: {
+ *                 dnsNames: [
+ *                     "api.example.com",
+ *                     "portal.example.com",
+ *                 ],
+ *             },
  *             keyUsages: [
  *                 "cRLSign",
  *                 "dataEncipherment",
@@ -70,25 +66,29 @@ import * as utilities from "../utilities";
  *             ],
  *             subject: "CN=api.example.com",
  *             validityInMonths: 12,
- *             subjectAlternativeNames: {
- *                 dnsNames: [
- *                     "api.example.com",
- *                     "portal.example.com",
- *                 ],
- *             },
  *         },
+ *         lifetimeActions: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
  *     },
+ *     name: "example-certificate",
+ *     keyVaultId: example.then(example => example.id),
  * });
  * const exampleCustomDomain = new azure.apimanagement.CustomDomain("example", {
- *     apiManagementId: exampleService.id,
- *     gateways: [{
- *         hostName: "api.example.com",
- *         keyVaultId: exampleCertificate.versionlessSecretId,
- *     }],
  *     developerPortals: [{
  *         hostName: "portal.example.com",
  *         keyVaultId: exampleCertificate.versionlessSecretId,
  *     }],
+ *     gateways: [{
+ *         hostName: "api.example.com",
+ *         keyVaultId: exampleCertificate.versionlessSecretId,
+ *     }],
+ *     apiManagementId: exampleService.id,
  * });
  * ```
  *

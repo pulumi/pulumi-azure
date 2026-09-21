@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleElasticSan = new azure.elasticsan.ElasticSan("example", {
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
  *     name: "example-es",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     baseSizeInTib: 1,
- *     sku: {
- *         name: "Premium_LRS",
- *     },
  * });
  * const exampleVolumeGroup = new azure.elasticsan.VolumeGroup("example", {
  *     name: "example-esvg",
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleElasticSan = new azure.elasticsan.ElasticSan("example", {
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
  *     name: "example-es",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     baseSizeInTib: 1,
- *     sku: {
- *         name: "Premium_LRS",
- *     },
  * });
  * const exampleVolumeGroup = new azure.elasticsan.VolumeGroup("example", {
  *     name: "example-esvg",
@@ -79,13 +79,13 @@ import * as utilities from "../utilities";
  *     sourceUri: exampleManagedDisk.id,
  * });
  * const example2 = new azure.elasticsan.Volume("example2", {
- *     name: "example-esv2",
- *     volumeGroupId: exampleVolumeGroup.id,
- *     sizeInGib: 2,
  *     createSource: {
  *         sourceType: "DiskSnapshot",
  *         sourceId: exampleSnapshot.id,
  *     },
+ *     name: "example-esv2",
+ *     volumeGroupId: exampleVolumeGroup.id,
+ *     sizeInGib: 2,
  * });
  * ```
  *

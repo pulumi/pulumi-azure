@@ -156,12 +156,12 @@ def get_network_manager_ipam_pool(name: Optional[_builtins.str] = None,
         location="West Europe")
     current = azure.core.get_subscription()
     example_network_manager = azure.network.NetworkManager("example",
-        name="example-network-manager",
-        location=example_resource_group.location,
-        resource_group_name=example_resource_group.name,
         scope={
             "subscription_ids": [current.id],
-        })
+        },
+        name="example-network-manager",
+        location=example_resource_group.location,
+        resource_group_name=example_resource_group.name)
     example_network_manager_ipam_pool = azure.network.NetworkManagerIpamPool("example",
         name="example-ipam-pool",
         location="West Europe",
@@ -217,12 +217,12 @@ def get_network_manager_ipam_pool_output(name: pulumi.Input[Optional[_builtins.s
         location="West Europe")
     current = azure.core.get_subscription()
     example_network_manager = azure.network.NetworkManager("example",
-        name="example-network-manager",
-        location=example_resource_group.location,
-        resource_group_name=example_resource_group.name,
         scope={
             "subscription_ids": [current.id],
-        })
+        },
+        name="example-network-manager",
+        location=example_resource_group.location,
+        resource_group_name=example_resource_group.name)
     example_network_manager_ipam_pool = azure.network.NetworkManagerIpamPool("example",
         name="example-ipam-pool",
         location="West Europe",

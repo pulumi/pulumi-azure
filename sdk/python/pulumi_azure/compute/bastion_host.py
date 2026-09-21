@@ -697,14 +697,14 @@ class BastionHost(pulumi.CustomResource):
             allocation_method="Static",
             sku="Standard")
         example_bastion_host = azure.compute.BastionHost("example",
-            name="examplebastion",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configuration={
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
                 "public_ip_address_id": example_public_ip.id,
-            })
+            },
+            name="examplebastion",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers
@@ -795,14 +795,14 @@ class BastionHost(pulumi.CustomResource):
             allocation_method="Static",
             sku="Standard")
         example_bastion_host = azure.compute.BastionHost("example",
-            name="examplebastion",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configuration={
                 "name": "configuration",
                 "subnet_id": example_subnet.id,
                 "public_ip_address_id": example_public_ip.id,
-            })
+            },
+            name="examplebastion",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## API Providers

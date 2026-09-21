@@ -41,12 +41,6 @@ namespace Pulumi.Azure.Cognitive
     /// 
     ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
     ///     {
-    ///         Name = "example-account",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Kind = "Face",
-    ///         SkuName = "E0",
-    ///         CustomSubdomainName = "example-account",
     ///         Identity = new Azure.Cognitive.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned, UserAssigned",
@@ -55,17 +49,16 @@ namespace Pulumi.Azure.Cognitive
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Kind = "Face",
+    ///         SkuName = "E0",
+    ///         CustomSubdomainName = "example-account",
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example-vault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "standard",
-    ///         PurgeProtectionEnabled = true,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -144,6 +137,13 @@ namespace Pulumi.Azure.Cognitive
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()

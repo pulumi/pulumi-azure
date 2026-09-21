@@ -18,21 +18,21 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-aks",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefix: "exampleaks",
  *     defaultNodePool: {
- *         name: "default",
- *         nodeCount: 1,
- *         vmSize: "Standard_DS2_v2",
  *         upgradeSettings: {
  *             maxSurge: "10%",
  *         },
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_DS2_v2",
  *     },
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-aks",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "exampleaks",
  *     azurePolicyEnabled: true,
  * });
  * const exampleClusterDeploymentSafeguard = new azure.containerservice.ClusterDeploymentSafeguard("example", {

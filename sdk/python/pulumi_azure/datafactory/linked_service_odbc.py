@@ -361,13 +361,13 @@ class LinkedServiceOdbc(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
         basic_auth = azure.datafactory.LinkedServiceOdbc("basic_auth",
-            name="basic_auth",
-            data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
             basic_authentication={
                 "username": "onrylmz",
                 "password": "Ch4ngeM3!",
-            })
+            },
+            name="basic_auth",
+            data_factory_id=example_factory.id,
+            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
         ```
 
         ## Import
@@ -420,13 +420,13 @@ class LinkedServiceOdbc(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
         basic_auth = azure.datafactory.LinkedServiceOdbc("basic_auth",
-            name="basic_auth",
-            data_factory_id=example_factory.id,
-            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
             basic_authentication={
                 "username": "onrylmz",
                 "password": "Ch4ngeM3!",
-            })
+            },
+            name="basic_auth",
+            data_factory_id=example_factory.id,
+            connection_string="Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;")
         ```
 
         ## Import

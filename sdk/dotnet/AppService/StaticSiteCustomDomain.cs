@@ -97,10 +97,6 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = "_dnsauth.my-domain",
-    ///         ZoneName = "contoso.com",
-    ///         ResourceGroupName = example.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
@@ -108,6 +104,10 @@ namespace Pulumi.Azure.AppService
     ///                 Value = exampleStaticSiteCustomDomain.ValidationToken,
     ///             },
     ///         },
+    ///         Name = "_dnsauth.my-domain",
+    ///         ZoneName = "contoso.com",
+    ///         ResourceGroupName = example.Name,
+    ///         Ttl = 300,
     ///     });
     /// 
     /// });

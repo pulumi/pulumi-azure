@@ -219,25 +219,25 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_vpn_server_configuration = azure.network.VpnServerConfiguration("example",
-            name="example-VPNSC",
-            resource_group_name=example.name,
-            location=example.location,
-            vpn_authentication_types=["Radius"],
             radius={
                 "servers": [{
                     "address": "10.105.1.1",
                     "secret": "vindicators-the-return-of-worldender",
                     "score": 15,
                 }],
-            })
+            },
+            name="example-VPNSC",
+            resource_group_name=example.name,
+            location=example.location,
+            vpn_authentication_types=["Radius"])
         example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("example",
-            name="example-VPNSCPG",
-            vpn_server_configuration_id=example_vpn_server_configuration.id,
             policies=[{
                 "name": "policy1",
                 "type": "RadiusAzureGroupId",
                 "value": "6ad1bd08",
-            }])
+            }],
+            name="example-VPNSCPG",
+            vpn_server_configuration_id=example_vpn_server_configuration.id)
         ```
 
         ## API Providers
@@ -283,25 +283,25 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_vpn_server_configuration = azure.network.VpnServerConfiguration("example",
-            name="example-VPNSC",
-            resource_group_name=example.name,
-            location=example.location,
-            vpn_authentication_types=["Radius"],
             radius={
                 "servers": [{
                     "address": "10.105.1.1",
                     "secret": "vindicators-the-return-of-worldender",
                     "score": 15,
                 }],
-            })
+            },
+            name="example-VPNSC",
+            resource_group_name=example.name,
+            location=example.location,
+            vpn_authentication_types=["Radius"])
         example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("example",
-            name="example-VPNSCPG",
-            vpn_server_configuration_id=example_vpn_server_configuration.id,
             policies=[{
                 "name": "policy1",
                 "type": "RadiusAzureGroupId",
                 "value": "6ad1bd08",
-            }])
+            }],
+            name="example-VPNSCPG",
+            vpn_server_configuration_id=example_vpn_server_configuration.id)
         ```
 
         ## API Providers

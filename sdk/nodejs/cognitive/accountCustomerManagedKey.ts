@@ -26,25 +26,18 @@ import * as utilities from "../utilities";
  *     name: "example-identity",
  * });
  * const exampleAccount = new azure.cognitive.Account("example", {
+ *     identity: {
+ *         type: "SystemAssigned, UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
  *     name: "example-account",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     kind: "Face",
  *     skuName: "E0",
  *     customSubdomainName: "example-account",
- *     identity: {
- *         type: "SystemAssigned, UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.id],
- *     },
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example-vault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     purgeProtectionEnabled: true,
  *     accessPolicies: [
  *         {
  *             tenantId: exampleAccount.identity.apply(identity => identity?.tenantId),
@@ -107,6 +100,13 @@ import * as utilities from "../utilities";
  *             secretPermissions: ["Get"],
  *         },
  *     ],
+ *     name: "example-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
  * });
  * const exampleKey = new azure.keyvault.Key("example", {
  *     name: "example-key",

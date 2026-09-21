@@ -221,18 +221,18 @@ class FirewallRule(pulumi.CustomResource):
             name="redis-resourcegroup",
             location="West Europe")
         example_cache = azure.redis.Cache("example",
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            },
             name=f"redis{server['hex']}",
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
             family="P",
             sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration={
-                "maxmemory_reserved": 2,
-                "maxmemory_delta": 2,
-                "maxmemory_policy": "allkeys-lru",
-            })
+            enable_non_ssl_port=False)
         example_firewall_rule = azure.redis.FirewallRule("example",
             name="someIPrange",
             redis_cache_name=example_cache.name,
@@ -290,18 +290,18 @@ class FirewallRule(pulumi.CustomResource):
             name="redis-resourcegroup",
             location="West Europe")
         example_cache = azure.redis.Cache("example",
+            redis_configuration={
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
+            },
             name=f"redis{server['hex']}",
             location=example.location,
             resource_group_name=example.name,
             capacity=1,
             family="P",
             sku_name="Premium",
-            enable_non_ssl_port=False,
-            redis_configuration={
-                "maxmemory_reserved": 2,
-                "maxmemory_delta": 2,
-                "maxmemory_policy": "allkeys-lru",
-            })
+            enable_non_ssl_port=False)
         example_firewall_rule = azure.redis.FirewallRule("example",
             name="someIPrange",
             redis_cache_name=example_cache.name,

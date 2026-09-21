@@ -55,15 +55,10 @@ import (
 //				return err
 //			}
 //			_, err = network.NewRouteMapResource(ctx, "example", &network.RouteMapResourceArgs{
-//				Name:         pulumi.String("example-rm"),
-//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				Rules: network.RouteMapRuleArray{
 //					&network.RouteMapRuleArgs{
-//						Name:              pulumi.String("rule1"),
-//						NextStepIfMatched: pulumi.String("Continue"),
 //						Actions: network.RouteMapRuleActionArray{
 //							&network.RouteMapRuleActionArgs{
-//								Type: pulumi.String("Add"),
 //								Parameters: network.RouteMapRuleActionParameterArray{
 //									&network.RouteMapRuleActionParameterArgs{
 //										AsPaths: pulumi.StringArray{
@@ -71,6 +66,7 @@ import (
 //										},
 //									},
 //								},
+//								Type: pulumi.String("Add"),
 //							},
 //						},
 //						MatchCriterions: network.RouteMapRuleMatchCriterionArray{
@@ -81,8 +77,12 @@ import (
 //								},
 //							},
 //						},
+//						Name:              pulumi.String("rule1"),
+//						NextStepIfMatched: pulumi.String("Continue"),
 //					},
 //				},
+//				Name:         pulumi.String("example-rm"),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

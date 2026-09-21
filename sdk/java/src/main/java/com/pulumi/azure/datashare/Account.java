@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("example-dsa")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-dsa")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

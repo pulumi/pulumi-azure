@@ -40,9 +40,6 @@ namespace Pulumi.Azure.Lb
     /// 
     ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Name = "TestLoadBalancer",
-    ///         Location = "West US",
-    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -51,6 +48,9 @@ namespace Pulumi.Azure.Lb
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "TestLoadBalancer",
+    ///         Location = "West US",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleRule = new Azure.Lb.Rule("example", new()

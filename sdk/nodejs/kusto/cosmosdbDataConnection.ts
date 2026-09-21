@@ -22,9 +22,6 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "fbdf93bf-df7d-467e-a4d2-9458aa1360c8",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "examplekc",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
@@ -32,6 +29,9 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "examplekc",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleResourceGroup.id,
@@ -39,11 +39,6 @@ import * as utilities from "../utilities";
  *     principalId: exampleCluster.identity.apply(identity => identity?.principalId),
  * });
  * const exampleAccount = new azure.cosmosdb.Account("example", {
- *     name: "example-ca",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     offerType: "Standard",
- *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Session",
  *         maxIntervalInSeconds: 5,
@@ -53,6 +48,11 @@ import * as utilities from "../utilities";
  *         location: exampleResourceGroup.location,
  *         failoverPriority: 0,
  *     }],
+ *     name: "example-ca",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     offerType: "Standard",
+ *     kind: "GlobalDocumentDB",
  * });
  * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
  *     name: "examplecosmosdbsqldb",

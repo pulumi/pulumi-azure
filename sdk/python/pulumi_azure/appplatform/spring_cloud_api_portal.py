@@ -347,19 +347,19 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id)
         example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("example",
+            sso={
+                "client_id": "test",
+                "client_secret": "secret",
+                "issuer_uri": "https://www.example.com/issueToken",
+                "scopes": ["read"],
+            },
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
             gateway_ids=[example_spring_cloud_gateway.id],
             https_only_enabled=False,
             public_network_access_enabled=True,
             instance_count=1,
-            api_try_out_enabled=True,
-            sso={
-                "client_id": "test",
-                "client_secret": "secret",
-                "issuer_uri": "https://www.example.com/issueToken",
-                "scopes": ["read"],
-            })
+            api_try_out_enabled=True)
         ```
 
         ## API Providers
@@ -420,19 +420,19 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id)
         example_spring_cloud_api_portal = azure.appplatform.SpringCloudApiPortal("example",
+            sso={
+                "client_id": "test",
+                "client_secret": "secret",
+                "issuer_uri": "https://www.example.com/issueToken",
+                "scopes": ["read"],
+            },
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
             gateway_ids=[example_spring_cloud_gateway.id],
             https_only_enabled=False,
             public_network_access_enabled=True,
             instance_count=1,
-            api_try_out_enabled=True,
-            sso={
-                "client_id": "test",
-                "client_secret": "secret",
-                "issuer_uri": "https://www.example.com/issueToken",
-                "scopes": ["read"],
-            })
+            api_try_out_enabled=True)
         ```
 
         ## API Providers

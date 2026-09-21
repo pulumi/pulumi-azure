@@ -81,12 +81,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWindowsWebApp = new WindowsWebApp("exampleWindowsWebApp", WindowsWebAppArgs.builder()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-web-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleWebAppHybridConnection = new WebAppHybridConnection("exampleWebAppHybridConnection", WebAppHybridConnectionArgs.builder()

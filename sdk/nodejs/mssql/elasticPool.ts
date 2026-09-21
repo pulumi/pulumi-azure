@@ -28,12 +28,6 @@ import * as utilities from "../utilities";
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
  * const exampleElasticPool = new azure.mssql.ElasticPool("example", {
- *     name: "test-epool",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     serverName: exampleServer.name,
- *     licenseType: "LicenseIncluded",
- *     maxSizeGb: 756,
  *     sku: {
  *         name: "BasicPool",
  *         tier: "Basic",
@@ -44,6 +38,12 @@ import * as utilities from "../utilities";
  *         minCapacity: 0.25,
  *         maxCapacity: 4,
  *     },
+ *     name: "test-epool",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     serverName: exampleServer.name,
+ *     licenseType: "LicenseIncluded",
+ *     maxSizeGb: 756,
  * });
  * ```
  *

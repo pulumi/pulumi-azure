@@ -271,10 +271,6 @@ class MxRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_mx_record = azure.dns.MxRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[
                 {
                     "preference": "10",
@@ -285,6 +281,10 @@ class MxRecord(pulumi.CustomResource):
                     "exchange": "mail2.contoso.com",
                 },
             ],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })
@@ -339,10 +339,6 @@ class MxRecord(pulumi.CustomResource):
             name="mydomain.com",
             resource_group_name=example.name)
         example_mx_record = azure.dns.MxRecord("example",
-            name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
-            ttl=300,
             records=[
                 {
                     "preference": "10",
@@ -353,6 +349,10 @@ class MxRecord(pulumi.CustomResource):
                     "exchange": "mail2.contoso.com",
                 },
             ],
+            name="test",
+            zone_name=example_zone.name,
+            resource_group_name=example.name,
+            ttl=300,
             tags={
                 "Environment": "Production",
             })

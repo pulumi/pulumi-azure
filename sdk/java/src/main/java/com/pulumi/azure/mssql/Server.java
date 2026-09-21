@@ -57,6 +57,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
+ *                 .loginUsername("AzureAD Admin")
+ *                 .objectId("00000000-0000-0000-0000-000000000000")
+ *                 .build())
  *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,10 +68,6 @@ import javax.annotation.Nullable;
  *             .administratorLogin("missadministrator")
  *             .administratorLoginPassword("thisIsKat11")
  *             .minimumTlsVersion("1.2")
- *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername("AzureAD Admin")
- *                 .objectId("00000000-0000-0000-0000-000000000000")
- *                 .build())
  *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
@@ -128,15 +128,6 @@ import javax.annotation.Nullable;
  * 
  *         // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("mssqltdeexample")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .enabledForDiskEncryption(true)
- *             .tenantId(exampleUserAssignedIdentity.tenantId())
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(true)
- *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -159,6 +150,15 @@ import javax.annotation.Nullable;
  *                         "WrapKey",
  *                         "UnwrapKey")
  *                     .build())
+ *             .name("mssqltdeexample")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(exampleUserAssignedIdentity.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(true)
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
@@ -174,13 +174,6 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
- *             .name("example-resource")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .version("12.0")
- *             .administratorLogin("Example-Administrator")
- *             .administratorLoginPassword("Example_Password!")
- *             .minimumTlsVersion("1.2")
  *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
  *                 .loginUsername(exampleUserAssignedIdentity.name())
  *                 .objectId(exampleUserAssignedIdentity.principalId())
@@ -189,6 +182,13 @@ import javax.annotation.Nullable;
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
+ *             .name("example-resource")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .version("12.0")
+ *             .administratorLogin("Example-Administrator")
+ *             .administratorLoginPassword("Example_Password!")
+ *             .minimumTlsVersion("1.2")
  *             .primaryUserAssignedIdentityId(exampleUserAssignedIdentity.id())
  *             .transparentDataEncryptionKeyVaultKeyId(exampleKey.id())
  *             .build());

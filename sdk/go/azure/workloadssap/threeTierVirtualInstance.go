@@ -117,22 +117,9 @@ import (
 //				return err
 //			}
 //			_, err = workloadssap.NewThreeTierVirtualInstance(ctx, "example", &workloadssap.ThreeTierVirtualInstanceArgs{
-//				Name:                     pulumi.String("X05"),
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
-//				Environment:              pulumi.String("NonProd"),
-//				SapProduct:               pulumi.String("S4HANA"),
-//				ManagedResourceGroupName: pulumi.String("exampleManagedRG"),
-//				AppLocation:              app.Location,
-//				SapFqdn:                  pulumi.String("sap.bpaas.com"),
 //				ThreeTierConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationArgs{
-//					AppResourceGroupName: app.Name,
-//					SecondaryIpEnabled:   pulumi.Bool(true),
 //					ApplicationServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs{
-//						InstanceCount: pulumi.Int(1),
-//						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						VirtualMachineConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs{
-//							VirtualMachineSize: pulumi.String("Standard_D16ds_v4"),
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs{
 //								Offer:     pulumi.String("RHEL-SAP-HA"),
 //								Publisher: pulumi.String("RedHat"),
@@ -144,13 +131,13 @@ import (
 //								SshPrivateKey: examplePrivateKey.PrivateKeyPem,
 //								SshPublicKey:  pulumi.Any(example.PublicKeyOpenssh),
 //							},
+//							VirtualMachineSize: pulumi.String("Standard_D16ds_v4"),
 //						},
-//					},
-//					CentralServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs{
 //						InstanceCount: pulumi.Int(1),
 //						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					},
+//					CentralServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs{
 //						VirtualMachineConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs{
-//							VirtualMachineSize: pulumi.String("Standard_D16ds_v4"),
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs{
 //								Offer:     pulumi.String("RHEL-SAP-HA"),
 //								Publisher: pulumi.String("RedHat"),
@@ -162,14 +149,13 @@ import (
 //								SshPrivateKey: examplePrivateKey.PrivateKeyPem,
 //								SshPublicKey:  pulumi.Any(example.PublicKeyOpenssh),
 //							},
+//							VirtualMachineSize: pulumi.String("Standard_D16ds_v4"),
 //						},
-//					},
-//					DatabaseServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs{
 //						InstanceCount: pulumi.Int(1),
 //						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//						DatabaseType:  pulumi.String("HANA"),
+//					},
+//					DatabaseServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs{
 //						VirtualMachineConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs{
-//							VirtualMachineSize: pulumi.String("Standard_E16ds_v4"),
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs{
 //								Offer:     pulumi.String("RHEL-SAP-HA"),
 //								Publisher: pulumi.String("RedHat"),
@@ -181,6 +167,7 @@ import (
 //								SshPrivateKey: examplePrivateKey.PrivateKeyPem,
 //								SshPublicKey:  pulumi.Any(example.PublicKeyOpenssh),
 //							},
+//							VirtualMachineSize: pulumi.String("Standard_E16ds_v4"),
 //						},
 //						DiskVolumeConfigurations: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArray{
 //							&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs{
@@ -220,18 +207,14 @@ import (
 //								SkuName:       pulumi.String("StandardSSD_LRS"),
 //							},
 //						},
+//						InstanceCount: pulumi.Int(1),
+//						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//						DatabaseType:  pulumi.String("HANA"),
 //					},
 //					ResourceNames: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs{
 //						ApplicationServer: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs{
-//							AvailabilitySetName: pulumi.String("appAvSet"),
 //							VirtualMachines: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArray{
 //								&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs{
-//									HostName:           pulumi.String("apphostName0"),
-//									OsDiskName:         pulumi.String("app0osdisk"),
-//									VirtualMachineName: pulumi.String("appvm0"),
-//									NetworkInterfaceNames: pulumi.StringArray{
-//										pulumi.String("appnic0"),
-//									},
 //									DataDisks: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArray{
 //										&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs{
 //											VolumeName: pulumi.String("default"),
@@ -240,11 +223,17 @@ import (
 //											},
 //										},
 //									},
+//									HostName:           pulumi.String("apphostName0"),
+//									OsDiskName:         pulumi.String("app0osdisk"),
+//									VirtualMachineName: pulumi.String("appvm0"),
+//									NetworkInterfaceNames: pulumi.StringArray{
+//										pulumi.String("appnic0"),
+//									},
 //								},
 //							},
+//							AvailabilitySetName: pulumi.String("appAvSet"),
 //						},
 //						CentralServer: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs{
-//							AvailabilitySetName: pulumi.String("csAvSet"),
 //							LoadBalancer: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs{
 //								Name: pulumi.String("ascslb"),
 //								BackendPoolNames: pulumi.StringArray{
@@ -259,12 +248,6 @@ import (
 //							},
 //							VirtualMachines: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArray{
 //								&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs{
-//									HostName:           pulumi.String("ascshostName"),
-//									OsDiskName:         pulumi.String("ascsosdisk"),
-//									VirtualMachineName: pulumi.String("ascsvm"),
-//									NetworkInterfaceNames: pulumi.StringArray{
-//										pulumi.String("ascsnic"),
-//									},
 //									DataDisks: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArray{
 //										&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs{
 //											VolumeName: pulumi.String("default"),
@@ -273,11 +256,17 @@ import (
 //											},
 //										},
 //									},
+//									HostName:           pulumi.String("ascshostName"),
+//									OsDiskName:         pulumi.String("ascsosdisk"),
+//									VirtualMachineName: pulumi.String("ascsvm"),
+//									NetworkInterfaceNames: pulumi.StringArray{
+//										pulumi.String("ascsnic"),
+//									},
 //								},
 //							},
+//							AvailabilitySetName: pulumi.String("csAvSet"),
 //						},
 //						DatabaseServer: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs{
-//							AvailabilitySetName: pulumi.String("dbAvSet"),
 //							LoadBalancer: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs{
 //								Name: pulumi.String("dblb"),
 //								BackendPoolNames: pulumi.StringArray{
@@ -292,12 +281,6 @@ import (
 //							},
 //							VirtualMachines: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArray{
 //								&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs{
-//									HostName:           pulumi.String("dbprhost"),
-//									OsDiskName:         pulumi.String("dbprosdisk"),
-//									VirtualMachineName: pulumi.String("dbvmpr"),
-//									NetworkInterfaceNames: pulumi.StringArray{
-//										pulumi.String("dbprnic"),
-//									},
 //									DataDisks: workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArray{
 //										&workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs{
 //											VolumeName: pulumi.String("hanaData"),
@@ -328,8 +311,15 @@ import (
 //											},
 //										},
 //									},
+//									HostName:           pulumi.String("dbprhost"),
+//									OsDiskName:         pulumi.String("dbprosdisk"),
+//									VirtualMachineName: pulumi.String("dbvmpr"),
+//									NetworkInterfaceNames: pulumi.StringArray{
+//										pulumi.String("dbprnic"),
+//									},
 //								},
 //							},
+//							AvailabilitySetName: pulumi.String("dbAvSet"),
 //						},
 //						SharedStorage: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs{
 //							AccountName:         pulumi.String("sharedexamplesa"),
@@ -340,6 +330,8 @@ import (
 //						ResourceGroupId:    app.ID().ToIDOutput().ToStringOutput(),
 //						StorageAccountName: pulumi.String("exampletranssa"),
 //					},
+//					AppResourceGroupName: app.Name,
+//					SecondaryIpEnabled:   pulumi.Bool(true),
 //				},
 //				Identity: &workloadssap.ThreeTierVirtualInstanceIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
@@ -347,6 +339,14 @@ import (
 //						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                     pulumi.String("X05"),
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Location:                 exampleResourceGroup.Location,
+//				Environment:              pulumi.String("NonProd"),
+//				SapProduct:               pulumi.String("S4HANA"),
+//				ManagedResourceGroupName: pulumi.String("exampleManagedRG"),
+//				AppLocation:              app.Location,
+//				SapFqdn:                  pulumi.String("sap.bpaas.com"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("Test"),
 //				},

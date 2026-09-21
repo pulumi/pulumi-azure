@@ -983,22 +983,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Dynamic")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
-            name="test",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            active_active=False,
-            bgp_enabled=False,
-            sku="Basic",
-            ip_configurations=[{
-                "name": "vnetGatewayConfig",
-                "public_ip_address_id": example_public_ip.id,
-                "private_ip_address_allocation": "Dynamic",
-                "subnet_id": example_subnet.id,
-            }],
             vpn_client_configuration={
-                "address_spaces": ["10.2.0.0/24"],
+                "revoked_certificates": [{
+                    "name": "Verizon-Global-Root-CA",
+                    "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
+                }],
                 "root_certificates": [{
                     "name": "DigiCert-Federated-ID-Root-CA",
                     "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -1023,11 +1012,22 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
                 }],
-                "revoked_certificates": [{
-                    "name": "Verizon-Global-Root-CA",
-                    "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                }],
-            })
+                "address_spaces": ["10.2.0.0/24"],
+            },
+            ip_configurations=[{
+                "name": "vnetGatewayConfig",
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+            }],
+            name="test",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            active_active=False,
+            bgp_enabled=False,
+            sku="Basic")
         ```
 
         ## API Providers
@@ -1124,22 +1124,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             allocation_method="Dynamic")
         example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
-            name="test",
-            location=example.location,
-            resource_group_name=example.name,
-            type="Vpn",
-            vpn_type="RouteBased",
-            active_active=False,
-            bgp_enabled=False,
-            sku="Basic",
-            ip_configurations=[{
-                "name": "vnetGatewayConfig",
-                "public_ip_address_id": example_public_ip.id,
-                "private_ip_address_allocation": "Dynamic",
-                "subnet_id": example_subnet.id,
-            }],
             vpn_client_configuration={
-                "address_spaces": ["10.2.0.0/24"],
+                "revoked_certificates": [{
+                    "name": "Verizon-Global-Root-CA",
+                    "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
+                }],
                 "root_certificates": [{
                     "name": "DigiCert-Federated-ID-Root-CA",
                     "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -1164,11 +1153,22 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
                 }],
-                "revoked_certificates": [{
-                    "name": "Verizon-Global-Root-CA",
-                    "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
-                }],
-            })
+                "address_spaces": ["10.2.0.0/24"],
+            },
+            ip_configurations=[{
+                "name": "vnetGatewayConfig",
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+            }],
+            name="test",
+            location=example.location,
+            resource_group_name=example.name,
+            type="Vpn",
+            vpn_type="RouteBased",
+            active_active=False,
+            bgp_enabled=False,
+            sku="Basic")
         ```
 
         ## API Providers

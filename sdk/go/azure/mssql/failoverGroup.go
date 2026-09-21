@@ -69,19 +69,19 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewFailoverGroup(ctx, "example", &mssql.FailoverGroupArgs{
-//				Name:     pulumi.String("example"),
-//				ServerId: primary.ID().ToIDOutput().ToStringOutput(),
-//				Databases: pulumi.StringArray{
-//					exampleDatabase.ID().ToIDOutput().ToStringOutput(),
+//				ReadWriteEndpointFailoverPolicy: &mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
+//					Mode:         pulumi.String("Automatic"),
+//					GraceMinutes: pulumi.Int(80),
 //				},
 //				PartnerServers: mssql.FailoverGroupPartnerServerArray{
 //					&mssql.FailoverGroupPartnerServerArgs{
 //						Id: secondary.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				ReadWriteEndpointFailoverPolicy: &mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{
-//					Mode:         pulumi.String("Automatic"),
-//					GraceMinutes: pulumi.Int(80),
+//				Name:     pulumi.String("example"),
+//				ServerId: primary.ID().ToIDOutput().ToStringOutput(),
+//				Databases: pulumi.StringArray{
+//					exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("prod"),

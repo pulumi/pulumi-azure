@@ -1476,13 +1476,13 @@ class WindowsFunctionApp(pulumi.CustomResource):
             os_type="Windows",
             sku_name="Y1")
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            site_config={},
             name="example-windows-function-app",
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         ```
 
         ## API Providers
@@ -1598,13 +1598,13 @@ class WindowsFunctionApp(pulumi.CustomResource):
             os_type="Windows",
             sku_name="Y1")
         example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            site_config={},
             name="example-windows-function-app",
             resource_group_name=example.name,
             location=example.location,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         ```
 
         ## API Providers

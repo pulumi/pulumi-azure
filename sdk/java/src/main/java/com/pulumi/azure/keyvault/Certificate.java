@@ -46,7 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -68,12 +67,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("premium")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -117,17 +110,21 @@ import javax.annotation.Nullable;
  *                     "Restore",
  *                     "Set")
  *                 .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("premium")
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("imported-cert")
- *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("certificate-to-import.pfx")
- *                     .build()).result())
+ *                 .contents(StdFunctions.filebase64(Map.of("input", "certificate-to-import.pfx")).result())
  *                 .password("")
  *                 .build())
+ *             .name("imported-cert")
+ *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
  *     }
@@ -155,12 +152,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyIssuerParametersArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyKeyPropertiesArgs;
- * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionArgs;
- * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionActionArgs;
- * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicySecretPropertiesArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionActionArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -182,13 +179,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("examplekeyvault")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .tenantId(current.tenantId())
- *             .skuName("standard")
- *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
  *                 .tenantId(current.tenantId())
  *                 .objectId(current.objectId())
@@ -233,11 +223,16 @@ import javax.annotation.Nullable;
  *                     "Restore",
  *                     "Set")
  *                 .build())
+ *             .name("examplekeyvault")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .tenantId(current.tenantId())
+ *             .skuName("standard")
+ *             .softDeleteRetentionDays(7)
  *             .build());
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
- *             .name("generated-cert")
- *             .keyVaultId(exampleKeyVault.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
  *                     .name("Self")
@@ -248,18 +243,15 @@ import javax.annotation.Nullable;
  *                     .keyType("RSA")
  *                     .reuseKey(true)
  *                     .build())
- *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
- *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
- *                         .actionType("AutoRenew")
- *                         .build())
- *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
- *                         .daysBeforeExpiry(30)
- *                         .build())
- *                     .build())
  *                 .secretProperties(CertificateCertificatePolicySecretPropertiesArgs.builder()
  *                     .contentType("application/x-pkcs12")
  *                     .build())
  *                 .x509CertificateProperties(CertificateCertificatePolicyX509CertificatePropertiesArgs.builder()
+ *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
+ *                         .dnsNames(                        
+ *                             "internal.contoso.com",
+ *                             "domain.hello.world")
+ *                         .build())
  *                     .extendedKeyUsages("1.3.6.1.5.5.7.3.1")
  *                     .keyUsages(                    
  *                         "cRLSign",
@@ -268,15 +260,20 @@ import javax.annotation.Nullable;
  *                         "keyAgreement",
  *                         "keyCertSign",
  *                         "keyEncipherment")
- *                     .subjectAlternativeNames(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs.builder()
- *                         .dnsNames(                        
- *                             "internal.contoso.com",
- *                             "domain.hello.world")
- *                         .build())
  *                     .subject("CN=hello-world")
  *                     .validityInMonths(12)
  *                     .build())
+ *                 .lifetimeActions(CertificateCertificatePolicyLifetimeActionArgs.builder()
+ *                     .action(CertificateCertificatePolicyLifetimeActionActionArgs.builder()
+ *                         .actionType("AutoRenew")
+ *                         .build())
+ *                     .trigger(CertificateCertificatePolicyLifetimeActionTriggerArgs.builder()
+ *                         .daysBeforeExpiry(30)
+ *                         .build())
+ *                     .build())
  *                 .build())
+ *             .name("generated-cert")
+ *             .keyVaultId(exampleKeyVault.id())
  *             .build());
  * 
  *     }

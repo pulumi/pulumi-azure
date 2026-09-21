@@ -30,14 +30,16 @@ import * as utilities from "../utilities";
  *     purgeProtectionEnabled: true,
  * });
  * const exampleAccount = new azure.storage.Account("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "examplestor",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
+ * }, {
+ *     ignoreChanges: ["customerManagedKey"],
  * });
  * const storage = new azure.keyvault.AccessPolicy("storage", {
  *     keyVaultId: exampleKeyVault.id,

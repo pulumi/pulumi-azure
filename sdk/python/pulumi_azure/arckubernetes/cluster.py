@@ -366,13 +366,13 @@ class Cluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-akcc",
+            resource_group_name=example.name,
+            location="West Europe",
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer")["result"],
             tags={
                 "ENV": "Test",
             })
@@ -427,13 +427,13 @@ class Cluster(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_cluster = azure.arckubernetes.Cluster("example",
-            name="example-akcc",
-            resource_group_name=example.name,
-            location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-akcc",
+            resource_group_name=example.name,
+            location="West Europe",
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer")["result"],
             tags={
                 "ENV": "Test",
             })

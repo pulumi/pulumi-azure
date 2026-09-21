@@ -50,9 +50,6 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
         ///     {
-        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
-        ///         HttpsOnly = true,
-        ///         SignedVersion = "2022-11-02",
         ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///         {
         ///             Service = true,
@@ -66,8 +63,6 @@ namespace Pulumi.Azure.Storage
         ///             Table = false,
         ///             File = false,
         ///         },
-        ///         Start = "2018-03-21T00:00:00Z",
-        ///         Expiry = "2020-03-21T00:00:00Z",
         ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///         {
         ///             Read = true,
@@ -81,6 +76,11 @@ namespace Pulumi.Azure.Storage
         ///             Tag = false,
         ///             Filter = false,
         ///         },
+        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+        ///         HttpsOnly = true,
+        ///         SignedVersion = "2022-11-02",
+        ///         Start = "2018-03-21T00:00:00Z",
+        ///         Expiry = "2020-03-21T00:00:00Z",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -132,9 +132,6 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
         ///     {
-        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
-        ///         HttpsOnly = true,
-        ///         SignedVersion = "2022-11-02",
         ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///         {
         ///             Service = true,
@@ -148,8 +145,6 @@ namespace Pulumi.Azure.Storage
         ///             Table = false,
         ///             File = false,
         ///         },
-        ///         Start = "2018-03-21T00:00:00Z",
-        ///         Expiry = "2020-03-21T00:00:00Z",
         ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///         {
         ///             Read = true,
@@ -163,6 +158,11 @@ namespace Pulumi.Azure.Storage
         ///             Tag = false,
         ///             Filter = false,
         ///         },
+        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+        ///         HttpsOnly = true,
+        ///         SignedVersion = "2022-11-02",
+        ///         Start = "2018-03-21T00:00:00Z",
+        ///         Expiry = "2020-03-21T00:00:00Z",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -214,9 +214,6 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
         ///     {
-        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
-        ///         HttpsOnly = true,
-        ///         SignedVersion = "2022-11-02",
         ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
         ///         {
         ///             Service = true,
@@ -230,8 +227,6 @@ namespace Pulumi.Azure.Storage
         ///             Table = false,
         ///             File = false,
         ///         },
-        ///         Start = "2018-03-21T00:00:00Z",
-        ///         Expiry = "2020-03-21T00:00:00Z",
         ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
         ///         {
         ///             Read = true,
@@ -245,6 +240,11 @@ namespace Pulumi.Azure.Storage
         ///             Tag = false,
         ///             Filter = false,
         ///         },
+        ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+        ///         HttpsOnly = true,
+        ///         SignedVersion = "2022-11-02",
+        ///         Start = "2018-03-21T00:00:00Z",
+        ///         Expiry = "2020-03-21T00:00:00Z",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

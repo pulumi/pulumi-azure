@@ -48,9 +48,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetServiceEndpointStoragePolicy(ctx, "example", &network.SubnetServiceEndpointStoragePolicyArgs{
-//				Name:              pulumi.String("example-policy"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Definitions: network.SubnetServiceEndpointStoragePolicyDefinitionArray{
 //					&network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
 //						Name:        pulumi.String("name1"),
@@ -76,6 +73,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example-policy"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

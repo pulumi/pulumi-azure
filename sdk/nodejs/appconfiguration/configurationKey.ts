@@ -59,13 +59,6 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getClientConfig({});
  * const kv = new azure.keyvault.KeyVault("kv", {
- *     name: "kv",
- *     location: testAzurermResourceGroup.location,
- *     resourceGroupName: testAzurermResourceGroup.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -81,6 +74,13 @@ import * as utilities from "../utilities";
  *             "Recover",
  *         ],
  *     }],
+ *     name: "kv",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     softDeleteRetentionDays: 7,
  * });
  * const kvs = new azure.keyvault.Secret("kvs", {
  *     name: "kvs",

@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example-IoTHub",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example-IoTHub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleSecuritySolution = new azure.iot.SecuritySolution("example", {
  *     name: "example-Iot-Security-Solution",
@@ -36,8 +36,6 @@ import * as utilities from "../utilities";
  *     iothubIds: [exampleIoTHub.id],
  * });
  * const exampleSecurityDeviceGroup = new azure.iot.SecurityDeviceGroup("example", {
- *     name: "example-device-security-group",
- *     iothubId: exampleIoTHub.id,
  *     allowRule: {
  *         connectionToIpsNotAlloweds: ["10.0.0.0/24"],
  *     },
@@ -47,6 +45,8 @@ import * as utilities from "../utilities";
  *         max: 30,
  *         duration: "PT5M",
  *     }],
+ *     name: "example-device-security-group",
+ *     iothubId: exampleIoTHub.id,
  * }, {
  *     dependsOn: [exampleSecuritySolution],
  * });

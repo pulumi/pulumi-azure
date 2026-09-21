@@ -26,15 +26,15 @@ import * as utilities from "../utilities";
  *     encapsulation: "Dot1Q",
  * });
  * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "example-ercircuit",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     expressRoutePortId: exampleExpressRoutePort.id,
  *     bandwidthInGbps: 5,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  * });
  * const example2 = new azure.network.ExpressRoutePort("example2", {
  *     name: "example-erport2",
@@ -45,15 +45,15 @@ import * as utilities from "../utilities";
  *     encapsulation: "Dot1Q",
  * });
  * const example2ExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example2", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "example-ercircuit2",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     expressRoutePortId: example2.id,
  *     bandwidthInGbps: 5,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  * });
  * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
  *     peeringType: "AzurePrivatePeering",

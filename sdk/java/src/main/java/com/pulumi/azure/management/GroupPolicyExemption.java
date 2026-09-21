@@ -58,13 +58,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()
+ *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("assignment1")
  *             .managementGroupId(exampleGroup.id())
  *             .policyDefinitionId(example.id())
  *             .location("westus")
- *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleGroupPolicyExemption = new GroupPolicyExemption("exampleGroupPolicyExemption", GroupPolicyExemptionArgs.builder()

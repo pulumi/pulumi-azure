@@ -40,11 +40,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.LinuxVirtualMachine;
  * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.azure.compute.RestorePointCollection;
  * import com.pulumi.azure.compute.RestorePointCollectionArgs;
  * import java.util.ArrayList;
@@ -80,29 +79,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("example-machine")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_D4_v5")
- *             .adminUsername("adminuser")
- *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
- *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input("~/.ssh/id_rsa.pub")
- *                     .build()).result())
- *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
@@ -113,6 +100,16 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
+ *                 .username("adminuser")
+ *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
+ *                 .build())
+ *             .name("example-machine")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_D4_v5")
+ *             .adminUsername("adminuser")
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleRestorePointCollection = new RestorePointCollection("exampleRestorePointCollection", RestorePointCollectionArgs.builder()

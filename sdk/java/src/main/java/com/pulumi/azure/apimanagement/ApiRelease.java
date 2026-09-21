@@ -63,6 +63,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
+ *             .import_(ApiImportArgs.builder()
+ *                 .contentFormat("swagger-link-json")
+ *                 .contentValue("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json")
+ *                 .build())
  *             .name("example-api")
  *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
@@ -70,10 +74,6 @@ import javax.annotation.Nullable;
  *             .displayName("Example API")
  *             .path("example")
  *             .protocols("https")
- *             .import_(ApiImportArgs.builder()
- *                 .contentFormat("swagger-link-json")
- *                 .contentValue("https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json")
- *                 .build())
  *             .build());
  * 
  *         var exampleApiRelease = new ApiRelease("exampleApiRelease", ApiReleaseArgs.builder()

@@ -66,9 +66,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePolicyVM = new PolicyVM("examplePolicyVM", PolicyVMArgs.builder()
- *             .name("tfex-recovery-vault-policy")
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .recoveryVaultName(exampleVault.name())
  *             .backup(PolicyVMBackupArgs.builder()
  *                 .frequency("Daily")
  *                 .time("23:00")
@@ -76,6 +73,9 @@ import javax.annotation.Nullable;
  *             .retentionDaily(PolicyVMRetentionDailyArgs.builder()
  *                 .count(10)
  *                 .build())
+ *             .name("tfex-recovery-vault-policy")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .recoveryVaultName(exampleVault.name())
  *             .build());
  * 
  *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()

@@ -91,17 +91,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var trust = new Subnet("trust", SubnetArgs.builder()
- *             .name("example-trust-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.1.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("trusted")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("PaloAltoNetworks.Cloudngfw/firewalls")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("trusted")
  *                 .build())
+ *             .name("example-trust-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.1.0/24")
  *             .build());
  * 
  *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
@@ -110,17 +110,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var untrust = new Subnet("untrust", SubnetArgs.builder()
- *             .name("example-untrust-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("untrusted")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("PaloAltoNetworks.Cloudngfw/firewalls")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .build())
+ *                 .name("untrusted")
  *                 .build())
+ *             .name("example-untrust-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation", SubnetNetworkSecurityGroupAssociationArgs.builder()
@@ -129,18 +129,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualNetworkStrataCloudManager = new NextGenerationFirewallVirtualNetworkStrataCloudManager("exampleNextGenerationFirewallVirtualNetworkStrataCloudManager", NextGenerationFirewallVirtualNetworkStrataCloudManagerArgs.builder()
- *             .name("example-ngfwvh")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .strataCloudManagerTenantName("example-scm-tenant")
  *             .networkProfile(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs.builder()
- *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs.builder()
  *                     .virtualNetworkId(exampleVirtualNetwork.id())
  *                     .trustedSubnetId(trust.id())
  *                     .untrustedSubnetId(untrust.id())
  *                     .build())
+ *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .build())
+ *             .name("example-ngfwvh")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .strataCloudManagerTenantName("example-scm-tenant")
  *             .build());
  * 
  *     }

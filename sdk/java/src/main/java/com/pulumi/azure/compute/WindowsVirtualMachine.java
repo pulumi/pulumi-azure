@@ -103,24 +103,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()
- *             .name("example-machine")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_D4_v5")
- *             .adminUsername("adminuser")
- *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(WindowsVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
@@ -131,6 +124,13 @@ import javax.annotation.Nullable;
  *                 .sku("2016-Datacenter")
  *                 .version("latest")
  *                 .build())
+ *             .name("example-machine")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_D4_v5")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *     }}{@code

@@ -25,15 +25,10 @@ import * as utilities from "../utilities";
  *     accountName: example.then(example => example.name),
  * });
  * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
- *     name: "example-container",
- *     resourceGroupName: example.then(example => example.resourceGroupName),
- *     accountName: example.then(example => example.name),
- *     databaseName: exampleSqlDatabase.name,
- *     partitionKeyPaths: ["/definition/id"],
- *     partitionKeyVersion: 1,
- *     throughput: 400,
  *     indexingPolicy: {
- *         indexingMode: "consistent",
+ *         excludedPaths: [{
+ *             path: "/excluded/?",
+ *         }],
  *         includedPaths: [
  *             {
  *                 path: "/*",
@@ -42,9 +37,7 @@ import * as utilities from "../utilities";
  *                 path: "/included/?",
  *             },
  *         ],
- *         excludedPaths: [{
- *             path: "/excluded/?",
- *         }],
+ *         indexingMode: "consistent",
  *     },
  *     uniqueKeys: [{
  *         paths: [
@@ -52,6 +45,13 @@ import * as utilities from "../utilities";
  *             "/definition/idshort",
  *         ],
  *     }],
+ *     name: "example-container",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
+ *     databaseName: exampleSqlDatabase.name,
+ *     partitionKeyPaths: ["/definition/id"],
+ *     partitionKeyVersion: 1,
+ *     throughput: 400,
  * });
  * ```
  *

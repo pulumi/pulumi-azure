@@ -66,18 +66,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLocalRulestackRule = new LocalRulestackRule("exampleLocalRulestackRule", LocalRulestackRuleArgs.builder()
- *             .name("example-rule")
- *             .rulestackId(exampleLocalRulestack.id())
- *             .priority(1000)
- *             .action("Allow")
- *             .protocol("application-default")
- *             .applications("any")
  *             .source(LocalRulestackRuleSourceArgs.builder()
  *                 .cidrs("10.0.0.0/8")
  *                 .build())
  *             .destination(LocalRulestackRuleDestinationArgs.builder()
  *                 .cidrs("192.168.16.0/24")
  *                 .build())
+ *             .name("example-rule")
+ *             .rulestackId(exampleLocalRulestack.id())
+ *             .priority(1000)
+ *             .action("Allow")
+ *             .protocol("application-default")
+ *             .applications("any")
  *             .build());
  * 
  *     }

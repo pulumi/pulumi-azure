@@ -19,15 +19,15 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "b24988ac-6180-42a0-ab88-20f7382dd24c",
  * });
  * const example = new azure.lighthouse.Definition("example", {
- *     name: "Sample definition",
- *     description: "This is a lighthouse definition created IaC",
- *     managingTenantId: "00000000-0000-0000-0000-000000000000",
- *     scope: "/subscriptions/00000000-0000-0000-0000-000000000000",
  *     authorizations: [{
  *         principalId: "00000000-0000-0000-0000-000000000000",
  *         roleDefinitionId: contributor.then(contributor => contributor.roleDefinitionId),
  *         principalDisplayName: "Tier 1 Support",
  *     }],
+ *     name: "Sample definition",
+ *     description: "This is a lighthouse definition created IaC",
+ *     managingTenantId: "00000000-0000-0000-0000-000000000000",
+ *     scope: "/subscriptions/00000000-0000-0000-0000-000000000000",
  * });
  * ```
  *

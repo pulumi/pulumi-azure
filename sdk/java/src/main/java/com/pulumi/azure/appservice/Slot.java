@@ -81,46 +81,46 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("some-app-service-plan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("some-app-service-plan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
- *             .name(server.hex())
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(AppServiceSiteConfigArgs.builder()
  *                 .dotnetFrameworkVersion("v4.0")
  *                 .build())
- *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .connectionStrings(AppServiceConnectionStringArgs.builder()
  *                 .name("Database")
  *                 .type("SQLServer")
  *                 .value("Server=some-server.mydomain.com;Integrated Security=SSPI")
  *                 .build())
- *             .build());
- * 
- *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .name(server.hex())
- *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
+ *             .appSettings(Map.of("SOME_KEY", "some-value"))
+ *             .build());
+ * 
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .siteConfig(SlotSiteConfigArgs.builder()
  *                 .dotnetFrameworkVersion("v4.0")
  *                 .build())
- *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .connectionStrings(SlotConnectionStringArgs.builder()
  *                 .name("Database")
  *                 .type("SQLServer")
  *                 .value("Server=some-server.mydomain.com;Integrated Security=SSPI")
  *                 .build())
+ *             .name(server.hex())
+ *             .appServiceName(exampleAppService.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .appSettings(Map.of("SOME_KEY", "some-value"))
  *             .build());
  * 
  *     }
@@ -174,38 +174,38 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
- *             .name("some-app-service-plan")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier("Standard")
  *                 .size("S1")
  *                 .build())
+ *             .name("some-app-service-plan")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
- *             .name(server.hex())
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
  *             .siteConfig(AppServiceSiteConfigArgs.builder()
  *                 .javaVersion("1.8")
  *                 .javaContainer("JETTY")
  *                 .javaContainerVersion("9.3")
  *                 .build())
- *             .build());
- * 
- *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .name(server.hex())
- *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
+ *             .build());
+ * 
+ *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
  *             .siteConfig(SlotSiteConfigArgs.builder()
  *                 .javaVersion("1.8")
  *                 .javaContainer("JETTY")
  *                 .javaContainerVersion("9.3")
  *                 .build())
+ *             .name(server.hex())
+ *             .appServiceName(exampleAppService.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *     }

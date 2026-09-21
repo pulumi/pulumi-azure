@@ -36,15 +36,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleShare = new azure.storage.Share("example", {
- *     name: "example-share",
- *     storageAccountName: exampleAccount.name,
- *     quota: 50,
  *     acls: [{
- *         id: "GhostedRecall",
  *         accessPolicies: [{
  *             permissions: "r",
  *         }],
+ *         id: "GhostedRecall",
  *     }],
+ *     name: "example-share",
+ *     storageAccountName: exampleAccount.name,
+ *     quota: 50,
  * });
  * const exampleSyncCloudEndpoint = new azure.storage.SyncCloudEndpoint("example", {
  *     name: "example-ss-ce",

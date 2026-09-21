@@ -65,12 +65,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDevCenter = new DevCenter("exampleDevCenter", DevCenterArgs.builder()
- *             .name("example-dc")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example-dc")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleEnvironmentType = new EnvironmentType("exampleEnvironmentType", EnvironmentTypeArgs.builder()
@@ -88,13 +88,13 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleProjectEnvironmentType = new ProjectEnvironmentType("exampleProjectEnvironmentType", ProjectEnvironmentTypeArgs.builder()
+ *             .identity(ProjectEnvironmentTypeIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-et")
  *             .location(example.location())
  *             .devCenterProjectId(exampleProject.id())
  *             .deploymentTargetId(String.format("/subscriptions/%s", current.subscriptionId()))
- *             .identity(ProjectEnvironmentTypeIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *     }

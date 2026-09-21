@@ -41,9 +41,6 @@ namespace Pulumi.Azure.NetApp
     /// 
     ///     var exampleAccount = new Azure.NetApp.Account("example", new()
     ///     {
-    ///         Name = "netappaccount",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
     ///         {
     ///             Username = "aduser",
@@ -64,6 +61,9 @@ namespace Pulumi.Azure.NetApp
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "netappaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

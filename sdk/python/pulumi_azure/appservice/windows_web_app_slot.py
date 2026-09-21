@@ -1159,15 +1159,15 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             os_type="Windows",
             sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example-windows-web-app",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
+            site_config={},
             name="example-slot",
-            app_service_id=example_windows_web_app.id,
-            site_config={})
+            app_service_id=example_windows_web_app.id)
         ```
 
         ## API Providers
@@ -1257,15 +1257,15 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             os_type="Windows",
             sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example-windows-web-app",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
+            site_config={},
             name="example-slot",
-            app_service_id=example_windows_web_app.id,
-            site_config={})
+            app_service_id=example_windows_web_app.id)
         ```
 
         ## API Providers

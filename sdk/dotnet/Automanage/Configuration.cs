@@ -30,9 +30,6 @@ namespace Pulumi.Azure.Automanage
     /// 
     ///     var exampleConfiguration = new Azure.Automanage.Configuration("example", new()
     ///     {
-    ///         Name = "example-acmp",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Antimalware = new Azure.Automanage.Inputs.ConfigurationAntimalwareArgs
     ///         {
     ///             Exclusions = new Azure.Automanage.Inputs.ConfigurationAntimalwareExclusionsArgs
@@ -51,12 +48,8 @@ namespace Pulumi.Azure.Automanage
     ///         {
     ///             AssignmentType = "ApplyAndAutoCorrect",
     ///         },
-    ///         AutomationAccountEnabled = true,
     ///         Backup = new Azure.Automanage.Inputs.ConfigurationBackupArgs
     ///         {
-    ///             PolicyName = "acctest-backup-policy-%d",
-    ///             TimeZone = "UTC",
-    ///             InstantRpRetentionRangeInDays = 2,
     ///             SchedulePolicy = new Azure.Automanage.Inputs.ConfigurationBackupSchedulePolicyArgs
     ///             {
     ///                 ScheduleRunFrequency = "Daily",
@@ -73,33 +66,40 @@ namespace Pulumi.Azure.Automanage
     ///             },
     ///             RetentionPolicy = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyArgs
     ///             {
-    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
     ///                 DailySchedule = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyDailyScheduleArgs
     ///                 {
-    ///                     RetentionTimes = new[]
-    ///                     {
-    ///                         "12:00",
-    ///                     },
     ///                     RetentionDuration = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs
     ///                     {
     ///                         Count = 7,
     ///                         DurationType = "Days",
     ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "12:00",
+    ///                     },
     ///                 },
     ///                 WeeklySchedule = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleArgs
     ///                 {
-    ///                     RetentionTimes = new[]
-    ///                     {
-    ///                         "14:00",
-    ///                     },
     ///                     RetentionDuration = new Azure.Automanage.Inputs.ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs
     ///                     {
     ///                         Count = 4,
     ///                         DurationType = "Weeks",
     ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "14:00",
+    ///                     },
     ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
     ///             },
+    ///             PolicyName = "acctest-backup-policy-%d",
+    ///             TimeZone = "UTC",
+    ///             InstantRpRetentionRangeInDays = 2,
     ///         },
+    ///         Name = "example-acmp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AutomationAccountEnabled = true,
     ///         BootDiagnosticsEnabled = true,
     ///         DefenderForCloudEnabled = true,
     ///         GuestConfigurationEnabled = true,

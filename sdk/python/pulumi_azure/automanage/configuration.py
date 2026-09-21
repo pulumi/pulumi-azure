@@ -476,9 +476,6 @@ class Configuration(pulumi.CustomResource):
             name="example-automanage",
             location="West Europe")
         example_configuration = azure.automanage.Configuration("example",
-            name="example-acmp",
-            resource_group_name=example.name,
-            location=example.location,
             antimalware={
                 "exclusions": {
                     "extensions": "exe;dll",
@@ -494,11 +491,7 @@ class Configuration(pulumi.CustomResource):
             azure_security_baseline={
                 "assignment_type": "ApplyAndAutoCorrect",
             },
-            automation_account_enabled=True,
             backup={
-                "policy_name": "acctest-backup-policy-%d",
-                "time_zone": "UTC",
-                "instant_rp_retention_range_in_days": 2,
                 "schedule_policy": {
                     "schedule_run_frequency": "Daily",
                     "schedule_run_days": [
@@ -509,23 +502,30 @@ class Configuration(pulumi.CustomResource):
                     "schedule_policy_type": "SimpleSchedulePolicy",
                 },
                 "retention_policy": {
-                    "retention_policy_type": "LongTermRetentionPolicy",
                     "daily_schedule": {
-                        "retention_times": ["12:00"],
                         "retention_duration": {
                             "count": 7,
                             "duration_type": "Days",
                         },
+                        "retention_times": ["12:00"],
                     },
                     "weekly_schedule": {
-                        "retention_times": ["14:00"],
                         "retention_duration": {
                             "count": 4,
                             "duration_type": "Weeks",
                         },
+                        "retention_times": ["14:00"],
                     },
+                    "retention_policy_type": "LongTermRetentionPolicy",
                 },
+                "policy_name": "acctest-backup-policy-%d",
+                "time_zone": "UTC",
+                "instant_rp_retention_range_in_days": 2,
             },
+            name="example-acmp",
+            resource_group_name=example.name,
+            location=example.location,
+            automation_account_enabled=True,
             boot_diagnostics_enabled=True,
             defender_for_cloud_enabled=True,
             guest_configuration_enabled=True,
@@ -586,9 +586,6 @@ class Configuration(pulumi.CustomResource):
             name="example-automanage",
             location="West Europe")
         example_configuration = azure.automanage.Configuration("example",
-            name="example-acmp",
-            resource_group_name=example.name,
-            location=example.location,
             antimalware={
                 "exclusions": {
                     "extensions": "exe;dll",
@@ -604,11 +601,7 @@ class Configuration(pulumi.CustomResource):
             azure_security_baseline={
                 "assignment_type": "ApplyAndAutoCorrect",
             },
-            automation_account_enabled=True,
             backup={
-                "policy_name": "acctest-backup-policy-%d",
-                "time_zone": "UTC",
-                "instant_rp_retention_range_in_days": 2,
                 "schedule_policy": {
                     "schedule_run_frequency": "Daily",
                     "schedule_run_days": [
@@ -619,23 +612,30 @@ class Configuration(pulumi.CustomResource):
                     "schedule_policy_type": "SimpleSchedulePolicy",
                 },
                 "retention_policy": {
-                    "retention_policy_type": "LongTermRetentionPolicy",
                     "daily_schedule": {
-                        "retention_times": ["12:00"],
                         "retention_duration": {
                             "count": 7,
                             "duration_type": "Days",
                         },
+                        "retention_times": ["12:00"],
                     },
                     "weekly_schedule": {
-                        "retention_times": ["14:00"],
                         "retention_duration": {
                             "count": 4,
                             "duration_type": "Weeks",
                         },
+                        "retention_times": ["14:00"],
                     },
+                    "retention_policy_type": "LongTermRetentionPolicy",
                 },
+                "policy_name": "acctest-backup-policy-%d",
+                "time_zone": "UTC",
+                "instant_rp_retention_range_in_days": 2,
             },
+            name="example-acmp",
+            resource_group_name=example.name,
+            location=example.location,
+            automation_account_enabled=True,
             boot_diagnostics_enabled=True,
             defender_for_cloud_enabled=True,
             guest_configuration_enabled=True,

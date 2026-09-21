@@ -35,39 +35,33 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             name: "NGINX.NGINXPLUS/nginxDeployments",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleDeployment = new azure.nginx.Deployment("example", {
- *     name: "example-nginx",
- *     resourceGroupName: example.name,
- *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
- *     location: example.location,
- *     managedResourceGroup: "example",
  *     frontendPublic: {
  *         ipAddresses: [examplePublicIp.id],
  *     },
  *     networkInterfaces: [{
  *         subnetId: exampleSubnet.id,
  *     }],
+ *     name: "example-nginx",
+ *     resourceGroupName: example.name,
+ *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
+ *     location: example.location,
+ *     managedResourceGroup: "example",
  * });
  * const current = azure.core.getClientConfig({});
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -86,16 +80,22 @@ import * as utilities from "../utilities";
  *             "Update",
  *         ],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "imported-cert",
- *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "certificate-to-import.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "",
  *     },
+ *     name: "imported-cert",
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleCertificate2 = new azure.nginx.Certificate("example", {
  *     name: "examplecert",

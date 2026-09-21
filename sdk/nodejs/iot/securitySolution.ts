@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example-IoTHub",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example-IoTHub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleSecuritySolution = new azure.iot.SecuritySolution("example", {
  *     name: "example-Iot-Security-Solution",

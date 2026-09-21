@@ -453,13 +453,13 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         example_linked_service_sql_server = azure.datafactory.LinkedServiceSqlServer("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
             key_vault_password={
                 "linked_service_name": example_linked_service_key_vault.name,
                 "secret_name": "secret",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;")
         ```
 
         ## Import
@@ -539,13 +539,13 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         example_linked_service_sql_server = azure.datafactory.LinkedServiceSqlServer("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
             key_vault_password={
                 "linked_service_name": example_linked_service_key_vault.name,
                 "secret_name": "secret",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;")
         ```
 
         ## Import

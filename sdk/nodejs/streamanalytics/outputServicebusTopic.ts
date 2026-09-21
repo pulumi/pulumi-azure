@@ -35,6 +35,10 @@ import * as utilities from "../utilities";
  *     enablePartitioning: true,
  * });
  * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("example", {
+ *     serialization: {
+ *         type: "Csv",
+ *         format: "Array",
+ *     },
  *     name: "service-bus-topic-output",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -46,10 +50,6 @@ import * as utilities from "../utilities";
  *         "col1",
  *         "col2",
  *     ],
- *     serialization: {
- *         type: "Csv",
- *         format: "Array",
- *     },
  * });
  * ```
  *

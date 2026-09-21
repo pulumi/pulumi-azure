@@ -143,15 +143,15 @@ class WebAppActiveSlot(pulumi.CustomResource):
             os_type="Windows",
             sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example-windows-web-app",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
+            site_config={},
             name="example-windows-web-app-slot",
-            app_service_id=example_windows_web_app.name,
-            site_config={})
+            app_service_id=example_windows_web_app.name)
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 
@@ -171,17 +171,17 @@ class WebAppActiveSlot(pulumi.CustomResource):
             os_type="Linux",
             sku_name="P1v2")
         example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            site_config={},
             name="example-linux-web-app",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("example",
+            site_config={},
             name="example-linux-web-app-slot",
             app_service_name=example_linux_web_app.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_linux_web_app_slot.id)
         ```
 
@@ -233,15 +233,15 @@ class WebAppActiveSlot(pulumi.CustomResource):
             os_type="Windows",
             sku_name="P1v2")
         example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            site_config={},
             name="example-windows-web-app",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
+            site_config={},
             name="example-windows-web-app-slot",
-            app_service_id=example_windows_web_app.name,
-            site_config={})
+            app_service_id=example_windows_web_app.name)
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 
@@ -261,17 +261,17 @@ class WebAppActiveSlot(pulumi.CustomResource):
             os_type="Linux",
             sku_name="P1v2")
         example_linux_web_app = azure.appservice.LinuxWebApp("example",
+            site_config={},
             name="example-linux-web-app",
             resource_group_name=example.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_linux_web_app_slot = azure.appservice.LinuxWebAppSlot("example",
+            site_config={},
             name="example-linux-web-app-slot",
             app_service_name=example_linux_web_app.name,
             location=example_service_plan.location,
-            service_plan_id=example_service_plan.id,
-            site_config={})
+            service_plan_id=example_service_plan.id)
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_linux_web_app_slot.id)
         ```
 

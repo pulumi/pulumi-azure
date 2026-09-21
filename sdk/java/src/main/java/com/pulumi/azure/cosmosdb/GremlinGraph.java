@@ -66,12 +66,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGremlinGraph = new GremlinGraph("exampleGremlinGraph", GremlinGraphArgs.builder()
- *             .name("tfex-cosmos-gremlin-graph")
- *             .resourceGroupName(example.resourceGroupName())
- *             .accountName(example.name())
- *             .databaseName(exampleGremlinDatabase.name())
- *             .partitionKeyPath("/Example")
- *             .throughput(400)
  *             .indexPolicy(GremlinGraphIndexPolicyArgs.builder()
  *                 .automatic(true)
  *                 .indexingMode("consistent")
@@ -87,6 +81,12 @@ import javax.annotation.Nullable;
  *                     "/definition/id1",
  *                     "/definition/id2")
  *                 .build())
+ *             .name("tfex-cosmos-gremlin-graph")
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
+ *             .databaseName(exampleGremlinDatabase.name())
+ *             .partitionKeyPath("/Example")
+ *             .throughput(400)
  *             .build());
  * 
  *     }

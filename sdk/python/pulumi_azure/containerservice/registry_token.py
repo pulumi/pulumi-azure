@@ -216,11 +216,6 @@ class RegistryToken(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_registry = azure.containerservice.Registry("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Basic",
-            admin_enabled=False,
             georeplications=[
                 {
                     "location": "East US",
@@ -228,7 +223,12 @@ class RegistryToken(pulumi.CustomResource):
                 {
                     "location": "West Europe",
                 },
-            ])
+            ],
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Basic",
+            admin_enabled=False)
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",
             container_registry_name=example_registry.name,
@@ -287,11 +287,6 @@ class RegistryToken(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_registry = azure.containerservice.Registry("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
-            sku="Basic",
-            admin_enabled=False,
             georeplications=[
                 {
                     "location": "East US",
@@ -299,7 +294,12 @@ class RegistryToken(pulumi.CustomResource):
                 {
                     "location": "West Europe",
                 },
-            ])
+            ],
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            sku="Basic",
+            admin_enabled=False)
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",
             container_registry_name=example_registry.name,

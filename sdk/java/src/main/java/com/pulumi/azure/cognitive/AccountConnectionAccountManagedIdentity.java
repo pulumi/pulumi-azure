@@ -59,6 +59,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("example-aiservices")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -66,9 +69,6 @@ import javax.annotation.Nullable;
  *             .skuName("S0")
  *             .projectManagementEnabled(true)
  *             .customSubdomainName("exampleaiservices")
- *             .identity(AccountIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()

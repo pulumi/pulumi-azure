@@ -417,6 +417,10 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             name="example-sapvis",
             location="West Europe")
         example_discovery_virtual_instance = azure.workloadssap.DiscoveryVirtualInstance("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+            },
             name="X01",
             resource_group_name=example.name,
             location=example.location,
@@ -424,10 +428,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             sap_product="S4HANA",
             central_server_virtual_machine_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
             managed_storage_account_name="managedsa",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["managedResourceGroupName"]))
         ```
 
         ## API Providers
@@ -481,6 +482,10 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             name="example-sapvis",
             location="West Europe")
         example_discovery_virtual_instance = azure.workloadssap.DiscoveryVirtualInstance("example",
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+            },
             name="X01",
             resource_group_name=example.name,
             location=example.location,
@@ -488,10 +493,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             sap_product="S4HANA",
             central_server_virtual_machine_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1",
             managed_storage_account_name="managedsa",
-            identity={
-                "type": "UserAssigned",
-                "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["managedResourceGroupName"]))
         ```
 
         ## API Providers

@@ -18,11 +18,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleRegistry = new azure.containerservice.Registry("example", {
- *     name: "exampleregistry",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Basic",
- *     adminEnabled: false,
  *     georeplications: [
  *         {
  *             location: "East US",
@@ -31,6 +26,11 @@ import * as utilities from "../utilities";
  *             location: "West Europe",
  *         },
  *     ],
+ *     name: "exampleregistry",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Basic",
+ *     adminEnabled: false,
  * });
  * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("example", {
  *     name: "example-scope-map",

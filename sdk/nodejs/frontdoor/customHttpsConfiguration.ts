@@ -36,35 +36,20 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-vault-rg",
  * });
  * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
- *     name: "example-FrontDoor",
- *     resourceGroupName: example.name,
- *     routingRules: [{
- *         name: "exampleRoutingRule1",
- *         acceptedProtocols: [
- *             "Http",
- *             "Https",
- *         ],
- *         patternsToMatches: ["/*"],
- *         frontendEndpoints: ["exampleFrontendEndpoint1"],
- *         forwardingConfiguration: {
- *             forwardingProtocol: "MatchRequest",
- *             backendPoolName: "exampleBackendBing",
- *         },
+ *     backendPoolHealthProbes: [{
+ *         name: "exampleHealthProbeSetting1",
  *     }],
  *     backendPoolLoadBalancings: [{
  *         name: "exampleLoadBalancingSettings1",
  *     }],
- *     backendPoolHealthProbes: [{
- *         name: "exampleHealthProbeSetting1",
- *     }],
  *     backendPools: [{
- *         name: "exampleBackendBing",
  *         backends: [{
  *             hostHeader: "www.bing.com",
  *             address: "www.bing.com",
  *             httpPort: 80,
  *             httpsPort: 443,
  *         }],
+ *         name: "exampleBackendBing",
  *         loadBalancingName: "exampleLoadBalancingSettings1",
  *         healthProbeName: "exampleHealthProbeSetting1",
  *     }],
@@ -78,19 +63,34 @@ import * as utilities from "../utilities";
  *             hostName: "examplefd1.examplefd.net",
  *         },
  *     ],
+ *     routingRules: [{
+ *         forwardingConfiguration: {
+ *             forwardingProtocol: "MatchRequest",
+ *             backendPoolName: "exampleBackendBing",
+ *         },
+ *         name: "exampleRoutingRule1",
+ *         acceptedProtocols: [
+ *             "Http",
+ *             "Https",
+ *         ],
+ *         patternsToMatches: ["/*"],
+ *         frontendEndpoints: ["exampleFrontendEndpoint1"],
+ *     }],
+ *     name: "example-FrontDoor",
+ *     resourceGroupName: example.name,
  * });
  * const exampleCustomHttps0 = new azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0", {
  *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint1,
  *     customHttpsProvisioningEnabled: false,
  * });
  * const exampleCustomHttps1 = new azure.frontdoor.CustomHttpsConfiguration("example_custom_https_1", {
- *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint2,
- *     customHttpsProvisioningEnabled: true,
  *     customHttpsConfiguration: {
  *         certificateSource: "AzureKeyVault",
  *         azureKeyVaultCertificateSecretName: "examplefd1",
  *         azureKeyVaultCertificateVaultId: vault.then(vault => vault.id),
  *     },
+ *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint2,
+ *     customHttpsProvisioningEnabled: true,
  * });
  * ```
  *

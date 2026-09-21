@@ -25,11 +25,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSchedule = new azure.devtest.Schedule("example", {
- *     name: "LabVmAutoStart",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     labName: exampleLab.name,
- *     status: "Enabled",
  *     weeklyRecurrence: {
  *         time: "1100",
  *         weekDays: [
@@ -37,9 +32,14 @@ import * as utilities from "../utilities";
  *             "Tuesday",
  *         ],
  *     },
+ *     notificationSettings: {},
+ *     name: "LabVmAutoStart",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     labName: exampleLab.name,
+ *     status: "Enabled",
  *     timeZoneId: "Pacific Standard Time",
  *     taskType: "LabVmsStartupTask",
- *     notificationSettings: {},
  *     tags: {
  *         environment: "Production",
  *     },

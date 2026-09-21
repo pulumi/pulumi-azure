@@ -150,18 +150,18 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("example",
             cosmosdb_account_id=example_account.id,
             instance_count=1,
@@ -209,18 +209,18 @@ class SqlDedicatedGateway(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-ca",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
             },
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_dedicated_gateway = azure.cosmosdb.SqlDedicatedGateway("example",
             cosmosdb_account_id=example_account.id,
             instance_count=1,

@@ -37,8 +37,6 @@ import (
 //				return err
 //			}
 //			_, err = eventgrid.NewPartnerConfiguration(ctx, "example", &eventgrid.PartnerConfigurationArgs{
-//				ResourceGroupName:                  example.Name,
-//				DefaultMaximumExpirationTimeInDays: pulumi.Int(14),
 //				PartnerAuthorizations: eventgrid.PartnerConfigurationPartnerAuthorizationArray{
 //					&eventgrid.PartnerConfigurationPartnerAuthorizationArgs{
 //						PartnerRegistrationId:            pulumi.String("804a11ca-ce9b-4158-8e94-3c8dc7a072ec"),
@@ -46,6 +44,8 @@ import (
 //						AuthorizationExpirationTimeInUtc: pulumi.String("2025-02-05T00:00:00Z"),
 //					},
 //				},
+//				ResourceGroupName:                  example.Name,
+//				DefaultMaximumExpirationTimeInDays: pulumi.Int(14),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

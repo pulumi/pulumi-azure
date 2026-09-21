@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testDicomService = new DicomService("testDicomService", DicomServiceArgs.builder()
- *             .name("tfexDicom")
- *             .workspaceId(test.id())
- *             .location("east us")
  *             .identity(DicomServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("tfexDicom")
+ *             .workspaceId(test.id())
+ *             .location("east us")
  *             .tags(Map.of("environment", "None"))
  *             .build());
  * 

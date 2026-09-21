@@ -30,9 +30,6 @@ namespace Pulumi.Azure.SignalR
     /// 
     ///     var exampleService = new Azure.SignalR.Service("example", new()
     ///     {
-    ///         Name = "tfex-signalr",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Free_F1",
@@ -48,10 +45,6 @@ namespace Pulumi.Azure.SignalR
     ///                 },
     ///             },
     ///         },
-    ///         PublicNetworkAccessEnabled = false,
-    ///         ConnectivityLogsEnabled = true,
-    ///         MessagingLogsEnabled = true,
-    ///         ServiceMode = "Default",
     ///         UpstreamEndpoints = new[]
     ///         {
     ///             new Azure.SignalR.Inputs.ServiceUpstreamEndpointArgs
@@ -72,6 +65,13 @@ namespace Pulumi.Azure.SignalR
     ///                 UrlTemplate = "http://foo.com",
     ///             },
     ///         },
+    ///         Name = "tfex-signalr",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         PublicNetworkAccessEnabled = false,
+    ///         ConnectivityLogsEnabled = true,
+    ///         MessagingLogsEnabled = true,
+    ///         ServiceMode = "Default",
     ///     });
     /// 
     /// });

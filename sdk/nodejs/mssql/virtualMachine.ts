@@ -22,6 +22,11 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * });
  * const exampleVirtualMachine = new azure.mssql.VirtualMachine("example", {
+ *     autoPatching: {
+ *         dayOfWeek: "Sunday",
+ *         maintenanceWindowDurationInMinutes: 60,
+ *         maintenanceWindowStartingHour: 2,
+ *     },
  *     virtualMachineId: example.then(example => example.id),
  *     sqlLicenseType: "PAYG",
  *     rServicesEnabled: true,
@@ -29,11 +34,6 @@ import * as utilities from "../utilities";
  *     sqlConnectivityType: "PRIVATE",
  *     sqlConnectivityUpdatePassword: "Password1234!",
  *     sqlConnectivityUpdateUsername: "sqllogin",
- *     autoPatching: {
- *         dayOfWeek: "Sunday",
- *         maintenanceWindowDurationInMinutes: 60,
- *         maintenanceWindowStartingHour: 2,
- *     },
  * });
  * ```
  *

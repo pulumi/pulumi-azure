@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "East US",
  * });
  * const exampleMonitor = new azure.newrelic.Monitor("example", {
- *     name: "example-nrm",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     plan: {
  *         effectiveDate: "2023-06-06T00:00:00Z",
  *     },
@@ -32,13 +29,11 @@ import * as utilities from "../utilities";
  *         lastName: "User",
  *         phoneNumber: "+12313803556",
  *     },
+ *     name: "example-nrm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleTagRule = new azure.newrelic.TagRule("example", {
- *     monitorId: exampleMonitor.id,
- *     azureActiveDirectoryLogEnabled: true,
- *     activityLogEnabled: true,
- *     metricEnabled: true,
- *     subscriptionLogEnabled: true,
  *     logTagFilters: [{
  *         name: "key",
  *         action: "Include",
@@ -49,6 +44,11 @@ import * as utilities from "../utilities";
  *         action: "Exclude",
  *         value: "value",
  *     }],
+ *     monitorId: exampleMonitor.id,
+ *     azureActiveDirectoryLogEnabled: true,
+ *     activityLogEnabled: true,
+ *     metricEnabled: true,
+ *     subscriptionLogEnabled: true,
  * });
  * ```
  *

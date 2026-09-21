@@ -102,15 +102,6 @@ namespace Pulumi.Azure.MSSql
     ///     // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "mssqltdeexample",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         EnabledForDiskEncryption = true,
-    ///         TenantId = exampleUserAssignedIdentity.TenantId,
-    ///         SoftDeleteRetentionDays = 7,
-    ///         PurgeProtectionEnabled = true,
-    ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -141,6 +132,15 @@ namespace Pulumi.Azure.MSSql
     ///                 },
     ///             },
     ///         },
+    ///         Name = "mssqltdeexample",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         EnabledForDiskEncryption = true,
+    ///         TenantId = exampleUserAssignedIdentity.TenantId,
+    ///         SoftDeleteRetentionDays = 7,
+    ///         PurgeProtectionEnabled = true,
+    ///         SkuName = "standard",
     ///     });
     /// 
     ///     var exampleKey = new Azure.KeyVault.Key("example", new()
@@ -164,6 +164,14 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
     ///     {
+    ///         Identity = new Azure.MSSql.Inputs.DatabaseIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
     ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
@@ -176,14 +184,6 @@ namespace Pulumi.Azure.MSSql
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
-    ///         },
-    ///         Identity = new Azure.MSSql.Inputs.DatabaseIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 exampleUserAssignedIdentity.Id,
-    ///             },
     ///         },
     ///         TransparentDataEncryptionKeyVaultKeyId = exampleKey.Id,
     ///     });

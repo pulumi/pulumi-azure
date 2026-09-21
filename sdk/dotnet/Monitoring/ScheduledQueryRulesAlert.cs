@@ -50,15 +50,20 @@ namespace Pulumi.Azure.Monitoring
     ///     // Example: Alerting Action with result count trigger
     ///     var exampleScheduledQueryRulesAlert = new Azure.Monitoring.ScheduledQueryRulesAlert("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertActionArgs
     ///         {
     ///             ActionGroups = new() { },
     ///             EmailSubject = "Email Header",
     ///             CustomWebhookPayload = "{}",
     ///         },
+    ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
+    ///         {
+    ///             Operator = "GreaterThan",
+    ///             Threshold = 3,
+    ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         DataSourceId = exampleInsights.Id,
     ///         Description = "Alert when total results cross threshold",
     ///         Enabled = true,
@@ -69,11 +74,6 @@ namespace Pulumi.Azure.Monitoring
     ///         Severity = 1,
     ///         Frequency = 5,
     ///         TimeWindow = 30,
-    ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
-    ///         {
-    ///             Operator = "GreaterThan",
-    ///             Threshold = 3,
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
@@ -83,18 +83,23 @@ namespace Pulumi.Azure.Monitoring
     ///     // Example: Alerting Action Cross-Resource
     ///     var example2ScheduledQueryRulesAlert = new Azure.Monitoring.ScheduledQueryRulesAlert("example2", new()
     ///     {
+    ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertActionArgs
+    ///         {
+    ///             ActionGroups = new() { },
+    ///             EmailSubject = "Email Header",
+    ///             CustomWebhookPayload = "{}",
+    ///         },
+    ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
+    ///         {
+    ///             Operator = "GreaterThan",
+    ///             Threshold = 3,
+    ///         },
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         AuthorizedResourceIds = new[]
     ///         {
     ///             example2.Id,
-    ///         },
-    ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertActionArgs
-    ///         {
-    ///             ActionGroups = new() { },
-    ///             EmailSubject = "Email Header",
-    ///             CustomWebhookPayload = "{}",
     ///         },
     ///         DataSourceId = exampleInsights.Id,
     ///         Description = "Query may access data within multiple resources",
@@ -111,15 +116,10 @@ namespace Pulumi.Azure.Monitoring
     ///             {
     ///                 example2.Id,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Severity = 1,
     ///         Frequency = 5,
     ///         TimeWindow = 30,
-    ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
-    ///         {
-    ///             Operator = "GreaterThan",
-    ///             Threshold = 3,
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

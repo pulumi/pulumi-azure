@@ -289,29 +289,29 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_kubernetes_cluster = azure.dataprotection.BackupPolicyKubernetesCluster("example",
-            name="example-backup-policy",
-            resource_group_name=example.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
-            default_retention_duration="P4M",
-            retention_rules=[{
-                "name": "Daily",
-                "priority": 25,
-                "life_cycles": [{
-                    "duration": "P84D",
-                    "data_store_type": "OperationalStore",
-                }],
-                "criteria": {
-                    "absolute_criteria": "FirstOfDay",
-                },
-            }],
             default_retention_rule={
                 "life_cycles": [{
                     "duration": "P7D",
                     "data_store_type": "OperationalStore",
                 }],
-            })
+            },
+            retention_rules=[{
+                "criteria": {
+                    "absolute_criteria": "FirstOfDay",
+                },
+                "life_cycles": [{
+                    "duration": "P84D",
+                    "data_store_type": "OperationalStore",
+                }],
+                "name": "Daily",
+                "priority": 25,
+            }],
+            name="example-backup-policy",
+            resource_group_name=example.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
+            default_retention_duration="P4M")
         ```
 
         ## API Providers
@@ -365,29 +365,29 @@ class BackupPolicyKubernetesCluster(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_kubernetes_cluster = azure.dataprotection.BackupPolicyKubernetesCluster("example",
-            name="example-backup-policy",
-            resource_group_name=example.name,
-            vault_name=example_backup_vault.name,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
-            default_retention_duration="P4M",
-            retention_rules=[{
-                "name": "Daily",
-                "priority": 25,
-                "life_cycles": [{
-                    "duration": "P84D",
-                    "data_store_type": "OperationalStore",
-                }],
-                "criteria": {
-                    "absolute_criteria": "FirstOfDay",
-                },
-            }],
             default_retention_rule={
                 "life_cycles": [{
                     "duration": "P7D",
                     "data_store_type": "OperationalStore",
                 }],
-            })
+            },
+            retention_rules=[{
+                "criteria": {
+                    "absolute_criteria": "FirstOfDay",
+                },
+                "life_cycles": [{
+                    "duration": "P84D",
+                    "data_store_type": "OperationalStore",
+                }],
+                "name": "Daily",
+                "priority": 25,
+            }],
+            name="example-backup-policy",
+            resource_group_name=example.name,
+            vault_name=example_backup_vault.name,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
+            default_retention_duration="P4M")
         ```
 
         ## API Providers

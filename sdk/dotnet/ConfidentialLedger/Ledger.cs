@@ -32,10 +32,6 @@ namespace Pulumi.Azure.ConfidentialLedger
     /// 
     ///     var ledger = new Azure.ConfidentialLedger.Ledger("ledger", new()
     ///     {
-    ///         Name = "example-ledger",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         LedgerType = "Private",
     ///         AzureadBasedServicePrincipals = new[]
     ///         {
     ///             new Azure.ConfidentialLedger.Inputs.LedgerAzureadBasedServicePrincipalArgs
@@ -45,6 +41,10 @@ namespace Pulumi.Azure.ConfidentialLedger
     ///                 LedgerRoleName = "Administrator",
     ///             },
     ///         },
+    ///         Name = "example-ledger",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         LedgerType = "Private",
     ///     });
     /// 
     /// });

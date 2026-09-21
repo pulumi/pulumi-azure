@@ -42,15 +42,15 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleFhirService = new azure.healthcare.FhirService("example", {
+ *     authentication: {
+ *         authority: "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+ *         audience: "https://examplefhir.fhir.azurehealthcareapis.com",
+ *     },
  *     name: "examplefhir",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     workspaceId: exampleWorkspace.id,
  *     kind: "fhir-R4",
- *     authentication: {
- *         authority: "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
- *         audience: "https://examplefhir.fhir.azurehealthcareapis.com",
- *     },
  * });
  * const exampleMedtechService = new azure.healthcare.MedtechService("example", {
  *     name: "examplemt",

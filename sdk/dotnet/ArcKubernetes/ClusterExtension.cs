@@ -31,17 +31,17 @@ namespace Pulumi.Azure.ArcKubernetes
     /// 
     ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("example", new()
     ///     {
+    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-akcc",
     ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testdata/public.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
+    ///         }).Result,
     ///         Tags = 
     ///         {
     ///             { "ENV", "Test" },

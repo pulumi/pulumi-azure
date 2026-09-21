@@ -48,14 +48,14 @@ import * as utilities from "../utilities";
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * const exampleNextGenerationFirewallVirtualHubPanorama = new azure.paloalto.NextGenerationFirewallVirtualHubPanorama("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     networkProfile: {
  *         publicIpAddressIds: [examplePublicIp.id],
  *         virtualHubId: exampleVirtualHub.id,
  *         networkVirtualApplianceId: exampleVirtualNetworkAppliance.id,
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     panoramaBase64Config: "VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==",
  * });
  * ```

@@ -70,13 +70,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
- *             .name("TestLoadBalancer")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name("PublicIPAddress")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("TestLoadBalancer")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()
@@ -85,13 +85,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutboundRule = new OutboundRule("exampleOutboundRule", OutboundRuleArgs.builder()
+ *             .frontendIpConfigurations(OutboundRuleFrontendIpConfigurationArgs.builder()
+ *                 .name("PublicIPAddress")
+ *                 .build())
  *             .name("OutboundRule")
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .protocol("Tcp")
  *             .backendAddressPoolId(exampleBackendAddressPool.id())
- *             .frontendIpConfigurations(OutboundRuleFrontendIpConfigurationArgs.builder()
- *                 .name("PublicIPAddress")
- *                 .build())
  *             .build());
  * 
  *     }

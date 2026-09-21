@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.cosmosdb.Account;
  * import com.pulumi.azure.cosmosdb.AccountArgs;
- * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.CassandraKeyspace;
  * import com.pulumi.azure.cosmosdb.CassandraKeyspaceArgs;
@@ -62,20 +62,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("tfex-cosmosdb-account")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .offerType("Standard")
- *             .capabilities(AccountCapabilityArgs.builder()
- *                 .name("EnableCassandra")
- *                 .build())
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel("Strong")
+ *                 .build())
+ *             .capabilities(AccountCapabilityArgs.builder()
+ *                 .name("EnableCassandra")
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
  *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
+ *             .name("tfex-cosmosdb-account")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .offerType("Standard")
  *             .build());
  * 
  *         var exampleCassandraKeyspace = new CassandraKeyspace("exampleCassandraKeyspace", CassandraKeyspaceArgs.builder()
@@ -86,8 +86,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCassandraTable = new CassandraTable("exampleCassandraTable", CassandraTableArgs.builder()
- *             .name("testtable")
- *             .cassandraKeyspaceId(exampleCassandraKeyspace.id())
  *             .schema(CassandraTableSchemaArgs.builder()
  *                 .columns(                
  *                     CassandraTableSchemaColumnArgs.builder()
@@ -102,6 +100,8 @@ import javax.annotation.Nullable;
  *                     .name("test1")
  *                     .build())
  *                 .build())
+ *             .name("testtable")
+ *             .cassandraKeyspaceId(exampleCassandraKeyspace.id())
  *             .build());
  * 
  *     }

@@ -69,16 +69,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSharedImage = new SharedImage("exampleSharedImage", SharedImageArgs.builder()
- *             .name("my-image")
- *             .galleryName(exampleSharedImageGallery.name())
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .osType("Linux")
  *             .identifier(SharedImageIdentifierArgs.builder()
  *                 .publisher("PublisherName")
  *                 .offer("OfferName")
  *                 .sku("ExampleSku")
  *                 .build())
+ *             .name("my-image")
+ *             .galleryName(exampleSharedImageGallery.name())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .osType("Linux")
  *             .build());
  * 
  *     }

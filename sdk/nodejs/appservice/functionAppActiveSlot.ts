@@ -34,18 +34,18 @@ import * as utilities from "../utilities";
  *     skuName: "Y1",
  * });
  * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-windows-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageAccountName: exampleAccount.name,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWindowsFunctionAppSlot = new azure.appservice.WindowsFunctionAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-windows-function-app-slot",
  *     functionAppId: exampleWindowsFunctionApp.id,
  *     storageAccountName: exampleAccount.name,
- *     siteConfig: {},
  * });
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleWindowsFunctionAppSlot.id});
  * ```
@@ -75,18 +75,18 @@ import * as utilities from "../utilities";
  *     skuName: "Y1",
  * });
  * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     siteConfig: {},
  *     name: "example-linux-function-app",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
- *     siteConfig: {},
  * });
  * const exampleLinuxFunctionAppSlot = new azure.appservice.LinuxFunctionAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-linux-function-app-slot",
  *     functionAppId: exampleLinuxFunctionApp.name,
  *     storageAccountName: exampleAccount.name,
- *     siteConfig: {},
  * });
  * const exampleFunctionAppActiveSlot = new azure.appservice.FunctionAppActiveSlot("example", {slotId: exampleLinuxFunctionAppSlot.id});
  * ```

@@ -90,10 +90,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-originGroup")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .sessionAffinityEnabled(true)
- *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
  *                 .intervalInSeconds(240)
  *                 .path("/healthProbe")
@@ -105,6 +101,10 @@ import javax.annotation.Nullable;
  *                 .sampleSize(16)
  *                 .successfulSamplesRequired(3)
  *                 .build())
+ *             .name("example-originGroup")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .sessionAffinityEnabled(true)
+ *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -126,10 +126,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorRule = new FrontdoorRule("exampleFrontdoorRule", FrontdoorRuleArgs.builder()
- *             .name("examplerule")
- *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
- *             .order(1)
- *             .behaviorOnMatch("Continue")
  *             .actions(FrontdoorRuleActionsArgs.builder()
  *                 .routeConfigurationOverrideAction(FrontdoorRuleActionsRouteConfigurationOverrideActionArgs.builder()
  *                     .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
@@ -191,6 +187,10 @@ import javax.annotation.Nullable;
  *                         "Trim")
  *                     .build())
  *                 .build())
+ *             .name("examplerule")
+ *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
+ *             .order(1)
+ *             .behaviorOnMatch("Continue")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleFrontdoorOriginGroup,

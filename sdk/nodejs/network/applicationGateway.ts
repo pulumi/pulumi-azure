@@ -50,26 +50,11 @@ import * as utilities from "../utilities";
  * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
  * const redirectConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-rdrcfg`;
  * const network = new azure.network.ApplicationGateway("network", {
- *     name: "example-appgateway",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "Standard_v2",
  *         tier: "Standard_v2",
  *         capacity: 2,
  *     },
- *     gatewayIpConfigurations: [{
- *         name: "my-gateway-ip-configuration",
- *         subnetId: exampleSubnet.id,
- *     }],
- *     frontendPorts: [{
- *         name: frontendPortName,
- *         port: 80,
- *     }],
- *     frontendIpConfigurations: [{
- *         name: frontendIpConfigurationName,
- *         publicIpAddressId: examplePublicIp.id,
- *     }],
  *     backendAddressPools: [{
  *         name: backendAddressPoolName,
  *     }],
@@ -80,6 +65,18 @@ import * as utilities from "../utilities";
  *         port: 80,
  *         protocol: "Http",
  *         requestTimeout: 60,
+ *     }],
+ *     frontendIpConfigurations: [{
+ *         name: frontendIpConfigurationName,
+ *         publicIpAddressId: examplePublicIp.id,
+ *     }],
+ *     frontendPorts: [{
+ *         name: frontendPortName,
+ *         port: 80,
+ *     }],
+ *     gatewayIpConfigurations: [{
+ *         name: "my-gateway-ip-configuration",
+ *         subnetId: exampleSubnet.id,
  *     }],
  *     httpListeners: [{
  *         name: listenerName,
@@ -95,6 +92,9 @@ import * as utilities from "../utilities";
  *         backendAddressPoolName: backendAddressPoolName,
  *         backendHttpSettingsName: httpSettingName,
  *     }],
+ *     name: "example-appgateway",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

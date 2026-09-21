@@ -229,25 +229,25 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             location=example.location,
             virtual_network_id=example_virtual_network.id)
         example_subnet = azure.network.Subnet("example",
-            name="inbounddns",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/28"],
             delegations=[{
-                "name": "Microsoft.Network.dnsResolvers",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
-            }])
+                "name": "Microsoft.Network.dnsResolvers",
+            }],
+            name="inbounddns",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/28"])
         example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
-            name="example-drie",
-            private_dns_resolver_id=example_resolver.id,
-            location=example_resolver.location,
             ip_configurations={
                 "private_ip_allocation_method": "Dynamic",
                 "subnet_id": example_subnet.id,
             },
+            name="example-drie",
+            private_dns_resolver_id=example_resolver.id,
+            location=example_resolver.location,
             tags={
                 "key": "value",
             })
@@ -306,25 +306,25 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             location=example.location,
             virtual_network_id=example_virtual_network.id)
         example_subnet = azure.network.Subnet("example",
-            name="inbounddns",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.0.0/28"],
             delegations=[{
-                "name": "Microsoft.Network.dnsResolvers",
                 "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
-            }])
+                "name": "Microsoft.Network.dnsResolvers",
+            }],
+            name="inbounddns",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.0.0/28"])
         example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
-            name="example-drie",
-            private_dns_resolver_id=example_resolver.id,
-            location=example_resolver.location,
             ip_configurations={
                 "private_ip_allocation_method": "Dynamic",
                 "subnet_id": example_subnet.id,
             },
+            name="example-drie",
+            private_dns_resolver_id=example_resolver.id,
+            location=example_resolver.location,
             tags={
                 "key": "value",
             })

@@ -26,14 +26,14 @@ import * as utilities from "../utilities";
  *     diskSizeGb: 1,
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-backup-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const example1 = new azure.authorization.Assignment("example1", {
  *     scope: example.id,

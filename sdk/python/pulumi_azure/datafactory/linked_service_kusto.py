@@ -504,20 +504,20 @@ class LinkedServiceKusto(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
+            },
+            name="example",
             location=example.location,
-            resource_group_name=example.name,
+            resource_group_name=example.name)
+        example_cluster = azure.kusto.Cluster("example",
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         example_database = azure.kusto.Database("example",
             name="my-kusto-database",
             resource_group_name=example.name,
@@ -590,20 +590,20 @@ class LinkedServiceKusto(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
-        example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
+            },
+            name="example",
             location=example.location,
-            resource_group_name=example.name,
+            resource_group_name=example.name)
+        example_cluster = azure.kusto.Cluster("example",
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         example_database = azure.kusto.Database("example",
             name="my-kusto-database",
             resource_group_name=example.name,

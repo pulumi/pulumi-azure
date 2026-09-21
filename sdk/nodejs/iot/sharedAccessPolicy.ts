@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleSharedAccessPolicy = new azure.iot.SharedAccessPolicy("example", {
  *     name: "example",

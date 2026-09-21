@@ -30,26 +30,26 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var followerCluster = new Azure.Kusto.Cluster("follower_cluster", new()
     ///     {
-    ///         Name = "cluster1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "cluster1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var followedCluster = new Azure.Kusto.Cluster("followed_cluster", new()
     ///     {
-    ///         Name = "cluster2",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
     ///             Capacity = 1,
     ///         },
+    ///         Name = "cluster2",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var followedDatabase = new Azure.Kusto.Database("followed_database", new()
@@ -70,12 +70,6 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("example", new()
     ///     {
-    ///         Name = "configuration1",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         ClusterName = followerCluster.Name,
-    ///         ClusterId = followedCluster.Id,
-    ///         DatabaseName = exampleDatabase.Name,
     ///         Sharing = new Azure.Kusto.Inputs.AttachedDatabaseConfigurationSharingArgs
     ///         {
     ///             ExternalTablesToExcludes = new[]
@@ -111,6 +105,12 @@ namespace Pulumi.Azure.Kusto
     ///                 "Table1",
     ///             },
     ///         },
+    ///         Name = "configuration1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterName = followerCluster.Name,
+    ///         ClusterId = followedCluster.Id,
+    ///         DatabaseName = exampleDatabase.Name,
     ///     });
     /// 
     /// });

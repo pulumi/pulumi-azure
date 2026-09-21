@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "example",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
+ *     name: "example",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleDatabase = new azure.kusto.Database("example", {
  *     name: "example",
@@ -52,11 +52,6 @@ import * as utilities from "../utilities";
  *     sourceContent: ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
  * });
  * const example = azure.storage.getAccountBlobContainerSASOutput({
- *     connectionString: exampleAccount.primaryConnectionString,
- *     containerName: exampleContainer.name,
- *     httpsOnly: true,
- *     start: "2017-03-21",
- *     expiry: "2022-03-21",
  *     permissions: {
  *         read: true,
  *         add: false,
@@ -65,6 +60,11 @@ import * as utilities from "../utilities";
  *         "delete": false,
  *         list: true,
  *     },
+ *     connectionString: exampleAccount.primaryConnectionString,
+ *     containerName: exampleContainer.name,
+ *     httpsOnly: true,
+ *     start: "2017-03-21",
+ *     expiry: "2022-03-21",
  * });
  * const exampleScript = new azure.kusto.Script("example", {
  *     name: "example",

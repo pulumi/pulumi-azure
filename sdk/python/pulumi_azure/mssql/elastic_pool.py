@@ -561,12 +561,6 @@ class ElasticPool(pulumi.CustomResource):
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         example_elastic_pool = azure.mssql.ElasticPool("example",
-            name="test-epool",
-            resource_group_name=example.name,
-            location=example.location,
-            server_name=example_server.name,
-            license_type="LicenseIncluded",
-            max_size_gb=float(756),
             sku={
                 "name": "BasicPool",
                 "tier": "Basic",
@@ -576,7 +570,13 @@ class ElasticPool(pulumi.CustomResource):
             per_database_settings={
                 "min_capacity": 0.25,
                 "max_capacity": float(4),
-            })
+            },
+            name="test-epool",
+            resource_group_name=example.name,
+            location=example.location,
+            server_name=example_server.name,
+            license_type="LicenseIncluded",
+            max_size_gb=float(756))
         ```
 
         ## API Providers
@@ -648,12 +648,6 @@ class ElasticPool(pulumi.CustomResource):
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         example_elastic_pool = azure.mssql.ElasticPool("example",
-            name="test-epool",
-            resource_group_name=example.name,
-            location=example.location,
-            server_name=example_server.name,
-            license_type="LicenseIncluded",
-            max_size_gb=float(756),
             sku={
                 "name": "BasicPool",
                 "tier": "Basic",
@@ -663,7 +657,13 @@ class ElasticPool(pulumi.CustomResource):
             per_database_settings={
                 "min_capacity": 0.25,
                 "max_capacity": float(4),
-            })
+            },
+            name="test-epool",
+            resource_group_name=example.name,
+            location=example.location,
+            server_name=example_server.name,
+            license_type="LicenseIncluded",
+            max_size_gb=float(756))
         ```
 
         ## API Providers

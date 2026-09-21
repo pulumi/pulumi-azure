@@ -30,14 +30,14 @@ namespace Pulumi.Azure.ArcMachine
     /// 
     ///     var exampleArcMachine = new Azure.ArcMachine.ArcMachine("example", new()
     ///     {
-    ///         Name = "example-arcmachine",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Kind = "SCVMM",
     ///         Identity = new Azure.ArcMachine.Inputs.ArcMachineIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-arcmachine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Kind = "SCVMM",
     ///         Tags = 
     ///         {
     ///             { "environment", "example" },

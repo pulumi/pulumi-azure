@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  * 
  *         //Create a Linked Service using managed identity and new cluster config
  *         var exampleFactory = new Factory("exampleFactory", FactoryArgs.builder()
- *             .name("TestDtaFactory92783401247")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("TestDtaFactory92783401247")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         //Create a databricks instance
@@ -80,11 +80,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var msiLinked = new LinkedServiceAzureDatabricks("msiLinked", LinkedServiceAzureDatabricksArgs.builder()
- *             .name("ADBLinkedServiceViaMSI")
- *             .dataFactoryId(exampleFactory.id())
- *             .description("ADB Linked Service via MSI")
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(_workspaceUrl -> String.format("https://%s", _workspaceUrl)))
- *             .msiWorkspaceId(exampleWorkspace.id())
  *             .newClusterConfig(LinkedServiceAzureDatabricksNewClusterConfigArgs.builder()
  *                 .nodeType("Standard_NC12")
  *                 .clusterVersion("5.5.x-gpu-scala2.11")
@@ -108,6 +103,11 @@ import javax.annotation.Nullable;
  *                     "init.sh",
  *                     "init2.sh")
  *                 .build())
+ *             .name("ADBLinkedServiceViaMSI")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .description("ADB Linked Service via MSI")
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(_workspaceUrl -> String.format("https://%s", _workspaceUrl)))
+ *             .msiWorkspaceId(exampleWorkspace.id())
  *             .build());
  * 
  *     }

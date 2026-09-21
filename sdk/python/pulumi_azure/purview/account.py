@@ -446,12 +446,12 @@ class Account(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.purview.Account("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers
@@ -504,12 +504,12 @@ class Account(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.purview.Account("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers

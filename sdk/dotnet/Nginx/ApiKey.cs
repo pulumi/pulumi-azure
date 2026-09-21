@@ -54,18 +54,10 @@ namespace Pulumi.Azure.Nginx
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "delegation",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
@@ -74,17 +66,20 @@ namespace Pulumi.Azure.Nginx
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "delegation",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleDeployment = new Azure.Nginx.Deployment("example", new()
     ///     {
-    ///         Name = "example-nginx",
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "standardv3_Monthly",
-    ///         Location = example.Location,
-    ///         AutomaticUpgradeChannel = "stable",
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
     ///         {
     ///             IpAddresses = new[]
@@ -99,6 +94,11 @@ namespace Pulumi.Azure.Nginx
     ///                 SubnetId = exampleSubnet.Id,
     ///             },
     ///         },
+    ///         Name = "example-nginx",
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "standardv3_Monthly",
+    ///         Location = example.Location,
+    ///         AutomaticUpgradeChannel = "stable",
     ///         Capacity = 20,
     ///         Email = "user@test.com",
     ///     });

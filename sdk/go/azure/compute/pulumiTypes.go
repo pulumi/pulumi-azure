@@ -15187,9 +15187,6 @@ type ScaleSetIdentity struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-	// 			Name:              pulumi.String("vm-scaleset"),
-	// 			ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-	// 			Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 	// 			Sku: &compute.ScaleSetSkuArgs{
 	// 				Name:     pulumi.Any(vmSku),
 	// 				Tier:     pulumi.String("Standard"),
@@ -15207,6 +15204,9 @@ type ScaleSetIdentity struct {
 	// 					Settings:           pulumi.String("{\"port\": 50342}"),
 	// 				},
 	// 			},
+	// 			Name:              pulumi.String("vm-scaleset"),
+	// 			ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+	// 			Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -15248,9 +15248,6 @@ type ScaleSetIdentityArgs struct {
 	// func main() {
 	// 	pulumi.Run(func(ctx *pulumi.Context) error {
 	// 		example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-	// 			Name:              pulumi.String("vm-scaleset"),
-	// 			ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-	// 			Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 	// 			Sku: &compute.ScaleSetSkuArgs{
 	// 				Name:     pulumi.Any(vmSku),
 	// 				Tier:     pulumi.String("Standard"),
@@ -15268,6 +15265,9 @@ type ScaleSetIdentityArgs struct {
 	// 					Settings:           pulumi.String("{\"port\": 50342}"),
 	// 				},
 	// 			},
+	// 			Name:              pulumi.String("vm-scaleset"),
+	// 			ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+	// 			Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 	// 		})
 	// 		if err != nil {
 	// 			return err
@@ -15376,9 +15376,6 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name:              pulumi.String("vm-scaleset"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 //				Sku: &compute.ScaleSetSkuArgs{
 //					Name:     pulumi.Any(vmSku),
 //					Tier:     pulumi.String("Standard"),
@@ -15396,6 +15393,9 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //						Settings:           pulumi.String("{\"port\": 50342}"),
 //					},
 //				},
+//				Name:              pulumi.String("vm-scaleset"),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 //			})
 //			if err != nil {
 //				return err
@@ -15462,9 +15462,6 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
-//				Name:              pulumi.String("vm-scaleset"),
-//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 //				Sku: &compute.ScaleSetSkuArgs{
 //					Name:     pulumi.Any(vmSku),
 //					Tier:     pulumi.String("Standard"),
@@ -15482,6 +15479,9 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //						Settings:           pulumi.String("{\"port\": 50342}"),
 //					},
 //				},
+//				Name:              pulumi.String("vm-scaleset"),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 //			})
 //			if err != nil {
 //				return err

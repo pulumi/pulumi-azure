@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     skuName: "Developer_1",
  * });
  * const exampleLogger = new azure.apimanagement.Logger("example", {
+ *     applicationInsights: {
+ *         instrumentationKey: exampleInsights.instrumentationKey,
+ *     },
  *     name: "example-logger",
  *     apiManagementName: exampleService.name,
  *     resourceGroupName: example.name,
  *     resourceId: exampleInsights.id,
- *     applicationInsights: {
- *         instrumentationKey: exampleInsights.instrumentationKey,
- *     },
  * });
  * ```
  *

@@ -68,13 +68,13 @@ import (
 //				return err
 //			}
 //			_, err = eventgrid.NewSystemTopicEventSubscription(ctx, "example", &eventgrid.SystemTopicEventSubscriptionArgs{
-//				Name:              pulumi.String("example-event-subscription"),
-//				SystemTopic:       exampleSystemTopic.Name,
-//				ResourceGroupName: example.Name,
 //				StorageQueueEndpoint: &eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs{
 //					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //					QueueName:        exampleQueue.Name,
 //				},
+//				Name:              pulumi.String("example-event-subscription"),
+//				SystemTopic:       exampleSystemTopic.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -136,15 +136,15 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_route_table = azure.network.RouteTable("example",
-            name="example-routetable",
-            location=example.location,
-            resource_group_name=example.name,
             routes=[{
                 "name": "example",
                 "address_prefix": "10.100.0.0/14",
                 "next_hop_type": "VirtualAppliance",
                 "next_hop_in_ip_address": "10.10.1.1",
-            }])
+            }],
+            name="example-routetable",
+            location=example.location,
+            resource_group_name=example.name)
         example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
@@ -202,15 +202,15 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_route_table = azure.network.RouteTable("example",
-            name="example-routetable",
-            location=example.location,
-            resource_group_name=example.name,
             routes=[{
                 "name": "example",
                 "address_prefix": "10.100.0.0/14",
                 "next_hop_type": "VirtualAppliance",
                 "next_hop_in_ip_address": "10.10.1.1",
-            }])
+            }],
+            name="example-routetable",
+            location=example.location,
+            resource_group_name=example.name)
         example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)

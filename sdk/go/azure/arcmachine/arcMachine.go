@@ -37,13 +37,13 @@ import (
 //				return err
 //			}
 //			_, err = arcmachine.NewArcMachine(ctx, "example", &arcmachine.ArcMachineArgs{
+//				Identity: &arcmachine.ArcMachineIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example-arcmachine"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				Kind:              pulumi.String("SCVMM"),
-//				Identity: &arcmachine.ArcMachineIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("example"),
 //				},

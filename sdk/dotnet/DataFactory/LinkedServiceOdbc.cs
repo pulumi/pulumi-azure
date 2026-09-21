@@ -46,14 +46,14 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdbc("basic_auth", new()
     ///     {
-    ///         Name = "basic_auth",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdbcBasicAuthenticationArgs
     ///         {
     ///             Username = "onrylmz",
     ///             Password = "Ch4ngeM3!",
     ///         },
+    ///         Name = "basic_auth",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///     });
     /// 
     /// });

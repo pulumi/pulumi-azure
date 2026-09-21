@@ -24,17 +24,17 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *             name: "Qumulo.Storage/fileSystems",
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const exampleFileSystem = new azure.qumulo.FileSystem("example", {
  *     name: "example",

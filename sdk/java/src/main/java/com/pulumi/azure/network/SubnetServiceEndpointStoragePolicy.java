@@ -63,9 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy("exampleSubnetServiceEndpointStoragePolicy", SubnetServiceEndpointStoragePolicyArgs.builder()
- *             .name("example-policy")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .definitions(            
  *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
  *                     .name("name1")
@@ -88,6 +85,9 @@ import javax.annotation.Nullable;
  *                         "/services/Azure/ManagedInstance",
  *                         "/services/Azure/WebPI")
  *                     .build())
+ *             .name("example-policy")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *     }

@@ -30,9 +30,6 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleCustomProvider = new Azure.Core.CustomProvider("example", new()
     ///     {
-    ///         Name = "example_provider",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         ResourceTypes = new[]
     ///         {
     ///             new Azure.Core.Inputs.CustomProviderResourceTypeArgs
@@ -41,6 +38,9 @@ namespace Pulumi.Azure.Core
     ///                 Endpoint = "https://testendpoint.com/",
     ///             },
     ///         },
+    ///         Name = "example_provider",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

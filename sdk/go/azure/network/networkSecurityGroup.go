@@ -41,9 +41,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("acceptanceTestSecurityGroup1"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
 //					&network.NetworkSecurityGroupSecurityRuleArgs{
 //						Name:                     pulumi.String("test123"),
@@ -57,6 +54,9 @@ import (
 //						DestinationAddressPrefix: pulumi.String("*"),
 //					},
 //				},
+//				Name:              pulumi.String("acceptanceTestSecurityGroup1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

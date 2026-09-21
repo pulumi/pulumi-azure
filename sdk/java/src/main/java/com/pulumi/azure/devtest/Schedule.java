@@ -64,21 +64,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()
- *             .name("LabVmAutoStart")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .labName(exampleLab.name())
- *             .status("Enabled")
  *             .weeklyRecurrence(ScheduleWeeklyRecurrenceArgs.builder()
  *                 .time("1100")
  *                 .weekDays(                
  *                     "Monday",
  *                     "Tuesday")
  *                 .build())
- *             .timeZoneId("Pacific Standard Time")
- *             .taskType("LabVmsStartupTask")
  *             .notificationSettings(ScheduleNotificationSettingsArgs.builder()
  *                 .build())
+ *             .name("LabVmAutoStart")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .labName(exampleLab.name())
+ *             .status("Enabled")
+ *             .timeZoneId("Pacific Standard Time")
+ *             .taskType("LabVmsStartupTask")
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

@@ -76,12 +76,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", SubscriptionCostManagementExportArgs.builder()
- *             .name("example")
- *             .subscriptionId(example.id())
- *             .recurrenceType("Monthly")
- *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
- *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
- *             .fileFormat("Csv")
  *             .exportDataStorageLocation(SubscriptionCostManagementExportExportDataStorageLocationArgs.builder()
  *                 .containerId(exampleContainer.id())
  *                 .rootFolderPath("/root/updated")
@@ -90,6 +84,12 @@ import javax.annotation.Nullable;
  *                 .type("Usage")
  *                 .timeFrame("WeekToDate")
  *                 .build())
+ *             .name("example")
+ *             .subscriptionId(example.id())
+ *             .recurrenceType("Monthly")
+ *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
+ *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
+ *             .fileFormat("Csv")
  *             .build());
  * 
  *     }

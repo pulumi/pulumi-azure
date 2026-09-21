@@ -81,15 +81,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDiagnosticSetting = new DiagnosticSetting("exampleDiagnosticSetting", DiagnosticSettingArgs.builder()
- *             .name("example")
- *             .targetResourceId(exampleKeyVault.id())
- *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(DiagnosticSettingEnabledLogArgs.builder()
  *                 .category("AuditEvent")
  *                 .build())
  *             .enabledMetrics(DiagnosticSettingEnabledMetricArgs.builder()
  *                 .category("AllMetrics")
  *                 .build())
+ *             .name("example")
+ *             .targetResourceId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }

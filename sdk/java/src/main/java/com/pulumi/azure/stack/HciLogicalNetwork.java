@@ -53,6 +53,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHciLogicalNetwork = new HciLogicalNetwork("exampleHciLogicalNetwork", HciLogicalNetworkArgs.builder()
+ *             .subnet(HciLogicalNetworkSubnetArgs.builder()
+ *                 .route(Map.ofEntries(
+ *                     Map.entry("addressPrefix", "0.0.0.0/0"),
+ *                     Map.entry("nextHopIpAddress", "10.0.0.1")
+ *                 ))
+ *                 .ipAllocationMethod("Static")
+ *                 .addressPrefix("10.0.0.0/24")
+ *                 .vlanId(123)
+ *                 .build())
  *             .name("example-hci-ln")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,15 +70,6 @@ import javax.annotation.Nullable;
  *             .dnsServers(            
  *                 "10.0.0.7",
  *                 "10.0.0.8")
- *             .subnet(HciLogicalNetworkSubnetArgs.builder()
- *                 .ipAllocationMethod("Static")
- *                 .addressPrefix("10.0.0.0/24")
- *                 .vlanId(123)
- *                 .route(Map.ofEntries(
- *                     Map.entry("addressPrefix", "0.0.0.0/0"),
- *                     Map.entry("nextHopIpAddress", "10.0.0.1")
- *                 ))
- *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

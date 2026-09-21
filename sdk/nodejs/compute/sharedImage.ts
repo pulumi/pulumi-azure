@@ -30,16 +30,16 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleSharedImage = new azure.compute.SharedImage("example", {
- *     name: "my-image",
- *     galleryName: exampleSharedImageGallery.name,
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     osType: "Linux",
  *     identifier: {
  *         publisher: "PublisherName",
  *         offer: "OfferName",
  *         sku: "ExampleSku",
  *     },
+ *     name: "my-image",
+ *     galleryName: exampleSharedImageGallery.name,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     osType: "Linux",
  * });
  * ```
  *

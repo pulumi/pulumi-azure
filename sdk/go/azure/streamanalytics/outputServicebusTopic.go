@@ -59,6 +59,10 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputServicebusTopic(ctx, "example", &streamanalytics.OutputServicebusTopicArgs{
+//				Serialization: &streamanalytics.OutputServicebusTopicSerializationArgs{
+//					Type:   pulumi.String("Csv"),
+//					Format: pulumi.String("Array"),
+//				},
 //				Name:                   pulumi.String("service-bus-topic-output"),
 //				StreamAnalyticsJobName: example.Name(),
 //				ResourceGroupName:      example.ResourceGroupName(),
@@ -69,10 +73,6 @@ import (
 //				PropertyColumns: pulumi.StringArray{
 //					pulumi.String("col1"),
 //					pulumi.String("col2"),
-//				},
-//				Serialization: &streamanalytics.OutputServicebusTopicSerializationArgs{
-//					Type:   pulumi.String("Csv"),
-//					Format: pulumi.String("Array"),
 //				},
 //			})
 //			if err != nil {

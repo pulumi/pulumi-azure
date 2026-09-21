@@ -54,15 +54,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.88.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("exampledelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -70,7 +63,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("exampledelegation"),
 //					},
+//				},
+//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.88.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -99,14 +99,19 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeGroupOracle(ctx, "example", &netapp.VolumeGroupOracleArgs{
-//				Name:                  pulumi.Sprintf("%v-NetAppVolumeGroupOracle", prefix),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				AccountName:           exampleAccount.Name,
-//				GroupDescription:      pulumi.String("Example volume group for Oracle"),
-//				ApplicationIdentifier: pulumi.String("TST"),
 //				Volumes: netapp.VolumeGroupOracleVolumeArray{
 //					&netapp.VolumeGroupOracleVolumeArgs{
+//						ExportPolicyRules: netapp.VolumeGroupOracleVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupOracleVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
 //						Name:                     pulumi.Sprintf("%v-volume-ora1", prefix),
 //						VolumePath:               pulumi.Sprintf("%v-my-unique-file-ora-path-1", prefix),
 //						ServiceLevel:             pulumi.String("Standard"),
@@ -119,6 +124,8 @@ import (
 //						Protocols:                pulumi.String("NFSv4.1"),
 //						SecurityStyle:            pulumi.String("unix"),
 //						SnapshotDirectoryVisible: pulumi.Bool(false),
+//					},
+//					&netapp.VolumeGroupOracleVolumeArgs{
 //						ExportPolicyRules: netapp.VolumeGroupOracleVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupOracleVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -130,8 +137,6 @@ import (
 //								RootAccessEnabled: pulumi.Bool(false),
 //							},
 //						},
-//					},
-//					&netapp.VolumeGroupOracleVolumeArgs{
 //						Name:                     pulumi.Sprintf("%v-volume-oraLog", prefix),
 //						VolumePath:               pulumi.Sprintf("%v-my-unique-file-oralog-path", prefix),
 //						ServiceLevel:             pulumi.String("Standard"),
@@ -144,19 +149,14 @@ import (
 //						Protocols:                pulumi.String("NFSv4.1"),
 //						SecurityStyle:            pulumi.String("unix"),
 //						SnapshotDirectoryVisible: pulumi.Bool(false),
-//						ExportPolicyRules: netapp.VolumeGroupOracleVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupOracleVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
 //					},
 //				},
+//				Name:                  pulumi.Sprintf("%v-NetAppVolumeGroupOracle", prefix),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				AccountName:           exampleAccount.Name,
+//				GroupDescription:      pulumi.String("Example volume group for Oracle"),
+//				ApplicationIdentifier: pulumi.String("TST"),
 //			})
 //			if err != nil {
 //				return err
@@ -206,15 +206,8 @@ import (
 //				return err
 //			}
 //			examplePrimarySubnet, err := network.NewSubnet(ctx, "example_primary", &network.SubnetArgs{
-//				Name:               pulumi.Sprintf("%v-delegated-subnet-primary", prefix),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: examplePrimary.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.47.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("exampledelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -222,7 +215,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("exampledelegation"),
 //					},
+//				},
+//				Name:               pulumi.Sprintf("%v-delegated-subnet-primary", prefix),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: examplePrimary.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.47.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -241,15 +241,8 @@ import (
 //				return err
 //			}
 //			exampleSecondarySubnet, err := network.NewSubnet(ctx, "example_secondary", &network.SubnetArgs{
-//				Name:               pulumi.Sprintf("%v-delegated-subnet-secondary", prefix),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleSecondary.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.48.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("exampledelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -257,7 +250,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("exampledelegation"),
 //					},
+//				},
+//				Name:               pulumi.Sprintf("%v-delegated-subnet-secondary", prefix),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleSecondary.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.48.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -311,14 +311,19 @@ import (
 //			}
 //			// Primary Oracle volume group
 //			examplePrimaryVolumeGroupOracle, err := netapp.NewVolumeGroupOracle(ctx, "example_primary", &netapp.VolumeGroupOracleArgs{
-//				Name:                  pulumi.Sprintf("%v-NetAppVolumeGroupOracle-primary", prefix),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				AccountName:           examplePrimaryAccount.Name,
-//				GroupDescription:      pulumi.String("Primary Oracle volume group for CRR"),
-//				ApplicationIdentifier: pulumi.String("TST"),
 //				Volumes: netapp.VolumeGroupOracleVolumeArray{
 //					&netapp.VolumeGroupOracleVolumeArgs{
+//						ExportPolicyRules: netapp.VolumeGroupOracleVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupOracleVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
 //						Name:                     pulumi.Sprintf("%v-volume-ora1-primary", prefix),
 //						VolumePath:               pulumi.Sprintf("%v-my-unique-file-ora-path-1-primary", prefix),
 //						ServiceLevel:             pulumi.String("Standard"),
@@ -330,6 +335,30 @@ import (
 //						Protocols:                pulumi.String("NFSv4.1"),
 //						SecurityStyle:            pulumi.String("unix"),
 //						SnapshotDirectoryVisible: pulumi.Bool(false),
+//					},
+//				},
+//				Name:                  pulumi.Sprintf("%v-NetAppVolumeGroupOracle-primary", prefix),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				AccountName:           examplePrimaryAccount.Name,
+//				GroupDescription:      pulumi.String("Primary Oracle volume group for CRR"),
+//				ApplicationIdentifier: pulumi.String("TST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Secondary Oracle volume group with CRR
+//			_, err = netapp.NewVolumeGroupOracle(ctx, "example_secondary", &netapp.VolumeGroupOracleArgs{
+//				Volumes: netapp.VolumeGroupOracleVolumeArray{
+//					&netapp.VolumeGroupOracleVolumeArgs{
+//						DataProtectionReplication: &netapp.VolumeGroupOracleVolumeDataProtectionReplicationArgs{
+//							EndpointType:         pulumi.String("dst"),
+//							RemoteVolumeLocation: example.Location,
+//							RemoteVolumeResourceId: examplePrimaryVolumeGroupOracle.Volumes.ApplyT(func(volumes []netapp.VolumeGroupOracleVolume) (*string, error) {
+//								return volumes[0].Id, nil
+//							}).(pulumi.StringPtrOutput),
+//							ReplicationFrequency: pulumi.String("10minutes"),
+//						},
 //						ExportPolicyRules: netapp.VolumeGroupOracleVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupOracleVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -341,22 +370,6 @@ import (
 //								RootAccessEnabled: pulumi.Bool(false),
 //							},
 //						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Secondary Oracle volume group with CRR
-//			_, err = netapp.NewVolumeGroupOracle(ctx, "example_secondary", &netapp.VolumeGroupOracleArgs{
-//				Name:                  pulumi.Sprintf("%v-NetAppVolumeGroupOracle-secondary", prefix),
-//				Location:              pulumi.Any(altLocation),
-//				ResourceGroupName:     example.Name,
-//				AccountName:           exampleSecondaryAccount.Name,
-//				GroupDescription:      pulumi.String("Secondary Oracle volume group for CRR"),
-//				ApplicationIdentifier: pulumi.String("TST"),
-//				Volumes: netapp.VolumeGroupOracleVolumeArray{
-//					&netapp.VolumeGroupOracleVolumeArgs{
 //						Name:                     pulumi.Sprintf("%v-volume-ora1-secondary", prefix),
 //						VolumePath:               pulumi.Sprintf("%v-my-unique-file-ora-path-1-secondary", prefix),
 //						ServiceLevel:             pulumi.String("Standard"),
@@ -368,27 +381,14 @@ import (
 //						Protocols:                pulumi.String("NFSv4.1"),
 //						SecurityStyle:            pulumi.String("unix"),
 //						SnapshotDirectoryVisible: pulumi.Bool(false),
-//						ExportPolicyRules: netapp.VolumeGroupOracleVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupOracleVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
-//						DataProtectionReplication: &netapp.VolumeGroupOracleVolumeDataProtectionReplicationArgs{
-//							EndpointType:         pulumi.String("dst"),
-//							RemoteVolumeLocation: example.Location,
-//							RemoteVolumeResourceId: examplePrimaryVolumeGroupOracle.Volumes.ApplyT(func(volumes []netapp.VolumeGroupOracleVolume) (*string, error) {
-//								return volumes[0].Id, nil
-//							}).(pulumi.StringPtrOutput),
-//							ReplicationFrequency: pulumi.String("10minutes"),
-//						},
 //					},
 //				},
+//				Name:                  pulumi.Sprintf("%v-NetAppVolumeGroupOracle-secondary", prefix),
+//				Location:              pulumi.Any(altLocation),
+//				ResourceGroupName:     example.Name,
+//				AccountName:           exampleSecondaryAccount.Name,
+//				GroupDescription:      pulumi.String("Secondary Oracle volume group for CRR"),
+//				ApplicationIdentifier: pulumi.String("TST"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				examplePrimaryVolumeGroupOracle,
 //			}))

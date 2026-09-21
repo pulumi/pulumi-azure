@@ -316,6 +316,15 @@ class HciLogicalNetwork(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
+            subnet={
+                "route": {
+                    "addressPrefix": "0.0.0.0/0",
+                    "nextHopIpAddress": "10.0.0.1",
+                },
+                "ip_allocation_method": "Static",
+                "address_prefix": "10.0.0.0/24",
+                "vlan_id": 123,
+            },
             name="example-hci-ln",
             resource_group_name=example.name,
             location=example.location,
@@ -325,15 +334,6 @@ class HciLogicalNetwork(pulumi.CustomResource):
                 "10.0.0.7",
                 "10.0.0.8",
             ],
-            subnet={
-                "ip_allocation_method": "Static",
-                "address_prefix": "10.0.0.0/24",
-                "vlan_id": 123,
-                "route": {
-                    "addressPrefix": "0.0.0.0/0",
-                    "nextHopIpAddress": "10.0.0.1",
-                },
-            },
             tags={
                 "foo": "bar",
             })
@@ -385,6 +385,15 @@ class HciLogicalNetwork(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
+            subnet={
+                "route": {
+                    "addressPrefix": "0.0.0.0/0",
+                    "nextHopIpAddress": "10.0.0.1",
+                },
+                "ip_allocation_method": "Static",
+                "address_prefix": "10.0.0.0/24",
+                "vlan_id": 123,
+            },
             name="example-hci-ln",
             resource_group_name=example.name,
             location=example.location,
@@ -394,15 +403,6 @@ class HciLogicalNetwork(pulumi.CustomResource):
                 "10.0.0.7",
                 "10.0.0.8",
             ],
-            subnet={
-                "ip_allocation_method": "Static",
-                "address_prefix": "10.0.0.0/24",
-                "vlan_id": 123,
-                "route": {
-                    "addressPrefix": "0.0.0.0/0",
-                    "nextHopIpAddress": "10.0.0.1",
-                },
-            },
             tags={
                 "foo": "bar",
             })

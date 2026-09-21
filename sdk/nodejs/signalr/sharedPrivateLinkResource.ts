@@ -19,13 +19,6 @@ import * as utilities from "../utilities";
  *     location: "east us",
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "examplekeyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "standard",
- *     softDeleteRetentionDays: 7,
  *     accessPolicies: [{
  *         tenantId: current.then(current => current.tenantId),
  *         objectId: current.then(current => current.objectId),
@@ -33,15 +26,22 @@ import * as utilities from "../utilities";
  *         keyPermissions: ["Create"],
  *         secretPermissions: ["Set"],
  *     }],
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     softDeleteRetentionDays: 7,
  * });
  * const test = new azure.signalr.Service("test", {
- *     name: "tfex-signalr",
- *     location: testAzurermResourceGroup.location,
- *     resourceGroupName: testAzurermResourceGroup.name,
  *     sku: {
  *         name: "Standard_S1",
  *         capacity: 1,
  *     },
+ *     name: "tfex-signalr",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * const exampleSharedPrivateLinkResource = new azure.signalr.SharedPrivateLinkResource("example", {
  *     name: "tfex-signalr-splr",

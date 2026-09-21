@@ -32,10 +32,6 @@ namespace Pulumi.Azure.Orbital
     /// 
     ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("example", new()
     ///     {
-    ///         Name = "example-spacecraft",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = "westeurope",
-    ///         NoradId = "12345",
     ///         Links = new[]
     ///         {
     ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
@@ -47,6 +43,10 @@ namespace Pulumi.Azure.Orbital
     ///                 Name = "examplename",
     ///             },
     ///         },
+    ///         Name = "example-spacecraft",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = "westeurope",
+    ///         NoradId = "12345",
     ///         TwoLineElements = new[]
     ///         {
     ///             "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
@@ -72,18 +72,10 @@ namespace Pulumi.Azure.Orbital
     /// 
     ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         Name = "example-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "orbitalgateway",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "Microsoft.Orbital/orbitalGateways",
@@ -95,17 +87,20 @@ namespace Pulumi.Azure.Orbital
     ///                         "Microsoft.Network/publicIPAddresses/read",
     ///                     },
     ///                 },
+    ///                 Name = "orbitalgateway",
     ///             },
+    ///         },
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
     ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("example", new()
     ///     {
-    ///         Name = "example-contactprofile",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         MinimumVariableContactDuration = "PT1M",
-    ///         AutoTracking = "disabled",
     ///         Links = new[]
     ///         {
     ///             new Azure.Orbital.Inputs.ContactProfileLinkArgs
@@ -114,9 +109,6 @@ namespace Pulumi.Azure.Orbital
     ///                 {
     ///                     new Azure.Orbital.Inputs.ContactProfileLinkChannelArgs
     ///                     {
-    ///                         Name = "channelname",
-    ///                         BandwidthMhz = 100,
-    ///                         CenterFrequencyMhz = 101,
     ///                         EndPoints = new[]
     ///                         {
     ///                             new Azure.Orbital.Inputs.ContactProfileLinkChannelEndPointArgs
@@ -127,6 +119,9 @@ namespace Pulumi.Azure.Orbital
     ///                                 Protocol = "TCP",
     ///                             },
     ///                         },
+    ///                         Name = "channelname",
+    ///                         BandwidthMhz = 100,
+    ///                         CenterFrequencyMhz = 101,
     ///                     },
     ///                 },
     ///                 Direction = "Uplink",
@@ -134,6 +129,11 @@ namespace Pulumi.Azure.Orbital
     ///                 Polarization = "RHCP",
     ///             },
     ///         },
+    ///         Name = "example-contactprofile",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         MinimumVariableContactDuration = "PT1M",
+    ///         AutoTracking = "disabled",
     ///         NetworkConfigurationSubnetId = exampleSubnet.Id,
     ///     });
     /// 

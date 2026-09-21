@@ -35,10 +35,6 @@ namespace Pulumi.Azure.Consumption
     /// 
     ///     var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ManagementGroupId = example.Id,
-    ///         Amount = 1000,
-    ///         TimeGrain = "Monthly",
     ///         TimePeriod = new Azure.Consumption.Inputs.BudgetManagementGroupTimePeriodArgs
     ///         {
     ///             StartDate = "2022-06-01T00:00:00Z",
@@ -96,6 +92,10 @@ namespace Pulumi.Azure.Consumption
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ManagementGroupId = example.Id,
+    ///         Amount = 1000,
+    ///         TimeGrain = "Monthly",
     ///     });
     /// 
     /// });

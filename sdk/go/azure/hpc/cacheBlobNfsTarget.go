@@ -20,6 +20,227 @@ import (
 //
 // > **Note:** This resource depends on the NFSv3 enabled Storage Account, which has some prerequisites need to meet. Please checkout: <https://docs.microsoft.com/azure/storage/blobs/network-file-system-protocol-support-how-to?tabs=azure-powershell>.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/hpc"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example, err := azuread.ServicePrincipal(ctx, map[string]string{
+//				"displayName": "HPC Cache Resource Provider",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				NetworkRules: &storage.AccountNetworkRulesTypeArgs{
+//					DefaultAction: pulumi.String("Deny"),
+//					VirtualNetworkSubnetIds: pulumi.StringArray{
+//						exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				IsHnsEnabled:           pulumi.Bool(true),
+//				Nfsv3Enabled:           pulumi.Bool(true),
+//				EnableHttpsTrafficOnly: false,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Due to https://github.com/hashicorp/terraform-provider-azurerm/issues/2977 and the fact
+//			// that the NFSv3 enabled storage account can't allow public network access - otherwise the NFSv3 protocol will fail,
+//			// we have to use the ARM template to deploy the storage container as a workaround.
+//			// Once the issue above got resolved, we can instead use the azurerm_storage_container resource.
+//			storage_containers, err := core.NewResourceGroupTemplateDeployment(ctx, "storage-containers", &core.ResourceGroupTemplateDeploymentArgs{
+//				Name:              pulumi.String("example-deployment"),
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				DeploymentMode:    pulumi.String("Incremental"),
+//				ParametersContent: pulumi.All(exampleAccount.Location, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					location := _args[0].(string)
+//					name := _args[1].(string)
+//					var _zero string
+//					tmpJSON0, err := json.Marshal(map[string]map[string]string{
+//						"location": map[string]string{
+//							"value": location,
+//						},
+//						"storageAccountName": map[string]string{
+//							"value": name,
+//						},
+//						"containerName": map[string]string{
+//							"value": "example-container",
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//				TemplateContent: pulumi.String(`{
+//	  \"$schema\": \"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#\",
+//	  \"contentVersion\": \"1.0.0.0\",
+//	  \"parameters\": {
+//	    \"storageAccountName\": {
+//	      \"type\": \"String\"
+//	    },
+//	    \"containerName\": {
+//	      \"type\": \"String\"
+//	    },
+//	    \"location\": {
+//	      \"type\": \"String\"
+//	    }
+//	  },
+//	  \"resources\": [
+//	    {
+//	      \"type\": \"Microsoft.Storage/storageAccounts\",
+//	      \"apiVersion\": \"2019-06-01\",
+//	      \"name\": \"[parameters('storageAccountName')]\",
+//	      \"location\": \"[parameters('location')]\",
+//	      \"sku\": {
+//	        \"name\": \"Standard_LRS\",
+//	        \"tier\": \"Standard\"
+//	      },
+//	      \"kind\": \"StorageV2\",
+//	      \"properties\": {
+//	        \"accessTier\": \"Hot\"
+//	      },
+//	      \"resources\": [
+//	        {
+//	          \"type\": \"blobServices/containers\",
+//	          \"apiVersion\": \"2019-06-01\",
+//	          \"name\": \"[concat('default/', parameters('containerName'))]\",
+//	          \"dependsOn\": [
+//	            \"[parameters('storageAccountName')]\"
+//	          ]
+//	        }
+//	      ]
+//	    }
+//	  ],
+//
+//	  \"outputs\": {
+//	    \"id\": {
+//	      \"type\": \"String\",
+//	      \"value\": \"[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', parameters('storageAccountName'), 'default', parameters('containerName'))]\"
+//	    }
+//	  }
+//	}
+//
+// `),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example_storage_account_contrib", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
+//				PrincipalId:        pulumi.Any(example.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example_storage_blob_data_contrib", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
+//				PrincipalId:        pulumi.Any(example.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCache, err := hpc.NewCache(ctx, "example", &hpc.CacheArgs{
+//				Name:              pulumi.String("example-hpc-cache"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				CacheSizeInGb:     pulumi.Int(3072),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				SkuName:           pulumi.String("Standard_2G"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeJsondecode, err := std.Jsondecode(ctx, map[string]pulumi.String{
+//				"input": storage_containers.OutputContent,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hpc.NewCacheBlobNfsTarget(ctx, "example", &hpc.CacheBlobNfsTargetArgs{
+//				Name:               pulumi.String("example-hpc-target"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				CacheName:          exampleCache.Name,
+//				StorageContainerId: invokeJsondecode.Result.Id.Value,
+//				NamespacePath:      pulumi.String("/p1"),
+//				UsageModel:         pulumi.String("READ_HEAVY_INFREQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StorageCache` - 2023-05-01
+//
 // ## Import
 //
 // HPC Cache Blob NFS Targets can be imported using the `resource id`, e.g.

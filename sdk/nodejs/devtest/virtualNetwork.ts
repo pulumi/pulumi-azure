@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
- *     name: "example-network",
- *     labName: exampleLab.name,
- *     resourceGroupName: example.name,
  *     subnet: {
  *         usePublicIpAddress: "Allow",
  *         useInVirtualMachineCreation: "Allow",
  *     },
+ *     name: "example-network",
+ *     labName: exampleLab.name,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

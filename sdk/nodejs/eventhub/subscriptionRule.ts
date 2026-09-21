@@ -78,9 +78,6 @@ import * as utilities from "../utilities";
  *     maxDeliveryCount: 1,
  * });
  * const exampleSubscriptionRule = new azure.servicebus.SubscriptionRule("example", {
- *     name: "tfex_servicebus_rule",
- *     subscriptionId: exampleSubscription.id,
- *     filterType: "CorrelationFilter",
  *     correlationFilter: {
  *         correlationId: "high",
  *         label: "red",
@@ -88,6 +85,9 @@ import * as utilities from "../utilities";
  *             customProperty: "value",
  *         },
  *     },
+ *     name: "tfex_servicebus_rule",
+ *     subscriptionId: exampleSubscription.id,
+ *     filterType: "CorrelationFilter",
  * });
  * ```
  *

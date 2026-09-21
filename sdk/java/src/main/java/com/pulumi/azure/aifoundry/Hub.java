@@ -97,14 +97,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHub = new Hub("exampleHub", HubArgs.builder()
+ *             .identity(HubIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("exampleaihub")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccountId(exampleAccount.id())
  *             .keyVaultId(exampleKeyVault.id())
- *             .identity(HubIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
  *             .build());
  * 
  *     }

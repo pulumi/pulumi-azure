@@ -68,9 +68,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Name = "test",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -79,6 +76,9 @@ namespace Pulumi.Azure.Compute
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var bpepool = new Azure.Lb.BackendAddressPool("bpepool", new()
@@ -110,11 +110,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
     ///     {
-    ///         Name = "mytestscaleset-1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AutomaticOsUpgrade = true,
-    ///         UpgradePolicyMode = "Rolling",
     ///         RollingUpgradePolicy = new Azure.Compute.Inputs.ScaleSetRollingUpgradePolicyArgs
     ///         {
     ///             MaxBatchInstancePercent = 20,
@@ -122,7 +117,6 @@ namespace Pulumi.Azure.Compute
     ///             MaxUnhealthyUpgradedInstancePercent = 5,
     ///             PauseTimeBetweenBatches = "PT0S",
     ///         },
-    ///         HealthProbeId = exampleProbe.Id,
     ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
     ///         {
     ///             Name = "Standard_D4_v5",
@@ -143,16 +137,6 @@ namespace Pulumi.Azure.Compute
     ///             CreateOption = "FromImage",
     ///             ManagedDiskType = "Standard_LRS",
     ///         },
-    ///         StorageProfileDataDisks = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.ScaleSetStorageProfileDataDiskArgs
-    ///             {
-    ///                 Lun = 0,
-    ///                 Caching = "ReadWrite",
-    ///                 CreateOption = "Empty",
-    ///                 DiskSizeGb = 10,
-    ///             },
-    ///         },
     ///         OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
     ///         {
     ///             ComputerNamePrefix = "testvm",
@@ -160,7 +144,6 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigArgs
     ///         {
-    ///             DisablePasswordAuthentication = true,
     ///             SshKeys = new[]
     ///             {
     ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
@@ -169,16 +152,15 @@ namespace Pulumi.Azure.Compute
     ///                     KeyData = Std.File.Invoke(new()
     ///                     {
     ///                         Input = "~/.ssh/demo_key.pub",
-    ///                     }).Apply(invoke =&gt; invoke.Result),
+    ///                     }).Result,
     ///                 },
     ///             },
+    ///             DisablePasswordAuthentication = true,
     ///         },
     ///         NetworkProfiles = new[]
     ///         {
     ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
     ///             {
-    ///                 Name = "mynetworkprofile",
-    ///                 Primary = true,
     ///                 IpConfigurations = new[]
     ///                 {
     ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
@@ -196,8 +178,26 @@ namespace Pulumi.Azure.Compute
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "mynetworkprofile",
+    ///                 Primary = true,
     ///             },
     ///         },
+    ///         StorageProfileDataDisks = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetStorageProfileDataDiskArgs
+    ///             {
+    ///                 Lun = 0,
+    ///                 Caching = "ReadWrite",
+    ///                 CreateOption = "Empty",
+    ///                 DiskSizeGb = 10,
+    ///             },
+    ///         },
+    ///         Name = "mytestscaleset-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AutomaticOsUpgrade = true,
+    ///         UpgradePolicyMode = "Rolling",
+    ///         HealthProbeId = exampleProbe.Id,
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },
@@ -268,10 +268,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
     ///     {
-    ///         Name = "mytestscaleset-1",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         UpgradePolicyMode = "Manual",
     ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
     ///         {
     ///             Name = "Standard_D4_v5",
@@ -285,7 +281,6 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigArgs
     ///         {
-    ///             DisablePasswordAuthentication = true,
     ///             SshKeys = new[]
     ///             {
     ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
@@ -294,26 +289,10 @@ namespace Pulumi.Azure.Compute
     ///                     KeyData = Std.File.Invoke(new()
     ///                     {
     ///                         Input = "~/.ssh/demo_key.pub",
-    ///                     }).Apply(invoke =&gt; invoke.Result),
+    ///                     }).Result,
     ///                 },
     ///             },
-    ///         },
-    ///         NetworkProfiles = new[]
-    ///         {
-    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
-    ///             {
-    ///                 Name = "TestNetworkProfile",
-    ///                 Primary = true,
-    ///                 IpConfigurations = new[]
-    ///                 {
-    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
-    ///                     {
-    ///                         Name = "TestIPConfiguration",
-    ///                         Primary = true,
-    ///                         SubnetId = exampleSubnet.Id,
-    ///                     },
-    ///                 },
-    ///             },
+    ///             DisablePasswordAuthentication = true,
     ///         },
     ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
     ///         {
@@ -337,6 +316,27 @@ namespace Pulumi.Azure.Compute
     ///             Sku = "22_04-lts",
     ///             Version = "latest",
     ///         },
+    ///         NetworkProfiles = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///             {
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                     {
+    ///                         Name = "TestIPConfiguration",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                     },
+    ///                 },
+    ///                 Name = "TestNetworkProfile",
+    ///                 Primary = true,
+    ///             },
+    ///         },
+    ///         Name = "mytestscaleset-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         UpgradePolicyMode = "Manual",
     ///     });
     /// 
     /// });
@@ -359,11 +359,11 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
     ///     {
-    ///         Name = "test",
     ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
     ///         {
     ///             Id = example.Id,
     ///         },
+    ///         Name = "test",
     ///     });
     /// 
     /// });

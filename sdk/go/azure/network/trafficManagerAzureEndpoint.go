@@ -47,9 +47,6 @@ import (
 //				return err
 //			}
 //			exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "example", &network.TrafficManagerProfileArgs{
-//				Name:                 pulumi.String("example-profile"),
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: pulumi.String("example-profile"),
 //					Ttl:          pulumi.Int(100),
@@ -62,6 +59,9 @@ import (
 //					TimeoutInSeconds:          pulumi.Int(9),
 //					ToleratedNumberOfFailures: pulumi.Int(3),
 //				},
+//				Name:                 pulumi.String("example-profile"),
+//				ResourceGroupName:    example.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

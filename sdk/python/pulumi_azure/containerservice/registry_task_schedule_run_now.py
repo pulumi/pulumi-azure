@@ -91,8 +91,6 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
-            container_registry_id=example_registry.id,
             platform={
                 "os": "Linux",
             },
@@ -101,7 +99,9 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                 "context_path": "https://github.com/<user name>/acr-build-helloworld-node#main",
                 "context_access_token": "<github personal access token>",
                 "image_names": ["helloworld:{{.Run.ID}}"],
-            })
+            },
+            name="example-task",
+            container_registry_id=example_registry.id)
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
@@ -141,8 +141,6 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             location=example.location,
             sku="Basic")
         example_registry_task = azure.containerservice.RegistryTask("example",
-            name="example-task",
-            container_registry_id=example_registry.id,
             platform={
                 "os": "Linux",
             },
@@ -151,7 +149,9 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                 "context_path": "https://github.com/<user name>/acr-build-helloworld-node#main",
                 "context_access_token": "<github personal access token>",
                 "image_names": ["helloworld:{{.Run.ID}}"],
-            })
+            },
+            name="example-task",
+            container_registry_id=example_registry.id)
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 

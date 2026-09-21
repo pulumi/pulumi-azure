@@ -190,12 +190,12 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Basic")
         example_module = azure.automation.Module("example",
-            name="xActiveDirectory",
-            resource_group_name=example.name,
-            automation_account_name=example_account.name,
             module_link={
                 "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            })
+            },
+            name="xActiveDirectory",
+            resource_group_name=example.name,
+            automation_account_name=example_account.name)
         ```
 
         ## API Providers
@@ -245,12 +245,12 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Basic")
         example_module = azure.automation.Module("example",
-            name="xActiveDirectory",
-            resource_group_name=example.name,
-            automation_account_name=example_account.name,
             module_link={
                 "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            })
+            },
+            name="xActiveDirectory",
+            resource_group_name=example.name,
+            automation_account_name=example_account.name)
         ```
 
         ## API Providers

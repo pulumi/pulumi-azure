@@ -96,31 +96,10 @@ import (
 //				return fmt.Sprintf("%v-rdrcfg", name), nil
 //			}).(pulumi.StringOutput)
 //			_, err = network.NewApplicationGateway(ctx, "network", &network.ApplicationGatewayArgs{
-//				Name:              pulumi.String("example-appgateway"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Sku: &network.ApplicationGatewaySkuArgs{
 //					Name:     pulumi.String("Standard_v2"),
 //					Tier:     pulumi.String("Standard_v2"),
 //					Capacity: pulumi.Int(2),
-//				},
-//				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
-//					&network.ApplicationGatewayGatewayIpConfigurationArgs{
-//						Name:     pulumi.String("my-gateway-ip-configuration"),
-//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
-//					},
-//				},
-//				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
-//					&network.ApplicationGatewayFrontendPortArgs{
-//						Name: pulumi.String(frontendPortName),
-//						Port: pulumi.Int(80),
-//					},
-//				},
-//				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
-//					&network.ApplicationGatewayFrontendIpConfigurationArgs{
-//						Name:              pulumi.String(frontendIpConfigurationName),
-//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
-//					},
 //				},
 //				BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
 //					&network.ApplicationGatewayBackendAddressPoolArgs{
@@ -135,6 +114,24 @@ import (
 //						Port:                pulumi.Int(80),
 //						Protocol:            pulumi.String("Http"),
 //						RequestTimeout:      pulumi.Int(60),
+//					},
+//				},
+//				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
+//					&network.ApplicationGatewayFrontendIpConfigurationArgs{
+//						Name:              pulumi.String(frontendIpConfigurationName),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//					},
+//				},
+//				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
+//					&network.ApplicationGatewayFrontendPortArgs{
+//						Name: pulumi.String(frontendPortName),
+//						Port: pulumi.Int(80),
+//					},
+//				},
+//				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
+//					&network.ApplicationGatewayGatewayIpConfigurationArgs{
+//						Name:     pulumi.String("my-gateway-ip-configuration"),
+//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				HttpListeners: network.ApplicationGatewayHttpListenerArray{
@@ -155,6 +152,9 @@ import (
 //						BackendHttpSettingsName: pulumi.String(httpSettingName),
 //					},
 //				},
+//				Name:              pulumi.String("example-appgateway"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

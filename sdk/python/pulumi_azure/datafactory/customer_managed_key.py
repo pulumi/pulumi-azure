@@ -191,13 +191,13 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "Set",
             ])
         example_factory = azure.datafactory.Factory("example",
-            name="example_data_factory",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
                 "identity_ids": [example_azurerm_user_assigned_identity["id"]],
-            })
+            },
+            name="example_data_factory",
+            location=example.location,
+            resource_group_name=example.name)
         datafactory = azure.keyvault.AccessPolicy("datafactory",
             key_vault_id=example_key_vault.id,
             tenant_id=example_factory.identity.tenant_id,
@@ -304,13 +304,13 @@ class CustomerManagedKey(pulumi.CustomResource):
                 "Set",
             ])
         example_factory = azure.datafactory.Factory("example",
-            name="example_data_factory",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
                 "identity_ids": [example_azurerm_user_assigned_identity["id"]],
-            })
+            },
+            name="example_data_factory",
+            location=example.location,
+            resource_group_name=example.name)
         datafactory = azure.keyvault.AccessPolicy("datafactory",
             key_vault_id=example_key_vault.id,
             tenant_id=example_factory.identity.tenant_id,

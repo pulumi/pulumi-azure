@@ -23,6 +23,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * }));
  * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("example", {
+ *     output: {
+ *         type: "bigint",
+ *     },
+ *     inputs: [{
+ *         type: "bigint",
+ *     }],
  *     name: "example-javascript-function",
  *     streamAnalyticsJobName: exampleGetJob.then(exampleGetJob => exampleGetJob.name),
  *     resourceGroupName: exampleGetJob.then(exampleGetJob => exampleGetJob.resourceGroupName),
@@ -30,12 +36,6 @@ import * as utilities from "../utilities";
  *   return in;
  * }
  * `,
- *     inputs: [{
- *         type: "bigint",
- *     }],
- *     output: {
- *         type: "bigint",
- *     },
  * });
  * ```
  *

@@ -30,10 +30,6 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-cluster",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefix: "example-aks",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
@@ -43,16 +39,12 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-cluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "example-aks",
  * });
  * const exampleAlertPrometheusRuleGroup = new azure.monitoring.AlertPrometheusRuleGroup("example", {
- *     name: "example-amprg",
- *     location: "West Europe",
- *     resourceGroupName: example.name,
- *     clusterName: exampleKubernetesCluster.name,
- *     description: "This is the description of the following rule group",
- *     ruleGroupEnabled: false,
- *     interval: "PT1M",
- *     scopes: [exampleWorkspace.id],
  *     rules: [
  *         {
  *             enabled: false,
@@ -63,18 +55,18 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *         {
+ *             alertResolution: {
+ *                 autoResolved: true,
+ *                 timeToResolve: "PT10M",
+ *             },
+ *             actions: [{
+ *                 actionGroupId: exampleActionGroup.id,
+ *             }],
  *             alert: "Billing_Processing_Very_Slow",
  *             enabled: true,
  *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\\"billing-processing\\\"}[5m])) by (job_type))\n",
  *             "for": "PT5M",
  *             severity: 2,
- *             actions: [{
- *                 actionGroupId: exampleActionGroup.id,
- *             }],
- *             alertResolution: {
- *                 autoResolved: true,
- *                 timeToResolve: "PT10M",
- *             },
  *             annotations: {
  *                 annotationName: "annotationValue",
  *             },
@@ -83,6 +75,14 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
+ *     name: "example-amprg",
+ *     location: "West Europe",
+ *     resourceGroupName: example.name,
+ *     clusterName: exampleKubernetesCluster.name,
+ *     description: "This is the description of the following rule group",
+ *     ruleGroupEnabled: false,
+ *     interval: "PT1M",
+ *     scopes: [exampleWorkspace.id],
  *     tags: {
  *         key: "value",
  *     },

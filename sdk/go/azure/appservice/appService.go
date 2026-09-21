@@ -43,28 +43,21 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("example-appserviceplan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
 //				},
+//				Name:              pulumi.String("example-appserviceplan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              pulumi.String("example-app-service"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
 //					ScmType:                pulumi.String("LocalGit"),
-//				},
-//				AppSettings: pulumi.StringMap{
-//					"SOME_KEY": pulumi.String("some-value"),
 //				},
 //				ConnectionStrings: appservice.AppServiceConnectionStringArray{
 //					&appservice.AppServiceConnectionStringArgs{
@@ -72,6 +65,13 @@ import (
 //						Type:  pulumi.String("SQLServer"),
 //						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
 //					},
+//				},
+//				Name:              pulumi.String("example-app-service"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppSettings: pulumi.StringMap{
+//					"SOME_KEY": pulumi.String("some-value"),
 //				},
 //			})
 //			if err != nil {

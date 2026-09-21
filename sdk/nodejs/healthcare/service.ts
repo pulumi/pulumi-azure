@@ -17,19 +17,8 @@ import * as utilities from "../utilities";
  *
  * const current = azure.core.getClientConfig({});
  * const example = new azure.healthcare.Service("example", {
- *     name: "uniquefhirname",
- *     resourceGroupName: "sample-resource-group",
- *     location: "westus2",
- *     kind: "fhir-R4",
- *     cosmosdbThroughput: 2000,
  *     identity: {
  *         type: "SystemAssigned",
- *     },
- *     accessPolicyObjectIds: current.then(current => current.objectId),
- *     configurationExportStorageAccountName: "teststorage",
- *     tags: {
- *         environment: "testenv",
- *         purpose: "AcceptanceTests",
  *     },
  *     authenticationConfiguration: {
  *         authority: "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
@@ -51,6 +40,17 @@ import * as utilities from "../utilities";
  *         ],
  *         maxAgeInSeconds: 500,
  *         allowCredentials: true,
+ *     },
+ *     name: "uniquefhirname",
+ *     resourceGroupName: "sample-resource-group",
+ *     location: "westus2",
+ *     kind: "fhir-R4",
+ *     cosmosdbThroughput: 2000,
+ *     accessPolicyObjectIds: current.then(current => current.objectId),
+ *     configurationExportStorageAccountName: "teststorage",
+ *     tags: {
+ *         environment: "testenv",
+ *         purpose: "AcceptanceTests",
  *     },
  * });
  * ```

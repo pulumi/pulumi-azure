@@ -347,13 +347,13 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         example = azure.core.get_subscription()
         example_get_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
         example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="exampleAssignment",
             subscription_id=example.id,
             policy_definition_id=example_get_policy_set_definition.id,
-            location="westus",
-            identity={
-                "type": "SystemAssigned",
-            })
+            location="westus")
         example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("example",
             name="exampleExemption",
             subscription_id=example.id,
@@ -400,13 +400,13 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         example = azure.core.get_subscription()
         example_get_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
         example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="exampleAssignment",
             subscription_id=example.id,
             policy_definition_id=example_get_policy_set_definition.id,
-            location="westus",
-            identity={
-                "type": "SystemAssigned",
-            })
+            location="westus")
         example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("example",
             name="exampleExemption",
             subscription_id=example.id,

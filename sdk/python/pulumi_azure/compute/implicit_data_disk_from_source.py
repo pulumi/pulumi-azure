@@ -362,20 +362,15 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             virtual_network_name=main.name,
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("main",
-            name=f"{prefix}-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": internal.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
-            name=vm_name,
+            }],
+            name=f"{prefix}-nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_D4_v5",
+            resource_group_name=example.name)
+        example_virtual_machine = azure.compute.VirtualMachine("example",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -395,7 +390,12 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             },
             os_profile_linux_config={
                 "disable_password_authentication": False,
-            })
+            },
+            name=vm_name,
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_D4_v5")
         example_managed_disk = azure.compute.ManagedDisk("example",
             name=f"{vm_name}-disk1",
             location=example.location,
@@ -411,12 +411,12 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             source_uri=example_managed_disk.id)
         example_implicit_data_disk_from_source = azure.compute.ImplicitDataDiskFromSource("example",
             name=f"{vm_name}-implicitdisk1",
-            virtual_machine_id=test_azurerm_virtual_machine["id"],
+            virtual_machine_id=test["id"],
             lun=0,
             caching="None",
             create_option="Copy",
             disk_size_gb=20,
-            source_resource_id=test["id"])
+            source_resource_id=test_azurerm_snapshot["id"])
         ```
 
         ## API Providers
@@ -492,20 +492,15 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             virtual_network_name=main.name,
             address_prefixes=["10.0.2.0/24"])
         main_network_interface = azure.network.NetworkInterface("main",
-            name=f"{prefix}-nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
                 "subnet_id": internal.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
-            name=vm_name,
+            }],
+            name=f"{prefix}-nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[main_network_interface.id],
-            vm_size="Standard_D4_v5",
+            resource_group_name=example.name)
+        example_virtual_machine = azure.compute.VirtualMachine("example",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -525,7 +520,12 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             },
             os_profile_linux_config={
                 "disable_password_authentication": False,
-            })
+            },
+            name=vm_name,
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[main_network_interface.id],
+            vm_size="Standard_D4_v5")
         example_managed_disk = azure.compute.ManagedDisk("example",
             name=f"{vm_name}-disk1",
             location=example.location,
@@ -541,12 +541,12 @@ class ImplicitDataDiskFromSource(pulumi.CustomResource):
             source_uri=example_managed_disk.id)
         example_implicit_data_disk_from_source = azure.compute.ImplicitDataDiskFromSource("example",
             name=f"{vm_name}-implicitdisk1",
-            virtual_machine_id=test_azurerm_virtual_machine["id"],
+            virtual_machine_id=test["id"],
             lun=0,
             caching="None",
             create_option="Copy",
             disk_size_gb=20,
-            source_resource_id=test["id"])
+            source_resource_id=test_azurerm_snapshot["id"])
         ```
 
         ## API Providers

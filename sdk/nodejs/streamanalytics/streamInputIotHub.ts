@@ -24,15 +24,19 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleIoTHub = new azure.iot.IoTHub("example", {
- *     name: "example-iothub",
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
+ *     name: "example-iothub",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
  * });
  * const exampleStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("example", {
+ *     serialization: {
+ *         type: "Json",
+ *         encoding: "UTF8",
+ *     },
  *     name: "example-iothub-input",
  *     streamAnalyticsJobName: example.name,
  *     resourceGroupName: example.resourceGroupName,
@@ -41,10 +45,6 @@ import * as utilities from "../utilities";
  *     iothubNamespace: exampleIoTHub.name,
  *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies[0].primaryKey,
  *     sharedAccessPolicyName: "iothubowner",
- *     serialization: {
- *         type: "Json",
- *         encoding: "UTF8",
- *     },
  * });
  * ```
  *

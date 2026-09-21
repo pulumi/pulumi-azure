@@ -60,9 +60,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("main", new()
     ///     {
-    ///         Name = $"{prefix}-nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -72,18 +69,13 @@ namespace Pulumi.Azure.Compute
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = $"{prefix}-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
     ///     {
-    ///         Name = vmName,
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             mainNetworkInterface.Id,
-    ///         },
-    ///         VmSize = "Standard_D4_v5",
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -108,6 +100,14 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             DisablePasswordAuthentication = false,
     ///         },
+    ///         Name = vmName,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             mainNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_D4_v5",
     ///     });
     /// 
     ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()

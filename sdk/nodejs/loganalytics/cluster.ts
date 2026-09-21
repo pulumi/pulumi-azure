@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.loganalytics.Cluster("example", {
- *     name: "example-cluster",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-cluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

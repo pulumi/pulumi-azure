@@ -48,15 +48,15 @@ import (
 //				return err
 //			}
 //			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
 //				Name:               pulumi.String("example-ercircuit"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				ExpressRoutePortId: exampleExpressRoutePort.ID().ToIDOutput().ToStringOutput(),
 //				BandwidthInGbps:    pulumi.Float64(5),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -73,15 +73,15 @@ import (
 //				return err
 //			}
 //			example2ExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example2", &network.ExpressRouteCircuitArgs{
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
 //				Name:               pulumi.String("example-ercircuit2"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				ExpressRoutePortId: example2.ID().ToIDOutput().ToStringOutput(),
 //				BandwidthInGbps:    pulumi.Float64(5),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
 //			})
 //			if err != nil {
 //				return err

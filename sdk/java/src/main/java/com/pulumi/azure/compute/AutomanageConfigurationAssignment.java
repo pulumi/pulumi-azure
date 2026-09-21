@@ -75,25 +75,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("exampleni")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("exampleni")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
- *             .name("examplevm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_D4_v5")
- *             .adminUsername("adminuser")
- *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
- *             .disablePasswordAuthentication(false)
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
  *                 .storageAccountType("Standard_LRS")
@@ -104,6 +96,14 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .name("examplevm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_D4_v5")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
+ *             .disablePasswordAuthentication(false)
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()

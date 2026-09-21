@@ -68,14 +68,16 @@ import (
 //				return err
 //			}
 //			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "example", &appservice.LinuxFunctionAppArgs{
+//				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"authSettingsV2",
+//			}))
 //			if err != nil {
 //				return err
 //			}

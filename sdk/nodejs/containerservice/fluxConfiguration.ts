@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-aks",
- *     location: "West Europe",
- *     resourceGroupName: example.name,
- *     dnsPrefix: "example-aks",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
@@ -32,6 +28,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-aks",
+ *     location: "West Europe",
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "example-aks",
  * });
  * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("example", {
  *     name: "example-ext",
@@ -39,26 +39,26 @@ import * as utilities from "../utilities";
  *     extensionType: "microsoft.flux",
  * });
  * const exampleFluxConfiguration = new azure.containerservice.FluxConfiguration("example", {
- *     name: "example-fc",
- *     clusterId: test.id,
- *     namespace: "flux",
  *     gitRepository: {
  *         url: "https://github.com/Azure/arc-k8s-demo",
  *         referenceType: "branch",
  *         referenceValue: "main",
  *     },
  *     kustomizations: [{
- *         name: "kustomization-1",
  *         postBuild: {
- *             substitute: {
- *                 example_var: "substitute_with_this",
- *             },
  *             substituteFroms: [{
  *                 kind: "ConfigMap",
  *                 name: "example-configmap",
  *             }],
+ *             substitute: {
+ *                 example_var: "substitute_with_this",
+ *             },
  *         },
+ *         name: "kustomization-1",
  *     }],
+ *     name: "example-fc",
+ *     clusterId: test.id,
+ *     namespace: "flux",
  * }, {
  *     dependsOn: [exampleKubernetesClusterExtension],
  * });

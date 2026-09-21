@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Redis
     /// 
     ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -37,12 +43,6 @@ namespace Pulumi.Azure.Redis
     ///         Family = "P",
     ///         SkuName = "Premium",
     ///         EnableNonSslPort = false,
-    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
-    ///         {
-    ///             MaxmemoryReserved = 2,
-    ///             MaxmemoryDelta = 2,
-    ///             MaxmemoryPolicy = "allkeys-lru",
-    ///         },
     ///     });
     /// 
     ///     var exampleCacheAccessPolicy = new Azure.Redis.CacheAccessPolicy("example", new()

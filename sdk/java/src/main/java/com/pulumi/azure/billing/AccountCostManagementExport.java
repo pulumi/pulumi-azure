@@ -71,12 +71,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccountCostManagementExport = new AccountCostManagementExport("exampleAccountCostManagementExport", AccountCostManagementExportArgs.builder()
- *             .name("example")
- *             .billingAccountId("example")
- *             .recurrenceType("Monthly")
- *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
- *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
- *             .fileFormat("Csv")
  *             .exportDataStorageLocation(AccountCostManagementExportExportDataStorageLocationArgs.builder()
  *                 .containerId(exampleContainer.id())
  *                 .rootFolderPath("/root/updated")
@@ -85,6 +79,12 @@ import javax.annotation.Nullable;
  *                 .type("Usage")
  *                 .timeFrame("WeekToDate")
  *                 .build())
+ *             .name("example")
+ *             .billingAccountId("example")
+ *             .recurrenceType("Monthly")
+ *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
+ *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
+ *             .fileFormat("Csv")
  *             .build());
  * 
  *     }

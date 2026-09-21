@@ -658,46 +658,46 @@ class Slot(pulumi.CustomResource):
             name="some-resource-group",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name=server["hex"],
+            },
+            name="some-app-service-plan",
             location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            resource_group_name=example.name)
+        example_app_service = azure.appservice.AppService("example",
             site_config={
                 "dotnet_framework_version": "v4.0",
-            },
-            app_settings={
-                "SOME_KEY": "some-value",
             },
             connection_strings=[{
                 "name": "Database",
                 "type": "SQLServer",
                 "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
-            }])
+            }],
+            name=server["hex"],
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id,
+            app_settings={
+                "SOME_KEY": "some-value",
+            })
         example_slot = azure.appservice.Slot("example",
+            site_config={
+                "dotnet_framework_version": "v4.0",
+            },
+            connection_strings=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }],
             name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config={
-                "dotnet_framework_version": "v4.0",
-            },
             app_settings={
                 "SOME_KEY": "some-value",
-            },
-            connection_strings=[{
-                "name": "Database",
-                "type": "SQLServer",
-                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
-            }])
+            })
         ```
 
         ### Java 1.8)
@@ -716,34 +716,34 @@ class Slot(pulumi.CustomResource):
             name="some-resource-group",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name=server["hex"],
+            },
+            name="some-app-service-plan",
             location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            resource_group_name=example.name)
+        example_app_service = azure.appservice.AppService("example",
             site_config={
                 "java_version": "1.8",
                 "java_container": "JETTY",
                 "java_container_version": "9.3",
-            })
+            },
+            name=server["hex"],
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id)
         example_slot = azure.appservice.Slot("example",
+            site_config={
+                "java_version": "1.8",
+                "java_container": "JETTY",
+                "java_container_version": "9.3",
+            },
             name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
-            site_config={
-                "java_version": "1.8",
-                "java_container": "JETTY",
-                "java_container_version": "9.3",
-            })
+            app_service_plan_id=example_plan.id)
         ```
 
         ## Import
@@ -806,46 +806,46 @@ class Slot(pulumi.CustomResource):
             name="some-resource-group",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name=server["hex"],
+            },
+            name="some-app-service-plan",
             location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            resource_group_name=example.name)
+        example_app_service = azure.appservice.AppService("example",
             site_config={
                 "dotnet_framework_version": "v4.0",
-            },
-            app_settings={
-                "SOME_KEY": "some-value",
             },
             connection_strings=[{
                 "name": "Database",
                 "type": "SQLServer",
                 "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
-            }])
+            }],
+            name=server["hex"],
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id,
+            app_settings={
+                "SOME_KEY": "some-value",
+            })
         example_slot = azure.appservice.Slot("example",
+            site_config={
+                "dotnet_framework_version": "v4.0",
+            },
+            connection_strings=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }],
             name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config={
-                "dotnet_framework_version": "v4.0",
-            },
             app_settings={
                 "SOME_KEY": "some-value",
-            },
-            connection_strings=[{
-                "name": "Database",
-                "type": "SQLServer",
-                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
-            }])
+            })
         ```
 
         ### Java 1.8)
@@ -864,34 +864,34 @@ class Slot(pulumi.CustomResource):
             name="some-resource-group",
             location="West Europe")
         example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "tier": "Standard",
                 "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name=server["hex"],
+            },
+            name="some-app-service-plan",
             location=example.location,
-            resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            resource_group_name=example.name)
+        example_app_service = azure.appservice.AppService("example",
             site_config={
                 "java_version": "1.8",
                 "java_container": "JETTY",
                 "java_container_version": "9.3",
-            })
+            },
+            name=server["hex"],
+            location=example.location,
+            resource_group_name=example.name,
+            app_service_plan_id=example_plan.id)
         example_slot = azure.appservice.Slot("example",
+            site_config={
+                "java_version": "1.8",
+                "java_container": "JETTY",
+                "java_container_version": "9.3",
+            },
             name=server["hex"],
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
-            site_config={
-                "java_version": "1.8",
-                "java_container": "JETTY",
-                "java_container_version": "9.3",
-            })
+            app_service_plan_id=example_plan.id)
         ```
 
         ## Import

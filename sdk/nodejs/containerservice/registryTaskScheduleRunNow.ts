@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     sku: "Basic",
  * });
  * const exampleRegistryTask = new azure.containerservice.RegistryTask("example", {
- *     name: "example-task",
- *     containerRegistryId: exampleRegistry.id,
  *     platform: {
  *         os: "Linux",
  *     },
@@ -35,6 +33,8 @@ import * as utilities from "../utilities";
  *         contextAccessToken: "<github personal access token>",
  *         imageNames: ["helloworld:{{.Run.ID}}"],
  *     },
+ *     name: "example-task",
+ *     containerRegistryId: exampleRegistry.id,
  * });
  * const exampleRegistryTaskScheduleRunNow = new azure.containerservice.RegistryTaskScheduleRunNow("example", {containerRegistryTaskId: exampleRegistryTask.id});
  * ```

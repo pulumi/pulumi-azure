@@ -32,6 +32,9 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "managedsqlinstance",
  *     resourceGroupName: example.name,
  *     location: example.location,
@@ -42,16 +45,13 @@ import * as utilities from "../utilities";
  *     vcores: 4,
  *     administratorLogin: "msadministrator",
  *     administratorLoginPassword: "thisIsDog11",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
- * const reader = new azuread.DirectoryRole("reader", {displayName: "Directory Readers"});
- * const exampleDirectoryRoleMember = new azuread.DirectoryRoleMember("example", {
+ * const reader = new azuread.index.DirectoryRole("reader", {displayName: "Directory Readers"});
+ * const exampleDirectoryRoleMember = new azuread.index.DirectoryRoleMember("example", {
  *     roleObjectId: reader.objectId,
- *     memberObjectId: exampleManagedInstance.identity.apply(identity => identity?.principalId),
+ *     memberObjectId: exampleManagedInstance.identity?.principalId,
  * });
- * const admin = new azuread.User("admin", {
+ * const admin = new azuread.index.User("admin", {
  *     userPrincipalName: "ms.admin@example.com",
  *     displayName: "Ms Admin",
  *     mailNickname: "ms.admin",

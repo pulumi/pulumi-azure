@@ -48,15 +48,15 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-mlw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
  *     name: "example-vnet",
@@ -71,10 +71,6 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.1.0.0/24"],
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-aks",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     dnsPrefixPrivateCluster: "prefix",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 3,
@@ -84,6 +80,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-aks",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefixPrivateCluster: "prefix",
  * });
  * const exampleInferenceCluster = new azure.machinelearning.InferenceCluster("example", {
  *     name: "example",

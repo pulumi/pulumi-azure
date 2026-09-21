@@ -531,9 +531,6 @@ class Service(pulumi.CustomResource):
             virtual_network_name=deploy_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
         deploy_network_security_group = azure.network.NetworkSecurityGroup("deploy",
-            name="deploy-nsg",
-            location=deploy.location,
-            resource_group_name=deploy.name,
             security_rules=[
                 {
                     "name": "AllowSyncWithAzureAD",
@@ -579,31 +576,28 @@ class Service(pulumi.CustomResource):
                     "source_address_prefix": "*",
                     "destination_address_prefix": "*",
                 },
-            ])
+            ],
+            name="deploy-nsg",
+            location=deploy.location,
+            resource_group_name=deploy.name)
         deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
             network_security_group_id=deploy_network_security_group.id)
         dc_admins = azuread.Group("dc_admins",
-            display_name="AAD DC Administrators",
+            display_name=AAD DC Administrators,
             security_enabled=True)
         admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.com",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
+            user_principal_name=dc-admin@hashicorp-example.com,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
         admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        example = azuread.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
         aadds = azure.core.ResourceGroup("aadds",
             name="aadds-rg",
             location="westeurope")
         example_service = azure.domainservices.Service("example",
-            name="example-aadds",
-            location=aadds.location,
-            resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
-            filtered_sync_enabled=False,
             initial_replica_set={
                 "subnet_id": deploy_subnet.id,
             },
@@ -620,6 +614,12 @@ class Service(pulumi.CustomResource):
                 "sync_ntlm_passwords": True,
                 "sync_on_prem_passwords": True,
             },
+            name="example-aadds",
+            location=aadds.location,
+            resource_group_name=aadds.name,
+            domain_name="widgetslogin.net",
+            sku="Enterprise",
+            filtered_sync_enabled=False,
             tags={
                 "Environment": "prod",
             },
@@ -694,9 +694,6 @@ class Service(pulumi.CustomResource):
             virtual_network_name=deploy_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
         deploy_network_security_group = azure.network.NetworkSecurityGroup("deploy",
-            name="deploy-nsg",
-            location=deploy.location,
-            resource_group_name=deploy.name,
             security_rules=[
                 {
                     "name": "AllowSyncWithAzureAD",
@@ -742,31 +739,28 @@ class Service(pulumi.CustomResource):
                     "source_address_prefix": "*",
                     "destination_address_prefix": "*",
                 },
-            ])
+            ],
+            name="deploy-nsg",
+            location=deploy.location,
+            resource_group_name=deploy.name)
         deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
             network_security_group_id=deploy_network_security_group.id)
         dc_admins = azuread.Group("dc_admins",
-            display_name="AAD DC Administrators",
+            display_name=AAD DC Administrators,
             security_enabled=True)
         admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.com",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
+            user_principal_name=dc-admin@hashicorp-example.com,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
         admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        example = azuread.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
         aadds = azure.core.ResourceGroup("aadds",
             name="aadds-rg",
             location="westeurope")
         example_service = azure.domainservices.Service("example",
-            name="example-aadds",
-            location=aadds.location,
-            resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
-            filtered_sync_enabled=False,
             initial_replica_set={
                 "subnet_id": deploy_subnet.id,
             },
@@ -783,6 +777,12 @@ class Service(pulumi.CustomResource):
                 "sync_ntlm_passwords": True,
                 "sync_on_prem_passwords": True,
             },
+            name="example-aadds",
+            location=aadds.location,
+            resource_group_name=aadds.name,
+            domain_name="widgetslogin.net",
+            sku="Enterprise",
+            filtered_sync_enabled=False,
             tags={
                 "Environment": "prod",
             },

@@ -47,14 +47,8 @@ import (
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupPolicyBlobStorage(ctx, "example", &dataprotection.BackupPolicyBlobStorageArgs{
-//				Name:                                pulumi.String("example-backup-policy"),
-//				VaultId:                             exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
-//				OperationalDefaultRetentionDuration: pulumi.String("P30D"),
-//				VaultDefaultRetentionDuration:       pulumi.String("P7D"),
 //				RetentionRules: dataprotection.BackupPolicyBlobStorageRetentionRuleArray{
 //					&dataprotection.BackupPolicyBlobStorageRetentionRuleArgs{
-//						Name:     pulumi.String("Weekly"),
-//						Priority: pulumi.Int(20),
 //						LifeCycle: &dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{
 //							Duration:      pulumi.String("P90D"),
 //							DataStoreType: pulumi.String("VaultStore"),
@@ -64,10 +58,10 @@ import (
 //								pulumi.String("Monday"),
 //							},
 //						},
+//						Name:     pulumi.String("Weekly"),
+//						Priority: pulumi.Int(20),
 //					},
 //					&dataprotection.BackupPolicyBlobStorageRetentionRuleArgs{
-//						Name:     pulumi.String("Monthly"),
-//						Priority: pulumi.Int(10),
 //						LifeCycle: &dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{
 //							Duration:      pulumi.String("P180D"),
 //							DataStoreType: pulumi.String("VaultStore"),
@@ -77,10 +71,10 @@ import (
 //								pulumi.Int(1),
 //							},
 //						},
+//						Name:     pulumi.String("Monthly"),
+//						Priority: pulumi.Int(10),
 //					},
 //					&dataprotection.BackupPolicyBlobStorageRetentionRuleArgs{
-//						Name:     pulumi.String("Yearly"),
-//						Priority: pulumi.Int(5),
 //						LifeCycle: &dataprotection.BackupPolicyBlobStorageRetentionRuleLifeCycleArgs{
 //							Duration:      pulumi.String("P365D"),
 //							DataStoreType: pulumi.String("VaultStore"),
@@ -93,8 +87,14 @@ import (
 //								pulumi.Int(1),
 //							},
 //						},
+//						Name:     pulumi.String("Yearly"),
+//						Priority: pulumi.Int(5),
 //					},
 //				},
+//				Name:                                pulumi.String("example-backup-policy"),
+//				VaultId:                             exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				OperationalDefaultRetentionDuration: pulumi.String("P30D"),
+//				VaultDefaultRetentionDuration:       pulumi.String("P7D"),
 //			})
 //			if err != nil {
 //				return err

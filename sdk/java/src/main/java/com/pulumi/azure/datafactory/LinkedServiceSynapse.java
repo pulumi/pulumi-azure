@@ -133,13 +133,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkedServiceSynapse = new LinkedServiceSynapse("exampleLinkedServiceSynapse", LinkedServiceSynapseArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;")
  *             .keyVaultPassword(LinkedServiceSynapseKeyVaultPasswordArgs.builder()
  *                 .linkedServiceName(exampleLinkedServiceKeyVault.name())
  *                 .secretName("secret")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .connectionString("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;")
  *             .build());
  * 
  *     }

@@ -54,9 +54,6 @@ import (
 //				return err
 //			}
 //			example := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
-//				ConnectionString: exampleAccount.PrimaryConnectionString,
-//				HttpsOnly:        pulumi.Bool(true),
-//				SignedVersion:    pulumi.String("2022-11-02"),
 //				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
 //					Service:   pulumi.Bool(true),
 //					Container: pulumi.Bool(false),
@@ -68,8 +65,6 @@ import (
 //					Table: pulumi.Bool(false),
 //					File:  pulumi.Bool(false),
 //				},
-//				Start:  pulumi.String("2018-03-21T00:00:00Z"),
-//				Expiry: pulumi.String("2020-03-21T00:00:00Z"),
 //				Permissions: &storage.GetAccountSASPermissionsArgs{
 //					Read:    pulumi.Bool(true),
 //					Write:   pulumi.Bool(true),
@@ -82,6 +77,11 @@ import (
 //					Tag:     pulumi.Bool(false),
 //					Filter:  pulumi.Bool(false),
 //				},
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				HttpsOnly:        pulumi.Bool(true),
+//				SignedVersion:    pulumi.String("2022-11-02"),
+//				Start:            pulumi.String("2018-03-21T00:00:00Z"),
+//				Expiry:           pulumi.String("2020-03-21T00:00:00Z"),
 //			}, nil)
 //			ctx.Export("sasUrlQueryString", example.Sas())
 //			return nil

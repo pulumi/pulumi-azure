@@ -44,10 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = consumption.NewBudgetManagementGroup(ctx, "example", &consumption.BudgetManagementGroupArgs{
-//				Name:              pulumi.String("example"),
-//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
-//				Amount:            pulumi.Float64(1000),
-//				TimeGrain:         pulumi.String("Monthly"),
 //				TimePeriod: &consumption.BudgetManagementGroupTimePeriodArgs{
 //					StartDate: pulumi.String("2022-06-01T00:00:00Z"),
 //					EndDate:   pulumi.String("2022-07-01T00:00:00Z"),
@@ -92,6 +88,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				Amount:            pulumi.Float64(1000),
+//				TimeGrain:         pulumi.String("Monthly"),
 //			})
 //			if err != nil {
 //				return err

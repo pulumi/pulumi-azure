@@ -39,6 +39,9 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
+//				Identity: &cognitive.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                     pulumi.String("example-aiservices"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
@@ -46,22 +49,19 @@ import (
 //				SkuName:                  pulumi.String("S0"),
 //				ProjectManagementEnabled: pulumi.Bool(true),
 //				CustomSubdomainName:      pulumi.String("exampleaiservices"),
-//				Identity: &cognitive.AccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			openai, err := cognitive.NewAccount(ctx, "openai", &cognitive.AccountArgs{
+//				Identity: &cognitive.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:              pulumi.String("example-openai"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Kind:              pulumi.String("OpenAI"),
 //				SkuName:           pulumi.String("S0"),
-//				Identity: &cognitive.AccountIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

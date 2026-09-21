@@ -27,9 +27,6 @@ import * as utilities from "../utilities";
  *     skuName: "S0",
  * });
  * const exampleAccountRaiPolicy = new azure.cognitive.AccountRaiPolicy("example", {
- *     name: "example-rai-policy",
- *     cognitiveAccountId: exampleAccount.id,
- *     basePolicyName: "Microsoft.Default",
  *     contentFilters: [{
  *         name: "Hate",
  *         filterEnabled: true,
@@ -37,6 +34,9 @@ import * as utilities from "../utilities";
  *         severityThreshold: "High",
  *         source: "Prompt",
  *     }],
+ *     name: "example-rai-policy",
+ *     cognitiveAccountId: exampleAccount.id,
+ *     basePolicyName: "Microsoft.Default",
  * });
  * ```
  *

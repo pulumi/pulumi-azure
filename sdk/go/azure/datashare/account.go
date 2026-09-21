@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			_, err = datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
-//				Name:              pulumi.String("example-dsa"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &datashare.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-dsa"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

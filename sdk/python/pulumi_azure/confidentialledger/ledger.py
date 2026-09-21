@@ -317,15 +317,15 @@ class Ledger(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         ledger = azure.confidentialledger.Ledger("ledger",
-            name="example-ledger",
-            resource_group_name=example.name,
-            location=example.location,
-            ledger_type="Private",
             azuread_based_service_principals=[{
                 "principal_id": current.object_id,
                 "tenant_id": current.tenant_id,
                 "ledger_role_name": "Administrator",
-            }])
+            }],
+            name="example-ledger",
+            resource_group_name=example.name,
+            location=example.location,
+            ledger_type="Private")
         ```
 
         ## API Providers
@@ -374,15 +374,15 @@ class Ledger(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         ledger = azure.confidentialledger.Ledger("ledger",
-            name="example-ledger",
-            resource_group_name=example.name,
-            location=example.location,
-            ledger_type="Private",
             azuread_based_service_principals=[{
                 "principal_id": current.object_id,
                 "tenant_id": current.tenant_id,
                 "ledger_role_name": "Administrator",
-            }])
+            }],
+            name="example-ledger",
+            resource_group_name=example.name,
+            location=example.location,
+            ledger_type="Private")
         ```
 
         ## API Providers

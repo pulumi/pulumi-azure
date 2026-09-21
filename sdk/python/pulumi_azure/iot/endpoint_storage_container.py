@@ -508,13 +508,13 @@ class EndpointStorageContainer(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
@@ -587,13 +587,13 @@ class EndpointStorageContainer(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_io_t_hub = azure.iot.IoTHub("example",
-            name="example",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "S1",
                 "capacity": 1,
-            })
+            },
+            name="example",
+            resource_group_name=example.name,
+            location=example.location)
         example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
             resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,

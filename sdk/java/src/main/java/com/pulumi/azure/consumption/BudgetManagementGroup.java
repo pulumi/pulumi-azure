@@ -65,10 +65,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBudgetManagementGroup = new BudgetManagementGroup("exampleBudgetManagementGroup", BudgetManagementGroupArgs.builder()
- *             .name("example")
- *             .managementGroupId(example.id())
- *             .amount(1000.0)
- *             .timeGrain("Monthly")
  *             .timePeriod(BudgetManagementGroupTimePeriodArgs.builder()
  *                 .startDate("2022-06-01T00:00:00Z")
  *                 .endDate("2022-07-01T00:00:00Z")
@@ -103,6 +99,10 @@ import javax.annotation.Nullable;
  *                         "foo}{@literal @}{@code example.com",
  *                         "bar}{@literal @}{@code example.com")
  *                     .build())
+ *             .name("example")
+ *             .managementGroupId(example.id())
+ *             .amount(1000.0)
+ *             .timeGrain("Monthly")
  *             .build());
  * 
  *     }}{@code

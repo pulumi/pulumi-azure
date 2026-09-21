@@ -36,30 +36,22 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Name = "example-appserviceplan",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
     ///             Size = "S1",
     ///         },
+    ///         Name = "example-appserviceplan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleAppService = new Azure.AppService.AppService("example", new()
     ///     {
-    ///         Name = "example-app-service",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
     ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
     ///         {
     ///             DotnetFrameworkVersion = "v4.0",
     ///             ScmType = "LocalGit",
-    ///         },
-    ///         AppSettings = 
-    ///         {
-    ///             { "SOME_KEY", "some-value" },
     ///         },
     ///         ConnectionStrings = new[]
     ///         {
@@ -69,6 +61,14 @@ namespace Pulumi.Azure.AppService
     ///                 Type = "SQLServer",
     ///                 Value = "Server=some-server.mydomain.com;Integrated Security=SSPI",
     ///             },
+    ///         },
+    ///         Name = "example-app-service",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppSettings = 
+    ///         {
+    ///             { "SOME_KEY", "some-value" },
     ///         },
     ///     });
     /// 

@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleCluster = new azure.kusto.Cluster("example", {
- *     name: "kustocluster",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleDatabase = new azure.kusto.Database("example", {
  *     name: "KustoDatabase",

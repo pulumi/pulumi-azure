@@ -39,13 +39,6 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -67,6 +60,13 @@ namespace Pulumi.Azure.DataFactory
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var exampleSecret = new Azure.KeyVault.Secret("example", new()
@@ -85,17 +85,17 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleCredentialServicePrincipal = new Azure.DataFactory.CredentialServicePrincipal("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "example description",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///         ServicePrincipalKey = new Azure.DataFactory.Inputs.CredentialServicePrincipalServicePrincipalKeyArgs
     ///         {
     ///             LinkedServiceName = exampleLinkedServiceKeyVault.Name,
     ///             SecretName = exampleSecret.Name,
     ///             SecretVersion = exampleSecret.Version,
     ///         },
+    ///         Name = "example",
+    ///         Description = "example description",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///         Annotations = new[]
     ///         {
     ///             "1",

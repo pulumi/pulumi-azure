@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.workloadssap.DiscoveryVirtualInstance;
  * import com.pulumi.azure.workloadssap.DiscoveryVirtualInstanceArgs;
  * import com.pulumi.azure.workloadssap.inputs.DiscoveryVirtualInstanceIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,6 +55,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDiscoveryVirtualInstance = new DiscoveryVirtualInstance("exampleDiscoveryVirtualInstance", DiscoveryVirtualInstanceArgs.builder()
+ *             .identity(DiscoveryVirtualInstanceIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1")
+ *                 .build())
  *             .name("X01")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -61,11 +66,9 @@ import javax.annotation.Nullable;
  *             .sapProduct("S4HANA")
  *             .centralServerVirtualMachineId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/csvm1")
  *             .managedStorageAccountName("managedsa")
- *             .identity(DiscoveryVirtualInstanceIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1")
- *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("managedResourceGroupName")
+ *                 .build());
  * 
  *     }
  * }

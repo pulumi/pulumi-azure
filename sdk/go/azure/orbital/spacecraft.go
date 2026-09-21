@@ -39,10 +39,6 @@ import (
 //				return err
 //			}
 //			_, err = orbital.NewSpacecraft(ctx, "example", &orbital.SpacecraftArgs{
-//				Name:              pulumi.String("example-spacecraft"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("westeurope"),
-//				NoradId:           pulumi.String("12345"),
 //				Links: orbital.SpacecraftLinkArray{
 //					&orbital.SpacecraftLinkArgs{
 //						BandwidthMhz:       pulumi.Float64(30),
@@ -52,6 +48,10 @@ import (
 //						Name:               pulumi.String("examplename"),
 //					},
 //				},
+//				Name:              pulumi.String("example-spacecraft"),
+//				ResourceGroupName: example.Name,
+//				Location:          pulumi.String("westeurope"),
+//				NoradId:           pulumi.String("12345"),
 //				TwoLineElements: pulumi.StringArray{
 //					pulumi.String("1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621"),
 //					pulumi.String("2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495"),

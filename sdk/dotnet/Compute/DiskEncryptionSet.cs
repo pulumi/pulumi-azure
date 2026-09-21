@@ -89,14 +89,14 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleDiskEncryptionSet = new Azure.Compute.DiskEncryptionSet("example", new()
     ///     {
-    ///         Name = "des",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         KeyVaultKeyId = exampleKey.Id,
     ///         Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "des",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         KeyVaultKeyId = exampleKey.Id,
     ///     });
     /// 
     ///     var example_disk = new Azure.KeyVault.AccessPolicy("example-disk", new()
@@ -203,15 +203,15 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleDiskEncryptionSet = new Azure.Compute.DiskEncryptionSet("example", new()
     ///     {
+    ///         Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "des",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         KeyVaultKeyId = exampleKey.VersionlessId,
     ///         AutoKeyRotationEnabled = true,
-    ///         Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var example_disk = new Azure.KeyVault.AccessPolicy("example-disk", new()

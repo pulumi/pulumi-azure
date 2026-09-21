@@ -89,6 +89,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamInputEventHubV2 = new StreamInputEventHubV2("exampleStreamInputEventHubV2", StreamInputEventHubV2Args.builder()
+ *             .serialization(StreamInputEventHubV2SerializationArgs.builder()
+ *                 .type("Json")
+ *                 .encoding("UTF8")
+ *                 .build())
  *             .name("eventhub-stream-input")
  *             .streamAnalyticsJobId(example.applyValue(_example -> _example.id()))
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
@@ -96,10 +100,6 @@ import javax.annotation.Nullable;
  *             .servicebusNamespace(exampleEventHubNamespace.name())
  *             .sharedAccessPolicyKey(exampleEventHubNamespace.defaultPrimaryKey())
  *             .sharedAccessPolicyName("RootManageSharedAccessKey")
- *             .serialization(StreamInputEventHubV2SerializationArgs.builder()
- *                 .type("Json")
- *                 .encoding("UTF8")
- *                 .build())
  *             .build());
  * 
  *     }

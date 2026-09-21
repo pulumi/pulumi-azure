@@ -51,15 +51,15 @@ import (
 //				return err
 //			}
 //			_, err = bot.NewChannelDirectLine(ctx, "example", &bot.ChannelDirectLineArgs{
-//				BotName:           exampleChannelsRegistration.Name,
-//				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: example.Name,
 //				Sites: bot.ChannelDirectLineSiteArray{
 //					&bot.ChannelDirectLineSiteArgs{
 //						Name:    pulumi.String("default"),
 //						Enabled: pulumi.Bool(true),
 //					},
 //				},
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

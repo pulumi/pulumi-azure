@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  *     sku: "Standard_Microsoft",
  * });
  * const exampleEndpoint = new azure.cdn.Endpoint("example", {
- *     name: "example-endpoint",
- *     profileName: exampleProfile.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
  *     origins: [{
  *         name: "example",
  *         hostName: exampleAccount.primaryBlobHost,
  *     }],
+ *     name: "example-endpoint",
+ *     profileName: exampleProfile.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const example = azure.dns.getZone({
  *     name: "example-domain.com",

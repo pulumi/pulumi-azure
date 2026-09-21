@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * });
  * const current = azure.core.getSubscription({});
  * const exampleNetworkManager = new azure.network.NetworkManager("example", {
- *     name: "example-network-manager",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scopeAccesses: [
  *         "Connectivity",
  *         "SecurityAdmin",
@@ -47,6 +47,20 @@ import * as utilities from "../utilities";
  *     networkGroupIds: [exampleNetworkManagerNetworkGroup.id],
  * });
  * const exampleNetworkManagerAdminRule = new azure.network.NetworkManagerAdminRule("example", {
+ *     destinations: [
+ *         {
+ *             addressPrefixType: "IPPrefix",
+ *             addressPrefix: "10.1.0.1",
+ *         },
+ *         {
+ *             addressPrefixType: "IPPrefix",
+ *             addressPrefix: "10.0.0.0/24",
+ *         },
+ *     ],
+ *     sources: [{
+ *         addressPrefixType: "ServiceTag",
+ *         addressPrefix: "Internet",
+ *     }],
  *     name: "example-admin-rule",
  *     adminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.id,
  *     action: "Deny",
@@ -58,20 +72,6 @@ import * as utilities from "../utilities";
  *         "1024-65535",
  *     ],
  *     destinationPortRanges: ["80"],
- *     sources: [{
- *         addressPrefixType: "ServiceTag",
- *         addressPrefix: "Internet",
- *     }],
- *     destinations: [
- *         {
- *             addressPrefixType: "IPPrefix",
- *             addressPrefix: "10.1.0.1",
- *         },
- *         {
- *             addressPrefixType: "IPPrefix",
- *             addressPrefix: "10.0.0.0/24",
- *         },
- *     ],
  *     description: "example admin rule",
  * });
  * ```

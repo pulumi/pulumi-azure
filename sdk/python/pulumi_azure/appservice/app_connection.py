@@ -268,11 +268,6 @@ class AppConnection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
                 "max_interval_in_seconds": 10,
@@ -281,7 +276,12 @@ class AppConnection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -311,14 +311,15 @@ class AppConnection(pulumi.CustomResource):
             resource_group_name=test_azurerm_resource_group["name"],
             app_service_plan_id=test_azurerm_app_service_plan["id"],
             storage_account_name=test_azurerm_storage_account["name"],
-            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"])
+            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"],
+            opts = pulumi.ResourceOptions(ignore_changes=["identity"]))
         example_app_connection = azure.appservice.AppConnection("example",
-            name="example-serviceconnector",
-            function_app_id=example_azurerm_function_app["id"],
-            target_resource_id=test_azurerm_cosmosdb_account["id"],
             authentication={
                 "type": "systemAssignedIdentity",
-            })
+            },
+            name="example-serviceconnector",
+            function_app_id=example_azurerm_function_app["id"],
+            target_resource_id=test_azurerm_cosmosdb_account["id"])
         ```
 
         ## API Providers
@@ -365,11 +366,6 @@ class AppConnection(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.cosmosdb.Account("example",
-            name="example-cosmosdb-account",
-            location=example.location,
-            resource_group_name=example.name,
-            offer_type="Standard",
-            kind="GlobalDocumentDB",
             consistency_policy={
                 "consistency_level": "BoundedStaleness",
                 "max_interval_in_seconds": 10,
@@ -378,7 +374,12 @@ class AppConnection(pulumi.CustomResource):
             geo_locations=[{
                 "location": example.location,
                 "failover_priority": 0,
-            }])
+            }],
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
+            offer_type="Standard",
+            kind="GlobalDocumentDB")
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -408,14 +409,15 @@ class AppConnection(pulumi.CustomResource):
             resource_group_name=test_azurerm_resource_group["name"],
             app_service_plan_id=test_azurerm_app_service_plan["id"],
             storage_account_name=test_azurerm_storage_account["name"],
-            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"])
+            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"],
+            opts = pulumi.ResourceOptions(ignore_changes=["identity"]))
         example_app_connection = azure.appservice.AppConnection("example",
-            name="example-serviceconnector",
-            function_app_id=example_azurerm_function_app["id"],
-            target_resource_id=test_azurerm_cosmosdb_account["id"],
             authentication={
                 "type": "systemAssignedIdentity",
-            })
+            },
+            name="example-serviceconnector",
+            function_app_id=example_azurerm_function_app["id"],
+            target_resource_id=test_azurerm_cosmosdb_account["id"])
         ```
 
         ## API Providers

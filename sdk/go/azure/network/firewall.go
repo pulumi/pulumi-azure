@@ -69,11 +69,6 @@ import (
 //				return err
 //			}
 //			_, err = network.NewFirewall(ctx, "example", &network.FirewallArgs{
-//				Name:              pulumi.String("testfirewall"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("AZFW_VNet"),
-//				SkuTier:           pulumi.String("Standard"),
 //				IpConfigurations: network.FirewallIpConfigurationArray{
 //					&network.FirewallIpConfigurationArgs{
 //						Name:              pulumi.String("configuration"),
@@ -81,6 +76,11 @@ import (
 //						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:              pulumi.String("testfirewall"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("AZFW_VNet"),
+//				SkuTier:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err

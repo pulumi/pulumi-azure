@@ -68,6 +68,7 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewAppFlexConsumption(ctx, "example", &appservice.AppFlexConsumptionArgs{
+//				SiteConfig:           &appservice.AppFlexConsumptionSiteConfigArgs{},
 //				Name:                 pulumi.String("example-linux-function-app"),
 //				ResourceGroupName:    example.Name,
 //				Location:             example.Location,
@@ -84,7 +85,6 @@ import (
 //				RuntimeVersion:            pulumi.String("20"),
 //				MaximumInstanceCount:      pulumi.Int(50),
 //				InstanceMemoryInMb:        pulumi.Int(2048),
-//				SiteConfig:                &appservice.AppFlexConsumptionSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

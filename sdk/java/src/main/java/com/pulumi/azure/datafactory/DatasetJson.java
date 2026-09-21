@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatasetJson = new DatasetJson("exampleDatasetJson", DatasetJsonArgs.builder()
- *             .name("example")
- *             .dataFactoryId(exampleFactory.id())
- *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .httpServerLocation(DatasetJsonHttpServerLocationArgs.builder()
  *                 .relativeUrl("/fizz/buzz/")
  *                 .path("foo/bar/")
  *                 .filename("foo.txt")
  *                 .build())
+ *             .name("example")
+ *             .dataFactoryId(exampleFactory.id())
+ *             .linkedServiceName(exampleLinkedServiceWeb.name())
  *             .encoding("UTF-8")
  *             .build());
  * 

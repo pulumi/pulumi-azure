@@ -81,24 +81,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("example-nic")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .subnetId(exampleSubnet.id())
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("example-nic")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleWindowsVirtualMachine = new WindowsVirtualMachine("exampleWindowsVirtualMachine", WindowsVirtualMachineArgs.builder()
- *             .name("examplevm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .size("Standard_D4_v5")
- *             .adminUsername("adminuser")
- *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
- *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .identity(WindowsVirtualMachineIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -112,6 +105,13 @@ import javax.annotation.Nullable;
  *                 .sku("2019-Datacenter")
  *                 .version("latest")
  *                 .build())
+ *             .name("examplevm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .size("Standard_D4_v5")
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .build());
  * 
  *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()
@@ -124,12 +124,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachineConfigurationAssignment = new VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", VirtualMachineConfigurationAssignmentArgs.builder()
- *             .name("AzureWindowsBaseline")
- *             .location(exampleWindowsVirtualMachine.location())
- *             .virtualMachineId(exampleWindowsVirtualMachine.id())
  *             .configuration(VirtualMachineConfigurationAssignmentConfigurationArgs.builder()
- *                 .assignmentType("ApplyAndMonitor")
- *                 .version("1.*")
  *                 .parameters(                
  *                     VirtualMachineConfigurationAssignmentConfigurationParameterArgs.builder()
  *                         .name("Minimum Password Length;ExpectedValue")
@@ -151,7 +146,12 @@ import javax.annotation.Nullable;
  *                         .name("Password Must Meet Complexity Requirements;ExpectedValue")
  *                         .value("1")
  *                         .build())
+ *                 .assignmentType("ApplyAndMonitor")
+ *                 .version("1.*")
  *                 .build())
+ *             .name("AzureWindowsBaseline")
+ *             .location(exampleWindowsVirtualMachine.location())
+ *             .virtualMachineId(exampleWindowsVirtualMachine.id())
  *             .build());
  * 
  *     }}{@code

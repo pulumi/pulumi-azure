@@ -78,10 +78,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApp = new App("exampleApp", AppArgs.builder()
- *             .name("example-app")
- *             .resourceGroupName(example.name())
- *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .revisionMode("Single")
  *             .template(AppTemplateArgs.builder()
  *                 .containers(AppTemplateContainerArgs.builder()
  *                     .name("example-container")
@@ -91,20 +87,26 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .ingress(AppIngressArgs.builder()
- *                 .externalEnabled(true)
- *                 .targetPort(80)
- *                 .transport("http")
  *                 .trafficWeights(AppIngressTrafficWeightArgs.builder()
  *                     .latestRevision(true)
  *                     .percentage(100)
  *                     .build())
+ *                 .externalEnabled(true)
+ *                 .targetPort(80)
+ *                 .transport("http")
  *                 .build())
+ *             .name("example-app")
+ *             .resourceGroupName(example.name())
+ *             .containerAppEnvironmentId(exampleEnvironment.id())
+ *             .revisionMode("Single")
  *             .build());
  * 
  *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
  *             .name("example.com")
  *             .containerAppId(exampleApp.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("certificateBindingType", "containerAppEnvironmentCertificateId")
+ *                 .build());
  * 
  *         var exampleEnvironmentManagedCertificate = new EnvironmentManagedCertificate("exampleEnvironmentManagedCertificate", EnvironmentManagedCertificateArgs.builder()
  *             .name("example-managed-cert")

@@ -624,23 +624,8 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Premium_AzureFrontDoor")
         example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
-            name="examplecdnfdwafpolicy",
-            resource_group_name=example.name,
-            sku_name=example_frontdoor_profile.sku_name,
-            enabled=True,
-            mode="Prevention",
-            redirect_url="https://www.contoso.com",
-            custom_block_response_status_code=403,
-            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
             custom_rules=[
                 {
-                    "name": "Rule1",
-                    "enabled": True,
-                    "priority": 1,
-                    "rate_limit_duration_in_minutes": 1,
-                    "rate_limit_threshold": 10,
-                    "type": "MatchRule",
-                    "action": "Block",
                     "match_conditions": [{
                         "match_variable": "SocketAddr",
                         "operator": "IPMatch",
@@ -650,15 +635,15 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                             "10.0.0.0/24",
                         ],
                     }],
-                },
-                {
-                    "name": "Rule2",
+                    "name": "Rule1",
                     "enabled": True,
-                    "priority": 50,
+                    "priority": 1,
                     "rate_limit_duration_in_minutes": 1,
                     "rate_limit_threshold": 10,
                     "type": "MatchRule",
                     "action": "Block",
+                },
+                {
                     "match_conditions": [
                         {
                             "match_variable": "SocketAddr",
@@ -678,13 +663,17 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                             ],
                         },
                     ],
+                    "name": "Rule2",
+                    "enabled": True,
+                    "priority": 50,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
+                    "type": "MatchRule",
+                    "action": "Block",
                 },
             ],
             managed_rules=[
                 {
-                    "type": "DefaultRuleSet",
-                    "version": "1.0",
-                    "action": "Log",
                     "exclusions": [{
                         "match_variable": "QueryStringArgNames",
                         "operator": "Equals",
@@ -692,38 +681,49 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     }],
                     "overrides": [
                         {
-                            "rule_group_name": "PHP",
                             "rules": [{
                                 "rule_id": "933100",
                                 "enabled": False,
                                 "action": "Block",
                             }],
+                            "rule_group_name": "PHP",
                         },
                         {
-                            "rule_group_name": "SQLI",
                             "exclusions": [{
                                 "match_variable": "QueryStringArgNames",
                                 "operator": "Equals",
                                 "selector": "really_not_suspicious",
                             }],
                             "rules": [{
-                                "rule_id": "942200",
-                                "action": "Block",
                                 "exclusions": [{
                                     "match_variable": "QueryStringArgNames",
                                     "operator": "Equals",
                                     "selector": "innocent",
                                 }],
+                                "rule_id": "942200",
+                                "action": "Block",
                             }],
+                            "rule_group_name": "SQLI",
                         },
                     ],
+                    "type": "DefaultRuleSet",
+                    "version": "1.0",
+                    "action": "Log",
                 },
                 {
                     "type": "Microsoft_BotManagerRuleSet",
                     "version": "1.1",
                     "action": "Log",
                 },
-            ])
+            ],
+            name="examplecdnfdwafpolicy",
+            resource_group_name=example.name,
+            sku_name=example_frontdoor_profile.sku_name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
         ```
 
         ## `scrubbing_rule` Examples:
@@ -806,23 +806,8 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Premium_AzureFrontDoor")
         example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
-            name="examplecdnfdwafpolicy",
-            resource_group_name=example.name,
-            sku_name=example_frontdoor_profile.sku_name,
-            enabled=True,
-            mode="Prevention",
-            redirect_url="https://www.contoso.com",
-            custom_block_response_status_code=403,
-            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
             custom_rules=[
                 {
-                    "name": "Rule1",
-                    "enabled": True,
-                    "priority": 1,
-                    "rate_limit_duration_in_minutes": 1,
-                    "rate_limit_threshold": 10,
-                    "type": "MatchRule",
-                    "action": "Block",
                     "match_conditions": [{
                         "match_variable": "SocketAddr",
                         "operator": "IPMatch",
@@ -832,15 +817,15 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                             "10.0.0.0/24",
                         ],
                     }],
-                },
-                {
-                    "name": "Rule2",
+                    "name": "Rule1",
                     "enabled": True,
-                    "priority": 50,
+                    "priority": 1,
                     "rate_limit_duration_in_minutes": 1,
                     "rate_limit_threshold": 10,
                     "type": "MatchRule",
                     "action": "Block",
+                },
+                {
                     "match_conditions": [
                         {
                             "match_variable": "SocketAddr",
@@ -860,13 +845,17 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                             ],
                         },
                     ],
+                    "name": "Rule2",
+                    "enabled": True,
+                    "priority": 50,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
+                    "type": "MatchRule",
+                    "action": "Block",
                 },
             ],
             managed_rules=[
                 {
-                    "type": "DefaultRuleSet",
-                    "version": "1.0",
-                    "action": "Log",
                     "exclusions": [{
                         "match_variable": "QueryStringArgNames",
                         "operator": "Equals",
@@ -874,38 +863,49 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     }],
                     "overrides": [
                         {
-                            "rule_group_name": "PHP",
                             "rules": [{
                                 "rule_id": "933100",
                                 "enabled": False,
                                 "action": "Block",
                             }],
+                            "rule_group_name": "PHP",
                         },
                         {
-                            "rule_group_name": "SQLI",
                             "exclusions": [{
                                 "match_variable": "QueryStringArgNames",
                                 "operator": "Equals",
                                 "selector": "really_not_suspicious",
                             }],
                             "rules": [{
-                                "rule_id": "942200",
-                                "action": "Block",
                                 "exclusions": [{
                                     "match_variable": "QueryStringArgNames",
                                     "operator": "Equals",
                                     "selector": "innocent",
                                 }],
+                                "rule_id": "942200",
+                                "action": "Block",
                             }],
+                            "rule_group_name": "SQLI",
                         },
                     ],
+                    "type": "DefaultRuleSet",
+                    "version": "1.0",
+                    "action": "Log",
                 },
                 {
                     "type": "Microsoft_BotManagerRuleSet",
                     "version": "1.1",
                     "action": "Log",
                 },
-            ])
+            ],
+            name="examplecdnfdwafpolicy",
+            resource_group_name=example.name,
+            sku_name=example_frontdoor_profile.sku_name,
+            enabled=True,
+            mode="Prevention",
+            redirect_url="https://www.contoso.com",
+            custom_block_response_status_code=403,
+            custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
         ```
 
         ## `scrubbing_rule` Examples:

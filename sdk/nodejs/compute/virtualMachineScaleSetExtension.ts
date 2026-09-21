@@ -22,28 +22,28 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     sku: "Standard_D4_v5",
- *     adminUsername: "adminuser",
- *     instances: 1,
  *     sourceImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
- *     networkInterfaces: [{
- *         name: "example",
- *         ipConfigurations: [{
- *             name: "internal",
- *         }],
- *     }],
  *     osDisk: {
  *         storageAccountType: "Standard_LRS",
  *         caching: "ReadWrite",
  *     },
+ *     networkInterfaces: [{
+ *         ipConfigurations: [{
+ *             name: "internal",
+ *         }],
+ *         name: "example",
+ *     }],
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: "Standard_D4_v5",
+ *     adminUsername: "adminuser",
+ *     instances: 1,
  * });
  * const exampleVirtualMachineScaleSetExtension = new azure.compute.VirtualMachineScaleSetExtension("example", {
  *     name: "example",

@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.SqlContainer;
  * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
  * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyArgs;
- * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyIncludedPathArgs;
  * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyExcludedPathArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyIncludedPathArgs;
  * import com.pulumi.azure.cosmosdb.inputs.SqlContainerUniqueKeyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -67,15 +67,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer("exampleSqlContainer", SqlContainerArgs.builder()
- *             .name("example-container")
- *             .resourceGroupName(example.resourceGroupName())
- *             .accountName(example.name())
- *             .databaseName(exampleSqlDatabase.name())
- *             .partitionKeyPaths("/definition/id")
- *             .partitionKeyVersion(1)
- *             .throughput(400)
  *             .indexingPolicy(SqlContainerIndexingPolicyArgs.builder()
- *                 .indexingMode("consistent")
+ *                 .excludedPaths(SqlContainerIndexingPolicyExcludedPathArgs.builder()
+ *                     .path("/excluded/?")
+ *                     .build())
  *                 .includedPaths(                
  *                     SqlContainerIndexingPolicyIncludedPathArgs.builder()
  *                         .path("/*")
@@ -83,15 +78,20 @@ import javax.annotation.Nullable;
  *                     SqlContainerIndexingPolicyIncludedPathArgs.builder()
  *                         .path("/included/?")
  *                         .build())
- *                 .excludedPaths(SqlContainerIndexingPolicyExcludedPathArgs.builder()
- *                     .path("/excluded/?")
- *                     .build())
+ *                 .indexingMode("consistent")
  *                 .build())
  *             .uniqueKeys(SqlContainerUniqueKeyArgs.builder()
  *                 .paths(                
  *                     "/definition/idlong",
  *                     "/definition/idshort")
  *                 .build())
+ *             .name("example-container")
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
+ *             .databaseName(exampleSqlDatabase.name())
+ *             .partitionKeyPaths("/definition/id")
+ *             .partitionKeyVersion(1)
+ *             .throughput(400)
  *             .build());
  * 
  *     }

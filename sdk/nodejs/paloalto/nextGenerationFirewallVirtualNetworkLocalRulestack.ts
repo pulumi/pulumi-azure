@@ -41,34 +41,34 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const trust = new azure.network.Subnet("trust", {
- *     name: "example-trust-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "trusted",
  *         serviceDelegation: {
  *             name: "PaloAltoNetworks.Cloudngfw/firewalls",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "trusted",
  *     }],
+ *     name: "example-trust-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const trustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("trust", {
  *     subnetId: trust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
  * const untrust = new azure.network.Subnet("untrust", {
- *     name: "example-untrust-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "untrusted",
  *         serviceDelegation: {
  *             name: "PaloAltoNetworks.Cloudngfw/firewalls",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "untrusted",
  *     }],
+ *     name: "example-untrust-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("untrust", {
  *     subnetId: untrust.id,
@@ -80,30 +80,30 @@ import * as utilities from "../utilities";
  *     location: example.locatio,
  * });
  * const exampleLocalRulestackRule = new azure.paloalto.LocalRulestackRule("example", {
- *     name: "example-rulestack-rule",
- *     rulestackId: exampleLocalRulestack.id,
- *     priority: 1001,
- *     action: "Allow",
- *     applications: ["any"],
  *     destination: {
  *         cidrs: ["any"],
  *     },
  *     source: {
  *         cidrs: ["any"],
  *     },
+ *     name: "example-rulestack-rule",
+ *     rulestackId: exampleLocalRulestack.id,
+ *     priority: 1001,
+ *     action: "Allow",
+ *     applications: ["any"],
  * });
  * const exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example", {
- *     name: "example-ngfwvn",
- *     resourceGroupName: example.name,
- *     rulestackId: exampleLocalRulestack.id,
  *     networkProfile: {
- *         publicIpAddressIds: [examplePublicIp.id],
  *         vnetConfiguration: {
  *             virtualNetworkId: exampleVirtualNetwork.id,
  *             trustedSubnetId: trust.id,
  *             untrustedSubnetId: untrust.id,
  *         },
+ *         publicIpAddressIds: [examplePublicIp.id],
  *     },
+ *     name: "example-ngfwvn",
+ *     resourceGroupName: example.name,
+ *     rulestackId: exampleLocalRulestack.id,
  * });
  * ```
  *

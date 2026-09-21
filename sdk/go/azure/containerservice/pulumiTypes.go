@@ -7440,13 +7440,13 @@ type KubernetesClusterAciConnectorLinux struct {
 	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
 	// 			Delegations: network.SubnetDelegationArray{
 	// 				&network.SubnetDelegationArgs{
-	// 					Name: pulumi.String("aciDelegation"),
 	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 	// 						Actions: pulumi.StringArray{
 	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 	// 						},
 	// 					},
+	// 					Name: pulumi.String("aciDelegation"),
 	// 				},
 	// 			},
 	// 		})
@@ -7493,13 +7493,13 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// 		_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
 	// 			Delegations: network.SubnetDelegationArray{
 	// 				&network.SubnetDelegationArgs{
-	// 					Name: pulumi.String("aciDelegation"),
 	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 	// 						Actions: pulumi.StringArray{
 	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 	// 						},
 	// 					},
+	// 					Name: pulumi.String("aciDelegation"),
 	// 				},
 	// 			},
 	// 		})
@@ -7618,13 +7618,13 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("aciDelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
 //						},
+//						Name: pulumi.String("aciDelegation"),
 //					},
 //				},
 //			})
@@ -7695,13 +7695,13 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //			_, err := network.NewSubnet(ctx, "virtual", &network.SubnetArgs{
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("aciDelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
 //						},
+//						Name: pulumi.String("aciDelegation"),
 //					},
 //				},
 //			})

@@ -40,10 +40,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs;
  * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs;
  * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs;
- * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs;
- * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs;
  * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs;
  * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs;
+ * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs;
+ * import com.pulumi.azure.network.inputs.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -69,15 +69,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewallPolicyRuleCollectionGroup = new FirewallPolicyRuleCollectionGroup("exampleFirewallPolicyRuleCollectionGroup", FirewallPolicyRuleCollectionGroupArgs.builder()
- *             .name("example-fwpolicy-rcg")
- *             .firewallPolicyId(exampleFirewallPolicy.id())
- *             .priority(500)
  *             .applicationRuleCollections(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs.builder()
- *                 .name("app_rule_collection1")
- *                 .priority(500)
- *                 .action("Deny")
  *                 .rules(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs.builder()
- *                     .name("app_rule_collection1_rule1")
  *                     .protocols(                    
  *                         FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs.builder()
  *                             .type("Http")
@@ -87,32 +80,15 @@ import javax.annotation.Nullable;
  *                             .type("Https")
  *                             .port(443)
  *                             .build())
+ *                     .name("app_rule_collection1_rule1")
  *                     .sourceAddresses("10.0.0.1")
  *                     .destinationFqdns("*.microsoft.com")
  *                     .build())
- *                 .build())
- *             .networkRuleCollections(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs.builder()
- *                 .name("network_rule_collection1")
- *                 .priority(400)
+ *                 .name("app_rule_collection1")
+ *                 .priority(500)
  *                 .action("Deny")
- *                 .rules(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs.builder()
- *                     .name("network_rule_collection1_rule1")
- *                     .protocols(                    
- *                         "TCP",
- *                         "UDP")
- *                     .sourceAddresses("10.0.0.1")
- *                     .destinationAddresses(                    
- *                         "192.168.1.1",
- *                         "192.168.1.2")
- *                     .destinationPorts(                    
- *                         "80",
- *                         "1000-2000")
- *                     .build())
  *                 .build())
  *             .natRuleCollections(FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs.builder()
- *                 .name("nat_rule_collection1")
- *                 .priority(300)
- *                 .action("Dnat")
  *                 .rules(FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs.builder()
  *                     .name("nat_rule_collection1_rule1")
  *                     .protocols(                    
@@ -126,7 +102,31 @@ import javax.annotation.Nullable;
  *                     .translatedAddress("192.168.0.1")
  *                     .translatedPort(8080)
  *                     .build())
+ *                 .name("nat_rule_collection1")
+ *                 .priority(300)
+ *                 .action("Dnat")
  *                 .build())
+ *             .networkRuleCollections(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs.builder()
+ *                 .rules(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs.builder()
+ *                     .name("network_rule_collection1_rule1")
+ *                     .protocols(                    
+ *                         "TCP",
+ *                         "UDP")
+ *                     .sourceAddresses("10.0.0.1")
+ *                     .destinationAddresses(                    
+ *                         "192.168.1.1",
+ *                         "192.168.1.2")
+ *                     .destinationPorts(                    
+ *                         "80",
+ *                         "1000-2000")
+ *                     .build())
+ *                 .name("network_rule_collection1")
+ *                 .priority(400)
+ *                 .action("Deny")
+ *                 .build())
+ *             .name("example-fwpolicy-rcg")
+ *             .firewallPolicyId(exampleFirewallPolicy.id())
+ *             .priority(500)
  *             .build());
  * 
  *     }

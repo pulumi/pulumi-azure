@@ -46,22 +46,20 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
     ///     {
-    ///         Name = "example-fw",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "AZFW_Hub",
-    ///         SkuTier = "Standard",
     ///         VirtualHub = new Azure.Network.Inputs.FirewallVirtualHubArgs
     ///         {
     ///             VirtualHubId = exampleVirtualHub.Id,
     ///             PublicIpCount = 1,
     ///         },
+    ///         Name = "example-fw",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "AZFW_Hub",
+    ///         SkuTier = "Standard",
     ///     });
     /// 
     ///     var exampleRoutingIntent = new Azure.Network.RoutingIntent("example", new()
     ///     {
-    ///         Name = "example-routingintent",
-    ///         VirtualHubId = exampleVirtualHub.Id,
     ///         RoutingPolicies = new[]
     ///         {
     ///             new Azure.Network.Inputs.RoutingIntentRoutingPolicyArgs
@@ -74,6 +72,8 @@ namespace Pulumi.Azure.Network
     ///                 NextHop = exampleFirewall.Id,
     ///             },
     ///         },
+    ///         Name = "example-routingintent",
+    ///         VirtualHubId = exampleVirtualHub.Id,
     ///     });
     /// 
     /// });

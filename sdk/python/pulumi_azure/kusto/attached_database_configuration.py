@@ -440,21 +440,21 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             name="my-kusto-rg",
             location="West Europe")
         follower_cluster = azure.kusto.Cluster("follower_cluster",
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            },
             name="cluster1",
             location=example.location,
-            resource_group_name=example.name,
+            resource_group_name=example.name)
+        followed_cluster = azure.kusto.Cluster("followed_cluster",
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
-        followed_cluster = azure.kusto.Cluster("followed_cluster",
+            },
             name="cluster2",
             location=example.location,
-            resource_group_name=example.name,
-            sku={
-                "name": "Dev(No SLA)_Standard_D11_v2",
-                "capacity": 1,
-            })
+            resource_group_name=example.name)
         followed_database = azure.kusto.Database("followed_database",
             name="my-followed-database",
             resource_group_name=example.name,
@@ -466,12 +466,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             location=example.location,
             cluster_name=follower_cluster.name)
         example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("example",
-            name="configuration1",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_name=follower_cluster.name,
-            cluster_id=followed_cluster.id,
-            database_name=example_database.name,
             sharing={
                 "external_tables_to_excludes": ["ExternalTable2"],
                 "external_tables_to_includes": ["ExternalTable1"],
@@ -481,7 +475,13 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 "materialized_views_to_includes": ["MaterializedViewTable1"],
                 "tables_to_excludes": ["Table2"],
                 "tables_to_includes": ["Table1"],
-            })
+            },
+            name="configuration1",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=follower_cluster.name,
+            cluster_id=followed_cluster.id,
+            database_name=example_database.name)
         ```
 
         ## API Providers
@@ -534,21 +534,21 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             name="my-kusto-rg",
             location="West Europe")
         follower_cluster = azure.kusto.Cluster("follower_cluster",
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            },
             name="cluster1",
             location=example.location,
-            resource_group_name=example.name,
+            resource_group_name=example.name)
+        followed_cluster = azure.kusto.Cluster("followed_cluster",
             sku={
                 "name": "Dev(No SLA)_Standard_D11_v2",
                 "capacity": 1,
-            })
-        followed_cluster = azure.kusto.Cluster("followed_cluster",
+            },
             name="cluster2",
             location=example.location,
-            resource_group_name=example.name,
-            sku={
-                "name": "Dev(No SLA)_Standard_D11_v2",
-                "capacity": 1,
-            })
+            resource_group_name=example.name)
         followed_database = azure.kusto.Database("followed_database",
             name="my-followed-database",
             resource_group_name=example.name,
@@ -560,12 +560,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             location=example.location,
             cluster_name=follower_cluster.name)
         example_attached_database_configuration = azure.kusto.AttachedDatabaseConfiguration("example",
-            name="configuration1",
-            resource_group_name=example.name,
-            location=example.location,
-            cluster_name=follower_cluster.name,
-            cluster_id=followed_cluster.id,
-            database_name=example_database.name,
             sharing={
                 "external_tables_to_excludes": ["ExternalTable2"],
                 "external_tables_to_includes": ["ExternalTable1"],
@@ -575,7 +569,13 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 "materialized_views_to_includes": ["MaterializedViewTable1"],
                 "tables_to_excludes": ["Table2"],
                 "tables_to_includes": ["Table1"],
-            })
+            },
+            name="configuration1",
+            resource_group_name=example.name,
+            location=example.location,
+            cluster_name=follower_cluster.name,
+            cluster_id=followed_cluster.id,
+            database_name=example_database.name)
         ```
 
         ## API Providers

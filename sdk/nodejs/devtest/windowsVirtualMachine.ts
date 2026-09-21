@@ -28,15 +28,21 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
- *     name: "example-network",
- *     labName: exampleLab.name,
- *     resourceGroupName: example.name,
  *     subnet: {
  *         usePublicIpAddress: "Allow",
  *         useInVirtualMachineCreation: "Allow",
  *     },
+ *     name: "example-network",
+ *     labName: exampleLab.name,
+ *     resourceGroupName: example.name,
  * });
  * const exampleWindowsVirtualMachine = new azure.devtest.WindowsVirtualMachine("example", {
+ *     galleryImageReference: {
+ *         offer: "WindowsServer",
+ *         publisher: "MicrosoftWindowsServer",
+ *         sku: "2019-Datacenter",
+ *         version: "latest",
+ *     },
  *     name: "example-vm03",
  *     labName: exampleLab.name,
  *     resourceGroupName: example.name,
@@ -48,12 +54,6 @@ import * as utilities from "../utilities";
  *     labSubnetName: exampleVirtualNetwork.subnet.name,
  *     storageType: "Premium",
  *     notes: "Some notes about this Virtual Machine.",
- *     galleryImageReference: {
- *         offer: "WindowsServer",
- *         publisher: "MicrosoftWindowsServer",
- *         sku: "2019-Datacenter",
- *         version: "latest",
- *     },
  * });
  * ```
  *

@@ -427,16 +427,16 @@ class OutputEventHub(pulumi.CustomResource):
             partition_count=2,
             message_retention=1)
         example_output_event_hub = azure.streamanalytics.OutputEventHub("example",
+            serialization={
+                "type": "Avro",
+            },
             name="output-to-eventhub",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
             eventhub_name=example_event_hub.name,
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Avro",
-            })
+            shared_access_policy_name="RootManageSharedAccessKey")
         ```
 
         ## API Providers
@@ -501,16 +501,16 @@ class OutputEventHub(pulumi.CustomResource):
             partition_count=2,
             message_retention=1)
         example_output_event_hub = azure.streamanalytics.OutputEventHub("example",
+            serialization={
+                "type": "Avro",
+            },
             name="output-to-eventhub",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
             eventhub_name=example_event_hub.name,
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Avro",
-            })
+            shared_access_policy_name="RootManageSharedAccessKey")
         ```
 
         ## API Providers

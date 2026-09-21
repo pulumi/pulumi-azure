@@ -37,21 +37,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
- *     name: "example-vm",
+ *     name: "example-nic",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     vmSize: "Standard_D4_v5",
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -72,6 +67,11 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
+ *     name: "example-vm",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     vmSize: "Standard_D4_v5",
  * });
  * const exampleExtension = new azure.compute.Extension("example", {
  *     name: "network-watcher",
@@ -89,12 +89,12 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const examplePacketCapture = new azure.compute.PacketCapture("example", {
- *     name: "example-pc",
- *     networkWatcherId: exampleNetworkWatcher.id,
- *     virtualMachineId: exampleVirtualMachine.id,
  *     storageLocation: {
  *         storageAccountId: exampleAccount.id,
  *     },
+ *     name: "example-pc",
+ *     networkWatcherId: exampleNetworkWatcher.id,
+ *     virtualMachineId: exampleVirtualMachine.id,
  * }, {
  *     dependsOn: [exampleExtension],
  * });

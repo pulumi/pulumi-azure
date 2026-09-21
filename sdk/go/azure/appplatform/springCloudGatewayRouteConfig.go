@@ -65,10 +65,6 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "example", &appplatform.SpringCloudGatewayRouteConfigArgs{
-//				Name:                 pulumi.String("example"),
-//				SpringCloudGatewayId: exampleSpringCloudGateway.ID().ToIDOutput().ToStringOutput(),
-//				SpringCloudAppId:     exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
-//				Protocol:             pulumi.String("HTTPS"),
 //				Routes: appplatform.SpringCloudGatewayRouteConfigRouteArray{
 //					&appplatform.SpringCloudGatewayRouteConfigRouteArgs{
 //						Description: pulumi.String("example description"),
@@ -90,6 +86,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:                 pulumi.String("example"),
+//				SpringCloudGatewayId: exampleSpringCloudGateway.ID().ToIDOutput().ToStringOutput(),
+//				SpringCloudAppId:     exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
+//				Protocol:             pulumi.String("HTTPS"),
 //			})
 //			if err != nil {
 //				return err

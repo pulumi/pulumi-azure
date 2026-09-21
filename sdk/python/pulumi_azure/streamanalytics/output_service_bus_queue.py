@@ -433,17 +433,17 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("example",
+            serialization={
+                "type": "Csv",
+                "format": "Array",
+            },
             name="blob-storage-output",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
             queue_name=example_queue.name,
             servicebus_namespace=example_namespace.name,
             shared_access_policy_key=example_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Csv",
-                "format": "Array",
-            })
+            shared_access_policy_name="RootManageSharedAccessKey")
         ```
 
         ## API Providers
@@ -508,17 +508,17 @@ class OutputServiceBusQueue(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("example",
+            serialization={
+                "type": "Csv",
+                "format": "Array",
+            },
             name="blob-storage-output",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
             queue_name=example_queue.name,
             servicebus_namespace=example_namespace.name,
             shared_access_policy_key=example_namespace.default_primary_key,
-            shared_access_policy_name="RootManageSharedAccessKey",
-            serialization={
-                "type": "Csv",
-                "format": "Array",
-            })
+            shared_access_policy_name="RootManageSharedAccessKey")
         ```
 
         ## API Providers

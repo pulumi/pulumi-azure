@@ -17,6 +17,14 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.management.Group("example", {displayName: "Example"});
  * const exampleGroupPolicySetDefinition = new azure.management.GroupPolicySetDefinition("example", {
+ *     policyDefinitionReferences: [{
+ *         version: "1.0.*",
+ *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+ *         parameterValues: `   {
+ *      \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
+ *    }
+ * `,
+ *     }],
  *     name: "example",
  *     policyType: "Custom",
  *     displayName: "Example",
@@ -32,14 +40,6 @@ import * as utilities from "../utilities";
  *        }
  *    }
  * `,
- *     policyDefinitionReferences: [{
- *         version: "1.0.*",
- *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
- *         parameterValues: `   {
- *      \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
- *    }
- * `,
- *     }],
  * });
  * ```
  *

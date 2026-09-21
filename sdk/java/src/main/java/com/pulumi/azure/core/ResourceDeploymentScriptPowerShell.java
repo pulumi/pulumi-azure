@@ -64,6 +64,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceDeploymentScriptPowerShell = new ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell", ResourceDeploymentScriptPowerShellArgs.builder()
+ *             .identity(ResourceDeploymentScriptPowerShellIdentityArgs.builder()
+ *                 .type("UserAssigned")
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
  *             .name("example-rdsaps")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
@@ -80,10 +84,6 @@ import javax.annotation.Nullable;
  *             $DeploymentScriptOutputs = }{@literal @}{}{@code
  *             $DeploymentScriptOutputs['text'] = $output
  *             """)
- *             .identity(ResourceDeploymentScriptPowerShellIdentityArgs.builder()
- *                 .type("UserAssigned")
- *                 .identityIds(exampleUserAssignedIdentity.id())
- *                 .build())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

@@ -72,14 +72,6 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "example", &compute.WindowsVirtualMachineScaleSetArgs{
-//				Name:               pulumi.String("example-vmss"),
-//				ResourceGroupName:  example.Name,
-//				Location:           example.Location,
-//				Sku:                pulumi.String("Standard_D4_v5"),
-//				Instances:          pulumi.Int(1),
-//				AdminPassword:      pulumi.String("P@55w0rd1234!"),
-//				AdminUsername:      pulumi.String("adminuser"),
-//				ComputerNamePrefix: pulumi.String("vm-"),
 //				SourceImageReference: &compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("MicrosoftWindowsServer"),
 //					Offer:     pulumi.String("WindowsServer"),
@@ -92,8 +84,6 @@ import (
 //				},
 //				NetworkInterfaces: compute.WindowsVirtualMachineScaleSetNetworkInterfaceArray{
 //					&compute.WindowsVirtualMachineScaleSetNetworkInterfaceArgs{
-//						Name:    pulumi.String("example"),
-//						Primary: pulumi.Bool(true),
 //						IpConfigurations: compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
 //							&compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
@@ -101,8 +91,18 @@ import (
 //								SubnetId: internal.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
 //					},
 //				},
+//				Name:               pulumi.String("example-vmss"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
+//				Sku:                pulumi.String("Standard_D4_v5"),
+//				Instances:          pulumi.Int(1),
+//				AdminPassword:      pulumi.String("P@55w0rd1234!"),
+//				AdminUsername:      pulumi.String("adminuser"),
+//				ComputerNamePrefix: pulumi.String("vm-"),
 //			})
 //			if err != nil {
 //				return err

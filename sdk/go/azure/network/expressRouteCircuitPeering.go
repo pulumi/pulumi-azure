@@ -39,16 +39,16 @@ import (
 //				return err
 //			}
 //			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
-//				Name:                pulumi.String("expressRoute1"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				ServiceProviderName: pulumi.String("Equinix"),
-//				PeeringLocation:     pulumi.String("Silicon Valley"),
-//				BandwidthInMbps:     pulumi.Int(50),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
 //					Family: pulumi.String("MeteredData"),
 //				},
+//				Name:                   pulumi.String("expressRoute1"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				ServiceProviderName:    pulumi.String("Equinix"),
+//				PeeringLocation:        pulumi.String("Silicon Valley"),
+//				BandwidthInMbps:        pulumi.Int(50),
 //				AllowClassicOperations: pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
@@ -58,6 +58,21 @@ import (
 //				return err
 //			}
 //			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
+//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
+//					AdvertisedPublicPrefixes: pulumi.StringArray{
+//						pulumi.String("123.1.0.0/24"),
+//					},
+//				},
+//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
+//					MicrosoftPeering: &network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{
+//						AdvertisedPublicPrefixes: pulumi.StringArray{
+//							pulumi.String("2002:db01::/126"),
+//						},
+//					},
+//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
+//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
+//					Enabled:                    pulumi.Bool(true),
+//				},
 //				PeeringType:                pulumi.String("MicrosoftPeering"),
 //				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
 //				ResourceGroupName:          example.Name,
@@ -66,21 +81,6 @@ import (
 //				SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
 //				Ipv4Enabled:                pulumi.Bool(true),
 //				VlanId:                     pulumi.Int(300),
-//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
-//					AdvertisedPublicPrefixes: pulumi.StringArray{
-//						pulumi.String("123.1.0.0/24"),
-//					},
-//				},
-//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
-//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
-//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
-//					Enabled:                    pulumi.Bool(true),
-//					MicrosoftPeering: &network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{
-//						AdvertisedPublicPrefixes: pulumi.StringArray{
-//							pulumi.String("2002:db01::/126"),
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -114,16 +114,16 @@ import (
 //				return err
 //			}
 //			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
-//				Name:                pulumi.String("expressRoute1"),
-//				ResourceGroupName:   example.Name,
-//				Location:            example.Location,
-//				ServiceProviderName: pulumi.String("Equinix"),
-//				PeeringLocation:     pulumi.String("Silicon Valley"),
-//				BandwidthInMbps:     pulumi.Int(50),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
 //					Family: pulumi.String("MeteredData"),
 //				},
+//				Name:                   pulumi.String("expressRoute1"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				ServiceProviderName:    pulumi.String("Equinix"),
+//				PeeringLocation:        pulumi.String("Silicon Valley"),
+//				BandwidthInMbps:        pulumi.Int(50),
 //				AllowClassicOperations: pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
@@ -133,6 +133,11 @@ import (
 //				return err
 //			}
 //			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
+//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
+//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
+//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
+//					Enabled:                    pulumi.Bool(true),
+//				},
 //				PeeringType:                pulumi.String("AzurePrivatePeering"),
 //				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
 //				ResourceGroupName:          example.Name,
@@ -141,11 +146,6 @@ import (
 //				SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
 //				Ipv4Enabled:                pulumi.Bool(true),
 //				VlanId:                     pulumi.Int(300),
-//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
-//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
-//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
-//					Enabled:                    pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err

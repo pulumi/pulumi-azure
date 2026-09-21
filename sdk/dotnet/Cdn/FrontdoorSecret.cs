@@ -28,6 +28,118 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// -&gt; **Note:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Azuread = Pulumi.Azuread;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var frontdoor = Azuread.ServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Microsoft.AzurefrontDoor-Cdn",
+    ///     });
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         NetworkAcls = new Azure.KeyVault.Inputs.KeyVaultNetworkAclsArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             Bypass = "AzureServices",
+    ///             IpRules = new[]
+    ///             {
+    ///                 "10.0.0.0/24",
+    ///             },
+    ///         },
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = frontdoor.ObjectId,
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///             {
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 CertificatePermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "Import",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example-keyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
+    ///     {
+    ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
+    ///         {
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "my-certificate.pfx",
+    ///             }).Result,
+    ///         },
+    ///         Name = "example-cert",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     {
+    ///         Name = "example-cdn-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorSecret = new Azure.Cdn.FrontdoorSecret("example", new()
+    ///     {
+    ///         Secret = new Azure.Cdn.Inputs.FrontdoorSecretSecretArgs
+    ///         {
+    ///             CustomerCertificates = new[]
+    ///             {
+    ///                 new Azure.Cdn.Inputs.FrontdoorSecretSecretCustomerCertificateArgs
+    ///                 {
+    ///                     KeyVaultCertificateId = exampleCertificate.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example-customer-managed-secret",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Secrets can be imported using the `resource id`, e.g.

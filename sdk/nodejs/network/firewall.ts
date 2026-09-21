@@ -39,16 +39,16 @@ import * as utilities from "../utilities";
  *     sku: "Standard",
  * });
  * const exampleFirewall = new azure.network.Firewall("example", {
- *     name: "testfirewall",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "AZFW_VNet",
- *     skuTier: "Standard",
  *     ipConfigurations: [{
  *         name: "configuration",
  *         subnetId: exampleSubnet.id,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "testfirewall",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     skuName: "AZFW_VNet",
+ *     skuTier: "Standard",
  * });
  * ```
  *

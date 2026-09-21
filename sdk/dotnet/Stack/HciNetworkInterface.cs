@@ -30,6 +30,18 @@ namespace Pulumi.Azure.Stack
     /// 
     ///     var exampleHciLogicalNetwork = new Azure.Stack.HciLogicalNetwork("example", new()
     ///     {
+    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
+    ///         {
+    ///             Route = 
+    ///             {
+    ///                 { "name", "example-route" },
+    ///                 { "addressPrefix", "0.0.0.0/0" },
+    ///                 { "nextHopIpAddress", "10.0.20.1" },
+    ///             },
+    ///             IpAllocationMethod = "Static",
+    ///             AddressPrefix = "10.0.0.0/24",
+    ///             VlanId = 123,
+    ///         },
     ///         Name = "example-hci-ln",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -40,18 +52,6 @@ namespace Pulumi.Azure.Stack
     ///             "10.0.0.7",
     ///             "10.0.0.8",
     ///         },
-    ///         Subnet = new Azure.Stack.Inputs.HciLogicalNetworkSubnetArgs
-    ///         {
-    ///             IpAllocationMethod = "Static",
-    ///             AddressPrefix = "10.0.0.0/24",
-    ///             Route = 
-    ///             {
-    ///                 { "name", "example-route" },
-    ///                 { "addressPrefix", "0.0.0.0/0" },
-    ///                 { "nextHopIpAddress", "10.0.20.1" },
-    ///             },
-    ///             VlanId = 123,
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
@@ -60,6 +60,11 @@ namespace Pulumi.Azure.Stack
     /// 
     ///     var exampleHciNetworkInterface = new Azure.Stack.HciNetworkInterface("example", new()
     ///     {
+    ///         IpConfiguration = new Azure.Stack.Inputs.HciNetworkInterfaceIpConfigurationArgs
+    ///         {
+    ///             PrivateIpAddress = "10.0.0.2",
+    ///             SubnetId = test.Id,
+    ///         },
     ///         Name = "example-ni",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -68,14 +73,15 @@ namespace Pulumi.Azure.Stack
     ///         {
     ///             "10.0.0.8",
     ///         },
-    ///         IpConfiguration = new Azure.Stack.Inputs.HciNetworkInterfaceIpConfigurationArgs
-    ///         {
-    ///             PrivateIpAddress = "10.0.0.2",
-    ///             SubnetId = test.Id,
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "macAddress",
     ///         },
     ///     });
     /// 

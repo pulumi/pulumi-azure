@@ -439,16 +439,16 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
-            minimum_tls_version="1.2",
-            identity={
-                "type": "SystemAssigned",
-            })
+            minimum_tls_version="1.2")
         example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
@@ -465,13 +465,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             start_ip_address=0.0.0.0,
             end_ip_address=0.0.0.0)
         example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            allow_nested_items_to_be_public=False,
             network_rules={
                 "default_action": "Deny",
                 "ip_rules": ["127.0.0.1"],
@@ -480,7 +473,14 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="examplesa",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            allow_nested_items_to_be_public=False)
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
@@ -584,16 +584,16 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
-            minimum_tls_version="1.2",
-            identity={
-                "type": "SystemAssigned",
-            })
+            minimum_tls_version="1.2")
         example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
@@ -610,13 +610,6 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             start_ip_address=0.0.0.0,
             end_ip_address=0.0.0.0)
         example_account = azure.storage.Account("example",
-            name="examplesa",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            account_tier="Standard",
-            account_replication_type="LRS",
-            account_kind="StorageV2",
-            allow_nested_items_to_be_public=False,
             network_rules={
                 "default_action": "Deny",
                 "ip_rules": ["127.0.0.1"],
@@ -625,7 +618,14 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="examplesa",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            allow_nested_items_to_be_public=False)
         example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,

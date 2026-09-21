@@ -78,7 +78,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificateContacts = new CertificateContacts("exampleCertificateContacts", CertificateContactsArgs.builder()
- *             .keyVaultId(exampleKeyVault.id())
  *             .contacts(            
  *                 CertificateContactsContactArgs.builder()
  *                     .email("example}{@literal @}{@code example.com")
@@ -88,6 +87,7 @@ import javax.annotation.Nullable;
  *                 CertificateContactsContactArgs.builder()
  *                     .email("example2}{@literal @}{@code example.com")
  *                     .build())
+ *             .keyVaultId(exampleKeyVault.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccessPolicy)
  *                 .build());

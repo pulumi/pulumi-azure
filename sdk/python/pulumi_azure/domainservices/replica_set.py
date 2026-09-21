@@ -210,9 +210,6 @@ class ReplicaSet(pulumi.CustomResource):
             virtual_network_name=primary_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
         primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
-            name="aadds-primary-nsg",
-            location=primary.location,
-            resource_group_name=primary.name,
             security_rules=[
                 {
                     "name": "AllowSyncWithAzureAD",
@@ -258,31 +255,28 @@ class ReplicaSet(pulumi.CustomResource):
                     "source_address_prefix": "*",
                     "destination_address_prefix": "*",
                 },
-            ])
+            ],
+            name="aadds-primary-nsg",
+            location=primary.location,
+            resource_group_name=primary.name)
         primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primary",
             subnet_id=primary_subnet.id,
             network_security_group_id=primary_network_security_group.id)
         dc_admins = azuread.Group("dc_admins",
-            display_name="aad-dc-administrators",
+            display_name=aad-dc-administrators,
             security_enabled=True)
         admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.net",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
+            user_principal_name=dc-admin@hashicorp-example.net,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
         admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        example = azuread.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
         aadds = azure.core.ResourceGroup("aadds",
             name="aadds-rg",
             location="westeurope")
         example_service = azure.domainservices.Service("example",
-            name="example-aadds",
-            location=aadds.location,
-            resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
-            filtered_sync_enabled=False,
             initial_replica_set={
                 "location": primary_virtual_network.location,
                 "subnet_id": primary_subnet.id,
@@ -300,6 +294,12 @@ class ReplicaSet(pulumi.CustomResource):
                 "sync_ntlm_passwords": True,
                 "sync_on_prem_passwords": True,
             },
+            name="example-aadds",
+            location=aadds.location,
+            resource_group_name=aadds.name,
+            domain_name="widgetslogin.net",
+            sku="Enterprise",
+            filtered_sync_enabled=False,
             tags={
                 "Environment": "prod",
             },
@@ -321,9 +321,6 @@ class ReplicaSet(pulumi.CustomResource):
             virtual_network_name=replica_virtual_network.name,
             address_prefixes=["10.20.0.0/24"])
         aadds_replica_network_security_group = azure.network.NetworkSecurityGroup("aadds_replica",
-            name="aadds-replica-nsg",
-            location=replica.location,
-            resource_group_name=replica.name,
             security_rules=[
                 {
                     "name": "AllowSyncWithAzureAD",
@@ -369,7 +366,10 @@ class ReplicaSet(pulumi.CustomResource):
                     "source_address_prefix": "*",
                     "destination_address_prefix": "*",
                 },
-            ])
+            ],
+            name="aadds-replica-nsg",
+            location=replica.location,
+            resource_group_name=replica.name)
         replica_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("replica",
             subnet_id=aadds_replica.id,
             network_security_group_id=aadds_replica_network_security_group.id)
@@ -457,9 +457,6 @@ class ReplicaSet(pulumi.CustomResource):
             virtual_network_name=primary_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
         primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
-            name="aadds-primary-nsg",
-            location=primary.location,
-            resource_group_name=primary.name,
             security_rules=[
                 {
                     "name": "AllowSyncWithAzureAD",
@@ -505,31 +502,28 @@ class ReplicaSet(pulumi.CustomResource):
                     "source_address_prefix": "*",
                     "destination_address_prefix": "*",
                 },
-            ])
+            ],
+            name="aadds-primary-nsg",
+            location=primary.location,
+            resource_group_name=primary.name)
         primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primary",
             subnet_id=primary_subnet.id,
             network_security_group_id=primary_network_security_group.id)
         dc_admins = azuread.Group("dc_admins",
-            display_name="aad-dc-administrators",
+            display_name=aad-dc-administrators,
             security_enabled=True)
         admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.net",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
+            user_principal_name=dc-admin@hashicorp-example.net,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
         admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        example = azuread.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
         aadds = azure.core.ResourceGroup("aadds",
             name="aadds-rg",
             location="westeurope")
         example_service = azure.domainservices.Service("example",
-            name="example-aadds",
-            location=aadds.location,
-            resource_group_name=aadds.name,
-            domain_name="widgetslogin.net",
-            sku="Enterprise",
-            filtered_sync_enabled=False,
             initial_replica_set={
                 "location": primary_virtual_network.location,
                 "subnet_id": primary_subnet.id,
@@ -547,6 +541,12 @@ class ReplicaSet(pulumi.CustomResource):
                 "sync_ntlm_passwords": True,
                 "sync_on_prem_passwords": True,
             },
+            name="example-aadds",
+            location=aadds.location,
+            resource_group_name=aadds.name,
+            domain_name="widgetslogin.net",
+            sku="Enterprise",
+            filtered_sync_enabled=False,
             tags={
                 "Environment": "prod",
             },
@@ -568,9 +568,6 @@ class ReplicaSet(pulumi.CustomResource):
             virtual_network_name=replica_virtual_network.name,
             address_prefixes=["10.20.0.0/24"])
         aadds_replica_network_security_group = azure.network.NetworkSecurityGroup("aadds_replica",
-            name="aadds-replica-nsg",
-            location=replica.location,
-            resource_group_name=replica.name,
             security_rules=[
                 {
                     "name": "AllowSyncWithAzureAD",
@@ -616,7 +613,10 @@ class ReplicaSet(pulumi.CustomResource):
                     "source_address_prefix": "*",
                     "destination_address_prefix": "*",
                 },
-            ])
+            ],
+            name="aadds-replica-nsg",
+            location=replica.location,
+            resource_group_name=replica.name)
         replica_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("replica",
             subnet_id=aadds_replica.id,
             network_security_group_id=aadds_replica_network_security_group.id)

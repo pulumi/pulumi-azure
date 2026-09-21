@@ -630,14 +630,20 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                 "Sydney": "Australia",
             })
         example_virtual_network = azure.devtest.VirtualNetwork("example",
-            name="example-network",
-            lab_name=example_lab.name,
-            resource_group_name=example.name,
             subnet={
                 "use_public_ip_address": "Allow",
                 "use_in_virtual_machine_creation": "Allow",
-            })
+            },
+            name="example-network",
+            lab_name=example_lab.name,
+            resource_group_name=example.name)
         example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("example",
+            gallery_image_reference={
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+            },
             name="example-vm03",
             lab_name=example_lab.name,
             resource_group_name=example.name,
@@ -648,13 +654,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             lab_virtual_network_id=example_virtual_network.id,
             lab_subnet_name=example_virtual_network.subnet.name,
             storage_type="Premium",
-            notes="Some notes about this Virtual Machine.",
-            gallery_image_reference={
-                "offer": "WindowsServer",
-                "publisher": "MicrosoftWindowsServer",
-                "sku": "2019-Datacenter",
-                "version": "latest",
-            })
+            notes="Some notes about this Virtual Machine.")
         ```
 
         ## API Providers
@@ -722,14 +722,20 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                 "Sydney": "Australia",
             })
         example_virtual_network = azure.devtest.VirtualNetwork("example",
-            name="example-network",
-            lab_name=example_lab.name,
-            resource_group_name=example.name,
             subnet={
                 "use_public_ip_address": "Allow",
                 "use_in_virtual_machine_creation": "Allow",
-            })
+            },
+            name="example-network",
+            lab_name=example_lab.name,
+            resource_group_name=example.name)
         example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("example",
+            gallery_image_reference={
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+            },
             name="example-vm03",
             lab_name=example_lab.name,
             resource_group_name=example.name,
@@ -740,13 +746,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             lab_virtual_network_id=example_virtual_network.id,
             lab_subnet_name=example_virtual_network.subnet.name,
             storage_type="Premium",
-            notes="Some notes about this Virtual Machine.",
-            gallery_image_reference={
-                "offer": "WindowsServer",
-                "publisher": "MicrosoftWindowsServer",
-                "sku": "2019-Datacenter",
-                "version": "latest",
-            })
+            notes="Some notes about this Virtual Machine.")
         ```
 
         ## API Providers

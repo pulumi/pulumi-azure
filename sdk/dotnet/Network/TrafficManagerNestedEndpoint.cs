@@ -39,9 +39,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var parent = new Azure.Network.TrafficManagerProfile("parent", new()
     ///     {
-    ///         Name = "parent-profile",
-    ///         ResourceGroupName = example.Name,
-    ///         TrafficRoutingMethod = "Weighted",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
     ///             RelativeName = "parent-profile",
@@ -56,6 +53,9 @@ namespace Pulumi.Azure.Network
     ///             TimeoutInSeconds = 9,
     ///             ToleratedNumberOfFailures = 3,
     ///         },
+    ///         Name = "parent-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         TrafficRoutingMethod = "Weighted",
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },
@@ -64,9 +64,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var nested = new Azure.Network.TrafficManagerProfile("nested", new()
     ///     {
-    ///         Name = "nested-profile",
-    ///         ResourceGroupName = example.Name,
-    ///         TrafficRoutingMethod = "Priority",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
     ///             RelativeName = "nested-profile",
@@ -78,6 +75,9 @@ namespace Pulumi.Azure.Network
     ///             Port = 443,
     ///             Path = "/",
     ///         },
+    ///         Name = "nested-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         TrafficRoutingMethod = "Priority",
     ///     });
     /// 
     ///     var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("example", new()

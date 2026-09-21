@@ -52,6 +52,11 @@ namespace Pulumi.Azure.ManagedLustre
     /// 
     ///     var exampleFileSystem = new Azure.ManagedLustre.FileSystem("example", new()
     ///     {
+    ///         MaintenanceWindow = new Azure.ManagedLustre.Inputs.FileSystemMaintenanceWindowArgs
+    ///         {
+    ///             DayOfWeek = "Friday",
+    ///             TimeOfDayUtc = "22:00",
+    ///         },
     ///         Name = "example-amlfs",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -61,11 +66,6 @@ namespace Pulumi.Azure.ManagedLustre
     ///         Zones = new[]
     ///         {
     ///             "2",
-    ///         },
-    ///         MaintenanceWindow = new Azure.ManagedLustre.Inputs.FileSystemMaintenanceWindowArgs
-    ///         {
-    ///             DayOfWeek = "Friday",
-    ///             TimeOfDayUtc = "22:00",
     ///         },
     ///     });
     /// 

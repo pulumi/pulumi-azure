@@ -219,12 +219,12 @@ class NetworkManagerVerifierWorkspace(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-nm",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-nm",
+            resource_group_name=example.name,
+            location=example.location,
             scope_accesses=["Connectivity"])
         example_network_manager_verifier_workspace = azure.network.NetworkManagerVerifierWorkspace("example",
             name="example",
@@ -281,12 +281,12 @@ class NetworkManagerVerifierWorkspace(pulumi.CustomResource):
             location="West Europe")
         current = azure.core.get_subscription()
         example_network_manager = azure.network.NetworkManager("example",
-            name="example-nm",
-            resource_group_name=example.name,
-            location=example.location,
             scope={
                 "subscription_ids": [current.id],
             },
+            name="example-nm",
+            resource_group_name=example.name,
+            location=example.location,
             scope_accesses=["Connectivity"])
         example_network_manager_verifier_workspace = azure.network.NetworkManagerVerifierWorkspace("example",
             name="example",

@@ -419,12 +419,12 @@ class CustomDataset(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
         example_account = azure.storage.Account("example",
             name="example",
             resource_group_name=example.name,
@@ -445,15 +445,15 @@ class CustomDataset(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_custom_dataset = azure.datafactory.CustomDataset("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            type="Json",
             linked_service={
                 "name": example_linked_custom_service.name,
                 "parameters": {
                     "key1": "value1",
                 },
             },
+            name="example",
+            data_factory_id=example_factory.id,
+            type="Json",
             type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
           \\"location\\": {{
             \\"container\\":\\"{name}\\",
@@ -544,12 +544,12 @@ class CustomDataset(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
         example_account = azure.storage.Account("example",
             name="example",
             resource_group_name=example.name,
@@ -570,15 +570,15 @@ class CustomDataset(pulumi.CustomResource):
             storage_account_name=example_account.name,
             container_access_type="private")
         example_custom_dataset = azure.datafactory.CustomDataset("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            type="Json",
             linked_service={
                 "name": example_linked_custom_service.name,
                 "parameters": {
                     "key1": "value1",
                 },
             },
+            name="example",
+            data_factory_id=example_factory.id,
+            type="Json",
             type_properties_json=example_container.name.apply(lambda name: f\"\"\"{{
           \\"location\\": {{
             \\"container\\":\\"{name}\\",

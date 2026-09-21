@@ -22,22 +22,33 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "expressRoute1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     serviceProviderName: "Equinix",
  *     peeringLocation: "Silicon Valley",
  *     bandwidthInMbps: 50,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  *     allowClassicOperations: false,
  *     tags: {
  *         environment: "Production",
  *     },
  * });
  * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ *     microsoftPeeringConfig: {
+ *         advertisedPublicPrefixes: ["123.1.0.0/24"],
+ *     },
+ *     ipv6: {
+ *         microsoftPeering: {
+ *             advertisedPublicPrefixes: ["2002:db01::/126"],
+ *         },
+ *         primaryPeerAddressPrefix: "2002:db01::/126",
+ *         secondaryPeerAddressPrefix: "2003:db01::/126",
+ *         enabled: true,
+ *     },
  *     peeringType: "MicrosoftPeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,
@@ -46,17 +57,6 @@ import * as utilities from "../utilities";
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",
  *     ipv4Enabled: true,
  *     vlanId: 300,
- *     microsoftPeeringConfig: {
- *         advertisedPublicPrefixes: ["123.1.0.0/24"],
- *     },
- *     ipv6: {
- *         primaryPeerAddressPrefix: "2002:db01::/126",
- *         secondaryPeerAddressPrefix: "2003:db01::/126",
- *         enabled: true,
- *         microsoftPeering: {
- *             advertisedPublicPrefixes: ["2002:db01::/126"],
- *         },
- *     },
  * });
  * ```
  *
@@ -71,22 +71,27 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
  *     name: "expressRoute1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     serviceProviderName: "Equinix",
  *     peeringLocation: "Silicon Valley",
  *     bandwidthInMbps: 50,
- *     sku: {
- *         tier: "Standard",
- *         family: "MeteredData",
- *     },
  *     allowClassicOperations: false,
  *     tags: {
  *         environment: "Production",
  *     },
  * });
  * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ *     ipv6: {
+ *         primaryPeerAddressPrefix: "2002:db01::/126",
+ *         secondaryPeerAddressPrefix: "2003:db01::/126",
+ *         enabled: true,
+ *     },
  *     peeringType: "AzurePrivatePeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
  *     resourceGroupName: example.name,
@@ -95,11 +100,6 @@ import * as utilities from "../utilities";
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",
  *     ipv4Enabled: true,
  *     vlanId: 300,
- *     ipv6: {
- *         primaryPeerAddressPrefix: "2002:db01::/126",
- *         secondaryPeerAddressPrefix: "2003:db01::/126",
- *         enabled: true,
- *     },
  * });
  * ```
  *

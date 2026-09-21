@@ -38,12 +38,12 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var examplePowershell72Module = new Azure.Automation.Powershell72Module("example", new()
     ///     {
-    ///         Name = "xActiveDirectory",
-    ///         AutomationAccountId = exampleAccount.Id,
     ///         ModuleLink = new Azure.Automation.Inputs.Powershell72ModuleModuleLinkArgs
     ///         {
     ///             Uri = "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
     ///         },
+    ///         Name = "xActiveDirectory",
+    ///         AutomationAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });

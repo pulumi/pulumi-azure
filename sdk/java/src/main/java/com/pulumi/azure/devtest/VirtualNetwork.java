@@ -61,13 +61,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
- *             .name("example-network")
- *             .labName(exampleLab.name())
- *             .resourceGroupName(example.name())
  *             .subnet(VirtualNetworkSubnetArgs.builder()
  *                 .usePublicIpAddress("Allow")
  *                 .useInVirtualMachineCreation("Allow")
  *                 .build())
+ *             .name("example-network")
+ *             .labName(exampleLab.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

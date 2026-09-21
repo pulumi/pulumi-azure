@@ -122,13 +122,13 @@ def get_frontdoor_security_policy(name: Optional[_builtins.str] = None,
         resource_group_name=example_resource_group.name,
         sku_name="Standard_AzureFrontDoor")
     example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
-        name="examplecdnfrontdoorfirewallpolicy",
-        resource_group_name=example_resource_group.name,
-        sku_name=example_frontdoor_profile.sku_name,
-        enabled=True,
-        mode="Prevention",
-        redirect_url="https://www.example.com",
         custom_rules=[{
+            "match_conditions": [{
+                "match_variable": "RemoteAddr",
+                "operator": "IPMatch",
+                "negation_condition": False,
+                "match_values": ["192.168.1.0/24"],
+            }],
             "name": "Rule1",
             "enabled": True,
             "priority": 1,
@@ -136,39 +136,39 @@ def get_frontdoor_security_policy(name: Optional[_builtins.str] = None,
             "rate_limit_threshold": 10,
             "type": "MatchRule",
             "action": "Block",
-            "match_conditions": [{
-                "match_variable": "RemoteAddr",
-                "operator": "IPMatch",
-                "negation_condition": False,
-                "match_values": ["192.168.1.0/24"],
-            }],
-        }])
+        }],
+        name="examplecdnfrontdoorfirewallpolicy",
+        resource_group_name=example_resource_group.name,
+        sku_name=example_frontdoor_profile.sku_name,
+        enabled=True,
+        mode="Prevention",
+        redirect_url="https://www.example.com")
     example_zone = azure.dns.Zone("example",
         name="example-frontdoor.com",
         resource_group_name=example_resource_group.name)
     example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-        name="example-custom-domain",
-        cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-        dns_zone_id=example_zone.id,
-        host_name="www.example-frontdoor.com",
         tls={
             "certificate_type": "ManagedCertificate",
             "minimum_tls_version": "TLS12",
-        })
-    example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
-        name="example-security-policy",
+        },
+        name="example-custom-domain",
         cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+        dns_zone_id=example_zone.id,
+        host_name="www.example-frontdoor.com")
+    example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
         security_policies={
             "firewall": {
-                "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                 "association": {
                     "domains": [{
                         "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                     }],
                     "patterns_to_match": "/*",
                 },
+                "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
             },
-        })
+        },
+        name="example-security-policy",
+        cdn_frontdoor_profile_id=example_frontdoor_profile.id)
     example = azure.cdn.get_frontdoor_security_policy_output(name=example_frontdoor_security_policy.name,
         profile_name=example_frontdoor_profile.name,
         resource_group_name=example_resource_group.name)
@@ -221,13 +221,13 @@ def get_frontdoor_security_policy_output(name: pulumi.Input[Optional[_builtins.s
         resource_group_name=example_resource_group.name,
         sku_name="Standard_AzureFrontDoor")
     example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
-        name="examplecdnfrontdoorfirewallpolicy",
-        resource_group_name=example_resource_group.name,
-        sku_name=example_frontdoor_profile.sku_name,
-        enabled=True,
-        mode="Prevention",
-        redirect_url="https://www.example.com",
         custom_rules=[{
+            "match_conditions": [{
+                "match_variable": "RemoteAddr",
+                "operator": "IPMatch",
+                "negation_condition": False,
+                "match_values": ["192.168.1.0/24"],
+            }],
             "name": "Rule1",
             "enabled": True,
             "priority": 1,
@@ -235,39 +235,39 @@ def get_frontdoor_security_policy_output(name: pulumi.Input[Optional[_builtins.s
             "rate_limit_threshold": 10,
             "type": "MatchRule",
             "action": "Block",
-            "match_conditions": [{
-                "match_variable": "RemoteAddr",
-                "operator": "IPMatch",
-                "negation_condition": False,
-                "match_values": ["192.168.1.0/24"],
-            }],
-        }])
+        }],
+        name="examplecdnfrontdoorfirewallpolicy",
+        resource_group_name=example_resource_group.name,
+        sku_name=example_frontdoor_profile.sku_name,
+        enabled=True,
+        mode="Prevention",
+        redirect_url="https://www.example.com")
     example_zone = azure.dns.Zone("example",
         name="example-frontdoor.com",
         resource_group_name=example_resource_group.name)
     example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-        name="example-custom-domain",
-        cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-        dns_zone_id=example_zone.id,
-        host_name="www.example-frontdoor.com",
         tls={
             "certificate_type": "ManagedCertificate",
             "minimum_tls_version": "TLS12",
-        })
-    example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
-        name="example-security-policy",
+        },
+        name="example-custom-domain",
         cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+        dns_zone_id=example_zone.id,
+        host_name="www.example-frontdoor.com")
+    example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
         security_policies={
             "firewall": {
-                "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                 "association": {
                     "domains": [{
                         "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                     }],
                     "patterns_to_match": "/*",
                 },
+                "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
             },
-        })
+        },
+        name="example-security-policy",
+        cdn_frontdoor_profile_id=example_frontdoor_profile.id)
     example = azure.cdn.get_frontdoor_security_policy_output(name=example_frontdoor_security_policy.name,
         profile_name=example_frontdoor_profile.name,
         resource_group_name=example_resource_group.name)

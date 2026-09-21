@@ -44,9 +44,6 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     ///     var exampleSpringCloudDevToolPortal = new Azure.AppPlatform.SpringCloudDevToolPortal("example", new()
     ///     {
-    ///         Name = "default",
-    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         PublicNetworkAccessEnabled = true,
     ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudDevToolPortalSsoArgs
     ///         {
     ///             ClientId = "example id",
@@ -59,6 +56,9 @@ namespace Pulumi.Azure.AppPlatform
     ///                 "email",
     ///             },
     ///         },
+    ///         Name = "default",
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         PublicNetworkAccessEnabled = true,
     ///         ApplicationAcceleratorEnabled = true,
     ///         ApplicationLiveViewEnabled = true,
     ///     });

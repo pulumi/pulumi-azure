@@ -27,16 +27,16 @@ import * as utilities from "../utilities";
  *     skuName: "P1v2",
  * });
  * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     siteConfig: {},
  *     name: "example-windows-web-app",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWindowsWebAppSlot = new azure.appservice.WindowsWebAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-windows-web-app-slot",
  *     appServiceId: exampleWindowsWebApp.name,
- *     siteConfig: {},
  * });
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleWindowsWebAppSlot.id});
  * ```
@@ -59,18 +59,18 @@ import * as utilities from "../utilities";
  *     skuName: "P1v2",
  * });
  * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     siteConfig: {},
  *     name: "example-linux-web-app",
  *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("example", {
+ *     siteConfig: {},
  *     name: "example-linux-web-app-slot",
  *     appServiceName: exampleLinuxWebApp.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
- *     siteConfig: {},
  * });
  * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleLinuxWebAppSlot.id});
  * ```

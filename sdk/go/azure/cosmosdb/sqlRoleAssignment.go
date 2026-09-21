@@ -41,11 +41,6 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
-//				Name:              pulumi.String("example-cosmosdb"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				OfferType:         pulumi.String("Standard"),
-//				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
 //					ConsistencyLevel: pulumi.String("Strong"),
 //				},
@@ -55,24 +50,29 @@ import (
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
+//				Name:              pulumi.String("example-cosmosdb"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleSqlRoleDefinition, err := cosmosdb.NewSqlRoleDefinition(ctx, "example", &cosmosdb.SqlRoleDefinitionArgs{
-//				Name:              pulumi.String("examplesqlroledef"),
-//				ResourceGroupName: example.Name,
-//				AccountName:       exampleAccount.Name,
-//				Type:              pulumi.String("CustomRole"),
-//				AssignableScopes: pulumi.StringArray{
-//					exampleAccount.ID().ToIDOutput().ToStringOutput(),
-//				},
 //				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
 //					&cosmosdb.SqlRoleDefinitionPermissionArgs{
 //						DataActions: pulumi.StringArray{
 //							pulumi.String("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"),
 //						},
 //					},
+//				},
+//				Name:              pulumi.String("examplesqlroledef"),
+//				ResourceGroupName: example.Name,
+//				AccountName:       exampleAccount.Name,
+//				Type:              pulumi.String("CustomRole"),
+//				AssignableScopes: pulumi.StringArray{
+//					exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

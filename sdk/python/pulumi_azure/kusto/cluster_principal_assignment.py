@@ -312,13 +312,13 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             name="KustoRG",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("example",
             name="KustoPrincipalAssignment",
             resource_group_name=example.name,
@@ -375,13 +375,13 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             name="KustoRG",
             location="West Europe")
         example_cluster = azure.kusto.Cluster("example",
-            name="kustocluster",
-            location=example.location,
-            resource_group_name=example.name,
             sku={
                 "name": "Standard_D13_v2",
                 "capacity": 2,
-            })
+            },
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name)
         example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("example",
             name="KustoPrincipalAssignment",
             resource_group_name=example.name,

@@ -29,8 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
  * import com.pulumi.azure.apimanagement.ApiOperation;
  * import com.pulumi.azure.apimanagement.ApiOperationArgs;
- * import com.pulumi.azure.apimanagement.inputs.ApiOperationTemplateParameterArgs;
  * import com.pulumi.azure.apimanagement.inputs.ApiOperationResponseArgs;
+ * import com.pulumi.azure.apimanagement.inputs.ApiOperationTemplateParameterArgs;
  * import com.pulumi.azure.apimanagement.ApiOperationTag;
  * import com.pulumi.azure.apimanagement.ApiOperationTagArgs;
  * import java.util.ArrayList;
@@ -54,6 +54,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()
+ *             .responses(ApiOperationResponseArgs.builder()
+ *                 .statusCode(200)
+ *                 .build())
+ *             .templateParameters(ApiOperationTemplateParameterArgs.builder()
+ *                 .name("id")
+ *                 .type("number")
+ *                 .required(true)
+ *                 .build())
  *             .operationId("user-delete")
  *             .apiName(example.name())
  *             .apiManagementName(example.apiManagementName())
@@ -62,14 +70,6 @@ import javax.annotation.Nullable;
  *             .method("DELETE")
  *             .urlTemplate("/users/{id}/delete")
  *             .description("This can only be done by the logged in user.")
- *             .templateParameters(ApiOperationTemplateParameterArgs.builder()
- *                 .name("id")
- *                 .type("number")
- *                 .required(true)
- *                 .build())
- *             .responses(ApiOperationResponseArgs.builder()
- *                 .statusCode(200)
- *                 .build())
  *             .build());
  * 
  *         var exampleApiOperationTag = new ApiOperationTag("exampleApiOperationTag", ApiOperationTagArgs.builder()

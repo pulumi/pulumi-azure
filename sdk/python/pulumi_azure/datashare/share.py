@@ -252,26 +252,26 @@ class Share(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "foo": "bar",
             })
         example_share = azure.datashare.Share("example",
-            name="example_dss",
-            account_id=example_account.id,
-            kind="CopyBased",
-            description="example desc",
-            terms="example terms",
             snapshot_schedule={
                 "name": "example-ss",
                 "recurrence": "Day",
                 "start_time": "2020-04-17T04:47:52.9614956Z",
-            })
+            },
+            name="example_dss",
+            account_id=example_account.id,
+            kind="CopyBased",
+            description="example desc",
+            terms="example terms")
         ```
 
         ## API Providers
@@ -318,26 +318,26 @@ class Share(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_account = azure.datashare.Account("example",
-            name="example-dsa",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
             },
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name,
             tags={
                 "foo": "bar",
             })
         example_share = azure.datashare.Share("example",
-            name="example_dss",
-            account_id=example_account.id,
-            kind="CopyBased",
-            description="example desc",
-            terms="example terms",
             snapshot_schedule={
                 "name": "example-ss",
                 "recurrence": "Day",
                 "start_time": "2020-04-17T04:47:52.9614956Z",
-            })
+            },
+            name="example_dss",
+            account_id=example_account.id,
+            kind="CopyBased",
+            description="example desc",
+            terms="example terms")
         ```
 
         ## API Providers

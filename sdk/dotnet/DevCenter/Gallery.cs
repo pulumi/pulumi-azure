@@ -37,9 +37,6 @@ namespace Pulumi.Azure.DevCenter
     /// 
     ///     var test = new Azure.DevCenter.DevCenter("test", new()
     ///     {
-    ///         Name = "example-devcenter",
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
-    ///         Location = testAzurermResourceGroup.Location,
     ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -48,6 +45,9 @@ namespace Pulumi.Azure.DevCenter
     ///                 testUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example-devcenter",
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         Location = testAzurermResourceGroup.Location,
     ///     });
     /// 
     ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("example", new()

@@ -36,24 +36,10 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     ///     var exampleFirewallPolicy = new Azure.FrontDoor.FirewallPolicy("example", new()
     ///     {
-    ///         Name = "examplefdwafpolicy",
-    ///         ResourceGroupName = example.Name,
-    ///         Enabled = true,
-    ///         Mode = "Prevention",
-    ///         RedirectUrl = "https://www.contoso.com",
-    ///         CustomBlockResponseStatusCode = 403,
-    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///         CustomRules = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleArgs
     ///             {
-    ///                 Name = "Rule1",
-    ///                 Enabled = true,
-    ///                 Priority = 1,
-    ///                 RateLimitDurationInMinutes = 1,
-    ///                 RateLimitThreshold = 10,
-    ///                 Type = "MatchRule",
-    ///                 Action = "Block",
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleMatchConditionArgs
@@ -68,16 +54,16 @@ namespace Pulumi.Azure.FrontDoor
     ///                         },
     ///                     },
     ///                 },
-    ///             },
-    ///             new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleArgs
-    ///             {
-    ///                 Name = "Rule2",
+    ///                 Name = "Rule1",
     ///                 Enabled = true,
-    ///                 Priority = 2,
+    ///                 Priority = 1,
     ///                 RateLimitDurationInMinutes = 1,
     ///                 RateLimitThreshold = 10,
     ///                 Type = "MatchRule",
     ///                 Action = "Block",
+    ///             },
+    ///             new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleArgs
+    ///             {
     ///                 MatchConditions = new[]
     ///                 {
     ///                     new Azure.FrontDoor.Inputs.FirewallPolicyCustomRuleMatchConditionArgs
@@ -107,14 +93,19 @@ namespace Pulumi.Azure.FrontDoor
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Rule2",
+    ///                 Enabled = true,
+    ///                 Priority = 2,
+    ///                 RateLimitDurationInMinutes = 1,
+    ///                 RateLimitThreshold = 10,
+    ///                 Type = "MatchRule",
+    ///                 Action = "Block",
     ///             },
     ///         },
     ///         ManagedRules = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleArgs
     ///             {
-    ///                 Type = "DefaultRuleSet",
-    ///                 Version = "1.0",
     ///                 Exclusions = new[]
     ///                 {
     ///                     new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleExclusionArgs
@@ -128,7 +119,6 @@ namespace Pulumi.Azure.FrontDoor
     ///                 {
     ///                     new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideArgs
     ///                     {
-    ///                         RuleGroupName = "PHP",
     ///                         Rules = new[]
     ///                         {
     ///                             new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideRuleArgs
@@ -138,10 +128,10 @@ namespace Pulumi.Azure.FrontDoor
     ///                                 Action = "Block",
     ///                             },
     ///                         },
+    ///                         RuleGroupName = "PHP",
     ///                     },
     ///                     new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideArgs
     ///                     {
-    ///                         RuleGroupName = "SQLI",
     ///                         Exclusions = new[]
     ///                         {
     ///                             new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideExclusionArgs
@@ -155,8 +145,6 @@ namespace Pulumi.Azure.FrontDoor
     ///                         {
     ///                             new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideRuleArgs
     ///                             {
-    ///                                 RuleId = "942200",
-    ///                                 Action = "Block",
     ///                                 Exclusions = new[]
     ///                                 {
     ///                                     new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleOverrideRuleExclusionArgs
@@ -166,10 +154,15 @@ namespace Pulumi.Azure.FrontDoor
     ///                                         Selector = "innocent",
     ///                                     },
     ///                                 },
+    ///                                 RuleId = "942200",
+    ///                                 Action = "Block",
     ///                             },
     ///                         },
+    ///                         RuleGroupName = "SQLI",
     ///                     },
     ///                 },
+    ///                 Type = "DefaultRuleSet",
+    ///                 Version = "1.0",
     ///             },
     ///             new Azure.FrontDoor.Inputs.FirewallPolicyManagedRuleArgs
     ///             {
@@ -177,6 +170,13 @@ namespace Pulumi.Azure.FrontDoor
     ///                 Version = "1.0",
     ///             },
     ///         },
+    ///         Name = "examplefdwafpolicy",
+    ///         ResourceGroupName = example.Name,
+    ///         Enabled = true,
+    ///         Mode = "Prevention",
+    ///         RedirectUrl = "https://www.contoso.com",
+    ///         CustomBlockResponseStatusCode = 403,
+    ///         CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
     ///     });
     /// 
     /// });

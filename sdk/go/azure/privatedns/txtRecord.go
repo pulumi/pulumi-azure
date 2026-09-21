@@ -44,15 +44,15 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewTxtRecord(ctx, "example", &privatedns.TxtRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: privatedns.TxtRecordRecordArray{
 //					&privatedns.TxtRecordRecordArgs{
 //						Value: pulumi.String("v=spf1 mx ~all"),
 //					},
 //				},
+//				Name:              pulumi.String("test"),
+//				ResourceGroupName: example.Name,
+//				ZoneName:          exampleZone.Name,
+//				Ttl:               pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err

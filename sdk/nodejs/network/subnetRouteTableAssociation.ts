@@ -30,15 +30,15 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleRouteTable = new azure.network.RouteTable("example", {
- *     name: "example-routetable",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     routes: [{
  *         name: "example",
  *         addressPrefix: "10.100.0.0/14",
  *         nextHopType: "VirtualAppliance",
  *         nextHopInIpAddress: "10.10.1.1",
  *     }],
+ *     name: "example-routetable",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleSubnetRouteTableAssociation = new azure.network.SubnetRouteTableAssociation("example", {
  *     subnetId: exampleSubnet.id,

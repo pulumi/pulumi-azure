@@ -59,16 +59,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Name = "example-vmss",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         Sku = "Standard_D4_v5",
-    ///         Instances = 4,
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "P@ssword1234!",
-    ///         ComputerNamePrefix = "my-linux-computer-name-prefix",
-    ///         UpgradeMode = "Automatic",
-    ///         DisablePasswordAuthentication = false,
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -85,8 +75,6 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs
     ///             {
-    ///                 Name = "example",
-    ///                 Primary = true,
     ///                 IpConfigurations = new[]
     ///                 {
     ///                     new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs
@@ -96,8 +84,20 @@ namespace Pulumi.Azure.Compute
     ///                         SubnetId = exampleSubnet.Id,
     ///                     },
     ///                 },
+    ///                 Name = "example",
+    ///                 Primary = true,
     ///             },
     ///         },
+    ///         Name = "example-vmss",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard_D4_v5",
+    ///         Instances = 4,
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@ssword1234!",
+    ///         ComputerNamePrefix = "my-linux-computer-name-prefix",
+    ///         UpgradeMode = "Automatic",
+    ///         DisablePasswordAuthentication = false,
     ///     });
     /// 
     ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("example", new()
@@ -113,9 +113,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleScaleSetPacketCapture = new Azure.Compute.ScaleSetPacketCapture("example", new()
     ///     {
-    ///         Name = "example-pc",
-    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
-    ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         StorageLocation = new Azure.Compute.Inputs.ScaleSetPacketCaptureStorageLocationArgs
     ///         {
     ///             FilePath = "/var/captures/packet.cap",
@@ -131,6 +128,9 @@ namespace Pulumi.Azure.Compute
     ///                 "1",
     ///             },
     ///         },
+    ///         Name = "example-pc",
+    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
+    ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

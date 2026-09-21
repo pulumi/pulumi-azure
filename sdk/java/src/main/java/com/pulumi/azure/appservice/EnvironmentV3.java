@@ -73,24 +73,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("example-subnet")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("Microsoft.Web.hostingEnvironments")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .name("Microsoft.Web/hostingEnvironments")
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/action")
  *                     .build())
+ *                 .name("Microsoft.Web.hostingEnvironments")
  *                 .build())
+ *             .name("example-subnet")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/24")
  *             .build());
  * 
  *         var exampleEnvironmentV3 = new EnvironmentV3("exampleEnvironmentV3", EnvironmentV3Args.builder()
- *             .name("example-asev3")
- *             .resourceGroupName(example.name())
- *             .subnetId(exampleSubnet.id())
- *             .internalLoadBalancingMode("Web, Publishing")
  *             .clusterSettings(            
  *                 EnvironmentV3ClusterSettingArgs.builder()
  *                     .name("DisableTls1.0")
@@ -104,6 +100,10 @@ import javax.annotation.Nullable;
  *                     .name("FrontEndSSLCipherSuiteOrder")
  *                     .value("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256")
  *                     .build())
+ *             .name("example-asev3")
+ *             .resourceGroupName(example.name())
+ *             .subnetId(exampleSubnet.id())
+ *             .internalLoadBalancingMode("Web, Publishing")
  *             .tags(Map.ofEntries(
  *                 Map.entry("env", "production"),
  *                 Map.entry("terraformed", "true")

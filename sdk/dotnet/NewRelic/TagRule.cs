@@ -30,9 +30,6 @@ namespace Pulumi.Azure.NewRelic
     /// 
     ///     var exampleMonitor = new Azure.NewRelic.Monitor("example", new()
     ///     {
-    ///         Name = "example-nrm",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Plan = new Azure.NewRelic.Inputs.MonitorPlanArgs
     ///         {
     ///             EffectiveDate = "2023-06-06T00:00:00Z",
@@ -44,15 +41,13 @@ namespace Pulumi.Azure.NewRelic
     ///             LastName = "User",
     ///             PhoneNumber = "+12313803556",
     ///         },
+    ///         Name = "example-nrm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var exampleTagRule = new Azure.NewRelic.TagRule("example", new()
     ///     {
-    ///         MonitorId = exampleMonitor.Id,
-    ///         AzureActiveDirectoryLogEnabled = true,
-    ///         ActivityLogEnabled = true,
-    ///         MetricEnabled = true,
-    ///         SubscriptionLogEnabled = true,
     ///         LogTagFilters = new[]
     ///         {
     ///             new Azure.NewRelic.Inputs.TagRuleLogTagFilterArgs
@@ -71,6 +66,11 @@ namespace Pulumi.Azure.NewRelic
     ///                 Value = "value",
     ///             },
     ///         },
+    ///         MonitorId = exampleMonitor.Id,
+    ///         AzureActiveDirectoryLogEnabled = true,
+    ///         ActivityLogEnabled = true,
+    ///         MetricEnabled = true,
+    ///         SubscriptionLogEnabled = true,
     ///     });
     /// 
     /// });

@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
- *             .name("example-nm")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.id())
  *                 .build())
+ *             .name("example-nm")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scopeAccesses("Connectivity")
  *             .build());
  * 

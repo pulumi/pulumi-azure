@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  * });
  * const exampleModule = new azure.automation.Module("example", {
- *     name: "xActiveDirectory",
- *     resourceGroupName: example.name,
- *     automationAccountName: exampleAccount.name,
  *     moduleLink: {
  *         uri: "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
  *     },
+ *     name: "xActiveDirectory",
+ *     resourceGroupName: example.name,
+ *     automationAccountName: exampleAccount.name,
  * });
  * ```
  *

@@ -111,9 +111,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualHubRouteTable = new VirtualHubRouteTable("exampleVirtualHubRouteTable", VirtualHubRouteTableArgs.builder()
- *             .name("example-vhubroutetable")
- *             .virtualHubId(exampleVirtualHub.id())
- *             .labels("label1")
  *             .routes(VirtualHubRouteTableRouteArgs.builder()
  *                 .name("example-route")
  *                 .destinationsType("CIDR")
@@ -121,6 +118,9 @@ import javax.annotation.Nullable;
  *                 .nextHopType("ResourceId")
  *                 .nextHop(exampleVirtualHubConnection.id())
  *                 .build())
+ *             .name("example-vhubroutetable")
+ *             .virtualHubId(exampleVirtualHub.id())
+ *             .labels("label1")
  *             .build());
  * 
  *     }

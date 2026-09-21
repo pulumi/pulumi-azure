@@ -28,10 +28,6 @@ import * as utilities from "../utilities";
  *     applicationType: "web",
  * });
  * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
- *     name: "example-springcloud",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     skuName: "S0",
  *     configServerGitSetting: {
  *         uri: "https://github.com/Azure-Samples/piggymetrics",
  *         label: "config",
@@ -44,6 +40,10 @@ import * as utilities from "../utilities";
  *         connectionString: exampleInsights.connectionString,
  *         sampleRate: 10,
  *     },
+ *     name: "example-springcloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "S0",
  *     tags: {
  *         Env: "staging",
  *     },

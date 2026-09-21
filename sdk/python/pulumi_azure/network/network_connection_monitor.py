@@ -365,20 +365,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-Nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
-            name="example-VM",
+            }],
+            name="example-Nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_D2s_v3",
+            resource_group_name=example.name)
+        example_virtual_machine = azure.compute.VirtualMachine("example",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -398,7 +393,12 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             },
             os_profile_linux_config={
                 "disable_password_authentication": False,
-            })
+            },
+            name="example-VM",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_D2s_v3")
         example_extension = azure.compute.Extension("example",
             name="example-VMExtension",
             virtual_machine_id=example_virtual_machine.id,
@@ -412,13 +412,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         example_network_connection_monitor = azure.network.NetworkConnectionMonitor("example",
-            name="example-Monitor",
-            network_watcher_id=example_network_watcher.id,
-            location=example_network_watcher.location,
             endpoints=[
                 {
-                    "name": "source",
-                    "target_resource_id": example_virtual_machine.id,
                     "filter": {
                         "items": [{
                             "address": example_virtual_machine.id,
@@ -426,6 +421,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                         }],
                         "type": "Include",
                     },
+                    "name": "source",
+                    "target_resource_id": example_virtual_machine.id,
                 },
                 {
                     "name": "destination",
@@ -433,12 +430,12 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 },
             ],
             test_configurations=[{
-                "name": "tcpName",
-                "protocol": "Tcp",
-                "test_frequency_in_seconds": 60,
                 "tcp_configuration": {
                     "port": 80,
                 },
+                "name": "tcpName",
+                "protocol": "Tcp",
+                "test_frequency_in_seconds": 60,
             }],
             test_groups=[{
                 "name": "exampletg",
@@ -446,6 +443,9 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 "source_endpoints": ["source"],
                 "test_configuration_names": ["tcpName"],
             }],
+            name="example-Monitor",
+            network_watcher_id=example_network_watcher.id,
+            location=example_network_watcher.location,
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id],
             opts = pulumi.ResourceOptions(depends_on=[example_extension]))
@@ -514,20 +514,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
         example_network_interface = azure.network.NetworkInterface("example",
-            name="example-Nic",
-            location=example.location,
-            resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
                 "subnet_id": example_subnet.id,
                 "private_ip_address_allocation": "Dynamic",
-            }])
-        example_virtual_machine = azure.compute.VirtualMachine("example",
-            name="example-VM",
+            }],
+            name="example-Nic",
             location=example.location,
-            resource_group_name=example.name,
-            network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_D2s_v3",
+            resource_group_name=example.name)
+        example_virtual_machine = azure.compute.VirtualMachine("example",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -547,7 +542,12 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             },
             os_profile_linux_config={
                 "disable_password_authentication": False,
-            })
+            },
+            name="example-VM",
+            location=example.location,
+            resource_group_name=example.name,
+            network_interface_ids=[example_network_interface.id],
+            vm_size="Standard_D2s_v3")
         example_extension = azure.compute.Extension("example",
             name="example-VMExtension",
             virtual_machine_id=example_virtual_machine.id,
@@ -561,13 +561,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         example_network_connection_monitor = azure.network.NetworkConnectionMonitor("example",
-            name="example-Monitor",
-            network_watcher_id=example_network_watcher.id,
-            location=example_network_watcher.location,
             endpoints=[
                 {
-                    "name": "source",
-                    "target_resource_id": example_virtual_machine.id,
                     "filter": {
                         "items": [{
                             "address": example_virtual_machine.id,
@@ -575,6 +570,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                         }],
                         "type": "Include",
                     },
+                    "name": "source",
+                    "target_resource_id": example_virtual_machine.id,
                 },
                 {
                     "name": "destination",
@@ -582,12 +579,12 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 },
             ],
             test_configurations=[{
-                "name": "tcpName",
-                "protocol": "Tcp",
-                "test_frequency_in_seconds": 60,
                 "tcp_configuration": {
                     "port": 80,
                 },
+                "name": "tcpName",
+                "protocol": "Tcp",
+                "test_frequency_in_seconds": 60,
             }],
             test_groups=[{
                 "name": "exampletg",
@@ -595,6 +592,9 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 "source_endpoints": ["source"],
                 "test_configuration_names": ["tcpName"],
             }],
+            name="example-Monitor",
+            network_watcher_id=example_network_watcher.id,
+            location=example_network_watcher.location,
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id],
             opts = pulumi.ResourceOptions(depends_on=[example_extension]))

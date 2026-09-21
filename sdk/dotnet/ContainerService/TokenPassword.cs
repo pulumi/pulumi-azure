@@ -64,11 +64,11 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleTokenPassword = new Azure.ContainerService.TokenPassword("example", new()
     ///     {
-    ///         ContainerRegistryTokenId = exampleRegistryToken.Id,
     ///         Password1 = new Azure.ContainerService.Inputs.TokenPasswordPassword1Args
     ///         {
     ///             Expiry = "2023-03-22T17:57:36+08:00",
     ///         },
+    ///         ContainerRegistryTokenId = exampleRegistryToken.Id,
     ///     });
     /// 
     /// });

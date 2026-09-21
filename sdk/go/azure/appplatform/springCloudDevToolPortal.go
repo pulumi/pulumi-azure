@@ -54,9 +54,6 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudDevToolPortal(ctx, "example", &appplatform.SpringCloudDevToolPortalArgs{
-//				Name:                       pulumi.String("default"),
-//				SpringCloudServiceId:       exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
-//				PublicNetworkAccessEnabled: pulumi.Bool(true),
 //				Sso: &appplatform.SpringCloudDevToolPortalSsoArgs{
 //					ClientId:     pulumi.String("example id"),
 //					ClientSecret: pulumi.String("example secret"),
@@ -67,6 +64,9 @@ import (
 //						pulumi.String("email"),
 //					},
 //				},
+//				Name:                          pulumi.String("default"),
+//				SpringCloudServiceId:          exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
+//				PublicNetworkAccessEnabled:    pulumi.Bool(true),
 //				ApplicationAcceleratorEnabled: pulumi.Bool(true),
 //				ApplicationLiveViewEnabled:    pulumi.Bool(true),
 //			})

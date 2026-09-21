@@ -63,15 +63,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScaleSetStandbyPool = new ScaleSetStandbyPool("exampleScaleSetStandbyPool", ScaleSetStandbyPoolArgs.builder()
+ *             .elasticityProfile(ScaleSetStandbyPoolElasticityProfileArgs.builder()
+ *                 .maxReadyCapacity(10)
+ *                 .minReadyCapacity(5)
+ *                 .build())
  *             .name("example-spsvmp")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
  *             .attachedVirtualMachineScaleSetId(exampleOrchestratedVirtualMachineScaleSet.id())
  *             .virtualMachineState("Running")
- *             .elasticityProfile(ScaleSetStandbyPoolElasticityProfileArgs.builder()
- *                 .maxReadyCapacity(10)
- *                 .minReadyCapacity(5)
- *                 .build())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

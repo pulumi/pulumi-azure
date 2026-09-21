@@ -45,17 +45,10 @@ import (
 //				return err
 //			}
 //			_, err = network.NewFirewallPolicyRuleCollectionGroup(ctx, "example", &network.FirewallPolicyRuleCollectionGroupArgs{
-//				Name:             pulumi.String("example-fwpolicy-rcg"),
-//				FirewallPolicyId: exampleFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
-//				Priority:         pulumi.Int(500),
 //				ApplicationRuleCollections: network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray{
 //					&network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs{
-//						Name:     pulumi.String("app_rule_collection1"),
-//						Priority: pulumi.Int(500),
-//						Action:   pulumi.String("Deny"),
 //						Rules: network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArray{
 //							&network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs{
-//								Name: pulumi.String("app_rule_collection1_rule1"),
 //								Protocols: network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArray{
 //									&network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs{
 //										Type: pulumi.String("Http"),
@@ -66,6 +59,7 @@ import (
 //										Port: pulumi.Int(443),
 //									},
 //								},
+//								Name: pulumi.String("app_rule_collection1_rule1"),
 //								SourceAddresses: pulumi.StringArray{
 //									pulumi.String("10.0.0.1"),
 //								},
@@ -74,13 +68,37 @@ import (
 //								},
 //							},
 //						},
+//						Name:     pulumi.String("app_rule_collection1"),
+//						Priority: pulumi.Int(500),
+//						Action:   pulumi.String("Deny"),
+//					},
+//				},
+//				NatRuleCollections: network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArray{
+//					&network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs{
+//						Rules: network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray{
+//							&network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs{
+//								Name: pulumi.String("nat_rule_collection1_rule1"),
+//								Protocols: pulumi.StringArray{
+//									pulumi.String("TCP"),
+//									pulumi.String("UDP"),
+//								},
+//								SourceAddresses: pulumi.StringArray{
+//									pulumi.String("10.0.0.1"),
+//									pulumi.String("10.0.0.2"),
+//								},
+//								DestinationAddress: pulumi.String("192.168.1.1"),
+//								DestinationPorts:   pulumi.String("80"),
+//								TranslatedAddress:  pulumi.String("192.168.0.1"),
+//								TranslatedPort:     pulumi.Int(8080),
+//							},
+//						},
+//						Name:     pulumi.String("nat_rule_collection1"),
+//						Priority: pulumi.Int(300),
+//						Action:   pulumi.String("Dnat"),
 //					},
 //				},
 //				NetworkRuleCollections: network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArray{
 //					&network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs{
-//						Name:     pulumi.String("network_rule_collection1"),
-//						Priority: pulumi.Int(400),
-//						Action:   pulumi.String("Deny"),
 //						Rules: network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArray{
 //							&network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs{
 //								Name: pulumi.String("network_rule_collection1_rule1"),
@@ -101,32 +119,14 @@ import (
 //								},
 //							},
 //						},
+//						Name:     pulumi.String("network_rule_collection1"),
+//						Priority: pulumi.Int(400),
+//						Action:   pulumi.String("Deny"),
 //					},
 //				},
-//				NatRuleCollections: network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArray{
-//					&network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs{
-//						Name:     pulumi.String("nat_rule_collection1"),
-//						Priority: pulumi.Int(300),
-//						Action:   pulumi.String("Dnat"),
-//						Rules: network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArray{
-//							&network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs{
-//								Name: pulumi.String("nat_rule_collection1_rule1"),
-//								Protocols: pulumi.StringArray{
-//									pulumi.String("TCP"),
-//									pulumi.String("UDP"),
-//								},
-//								SourceAddresses: pulumi.StringArray{
-//									pulumi.String("10.0.0.1"),
-//									pulumi.String("10.0.0.2"),
-//								},
-//								DestinationAddress: pulumi.String("192.168.1.1"),
-//								DestinationPorts:   pulumi.String("80"),
-//								TranslatedAddress:  pulumi.String("192.168.0.1"),
-//								TranslatedPort:     pulumi.Int(8080),
-//							},
-//						},
-//					},
-//				},
+//				Name:             pulumi.String("example-fwpolicy-rcg"),
+//				FirewallPolicyId: exampleFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
+//				Priority:         pulumi.Int(500),
 //			})
 //			if err != nil {
 //				return err

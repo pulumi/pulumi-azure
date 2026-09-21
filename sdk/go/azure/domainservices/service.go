@@ -28,7 +28,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/domainservices"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,9 +65,6 @@ import (
 //				return err
 //			}
 //			deployNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "deploy", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("deploy-nsg"),
-//				Location:          deploy.Location,
-//				ResourceGroupName: deploy.Name,
 //				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
 //					&network.NetworkSecurityGroupSecurityRuleArgs{
 //						Name:                     pulumi.String("AllowSyncWithAzureAD"),
@@ -114,6 +111,9 @@ import (
 //						DestinationAddressPrefix: pulumi.String("*"),
 //					},
 //				},
+//				Name:              pulumi.String("deploy-nsg"),
+//				Location:          deploy.Location,
+//				ResourceGroupName: deploy.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -126,16 +126,16 @@ import (
 //				return err
 //			}
 //			dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
-//				DisplayName:     pulumi.String("AAD DC Administrators"),
-//				SecurityEnabled: pulumi.Bool(true),
+//				DisplayName:     "AAD DC Administrators",
+//				SecurityEnabled: true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
-//				UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.com"),
-//				DisplayName:       pulumi.String("DC Administrator"),
-//				Password:          pulumi.String("Pa55w0Rd!!1"),
+//				UserPrincipalName: "dc-admin@hashicorp-example.com",
+//				DisplayName:       "DC Administrator",
+//				Password:          "Pa55w0Rd!!1",
 //			})
 //			if err != nil {
 //				return err
@@ -161,12 +161,6 @@ import (
 //				return err
 //			}
 //			_, err = domainservices.NewService(ctx, "example", &domainservices.ServiceArgs{
-//				Name:                pulumi.String("example-aadds"),
-//				Location:            aadds.Location,
-//				ResourceGroupName:   aadds.Name,
-//				DomainName:          pulumi.String("widgetslogin.net"),
-//				Sku:                 pulumi.String("Enterprise"),
-//				FilteredSyncEnabled: pulumi.Bool(false),
 //				InitialReplicaSet: &domainservices.ServiceInitialReplicaSetArgs{
 //					SubnetId: deploySubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
@@ -183,6 +177,12 @@ import (
 //					SyncNtlmPasswords:     pulumi.Bool(true),
 //					SyncOnPremPasswords:   pulumi.Bool(true),
 //				},
+//				Name:                pulumi.String("example-aadds"),
+//				Location:            aadds.Location,
+//				ResourceGroupName:   aadds.Name,
+//				DomainName:          pulumi.String("widgetslogin.net"),
+//				Sku:                 pulumi.String("Enterprise"),
+//				FilteredSyncEnabled: pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("prod"),
 //				},

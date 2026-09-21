@@ -34,9 +34,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Name = "example-network-manager",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -44,6 +41,9 @@ namespace Pulumi.Azure.Network
     ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
+    ///         Name = "example-network-manager",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ScopeAccesses = new[]
     ///         {
     ///             "Routing",
@@ -75,9 +75,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkManagerRoutingRule = new Azure.Network.NetworkManagerRoutingRule("example", new()
     ///     {
-    ///         Name = "example-routing-rule",
-    ///         RuleCollectionId = exampleNetworkManagerRoutingRuleCollection.Id,
-    ///         Description = "example routing rule",
     ///         Destination = new Azure.Network.Inputs.NetworkManagerRoutingRuleDestinationArgs
     ///         {
     ///             Type = "AddressPrefix",
@@ -87,6 +84,9 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             Type = "VirtualNetworkGateway",
     ///         },
+    ///         Name = "example-routing-rule",
+    ///         RuleCollectionId = exampleNetworkManagerRoutingRuleCollection.Id,
+    ///         Description = "example routing rule",
     ///     });
     /// 
     /// });

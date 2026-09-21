@@ -26,15 +26,15 @@ import * as utilities from "../utilities";
  *     sku: "pergb2018",
  * });
  * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/SecurityInsights",
+ *     },
  *     solutionName: "SecurityInsights",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     workspaceName: exampleAnalyticsWorkspace.name,
- *     plan: {
- *         publisher: "Microsoft",
- *         product: "OMSGallery/SecurityInsights",
- *     },
  * });
  * const exampleAlertRuleNrt = new azure.sentinel.AlertRuleNrt("example", {
  *     name: "example",

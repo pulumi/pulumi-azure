@@ -55,12 +55,6 @@ import (
 //				return err
 //			}
 //			exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "example", &network.VpnServerConfigurationArgs{
-//				Name:              pulumi.String("example-config"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
-//				VpnAuthenticationTypes: pulumi.StringArray{
-//					pulumi.String("Certificate"),
-//				},
 //				ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
 //					&network.VpnServerConfigurationClientRootCertificateArgs{
 //						Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
@@ -89,27 +83,33 @@ import (
 //
 //					},
 //				},
+//				Name:              pulumi.String("example-config"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				VpnAuthenticationTypes: pulumi.StringArray{
+//					pulumi.String("Certificate"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewPointToPointVpnGateway(ctx, "example", &network.PointToPointVpnGatewayArgs{
+//				ConnectionConfigurations: network.PointToPointVpnGatewayConnectionConfigurationArray{
+//					&network.PointToPointVpnGatewayConnectionConfigurationArgs{
+//						VpnClientAddressPool: &network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{
+//							AddressPrefixes: pulumi.StringArray{
+//								pulumi.String("10.0.2.0/24"),
+//							},
+//						},
+//						Name: pulumi.String("example-gateway-config"),
+//					},
+//				},
 //				Name:                     pulumi.String("example-vpn-gateway"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
 //				VirtualHubId:             exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				VpnServerConfigurationId: exampleVpnServerConfiguration.ID().ToIDOutput().ToStringOutput(),
 //				ScaleUnit:                pulumi.Int(1),
-//				ConnectionConfigurations: network.PointToPointVpnGatewayConnectionConfigurationArray{
-//					&network.PointToPointVpnGatewayConnectionConfigurationArgs{
-//						Name: pulumi.String("example-gateway-config"),
-//						VpnClientAddressPool: &network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs{
-//							AddressPrefixes: pulumi.StringArray{
-//								pulumi.String("10.0.2.0/24"),
-//							},
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

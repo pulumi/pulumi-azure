@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.hdinsight.KafkaClusterArgs;
  * import com.pulumi.azure.hdinsight.inputs.KafkaClusterComponentVersionArgs;
  * import com.pulumi.azure.hdinsight.inputs.KafkaClusterGatewayArgs;
- * import com.pulumi.azure.hdinsight.inputs.KafkaClusterStorageAccountArgs;
  * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesArgs;
  * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesHeadNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesWorkerNodeArgs;
  * import com.pulumi.azure.hdinsight.inputs.KafkaClusterRolesZookeeperNodeArgs;
+ * import com.pulumi.azure.hdinsight.inputs.KafkaClusterStorageAccountArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -91,22 +91,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKafkaCluster = new KafkaCluster("exampleKafkaCluster", KafkaClusterArgs.builder()
- *             .name("example-hdicluster")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .clusterVersion("4.0")
- *             .tier("Standard")
  *             .componentVersion(KafkaClusterComponentVersionArgs.builder()
  *                 .kafka("2.1")
  *                 .build())
  *             .gateway(KafkaClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password123!")
- *                 .build())
- *             .storageAccounts(KafkaClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
- *                 .storageAccountKey(exampleAccount.primaryAccessKey())
- *                 .isDefault(true)
  *                 .build())
  *             .roles(KafkaClusterRolesArgs.builder()
  *                 .headNode(KafkaClusterRolesHeadNodeArgs.builder()
@@ -127,6 +117,16 @@ import javax.annotation.Nullable;
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .build())
+ *             .storageAccounts(KafkaClusterStorageAccountArgs.builder()
+ *                 .storageContainerId(exampleContainer.id())
+ *                 .storageAccountKey(exampleAccount.primaryAccessKey())
+ *                 .isDefault(true)
+ *                 .build())
+ *             .name("example-hdicluster")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .clusterVersion("4.0")
+ *             .tier("Standard")
  *             .build());
  * 
  *     }

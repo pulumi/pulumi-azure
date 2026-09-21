@@ -29,17 +29,17 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-subnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             name: "Microsoft.ServiceNetworking/trafficControllers",
  *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const exampleLicationLoadBalancerSubnetAssociation = new azure.appconfiguration.LicationLoadBalancerSubnetAssociation("example", {
  *     name: "example",

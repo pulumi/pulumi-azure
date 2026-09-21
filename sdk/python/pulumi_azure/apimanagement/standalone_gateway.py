@@ -290,27 +290,27 @@ class StandaloneGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "apim-delegation",
                 "service_delegation": {
                     "name": "Microsoft.Web/serverFarms",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
-            }])
+                "name": "apim-delegation",
+            }],
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         example_standalone_gateway = azure.apimanagement.StandaloneGateway("example",
+            sku={
+                "capacity": 1,
+                "name": "WorkspaceGatewayPremium",
+            },
             name="example-gateway-flexible",
             resource_group_name=example.name,
             location=example.location,
             virtual_network_type="External",
             backend_subnet_id=example_subnet.id,
-            sku={
-                "capacity": 1,
-                "name": "WorkspaceGatewayPremium",
-            },
             tags={
                 "Hello": "World",
             })
@@ -366,27 +366,27 @@ class StandaloneGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/24"],
             delegations=[{
-                "name": "apim-delegation",
                 "service_delegation": {
                     "name": "Microsoft.Web/serverFarms",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
-            }])
+                "name": "apim-delegation",
+            }],
+            name="example-subnet",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
         example_standalone_gateway = azure.apimanagement.StandaloneGateway("example",
+            sku={
+                "capacity": 1,
+                "name": "WorkspaceGatewayPremium",
+            },
             name="example-gateway-flexible",
             resource_group_name=example.name,
             location=example.location,
             virtual_network_type="External",
             backend_subnet_id=example_subnet.id,
-            sku={
-                "capacity": 1,
-                "name": "WorkspaceGatewayPremium",
-            },
             tags={
                 "Hello": "World",
             })

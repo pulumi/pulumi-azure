@@ -55,13 +55,13 @@ import (
 //				return err
 //			}
 //			exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
+//				Identity: &core.ResourcePolicyAssignmentIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:               pulumi.String("assignment1"),
 //				ResourceId:         exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Location:           exampleResourceGroup.Location,
-//				Identity: &core.ResourcePolicyAssignmentIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

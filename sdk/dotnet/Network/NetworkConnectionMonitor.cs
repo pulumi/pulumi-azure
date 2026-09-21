@@ -61,9 +61,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-Nic",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -73,18 +70,13 @@ namespace Pulumi.Azure.Network
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-Nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
     ///     {
-    ///         Name = "example-VM",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
-    ///         VmSize = "Standard_D2s_v3",
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",
@@ -109,6 +101,14 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             DisablePasswordAuthentication = false,
     ///         },
+    ///         Name = "example-VM",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_D2s_v3",
     ///     });
     /// 
     ///     var exampleExtension = new Azure.Compute.Extension("example", new()
@@ -131,15 +131,10 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleNetworkConnectionMonitor = new Azure.Network.NetworkConnectionMonitor("example", new()
     ///     {
-    ///         Name = "example-Monitor",
-    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
-    ///         Location = exampleNetworkWatcher.Location,
     ///         Endpoints = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
     ///             {
-    ///                 Name = "source",
-    ///                 TargetResourceId = exampleVirtualMachine.Id,
     ///                 Filter = new Azure.Network.Inputs.NetworkConnectionMonitorEndpointFilterArgs
     ///                 {
     ///                     Items = new[]
@@ -152,6 +147,8 @@ namespace Pulumi.Azure.Network
     ///                     },
     ///                     Type = "Include",
     ///                 },
+    ///                 Name = "source",
+    ///                 TargetResourceId = exampleVirtualMachine.Id,
     ///             },
     ///             new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
     ///             {
@@ -163,13 +160,13 @@ namespace Pulumi.Azure.Network
     ///         {
     ///             new Azure.Network.Inputs.NetworkConnectionMonitorTestConfigurationArgs
     ///             {
-    ///                 Name = "tcpName",
-    ///                 Protocol = "Tcp",
-    ///                 TestFrequencyInSeconds = 60,
     ///                 TcpConfiguration = new Azure.Network.Inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
     ///                 {
     ///                     Port = 80,
     ///                 },
+    ///                 Name = "tcpName",
+    ///                 Protocol = "Tcp",
+    ///                 TestFrequencyInSeconds = 60,
     ///             },
     ///         },
     ///         TestGroups = new[]
@@ -191,6 +188,9 @@ namespace Pulumi.Azure.Network
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-Monitor",
+    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
+    ///         Location = exampleNetworkWatcher.Location,
     ///         Notes = "examplenote",
     ///         OutputWorkspaceResourceIds = new[]
     ///         {

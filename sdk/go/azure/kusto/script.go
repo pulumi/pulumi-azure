@@ -38,13 +38,13 @@ import (
 //				return err
 //			}
 //			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -87,11 +87,6 @@ import (
 //				return err
 //			}
 //			example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
-//				ConnectionString: exampleAccount.PrimaryConnectionString,
-//				ContainerName:    exampleContainer.Name,
-//				HttpsOnly:        pulumi.Bool(true),
-//				Start:            pulumi.String("2017-03-21"),
-//				Expiry:           pulumi.String("2022-03-21"),
 //				Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
 //					Read:   pulumi.Bool(true),
 //					Add:    pulumi.Bool(false),
@@ -100,6 +95,11 @@ import (
 //					Delete: pulumi.Bool(false),
 //					List:   pulumi.Bool(true),
 //				},
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				ContainerName:    exampleContainer.Name,
+//				HttpsOnly:        pulumi.Bool(true),
+//				Start:            pulumi.String("2017-03-21"),
+//				Expiry:           pulumi.String("2022-03-21"),
 //			}, nil)
 //			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
 //				Name:                          pulumi.String("example"),

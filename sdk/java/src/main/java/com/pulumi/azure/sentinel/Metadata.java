@@ -68,15 +68,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAnalyticsSolution = new AnalyticsSolution("exampleAnalyticsSolution", AnalyticsSolutionArgs.builder()
+ *             .plan(AnalyticsSolutionPlanArgs.builder()
+ *                 .publisher("Microsoft")
+ *                 .product("OMSGallery/SecurityInsights")
+ *                 .build())
  *             .solutionName("SecurityInsights")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
- *             .plan(AnalyticsSolutionPlanArgs.builder()
- *                 .publisher("Microsoft")
- *                 .product("OMSGallery/SecurityInsights")
- *                 .build())
  *             .build());
  * 
  *         var exampleAlertRuleNrt = new AlertRuleNrt("exampleAlertRuleNrt", AlertRuleNrtArgs.builder()

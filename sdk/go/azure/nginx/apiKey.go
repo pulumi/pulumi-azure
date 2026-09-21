@@ -62,33 +62,28 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("delegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("NGINX.NGINXPLUS/nginxDeployments"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("delegation"),
 //					},
+//				},
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleDeployment, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
-//				Name:                    pulumi.String("example-nginx"),
-//				ResourceGroupName:       example.Name,
-//				Sku:                     pulumi.String("standardv3_Monthly"),
-//				Location:                example.Location,
-//				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
 //						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
@@ -99,8 +94,13 @@ import (
 //						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				Capacity: pulumi.Int(20),
-//				Email:    pulumi.String("user@test.com"),
+//				Name:                    pulumi.String("example-nginx"),
+//				ResourceGroupName:       example.Name,
+//				Sku:                     pulumi.String("standardv3_Monthly"),
+//				Location:                example.Location,
+//				AutomaticUpgradeChannel: pulumi.String("stable"),
+//				Capacity:                pulumi.Int(20),
+//				Email:                   pulumi.String("user@test.com"),
 //			})
 //			if err != nil {
 //				return err

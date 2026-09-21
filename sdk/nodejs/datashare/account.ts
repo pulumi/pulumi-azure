@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAccount = new azure.datashare.Account("example", {
- *     name: "example-dsa",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-dsa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         foo: "bar",
  *     },

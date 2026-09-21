@@ -54,10 +54,6 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     ///     var exampleApp = new Azure.ContainerApp.App("example", new()
     ///     {
-    ///         Name = "example-app",
-    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         ResourceGroupName = example.Name,
-    ///         RevisionMode = "Single",
     ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
     ///         {
     ///             Containers = new[]
@@ -73,10 +69,6 @@ namespace Pulumi.Azure.ContainerApp
     ///         },
     ///         Ingress = new Azure.ContainerApp.Inputs.AppIngressArgs
     ///         {
-    ///             AllowInsecureConnections = false,
-    ///             ExternalEnabled = true,
-    ///             TargetPort = 5000,
-    ///             Transport = "http",
     ///             TrafficWeights = new[]
     ///             {
     ///                 new Azure.ContainerApp.Inputs.AppIngressTrafficWeightArgs
@@ -85,15 +77,19 @@ namespace Pulumi.Azure.ContainerApp
     ///                     Percentage = 100,
     ///                 },
     ///             },
+    ///             AllowInsecureConnections = false,
+    ///             ExternalEnabled = true,
+    ///             TargetPort = 5000,
+    ///             Transport = "http",
     ///         },
+    ///         Name = "example-app",
+    ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
+    ///         ResourceGroupName = example.Name,
+    ///         RevisionMode = "Single",
     ///     });
     /// 
     ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = "asuid.example",
-    ///         ResourceGroupName = exampleZone.ResourceGroupName,
-    ///         ZoneName = exampleZone.Name,
-    ///         Ttl = 300,
     ///         Records = new[]
     ///         {
     ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
@@ -101,6 +97,10 @@ namespace Pulumi.Azure.ContainerApp
     ///                 Value = exampleApp.CustomDomainVerificationId,
     ///             },
     ///         },
+    ///         Name = "asuid.example",
+    ///         ResourceGroupName = exampleZone.ResourceGroupName,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
     ///     });
     /// 
     ///     var exampleEnvironmentCertificate = new Azure.ContainerApp.EnvironmentCertificate("example", new()
@@ -110,21 +110,21 @@ namespace Pulumi.Azure.ContainerApp
     ///         CertificateBlob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         CertificatePassword = "$3cretSqu1rreL",
     ///     });
     /// 
     ///     var exampleCustomDomain = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Trimprefix.Invoke(new()
+    ///         Name = Std.Trimsuffix.Invoke(new()
     ///         {
-    ///             Input = api.Fqdn,
-    ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
-    ///         {
-    ///             Input = invoke.Result,
+    ///             Input = Std.Trimprefix.Invoke(new()
+    ///             {
+    ///                 Input = api.Fqdn,
+    ///                 Prefix = "asuid.",
+    ///             }).Result,
     ///             Suffix = ".",
-    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         ContainerAppId = exampleApp.Id,
     ///         ContainerAppEnvironmentCertificateId = exampleEnvironmentCertificate.Id,
     ///         CertificateBindingType = "SniEnabled",
@@ -146,16 +146,23 @@ namespace Pulumi.Azure.ContainerApp
     /// {
     ///     var example = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Trimprefix.Invoke(new()
+    ///         Name = Std.Trimsuffix.Invoke(new()
     ///         {
-    ///             Input = api.Fqdn,
-    ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
-    ///         {
-    ///             Input = invoke.Result,
+    ///             Input = Std.Trimprefix.Invoke(new()
+    ///             {
+    ///                 Input = api.Fqdn,
+    ///                 Prefix = "asuid.",
+    ///             }).Result,
     ///             Suffix = ".",
-    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         ContainerAppId = exampleAzurermContainerApp.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "certificateBindingType",
+    ///             "containerAppEnvironmentCertificateId",
+    ///         },
     ///     });
     /// 
     /// });

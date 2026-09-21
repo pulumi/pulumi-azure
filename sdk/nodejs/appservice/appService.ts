@@ -26,31 +26,31 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const examplePlan = new azure.appservice.Plan("example", {
- *     name: "example-appserviceplan",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
- * });
- * const exampleAppService = new azure.appservice.AppService("example", {
- *     name: "example-app-service",
+ *     name: "example-appserviceplan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleAppService = new azure.appservice.AppService("example", {
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *         scmType: "LocalGit",
- *     },
- *     appSettings: {
- *         SOME_KEY: "some-value",
  *     },
  *     connectionStrings: [{
  *         name: "Database",
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
+ *     name: "example-app-service",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     appServicePlanId: examplePlan.id,
+ *     appSettings: {
+ *         SOME_KEY: "some-value",
+ *     },
  * });
  * ```
  *

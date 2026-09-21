@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.AuthorizationFunctions;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
- * import com.pulumiverse.time.Static;
+ * import com.pulumi.time.Static;
  * import com.pulumi.azure.pim.ActiveRoleAssignment;
  * import com.pulumi.azure.pim.ActiveRoleAssignmentArgs;
  * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleArgs;
@@ -64,20 +64,20 @@ import javax.annotation.Nullable;
  *         var exampleStatic = new Static("exampleStatic");
  * 
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment("exampleActiveRoleAssignment", ActiveRoleAssignmentArgs.builder()
- *             .scope(primary.id())
- *             .roleDefinitionId(String.format("%s%s", primary.id(),exampleGetRoleDefinition.id()))
- *             .principalId(example.objectId())
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
- *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()
  *                     .durationHours(8)
  *                     .build())
+ *                 .startDateTime(exampleStatic.rfc3339())
  *                 .build())
- *             .justification("Expiration Duration Set")
  *             .ticket(ActiveRoleAssignmentTicketArgs.builder()
  *                 .number("1")
  *                 .system("example ticket system")
  *                 .build())
+ *             .scope(primary.id())
+ *             .roleDefinitionId(String.format("%s%s", primary.id(),exampleGetRoleDefinition.id()))
+ *             .principalId(example.objectId())
+ *             .justification("Expiration Duration Set")
  *             .build());
  * 
  *     }
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.management.Group;
  * import com.pulumi.azure.management.GroupArgs;
- * import com.pulumiverse.time.Static;
+ * import com.pulumi.time.Static;
  * import com.pulumi.azure.pim.ActiveRoleAssignment;
  * import com.pulumi.azure.pim.ActiveRoleAssignmentArgs;
  * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleArgs;
@@ -131,20 +131,20 @@ import javax.annotation.Nullable;
  *         var exampleStatic = new Static("exampleStatic");
  * 
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment("exampleActiveRoleAssignment", ActiveRoleAssignmentArgs.builder()
- *             .scope(exampleGroup.id())
- *             .roleDefinitionId(exampleGetRoleDefinition.id())
- *             .principalId(example.objectId())
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
- *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()
  *                     .durationHours(8)
  *                     .build())
+ *                 .startDateTime(exampleStatic.rfc3339())
  *                 .build())
- *             .justification("Expiration Duration Set")
  *             .ticket(ActiveRoleAssignmentTicketArgs.builder()
  *                 .number("1")
  *                 .system("example ticket system")
  *                 .build())
+ *             .scope(exampleGroup.id())
+ *             .roleDefinitionId(exampleGetRoleDefinition.id())
+ *             .principalId(example.objectId())
+ *             .justification("Expiration Duration Set")
  *             .build());
  * 
  *     }

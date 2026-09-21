@@ -51,13 +51,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RoleDefinition("example", RoleDefinitionArgs.builder()
- *             .name("my-custom-role")
- *             .scope(primary.id())
- *             .description("This is a custom role created")
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("*")
  *                 .notActions()
  *                 .build())
+ *             .name("my-custom-role")
+ *             .scope(primary.id())
+ *             .description("This is a custom role created")
  *             .assignableScopes(primary.id())
  *             .build());
  * 
@@ -103,13 +103,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
- *             .name("example-mg-role")
- *             .scope(example.id())
- *             .description("Example custom role scoped to a management group.")
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Insights/alertRules/*")
  *                 .notActions()
  *                 .build())
+ *             .name("example-mg-role")
+ *             .scope(example.id())
+ *             .description("Example custom role scoped to a management group.")
  *             .assignableScopes(example.id())
  *             .build());
  * 

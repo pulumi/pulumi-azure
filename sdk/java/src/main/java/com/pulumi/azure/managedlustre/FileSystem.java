@@ -76,6 +76,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFileSystem = new FileSystem("exampleFileSystem", FileSystemArgs.builder()
+ *             .maintenanceWindow(FileSystemMaintenanceWindowArgs.builder()
+ *                 .dayOfWeek("Friday")
+ *                 .timeOfDayUtc("22:00")
+ *                 .build())
  *             .name("example-amlfs")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -83,10 +87,6 @@ import javax.annotation.Nullable;
  *             .subnetId(exampleSubnet.id())
  *             .storageCapacityInTb(8)
  *             .zones("2")
- *             .maintenanceWindow(FileSystemMaintenanceWindowArgs.builder()
- *                 .dayOfWeek("Friday")
- *                 .timeOfDayUtc("22:00")
- *                 .build())
  *             .build());
  * 
  *     }

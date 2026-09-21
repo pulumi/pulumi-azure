@@ -61,13 +61,13 @@ import * as utilities from "../utilities";
  *     keyVaultId: exampleKeyVault.id,
  * });
  * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("example", {
- *     name: "example",
- *     dataFactoryId: exampleFactory.id,
- *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  *     keyVaultPassword: {
  *         linkedServiceName: exampleLinkedServiceKeyVault.name,
  *         secretName: "secret",
  *     },
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
  * ```
  *

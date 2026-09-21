@@ -52,19 +52,6 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewTriggerTumblingWindow(ctx, "example", &datafactory.TriggerTumblingWindowArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				StartTime:     pulumi.String("2022-09-21T00:00:00Z"),
-//				EndTime:       pulumi.String("2022-09-21T08:00:00Z"),
-//				Frequency:     pulumi.String("Minute"),
-//				Interval:      pulumi.Int(15),
-//				Delay:         pulumi.String("16:00:00"),
-//				Annotations: pulumi.StringArray{
-//					pulumi.String("example1"),
-//					pulumi.String("example2"),
-//					pulumi.String("example3"),
-//				},
-//				Description: pulumi.String("example description"),
 //				Retry: &datafactory.TriggerTumblingWindowRetryArgs{
 //					Count:    pulumi.Int(1),
 //					Interval: pulumi.Int(30),
@@ -81,6 +68,19 @@ import (
 //						Offset: pulumi.String("-24:00:00"),
 //					},
 //				},
+//				Name:          pulumi.String("example"),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				StartTime:     pulumi.String("2022-09-21T00:00:00Z"),
+//				EndTime:       pulumi.String("2022-09-21T08:00:00Z"),
+//				Frequency:     pulumi.String("Minute"),
+//				Interval:      pulumi.Int(15),
+//				Delay:         pulumi.String("16:00:00"),
+//				Annotations: pulumi.StringArray{
+//					pulumi.String("example1"),
+//					pulumi.String("example2"),
+//					pulumi.String("example3"),
+//				},
+//				Description: pulumi.String("example description"),
 //				AdditionalProperties: pulumi.StringMap{
 //					"foo": pulumi.String("value1"),
 //					"bar": pulumi.String("value2"),

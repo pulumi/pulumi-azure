@@ -60,6 +60,10 @@ import (
 //				return err
 //			}
 //			_, err = managedlustre.NewFileSystem(ctx, "example", &managedlustre.FileSystemArgs{
+//				MaintenanceWindow: &managedlustre.FileSystemMaintenanceWindowArgs{
+//					DayOfWeek:    pulumi.String("Friday"),
+//					TimeOfDayUtc: "22:00",
+//				},
 //				Name:                pulumi.String("example-amlfs"),
 //				ResourceGroupName:   example.Name,
 //				Location:            example.Location,
@@ -68,10 +72,6 @@ import (
 //				StorageCapacityInTb: pulumi.Int(8),
 //				Zones: pulumi.StringArray{
 //					pulumi.String("2"),
-//				},
-//				MaintenanceWindow: &managedlustre.FileSystemMaintenanceWindowArgs{
-//					DayOfWeek:    pulumi.String("Friday"),
-//					TimeOfDayUtc: "22:00",
 //				},
 //			})
 //			if err != nil {

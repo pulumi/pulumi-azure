@@ -24,10 +24,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleMxRecord = new azure.privatedns.MxRecord("example", {
- *     name: "example",
- *     resourceGroupName: example.name,
- *     zoneName: exampleZone.name,
- *     ttl: 300,
  *     records: [
  *         {
  *             preference: 10,
@@ -38,6 +34,10 @@ import * as utilities from "../utilities";
  *             exchange: "backupmx.contoso.com",
  *         },
  *     ],
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     zoneName: exampleZone.name,
+ *     ttl: 300,
  *     tags: {
  *         Environment: "Production",
  *     },

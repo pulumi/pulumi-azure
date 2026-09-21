@@ -24,10 +24,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleSRVRecord = new azure.privatedns.SRVRecord("example", {
- *     name: "test",
- *     resourceGroupName: example.name,
- *     zoneName: exampleZone.name,
- *     ttl: 300,
  *     records: [
  *         {
  *             priority: 1,
@@ -42,6 +38,10 @@ import * as utilities from "../utilities";
  *             target: "target2.contoso.com",
  *         },
  *     ],
+ *     name: "test",
+ *     resourceGroupName: example.name,
+ *     zoneName: exampleZone.name,
+ *     ttl: 300,
  *     tags: {
  *         Environment: "Production",
  *     },

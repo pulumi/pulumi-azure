@@ -32,24 +32,24 @@ import * as utilities from "../utilities";
  *     addressPrefix: "10.0.1.0/24",
  * });
  * const exampleFirewall = new azure.network.Firewall("example", {
+ *     virtualHub: {
+ *         virtualHubId: exampleVirtualHub.id,
+ *         publicIpCount: 1,
+ *     },
  *     name: "example-fw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "AZFW_Hub",
  *     skuTier: "Standard",
- *     virtualHub: {
- *         virtualHubId: exampleVirtualHub.id,
- *         publicIpCount: 1,
- *     },
  * });
  * const exampleRoutingIntent = new azure.network.RoutingIntent("example", {
- *     name: "example-routingintent",
- *     virtualHubId: exampleVirtualHub.id,
  *     routingPolicies: [{
  *         name: "InternetTrafficPolicy",
  *         destinations: ["Internet"],
  *         nextHop: exampleFirewall.id,
  *     }],
+ *     name: "example-routingintent",
+ *     virtualHubId: exampleVirtualHub.id,
  * });
  * ```
  *

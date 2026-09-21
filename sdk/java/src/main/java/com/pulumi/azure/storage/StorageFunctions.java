@@ -358,12 +358,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
-     *             .connectionString(storage.primaryConnectionString())
-     *             .containerName(container.name())
-     *             .httpsOnly(true)
-     *             .ipAddress("168.1.5.65")
-     *             .start("2018-03-21")
-     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -372,6 +366,12 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
+     *             .connectionString(storage.primaryConnectionString())
+     *             .containerName(container.name())
+     *             .httpsOnly(true)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .cacheControl("max-age=5")
      *             .contentDisposition("inline")
      *             .contentEncoding("deflate")
@@ -445,12 +445,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
-     *             .connectionString(storage.primaryConnectionString())
-     *             .containerName(container.name())
-     *             .httpsOnly(true)
-     *             .ipAddress("168.1.5.65")
-     *             .start("2018-03-21")
-     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -459,6 +453,12 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
+     *             .connectionString(storage.primaryConnectionString())
+     *             .containerName(container.name())
+     *             .httpsOnly(true)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .cacheControl("max-age=5")
      *             .contentDisposition("inline")
      *             .contentEncoding("deflate")
@@ -532,12 +532,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
-     *             .connectionString(storage.primaryConnectionString())
-     *             .containerName(container.name())
-     *             .httpsOnly(true)
-     *             .ipAddress("168.1.5.65")
-     *             .start("2018-03-21")
-     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -546,6 +540,12 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
+     *             .connectionString(storage.primaryConnectionString())
+     *             .containerName(container.name())
+     *             .httpsOnly(true)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .cacheControl("max-age=5")
      *             .contentDisposition("inline")
      *             .contentEncoding("deflate")
@@ -619,12 +619,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
-     *             .connectionString(storage.primaryConnectionString())
-     *             .containerName(container.name())
-     *             .httpsOnly(true)
-     *             .ipAddress("168.1.5.65")
-     *             .start("2018-03-21")
-     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -633,6 +627,12 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
+     *             .connectionString(storage.primaryConnectionString())
+     *             .containerName(container.name())
+     *             .httpsOnly(true)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .cacheControl("max-age=5")
      *             .contentDisposition("inline")
      *             .contentEncoding("deflate")
@@ -706,12 +706,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
-     *             .connectionString(storage.primaryConnectionString())
-     *             .containerName(container.name())
-     *             .httpsOnly(true)
-     *             .ipAddress("168.1.5.65")
-     *             .start("2018-03-21")
-     *             .expiry("2018-03-21")
      *             .permissions(GetAccountBlobContainerSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .add(true)
@@ -720,6 +714,12 @@ public final class StorageFunctions {
      *                 .delete(true)
      *                 .list(true)
      *                 .build())
+     *             .connectionString(storage.primaryConnectionString())
+     *             .containerName(container.name())
+     *             .httpsOnly(true)
+     *             .ipAddress("168.1.5.65")
+     *             .start("2018-03-21")
+     *             .expiry("2018-03-21")
      *             .cacheControl("max-age=5")
      *             .contentDisposition("inline")
      *             .contentEncoding("deflate")
@@ -791,9 +791,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
-     *             .connectionString(exampleAccount.primaryConnectionString())
-     *             .httpsOnly(true)
-     *             .signedVersion("2022-11-02")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -805,8 +802,6 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start("2018-03-21T00:00:00Z")
-     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -819,6 +814,11 @@ public final class StorageFunctions {
      *                 .tag(false)
      *                 .filter(false)
      *                 .build())
+     *             .connectionString(exampleAccount.primaryConnectionString())
+     *             .httpsOnly(true)
+     *             .signedVersion("2022-11-02")
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .build());
      * 
      *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
@@ -885,9 +885,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
-     *             .connectionString(exampleAccount.primaryConnectionString())
-     *             .httpsOnly(true)
-     *             .signedVersion("2022-11-02")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -899,8 +896,6 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start("2018-03-21T00:00:00Z")
-     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -913,6 +908,11 @@ public final class StorageFunctions {
      *                 .tag(false)
      *                 .filter(false)
      *                 .build())
+     *             .connectionString(exampleAccount.primaryConnectionString())
+     *             .httpsOnly(true)
+     *             .signedVersion("2022-11-02")
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .build());
      * 
      *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
@@ -979,9 +979,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
-     *             .connectionString(exampleAccount.primaryConnectionString())
-     *             .httpsOnly(true)
-     *             .signedVersion("2022-11-02")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -993,8 +990,6 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start("2018-03-21T00:00:00Z")
-     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -1007,6 +1002,11 @@ public final class StorageFunctions {
      *                 .tag(false)
      *                 .filter(false)
      *                 .build())
+     *             .connectionString(exampleAccount.primaryConnectionString())
+     *             .httpsOnly(true)
+     *             .signedVersion("2022-11-02")
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .build());
      * 
      *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
@@ -1073,9 +1073,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
-     *             .connectionString(exampleAccount.primaryConnectionString())
-     *             .httpsOnly(true)
-     *             .signedVersion("2022-11-02")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -1087,8 +1084,6 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start("2018-03-21T00:00:00Z")
-     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -1101,6 +1096,11 @@ public final class StorageFunctions {
      *                 .tag(false)
      *                 .filter(false)
      *                 .build())
+     *             .connectionString(exampleAccount.primaryConnectionString())
+     *             .httpsOnly(true)
+     *             .signedVersion("2022-11-02")
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .build());
      * 
      *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
@@ -1167,9 +1167,6 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
-     *             .connectionString(exampleAccount.primaryConnectionString())
-     *             .httpsOnly(true)
-     *             .signedVersion("2022-11-02")
      *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
      *                 .service(true)
      *                 .container(false)
@@ -1181,8 +1178,6 @@ public final class StorageFunctions {
      *                 .table(false)
      *                 .file(false)
      *                 .build())
-     *             .start("2018-03-21T00:00:00Z")
-     *             .expiry("2020-03-21T00:00:00Z")
      *             .permissions(GetAccountSASPermissionsArgs.builder()
      *                 .read(true)
      *                 .write(true)
@@ -1195,6 +1190,11 @@ public final class StorageFunctions {
      *                 .tag(false)
      *                 .filter(false)
      *                 .build())
+     *             .connectionString(exampleAccount.primaryConnectionString())
+     *             .httpsOnly(true)
+     *             .signedVersion("2022-11-02")
+     *             .start("2018-03-21T00:00:00Z")
+     *             .expiry("2020-03-21T00:00:00Z")
      *             .build());
      * 
      *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));

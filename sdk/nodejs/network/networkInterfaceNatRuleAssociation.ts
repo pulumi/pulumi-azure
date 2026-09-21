@@ -36,13 +36,13 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
- *     name: "example-lb",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "primary",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
+ *     name: "example-lb",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleNatRule = new azure.lb.NatRule("example", {
  *     resourceGroupName: example.name,
@@ -54,14 +54,14 @@ import * as utilities from "../utilities";
  *     frontendIpConfigurationName: "primary",
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "example-nic",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleNetworkInterfaceNatRuleAssociation = new azure.network.NetworkInterfaceNatRuleAssociation("example", {
  *     networkInterfaceId: exampleNetworkInterface.id,

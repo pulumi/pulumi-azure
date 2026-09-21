@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West US",
  * });
  * const exampleService = new azure.signalr.Service("example", {
- *     name: "tfex-signalr",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Free_F1",
  *         capacity: 1,
@@ -30,10 +27,6 @@ import * as utilities from "../utilities";
  *     cors: [{
  *         allowedOrigins: ["http://www.example.com"],
  *     }],
- *     publicNetworkAccessEnabled: false,
- *     connectivityLogsEnabled: true,
- *     messagingLogsEnabled: true,
- *     serviceMode: "Default",
  *     upstreamEndpoints: [{
  *         categoryPatterns: [
  *             "connections",
@@ -43,6 +36,13 @@ import * as utilities from "../utilities";
  *         hubPatterns: ["hub1"],
  *         urlTemplate: "http://foo.com",
  *     }],
+ *     name: "tfex-signalr",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     publicNetworkAccessEnabled: false,
+ *     connectivityLogsEnabled: true,
+ *     messagingLogsEnabled: true,
+ *     serviceMode: "Default",
  * });
  * ```
  *

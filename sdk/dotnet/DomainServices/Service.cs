@@ -23,7 +23,7 @@ namespace Pulumi.Azure.DomainServices
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using AzureAD = Pulumi.AzureAD;
+    /// using Azuread = Pulumi.Azuread;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -57,9 +57,6 @@ namespace Pulumi.Azure.DomainServices
     /// 
     ///     var deployNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("deploy", new()
     ///     {
-    ///         Name = "deploy-nsg",
-    ///         Location = deploy.Location,
-    ///         ResourceGroupName = deploy.Name,
     ///         SecurityRules = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
@@ -111,6 +108,9 @@ namespace Pulumi.Azure.DomainServices
     ///                 DestinationAddressPrefix = "*",
     ///             },
     ///         },
+    ///         Name = "deploy-nsg",
+    ///         Location = deploy.Location,
+    ///         ResourceGroupName = deploy.Name,
     ///     });
     /// 
     ///     var deploySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("deploy", new()
@@ -119,26 +119,26 @@ namespace Pulumi.Azure.DomainServices
     ///         NetworkSecurityGroupId = deployNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var dcAdmins = new AzureAD.Group("dc_admins", new()
+    ///     var dcAdmins = new Azuread.Group("dc_admins", new()
     ///     {
     ///         DisplayName = "AAD DC Administrators",
     ///         SecurityEnabled = true,
     ///     });
     /// 
-    ///     var admin = new AzureAD.User("admin", new()
+    ///     var admin = new Azuread.User("admin", new()
     ///     {
     ///         UserPrincipalName = "dc-admin@hashicorp-example.com",
     ///         DisplayName = "DC Administrator",
     ///         Password = "Pa55w0Rd!!1",
     ///     });
     /// 
-    ///     var adminGroupMember = new AzureAD.GroupMember("admin", new()
+    ///     var adminGroupMember = new Azuread.GroupMember("admin", new()
     ///     {
     ///         GroupObjectId = dcAdmins.ObjectId,
     ///         MemberObjectId = admin.ObjectId,
     ///     });
     /// 
-    ///     var example = new AzureAD.ServicePrincipal("example", new()
+    ///     var example = new Azuread.ServicePrincipal("example", new()
     ///     {
     ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
     ///     });
@@ -151,12 +151,6 @@ namespace Pulumi.Azure.DomainServices
     /// 
     ///     var exampleService = new Azure.DomainServices.Service("example", new()
     ///     {
-    ///         Name = "example-aadds",
-    ///         Location = aadds.Location,
-    ///         ResourceGroupName = aadds.Name,
-    ///         DomainName = "widgetslogin.net",
-    ///         Sku = "Enterprise",
-    ///         FilteredSyncEnabled = false,
     ///         InitialReplicaSet = new Azure.DomainServices.Inputs.ServiceInitialReplicaSetArgs
     ///         {
     ///             SubnetId = deploySubnet.Id,
@@ -177,6 +171,12 @@ namespace Pulumi.Azure.DomainServices
     ///             SyncNtlmPasswords = true,
     ///             SyncOnPremPasswords = true,
     ///         },
+    ///         Name = "example-aadds",
+    ///         Location = aadds.Location,
+    ///         ResourceGroupName = aadds.Name,
+    ///         DomainName = "widgetslogin.net",
+    ///         Sku = "Enterprise",
+    ///         FilteredSyncEnabled = false,
     ///         Tags = 
     ///         {
     ///             { "Environment", "prod" },

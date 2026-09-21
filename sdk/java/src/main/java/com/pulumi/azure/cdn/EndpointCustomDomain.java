@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .name("example-endpoint")
- *             .profileName(exampleProfile.name())
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .origins(EndpointOriginArgs.builder()
  *                 .name("example")
  *                 .hostName(exampleAccount.primaryBlobHost())
  *                 .build())
+ *             .name("example-endpoint")
+ *             .profileName(exampleProfile.name())
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()

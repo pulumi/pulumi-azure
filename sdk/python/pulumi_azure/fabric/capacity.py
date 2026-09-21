@@ -261,14 +261,14 @@ class Capacity(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_capacity = azure.fabric.Capacity("example",
-            name="exampleffc",
-            resource_group_name=example.name,
-            location="West Europe",
-            administration_members=[current.object_id],
             sku={
                 "name": "F32",
                 "tier": "Fabric",
             },
+            name="exampleffc",
+            resource_group_name=example.name,
+            location="West Europe",
+            administration_members=[current.object_id],
             tags={
                 "environment": "test",
             })
@@ -321,14 +321,14 @@ class Capacity(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_capacity = azure.fabric.Capacity("example",
-            name="exampleffc",
-            resource_group_name=example.name,
-            location="West Europe",
-            administration_members=[current.object_id],
             sku={
                 "name": "F32",
                 "tier": "Fabric",
             },
+            name="exampleffc",
+            resource_group_name=example.name,
+            location="West Europe",
+            administration_members=[current.object_id],
             tags={
                 "environment": "test",
             })

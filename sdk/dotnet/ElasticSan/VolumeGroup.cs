@@ -30,14 +30,14 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
     ///     {
-    ///         Name = "examplees-es",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
-    ///         BaseSizeInTib = 1,
     ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
     ///         {
     ///             Name = "Premium_LRS",
     ///         },
+    ///         Name = "examplees-es",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         BaseSizeInTib = 1,
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
@@ -159,9 +159,6 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var exampleVolumeGroup = new Azure.ElasticSan.VolumeGroup("example", new()
     ///     {
-    ///         Name = "example-esvg",
-    ///         ElasticSanId = exampleElasticSan.Id,
-    ///         EncryptionType = "EncryptionAtRestWithCustomerManagedKey",
     ///         Encryption = new Azure.ElasticSan.Inputs.VolumeGroupEncryptionArgs
     ///         {
     ///             KeyVaultKeyId = exampleKey.VersionlessId,
@@ -183,6 +180,9 @@ namespace Pulumi.Azure.ElasticSan
     ///                 Action = "Allow",
     ///             },
     ///         },
+    ///         Name = "example-esvg",
+    ///         ElasticSanId = exampleElasticSan.Id,
+    ///         EncryptionType = "EncryptionAtRestWithCustomerManagedKey",
     ///     });
     /// 
     /// });

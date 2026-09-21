@@ -52,9 +52,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Name = "example-nic",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -64,6 +61,9 @@ namespace Pulumi.Azure.Compute
     ///                 PrivateIpAddressAllocation = "Dynamic",
     ///             },
     ///         },
+    ///         Name = "example-nic",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
@@ -75,17 +75,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Name = "example-VM",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         Size = "Standard_B2s",
-    ///         AdminUsername = "adminuser",
-    ///         AdminPassword = "P@$$w0rd1234!",
-    ///         DisablePasswordAuthentication = false,
-    ///         NetworkInterfaceIds = new[]
-    ///         {
-    ///             exampleNetworkInterface.Id,
-    ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
     ///         {
     ///             Caching = "ReadWrite",
@@ -105,6 +94,17 @@ namespace Pulumi.Azure.Compute
     ///             {
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
+    ///         },
+    ///         Name = "example-VM",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_B2s",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@$$w0rd1234!",
+    ///         DisablePasswordAuthentication = false,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
     ///         },
     ///     });
     /// 
@@ -158,11 +158,6 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
     ///     {
-    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
-    ///         HttpsOnly = true,
-    ///         SignedVersion = "2019-10-10",
-    ///         Start = "2023-04-01T00:00:00Z",
-    ///         Expiry = "2024-04-01T00:00:00Z",
     ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
     ///         {
     ///             Service = false,
@@ -189,37 +184,35 @@ namespace Pulumi.Azure.Compute
     ///             Tag = false,
     ///             Filter = false,
     ///         },
+    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///         HttpsOnly = true,
+    ///         SignedVersion = "2019-10-10",
+    ///         Start = "2023-04-01T00:00:00Z",
+    ///         Expiry = "2024-04-01T00:00:00Z",
     ///     });
     /// 
     ///     // basic example
     ///     var exampleRunCommand = new Azure.Compute.RunCommand("example", new()
     ///     {
-    ///         Name = "example-vmrc",
-    ///         Location = exampleResourceGroup.Location,
-    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
     ///         Source = new Azure.Compute.Inputs.RunCommandSourceArgs
     ///         {
     ///             Script = "echo 'hello world'",
     ///         },
+    ///         Name = "example-vmrc",
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
     ///     });
     /// 
     ///     // authorize to storage blob using user assigned identity
     ///     var example2RunCommand = new Azure.Compute.RunCommand("example2", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         Name = "example2-vmrc",
-    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
-    ///         OutputBlobUri = example2.Id,
-    ///         ErrorBlobUri = example3.Id,
-    ///         RunAsPassword = "P@$$w0rd1234!",
-    ///         RunAsUser = "adminuser",
     ///         Source = new Azure.Compute.Inputs.RunCommandSourceArgs
     ///         {
-    ///             ScriptUri = example1.Id,
     ///             ScriptUriManagedIdentity = new Azure.Compute.Inputs.RunCommandSourceScriptUriManagedIdentityArgs
     ///             {
     ///                 ClientId = exampleUserAssignedIdentity.ClientId,
     ///             },
+    ///             ScriptUri = example1.Id,
     ///         },
     ///         ErrorBlobManagedIdentity = new Azure.Compute.Inputs.RunCommandErrorBlobManagedIdentityArgs
     ///         {
@@ -245,6 +238,13 @@ namespace Pulumi.Azure.Compute
     ///                 Value = "val2",
     ///             },
     ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example2-vmrc",
+    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
+    ///         OutputBlobUri = example2.Id,
+    ///         ErrorBlobUri = example3.Id,
+    ///         RunAsPassword = "P@$$w0rd1234!",
+    ///         RunAsUser = "adminuser",
     ///         Tags = 
     ///         {
     ///             { "environment", "terraform-examples" },
@@ -261,23 +261,6 @@ namespace Pulumi.Azure.Compute
     ///     // authorize to storage blob using SAS token
     ///     var example3RunCommand = new Azure.Compute.RunCommand("example3", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         Name = "example3-vmrc",
-    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
-    ///         RunAsPassword = "P@$$w0rd1234!",
-    ///         RunAsUser = "adminuser",
-    ///         ErrorBlobUri = Output.Tuple(example3.Id, example).Apply(values =&gt;
-    ///         {
-    ///             var id = values.Item1;
-    ///             var example = values.Item2;
-    ///             return $"{id}{example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas)}";
-    ///         }),
-    ///         OutputBlobUri = Output.Tuple(example2.Id, example).Apply(values =&gt;
-    ///         {
-    ///             var id = values.Item1;
-    ///             var example = values.Item2;
-    ///             return $"{id}{example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas)}";
-    ///         }),
     ///         Source = new Azure.Compute.Inputs.RunCommandSourceArgs
     ///         {
     ///             ScriptUri = Output.Tuple(example1.Id, example).Apply(values =&gt;
@@ -295,6 +278,23 @@ namespace Pulumi.Azure.Compute
     ///                 Value = "val1",
     ///             },
     ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example3-vmrc",
+    ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
+    ///         RunAsPassword = "P@$$w0rd1234!",
+    ///         RunAsUser = "adminuser",
+    ///         ErrorBlobUri = Output.Tuple(example3.Id, example).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var example = values.Item2;
+    ///             return $"{id}{example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas)}";
+    ///         }),
+    ///         OutputBlobUri = Output.Tuple(example2.Id, example).Apply(values =&gt;
+    ///         {
+    ///             var id = values.Item1;
+    ///             var example = values.Item2;
+    ///             return $"{id}{example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas)}";
+    ///         }),
     ///         Tags = 
     ///         {
     ///             { "environment", "terraform-example-s" },

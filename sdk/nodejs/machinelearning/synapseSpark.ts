@@ -46,30 +46,30 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  * });
  * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-mlw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
  *     name: "example",
  *     storageAccountId: exampleAccount.id,
  * });
  * const exampleWorkspace2 = new azure.synapse.Workspace("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleSparkPool = new azure.synapse.SparkPool("example", {
  *     name: "example",
@@ -79,13 +79,13 @@ import * as utilities from "../utilities";
  *     nodeCount: 3,
  * });
  * const exampleSynapseSpark = new azure.machinelearning.SynapseSpark("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example",
  *     machineLearningWorkspaceId: exampleWorkspace.id,
  *     location: example.location,
  *     synapseSparkPoolId: exampleSparkPool.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * ```
  *

@@ -47,19 +47,19 @@ import (
 //				return err
 //			}
 //			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example-windows-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewWindowsWebAppSlot(ctx, "example", &appservice.WindowsWebAppSlotArgs{
+//				SiteConfig:   &appservice.WindowsWebAppSlotSiteConfigArgs{},
 //				Name:         pulumi.String("example-slot"),
 //				AppServiceId: exampleWindowsWebApp.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:   &appservice.WindowsWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

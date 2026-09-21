@@ -92,13 +92,6 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     ///     var kv = new Azure.KeyVault.KeyVault("kv", new()
     ///     {
-    ///         Name = "kv",
-    ///         Location = testAzurermResourceGroup.Location,
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
-    ///         SoftDeleteRetentionDays = 7,
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -120,6 +113,13 @@ namespace Pulumi.Azure.AppConfiguration
     ///                 },
     ///             },
     ///         },
+    ///         Name = "kv",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
     ///     });
     /// 
     ///     var kvs = new Azure.KeyVault.Secret("kvs", new()

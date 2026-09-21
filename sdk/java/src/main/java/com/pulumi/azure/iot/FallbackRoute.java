@@ -79,13 +79,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub("exampleIoTHub", IoTHubArgs.builder()
- *             .name("exampleIothub")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
  *                 .capacity(1)
  *                 .build())
+ *             .name("exampleIothub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .tags(Map.of("purpose", "testing"))
  *             .build());
  * 

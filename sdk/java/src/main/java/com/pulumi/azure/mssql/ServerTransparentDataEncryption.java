@@ -61,6 +61,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
+ *                 .loginUsername("AzureAD Admin")
+ *                 .objectId("00000000-0000-0000-0000-000000000000")
+ *                 .build())
  *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -68,10 +72,6 @@ import javax.annotation.Nullable;
  *             .administratorLogin("missadministrator")
  *             .administratorLoginPassword("thisIsKat11")
  *             .minimumTlsVersion("1.2")
- *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername("AzureAD Admin")
- *                 .objectId("00000000-0000-0000-0000-000000000000")
- *                 .build())
  *             .tags(Map.of("environment", "production"))
  *             .build());
  * 
@@ -129,6 +129,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()
+ *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
+ *                 .loginUsername("AzureAD Admin")
+ *                 .objectId("00000000-0000-0000-0000-000000000000")
+ *                 .build())
+ *             .identity(ServerIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
  *             .name("mssqlserver")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -136,27 +143,13 @@ import javax.annotation.Nullable;
  *             .administratorLogin("missadministrator")
  *             .administratorLoginPassword("thisIsKat11")
  *             .minimumTlsVersion("1.2")
- *             .azureadAdministrator(ServerAzureadAdministratorArgs.builder()
- *                 .loginUsername("AzureAD Admin")
- *                 .objectId("00000000-0000-0000-0000-000000000000")
- *                 .build())
  *             .tags(Map.of("environment", "production"))
- *             .identity(ServerIdentityArgs.builder()
- *                 .type("SystemAssigned")
- *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("transparentDataEncryptionKeyVaultKeyId")
+ *                 .build());
  * 
  *         // Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
- *             .name("example")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .rbacAuthorizationEnabled(false)
- *             .enabledForDiskEncryption(true)
- *             .tenantId(current.tenantId())
- *             .softDeleteRetentionDays(7)
- *             .purgeProtectionEnabled(false)
- *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
@@ -179,6 +172,15 @@ import javax.annotation.Nullable;
  *                         "WrapKey",
  *                         "UnwrapKey")
  *                     .build())
+ *             .name("example")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
+ *             .enabledForDiskEncryption(true)
+ *             .tenantId(current.tenantId())
+ *             .softDeleteRetentionDays(7)
+ *             .purgeProtectionEnabled(false)
+ *             .skuName("standard")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()

@@ -188,9 +188,6 @@ class MonitorTagRule(pulumi.CustomResource):
             name="example-datadog",
             location="West US 2")
         example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
-            resource_group_name=example.name,
-            location=example.location,
             datadog_organization={
                 "api_key": "XXXX",
                 "application_key": "XXXX",
@@ -199,12 +196,14 @@ class MonitorTagRule(pulumi.CustomResource):
                 "name": "Example",
                 "email": "abc@xyz.com",
             },
-            sku_name="Linked",
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Linked")
         example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
-            datadog_monitor_id=example_monitor.id,
             logs=[{
                 "subscription_log_enabled": True,
             }],
@@ -214,7 +213,8 @@ class MonitorTagRule(pulumi.CustomResource):
                     "value": "Logs",
                     "action": "Include",
                 }],
-            }])
+            }],
+            datadog_monitor_id=example_monitor.id)
         ```
 
         ## API Providers
@@ -260,9 +260,6 @@ class MonitorTagRule(pulumi.CustomResource):
             name="example-datadog",
             location="West US 2")
         example_monitor = azure.datadog.Monitor("example",
-            name="example-monitor",
-            resource_group_name=example.name,
-            location=example.location,
             datadog_organization={
                 "api_key": "XXXX",
                 "application_key": "XXXX",
@@ -271,12 +268,14 @@ class MonitorTagRule(pulumi.CustomResource):
                 "name": "Example",
                 "email": "abc@xyz.com",
             },
-            sku_name="Linked",
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
+            sku_name="Linked")
         example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
-            datadog_monitor_id=example_monitor.id,
             logs=[{
                 "subscription_log_enabled": True,
             }],
@@ -286,7 +285,8 @@ class MonitorTagRule(pulumi.CustomResource):
                     "value": "Logs",
                     "action": "Include",
                 }],
-            }])
+            }],
+            datadog_monitor_id=example_monitor.id)
         ```
 
         ## API Providers

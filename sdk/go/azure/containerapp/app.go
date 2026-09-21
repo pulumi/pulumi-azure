@@ -57,10 +57,6 @@ import (
 //				return err
 //			}
 //			_, err = containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
-//				Name:                      pulumi.String("example-app"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				ResourceGroupName:         example.Name,
-//				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
 //					Containers: containerapp.AppTemplateContainerArray{
 //						&containerapp.AppTemplateContainerArgs{
@@ -71,6 +67,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:                      pulumi.String("example-app"),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
+//				ResourceGroupName:         example.Name,
+//				RevisionMode:              pulumi.String("Single"),
 //			})
 //			if err != nil {
 //				return err

@@ -38,28 +38,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
- *     name: "acctni",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
+ *     name: "acctni",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
- *     name: "example-machine",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     size: "Standard_D4_v5",
- *     adminUsername: "adminuser",
- *     networkInterfaceIds: [exampleNetworkInterface.id],
- *     adminSshKeys: [{
- *         username: "adminuser",
- *         publicKey: std.file({
- *             input: "~/.ssh/id_rsa.pub",
- *         }).then(invoke => invoke.result),
- *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
  *         storageAccountType: "Standard_LRS",
@@ -70,6 +58,18 @@ import * as utilities from "../utilities";
  *         sku: "22_04-lts",
  *         version: "latest",
  *     },
+ *     adminSshKeys: [{
+ *         username: "adminuser",
+ *         publicKey: std.file({
+ *             input: "~/.ssh/id_rsa.pub",
+ *         }).result,
+ *     }],
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     size: "Standard_D4_v5",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
  * const exampleExtension = new azure.compute.Extension("example", {
  *     name: "hostname",

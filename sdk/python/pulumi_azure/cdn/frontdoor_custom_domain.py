@@ -302,23 +302,23 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             name="example-cdn-frontdoor-endpoint",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
+            load_balancing={},
             name="example-cdn-frontdoor-origin-group",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            load_balancing={})
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-cdn-frontdoor-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
             host_name="contoso.fabrikam.com",
             certificate_name_check_enabled=False)
         example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-            name="example-cdn-frontdoor-custom-domain",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            dns_zone_id=example_zone.id,
-            host_name=example_frontdoor_origin.host_name,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_version": "TLS12",
-            })
+            },
+            name="example-cdn-frontdoor-custom-domain",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name=example_frontdoor_origin.host_name)
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-cdn-frontdoor-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
@@ -336,19 +336,19 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             sku_name=example_frontdoor_profile.sku_name,
             mode="Prevention")
         example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
-            name="example-cdn-frontdoor-security-policy",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             security_policies={
                 "firewall": {
-                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                     "association": {
                         "domains": [{
                             "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                         }],
                         "patterns_to_match": "/*",
                     },
+                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                 },
-            })
+            },
+            name="example-cdn-frontdoor-security-policy",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
         ## Example DNS Auth TXT Record Usage
@@ -365,18 +365,18 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         import pulumi_std as std
 
         example = azure.dns.TxtRecord("example",
+            records=[{
+                "value": example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
+            }],
             name=std.join(separator=".",
                 input=[
                     "_dnsauth",
                     std.split(separator=".",
-                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
-                ]).result,
+                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
+                ])["result"],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
-            ttl=3600,
-            records=[{
-                "value": example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
-            }])
+            ttl=3600)
         ```
 
         ## Example CNAME Record Usage
@@ -390,7 +390,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
 
         example = azure.dns.CNameRecord("example",
             name=std.split(separator=".",
-                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
+                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
@@ -466,23 +466,23 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             name="example-cdn-frontdoor-endpoint",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
+            load_balancing={},
             name="example-cdn-frontdoor-origin-group",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            load_balancing={})
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-cdn-frontdoor-origin",
             cdn_frontdoor_origin_group_id=example_frontdoor_origin_group.id,
             host_name="contoso.fabrikam.com",
             certificate_name_check_enabled=False)
         example_frontdoor_custom_domain = azure.cdn.FrontdoorCustomDomain("example",
-            name="example-cdn-frontdoor-custom-domain",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            dns_zone_id=example_zone.id,
-            host_name=example_frontdoor_origin.host_name,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_version": "TLS12",
-            })
+            },
+            name="example-cdn-frontdoor-custom-domain",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
+            dns_zone_id=example_zone.id,
+            host_name=example_frontdoor_origin.host_name)
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-cdn-frontdoor-route",
             cdn_frontdoor_endpoint_id=example_frontdoor_endpoint.id,
@@ -500,19 +500,19 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             sku_name=example_frontdoor_profile.sku_name,
             mode="Prevention")
         example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
-            name="example-cdn-frontdoor-security-policy",
-            cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             security_policies={
                 "firewall": {
-                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                     "association": {
                         "domains": [{
                             "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                         }],
                         "patterns_to_match": "/*",
                     },
+                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                 },
-            })
+            },
+            name="example-cdn-frontdoor-security-policy",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
         ## Example DNS Auth TXT Record Usage
@@ -529,18 +529,18 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         import pulumi_std as std
 
         example = azure.dns.TxtRecord("example",
+            records=[{
+                "value": example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
+            }],
             name=std.join(separator=".",
                 input=[
                     "_dnsauth",
                     std.split(separator=".",
-                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
-                ]).result,
+                        text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
+                ])["result"],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
-            ttl=3600,
-            records=[{
-                "value": example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
-            }])
+            ttl=3600)
         ```
 
         ## Example CNAME Record Usage
@@ -554,7 +554,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
 
         example = azure.dns.CNameRecord("example",
             name=std.split(separator=".",
-                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"]).result[0],
+                text=example_azurerm_cdn_frontdoor_custom_domain["hostName"])["result"][0],
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,

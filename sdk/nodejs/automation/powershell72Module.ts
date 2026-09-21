@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  * });
  * const examplePowershell72Module = new azure.automation.Powershell72Module("example", {
- *     name: "xActiveDirectory",
- *     automationAccountId: exampleAccount.id,
  *     moduleLink: {
  *         uri: "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
  *     },
+ *     name: "xActiveDirectory",
+ *     automationAccountId: exampleAccount.id,
  * });
  * ```
  *

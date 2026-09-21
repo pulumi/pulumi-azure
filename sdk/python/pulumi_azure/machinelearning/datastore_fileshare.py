@@ -353,15 +353,15 @@ class DatastoreFileshare(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-workspace",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_share = azure.storage.Share("example",
             name="example",
             storage_account_name=example_account.name,
@@ -440,15 +440,15 @@ class DatastoreFileshare(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_workspace = azure.machinelearning.Workspace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-workspace",
             location=example.location,
             resource_group_name=example.name,
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            storage_account_id=example_account.id)
         example_share = azure.storage.Share("example",
             name="example",
             storage_account_name=example_account.name,

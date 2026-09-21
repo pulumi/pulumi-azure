@@ -26,9 +26,6 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var example = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
-    ///         Name = "my-custom-role",
-    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         Description = "This is a custom role created",
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -40,6 +37,9 @@ namespace Pulumi.Azure.Role
     ///                 NotActions = new() { },
     ///             },
     ///         },
+    ///         Name = "my-custom-role",
+    ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Description = "This is a custom role created",
     ///         AssignableScopes = new[]
     ///         {
     ///             primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
@@ -71,9 +71,6 @@ namespace Pulumi.Azure.Role
     /// 
     ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
-    ///         Name = "example-mg-role",
-    ///         Scope = example.Id,
-    ///         Description = "Example custom role scoped to a management group.",
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -85,6 +82,9 @@ namespace Pulumi.Azure.Role
     ///                 NotActions = new() { },
     ///             },
     ///         },
+    ///         Name = "example-mg-role",
+    ///         Scope = example.Id,
+    ///         Description = "Example custom role scoped to a management group.",
     ///         AssignableScopes = new[]
     ///         {
     ///             example.Id,

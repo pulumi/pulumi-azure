@@ -77,6 +77,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputServicebusTopic = new OutputServicebusTopic("exampleOutputServicebusTopic", OutputServicebusTopicArgs.builder()
+ *             .serialization(OutputServicebusTopicSerializationArgs.builder()
+ *                 .type("Csv")
+ *                 .format("Array")
+ *                 .build())
  *             .name("service-bus-topic-output")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -87,10 +91,6 @@ import javax.annotation.Nullable;
  *             .propertyColumns(            
  *                 "col1",
  *                 "col2")
- *             .serialization(OutputServicebusTopicSerializationArgs.builder()
- *                 .type("Csv")
- *                 .format("Array")
- *                 .build())
  *             .build());
  * 
  *     }

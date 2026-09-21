@@ -20,21 +20,16 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-backup-vault",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  * });
  * const exampleBackupPolicyDataLakeStorage = new azure.dataprotection.BackupPolicyDataLakeStorage("example", {
- *     name: "example-backup-policy",
- *     dataProtectionBackupVaultId: exampleBackupVault.id,
- *     backupSchedules: ["R/2021-05-23T02:30:00+00:00/P1W"],
- *     timeZone: "India Standard Time",
- *     defaultRetentionDuration: "P4M",
  *     retentionRules: [
  *         {
  *             name: "weekly",
@@ -58,6 +53,11 @@ import * as utilities from "../utilities";
  *             scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
  *         },
  *     ],
+ *     name: "example-backup-policy",
+ *     dataProtectionBackupVaultId: exampleBackupVault.id,
+ *     backupSchedules: ["R/2021-05-23T02:30:00+00:00/P1W"],
+ *     timeZone: "India Standard Time",
+ *     defaultRetentionDuration: "P4M",
  * });
  * ```
  *

@@ -40,6 +40,9 @@ import (
 //				return err
 //			}
 //			exampleJob, err := streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
+//				Identity: &streamanalytics.JobIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:                               pulumi.String("example-job"),
 //				ResourceGroupName:                  example.Name,
 //				Location:                           example.Location,
@@ -51,14 +54,13 @@ import (
 //				OutputErrorPolicy:                  pulumi.String("Drop"),
 //				StreamingUnits:                     pulumi.Int(3),
 //				SkuName:                            pulumi.String("StandardV2"),
-//				Identity: &streamanalytics.JobIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Example"),
 //				},
 //				TransformationQuery: pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"jobStorageAccounts",
+//			}))
 //			if err != nil {
 //				return err
 //			}

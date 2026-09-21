@@ -60,15 +60,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount2 = new com.pulumi.azure.videoindexer.Account("exampleAccount2", com.pulumi.azure.videoindexer.AccountArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location("West Europe")
  *             .storage(AccountStorageArgs.builder()
  *                 .storageAccountId(exampleAccount.id())
  *                 .build())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location("West Europe")
  *             .build());
  * 
  *     }

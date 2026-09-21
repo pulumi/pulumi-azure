@@ -26,22 +26,7 @@ import * as utilities from "../utilities";
  *     skuName: "Standard_AzureFrontDoor",
  * });
  * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("example", {
- *     name: "exampleWAF",
- *     resourceGroupName: example.name,
- *     skuName: exampleFrontdoorProfile.skuName,
- *     enabled: true,
- *     mode: "Prevention",
- *     redirectUrl: "https://www.contoso.com",
- *     customBlockResponseStatusCode: 403,
- *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
  *     customRules: [{
- *         name: "Rule1",
- *         enabled: true,
- *         priority: 1,
- *         rateLimitDurationInMinutes: 1,
- *         rateLimitThreshold: 10,
- *         type: "MatchRule",
- *         action: "Block",
  *         matchConditions: [{
  *             matchVariable: "RemoteAddr",
  *             operator: "IPMatch",
@@ -51,42 +36,57 @@ import * as utilities from "../utilities";
  *                 "10.0.1.0/24",
  *             ],
  *         }],
+ *         name: "Rule1",
+ *         enabled: true,
+ *         priority: 1,
+ *         rateLimitDurationInMinutes: 1,
+ *         rateLimitThreshold: 10,
+ *         type: "MatchRule",
+ *         action: "Block",
  *     }],
+ *     name: "exampleWAF",
+ *     resourceGroupName: example.name,
+ *     skuName: exampleFrontdoorProfile.skuName,
+ *     enabled: true,
+ *     mode: "Prevention",
+ *     redirectUrl: "https://www.contoso.com",
+ *     customBlockResponseStatusCode: 403,
+ *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
  * });
  * const exampleZone = new azure.dns.Zone("example", {
  *     name: "sub-domain.domain.com",
  *     resourceGroupName: example.name,
  * });
  * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
+ *     tls: {
+ *         certificateType: "ManagedCertificate",
+ *         minimumTlsVersion: "TLS12",
+ *     },
  *     name: "example-customDomain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
- *     hostName: std.joinOutput({
+ *     hostName: std.join({
  *         separator: ".",
  *         input: [
  *             "contoso",
  *             exampleZone.name,
  *         ],
  *     }).result,
- *     tls: {
- *         certificateType: "ManagedCertificate",
- *         minimumTlsVersion: "TLS12",
- *     },
  * });
  * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("example", {
- *     name: "Example-Security-Policy",
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     securityPolicies: {
  *         firewall: {
- *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *             association: {
  *                 domains: [{
  *                     cdnFrontdoorDomainId: exampleFrontdoorCustomDomain.id,
  *                 }],
  *                 patternsToMatch: "/*",
  *             },
+ *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
  *         },
  *     },
+ *     name: "Example-Security-Policy",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  * });
  * ```
  *

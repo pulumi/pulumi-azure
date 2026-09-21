@@ -91,8 +91,6 @@ import (
 //				return err
 //			}
 //			_, err = systemcenter.NewVirtualMachineManagerVirtualMachineInstance(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineInstanceArgs{
-//				ScopedResourceId: exampleArcMachine.ID().ToIDOutput().ToStringOutput(),
-//				CustomLocationId: exampleVirtualMachineManagerServer.CustomLocationId,
 //				Infrastructure: &systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{
 //					SystemCenterVirtualMachineManagerCloudId:                exampleVirtualMachineManagerCloud.ID().ToIDOutput().ToStringOutput(),
 //					SystemCenterVirtualMachineManagerTemplateId:             exampleVirtualMachineManagerVirtualMachineTemplate.ID().ToIDOutput().ToStringOutput(),
@@ -105,7 +103,11 @@ import (
 //					CpuCount:   pulumi.Int(1),
 //					MemoryInMb: pulumi.Int(1024),
 //				},
-//			})
+//				ScopedResourceId: exampleArcMachine.ID().ToIDOutput().ToStringOutput(),
+//				CustomLocationId: exampleVirtualMachineManagerServer.CustomLocationId,
+//			}, pulumi.IgnoreChanges([]string{
+//				"storageDisks",
+//			}))
 //			if err != nil {
 //				return err
 //			}

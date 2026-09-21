@@ -33,9 +33,6 @@ namespace Pulumi.Azure.SignalR
     /// 
     ///     var exampleService = new Azure.SignalR.Service("example", new()
     ///     {
-    ///         Name = "example-signalr",
-    ///         Location = testAzurermResourceGroup.Location,
-    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Premium_P1",
@@ -45,16 +42,13 @@ namespace Pulumi.Azure.SignalR
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-signalr",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///     });
     /// 
     ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Name = "example-keyvault",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         RbacAuthorizationEnabled = false,
-    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SkuName = "premium",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
@@ -90,20 +84,26 @@ namespace Pulumi.Azure.SignalR
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-keyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
     ///     });
     /// 
     ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         Name = "imported-cert",
-    ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "certificate-to-import.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "",
     ///         },
+    ///         Name = "imported-cert",
+    ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
     ///     var test = new Azure.SignalR.ServiceCustomCertificate("test", new()

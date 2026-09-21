@@ -64,16 +64,16 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-mlw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
-    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
@@ -102,14 +102,14 @@ namespace Pulumi.Azure.MachineLearning
     ///     var sshKey = config.Get("sshKey") ?? "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld";
     ///     var exampleComputeInstance = new Azure.MachineLearning.ComputeInstance("example", new()
     ///     {
-    ///         Name = "example",
-    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///         VirtualMachineSize = "STANDARD_DS2_V2",
-    ///         AuthorizationType = "personal",
     ///         Ssh = new Azure.MachineLearning.Inputs.ComputeInstanceSshArgs
     ///         {
     ///             PublicKey = sshKey,
     ///         },
+    ///         Name = "example",
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         VirtualMachineSize = "STANDARD_DS2_V2",
+    ///         AuthorizationType = "personal",
     ///         SubnetResourceId = exampleSubnet.Id,
     ///         Description = "foo",
     ///         Tags = 

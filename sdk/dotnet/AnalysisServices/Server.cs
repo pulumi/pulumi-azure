@@ -30,15 +30,6 @@ namespace Pulumi.Azure.AnalysisServices
     /// 
     ///     var server = new Azure.AnalysisServices.Server("server", new()
     ///     {
-    ///         Name = "analysisservicesserver",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "S0",
-    ///         AdminUsers = new[]
-    ///         {
-    ///             "myuser@domain.tld",
-    ///         },
-    ///         PowerBiServiceEnabled = true,
     ///         Ipv4FirewallRules = new[]
     ///         {
     ///             new Azure.AnalysisServices.Inputs.ServerIpv4FirewallRuleArgs
@@ -48,6 +39,15 @@ namespace Pulumi.Azure.AnalysisServices
     ///                 RangeEnd = "210.117.252.255",
     ///             },
     ///         },
+    ///         Name = "analysisservicesserver",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "S0",
+    ///         AdminUsers = new[]
+    ///         {
+    ///             "myuser@domain.tld",
+    ///         },
+    ///         PowerBiServiceEnabled = true,
     ///         Tags = 
     ///         {
     ///             { "abc", "123" },

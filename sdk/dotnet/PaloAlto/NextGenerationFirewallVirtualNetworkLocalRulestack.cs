@@ -61,18 +61,10 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var trust = new Azure.Network.Subnet("trust", new()
     ///     {
-    ///         Name = "example-trust-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.1.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "trusted",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
@@ -81,7 +73,15 @@ namespace Pulumi.Azure.PaloAlto
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "trusted",
     ///             },
+    ///         },
+    ///         Name = "example-trust-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
@@ -93,18 +93,10 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var untrust = new Azure.Network.Subnet("untrust", new()
     ///     {
-    ///         Name = "example-untrust-subnet",
-    ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.0.2.0/24",
-    ///         },
     ///         Delegations = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 Name = "untrusted",
     ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
     ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
@@ -113,7 +105,15 @@ namespace Pulumi.Azure.PaloAlto
     ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
     ///                     },
     ///                 },
+    ///                 Name = "untrusted",
     ///             },
+    ///         },
+    ///         Name = "example-untrust-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
@@ -132,14 +132,6 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("example", new()
     ///     {
-    ///         Name = "example-rulestack-rule",
-    ///         RulestackId = exampleLocalRulestack.Id,
-    ///         Priority = 1001,
-    ///         Action = "Allow",
-    ///         Applications = new[]
-    ///         {
-    ///             "any",
-    ///         },
     ///         Destination = new Azure.PaloAlto.Inputs.LocalRulestackRuleDestinationArgs
     ///         {
     ///             Cidrs = new[]
@@ -154,26 +146,34 @@ namespace Pulumi.Azure.PaloAlto
     ///                 "any",
     ///             },
     ///         },
+    ///         Name = "example-rulestack-rule",
+    ///         RulestackId = exampleLocalRulestack.Id,
+    ///         Priority = 1001,
+    ///         Action = "Allow",
+    ///         Applications = new[]
+    ///         {
+    ///             "any",
+    ///         },
     ///     });
     /// 
     ///     var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new Azure.PaloAlto.NextGenerationFirewallVirtualNetworkLocalRulestack("example", new()
     ///     {
-    ///         Name = "example-ngfwvn",
-    ///         ResourceGroupName = example.Name,
-    ///         RulestackId = exampleLocalRulestack.Id,
     ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs
     ///         {
-    ///             PublicIpAddressIds = new[]
-    ///             {
-    ///                 examplePublicIp.Id,
-    ///             },
     ///             VnetConfiguration = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs
     ///             {
     ///                 VirtualNetworkId = exampleVirtualNetwork.Id,
     ///                 TrustedSubnetId = trust.Id,
     ///                 UntrustedSubnetId = untrust.Id,
     ///             },
+    ///             PublicIpAddressIds = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
     ///         },
+    ///         Name = "example-ngfwvn",
+    ///         ResourceGroupName = example.Name,
+    ///         RulestackId = exampleLocalRulestack.Id,
     ///     });
     /// 
     /// });

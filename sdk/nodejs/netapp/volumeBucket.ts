@@ -38,12 +38,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const exampleSubnet = new azure.network.Subnet("example", {
- *     name: "example-delegated",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
- *         name: "netapp",
  *         serviceDelegation: {
  *             name: "Microsoft.Netapp/volumes",
  *             actions: [
@@ -51,7 +46,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "netapp",
  *     }],
+ *     name: "example-delegated",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const exampleAccount = new azure.netapp.Account("example", {
  *     name: "example-anfaccount",
@@ -83,10 +83,10 @@ import * as utilities from "../utilities";
  *     rsaBits: 2048,
  * });
  * const bucketSelfSignedCert = new tls.index.SelfSignedCert("bucket", {
- *     privateKeyPem: bucket.privateKeyPem,
  *     subject: [{
  *         commonName: "example-bucket.example.internal",
  *     }],
+ *     privateKeyPem: bucket.privateKeyPem,
  *     dnsNames: ["example-bucket.example.internal"],
  *     validityPeriodHours: 8760,
  *     allowedUses: [
@@ -97,8 +97,6 @@ import * as utilities from "../utilities";
  * });
  * // First bucket - establishes the shared bucket server.
  * const first = new azure.netapp.VolumeBucketWithServer("first", {
- *     name: "example-bucket-first",
- *     volumeId: exampleVolume.id,
  *     fileSystemNfsUser: {
  *         groupId: 1000,
  *         userId: 1000,
@@ -107,17 +105,19 @@ import * as utilities from "../utilities";
  *         fqdn: "example-bucket.example.internal",
  *         certificatePem: std.base64encode({
  *             input: `${bucketSelfSignedCert.certPem}${bucket.privateKeyPem}`,
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *     },
+ *     name: "example-bucket-first",
+ *     volumeId: exampleVolume.id,
  * });
  * // Subsequent bucket - reuses the server configured by the first bucket.
  * const exampleVolumeBucket = new azure.netapp.VolumeBucket("example", {
- *     name: "example-bucket-second",
- *     volumeId: exampleVolume.id,
  *     fileSystemNfsUser: {
  *         groupId: 2000,
  *         userId: 2000,
  *     },
+ *     name: "example-bucket-second",
+ *     volumeId: exampleVolume.id,
  * }, {
  *     dependsOn: [first],
  * });

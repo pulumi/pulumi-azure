@@ -38,10 +38,6 @@ namespace Pulumi.Azure.Backup
     /// 
     ///     var examplePolicyVM = new Azure.Backup.PolicyVM("example", new()
     ///     {
-    ///         Name = "tfex-recovery-vault-policy",
-    ///         ResourceGroupName = example.Name,
-    ///         RecoveryVaultName = exampleVault.Name,
-    ///         Timezone = "UTC",
     ///         Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
     ///         {
     ///             Frequency = "Daily",
@@ -92,6 +88,10 @@ namespace Pulumi.Azure.Backup
     ///                 "January",
     ///             },
     ///         },
+    ///         Name = "tfex-recovery-vault-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         Timezone = "UTC",
     ///     });
     /// 
     /// });

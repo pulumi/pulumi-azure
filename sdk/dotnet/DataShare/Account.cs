@@ -30,13 +30,13 @@ namespace Pulumi.Azure.DataShare
     /// 
     ///     var exampleAccount = new Azure.DataShare.Account("example", new()
     ///     {
-    ///         Name = "example-dsa",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example-dsa",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

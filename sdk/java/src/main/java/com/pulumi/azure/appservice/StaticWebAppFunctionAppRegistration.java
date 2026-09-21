@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.inputs.LinuxFunctionAppSiteConfigArgs;
  * import com.pulumi.azure.appservice.StaticWebAppFunctionAppRegistration;
  * import com.pulumi.azure.appservice.StaticWebAppFunctionAppRegistrationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -81,15 +82,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-function-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
- *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("authSettingsV2")
+ *                 .build());
  * 
  *         var exampleStaticWebAppFunctionAppRegistration = new StaticWebAppFunctionAppRegistration("exampleStaticWebAppFunctionAppRegistration", StaticWebAppFunctionAppRegistrationArgs.builder()
  *             .staticWebAppId(exampleStaticWebApp.id())

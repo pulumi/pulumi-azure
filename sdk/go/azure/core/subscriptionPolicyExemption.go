@@ -40,13 +40,13 @@ import (
 //				return err
 //			}
 //			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
+//				Identity: &core.SubscriptionPolicyAssignmentIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				Name:               pulumi.String("exampleAssignment"),
 //				SubscriptionId:     pulumi.String(example.Id),
 //				PolicyDefinitionId: pulumi.String(exampleGetPolicySetDefinition.Id),
 //				Location:           pulumi.String("westus"),
-//				Identity: &core.SubscriptionPolicyAssignmentIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
 //			})
 //			if err != nil {
 //				return err

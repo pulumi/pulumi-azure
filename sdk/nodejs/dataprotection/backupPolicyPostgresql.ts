@@ -29,34 +29,25 @@ import * as utilities from "../utilities";
  *     redundancy: "LocallyRedundant",
  * });
  * const exampleBackupPolicyPostgresql = new azure.dataprotection.BackupPolicyPostgresql("example", {
- *     name: "example-backup-policy",
- *     resourceGroupName: example.name,
- *     vaultName: exampleBackupVault.name,
- *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
- *     timeZone: "India Standard Time",
- *     defaultRetentionDuration: "P4M",
  *     retentionRules: [
  *         {
- *             name: "weekly",
- *             duration: "P6M",
- *             priority: 20,
  *             criteria: {
  *                 absoluteCriteria: "FirstOfWeek",
  *             },
+ *             name: "weekly",
+ *             duration: "P6M",
+ *             priority: 20,
  *         },
  *         {
- *             name: "thursday",
- *             duration: "P1W",
- *             priority: 25,
  *             criteria: {
  *                 daysOfWeeks: ["Thursday"],
  *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
  *             },
+ *             name: "thursday",
+ *             duration: "P1W",
+ *             priority: 25,
  *         },
  *         {
- *             name: "monthly",
- *             duration: "P1D",
- *             priority: 15,
  *             criteria: {
  *                 weeksOfMonths: [
  *                     "First",
@@ -65,8 +56,17 @@ import * as utilities from "../utilities";
  *                 daysOfWeeks: ["Tuesday"],
  *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
  *             },
+ *             name: "monthly",
+ *             duration: "P1D",
+ *             priority: 15,
  *         },
  *     ],
+ *     name: "example-backup-policy",
+ *     resourceGroupName: example.name,
+ *     vaultName: exampleBackupVault.name,
+ *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
+ *     timeZone: "India Standard Time",
+ *     defaultRetentionDuration: "P4M",
  * });
  * ```
  *

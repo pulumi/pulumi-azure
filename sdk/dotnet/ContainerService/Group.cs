@@ -32,20 +32,10 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var exampleGroup = new Azure.ContainerService.Group("example", new()
     ///     {
-    ///         Name = "example-continst",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         IpAddressType = "Public",
-    ///         DnsNameLabel = "aci-label",
-    ///         OsType = "Linux",
     ///         Containers = new[]
     ///         {
     ///             new Azure.ContainerService.Inputs.GroupContainerArgs
     ///             {
-    ///                 Name = "hello-world",
-    ///                 Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
-    ///                 Cpu = 0.5,
-    ///                 Memory = 1.5,
     ///                 Ports = new[]
     ///                 {
     ///                     new Azure.ContainerService.Inputs.GroupContainerPortArgs
@@ -54,6 +44,10 @@ namespace Pulumi.Azure.ContainerService
     ///                         Protocol = "TCP",
     ///                     },
     ///                 },
+    ///                 Name = "hello-world",
+    ///                 Image = "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    ///                 Cpu = 0.5,
+    ///                 Memory = 1.5,
     ///             },
     ///             new Azure.ContainerService.Inputs.GroupContainerArgs
     ///             {
@@ -63,6 +57,12 @@ namespace Pulumi.Azure.ContainerService
     ///                 Memory = 1.5,
     ///             },
     ///         },
+    ///         Name = "example-continst",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         IpAddressType = "Public",
+    ///         DnsNameLabel = "aci-label",
+    ///         OsType = "Linux",
     ///         Tags = 
     ///         {
     ///             { "environment", "testing" },

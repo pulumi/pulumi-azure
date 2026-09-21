@@ -234,31 +234,29 @@ class Configuration(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
-        example_deployment = azure.nginx.Deployment("example",
-            name="example-nginx",
+                "name": "delegation",
+            }],
+            name="example-subnet",
             resource_group_name=example.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example.location,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_deployment = azure.nginx.Deployment("example",
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
                 "subnet_id": example_subnet.id,
-            }])
+            }],
+            name="example-nginx",
+            resource_group_name=example.name,
+            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            location=example.location)
         example_configuration = azure.nginx.Configuration("example",
-            nginx_deployment_id=example_deployment.id,
-            root_file="/etc/nginx/nginx.conf",
             config_files=[
                 {
                     "content": std.base64encode(input=\"\"\"http {
@@ -274,7 +272,7 @@ class Configuration(pulumi.CustomResource):
                 include site/*.conf;
             }
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/nginx.conf",
                 },
                 {
@@ -285,10 +283,12 @@ class Configuration(pulumi.CustomResource):
           <div>at 10:38 am</div>
          </body></html>';
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/site/b.conf",
                 },
-            ])
+            ],
+            nginx_deployment_id=example_deployment.id,
+            root_file="/etc/nginx/nginx.conf")
         ```
 
         ## API Providers
@@ -349,31 +349,29 @@ class Configuration(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         example_subnet = azure.network.Subnet("example",
-            name="example-subnet",
-            resource_group_name=example.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.2.0/24"],
             delegations=[{
-                "name": "delegation",
                 "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
-            }])
-        example_deployment = azure.nginx.Deployment("example",
-            name="example-nginx",
+                "name": "delegation",
+            }],
+            name="example-subnet",
             resource_group_name=example.name,
-            sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example.location,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_deployment = azure.nginx.Deployment("example",
             frontend_public={
                 "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
                 "subnet_id": example_subnet.id,
-            }])
+            }],
+            name="example-nginx",
+            resource_group_name=example.name,
+            sku="publicpreview_Monthly_gmz7xq9ge3py",
+            location=example.location)
         example_configuration = azure.nginx.Configuration("example",
-            nginx_deployment_id=example_deployment.id,
-            root_file="/etc/nginx/nginx.conf",
             config_files=[
                 {
                     "content": std.base64encode(input=\"\"\"http {
@@ -389,7 +387,7 @@ class Configuration(pulumi.CustomResource):
                 include site/*.conf;
             }
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/nginx.conf",
                 },
                 {
@@ -400,10 +398,12 @@ class Configuration(pulumi.CustomResource):
           <div>at 10:38 am</div>
          </body></html>';
         }
-        \"\"\").result,
+        \"\"\")["result"],
                     "virtual_path": "/etc/nginx/site/b.conf",
                 },
-            ])
+            ],
+            nginx_deployment_id=example_deployment.id,
+            root_file="/etc/nginx/nginx.conf")
         ```
 
         ## API Providers

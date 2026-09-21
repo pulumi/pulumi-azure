@@ -64,14 +64,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", BackupPolicyBlobStorageArgs.builder()
- *             .name("example-backup-policy")
- *             .vaultId(exampleBackupVault.id())
- *             .operationalDefaultRetentionDuration("P30D")
- *             .vaultDefaultRetentionDuration("P7D")
  *             .retentionRules(            
  *                 BackupPolicyBlobStorageRetentionRuleArgs.builder()
- *                     .name("Weekly")
- *                     .priority(20)
  *                     .lifeCycle(BackupPolicyBlobStorageRetentionRuleLifeCycleArgs.builder()
  *                         .duration("P90D")
  *                         .dataStoreType("VaultStore")
@@ -79,10 +73,10 @@ import javax.annotation.Nullable;
  *                     .criteria(BackupPolicyBlobStorageRetentionRuleCriteriaArgs.builder()
  *                         .daysOfWeeks("Monday")
  *                         .build())
+ *                     .name("Weekly")
+ *                     .priority(20)
  *                     .build(),
  *                 BackupPolicyBlobStorageRetentionRuleArgs.builder()
- *                     .name("Monthly")
- *                     .priority(10)
  *                     .lifeCycle(BackupPolicyBlobStorageRetentionRuleLifeCycleArgs.builder()
  *                         .duration("P180D")
  *                         .dataStoreType("VaultStore")
@@ -90,10 +84,10 @@ import javax.annotation.Nullable;
  *                     .criteria(BackupPolicyBlobStorageRetentionRuleCriteriaArgs.builder()
  *                         .daysOfMonths(1)
  *                         .build())
+ *                     .name("Monthly")
+ *                     .priority(10)
  *                     .build(),
  *                 BackupPolicyBlobStorageRetentionRuleArgs.builder()
- *                     .name("Yearly")
- *                     .priority(5)
  *                     .lifeCycle(BackupPolicyBlobStorageRetentionRuleLifeCycleArgs.builder()
  *                         .duration("P365D")
  *                         .dataStoreType("VaultStore")
@@ -102,7 +96,13 @@ import javax.annotation.Nullable;
  *                         .monthsOfYears("January")
  *                         .daysOfMonths(1)
  *                         .build())
+ *                     .name("Yearly")
+ *                     .priority(5)
  *                     .build())
+ *             .name("example-backup-policy")
+ *             .vaultId(exampleBackupVault.id())
+ *             .operationalDefaultRetentionDuration("P30D")
+ *             .vaultDefaultRetentionDuration("P7D")
  *             .build());
  * 
  *     }

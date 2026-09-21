@@ -23,7 +23,7 @@ import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azuread/sdk/v6/go/azuread"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,14 +49,14 @@ import (
 //				return err
 //			}
 //			exampleApplication, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
-//				DisplayName: pulumi.String("acctestam-example"),
+//				DisplayName: "acctestam-example",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "example", &azuread.ApplicationPasswordArgs{
 //				ApplicationObjectId: exampleApplication.ObjectId,
-//				EndDateRelative:     pulumi.String("36h"),
+//				EndDateRelative:     "36h",
 //			})
 //			if err != nil {
 //				return err

@@ -351,11 +351,6 @@ class WorkbookTemplate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_workbook_template = azure.appinsights.WorkbookTemplate("example",
-            name="example-aiwt",
-            resource_group_name=example.name,
-            location="West Europe",
-            author="test author",
-            priority=1,
             galleries=[{
                 "category": "workbook",
                 "name": "test",
@@ -363,6 +358,11 @@ class WorkbookTemplate(pulumi.CustomResource):
                 "resource_type": "microsoft.insights/components",
                 "type": "tsg",
             }],
+            name="example-aiwt",
+            resource_group_name=example.name,
+            location="West Europe",
+            author="test author",
+            priority=1,
             template_data=json.dumps({
                 "version": "Notebook/1.0",
                 "items": [{
@@ -457,11 +457,6 @@ class WorkbookTemplate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_workbook_template = azure.appinsights.WorkbookTemplate("example",
-            name="example-aiwt",
-            resource_group_name=example.name,
-            location="West Europe",
-            author="test author",
-            priority=1,
             galleries=[{
                 "category": "workbook",
                 "name": "test",
@@ -469,6 +464,11 @@ class WorkbookTemplate(pulumi.CustomResource):
                 "resource_type": "microsoft.insights/components",
                 "type": "tsg",
             }],
+            name="example-aiwt",
+            resource_group_name=example.name,
+            location="West Europe",
+            author="test author",
+            priority=1,
             template_data=json.dumps({
                 "version": "Notebook/1.0",
                 "items": [{

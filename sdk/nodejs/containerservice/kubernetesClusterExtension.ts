@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
- *     name: "example-aks",
- *     location: "West Europe",
- *     resourceGroupName: example.name,
- *     dnsPrefix: "example-aks",
  *     defaultNodePool: {
  *         name: "default",
  *         nodeCount: 1,
@@ -32,6 +28,10 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-aks",
+ *     location: "West Europe",
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "example-aks",
  * });
  * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("example", {
  *     name: "example-ext",

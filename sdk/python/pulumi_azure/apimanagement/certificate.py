@@ -368,7 +368,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         ```
 
         ### With Key Vault Certificate)
@@ -383,15 +383,15 @@ class Certificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_service = azure.apimanagement.Service("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-apim",
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
-            sku_name="Developer_1",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sku_name="Developer_1")
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
             location=example.location,
@@ -406,10 +406,8 @@ class Certificate(pulumi.CustomResource):
             secret_permissions=["Get"],
             certificate_permissions=["Get"])
         example_certificate = azure.keyvault.Certificate("example",
-            name="example-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="example_cert.pfx").result,
+                "contents": std.filebase64(input="example_cert.pfx")["result"],
                 "password": "terraform",
             },
             certificate_policy={
@@ -425,7 +423,9 @@ class Certificate(pulumi.CustomResource):
                 "secret_properties": {
                     "content_type": "application/x-pkcs12",
                 },
-            })
+            },
+            name="example-cert",
+            key_vault_id=example_key_vault.id)
         example_certificate2 = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,
@@ -497,7 +497,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         ```
 
         ### With Key Vault Certificate)
@@ -512,15 +512,15 @@ class Certificate(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_service = azure.apimanagement.Service("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-apim",
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
-            sku_name="Developer_1",
-            identity={
-                "type": "SystemAssigned",
-            })
+            sku_name="Developer_1")
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekeyvault",
             location=example.location,
@@ -535,10 +535,8 @@ class Certificate(pulumi.CustomResource):
             secret_permissions=["Get"],
             certificate_permissions=["Get"])
         example_certificate = azure.keyvault.Certificate("example",
-            name="example-cert",
-            key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="example_cert.pfx").result,
+                "contents": std.filebase64(input="example_cert.pfx")["result"],
                 "password": "terraform",
             },
             certificate_policy={
@@ -554,7 +552,9 @@ class Certificate(pulumi.CustomResource):
                 "secret_properties": {
                     "content_type": "application/x-pkcs12",
                 },
-            })
+            },
+            name="example-cert",
+            key_vault_id=example_key_vault.id)
         example_certificate2 = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,

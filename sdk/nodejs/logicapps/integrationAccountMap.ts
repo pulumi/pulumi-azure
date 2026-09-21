@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     mapType: "Xslt",
  *     content: std.file({
  *         input: "testdata/integration_account_map_content.xsd",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

@@ -28,19 +28,16 @@ import * as utilities from "../utilities";
  *     accountKind: "BlobStorage",
  * });
  * const exampleManagementPolicy = new azure.storage.ManagementPolicy("example", {
- *     storageAccountId: exampleAccount.id,
  *     rules: [
  *         {
- *             name: "rule1",
- *             enabled: true,
  *             filters: {
- *                 prefixMatches: ["container1/prefix1"],
- *                 blobTypes: ["blockBlob"],
  *                 matchBlobIndexTags: [{
  *                     name: "tag1",
  *                     operation: "==",
  *                     value: "val1",
  *                 }],
+ *                 prefixMatches: ["container1/prefix1"],
+ *                 blobTypes: ["blockBlob"],
  *             },
  *             actions: {
  *                 baseBlob: {
@@ -52,10 +49,10 @@ import * as utilities from "../utilities";
  *                     deleteAfterDaysSinceCreationGreaterThan: 30,
  *                 },
  *             },
+ *             name: "rule1",
+ *             enabled: true,
  *         },
  *         {
- *             name: "rule2",
- *             enabled: false,
  *             filters: {
  *                 prefixMatches: [
  *                     "container2/prefix1",
@@ -80,8 +77,11 @@ import * as utilities from "../utilities";
  *                     deleteAfterDaysSinceCreation: 3,
  *                 },
  *             },
+ *             name: "rule2",
+ *             enabled: false,
  *         },
  *     ],
+ *     storageAccountId: exampleAccount.id,
  * });
  * ```
  *

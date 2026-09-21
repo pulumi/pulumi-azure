@@ -251,19 +251,15 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_backup_policy_postgresql_flexible_server = azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example",
-            name="example-backup-policy",
-            vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
             default_retention_rule={
                 "life_cycles": [{
                     "duration": "P4M",
@@ -272,35 +268,29 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             },
             retention_rules=[
                 {
-                    "name": "weekly",
+                    "criteria": {
+                        "absolute_criteria": "FirstOfWeek",
+                    },
                     "life_cycles": [{
                         "duration": "P6M",
                         "data_store_type": "VaultStore",
                     }],
+                    "name": "weekly",
                     "priority": 20,
-                    "criteria": {
-                        "absolute_criteria": "FirstOfWeek",
-                    },
                 },
                 {
-                    "name": "thursday",
-                    "life_cycles": [{
-                        "duration": "P1W",
-                        "data_store_type": "VaultStore",
-                    }],
-                    "priority": 25,
                     "criteria": {
                         "days_of_weeks": ["Thursday"],
                         "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
-                },
-                {
-                    "name": "monthly",
                     "life_cycles": [{
-                        "duration": "P1D",
+                        "duration": "P1W",
                         "data_store_type": "VaultStore",
                     }],
-                    "priority": 15,
+                    "name": "thursday",
+                    "priority": 25,
+                },
+                {
                     "criteria": {
                         "weeks_of_months": [
                             "First",
@@ -309,8 +299,18 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                         "days_of_weeks": ["Tuesday"],
                         "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
+                    "life_cycles": [{
+                        "duration": "P1D",
+                        "data_store_type": "VaultStore",
+                    }],
+                    "name": "monthly",
+                    "priority": 15,
                 },
-            ])
+            ],
+            name="example-backup-policy",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time")
         ```
 
         ## API Providers
@@ -357,19 +357,15 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_backup_vault = azure.dataprotection.BackupVault("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-backup-vault",
             resource_group_name=example.name,
             location=example.location,
             datastore_type="VaultStore",
-            redundancy="LocallyRedundant",
-            identity={
-                "type": "SystemAssigned",
-            })
+            redundancy="LocallyRedundant")
         example_backup_policy_postgresql_flexible_server = azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example",
-            name="example-backup-policy",
-            vault_id=example_backup_vault.id,
-            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            time_zone="India Standard Time",
             default_retention_rule={
                 "life_cycles": [{
                     "duration": "P4M",
@@ -378,35 +374,29 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             },
             retention_rules=[
                 {
-                    "name": "weekly",
+                    "criteria": {
+                        "absolute_criteria": "FirstOfWeek",
+                    },
                     "life_cycles": [{
                         "duration": "P6M",
                         "data_store_type": "VaultStore",
                     }],
+                    "name": "weekly",
                     "priority": 20,
-                    "criteria": {
-                        "absolute_criteria": "FirstOfWeek",
-                    },
                 },
                 {
-                    "name": "thursday",
-                    "life_cycles": [{
-                        "duration": "P1W",
-                        "data_store_type": "VaultStore",
-                    }],
-                    "priority": 25,
                     "criteria": {
                         "days_of_weeks": ["Thursday"],
                         "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
-                },
-                {
-                    "name": "monthly",
                     "life_cycles": [{
-                        "duration": "P1D",
+                        "duration": "P1W",
                         "data_store_type": "VaultStore",
                     }],
-                    "priority": 15,
+                    "name": "thursday",
+                    "priority": 25,
+                },
+                {
                     "criteria": {
                         "weeks_of_months": [
                             "First",
@@ -415,8 +405,18 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                         "days_of_weeks": ["Tuesday"],
                         "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
+                    "life_cycles": [{
+                        "duration": "P1D",
+                        "data_store_type": "VaultStore",
+                    }],
+                    "name": "monthly",
+                    "priority": 15,
                 },
-            ])
+            ],
+            name="example-backup-policy",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time")
         ```
 
         ## API Providers

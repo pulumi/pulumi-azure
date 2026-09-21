@@ -478,12 +478,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
-            network_watcher_name=test_network_watcher.name,
-            resource_group_name=example.name,
-            name="example-log",
-            target_resource_id=test.id,
-            storage_account_id=test_account.id,
-            enabled=True,
             retention_policy={
                 "enabled": True,
                 "days": 7,
@@ -494,7 +488,13 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                 "workspace_region": test_analytics_workspace.location,
                 "workspace_resource_id": test_analytics_workspace.id,
                 "interval_in_minutes": 10,
-            })
+            },
+            network_watcher_name=test_network_watcher.name,
+            resource_group_name=example.name,
+            name="example-log",
+            target_resource_id=test.id,
+            storage_account_id=test_account.id,
+            enabled=True)
         ```
 
         ## API Providers
@@ -571,12 +571,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
-            network_watcher_name=test_network_watcher.name,
-            resource_group_name=example.name,
-            name="example-log",
-            target_resource_id=test.id,
-            storage_account_id=test_account.id,
-            enabled=True,
             retention_policy={
                 "enabled": True,
                 "days": 7,
@@ -587,7 +581,13 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                 "workspace_region": test_analytics_workspace.location,
                 "workspace_resource_id": test_analytics_workspace.id,
                 "interval_in_minutes": 10,
-            })
+            },
+            network_watcher_name=test_network_watcher.name,
+            resource_group_name=example.name,
+            name="example-log",
+            target_resource_id=test.id,
+            storage_account_id=test_account.id,
+            enabled=True)
         ```
 
         ## API Providers

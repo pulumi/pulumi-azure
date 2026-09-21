@@ -27,22 +27,19 @@ import * as utilities from "../utilities";
  *     retentionInDays: 30,
  * });
  * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
- *     name: "example-actiongroup",
- *     resourceGroupName: example.name,
- *     shortName: "exampleact",
  *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
+ *     name: "example-actiongroup",
+ *     resourceGroupName: example.name,
+ *     shortName: "exampleact",
  * });
  * // Example: Creates alert using the new Scheduled Query Rules metric
  * const exampleMetricAlert = new azure.monitoring.MetricAlert("example", {
- *     name: "example-metricalert",
- *     resourceGroupName: example.name,
- *     scopes: [exampleAnalyticsWorkspace.id],
- *     description: "Action will be triggered when Average_% Idle Time metric is less than 10.",
- *     frequency: "PT1M",
- *     windowSize: "PT5M",
+ *     actions: [{
+ *         actionGroupId: exampleActionGroup.id,
+ *     }],
  *     criterias: [{
  *         metricNamespace: "Microsoft.OperationalInsights/workspaces",
  *         metricName: "UsedCapacity",
@@ -50,23 +47,26 @@ import * as utilities from "../utilities";
  *         operator: "LessThan",
  *         threshold: 10,
  *     }],
- *     actions: [{
- *         actionGroupId: exampleActionGroup.id,
- *     }],
+ *     name: "example-metricalert",
+ *     resourceGroupName: example.name,
+ *     scopes: [exampleAnalyticsWorkspace.id],
+ *     description: "Action will be triggered when Average_% Idle Time metric is less than 10.",
+ *     frequency: "PT1M",
+ *     windowSize: "PT5M",
  * });
  * // Example: LogToMetric Action for the named Computer
  * const exampleScheduledQueryRulesLog = new azure.monitoring.ScheduledQueryRulesLog("example", {
- *     name: "example",
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     criteria: {
- *         metricName: "Average_% Idle Time",
  *         dimensions: [{
  *             name: "Computer",
  *             operator: "Include",
  *             values: ["targetVM"],
  *         }],
+ *         metricName: "Average_% Idle Time",
  *     },
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     dataSourceId: exampleAnalyticsWorkspace.id,
  *     description: "Scheduled query rule LogToMetric example",
  *     enabled: true,

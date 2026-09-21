@@ -36,15 +36,15 @@ import (
 //				return err
 //			}
 //			_, err = core.NewCustomProvider(ctx, "example", &core.CustomProviderArgs{
-//				Name:              pulumi.String("example_provider"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				ResourceTypes: core.CustomProviderResourceTypeArray{
 //					&core.CustomProviderResourceTypeArgs{
 //						Name:     pulumi.String("dEf1"),
 //						Endpoint: pulumi.String("https://testendpoint.com/"),
 //					},
 //				},
+//				Name:              pulumi.String("example_provider"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

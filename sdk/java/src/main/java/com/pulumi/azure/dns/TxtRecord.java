@@ -63,10 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
- *             .name("test")
- *             .zoneName(exampleZone.name())
- *             .resourceGroupName(example.name())
- *             .ttl(300)
  *             .records(            
  *                 TxtRecordRecordArgs.builder()
  *                     .value("google-site-authenticator")
@@ -74,6 +70,10 @@ import javax.annotation.Nullable;
  *                 TxtRecordRecordArgs.builder()
  *                     .value("more site information here")
  *                     .build())
+ *             .name("test")
+ *             .zoneName(exampleZone.name())
+ *             .resourceGroupName(example.name())
+ *             .ttl(300)
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

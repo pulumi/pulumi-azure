@@ -433,6 +433,10 @@ class OutputServicebusTopic(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_servicebus_topic = azure.streamanalytics.OutputServicebusTopic("example",
+            serialization={
+                "type": "Csv",
+                "format": "Array",
+            },
             name="service-bus-topic-output",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -443,11 +447,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             property_columns=[
                 "col1",
                 "col2",
-            ],
-            serialization={
-                "type": "Csv",
-                "format": "Array",
-            })
+            ])
         ```
 
         ## API Providers
@@ -512,6 +512,10 @@ class OutputServicebusTopic(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             enable_partitioning=True)
         example_output_servicebus_topic = azure.streamanalytics.OutputServicebusTopic("example",
+            serialization={
+                "type": "Csv",
+                "format": "Array",
+            },
             name="service-bus-topic-output",
             stream_analytics_job_name=example.name,
             resource_group_name=example.resource_group_name,
@@ -522,11 +526,7 @@ class OutputServicebusTopic(pulumi.CustomResource):
             property_columns=[
                 "col1",
                 "col2",
-            ],
-            serialization={
-                "type": "Csv",
-                "format": "Array",
-            })
+            ])
         ```
 
         ## API Providers

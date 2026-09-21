@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -38,6 +38,19 @@ namespace Pulumi.Azure.Pim
     /// 
     ///     var exampleActiveRoleAssignment = new Azure.Pim.ActiveRoleAssignment("example", new()
     ///     {
+    ///         Schedule = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleArgs
+    ///         {
+    ///             Expiration = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleExpirationArgs
+    ///             {
+    ///                 DurationHours = 8,
+    ///             },
+    ///             StartDateTime = exampleStatic.Rfc3339,
+    ///         },
+    ///         Ticket = new Azure.Pim.Inputs.ActiveRoleAssignmentTicketArgs
+    ///         {
+    ///             Number = "1",
+    ///             System = "example ticket system",
+    ///         },
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionId = Output.Tuple(primary, exampleGetRoleDefinition).Apply(values =&gt;
     ///         {
@@ -46,20 +59,7 @@ namespace Pulumi.Azure.Pim
     ///             return $"{primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id)}{exampleGetRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id)}";
     ///         }),
     ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         Schedule = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleArgs
-    ///         {
-    ///             StartDateTime = exampleStatic.Rfc3339,
-    ///             Expiration = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleExpirationArgs
-    ///             {
-    ///                 DurationHours = 8,
-    ///             },
-    ///         },
     ///         Justification = "Expiration Duration Set",
-    ///         Ticket = new Azure.Pim.Inputs.ActiveRoleAssignmentTicketArgs
-    ///         {
-    ///             Number = "1",
-    ///             System = "example ticket system",
-    ///         },
     ///     });
     /// 
     /// });
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Pim
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// using Time = Pulumiverse.Time;
+    /// using Time = Pulumi.Time;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -92,23 +92,23 @@ namespace Pulumi.Azure.Pim
     /// 
     ///     var exampleActiveRoleAssignment = new Azure.Pim.ActiveRoleAssignment("example", new()
     ///     {
-    ///         Scope = exampleGroup.Id,
-    ///         RoleDefinitionId = exampleGetRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///         Schedule = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleArgs
     ///         {
-    ///             StartDateTime = exampleStatic.Rfc3339,
     ///             Expiration = new Azure.Pim.Inputs.ActiveRoleAssignmentScheduleExpirationArgs
     ///             {
     ///                 DurationHours = 8,
     ///             },
+    ///             StartDateTime = exampleStatic.Rfc3339,
     ///         },
-    ///         Justification = "Expiration Duration Set",
     ///         Ticket = new Azure.Pim.Inputs.ActiveRoleAssignmentTicketArgs
     ///         {
     ///             Number = "1",
     ///             System = "example ticket system",
     ///         },
+    ///         Scope = exampleGroup.Id,
+    ///         RoleDefinitionId = exampleGetRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         Justification = "Expiration Duration Set",
     ///     });
     /// 
     /// });

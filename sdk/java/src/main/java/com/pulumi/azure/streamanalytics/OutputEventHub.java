@@ -78,6 +78,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputEventHub = new OutputEventHub("exampleOutputEventHub", OutputEventHubArgs.builder()
+ *             .serialization(OutputEventHubSerializationArgs.builder()
+ *                 .type("Avro")
+ *                 .build())
  *             .name("output-to-eventhub")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
@@ -85,9 +88,6 @@ import javax.annotation.Nullable;
  *             .servicebusNamespace(exampleEventHubNamespace.name())
  *             .sharedAccessPolicyKey(exampleEventHubNamespace.defaultPrimaryKey())
  *             .sharedAccessPolicyName("RootManageSharedAccessKey")
- *             .serialization(OutputEventHubSerializationArgs.builder()
- *                 .type("Avro")
- *                 .build())
  *             .build());
  * 
  *     }

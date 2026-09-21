@@ -53,10 +53,43 @@ import (
 //				return err
 //			}
 //			_, err = frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
-//				Name:              pulumi.String("example-FrontDoor"),
-//				ResourceGroupName: example.Name,
+//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
+//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
+//						Name: pulumi.String("exampleHealthProbeSetting1"),
+//					},
+//				},
+//				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
+//					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
+//						Name: pulumi.String("exampleLoadBalancingSettings1"),
+//					},
+//				},
+//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
+//					&frontdoor.FrontdoorBackendPoolArgs{
+//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
+//							&frontdoor.FrontdoorBackendPoolBackendArgs{
+//								HostHeader: pulumi.String("www.bing.com"),
+//								Address:    pulumi.String("www.bing.com"),
+//								HttpPort:   pulumi.Int(80),
+//								HttpsPort:  pulumi.Int(443),
+//							},
+//						},
+//						Name:              pulumi.String("exampleBackendBing"),
+//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
+//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
+//					},
+//				},
+//				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
+//					&frontdoor.FrontdoorFrontendEndpointArgs{
+//						Name:     pulumi.String("exampleFrontendEndpoint1"),
+//						HostName: pulumi.String("example-FrontDoor.azurefd.net"),
+//					},
+//				},
 //				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
 //					&frontdoor.FrontdoorRoutingRuleArgs{
+//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
+//							ForwardingProtocol: pulumi.String("MatchRequest"),
+//							BackendPoolName:    pulumi.String("exampleBackendBing"),
+//						},
 //						Name: pulumi.String("exampleRoutingRule1"),
 //						AcceptedProtocols: pulumi.StringArray{
 //							pulumi.String("Http"),
@@ -68,43 +101,10 @@ import (
 //						FrontendEndpoints: pulumi.StringArray{
 //							pulumi.String("exampleFrontendEndpoint1"),
 //						},
-//						ForwardingConfiguration: &frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs{
-//							ForwardingProtocol: pulumi.String("MatchRequest"),
-//							BackendPoolName:    pulumi.String("exampleBackendBing"),
-//						},
 //					},
 //				},
-//				BackendPoolLoadBalancings: frontdoor.FrontdoorBackendPoolLoadBalancingArray{
-//					&frontdoor.FrontdoorBackendPoolLoadBalancingArgs{
-//						Name: pulumi.String("exampleLoadBalancingSettings1"),
-//					},
-//				},
-//				BackendPoolHealthProbes: frontdoor.FrontdoorBackendPoolHealthProbeArray{
-//					&frontdoor.FrontdoorBackendPoolHealthProbeArgs{
-//						Name: pulumi.String("exampleHealthProbeSetting1"),
-//					},
-//				},
-//				BackendPools: frontdoor.FrontdoorBackendPoolArray{
-//					&frontdoor.FrontdoorBackendPoolArgs{
-//						Name: pulumi.String("exampleBackendBing"),
-//						Backends: frontdoor.FrontdoorBackendPoolBackendArray{
-//							&frontdoor.FrontdoorBackendPoolBackendArgs{
-//								HostHeader: pulumi.String("www.bing.com"),
-//								Address:    pulumi.String("www.bing.com"),
-//								HttpPort:   pulumi.Int(80),
-//								HttpsPort:  pulumi.Int(443),
-//							},
-//						},
-//						LoadBalancingName: pulumi.String("exampleLoadBalancingSettings1"),
-//						HealthProbeName:   pulumi.String("exampleHealthProbeSetting1"),
-//					},
-//				},
-//				FrontendEndpoints: frontdoor.FrontdoorFrontendEndpointArray{
-//					&frontdoor.FrontdoorFrontendEndpointArgs{
-//						Name:     pulumi.String("exampleFrontendEndpoint1"),
-//						HostName: pulumi.String("example-FrontDoor.azurefd.net"),
-//					},
-//				},
+//				Name:              pulumi.String("example-FrontDoor"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

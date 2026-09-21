@@ -25,23 +25,23 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
- *     name: "example-springcloudapp",
- *     resourceGroupName: example.name,
- *     serviceName: exampleSpringCloudService.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-springcloudapp",
+ *     resourceGroupName: example.name,
+ *     serviceName: exampleSpringCloudService.name,
  * });
  * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("example", {
+ *     quota: {
+ *         cpu: "2",
+ *         memory: "4Gi",
+ *     },
  *     name: "deploy1",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     instanceCount: 2,
  *     jvmOptions: "-XX:+PrintGC",
  *     runtimeVersion: "Java_11",
- *     quota: {
- *         cpu: "2",
- *         memory: "4Gi",
- *     },
  *     environmentVariables: {
  *         Env: "Staging",
  *     },

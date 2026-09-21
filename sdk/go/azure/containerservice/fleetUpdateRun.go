@@ -45,10 +45,6 @@ import (
 //				return err
 //			}
 //			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				DnsPrefix:         pulumi.String("example"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
 //					NodeCount: pulumi.Int(1),
@@ -57,6 +53,10 @@ import (
 //				Identity: &containerservice.KubernetesClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				DnsPrefix:         pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -71,8 +71,6 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewFleetUpdateRun(ctx, "example", &containerservice.FleetUpdateRunArgs{
-//				Name:                     pulumi.String("example"),
-//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
 //				ManagedClusterUpdate: &containerservice.FleetUpdateRunManagedClusterUpdateArgs{
 //					Upgrade: &containerservice.FleetUpdateRunManagedClusterUpdateUpgradeArgs{
 //						Type:              pulumi.String("Full"),
@@ -84,15 +82,17 @@ import (
 //				},
 //				Stages: containerservice.FleetUpdateRunStageArray{
 //					&containerservice.FleetUpdateRunStageArgs{
-//						Name: pulumi.String("example"),
 //						Groups: containerservice.FleetUpdateRunStageGroupArray{
 //							&containerservice.FleetUpdateRunStageGroupArgs{
 //								Name: pulumi.String("example-group"),
 //							},
 //						},
+//						Name:                    pulumi.String("example"),
 //						AfterStageWaitInSeconds: pulumi.Int(21),
 //					},
 //				},
+//				Name:                     pulumi.String("example"),
+//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

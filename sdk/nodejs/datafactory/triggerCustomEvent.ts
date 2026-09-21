@@ -34,6 +34,12 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleTriggerCustomEvent = new azure.datafactory.TriggerCustomEvent("example", {
+ *     pipelines: [{
+ *         name: examplePipeline.name,
+ *         parameters: {
+ *             Env: "Prod",
+ *         },
+ *     }],
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     eventgridTopicId: exampleTopic.id,
@@ -49,12 +55,6 @@ import * as utilities from "../utilities";
  *         "example3",
  *     ],
  *     description: "example description",
- *     pipelines: [{
- *         name: examplePipeline.name,
- *         parameters: {
- *             Env: "Prod",
- *         },
- *     }],
  *     additionalProperties: {
  *         foo: "foo1",
  *         bar: "bar2",

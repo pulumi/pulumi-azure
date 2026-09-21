@@ -294,13 +294,13 @@ class VolumeGroup(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "Premium_LRS",
+            },
             name="examplees-es",
             resource_group_name=example.name,
             location=example.location,
-            base_size_in_tib=1,
-            sku={
-                "name": "Premium_LRS",
-            })
+            base_size_in_tib=1)
         current = azure.core.get_client_config()
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
@@ -376,9 +376,6 @@ class VolumeGroup(pulumi.CustomResource):
                     client,
                 ]))
         example_volume_group = azure.elasticsan.VolumeGroup("example",
-            name="example-esvg",
-            elastic_san_id=example_elastic_san.id,
-            encryption_type="EncryptionAtRestWithCustomerManagedKey",
             encryption={
                 "key_vault_key_id": example_key.versionless_id,
                 "user_assigned_identity_id": example_user_assigned_identity.id,
@@ -390,7 +387,10 @@ class VolumeGroup(pulumi.CustomResource):
             network_rules=[{
                 "subnet_id": example_subnet.id,
                 "action": "Allow",
-            }])
+            }],
+            name="example-esvg",
+            elastic_san_id=example_elastic_san.id,
+            encryption_type="EncryptionAtRestWithCustomerManagedKey")
         ```
 
         ## API Providers
@@ -440,13 +440,13 @@ class VolumeGroup(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_elastic_san = azure.elasticsan.ElasticSan("example",
+            sku={
+                "name": "Premium_LRS",
+            },
             name="examplees-es",
             resource_group_name=example.name,
             location=example.location,
-            base_size_in_tib=1,
-            sku={
-                "name": "Premium_LRS",
-            })
+            base_size_in_tib=1)
         current = azure.core.get_client_config()
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
@@ -522,9 +522,6 @@ class VolumeGroup(pulumi.CustomResource):
                     client,
                 ]))
         example_volume_group = azure.elasticsan.VolumeGroup("example",
-            name="example-esvg",
-            elastic_san_id=example_elastic_san.id,
-            encryption_type="EncryptionAtRestWithCustomerManagedKey",
             encryption={
                 "key_vault_key_id": example_key.versionless_id,
                 "user_assigned_identity_id": example_user_assigned_identity.id,
@@ -536,7 +533,10 @@ class VolumeGroup(pulumi.CustomResource):
             network_rules=[{
                 "subnet_id": example_subnet.id,
                 "action": "Allow",
-            }])
+            }],
+            name="example-esvg",
+            elastic_san_id=example_elastic_san.id,
+            encryption_type="EncryptionAtRestWithCustomerManagedKey")
         ```
 
         ## API Providers

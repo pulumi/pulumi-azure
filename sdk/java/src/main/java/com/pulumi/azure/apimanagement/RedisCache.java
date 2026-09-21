@@ -64,6 +64,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .build())
  *             .name("example-cache")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -72,8 +74,6 @@ import javax.annotation.Nullable;
  *             .skuName("Basic")
  *             .enableNonSslPort(false)
  *             .minimumTlsVersion("1.2")
- *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
- *                 .build())
  *             .build());
  * 
  *         var exampleRedisCache = new RedisCache("exampleRedisCache", RedisCacheArgs.builder()

@@ -59,9 +59,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
-//				Name:              pulumi.String("example-nsg"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
 //					&network.NetworkSecurityGroupSecurityRuleArgs{
 //						Name:                     pulumi.String("test123"),
@@ -75,6 +72,9 @@ import (
 //						DestinationAddressPrefix: pulumi.String("*"),
 //					},
 //				},
+//				Name:              pulumi.String("example-nsg"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -258,7 +258,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             map_type="Xslt",
-            content=std.file(input="testdata/integration_account_map_content.xsd").result)
+            content=std.file(input="testdata/integration_account_map_content.xsd")["result"])
         ```
 
         ## API Providers
@@ -315,7 +315,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             map_type="Xslt",
-            content=std.file(input="testdata/integration_account_map_content.xsd").result)
+            content=std.file(input="testdata/integration_account_map_content.xsd")["result"])
         ```
 
         ## API Providers

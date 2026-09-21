@@ -63,11 +63,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePool = new Pool("examplePool", PoolArgs.builder()
- *             .name("examplepool")
- *             .resourceGroupName(example.name())
- *             .accountName(exampleAccount.name())
- *             .nodeAgentSkuId("batch.node.ubuntu 22.04")
- *             .vmSize("STANDARD_A1_V2")
  *             .fixedScale(PoolFixedScaleArgs.builder()
  *                 .targetDedicatedNodes(1)
  *                 .build())
@@ -77,6 +72,11 @@ import javax.annotation.Nullable;
  *                 .sku("22_04-lts")
  *                 .version("latest")
  *                 .build())
+ *             .name("examplepool")
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount.name())
+ *             .nodeAgentSkuId("batch.node.ubuntu 22.04")
+ *             .vmSize("STANDARD_A1_V2")
  *             .build());
  * 
  *         var exampleJob = new Job("exampleJob", JobArgs.builder()

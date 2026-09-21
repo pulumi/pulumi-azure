@@ -34,6 +34,10 @@ import * as utilities from "../utilities";
  *     skuName: "Developer_1",
  * });
  * const exampleApi = new azure.apimanagement.Api("example", {
+ *     "import": {
+ *         contentFormat: "swagger-link-json",
+ *         contentValue: "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
+ *     },
  *     name: "example-api",
  *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
@@ -41,30 +45,16 @@ import * as utilities from "../utilities";
  *     displayName: "Example API",
  *     path: "example",
  *     protocols: ["https"],
- *     "import": {
- *         contentFormat: "swagger-link-json",
- *         contentValue: "https://raw.githubusercontent.com/hashicorp/terraform-provider-azurerm/refs/heads/main/internal/services/apimanagement/testdata/api_management_api_swagger.json",
- *     },
  * });
  * const exampleLogger = new azure.apimanagement.Logger("example", {
- *     name: "example-apimlogger",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: example.name,
  *     applicationInsights: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
+ *     name: "example-apimlogger",
+ *     apiManagementName: exampleService.name,
+ *     resourceGroupName: example.name,
  * });
  * const exampleApiDiagnostic = new azure.apimanagement.ApiDiagnostic("example", {
- *     identifier: "applicationinsights",
- *     resourceGroupName: example.name,
- *     apiManagementName: exampleService.name,
- *     apiName: exampleApi.name,
- *     apiManagementLoggerId: exampleLogger.id,
- *     samplingPercentage: 5,
- *     alwaysLogErrors: true,
- *     logClientIp: true,
- *     verbosity: "verbose",
- *     httpCorrelationProtocol: "W3C",
  *     frontendRequest: {
  *         bodyBytes: 32,
  *         headersToLogs: [
@@ -97,6 +87,16 @@ import * as utilities from "../utilities";
  *             "origin",
  *         ],
  *     },
+ *     identifier: "applicationinsights",
+ *     resourceGroupName: example.name,
+ *     apiManagementName: exampleService.name,
+ *     apiName: exampleApi.name,
+ *     apiManagementLoggerId: exampleLogger.id,
+ *     samplingPercentage: 5,
+ *     alwaysLogErrors: true,
+ *     logClientIp: true,
+ *     verbosity: "verbose",
+ *     httpCorrelationProtocol: "W3C",
  * });
  * ```
  *

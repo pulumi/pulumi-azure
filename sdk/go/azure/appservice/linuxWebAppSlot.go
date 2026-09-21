@@ -47,19 +47,19 @@ import (
 //				return err
 //			}
 //			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
+//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //				Name:              pulumi.String("example-linux-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewLinuxWebAppSlot(ctx, "example", &appservice.LinuxWebAppSlotArgs{
+//				SiteConfig:   &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //				Name:         pulumi.String("example-slot"),
 //				AppServiceId: exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
-//				SiteConfig:   &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err

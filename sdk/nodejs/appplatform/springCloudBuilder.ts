@@ -30,16 +30,16 @@ import * as utilities from "../utilities";
  *     skuName: "E0",
  * });
  * const exampleSpringCloudBuilder = new azure.appplatform.SpringCloudBuilder("example", {
- *     name: "example",
- *     springCloudServiceId: exampleSpringCloudService.id,
- *     buildPackGroups: [{
- *         name: "mix",
- *         buildPackIds: ["tanzu-buildpacks/java-azure"],
- *     }],
  *     stack: {
  *         id: "io.buildpacks.stacks.bionic",
  *         version: "base",
  *     },
+ *     buildPackGroups: [{
+ *         name: "mix",
+ *         buildPackIds: ["tanzu-buildpacks/java-azure"],
+ *     }],
+ *     name: "example",
+ *     springCloudServiceId: exampleSpringCloudService.id,
  * });
  * ```
  *

@@ -223,10 +223,6 @@ class FleetUpdateRun(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="example",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -234,15 +230,17 @@ class FleetUpdateRun(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="example")
         example_fleet_member = azure.containerservice.FleetMember("example",
             name="example",
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             group="example-group")
         example_fleet_update_run = azure.containerservice.FleetUpdateRun("example",
-            name="example",
-            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
             managed_cluster_update={
                 "upgrade": {
                     "type": "Full",
@@ -253,12 +251,14 @@ class FleetUpdateRun(pulumi.CustomResource):
                 },
             },
             stages=[{
-                "name": "example",
                 "groups": [{
                     "name": "example-group",
                 }],
+                "name": "example",
                 "after_stage_wait_in_seconds": 21,
-            }])
+            }],
+            name="example",
+            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id)
         ```
 
         ## API Providers
@@ -308,10 +308,6 @@ class FleetUpdateRun(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
-            dns_prefix="example",
             default_node_pool={
                 "name": "default",
                 "node_count": 1,
@@ -319,15 +315,17 @@ class FleetUpdateRun(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            dns_prefix="example")
         example_fleet_member = azure.containerservice.FleetMember("example",
             name="example",
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             group="example-group")
         example_fleet_update_run = azure.containerservice.FleetUpdateRun("example",
-            name="example",
-            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
             managed_cluster_update={
                 "upgrade": {
                     "type": "Full",
@@ -338,12 +336,14 @@ class FleetUpdateRun(pulumi.CustomResource):
                 },
             },
             stages=[{
-                "name": "example",
                 "groups": [{
                     "name": "example-group",
                 }],
+                "name": "example",
                 "after_stage_wait_in_seconds": 21,
-            }])
+            }],
+            name="example",
+            kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id)
         ```
 
         ## API Providers

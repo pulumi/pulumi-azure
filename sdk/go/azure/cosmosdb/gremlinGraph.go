@@ -44,12 +44,6 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewGremlinGraph(ctx, "example", &cosmosdb.GremlinGraphArgs{
-//				Name:              pulumi.String("tfex-cosmos-gremlin-graph"),
-//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
-//				AccountName:       pulumi.String(example.Name),
-//				DatabaseName:      exampleGremlinDatabase.Name,
-//				PartitionKeyPath:  pulumi.String("/Example"),
-//				Throughput:        pulumi.Int(400),
 //				IndexPolicy: &cosmosdb.GremlinGraphIndexPolicyArgs{
 //					Automatic:    pulumi.Bool(true),
 //					IndexingMode: pulumi.String("consistent"),
@@ -72,6 +66,12 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("tfex-cosmos-gremlin-graph"),
+//				ResourceGroupName: pulumi.String(example.ResourceGroupName),
+//				AccountName:       pulumi.String(example.Name),
+//				DatabaseName:      exampleGremlinDatabase.Name,
+//				PartitionKeyPath:  pulumi.String("/Example"),
+//				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {
 //				return err

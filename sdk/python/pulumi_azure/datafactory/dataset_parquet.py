@@ -541,14 +541,14 @@ class DatasetParquet(pulumi.CustomResource):
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_parquet = azure.datafactory.DatasetParquet("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_web.name,
             http_server_location={
                 "relative_url": "http://www.bing.com",
                 "path": "foo/bar/",
                 "filename": "fizz.txt",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_web.name)
         ```
 
         ## Import
@@ -609,14 +609,14 @@ class DatasetParquet(pulumi.CustomResource):
             authentication_type="Anonymous",
             url="https://www.bing.com")
         example_dataset_parquet = azure.datafactory.DatasetParquet("example",
-            name="example",
-            data_factory_id=example_factory.id,
-            linked_service_name=example_linked_service_web.name,
             http_server_location={
                 "relative_url": "http://www.bing.com",
                 "path": "foo/bar/",
                 "filename": "fizz.txt",
-            })
+            },
+            name="example",
+            data_factory_id=example_factory.id,
+            linked_service_name=example_linked_service_web.name)
         ```
 
         ## Import

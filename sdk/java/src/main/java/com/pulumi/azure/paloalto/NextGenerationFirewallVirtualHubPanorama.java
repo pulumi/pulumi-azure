@@ -92,14 +92,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualHubPanorama = new NextGenerationFirewallVirtualHubPanorama("exampleNextGenerationFirewallVirtualHubPanorama", NextGenerationFirewallVirtualHubPanoramaArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
  *             .networkProfile(NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs.builder()
  *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .virtualHubId(exampleVirtualHub.id())
  *                 .networkVirtualApplianceId(exampleVirtualNetworkAppliance.id())
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .panoramaBase64Config("VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==")
  *             .build());
  * 

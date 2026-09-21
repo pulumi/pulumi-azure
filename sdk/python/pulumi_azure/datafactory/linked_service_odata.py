@@ -361,13 +361,13 @@ class LinkedServiceOdata(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             url="https://services.odata.org/v4/TripPinServiceRW/People")
         basic_auth = azure.datafactory.LinkedServiceOdata("basic_auth",
-            name="basic_auth",
-            data_factory_id=example_factory.id,
-            url="https://services.odata.org/v4/TripPinServiceRW/People",
             basic_authentication={
                 "username": "emma",
                 "password": "Ch4ngeM3!",
-            })
+            },
+            name="basic_auth",
+            data_factory_id=example_factory.id,
+            url="https://services.odata.org/v4/TripPinServiceRW/People")
         ```
 
         ## Import
@@ -420,13 +420,13 @@ class LinkedServiceOdata(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             url="https://services.odata.org/v4/TripPinServiceRW/People")
         basic_auth = azure.datafactory.LinkedServiceOdata("basic_auth",
-            name="basic_auth",
-            data_factory_id=example_factory.id,
-            url="https://services.odata.org/v4/TripPinServiceRW/People",
             basic_authentication={
                 "username": "emma",
                 "password": "Ch4ngeM3!",
-            })
+            },
+            name="basic_auth",
+            data_factory_id=example_factory.id,
+            url="https://services.odata.org/v4/TripPinServiceRW/People")
         ```
 
         ## Import

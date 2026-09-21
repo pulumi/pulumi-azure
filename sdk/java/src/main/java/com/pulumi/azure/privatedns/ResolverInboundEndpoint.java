@@ -74,27 +74,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
- *             .name("inbounddns")
- *             .resourceGroupName(example.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes("10.0.0.0/28")
  *             .delegations(SubnetDelegationArgs.builder()
- *                 .name("Microsoft.Network.dnsResolvers")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
  *                     .actions("Microsoft.Network/virtualNetworks/subnets/join/action")
  *                     .name("Microsoft.Network/dnsResolvers")
  *                     .build())
+ *                 .name("Microsoft.Network.dnsResolvers")
  *                 .build())
+ *             .name("inbounddns")
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.0/28")
  *             .build());
  * 
  *         var exampleResolverInboundEndpoint = new ResolverInboundEndpoint("exampleResolverInboundEndpoint", ResolverInboundEndpointArgs.builder()
- *             .name("example-drie")
- *             .privateDnsResolverId(exampleResolver.id())
- *             .location(exampleResolver.location())
  *             .ipConfigurations(ResolverInboundEndpointIpConfigurationsArgs.builder()
  *                 .privateIpAllocationMethod("Dynamic")
  *                 .subnetId(exampleSubnet.id())
  *                 .build())
+ *             .name("example-drie")
+ *             .privateDnsResolverId(exampleResolver.id())
+ *             .location(exampleResolver.location())
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 

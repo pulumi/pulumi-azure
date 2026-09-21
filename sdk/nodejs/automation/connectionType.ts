@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  * });
  * const exampleConnectionType = new azure.automation.ConnectionType("example", {
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- *     automationAccountName: exampleAccount.name,
  *     fields: [{
  *         name: "example",
  *         type: "string",
  *     }],
+ *     name: "example",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     automationAccountName: exampleAccount.name,
  * });
  * ```
  *

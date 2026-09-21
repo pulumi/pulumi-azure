@@ -46,14 +46,14 @@ namespace Pulumi.Azure.Core
     /// 
     ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("example", new()
     ///     {
-    ///         Name = "assignment1",
-    ///         ResourceId = exampleVirtualNetwork.Id,
-    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
-    ///         Location = exampleResourceGroup.Location,
     ///         Identity = new Azure.Core.Inputs.ResourcePolicyAssignmentIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "assignment1",
+    ///         ResourceId = exampleVirtualNetwork.Id,
+    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
     ///     var exampleResourcePolicyExemption = new Azure.Core.ResourcePolicyExemption("example", new()

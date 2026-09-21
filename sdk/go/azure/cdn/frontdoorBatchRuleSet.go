@@ -57,10 +57,6 @@ import (
 //				return err
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
-//				Name:                   pulumi.String("example-originGroup"),
-//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
-//				SessionAffinityEnabled: pulumi.Bool(true),
-//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
 //					IntervalInSeconds: pulumi.Int(240),
 //					Path:              pulumi.String("/healthProbe"),
@@ -72,6 +68,10 @@ import (
 //					SampleSize:                      pulumi.Int(16),
 //					SuccessfulSamplesRequired:       pulumi.Int(3),
 //				},
+//				Name:                   pulumi.String("example-originGroup"),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				SessionAffinityEnabled: pulumi.Bool(true),
+//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //			})
 //			if err != nil {
 //				return err
@@ -92,13 +92,8 @@ import (
 //				return err
 //			}
 //			exampleFrontdoorBatchRuleSet, err := cdn.NewFrontdoorBatchRuleSet(ctx, "example", &cdn.FrontdoorBatchRuleSetArgs{
-//				Name:                  pulumi.String("examplebatchruleset"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				Rules: cdn.FrontdoorBatchRuleSetRuleArray{
 //					&cdn.FrontdoorBatchRuleSetRuleArgs{
-//						Name:             pulumi.String("examplebatchrule"),
-//						Order:            pulumi.Int(1),
-//						BehaviourOnMatch: pulumi.String("Continue"),
 //						Actions: &cdn.FrontdoorBatchRuleSetRuleActionsArgs{
 //							RouteConfigurationOverride: &cdn.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs{
 //								OriginGroup: &cdn.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs{
@@ -118,6 +113,12 @@ import (
 //							},
 //						},
 //						Conditions: &cdn.FrontdoorBatchRuleSetRuleConditionsArgs{
+//							DeviceTypes: cdn.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArray{
+//								&cdn.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs{
+//									Operator: pulumi.String("Equal"),
+//									Values:   pulumi.String("Mobile"),
+//								},
+//							},
 //							HostNames: cdn.FrontdoorBatchRuleSetRuleConditionsHostNameArray{
 //								&cdn.FrontdoorBatchRuleSetRuleConditionsHostNameArgs{
 //									Operator: pulumi.String("Equal"),
@@ -132,12 +133,6 @@ import (
 //									},
 //								},
 //							},
-//							DeviceTypes: cdn.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArray{
-//								&cdn.FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs{
-//									Operator: pulumi.String("Equal"),
-//									Values:   pulumi.String("Mobile"),
-//								},
-//							},
 //							PostArguments: cdn.FrontdoorBatchRuleSetRuleConditionsPostArgumentArray{
 //								&cdn.FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs{
 //									Name:     pulumi.String("customerName"),
@@ -148,14 +143,6 @@ import (
 //									},
 //									Transforms: pulumi.StringArray{
 //										pulumi.String("Uppercase"),
-//									},
-//								},
-//							},
-//							RequestMethods: cdn.FrontdoorBatchRuleSetRuleConditionsRequestMethodArray{
-//								&cdn.FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs{
-//									Operator: pulumi.String("Equal"),
-//									Values: pulumi.StringArray{
-//										pulumi.String("DELETE"),
 //									},
 //								},
 //							},
@@ -172,9 +159,22 @@ import (
 //									},
 //								},
 //							},
+//							RequestMethods: cdn.FrontdoorBatchRuleSetRuleConditionsRequestMethodArray{
+//								&cdn.FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs{
+//									Operator: pulumi.String("Equal"),
+//									Values: pulumi.StringArray{
+//										pulumi.String("DELETE"),
+//									},
+//								},
+//							},
 //						},
+//						Name:             pulumi.String("examplebatchrule"),
+//						Order:            pulumi.Int(1),
+//						BehaviourOnMatch: pulumi.String("Continue"),
 //					},
 //				},
+//				Name:                  pulumi.String("examplebatchruleset"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -39,6 +39,22 @@ namespace Pulumi.Azure.ManagedApplication
     /// 
     ///     var exampleDefinition = new Azure.ManagedApplication.Definition("example", new()
     ///     {
+    ///         Authorizations = new[]
+    ///         {
+    ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
+    ///             {
+    ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 RoleDefinitionId = Std.Split.Invoke(new()
+    ///                 {
+    ///                     Separator = "/",
+    ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///                 }).Result[Std.Split.Invoke(new()
+    ///                 {
+    ///                     Separator = "/",
+    ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///                 }).Result.Length - 1],
+    ///             },
+    ///         },
     ///         Name = "examplemanagedapplicationdefinition",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
@@ -46,27 +62,6 @@ namespace Pulumi.Azure.ManagedApplication
     ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
     ///         DisplayName = "TestManagedAppDefinition",
     ///         Description = "Test Managed App Definition",
-    ///         Authorizations = new[]
-    ///         {
-    ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
-    ///             {
-    ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 RoleDefinitionId = Output.Tuple(Std.Split.Invoke(new()
-    ///                 {
-    ///                     Separator = "/",
-    ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }), Std.Split.Invoke(new()
-    ///                 {
-    ///                     Separator = "/",
-    ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }).Apply(invoke =&gt; invoke.Result).Length()).Apply(values =&gt;
-    ///                 {
-    ///                     var invoke = values.Item1;
-    ///                     var length = values.Item2;
-    ///                     return invoke.Result[length - 1];
-    ///                 }),
-    ///             },
-    ///         },
     ///     });
     /// 
     ///     var exampleApplication = new Azure.ManagedApplication.Application("example", new()

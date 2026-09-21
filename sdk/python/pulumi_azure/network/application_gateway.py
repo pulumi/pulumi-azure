@@ -1370,26 +1370,11 @@ class ApplicationGateway(pulumi.CustomResource):
         request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
         redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
         network = azure.network.ApplicationGateway("network",
-            name="example-appgateway",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "Standard_v2",
                 "tier": "Standard_v2",
                 "capacity": 2,
             },
-            gateway_ip_configurations=[{
-                "name": "my-gateway-ip-configuration",
-                "subnet_id": example_subnet.id,
-            }],
-            frontend_ports=[{
-                "name": frontend_port_name,
-                "port": 80,
-            }],
-            frontend_ip_configurations=[{
-                "name": frontend_ip_configuration_name,
-                "public_ip_address_id": example_public_ip.id,
-            }],
             backend_address_pools=[{
                 "name": backend_address_pool_name,
             }],
@@ -1400,6 +1385,18 @@ class ApplicationGateway(pulumi.CustomResource):
                 "port": 80,
                 "protocol": "Http",
                 "request_timeout": 60,
+            }],
+            frontend_ip_configurations=[{
+                "name": frontend_ip_configuration_name,
+                "public_ip_address_id": example_public_ip.id,
+            }],
+            frontend_ports=[{
+                "name": frontend_port_name,
+                "port": 80,
+            }],
+            gateway_ip_configurations=[{
+                "name": "my-gateway-ip-configuration",
+                "subnet_id": example_subnet.id,
             }],
             http_listeners=[{
                 "name": listener_name,
@@ -1414,7 +1411,10 @@ class ApplicationGateway(pulumi.CustomResource):
                 "http_listener_name": listener_name,
                 "backend_address_pool_name": backend_address_pool_name,
                 "backend_http_settings_name": http_setting_name,
-            }])
+            }],
+            name="example-appgateway",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers
@@ -1532,26 +1532,11 @@ class ApplicationGateway(pulumi.CustomResource):
         request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
         redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
         network = azure.network.ApplicationGateway("network",
-            name="example-appgateway",
-            resource_group_name=example.name,
-            location=example.location,
             sku={
                 "name": "Standard_v2",
                 "tier": "Standard_v2",
                 "capacity": 2,
             },
-            gateway_ip_configurations=[{
-                "name": "my-gateway-ip-configuration",
-                "subnet_id": example_subnet.id,
-            }],
-            frontend_ports=[{
-                "name": frontend_port_name,
-                "port": 80,
-            }],
-            frontend_ip_configurations=[{
-                "name": frontend_ip_configuration_name,
-                "public_ip_address_id": example_public_ip.id,
-            }],
             backend_address_pools=[{
                 "name": backend_address_pool_name,
             }],
@@ -1562,6 +1547,18 @@ class ApplicationGateway(pulumi.CustomResource):
                 "port": 80,
                 "protocol": "Http",
                 "request_timeout": 60,
+            }],
+            frontend_ip_configurations=[{
+                "name": frontend_ip_configuration_name,
+                "public_ip_address_id": example_public_ip.id,
+            }],
+            frontend_ports=[{
+                "name": frontend_port_name,
+                "port": 80,
+            }],
+            gateway_ip_configurations=[{
+                "name": "my-gateway-ip-configuration",
+                "subnet_id": example_subnet.id,
             }],
             http_listeners=[{
                 "name": listener_name,
@@ -1576,7 +1573,10 @@ class ApplicationGateway(pulumi.CustomResource):
                 "http_listener_name": listener_name,
                 "backend_address_pool_name": backend_address_pool_name,
                 "backend_http_settings_name": http_setting_name,
-            }])
+            }],
+            name="example-appgateway",
+            resource_group_name=example.name,
+            location=example.location)
         ```
 
         ## API Providers

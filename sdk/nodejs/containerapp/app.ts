@@ -33,10 +33,6 @@ import * as utilities from "../utilities";
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
  * const exampleApp = new azure.containerapp.App("example", {
- *     name: "example-app",
- *     containerAppEnvironmentId: exampleEnvironment.id,
- *     resourceGroupName: example.name,
- *     revisionMode: "Single",
  *     template: {
  *         containers: [{
  *             name: "examplecontainerapp",
@@ -45,6 +41,10 @@ import * as utilities from "../utilities";
  *             memory: "0.5Gi",
  *         }],
  *     },
+ *     name: "example-app",
+ *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     resourceGroupName: example.name,
+ *     revisionMode: "Single",
  * });
  * ```
  *

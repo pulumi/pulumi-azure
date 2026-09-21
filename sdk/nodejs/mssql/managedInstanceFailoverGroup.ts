@@ -44,12 +44,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: primaryVirtualNetwork.id,
  * });
  * const primarySubnet = new azure.network.Subnet("primary", {
- *     name: primaryName,
- *     resourceGroupName: primary.name,
- *     virtualNetworkName: primaryVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             actions: [
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -58,7 +53,12 @@ import * as utilities from "../utilities";
  *             ],
  *             name: "Microsoft.Sql/managedInstances",
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: primaryName,
+ *     resourceGroupName: primary.name,
+ *     virtualNetworkName: primaryVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
  * });
  * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primary", {
  *     name: primaryName,
@@ -113,12 +113,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: failoverVirtualNetwork.id,
  * });
  * const failoverSubnet = new azure.network.Subnet("failover", {
- *     name: "ManagedInstance",
- *     resourceGroupName: failover.name,
- *     virtualNetworkName: failoverVirtualNetwork.name,
- *     addressPrefixes: ["10.1.1.0/24"],
  *     delegations: [{
- *         name: "delegation",
  *         serviceDelegation: {
  *             actions: [
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -127,7 +122,12 @@ import * as utilities from "../utilities";
  *             ],
  *             name: "Microsoft.Sql/managedInstances",
  *         },
+ *         name: "delegation",
  *     }],
+ *     name: "ManagedInstance",
+ *     resourceGroupName: failover.name,
+ *     virtualNetworkName: failoverVirtualNetwork.name,
+ *     addressPrefixes: ["10.1.1.0/24"],
  * });
  * const failoverNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("failover", {
  *     name: failoverName,
@@ -166,15 +166,15 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const example = new azure.mssql.ManagedInstanceFailoverGroup("example", {
+ *     readWriteEndpointFailoverPolicy: {
+ *         mode: "Automatic",
+ *         graceMinutes: 60,
+ *     },
  *     name: "example-failover-group",
  *     location: primaryManagedInstance.location,
  *     managedInstanceId: primaryManagedInstance.id,
  *     partnerManagedInstanceId: failoverManagedInstance.id,
  *     secondaryType: "Geo",
- *     readWriteEndpointFailoverPolicy: {
- *         mode: "Automatic",
- *         graceMinutes: 60,
- *     },
  * }, {
  *     dependsOn: [
  *         primaryZoneVirtualNetworkLink,

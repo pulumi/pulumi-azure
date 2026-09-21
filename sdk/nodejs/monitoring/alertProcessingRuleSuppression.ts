@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAlertProcessingRuleSuppression = new azure.monitoring.AlertProcessingRuleSuppression("example", {
- *     name: "example",
- *     resourceGroupName: "example",
- *     scopes: [example.id],
  *     condition: {
  *         targetResourceType: {
  *             operator: "Equals",
@@ -38,9 +35,6 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     schedule: {
- *         effectiveFrom: "2022-01-01T01:02:03",
- *         effectiveUntil: "2022-02-02T01:02:03",
- *         timeZone: "Pacific Standard Time",
  *         recurrence: {
  *             dailies: [{
  *                 startTime: "17:00:00",
@@ -53,7 +47,13 @@ import * as utilities from "../utilities";
  *                 ],
  *             }],
  *         },
+ *         effectiveFrom: "2022-01-01T01:02:03",
+ *         effectiveUntil: "2022-02-02T01:02:03",
+ *         timeZone: "Pacific Standard Time",
  *     },
+ *     name: "example",
+ *     resourceGroupName: "example",
+ *     scopes: [example.id],
  *     tags: {
  *         foo: "bar",
  *     },

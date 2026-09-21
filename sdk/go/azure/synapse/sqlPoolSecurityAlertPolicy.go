@@ -57,12 +57,9 @@ import (
 //				return err
 //			}
 //			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
-//				Name:                            pulumi.String("example"),
-//				ResourceGroupName:               example.Name,
-//				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
-//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
 //				AadAdmin: []map[string]string{
 //					{
 //						"login":    "AzureAD Admin",
@@ -70,9 +67,12 @@ import (
 //						"tenantId": "00000000-0000-0000-0000-000000000000",
 //					},
 //				},
-//				Identity: &synapse.WorkspaceIdentityArgs{
-//					Type: pulumi.String("SystemAssigned"),
-//				},
+//				Name:                            pulumi.String("example"),
+//				ResourceGroupName:               example.Name,
+//				Location:                        example.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("production"),
 //				},

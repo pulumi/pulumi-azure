@@ -78,11 +78,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedDevOpsPool = new ManagedDevOpsPool("exampleManagedDevOpsPool", ManagedDevOpsPoolArgs.builder()
- *             .name("example-manageddevopspools")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .devCenterProjectId(exampleProject.id())
- *             .maximumConcurrency(1)
  *             .azureDevopsOrganization(ManagedDevOpsPoolAzureDevopsOrganizationArgs.builder()
  *                 .organizations(ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs.builder()
  *                     .parallelism(1)
@@ -92,11 +87,16 @@ import javax.annotation.Nullable;
  *             .statelessAgent(ManagedDevOpsPoolStatelessAgentArgs.builder()
  *                 .build())
  *             .virtualMachineScaleSetFabric(ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs.builder()
- *                 .skuName("Standard_D2ads_v5")
  *                 .images(ManagedDevOpsPoolVirtualMachineScaleSetFabricImageArgs.builder()
  *                     .wellKnownImageName("ubuntu-24.04/buffer")
  *                     .build())
+ *                 .skuName("Standard_D2ads_v5")
  *                 .build())
+ *             .name("example-manageddevopspools")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .devCenterProjectId(exampleProject.id())
+ *             .maximumConcurrency(1)
  *             .build());
  * 
  *     }

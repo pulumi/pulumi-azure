@@ -649,14 +649,14 @@ class Hub(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_hub = azure.aifoundry.Hub("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="exampleaihub",
             location=example.location,
             resource_group_name=example.name,
             storage_account_id=example_account.id,
-            key_vault_id=example_key_vault.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            key_vault_id=example_key_vault.id)
         ```
 
         ## API Providers
@@ -744,14 +744,14 @@ class Hub(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_hub = azure.aifoundry.Hub("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="exampleaihub",
             location=example.location,
             resource_group_name=example.name,
             storage_account_id=example_account.id,
-            key_vault_id=example_key_vault.id,
-            identity={
-                "type": "SystemAssigned",
-            })
+            key_vault_id=example_key_vault.id)
         ```
 
         ## API Providers

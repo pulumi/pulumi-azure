@@ -325,6 +325,16 @@ class HciNetworkInterface(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
+            subnet={
+                "route": {
+                    "name": "example-route",
+                    "addressPrefix": "0.0.0.0/0",
+                    "nextHopIpAddress": "10.0.20.1",
+                },
+                "ip_allocation_method": "Static",
+                "address_prefix": "10.0.0.0/24",
+                "vlan_id": 123,
+            },
             name="example-hci-ln",
             resource_group_name=example.name,
             location=example.location,
@@ -334,32 +344,23 @@ class HciNetworkInterface(pulumi.CustomResource):
                 "10.0.0.7",
                 "10.0.0.8",
             ],
-            subnet={
-                "ip_allocation_method": "Static",
-                "address_prefix": "10.0.0.0/24",
-                "route": {
-                    "name": "example-route",
-                    "addressPrefix": "0.0.0.0/0",
-                    "nextHopIpAddress": "10.0.20.1",
-                },
-                "vlan_id": 123,
-            },
             tags={
                 "foo": "bar",
             })
         example_hci_network_interface = azure.stack.HciNetworkInterface("example",
+            ip_configuration={
+                "private_ip_address": "10.0.0.2",
+                "subnet_id": test["id"],
+            },
             name="example-ni",
             resource_group_name=example.name,
             location=example.location,
             custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
             dns_servers=["10.0.0.8"],
-            ip_configuration={
-                "private_ip_address": "10.0.0.2",
-                "subnet_id": test["id"],
-            },
             tags={
                 "foo": "bar",
-            })
+            },
+            opts = pulumi.ResourceOptions(ignore_changes=["macAddress"]))
         ```
 
         ## API Providers
@@ -410,6 +411,16 @@ class HciNetworkInterface(pulumi.CustomResource):
             name="example-rg",
             location="West Europe")
         example_hci_logical_network = azure.stack.HciLogicalNetwork("example",
+            subnet={
+                "route": {
+                    "name": "example-route",
+                    "addressPrefix": "0.0.0.0/0",
+                    "nextHopIpAddress": "10.0.20.1",
+                },
+                "ip_allocation_method": "Static",
+                "address_prefix": "10.0.0.0/24",
+                "vlan_id": 123,
+            },
             name="example-hci-ln",
             resource_group_name=example.name,
             location=example.location,
@@ -419,32 +430,23 @@ class HciNetworkInterface(pulumi.CustomResource):
                 "10.0.0.7",
                 "10.0.0.8",
             ],
-            subnet={
-                "ip_allocation_method": "Static",
-                "address_prefix": "10.0.0.0/24",
-                "route": {
-                    "name": "example-route",
-                    "addressPrefix": "0.0.0.0/0",
-                    "nextHopIpAddress": "10.0.20.1",
-                },
-                "vlan_id": 123,
-            },
             tags={
                 "foo": "bar",
             })
         example_hci_network_interface = azure.stack.HciNetworkInterface("example",
+            ip_configuration={
+                "private_ip_address": "10.0.0.2",
+                "subnet_id": test["id"],
+            },
             name="example-ni",
             resource_group_name=example.name,
             location=example.location,
             custom_location_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1",
             dns_servers=["10.0.0.8"],
-            ip_configuration={
-                "private_ip_address": "10.0.0.2",
-                "subnet_id": test["id"],
-            },
             tags={
                 "foo": "bar",
-            })
+            },
+            opts = pulumi.ResourceOptions(ignore_changes=["macAddress"]))
         ```
 
         ## API Providers

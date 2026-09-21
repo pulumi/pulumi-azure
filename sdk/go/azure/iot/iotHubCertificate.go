@@ -38,19 +38,19 @@ import (
 //				return err
 //			}
 //			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "example", &iot.IotHubDpsArgs{
-//				Name:              pulumi.String("example"),
-//				ResourceGroupName: example.Name,
-//				Location:          example.Location,
 //				Sku: &iot.IotHubDpsSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
 //				},
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "example.cer",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "example.cer",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //				Name:               pulumi.String("example"),
 //				ResourceGroupName:  example.Name,
 //				IotDpsName:         exampleIotHubDps.Name,
-//				CertificateContent: pulumi.String(invokeFilebase64.Result),
+//				CertificateContent: invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

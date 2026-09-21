@@ -72,10 +72,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBudgetSubscription = new BudgetSubscription("exampleBudgetSubscription", BudgetSubscriptionArgs.builder()
- *             .name("example")
- *             .subscriptionId(current.id())
- *             .amount(1000.0)
- *             .timeGrain("Monthly")
  *             .timePeriod(BudgetSubscriptionTimePeriodArgs.builder()
  *                 .startDate("2022-06-01T00:00:00Z")
  *                 .endDate("2022-07-01T00:00:00Z")
@@ -112,6 +108,10 @@ import javax.annotation.Nullable;
  *                         "foo}{@literal @}{@code example.com",
  *                         "bar}{@literal @}{@code example.com")
  *                     .build())
+ *             .name("example")
+ *             .subscriptionId(current.id())
+ *             .amount(1000.0)
+ *             .timeGrain("Monthly")
  *             .build());
  * 
  *     }}{@code

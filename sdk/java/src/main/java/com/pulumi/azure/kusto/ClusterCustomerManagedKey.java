@@ -73,9 +73,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("kustocluster")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name("Standard_D13_v2")
  *                 .capacity(2)
@@ -83,6 +80,9 @@ import javax.annotation.Nullable;
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
+ *             .name("kustocluster")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var cluster = new AccessPolicy("cluster", AccessPolicyArgs.builder()

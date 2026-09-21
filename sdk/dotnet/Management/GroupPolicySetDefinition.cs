@@ -29,6 +29,18 @@ namespace Pulumi.Azure.Management
     /// 
     ///     var exampleGroupPolicySetDefinition = new Azure.Management.GroupPolicySetDefinition("example", new()
     ///     {
+    ///         PolicyDefinitionReferences = new[]
+    ///         {
+    ///             new Azure.Management.Inputs.GroupPolicySetDefinitionPolicyDefinitionReferenceArgs
+    ///             {
+    ///                 Version = "1.0.*",
+    ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+    ///                 ParameterValues = @"   {
+    ///      \""listOfAllowedLocations\"": {\""value\"": \""[parameters('allowedLocations')]\""}
+    ///    }
+    /// ",
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         PolicyType = "Custom",
     ///         DisplayName = "Example",
@@ -44,18 +56,6 @@ namespace Pulumi.Azure.Management
     ///        }
     ///    }
     /// ",
-    ///         PolicyDefinitionReferences = new[]
-    ///         {
-    ///             new Azure.Management.Inputs.GroupPolicySetDefinitionPolicyDefinitionReferenceArgs
-    ///             {
-    ///                 Version = "1.0.*",
-    ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-    ///                 ParameterValues = @"   {
-    ///      \""listOfAllowedLocations\"": {\""value\"": \""[parameters('allowedLocations')]\""}
-    ///    }
-    /// ",
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

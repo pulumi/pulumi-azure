@@ -45,15 +45,15 @@ namespace Pulumi.Azure.DataFactory
     /// 
     ///     var exampleDatasetJson = new Azure.DataFactory.DatasetJson("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataFactoryId = exampleFactory.Id,
-    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
     ///         HttpServerLocation = new Azure.DataFactory.Inputs.DatasetJsonHttpServerLocationArgs
     ///         {
     ///             RelativeUrl = "/fizz/buzz/",
     ///             Path = "foo/bar/",
     ///             Filename = "foo.txt",
     ///         },
+    ///         Name = "example",
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
     ///         Encoding = "UTF-8",
     ///     });
     /// 

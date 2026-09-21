@@ -75,6 +75,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudBuildDeployment = new SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", SpringCloudBuildDeploymentArgs.builder()
+ *             .quota(SpringCloudBuildDeploymentQuotaArgs.builder()
+ *                 .cpu("2")
+ *                 .memory("4Gi")
+ *                 .build())
  *             .name("example")
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .buildResultId("<default>")
@@ -83,10 +87,6 @@ import javax.annotation.Nullable;
  *                 Map.entry("Foo", "Bar"),
  *                 Map.entry("Env", "Staging")
  *             ))
- *             .quota(SpringCloudBuildDeploymentQuotaArgs.builder()
- *                 .cpu("2")
- *                 .memory("4Gi")
- *                 .build())
  *             .build());
  * 
  *     }

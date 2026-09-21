@@ -65,10 +65,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-origingroup")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .build())
+ *             .name("example-origingroup")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -130,15 +130,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *             .networkRules(AccountNetworkRulesArgs.builder()
+ *                 .defaultAction("Deny")
+ *                 .build())
  *             .name("examplestoracc")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier("Premium")
  *             .accountReplicationType("LRS")
  *             .allowNestedItemsToBePublic(false)
- *             .networkRules(AccountNetworkRulesArgs.builder()
- *                 .defaultAction("Deny")
- *                 .build())
  *             .tags(Map.of("environment", "Example"))
  *             .build());
  * 
@@ -149,13 +149,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("example-origin-group")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .build())
+ *             .name("example-origin-group")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
+ *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
+ *                 .requestMessage("Request access for Private Link Origin CDN Frontdoor")
+ *                 .targetType("blob")
+ *                 .location(exampleAccount.location())
+ *                 .privateLinkTargetId(exampleAccount.id())
+ *                 .build())
  *             .name("example-origin")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
@@ -164,12 +170,6 @@ import javax.annotation.Nullable;
  *             .originHostHeader(exampleAccount.primaryBlobHost())
  *             .priority(1)
  *             .weight(500)
- *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
- *                 .requestMessage("Request access for Private Link Origin CDN Frontdoor")
- *                 .targetType("blob")
- *                 .location(exampleAccount.location())
- *                 .privateLinkTargetId(exampleAccount.id())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -254,22 +254,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
- *             .name("lb-example")
- *             .sku("Standard")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(examplePublicIp.name())
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name("lb-example")
+ *             .sku("Standard")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinkService = new LinkService("exampleLinkService", LinkServiceArgs.builder()
- *             .name("pls-example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .visibilitySubscriptionIds(current.subscriptionId())
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
  *                 .name("primary")
  *                 .privateIpAddress("10.5.1.17")
@@ -277,6 +272,11 @@ import javax.annotation.Nullable;
  *                 .subnetId(exampleSubnet.id())
  *                 .primary(true)
  *                 .build())
+ *             .name("pls-example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .visibilitySubscriptionIds(current.subscriptionId())
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
@@ -288,16 +288,21 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
- *             .name("group-example")
- *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .additionalLatencyInMilliseconds(0)
  *                 .sampleSize(16)
  *                 .successfulSamplesRequired(3)
  *                 .build())
+ *             .name("group-example")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
+ *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
+ *                 .requestMessage("Request access for Private Link Origin CDN Frontdoor")
+ *                 .location(example.location())
+ *                 .privateLinkTargetId(exampleLinkService.id())
+ *                 .build())
  *             .name("origin-example")
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
@@ -306,11 +311,6 @@ import javax.annotation.Nullable;
  *             .priority(1)
  *             .weight(1000)
  *             .certificateNameCheckEnabled(false)
- *             .privateLink(FrontdoorOriginPrivateLinkArgs.builder()
- *                 .requestMessage("Request access for Private Link Origin CDN Frontdoor")
- *                 .location(example.location())
- *                 .privateLinkTargetId(exampleLinkService.id())
- *                 .build())
  *             .build());
  * 
  *     }

@@ -69,10 +69,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var policy = new PolicyFileShare("policy", PolicyFileShareArgs.builder()
- *             .name("tfex-recovery-vault-policy")
- *             .resourceGroupName(example.name())
- *             .recoveryVaultName(exampleVault.name())
- *             .timezone("UTC")
  *             .backup(PolicyFileShareBackupArgs.builder()
  *                 .frequency("Daily")
  *                 .time("23:00")
@@ -103,6 +99,10 @@ import javax.annotation.Nullable;
  *                 .weeks("Last")
  *                 .months("January")
  *                 .build())
+ *             .name("tfex-recovery-vault-policy")
+ *             .resourceGroupName(example.name())
+ *             .recoveryVaultName(exampleVault.name())
+ *             .timezone("UTC")
  *             .build());
  * 
  *     }

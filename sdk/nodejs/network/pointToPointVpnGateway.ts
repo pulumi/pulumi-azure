@@ -32,10 +32,6 @@ import * as utilities from "../utilities";
  *     addressPrefix: "10.0.0.0/23",
  * });
  * const exampleVpnServerConfiguration = new azure.network.VpnServerConfiguration("example", {
- *     name: "example-config",
- *     resourceGroupName: example.name,
- *     location: example.location,
- *     vpnAuthenticationTypes: ["Certificate"],
  *     clientRootCertificates: [{
  *         name: "DigiCert-Federated-ID-Root-CA",
  *         publicCertData: `MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
@@ -60,20 +56,24 @@ import * as utilities from "../utilities";
  * M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
  * `,
  *     }],
+ *     name: "example-config",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     vpnAuthenticationTypes: ["Certificate"],
  * });
  * const examplePointToPointVpnGateway = new azure.network.PointToPointVpnGateway("example", {
+ *     connectionConfigurations: [{
+ *         vpnClientAddressPool: {
+ *             addressPrefixes: ["10.0.2.0/24"],
+ *         },
+ *         name: "example-gateway-config",
+ *     }],
  *     name: "example-vpn-gateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     virtualHubId: exampleVirtualHub.id,
  *     vpnServerConfigurationId: exampleVpnServerConfiguration.id,
  *     scaleUnit: 1,
- *     connectionConfigurations: [{
- *         name: "example-gateway-config",
- *         vpnClientAddressPool: {
- *             addressPrefixes: ["10.0.2.0/24"],
- *         },
- *     }],
  * });
  * ```
  *

@@ -47,26 +47,26 @@ import (
 //				return err
 //			}
 //			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
-//				Name:              pulumi.String("example-springcloudapp"),
-//				ResourceGroupName: example.Name,
-//				ServiceName:       exampleSpringCloudService.Name,
 //				Identity: &appplatform.SpringCloudAppIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.String("example-springcloudapp"),
+//				ResourceGroupName: example.Name,
+//				ServiceName:       exampleSpringCloudService.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleSpringCloudJavaDeployment, err := appplatform.NewSpringCloudJavaDeployment(ctx, "example", &appplatform.SpringCloudJavaDeploymentArgs{
+//				Quota: &appplatform.SpringCloudJavaDeploymentQuotaArgs{
+//					Cpu:    pulumi.String("2"),
+//					Memory: pulumi.String("4Gi"),
+//				},
 //				Name:             pulumi.String("deploy1"),
 //				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				InstanceCount:    pulumi.Int(2),
 //				JvmOptions:       pulumi.String("-XX:+PrintGC"),
 //				RuntimeVersion:   pulumi.String("Java_11"),
-//				Quota: &appplatform.SpringCloudJavaDeploymentQuotaArgs{
-//					Cpu:    pulumi.String("2"),
-//					Memory: pulumi.String("4Gi"),
-//				},
 //				EnvironmentVariables: pulumi.StringMap{
 //					"Env": pulumi.String("Staging"),
 //				},

@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleDevCenter = new azure.devcenter.DevCenter("example", {
- *     name: "example-dc",
- *     resourceGroupName: example.name,
- *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-dc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const exampleDevBoxDefinition = new azure.devcenter.DevBoxDefinition("example", {
  *     name: "example-dcet",

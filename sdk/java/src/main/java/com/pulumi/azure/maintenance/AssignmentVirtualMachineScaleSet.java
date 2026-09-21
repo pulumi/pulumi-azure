@@ -55,10 +55,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
- * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSet;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSetArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -102,13 +102,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer("exampleLoadBalancer", LoadBalancerArgs.builder()
- *             .name(example.name())
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name("internal")
  *                 .publicIpAddressId(examplePublicIp.id())
  *                 .build())
+ *             .name(example.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool("exampleBackendAddressPool", BackendAddressPoolArgs.builder()
@@ -134,11 +134,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .scope("OSImage")
- *             .visibility("Custom")
  *             .window(ConfigurationWindowArgs.builder()
  *                 .startDateTime("2021-12-31 00:00")
  *                 .expirationDateTime("9999-12-31 00:00")
@@ -146,42 +141,37 @@ import javax.annotation.Nullable;
  *                 .timeZone("Pacific Standard Time")
  *                 .recurEvery("1Days")
  *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .scope("OSImage")
+ *             .visibility("Custom")
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface("exampleNetworkInterface", NetworkInterfaceArgs.builder()
- *             .name("sample-nic")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name("testconfiguration1")
  *                 .privateIpAddressAllocation("Dynamic")
  *                 .build())
+ *             .name("sample-nic")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine("exampleLinuxVirtualMachine", LinuxVirtualMachineArgs.builder()
+ *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
+ *                 .caching("ReadWrite")
+ *                 .storageAccountType("Standard_LRS")
+ *                 .build())
  *             .name("example-machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .size("Standard_D4_v5")
  *             .adminUsername("adminuser")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
- *                 .caching("ReadWrite")
- *                 .storageAccountType("Standard_LRS")
- *                 .build())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", LinuxVirtualMachineScaleSetArgs.builder()
- *             .name("example")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .sku("Standard_D4_v5")
- *             .instances(1)
- *             .adminUsername("adminuser")
- *             .adminPassword("P}{@literal @}{@code ssword1234!")
- *             .upgradeMode("Automatic")
- *             .healthProbeId(exampleProbe.id())
- *             .disablePasswordAuthentication(false)
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")
@@ -191,16 +181,6 @@ import javax.annotation.Nullable;
  *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
  *                 .storageAccountType("Standard_LRS")
  *                 .caching("ReadWrite")
- *                 .build())
- *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
- *                 .name("example")
- *                 .primary(true)
- *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
- *                     .name("internal")
- *                     .primary(true)
- *                     .subnetId(exampleSubnet.id())
- *                     .loadBalancerBackendAddressPoolIds(exampleBackendAddressPool.id())
- *                     .build())
  *                 .build())
  *             .automaticOsUpgradePolicy(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs.builder()
  *                 .disableAutomaticRollback(true)
@@ -212,6 +192,26 @@ import javax.annotation.Nullable;
  *                 .maxUnhealthyUpgradedInstancePercent(20)
  *                 .pauseTimeBetweenBatches("PT0S")
  *                 .build())
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
+ *                     .name("internal")
+ *                     .primary(true)
+ *                     .subnetId(exampleSubnet.id())
+ *                     .loadBalancerBackendAddressPoolIds(exampleBackendAddressPool.id())
+ *                     .build())
+ *                 .name("example")
+ *                 .primary(true)
+ *                 .build())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku("Standard_D4_v5")
+ *             .instances(1)
+ *             .adminUsername("adminuser")
+ *             .adminPassword("P}{@literal @}{@code ssword1234!")
+ *             .upgradeMode("Automatic")
+ *             .healthProbeId(exampleProbe.id())
+ *             .disablePasswordAuthentication(false)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleRule)
  *                 .build());

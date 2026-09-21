@@ -55,13 +55,13 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("azure-functions-test-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
 //				},
+//				Name:              pulumi.String("azure-functions-test-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -117,14 +117,14 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("azure-functions-test-service-plan"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("FunctionApp"),
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Dynamic"),
 //					Size: pulumi.String("Y1"),
 //				},
+//				Name:              pulumi.String("azure-functions-test-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Kind:              pulumi.Any("FunctionApp"),
 //			})
 //			if err != nil {
 //				return err
@@ -180,15 +180,15 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Dynamic"),
+//					Size: pulumi.String("Y1"),
+//				},
 //				Name:              pulumi.String("azure-functions-test-service-plan"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("Linux"),
 //				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Dynamic"),
-//					Size: pulumi.String("Y1"),
-//				},
 //			})
 //			if err != nil {
 //				return err

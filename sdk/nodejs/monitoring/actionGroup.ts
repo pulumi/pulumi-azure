@@ -26,9 +26,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  * });
  * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
- *     name: "CriticalAlertsAction",
- *     resourceGroupName: example.name,
- *     shortName: "p0action",
  *     armRoleReceivers: [{
  *         name: "armroleaction",
  *         roleId: "de139f84-1756-47ae-9be6-808fbbe84772",
@@ -100,6 +97,9 @@ import * as utilities from "../utilities";
  *         serviceUri: "http://example.com/alert",
  *         useCommonAlertSchema: true,
  *     }],
+ *     name: "CriticalAlertsAction",
+ *     resourceGroupName: example.name,
+ *     shortName: "p0action",
  * });
  * ```
  *

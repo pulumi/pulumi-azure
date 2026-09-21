@@ -57,9 +57,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
- *             .name("acceptanceTestSecurityGroup1")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
  *             .securityRules(NetworkSecurityGroupSecurityRuleArgs.builder()
  *                 .name("test123")
  *                 .priority(100)
@@ -71,6 +68,9 @@ import javax.annotation.Nullable;
  *                 .sourceAddressPrefix("*")
  *                 .destinationAddressPrefix("*")
  *                 .build())
+ *             .name("acceptanceTestSecurityGroup1")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

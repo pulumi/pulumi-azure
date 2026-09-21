@@ -257,29 +257,29 @@ class BackupPolicyDisk(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("example",
+            retention_rules=[
+                {
+                    "criteria": {
+                        "absolute_criteria": "FirstOfDay",
+                    },
+                    "name": "Daily",
+                    "duration": "P7D",
+                    "priority": 25,
+                },
+                {
+                    "criteria": {
+                        "absolute_criteria": "FirstOfWeek",
+                    },
+                    "name": "Weekly",
+                    "duration": "P7D",
+                    "priority": 20,
+                },
+            ],
             name="example-backup-policy",
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
             default_retention_duration="P7D",
-            time_zone="W. Europe Standard Time",
-            retention_rules=[
-                {
-                    "name": "Daily",
-                    "duration": "P7D",
-                    "priority": 25,
-                    "criteria": {
-                        "absolute_criteria": "FirstOfDay",
-                    },
-                },
-                {
-                    "name": "Weekly",
-                    "duration": "P7D",
-                    "priority": 20,
-                    "criteria": {
-                        "absolute_criteria": "FirstOfWeek",
-                    },
-                },
-            ])
+            time_zone="W. Europe Standard Time")
         ```
 
         ## API Providers
@@ -332,29 +332,29 @@ class BackupPolicyDisk(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         example_backup_policy_disk = azure.dataprotection.BackupPolicyDisk("example",
+            retention_rules=[
+                {
+                    "criteria": {
+                        "absolute_criteria": "FirstOfDay",
+                    },
+                    "name": "Daily",
+                    "duration": "P7D",
+                    "priority": 25,
+                },
+                {
+                    "criteria": {
+                        "absolute_criteria": "FirstOfWeek",
+                    },
+                    "name": "Weekly",
+                    "duration": "P7D",
+                    "priority": 20,
+                },
+            ],
             name="example-backup-policy",
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-19T06:33:16+00:00/PT4H"],
             default_retention_duration="P7D",
-            time_zone="W. Europe Standard Time",
-            retention_rules=[
-                {
-                    "name": "Daily",
-                    "duration": "P7D",
-                    "priority": 25,
-                    "criteria": {
-                        "absolute_criteria": "FirstOfDay",
-                    },
-                },
-                {
-                    "name": "Weekly",
-                    "duration": "P7D",
-                    "priority": 20,
-                    "criteria": {
-                        "absolute_criteria": "FirstOfWeek",
-                    },
-                },
-            ])
+            time_zone="W. Europe Standard Time")
         ```
 
         ## API Providers

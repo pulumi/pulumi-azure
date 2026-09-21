@@ -41,9 +41,6 @@ namespace Pulumi.Azure.Bot
     /// 
     ///     var exampleChannelWebChat = new Azure.Bot.ChannelWebChat("example", new()
     ///     {
-    ///         BotName = exampleChannelsRegistration.Name,
-    ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = example.Name,
     ///         Sites = new[]
     ///         {
     ///             new Azure.Bot.Inputs.ChannelWebChatSiteArgs
@@ -51,6 +48,9 @@ namespace Pulumi.Azure.Bot
     ///                 Name = "TestSite",
     ///             },
     ///         },
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

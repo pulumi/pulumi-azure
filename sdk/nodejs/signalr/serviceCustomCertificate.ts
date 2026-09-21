@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleService = new azure.signalr.Service("example", {
- *     name: "example-signalr",
- *     location: testAzurermResourceGroup.location,
- *     resourceGroupName: testAzurermResourceGroup.name,
  *     sku: {
  *         name: "Premium_P1",
  *         capacity: 1,
@@ -30,14 +27,11 @@ import * as utilities from "../utilities";
  *     identity: {
  *         type: "SystemAssigned",
  *     },
+ *     name: "example-signalr",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
- *     name: "example-keyvault",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     rbacAuthorizationEnabled: false,
- *     tenantId: current.then(current => current.tenantId),
- *     skuName: "premium",
  *     accessPolicies: [
  *         {
  *             tenantId: current.then(current => current.tenantId),
@@ -66,16 +60,22 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     ],
+ *     name: "example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
  * });
  * const exampleCertificate = new azure.keyvault.Certificate("example", {
- *     name: "imported-cert",
- *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "certificate-to-import.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "",
  *     },
+ *     name: "imported-cert",
+ *     keyVaultId: exampleKeyVault.id,
  * });
  * const test = new azure.signalr.ServiceCustomCertificate("test", {
  *     name: "example-cert",

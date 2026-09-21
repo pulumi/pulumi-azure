@@ -39,11 +39,11 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
     ///     {
+    ///         SiteConfig = null,
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
     ///     });
     /// 
     /// });

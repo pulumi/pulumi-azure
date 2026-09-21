@@ -28,15 +28,15 @@ import * as utilities from "../utilities";
  *     skuName: "Consumption_0",
  * });
  * const exampleGateway = new azure.apimanagement.Gateway("example", {
- *     name: "example-gateway",
- *     apiManagementId: exampleService.id,
- *     description: "Example API Management gateway",
  *     locationData: {
  *         name: "example name",
  *         city: "example city",
  *         district: "example district",
  *         region: "example region",
  *     },
+ *     name: "example-gateway",
+ *     apiManagementId: exampleService.id,
+ *     description: "Example API Management gateway",
  * });
  * ```
  *

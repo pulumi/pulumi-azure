@@ -16,6 +16,91 @@ import (
 //
 // ## Example Usage
 //
+// ### Resource Group
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/pim"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
+//				Name:  pulumi.String("Contributor"),
+//				Scope: example.ID().ToIDOutput().ToStringOutput(),
+//			}, nil)
+//			approvers, err := azuread.Group(ctx, map[string]string{
+//				"displayName": "Example Approver Group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = pim.NewRoleManagementPolicy(ctx, "example", &pim.RoleManagementPolicyArgs{
+//				ActiveAssignmentRules: &pim.RoleManagementPolicyActiveAssignmentRulesArgs{
+//					ExpireAfter: pulumi.String("P365D"),
+//				},
+//				EligibleAssignmentRules: &pim.RoleManagementPolicyEligibleAssignmentRulesArgs{
+//					ExpirationRequired: pulumi.Bool(false),
+//				},
+//				ActivationRules: &pim.RoleManagementPolicyActivationRulesArgs{
+//					ApprovalStage: &pim.RoleManagementPolicyActivationRulesApprovalStageArgs{
+//						PrimaryApprovers: pim.RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray{
+//							&pim.RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs{
+//								ObjectId: pulumi.Any(approvers.ObjectId),
+//								Type:     pulumi.String("Group"),
+//							},
+//						},
+//					},
+//					MaximumDuration: pulumi.String("PT1H"),
+//					RequireApproval: pulumi.Bool(true),
+//				},
+//				NotificationRules: &pim.RoleManagementPolicyNotificationRulesArgs{
+//					EligibleAssignments: &pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs{
+//						ApproverNotifications: &pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs{
+//							NotificationLevel: pulumi.String("Critical"),
+//							DefaultRecipients: pulumi.Bool(false),
+//							AdditionalRecipients: pulumi.StringArray{
+//								pulumi.String("someone@example.com"),
+//							},
+//						},
+//					},
+//					EligibleActivations: &pim.RoleManagementPolicyNotificationRulesEligibleActivationsArgs{
+//						AssigneeNotifications: &pim.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs{
+//							NotificationLevel: pulumi.String("All"),
+//							DefaultRecipients: pulumi.Bool(true),
+//							AdditionalRecipients: pulumi.StringArray{
+//								pulumi.String("someone.else@example.com"),
+//							},
+//						},
+//					},
+//				},
+//				Scope:            pulumi.Any(test.Id),
+//				RoleDefinitionId: pulumi.Any(contributor.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Management Group
 //
 // ```go
@@ -43,8 +128,6 @@ import (
 //				Scope: example.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			_, err = pim.NewRoleManagementPolicy(ctx, "example", &pim.RoleManagementPolicyArgs{
-//				Scope:            example.ID().ToIDOutput().ToStringOutput(),
-//				RoleDefinitionId: mgContributor.Id(),
 //				EligibleAssignmentRules: &pim.RoleManagementPolicyEligibleAssignmentRulesArgs{
 //					ExpirationRequired: pulumi.Bool(false),
 //				},
@@ -66,6 +149,8 @@ import (
 //						},
 //					},
 //				},
+//				Scope:            example.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionId: mgContributor.Id(),
 //			})
 //			if err != nil {
 //				return err

@@ -91,9 +91,6 @@ import (
 //				return err
 //			}
 //			exampleGalleryApplicationVersion, err := compute.NewGalleryApplicationVersion(ctx, "example", &compute.GalleryApplicationVersionArgs{
-//				Name:                 pulumi.String("0.0.1"),
-//				GalleryApplicationId: exampleGalleryApplication.ID().ToIDOutput().ToStringOutput(),
-//				Location:             exampleGalleryApplication.Location,
 //				ManageAction: &compute.GalleryApplicationVersionManageActionArgs{
 //					Install: pulumi.String("[install command]"),
 //					Remove:  pulumi.String("[remove command]"),
@@ -107,6 +104,9 @@ import (
 //						RegionalReplicaCount: pulumi.Int(1),
 //					},
 //				},
+//				Name:                 pulumi.String("0.0.1"),
+//				GalleryApplicationId: exampleGalleryApplication.ID().ToIDOutput().ToStringOutput(),
+//				Location:             exampleGalleryApplication.Location,
 //			})
 //			if err != nil {
 //				return err

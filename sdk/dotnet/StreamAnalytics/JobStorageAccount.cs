@@ -32,6 +32,10 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     ///     var exampleJob = new Azure.StreamAnalytics.Job("example", new()
     ///     {
+    ///         Identity = new Azure.StreamAnalytics.Inputs.JobIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-job",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
@@ -43,10 +47,6 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         OutputErrorPolicy = "Drop",
     ///         StreamingUnits = 3,
     ///         SkuName = "StandardV2",
-    ///         Identity = new Azure.StreamAnalytics.Inputs.JobIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "environment", "Example" },
@@ -55,6 +55,12 @@ namespace Pulumi.Azure.StreamAnalytics
     ///     INTO [YourOutputAlias]
     ///     FROM [YourInputAlias]
     /// ",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "jobStorageAccounts",
+    ///         },
     ///     });
     /// 
     ///     var exampleAccount = new Azure.Storage.Account("example", new()

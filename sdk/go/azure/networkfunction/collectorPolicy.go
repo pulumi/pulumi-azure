@@ -49,20 +49,25 @@ import (
 //				return err
 //			}
 //			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
 //				Name:               pulumi.String("example-erc"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				ExpressRoutePortId: exampleExpressRoutePort.ID().ToIDOutput().ToStringOutput(),
 //				BandwidthInGbps:    pulumi.Float64(1),
-//				Sku: &network.ExpressRouteCircuitSkuArgs{
-//					Tier:   pulumi.String("Standard"),
-//					Family: pulumi.String("MeteredData"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleExpressRouteCircuitPeering, err := network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
+//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
+//					AdvertisedPublicPrefixes: pulumi.StringArray{
+//						pulumi.String("123.6.0.0/24"),
+//					},
+//				},
 //				PeeringType:                pulumi.String("MicrosoftPeering"),
 //				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
 //				ResourceGroupName:          example.Name,
@@ -70,11 +75,6 @@ import (
 //				PrimaryPeerAddressPrefix:   pulumi.String("192.168.199.0/30"),
 //				SecondaryPeerAddressPrefix: pulumi.String("192.168.200.0/30"),
 //				VlanId:                     pulumi.Int(300),
-//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
-//					AdvertisedPublicPrefixes: pulumi.StringArray{
-//						pulumi.String("123.6.0.0/24"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -90,9 +90,6 @@ import (
 //				return err
 //			}
 //			_, err = networkfunction.NewCollectorPolicy(ctx, "example", &networkfunction.CollectorPolicyArgs{
-//				Name:               pulumi.String("example-nfcp"),
-//				TrafficCollectorId: exampleAzureTrafficCollector.ID().ToIDOutput().ToStringOutput(),
-//				Location:           example.Location,
 //				IpfxEmission: &networkfunction.CollectorPolicyIpfxEmissionArgs{
 //					DestinationTypes: pulumi.String("AzureMonitor"),
 //				},
@@ -101,6 +98,9 @@ import (
 //						exampleExpressRouteCircuit.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:               pulumi.String("example-nfcp"),
+//				TrafficCollectorId: exampleAzureTrafficCollector.ID().ToIDOutput().ToStringOutput(),
+//				Location:           example.Location,
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

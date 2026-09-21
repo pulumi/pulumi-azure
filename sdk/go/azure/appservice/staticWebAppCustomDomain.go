@@ -119,15 +119,15 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              pulumi.String("_dnsauth.my-domain"),
-//				ZoneName:          pulumi.String("contoso.com"),
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
 //						Value: exampleStaticWebAppCustomDomain.ValidationToken,
 //					},
 //				},
+//				Name:              pulumi.String("_dnsauth.my-domain"),
+//				ZoneName:          pulumi.String("contoso.com"),
+//				ResourceGroupName: example.Name,
+//				Ttl:               pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err

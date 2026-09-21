@@ -469,6 +469,12 @@ class TriggerBlobEvent(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_trigger_blob_event = azure.datafactory.TriggerBlobEvent("example",
+            pipelines=[{
+                "name": example_pipeline.name,
+                "parameters": {
+                    "Env": "Prod",
+                },
+            }],
             name="example",
             data_factory_id=example_factory.id,
             storage_account_id=example_account.id,
@@ -485,12 +491,6 @@ class TriggerBlobEvent(pulumi.CustomResource):
                 "test3",
             ],
             description="example description",
-            pipelines=[{
-                "name": example_pipeline.name,
-                "parameters": {
-                    "Env": "Prod",
-                },
-            }],
             additional_properties={
                 "foo": "foo1",
                 "bar": "bar2",
@@ -555,6 +555,12 @@ class TriggerBlobEvent(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS")
         example_trigger_blob_event = azure.datafactory.TriggerBlobEvent("example",
+            pipelines=[{
+                "name": example_pipeline.name,
+                "parameters": {
+                    "Env": "Prod",
+                },
+            }],
             name="example",
             data_factory_id=example_factory.id,
             storage_account_id=example_account.id,
@@ -571,12 +577,6 @@ class TriggerBlobEvent(pulumi.CustomResource):
                 "test3",
             ],
             description="example description",
-            pipelines=[{
-                "name": example_pipeline.name,
-                "parameters": {
-                    "Env": "Prod",
-                },
-            }],
             additional_properties={
                 "foo": "foo1",
                 "bar": "bar2",

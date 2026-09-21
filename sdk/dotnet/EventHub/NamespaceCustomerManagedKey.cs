@@ -42,15 +42,15 @@ namespace Pulumi.Azure.EventHub
     /// 
     ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
+    ///         Identity = new Azure.EventHub.Inputs.EventHubNamespaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-namespace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         DedicatedClusterId = exampleCluster.Id,
-    ///         Identity = new Azure.EventHub.Inputs.EventHubNamespaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
@@ -165,11 +165,6 @@ namespace Pulumi.Azure.EventHub
     /// 
     ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Name = "example-namespace",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         Sku = "Standard",
-    ///         DedicatedClusterId = exampleCluster.Id,
     ///         Identity = new Azure.EventHub.Inputs.EventHubNamespaceIdentityArgs
     ///         {
     ///             Type = "UserAssigned",
@@ -178,6 +173,11 @@ namespace Pulumi.Azure.EventHub
     ///                 exampleUserAssignedIdentity.Id,
     ///             },
     ///         },
+    ///         Name = "example-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///         DedicatedClusterId = exampleCluster.Id,
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();

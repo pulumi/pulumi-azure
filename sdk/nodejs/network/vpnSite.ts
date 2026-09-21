@@ -25,15 +25,15 @@ import * as utilities from "../utilities";
  *     location: example.location,
  * });
  * const exampleVpnSite = new azure.network.VpnSite("example", {
+ *     links: [{
+ *         name: "link1",
+ *         ipAddress: "10.0.0.1",
+ *     }],
  *     name: "site1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressCidrs: ["10.0.0.0/24"],
- *     links: [{
- *         name: "link1",
- *         ipAddress: "10.0.0.1",
- *     }],
  * });
  * ```
  *

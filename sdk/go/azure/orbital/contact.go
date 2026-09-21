@@ -40,10 +40,6 @@ import (
 //				return err
 //			}
 //			exampleSpacecraft, err := orbital.NewSpacecraft(ctx, "example", &orbital.SpacecraftArgs{
-//				Name:              pulumi.String("example-spacecraft"),
-//				ResourceGroupName: example.Name,
-//				Location:          pulumi.String("westeurope"),
-//				NoradId:           pulumi.String("12345"),
 //				Links: orbital.SpacecraftLinkArray{
 //					&orbital.SpacecraftLinkArgs{
 //						BandwidthMhz:       pulumi.Float64(100),
@@ -53,6 +49,10 @@ import (
 //						Name:               pulumi.String("examplename"),
 //					},
 //				},
+//				Name:              pulumi.String("example-spacecraft"),
+//				ResourceGroupName: example.Name,
+//				Location:          pulumi.String("westeurope"),
+//				NoradId:           pulumi.String("12345"),
 //				TwoLineElements: pulumi.StringArray{
 //					pulumi.String("1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621"),
 //					pulumi.String("2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495"),
@@ -77,15 +77,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String("example-subnet"),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.0.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("orbitalgateway"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Orbital/orbitalGateways"),
 //							Actions: pulumi.StringArray{
@@ -95,25 +88,24 @@ import (
 //								pulumi.String("Microsoft.Network/publicIPAddresses/read"),
 //							},
 //						},
+//						Name: pulumi.String("orbitalgateway"),
 //					},
+//				},
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleContactProfile, err := orbital.NewContactProfile(ctx, "example", &orbital.ContactProfileArgs{
-//				Name:                           pulumi.String("example-contactprofile"),
-//				ResourceGroupName:              example.Name,
-//				Location:                       example.Location,
-//				MinimumVariableContactDuration: pulumi.String("PT1M"),
-//				AutoTracking:                   pulumi.String("disabled"),
 //				Links: orbital.ContactProfileLinkArray{
 //					&orbital.ContactProfileLinkArgs{
 //						Channels: orbital.ContactProfileLinkChannelArray{
 //							&orbital.ContactProfileLinkChannelArgs{
-//								Name:               pulumi.String("channelname"),
-//								BandwidthMhz:       pulumi.Float64(100),
-//								CenterFrequencyMhz: pulumi.Float64(101),
 //								EndPoints: orbital.ContactProfileLinkChannelEndPointArray{
 //									&orbital.ContactProfileLinkChannelEndPointArgs{
 //										EndPointName: pulumi.String("AQUA_command"),
@@ -122,6 +114,9 @@ import (
 //										Protocol:     pulumi.String("TCP"),
 //									},
 //								},
+//								Name:               pulumi.String("channelname"),
+//								BandwidthMhz:       pulumi.Float64(100),
+//								CenterFrequencyMhz: pulumi.Float64(101),
 //							},
 //						},
 //						Direction:    pulumi.String("Uplink"),
@@ -129,7 +124,12 @@ import (
 //						Polarization: pulumi.String("RHCP"),
 //					},
 //				},
-//				NetworkConfigurationSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				Name:                           pulumi.String("example-contactprofile"),
+//				ResourceGroupName:              example.Name,
+//				Location:                       example.Location,
+//				MinimumVariableContactDuration: pulumi.String("PT1M"),
+//				AutoTracking:                   pulumi.String("disabled"),
+//				NetworkConfigurationSubnetId:   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

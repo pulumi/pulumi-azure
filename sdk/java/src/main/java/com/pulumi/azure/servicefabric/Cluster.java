@@ -63,6 +63,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
+ *             .nodeTypes(ClusterNodeTypeArgs.builder()
+ *                 .name("first")
+ *                 .instanceCount(3)
+ *                 .isPrimary(true)
+ *                 .clientEndpointPort(2020)
+ *                 .httpEndpointPort(80)
+ *                 .build())
  *             .name("example-servicefabric")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -71,13 +78,6 @@ import javax.annotation.Nullable;
  *             .clusterCodeVersion("7.1.456.959")
  *             .vmImage("Windows")
  *             .managementEndpoint("https://example:80")
- *             .nodeTypes(ClusterNodeTypeArgs.builder()
- *                 .name("first")
- *                 .instanceCount(3)
- *                 .isPrimary(true)
- *                 .clientEndpointPort(2020)
- *                 .httpEndpointPort(80)
- *                 .build())
  *             .build());
  * 
  *     }

@@ -28,7 +28,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/proximity"
-//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi-random/sdk/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,15 +63,8 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.88.2.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("testdelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -79,7 +72,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("testdelegation"),
 //					},
+//				},
+//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.88.2.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -114,9 +114,6 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.Sprintf("%v-nic", prefix),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -124,11 +121,24 @@ import (
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
+//				Name:              pulumi.Sprintf("%v-nic", prefix),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
 //				Name:                          pulumi.Sprintf("%v-vm", prefix),
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
@@ -140,16 +150,6 @@ import (
 //				AvailabilitySetId:             exampleAvailabilitySet.ID().ToIDOutput().ToStringOutput(),
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
-//				},
-//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
-//					Publisher: pulumi.String("Canonical"),
-//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
-//					Sku:       pulumi.String("22_04-lts"),
-//					Version:   pulumi.String("latest"),
-//				},
-//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
-//					StorageAccountType: pulumi.String("Standard_LRS"),
-//					Caching:            pulumi.String("ReadWrite"),
 //				},
 //			})
 //			if err != nil {
@@ -179,14 +179,19 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeGroupSapHana(ctx, "example", &netapp.VolumeGroupSapHanaArgs{
-//				Name:                  pulumi.Sprintf("%v-netapp-volumegroup", prefix),
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				AccountName:           exampleAccount.Name,
-//				GroupDescription:      pulumi.String("Test volume group"),
-//				ApplicationIdentifier: pulumi.String("TST"),
 //				Volumes: netapp.VolumeGroupSapHanaVolumeArray{
 //					&netapp.VolumeGroupSapHanaVolumeArgs{
+//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-1", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-1"),
 //						ServiceLevel:              pulumi.String("Standard"),
@@ -199,6 +204,11 @@ import (
 //						Protocols:                 pulumi.String("NFSv4.1"),
 //						SecurityStyle:             pulumi.String("unix"),
 //						SnapshotDirectoryVisible:  pulumi.Bool(false),
+//						Tags: pulumi.StringMap{
+//							"foo": pulumi.String("bar"),
+//						},
+//					},
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -210,11 +220,6 @@ import (
 //								RootAccessEnabled: pulumi.Bool(false),
 //							},
 //						},
-//						Tags: pulumi.StringMap{
-//							"foo": pulumi.String("bar"),
-//						},
-//					},
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-2", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-2"),
 //						ServiceLevel:              pulumi.String("Standard"),
@@ -227,6 +232,11 @@ import (
 //						Protocols:                 pulumi.String("NFSv4.1"),
 //						SecurityStyle:             pulumi.String("unix"),
 //						SnapshotDirectoryVisible:  pulumi.Bool(false),
+//						Tags: pulumi.StringMap{
+//							"foo": pulumi.String("bar"),
+//						},
+//					},
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -238,11 +248,6 @@ import (
 //								RootAccessEnabled: pulumi.Bool(false),
 //							},
 //						},
-//						Tags: pulumi.StringMap{
-//							"foo": pulumi.String("bar"),
-//						},
-//					},
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-3", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-3"),
 //						ServiceLevel:              pulumi.String("Standard"),
@@ -255,19 +260,14 @@ import (
 //						Protocols:                 pulumi.String("NFSv4.1"),
 //						SecurityStyle:             pulumi.String("unix"),
 //						SnapshotDirectoryVisible:  pulumi.Bool(false),
-//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
 //					},
 //				},
+//				Name:                  pulumi.Sprintf("%v-netapp-volumegroup", prefix),
+//				Location:              exampleResourceGroup.Location,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AccountName:           exampleAccount.Name,
+//				GroupDescription:      pulumi.String("Test volume group"),
+//				ApplicationIdentifier: pulumi.String("TST"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleLinuxVirtualMachine,
 //				examplePlacementGroup,
@@ -324,15 +324,8 @@ import (
 //				return err
 //			}
 //			exampleDelegated, err := network.NewSubnet(ctx, "example_delegated", &network.SubnetArgs{
-//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
-//				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.88.1.0/24"),
-//				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
-//						Name: pulumi.String("netapp"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
 //							Name: pulumi.String("Microsoft.Netapp/volumes"),
 //							Actions: pulumi.StringArray{
@@ -340,7 +333,14 @@ import (
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
 //							},
 //						},
+//						Name: pulumi.String("netapp"),
 //					},
+//				},
+//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.88.1.0/24"),
 //				},
 //			})
 //			if err != nil {
@@ -358,28 +358,17 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.Sprintf("%v-netapp-account", prefix),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
 //				Identity: &netapp.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
+//				Name:              pulumi.Sprintf("%v-netapp-account", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                         pulumi.Sprintf("%vkv", prefix),
-//				Location:                     example.Location,
-//				ResourceGroupName:            example.Name,
-//				RbacAuthorizationEnabled:     pulumi.Bool(false),
-//				TenantId:                     pulumi.String(current.TenantId),
-//				SkuName:                      pulumi.String("standard"),
-//				PurgeProtectionEnabled:       pulumi.Bool(true),
-//				SoftDeleteRetentionDays:      pulumi.Int(7),
-//				EnabledForDiskEncryption:     pulumi.Bool(true),
-//				EnabledForDeployment:         pulumi.Bool(true),
-//				EnabledForTemplateDeployment: pulumi.Bool(true),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: pulumi.String(current.TenantId),
@@ -404,6 +393,17 @@ import (
 //						},
 //					},
 //				},
+//				Name:                         pulumi.Sprintf("%vkv", prefix),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
+//				RbacAuthorizationEnabled:     pulumi.Bool(false),
+//				TenantId:                     pulumi.String(current.TenantId),
+//				SkuName:                      pulumi.String("standard"),
+//				PurgeProtectionEnabled:       pulumi.Bool(true),
+//				SoftDeleteRetentionDays:      pulumi.Int(7),
+//				EnabledForDiskEncryption:     pulumi.Bool(true),
+//				EnabledForDeployment:         pulumi.Bool(true),
+//				EnabledForTemplateDeployment: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -434,10 +434,6 @@ import (
 //				return err
 //			}
 //			exampleEndpoint, err := privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
-//				Name:              pulumi.Sprintf("%v-pe-kv", prefix),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SubnetId:          examplePrivateEndpoint.ID().ToIDOutput().ToStringOutput(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.Sprintf("%v-pe-sc-kv", prefix),
 //					PrivateConnectionResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
@@ -446,6 +442,10 @@ import (
 //						pulumi.String("Vault"),
 //					},
 //				},
+//				Name:              pulumi.Sprintf("%v-pe-kv", prefix),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SubnetId:          examplePrivateEndpoint.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -465,14 +465,19 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeGroupSapHana(ctx, "example", &netapp.VolumeGroupSapHanaArgs{
-//				Name:                  pulumi.Sprintf("%v-netapp-volumegroup", prefix),
-//				Location:              example.Location,
-//				ResourceGroupName:     example.Name,
-//				AccountName:           exampleAccount.Name,
-//				GroupDescription:      pulumi.String("Test volume group with zone and CMK"),
-//				ApplicationIdentifier: pulumi.String("TST"),
 //				Volumes: netapp.VolumeGroupSapHanaVolumeArray{
 //					&netapp.VolumeGroupSapHanaVolumeArgs{
+//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
+//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
+//								RuleIndex:         pulumi.Int(1),
+//								AllowedClients:    pulumi.String("0.0.0.0/0"),
+//								Nfsv3Enabled:      pulumi.Bool(false),
+//								Nfsv41Enabled:     pulumi.Bool(true),
+//								UnixReadOnly:      pulumi.Bool(false),
+//								UnixReadWrite:     pulumi.Bool(true),
+//								RootAccessEnabled: pulumi.Bool(false),
+//							},
+//						},
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-data", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-data"),
 //						ServiceLevel:              pulumi.String("Standard"),
@@ -488,6 +493,8 @@ import (
 //						NetworkFeatures:           pulumi.String("Standard"),
 //						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
 //						KeyVaultPrivateEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//					},
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -499,8 +506,6 @@ import (
 //								RootAccessEnabled: pulumi.Bool(false),
 //							},
 //						},
-//					},
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-log", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-log"),
 //						ServiceLevel:              pulumi.String("Standard"),
@@ -516,6 +521,8 @@ import (
 //						NetworkFeatures:           pulumi.String("Standard"),
 //						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
 //						KeyVaultPrivateEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//					},
+//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
 //							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
 //								RuleIndex:         pulumi.Int(1),
@@ -527,8 +534,6 @@ import (
 //								RootAccessEnabled: pulumi.Bool(false),
 //							},
 //						},
-//					},
-//					&netapp.VolumeGroupSapHanaVolumeArgs{
 //						Name:                      pulumi.Sprintf("%v-netapp-volume-shared", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-shared"),
 //						ServiceLevel:              pulumi.String("Standard"),
@@ -544,19 +549,14 @@ import (
 //						NetworkFeatures:           pulumi.String("Standard"),
 //						EncryptionKeySource:       pulumi.String("Microsoft.KeyVault"),
 //						KeyVaultPrivateEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
-//						ExportPolicyRules: netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArray{
-//							&netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs{
-//								RuleIndex:         pulumi.Int(1),
-//								AllowedClients:    pulumi.String("0.0.0.0/0"),
-//								Nfsv3Enabled:      pulumi.Bool(false),
-//								Nfsv41Enabled:     pulumi.Bool(true),
-//								UnixReadOnly:      pulumi.Bool(false),
-//								UnixReadWrite:     pulumi.Bool(true),
-//								RootAccessEnabled: pulumi.Bool(false),
-//							},
-//						},
 //					},
 //				},
+//				Name:                  pulumi.Sprintf("%v-netapp-volumegroup", prefix),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
+//				AccountName:           exampleAccount.Name,
+//				GroupDescription:      pulumi.String("Test volume group with zone and CMK"),
+//				ApplicationIdentifier: pulumi.String("TST"),
 //			})
 //			if err != nil {
 //				return err

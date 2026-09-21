@@ -39,6 +39,11 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewVirtualMachine(ctx, "example", &mssql.VirtualMachineArgs{
+//				AutoPatching: &mssql.VirtualMachineAutoPatchingArgs{
+//					DayOfWeek:                          pulumi.String("Sunday"),
+//					MaintenanceWindowDurationInMinutes: pulumi.Int(60),
+//					MaintenanceWindowStartingHour:      pulumi.Int(2),
+//				},
 //				VirtualMachineId:              pulumi.String(example.Id),
 //				SqlLicenseType:                pulumi.String("PAYG"),
 //				RServicesEnabled:              pulumi.Bool(true),
@@ -46,11 +51,6 @@ import (
 //				SqlConnectivityType:           pulumi.String("PRIVATE"),
 //				SqlConnectivityUpdatePassword: pulumi.String("Password1234!"),
 //				SqlConnectivityUpdateUsername: pulumi.String("sqllogin"),
-//				AutoPatching: &mssql.VirtualMachineAutoPatchingArgs{
-//					DayOfWeek:                          pulumi.String("Sunday"),
-//					MaintenanceWindowDurationInMinutes: pulumi.Int(60),
-//					MaintenanceWindowStartingHour:      pulumi.Int(2),
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleArcMachine = new azure.arcmachine.ArcMachine("example", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
  *     name: "example-arcmachine",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     kind: "SCVMM",
- *     identity: {
- *         type: "SystemAssigned",
- *     },
  *     tags: {
  *         environment: "example",
  *     },

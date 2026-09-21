@@ -47,9 +47,6 @@ import (
 //				return err
 //			}
 //			parent, err := network.NewTrafficManagerProfile(ctx, "parent", &network.TrafficManagerProfileArgs{
-//				Name:                 pulumi.String("parent-profile"),
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: pulumi.String("parent-profile"),
 //					Ttl:          pulumi.Int(100),
@@ -62,6 +59,9 @@ import (
 //					TimeoutInSeconds:          pulumi.Int(9),
 //					ToleratedNumberOfFailures: pulumi.Int(3),
 //				},
+//				Name:                 pulumi.String("parent-profile"),
+//				ResourceGroupName:    example.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},
@@ -70,9 +70,6 @@ import (
 //				return err
 //			}
 //			nested, err := network.NewTrafficManagerProfile(ctx, "nested", &network.TrafficManagerProfileArgs{
-//				Name:                 pulumi.String("nested-profile"),
-//				ResourceGroupName:    example.Name,
-//				TrafficRoutingMethod: pulumi.String("Priority"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: pulumi.String("nested-profile"),
 //					Ttl:          pulumi.Int(30),
@@ -82,6 +79,9 @@ import (
 //					Port:     pulumi.Int(443),
 //					Path:     pulumi.String("/"),
 //				},
+//				Name:                 pulumi.String("nested-profile"),
+//				ResourceGroupName:    example.Name,
+//				TrafficRoutingMethod: pulumi.String("Priority"),
 //			})
 //			if err != nil {
 //				return err

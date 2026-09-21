@@ -41,13 +41,13 @@ import (
 //				return err
 //			}
 //			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("appserviceplan"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Premium"),
 //					Size: pulumi.String("P1"),
 //				},
+//				Name:              pulumi.String("appserviceplan"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -76,30 +76,37 @@ import (
 //				return err
 //			}
 //			exampleTxtRecord, err := dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
+//				Records: dns.TxtRecordRecordArray{
+//					&dns.TxtRecordRecordArgs{
+//						Value: exampleAppService.CustomDomainVerificationId,
+//					},
+//				},
 //				Name: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("asuid.%v", name), nil
 //				}).(pulumi.StringOutput),
 //				ZoneName:          example.Name(),
 //				ResourceGroupName: example.ResourceGroupName(),
 //				Ttl:               pulumi.Int(300),
-//				Records: dns.TxtRecordRecordArray{
-//					&dns.TxtRecordRecordArgs{
-//						Value: exampleAppService.CustomDomainVerificationId,
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
+//			invokeTrim, err := std.Trim(ctx, map[string]interface{}{
+//				"input":  exampleCNameRecord.Fqdn,
+//				"cutset": ".",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname: std.TrimOutput(ctx, std.TrimOutputArgs{
-//					Input:  exampleCNameRecord.Fqdn,
-//					Cutset: pulumi.String("."),
-//				}, nil).Result(),
+//				Hostname:          invokeTrim.Result,
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleTxtRecord,
+//			}), pulumi.IgnoreChanges([]string{
+//				"sslState",
+//				"thumbprint",
 //			}))
 //			if err != nil {
 //				return err

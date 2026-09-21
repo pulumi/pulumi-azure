@@ -37,12 +37,12 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var db = new Azure.CosmosDB.Account("db", new()
     ///     {
-    ///         Name = $"tfex-cosmos-db-{ri.Result}",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         OfferType = "Standard",
-    ///         Kind = "MongoDB",
-    ///         AutomaticFailoverEnabled = true,
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "BoundedStaleness",
+    ///             MaxIntervalInSeconds = 300,
+    ///             MaxStalenessPrefix = 100000,
+    ///         },
     ///         Capabilities = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
@@ -62,12 +62,6 @@ namespace Pulumi.Azure.CosmosDB
     ///                 Name = "EnableMongo",
     ///             },
     ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "BoundedStaleness",
-    ///             MaxIntervalInSeconds = 300,
-    ///             MaxStalenessPrefix = 100000,
-    ///         },
     ///         GeoLocations = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
@@ -81,6 +75,12 @@ namespace Pulumi.Azure.CosmosDB
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
+    ///         Name = $"tfex-cosmos-db-{ri.Result}",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         OfferType = "Standard",
+    ///         Kind = "MongoDB",
+    ///         AutomaticFailoverEnabled = true,
     ///     });
     /// 
     /// });
@@ -106,6 +106,33 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
+    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
+    ///         {
+    ///             ConsistencyLevel = "Strong",
+    ///         },
+    ///         Identity = new Azure.CosmosDB.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 example.Id,
+    ///             },
+    ///         },
+    ///         Capabilities = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
+    ///             {
+    ///                 Name = "EnableMongo",
+    ///             },
+    ///         },
+    ///         GeoLocations = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
+    ///             {
+    ///                 Location = "westus",
+    ///                 FailoverPriority = 0,
+    ///             },
+    ///         },
     ///         Name = "example-resource",
     ///         Location = exampleAzurermResourceGroup.Location,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
@@ -117,36 +144,9 @@ namespace Pulumi.Azure.CosmosDB
     ///                 "UserAssignedIdentity",
     ///                 example.Id,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         OfferType = "Standard",
     ///         Kind = "MongoDB",
-    ///         Capabilities = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs
-    ///             {
-    ///                 Name = "EnableMongo",
-    ///             },
-    ///         },
-    ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
-    ///         {
-    ///             ConsistencyLevel = "Strong",
-    ///         },
-    ///         GeoLocations = new[]
-    ///         {
-    ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
-    ///             {
-    ///                 Location = "westus",
-    ///                 FailoverPriority = 0,
-    ///             },
-    ///         },
-    ///         Identity = new Azure.CosmosDB.Inputs.AccountIdentityArgs
-    ///         {
-    ///             Type = "UserAssigned",
-    ///             IdentityIds = new[]
-    ///             {
-    ///                 example.Id,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

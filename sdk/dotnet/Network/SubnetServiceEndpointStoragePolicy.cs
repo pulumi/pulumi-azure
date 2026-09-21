@@ -39,9 +39,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("example", new()
     ///     {
-    ///         Name = "example-policy",
-    ///         ResourceGroupName = example.Name,
-    ///         Location = example.Location,
     ///         Definitions = new[]
     ///         {
     ///             new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
@@ -72,6 +69,9 @@ namespace Pulumi.Azure.Network
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

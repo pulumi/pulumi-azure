@@ -36,12 +36,7 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.2.0.0/24"],
  * });
  * const example2 = new azure.network.Subnet("example2", {
- *     name: "example-hsmsubnet",
- *     resourceGroupName: example.name,
- *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.2.1.0/24"],
  *     delegations: [{
- *         name: "first",
  *         serviceDelegation: {
  *             name: "Microsoft.HardwareSecurityModules/dedicatedHSMs",
  *             actions: [
@@ -49,7 +44,12 @@ import * as utilities from "../utilities";
  *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
  *             ],
  *         },
+ *         name: "first",
  *     }],
+ *     name: "example-hsmsubnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.2.1.0/24"],
  * });
  * const example3 = new azure.network.Subnet("example3", {
  *     name: "gatewaysubnet",
@@ -64,23 +64,19 @@ import * as utilities from "../utilities";
  *     allocationMethod: "Static",
  * });
  * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
+ *     ipConfigurations: [{
+ *         publicIpAddressId: examplePublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: example3.id,
+ *     }],
  *     name: "example-vnetgateway",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     type: "ExpressRoute",
  *     vpnType: "PolicyBased",
  *     sku: "Standard",
- *     ipConfigurations: [{
- *         publicIpAddressId: examplePublicIp.id,
- *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: example3.id,
- *     }],
  * });
  * const exampleModule = new azure.hsm.Module("example", {
- *     name: "example-hsm",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "payShield10K_LMK1_CPS60",
  *     managementNetworkProfile: {
  *         networkInterfacePrivateIpAddresses: ["10.2.1.7"],
  *         subnetId: example2.id,
@@ -89,6 +85,10 @@ import * as utilities from "../utilities";
  *         networkInterfacePrivateIpAddresses: ["10.2.1.8"],
  *         subnetId: example2.id,
  *     },
+ *     name: "example-hsm",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     skuName: "payShield10K_LMK1_CPS60",
  *     stampId: "stamp2",
  *     tags: {
  *         env: "Test",

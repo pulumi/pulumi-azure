@@ -347,6 +347,14 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
 
         example = azure.management.Group("example", display_name="Example")
         example_group_policy_set_definition = azure.management.GroupPolicySetDefinition("example",
+            policy_definition_references=[{
+                "version": "1.0.*",
+                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+                "parameter_values": \"\"\"   {
+             \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
+           }
+        \"\"\",
+            }],
             name="example",
             policy_type="Custom",
             display_name="Example",
@@ -361,15 +369,7 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
                    }
                }
            }
-        \"\"\",
-            policy_definition_references=[{
-                "version": "1.0.*",
-                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                "parameter_values": \"\"\"   {
-             \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
-           }
-        \"\"\",
-            }])
+        \"\"\")
         ```
 
         ## API Providers
@@ -417,6 +417,14 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
 
         example = azure.management.Group("example", display_name="Example")
         example_group_policy_set_definition = azure.management.GroupPolicySetDefinition("example",
+            policy_definition_references=[{
+                "version": "1.0.*",
+                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+                "parameter_values": \"\"\"   {
+             \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
+           }
+        \"\"\",
+            }],
             name="example",
             policy_type="Custom",
             display_name="Example",
@@ -431,15 +439,7 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
                    }
                }
            }
-        \"\"\",
-            policy_definition_references=[{
-                "version": "1.0.*",
-                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                "parameter_values": \"\"\"   {
-             \\"listOfAllowedLocations\\": {\\"value\\": \\"[parameters('allowedLocations')]\\"}
-           }
-        \"\"\",
-            }])
+        \"\"\")
         ```
 
         ## API Providers

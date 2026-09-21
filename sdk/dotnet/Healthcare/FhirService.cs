@@ -39,27 +39,14 @@ namespace Pulumi.Azure.Healthcare
     /// 
     ///     var exampleFhirService = new Azure.Healthcare.FhirService("example", new()
     ///     {
-    ///         Name = "tfexfhir",
-    ///         Location = "east us",
-    ///         ResourceGroupName = "tfex-resource_group",
-    ///         WorkspaceId = exampleWorkspace.Id,
-    ///         Kind = "fhir-R4",
     ///         Authentication = new Azure.Healthcare.Inputs.FhirServiceAuthenticationArgs
     ///         {
     ///             Authority = "https://login.microsoftonline.com/tenantId",
     ///             Audience = "https://tfexfhir.fhir.azurehealthcareapis.com",
     ///         },
-    ///         AccessPolicyObjectIds = new[]
-    ///         {
-    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///         },
     ///         Identity = new Azure.Healthcare.Inputs.FhirServiceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
-    ///         },
-    ///         ContainerRegistryLoginServerUrls = new[]
-    ///         {
-    ///             "tfex-container_registry_login_server",
     ///         },
     ///         Cors = new Azure.Healthcare.Inputs.FhirServiceCorsArgs
     ///         {
@@ -80,6 +67,19 @@ namespace Pulumi.Azure.Healthcare
     ///             },
     ///             MaxAgeInSeconds = 3600,
     ///             CredentialsAllowed = true,
+    ///         },
+    ///         Name = "tfexfhir",
+    ///         Location = "east us",
+    ///         ResourceGroupName = "tfex-resource_group",
+    ///         WorkspaceId = exampleWorkspace.Id,
+    ///         Kind = "fhir-R4",
+    ///         AccessPolicyObjectIds = new[]
+    ///         {
+    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         },
+    ///         ContainerRegistryLoginServerUrls = new[]
+    ///         {
+    ///             "tfex-container_registry_login_server",
     ///         },
     ///         ConfigurationExportStorageAccountName = "storage_account_name",
     ///     });

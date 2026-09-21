@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp("exampleLinuxFunctionApp", LinuxFunctionAppArgs.builder()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .name("example-linux-function-app")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
- *                 .build())
  *             .build());
  * 
  *     }

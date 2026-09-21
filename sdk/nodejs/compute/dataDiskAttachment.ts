@@ -37,21 +37,16 @@ import * as utilities from "../utilities";
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
  * const mainNetworkInterface = new azure.network.NetworkInterface("main", {
- *     name: `${prefix}-nic`,
- *     location: example.location,
- *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: internal.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
- * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
- *     name: vmName,
+ *     name: `${prefix}-nic`,
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     networkInterfaceIds: [mainNetworkInterface.id],
- *     vmSize: "Standard_D4_v5",
+ * });
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",
@@ -72,6 +67,11 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
+ *     name: vmName,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     networkInterfaceIds: [mainNetworkInterface.id],
+ *     vmSize: "Standard_D4_v5",
  * });
  * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
  *     name: `${vmName}-disk1`,

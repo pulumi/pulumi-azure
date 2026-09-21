@@ -34,19 +34,8 @@ import (
 //				return err
 //			}
 //			_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
-//				Name:               pulumi.String("uniquefhirname"),
-//				ResourceGroupName:  pulumi.String("sample-resource-group"),
-//				Location:           pulumi.String("westus2"),
-//				Kind:               pulumi.String("fhir-R4"),
-//				CosmosdbThroughput: pulumi.Int(2000),
 //				Identity: &healthcare.ServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
-//				},
-//				AccessPolicyObjectIds:                 pulumi.String(current.ObjectId),
-//				ConfigurationExportStorageAccountName: pulumi.String("teststorage"),
-//				Tags: pulumi.StringMap{
-//					"environment": pulumi.String("testenv"),
-//					"purpose":     pulumi.String("AcceptanceTests"),
 //				},
 //				AuthenticationConfiguration: &healthcare.ServiceAuthenticationConfigurationArgs{
 //					Authority:         pulumi.String("https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D"),
@@ -68,6 +57,17 @@ import (
 //					},
 //					MaxAgeInSeconds:  pulumi.Int(500),
 //					AllowCredentials: pulumi.Bool(true),
+//				},
+//				Name:                                  pulumi.String("uniquefhirname"),
+//				ResourceGroupName:                     pulumi.String("sample-resource-group"),
+//				Location:                              pulumi.String("westus2"),
+//				Kind:                                  pulumi.String("fhir-R4"),
+//				CosmosdbThroughput:                    pulumi.Int(2000),
+//				AccessPolicyObjectIds:                 pulumi.String(current.ObjectId),
+//				ConfigurationExportStorageAccountName: pulumi.String("teststorage"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("testenv"),
+//					"purpose":     pulumi.String("AcceptanceTests"),
 //				},
 //			})
 //			if err != nil {

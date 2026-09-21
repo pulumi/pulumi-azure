@@ -38,14 +38,14 @@ namespace Pulumi.Azure.Automation
     /// 
     ///     var exampleSourceControl = new Azure.Automation.SourceControl("example", new()
     ///     {
-    ///         Name = "example",
-    ///         AutomationAccountId = exampleAccount.Id,
-    ///         FolderPath = "runbook",
     ///         Security = new Azure.Automation.Inputs.SourceControlSecurityArgs
     ///         {
     ///             Token = "ghp_xxx",
     ///             TokenType = "PersonalAccessToken",
     ///         },
+    ///         Name = "example",
+    ///         AutomationAccountId = exampleAccount.Id,
+    ///         FolderPath = "runbook",
     ///         RepositoryUrl = "https://github.com/foo/bat.git",
     ///         SourceControlType = "GitHub",
     ///         Branch = "main",

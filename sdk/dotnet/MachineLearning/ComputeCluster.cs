@@ -64,16 +64,16 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
     ///         Name = "example-mlw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
-    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///         {
-    ///             Type = "SystemAssigned",
-    ///         },
     ///     });
     /// 
     ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
@@ -100,12 +100,6 @@ namespace Pulumi.Azure.MachineLearning
     /// 
     ///     var test = new Azure.MachineLearning.ComputeCluster("test", new()
     ///     {
-    ///         Name = "example",
-    ///         Location = example.Location,
-    ///         VmPriority = "LowPriority",
-    ///         VmSize = "Standard_DS2_v2",
-    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///         SubnetResourceId = exampleSubnet.Id,
     ///         ScaleSettings = new Azure.MachineLearning.Inputs.ComputeClusterScaleSettingsArgs
     ///         {
     ///             MinNodeCount = 0,
@@ -116,6 +110,12 @@ namespace Pulumi.Azure.MachineLearning
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         VmPriority = "LowPriority",
+    ///         VmSize = "Standard_DS2_v2",
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         SubnetResourceId = exampleSubnet.Id,
     ///     });
     /// 
     /// });

@@ -902,6 +902,11 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["192.168.2.0/24"])
         example_vmware_replicated_vm = azure.siterecovery.VmwareReplicatedVm("example",
+            network_interfaces=[{
+                "source_mac_address": "00:00:00:00:00:00",
+                "target_subnet_name": example_subnet.name,
+                "is_primary": True,
+            }],
             name="example-vmware-vm",
             recovery_vault_id=example_vault.id,
             source_vm_name="example-vm",
@@ -914,12 +919,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             target_resource_group_id=example.id,
             default_log_storage_account_id=example_account.id,
             default_recovery_disk_type="Standard_LRS",
-            target_network_id=example_virtual_network.id,
-            network_interfaces=[{
-                "source_mac_address": "00:00:00:00:00:00",
-                "target_subnet_name": example_subnet.name,
-                "is_primary": True,
-            }])
+            target_network_id=example_virtual_network.id)
         ```
 
         ## API Providers
@@ -1039,6 +1039,11 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["192.168.2.0/24"])
         example_vmware_replicated_vm = azure.siterecovery.VmwareReplicatedVm("example",
+            network_interfaces=[{
+                "source_mac_address": "00:00:00:00:00:00",
+                "target_subnet_name": example_subnet.name,
+                "is_primary": True,
+            }],
             name="example-vmware-vm",
             recovery_vault_id=example_vault.id,
             source_vm_name="example-vm",
@@ -1051,12 +1056,7 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             target_resource_group_id=example.id,
             default_log_storage_account_id=example_account.id,
             default_recovery_disk_type="Standard_LRS",
-            target_network_id=example_virtual_network.id,
-            network_interfaces=[{
-                "source_mac_address": "00:00:00:00:00:00",
-                "target_subnet_name": example_subnet.name,
-                "is_primary": True,
-            }])
+            target_network_id=example_virtual_network.id)
         ```
 
         ## API Providers

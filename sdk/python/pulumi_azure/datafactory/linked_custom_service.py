@@ -354,12 +354,12 @@ class LinkedCustomService(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
         example_account = azure.storage.Account("example",
             name="example",
             resource_group_name=example.name,
@@ -428,12 +428,12 @@ class LinkedCustomService(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_factory = azure.datafactory.Factory("example",
-            name="example",
-            location=example.location,
-            resource_group_name=example.name,
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
         example_account = azure.storage.Account("example",
             name="example",
             resource_group_name=example.name,

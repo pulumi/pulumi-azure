@@ -61,11 +61,6 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
     ///     {
-    ///         Name = "testfirewall",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "AZFW_VNet",
-    ///         SkuTier = "Standard",
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.FirewallIpConfigurationArgs
@@ -75,15 +70,15 @@ namespace Pulumi.Azure.Network
     ///                 PublicIpAddressId = examplePublicIp.Id,
     ///             },
     ///         },
+    ///         Name = "testfirewall",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "AZFW_VNet",
+    ///         SkuTier = "Standard",
     ///     });
     /// 
     ///     var exampleFirewallNatRuleCollection = new Azure.Network.FirewallNatRuleCollection("example", new()
     ///     {
-    ///         Name = "testcollection",
-    ///         AzureFirewallName = exampleFirewall.Name,
-    ///         ResourceGroupName = example.Name,
-    ///         Priority = 100,
-    ///         Action = "Dnat",
     ///         Rules = new[]
     ///         {
     ///             new Azure.Network.Inputs.FirewallNatRuleCollectionRuleArgs
@@ -110,6 +105,11 @@ namespace Pulumi.Azure.Network
     ///                 },
     ///             },
     ///         },
+    ///         Name = "testcollection",
+    ///         AzureFirewallName = exampleFirewall.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Priority = 100,
+    ///         Action = "Dnat",
     ///     });
     /// 
     /// });

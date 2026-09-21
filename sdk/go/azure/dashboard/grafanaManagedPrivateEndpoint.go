@@ -49,16 +49,16 @@ import (
 //				return err
 //			}
 //			exampleGrafana, err := dashboard.NewGrafana(ctx, "example", &dashboard.GrafanaArgs{
-//				Name:                       pulumi.String("example-dg"),
-//				ResourceGroupName:          example.Name,
-//				Location:                   example.Location,
-//				GrafanaMajorVersion:        pulumi.String("12"),
-//				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				AzureMonitorWorkspaceIntegrations: dashboard.GrafanaAzureMonitorWorkspaceIntegrationArray{
 //					&dashboard.GrafanaAzureMonitorWorkspaceIntegrationArgs{
 //						ResourceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name:                       pulumi.String("example-dg"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
+//				GrafanaMajorVersion:        pulumi.String("12"),
+//				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

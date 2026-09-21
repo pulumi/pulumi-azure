@@ -234,18 +234,18 @@ class WorkspaceNetworkOutboundRuleServiceTag(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_workspace = azure.machinelearning.Workspace("example",
-            name="example-workspace",
-            location=example.location,
-            resource_group_name=example.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
             managed_network={
                 "isolation_mode": "AllowOnlyApprovedOutbound",
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id)
         example_workspace_network_outbound_rule_service_tag = azure.machinelearning.WorkspaceNetworkOutboundRuleServiceTag("example",
             name="example-outboundrule",
             workspace_id=example_workspace.id,
@@ -316,18 +316,18 @@ class WorkspaceNetworkOutboundRuleServiceTag(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="GRS")
         example_workspace = azure.machinelearning.Workspace("example",
-            name="example-workspace",
-            location=example.location,
-            resource_group_name=example.name,
-            application_insights_id=example_insights.id,
-            key_vault_id=example_key_vault.id,
-            storage_account_id=example_account.id,
             managed_network={
                 "isolation_mode": "AllowOnlyApprovedOutbound",
             },
             identity={
                 "type": "SystemAssigned",
-            })
+            },
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
+            application_insights_id=example_insights.id,
+            key_vault_id=example_key_vault.id,
+            storage_account_id=example_account.id)
         example_workspace_network_outbound_rule_service_tag = azure.machinelearning.WorkspaceNetworkOutboundRuleServiceTag("example",
             name="example-outboundrule",
             workspace_id=example_workspace.id,

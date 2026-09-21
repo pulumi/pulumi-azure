@@ -155,26 +155,18 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_namespace = azure.servicebus.Namespace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-servicebus-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Premium",
             premium_messaging_partitions=1,
             capacity=1,
-            identity={
-                "type": "SystemAssigned",
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["customerManagedKey"]))
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-key-vault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -212,7 +204,16 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                     ],
                     "secret_permissions": ["Set"],
                 },
-            ])
+            ],
+            name="example-key-vault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="example-key-vault-key",
             key_vault_id=example_key_vault.id,
@@ -276,26 +277,18 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="example-resource-group",
             location="West Europe")
         example_namespace = azure.servicebus.Namespace("example",
+            identity={
+                "type": "SystemAssigned",
+            },
             name="example-servicebus-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Premium",
             premium_messaging_partitions=1,
             capacity=1,
-            identity={
-                "type": "SystemAssigned",
-            })
+            opts = pulumi.ResourceOptions(ignore_changes=["customerManagedKey"]))
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
-            name="example-key-vault",
-            location=example.location,
-            resource_group_name=example.name,
-            rbac_authorization_enabled=False,
-            enabled_for_disk_encryption=True,
-            tenant_id=current.tenant_id,
-            soft_delete_retention_days=7,
-            purge_protection_enabled=True,
-            sku_name="standard",
             access_policies=[
                 {
                     "tenant_id": current.tenant_id,
@@ -333,7 +326,16 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                     ],
                     "secret_permissions": ["Set"],
                 },
-            ])
+            ],
+            name="example-key-vault",
+            location=example.location,
+            resource_group_name=example.name,
+            rbac_authorization_enabled=False,
+            enabled_for_disk_encryption=True,
+            tenant_id=current.tenant_id,
+            soft_delete_retention_days=7,
+            purge_protection_enabled=True,
+            sku_name="standard")
         example_key = azure.keyvault.Key("example",
             name="example-key-vault-key",
             key_vault_id=example_key_vault.id,

@@ -63,15 +63,15 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var exampleBastionHost = new Azure.Compute.BastionHost("example", new()
     ///     {
-    ///         Name = "examplebastion",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
     ///         IpConfiguration = new Azure.Compute.Inputs.BastionHostIpConfigurationArgs
     ///         {
     ///             Name = "configuration",
     ///             SubnetId = exampleSubnet.Id,
     ///             PublicIpAddressId = examplePublicIp.Id,
     ///         },
+    ///         Name = "examplebastion",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });
