@@ -299,7 +299,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
+                 read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict', 'outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy']]] = None,
                  readonly_endpoint_failover_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  secondary_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -496,7 +496,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partner_managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict', 'outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[_builtins.bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[_builtins.str] secondary_type: The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.
         """
@@ -712,7 +712,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
+                 read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict', 'outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy']]] = None,
                  readonly_endpoint_failover_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  secondary_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -755,8 +755,8 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             partner_managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-            partner_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict']]]]] = None,
-            read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
+            partner_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict', 'outputs.ManagedInstanceFailoverGroupPartnerRegion']]]]] = None,
+            read_write_endpoint_failover_policy: pulumi.Input[Optional[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict', 'outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy']]] = None,
             readonly_endpoint_failover_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             role: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedInstanceFailoverGroup':
@@ -771,8 +771,8 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] partner_managed_instance_id: The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict']]]] partner_regions: A `partner_region` block as defined below.
-        :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict', 'outputs.ManagedInstanceFailoverGroupPartnerRegion']]]] partner_regions: A `partner_region` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict', 'outputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[_builtins.bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[_builtins.str] role: The partner replication role of the Managed Instance Failover Group.
         :param pulumi.Input[_builtins.str] secondary_type: The type of the secondary Managed Instance. Possible values are `Geo`, `Standby`. Defaults to `Geo`.

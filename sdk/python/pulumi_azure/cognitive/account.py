@@ -938,10 +938,10 @@ class Account(pulumi.CustomResource):
                  custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
                  dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -950,15 +950,15 @@ class Account(pulumi.CustomResource):
                  metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
-                 network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict', 'outputs.AccountNetworkAcls']]] = None,
+                 network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict', 'outputs.AccountNetworkInjection']]] = None,
                  outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -1015,10 +1015,10 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created except when upgrading the Cognitive Service Account from `OpenAI` to `AIServices` or rolling back from `AIServices` to `OpenAI`. More information on [upgrade and rollback scenario](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/upgrade-azure-openai?tabs=portal).
                
                > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
@@ -1033,8 +1033,8 @@ class Account(pulumi.CustomResource):
                
                > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
-        :param pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']] network_injection: A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+        :param pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict', 'outputs.AccountNetworkAcls']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        :param pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict', 'outputs.AccountNetworkInjection']] network_injection: A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
         :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] project_management_enabled: Whether project management is enabled. Can only be set to `true` when `kind` is set to `AIServices`. Once enabled, disabling `project_management_enabled` forces a new resource to be created unless `kind` is set to `OpenAI`. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
@@ -1043,7 +1043,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
                
                > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]] storages: A `storage` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -1115,10 +1115,10 @@ class Account(pulumi.CustomResource):
                  custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
                  dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1127,15 +1127,15 @@ class Account(pulumi.CustomResource):
                  metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
-                 network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict', 'outputs.AccountNetworkAcls']]] = None,
+                 network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict', 'outputs.AccountNetworkInjection']]] = None,
                  outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
                  project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  qna_runtime_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1195,11 +1195,11 @@ class Account(pulumi.CustomResource):
             custom_question_answering_search_service_id: pulumi.Input[Optional[_builtins.str]] = None,
             custom_question_answering_search_service_key: pulumi.Input[Optional[_builtins.str]] = None,
             custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']]] = None,
             dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1208,8 +1208,8 @@ class Account(pulumi.CustomResource):
             metrics_advisor_super_user_name: pulumi.Input[Optional[_builtins.str]] = None,
             metrics_advisor_website_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']]] = None,
-            network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']]] = None,
+            network_acls: pulumi.Input[Optional[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict', 'outputs.AccountNetworkAcls']]] = None,
+            network_injection: pulumi.Input[Optional[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict', 'outputs.AccountNetworkInjection']]] = None,
             outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             project_management_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1218,7 +1218,7 @@ class Account(pulumi.CustomResource):
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]]] = None,
+            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -1234,11 +1234,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for Entra ID token-based authentication. This attribute is required when `network_acls` is specified. This attribute is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`. This can be specified during creation or added later, but once set changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource. Moreover, functionality that requires Entra ID authentication, including Agent service, will not be accessible.
-        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict', 'outputs.AccountCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account. This attribute cannot be set when the `kind` is `OpenAI` or `AIServices`.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AIServices`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created except when upgrading the Cognitive Service Account from `OpenAI` to `AIServices` or rolling back from `AIServices` to `OpenAI`. More information on [upgrade and rollback scenario](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/upgrade-azure-openai?tabs=portal).
                
                > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
@@ -1253,8 +1253,8 @@ class Account(pulumi.CustomResource):
                
                > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
-        :param pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict']] network_injection: A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
+        :param pulumi.Input[Union['AccountNetworkAclsArgs', 'AccountNetworkAclsArgsDict', 'outputs.AccountNetworkAcls']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        :param pulumi.Input[Union['AccountNetworkInjectionArgs', 'AccountNetworkInjectionArgsDict', 'outputs.AccountNetworkInjection']] network_injection: A `network_injection` block as defined below. Only applicable if the `kind` is set to `AIServices`.
         :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] primary_access_key: A primary access key which can be used to connect to the Cognitive Service Account.
         :param pulumi.Input[_builtins.bool] project_management_enabled: Whether project management is enabled. Can only be set to `true` when `kind` is set to `AIServices`. Once enabled, disabling `project_management_enabled` forces a new resource to be created unless `kind` is set to `OpenAI`. Defaults to `false`.
@@ -1265,7 +1265,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `C2`, `C3`, `C4`, `D3`, `DC0`, `E0`, `F0`, `F1`, `P0`, `P1`, `P2`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5` and `S6`.
                
                > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']]]] storages: A `storage` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

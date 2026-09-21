@@ -340,7 +340,7 @@ class SystemTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict', 'outputs.SystemTopicIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -396,7 +396,7 @@ class SystemTopic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict', 'outputs.SystemTopicIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
@@ -474,7 +474,7 @@ class SystemTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict', 'outputs.SystemTopicIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,7 +515,7 @@ class SystemTopic(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict', 'outputs.SystemTopicIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             metric_arm_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             metric_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -532,7 +532,7 @@ class SystemTopic(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SystemTopicIdentityArgs', 'SystemTopicIdentityArgsDict', 'outputs.SystemTopicIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Event Grid System Topic should exist. Changing this forces a new Event Grid System Topic to be created.
         :param pulumi.Input[_builtins.str] metric_resource_id: The Metric Resource ID of the Event Grid System Topic.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Event Grid System Topic. Changing this forces a new Event Grid System Topic to be created.

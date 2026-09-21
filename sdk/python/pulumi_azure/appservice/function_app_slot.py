@@ -759,19 +759,19 @@ class FunctionAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict', 'outputs.FunctionAppSlotAuthSettings']]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict', 'outputs.FunctionAppSlotConnectionString']]]]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict', 'outputs.FunctionAppSlotIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict', 'outputs.FunctionAppSlotSiteConfig']]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -843,21 +843,21 @@ class FunctionAppSlot(pulumi.CustomResource):
                > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
                
                > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-        :param pulumi.Input[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
+        :param pulumi.Input[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict', 'outputs.FunctionAppSlotAuthSettings']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict', 'outputs.FunctionAppSlotConnectionString']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[_builtins.bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict', 'outputs.FunctionAppSlotIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
                > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict', 'outputs.FunctionAppSlotSiteConfig']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -942,19 +942,19 @@ class FunctionAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict', 'outputs.FunctionAppSlotAuthSettings']]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict', 'outputs.FunctionAppSlotConnectionString']]]]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict', 'outputs.FunctionAppSlotIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict', 'outputs.FunctionAppSlotSiteConfig']]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1016,15 +1016,15 @@ class FunctionAppSlot(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]]] = None,
+            auth_settings: pulumi.Input[Optional[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict', 'outputs.FunctionAppSlotAuthSettings']]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict', 'outputs.FunctionAppSlotConnectionString']]]]] = None,
             daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enable_builtin_logging: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict', 'outputs.FunctionAppSlotIdentity']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1032,8 +1032,8 @@ class FunctionAppSlot(pulumi.CustomResource):
             outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotSiteCredentialArgs', 'FunctionAppSlotSiteCredentialArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict', 'outputs.FunctionAppSlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppSlotSiteCredentialArgs', 'FunctionAppSlotSiteCredentialArgsDict', 'outputs.FunctionAppSlotSiteCredential']]]]] = None,
             storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1053,15 +1053,15 @@ class FunctionAppSlot(pulumi.CustomResource):
                > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
                
                > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-        :param pulumi.Input[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
+        :param pulumi.Input[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict', 'outputs.FunctionAppSlotAuthSettings']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict', 'outputs.FunctionAppSlotConnectionString']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
         :param pulumi.Input[_builtins.bool] enable_builtin_logging: Should the built-in logging of the Function App be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] function_app_name: The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FunctionAppSlotIdentityArgs', 'FunctionAppSlotIdentityArgsDict', 'outputs.FunctionAppSlotIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: The Function App kind - such as `functionapp,linux,container`
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
@@ -1071,8 +1071,8 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[_builtins.str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotSiteCredentialArgs', 'FunctionAppSlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
+        :param pulumi.Input[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict', 'outputs.FunctionAppSlotSiteConfig']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotSiteCredentialArgs', 'FunctionAppSlotSiteCredentialArgsDict', 'outputs.FunctionAppSlotSiteCredential']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.

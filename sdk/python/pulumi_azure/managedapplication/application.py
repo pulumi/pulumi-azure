@@ -349,7 +349,7 @@ class Application(pulumi.CustomResource):
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict', 'outputs.ApplicationPlan']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -427,7 +427,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
-        :param pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict', 'outputs.ApplicationPlan']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -524,7 +524,7 @@ class Application(pulumi.CustomResource):
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict', 'outputs.ApplicationPlan']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -569,7 +569,7 @@ class Application(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outputs: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
-            plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']]] = None,
+            plan: pulumi.Input[Optional[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict', 'outputs.ApplicationPlan']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Application':
         """
@@ -586,7 +586,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] outputs: The name and value pairs that define the managed application outputs.
         :param pulumi.Input[_builtins.str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
-        :param pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict', 'outputs.ApplicationPlan']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """

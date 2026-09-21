@@ -729,12 +729,12 @@ class EventSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_filter: pulumi.Input[Optional[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict']]] = None,
+                 advanced_filter: pulumi.Input[Optional[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict', 'outputs.EventSubscriptionAdvancedFilter']]] = None,
                  advanced_filtering_on_arrays_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 azure_function_endpoint: pulumi.Input[Optional[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict']]] = None,
-                 dead_letter_identity: pulumi.Input[Optional[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict']]] = None,
-                 delivery_identity: pulumi.Input[Optional[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict']]] = None,
-                 delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict']]]]] = None,
+                 azure_function_endpoint: pulumi.Input[Optional[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict', 'outputs.EventSubscriptionAzureFunctionEndpoint']]] = None,
+                 dead_letter_identity: pulumi.Input[Optional[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict', 'outputs.EventSubscriptionDeadLetterIdentity']]] = None,
+                 delivery_identity: pulumi.Input[Optional[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict', 'outputs.EventSubscriptionDeliveryIdentity']]] = None,
+                 delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict', 'outputs.EventSubscriptionDeliveryProperty']]]]] = None,
                  event_delivery_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
@@ -742,14 +742,14 @@ class EventSubscription(pulumi.CustomResource):
                  included_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retry_policy: pulumi.Input[Optional[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict']]] = None,
+                 retry_policy: pulumi.Input[Optional[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict', 'outputs.EventSubscriptionRetryPolicy']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_queue_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_topic_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict']]] = None,
-                 storage_queue_endpoint: pulumi.Input[Optional[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict']]] = None,
-                 subject_filter: pulumi.Input[Optional[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict']]] = None,
-                 webhook_endpoint: pulumi.Input[Optional[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict']]] = None,
+                 storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict', 'outputs.EventSubscriptionStorageBlobDeadLetterDestination']]] = None,
+                 storage_queue_endpoint: pulumi.Input[Optional[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict', 'outputs.EventSubscriptionStorageQueueEndpoint']]] = None,
+                 subject_filter: pulumi.Input[Optional[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict', 'outputs.EventSubscriptionSubjectFilter']]] = None,
+                 webhook_endpoint: pulumi.Input[Optional[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict', 'outputs.EventSubscriptionWebhookEndpoint']]] = None,
                  __props__=None):
         """
         Manages an EventGrid Event Subscription
@@ -802,14 +802,14 @@ class EventSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict']] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict', 'outputs.EventSubscriptionAdvancedFilter']] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[_builtins.bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        :param pulumi.Input[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict']] dead_letter_identity: A `dead_letter_identity` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict', 'outputs.EventSubscriptionAzureFunctionEndpoint']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict', 'outputs.EventSubscriptionDeadLetterIdentity']] dead_letter_identity: A `dead_letter_identity` block as defined below.
                
                > **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
-        :param pulumi.Input[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict']] delivery_identity: A `delivery_identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict']]]] delivery_properties: One or more `delivery_property` blocks as defined below.
+        :param pulumi.Input[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict', 'outputs.EventSubscriptionDeliveryIdentity']] delivery_identity: A `delivery_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict', 'outputs.EventSubscriptionDeliveryProperty']]]] delivery_properties: One or more `delivery_property` blocks as defined below.
         :param pulumi.Input[_builtins.str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[_builtins.str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -817,14 +817,14 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: A list of labels to assign to the event subscription.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict']] retry_policy: A `retry_policy` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict', 'outputs.EventSubscriptionRetryPolicy']] retry_policy: A `retry_policy` block as defined below.
         :param pulumi.Input[_builtins.str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_bus_queue_endpoint_id: Specifies the id where the Service Bus Queue is located.
         :param pulumi.Input[_builtins.str] service_bus_topic_endpoint_id: Specifies the id where the Service Bus Topic is located.
-        :param pulumi.Input[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict']] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict']] webhook_endpoint: A `webhook_endpoint` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict', 'outputs.EventSubscriptionStorageBlobDeadLetterDestination']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict', 'outputs.EventSubscriptionStorageQueueEndpoint']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict', 'outputs.EventSubscriptionSubjectFilter']] subject_filter: A `subject_filter` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict', 'outputs.EventSubscriptionWebhookEndpoint']] webhook_endpoint: A `webhook_endpoint` block as defined below.
                
                > **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
         """
@@ -898,12 +898,12 @@ class EventSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_filter: pulumi.Input[Optional[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict']]] = None,
+                 advanced_filter: pulumi.Input[Optional[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict', 'outputs.EventSubscriptionAdvancedFilter']]] = None,
                  advanced_filtering_on_arrays_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 azure_function_endpoint: pulumi.Input[Optional[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict']]] = None,
-                 dead_letter_identity: pulumi.Input[Optional[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict']]] = None,
-                 delivery_identity: pulumi.Input[Optional[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict']]] = None,
-                 delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict']]]]] = None,
+                 azure_function_endpoint: pulumi.Input[Optional[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict', 'outputs.EventSubscriptionAzureFunctionEndpoint']]] = None,
+                 dead_letter_identity: pulumi.Input[Optional[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict', 'outputs.EventSubscriptionDeadLetterIdentity']]] = None,
+                 delivery_identity: pulumi.Input[Optional[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict', 'outputs.EventSubscriptionDeliveryIdentity']]] = None,
+                 delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict', 'outputs.EventSubscriptionDeliveryProperty']]]]] = None,
                  event_delivery_schema: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
@@ -911,14 +911,14 @@ class EventSubscription(pulumi.CustomResource):
                  included_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retry_policy: pulumi.Input[Optional[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict']]] = None,
+                 retry_policy: pulumi.Input[Optional[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict', 'outputs.EventSubscriptionRetryPolicy']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_queue_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_topic_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict']]] = None,
-                 storage_queue_endpoint: pulumi.Input[Optional[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict']]] = None,
-                 subject_filter: pulumi.Input[Optional[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict']]] = None,
-                 webhook_endpoint: pulumi.Input[Optional[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict']]] = None,
+                 storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict', 'outputs.EventSubscriptionStorageBlobDeadLetterDestination']]] = None,
+                 storage_queue_endpoint: pulumi.Input[Optional[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict', 'outputs.EventSubscriptionStorageQueueEndpoint']]] = None,
+                 subject_filter: pulumi.Input[Optional[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict', 'outputs.EventSubscriptionSubjectFilter']]] = None,
+                 webhook_endpoint: pulumi.Input[Optional[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict', 'outputs.EventSubscriptionWebhookEndpoint']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -963,12 +963,12 @@ class EventSubscription(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advanced_filter: pulumi.Input[Optional[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict']]] = None,
+            advanced_filter: pulumi.Input[Optional[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict', 'outputs.EventSubscriptionAdvancedFilter']]] = None,
             advanced_filtering_on_arrays_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            azure_function_endpoint: pulumi.Input[Optional[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict']]] = None,
-            dead_letter_identity: pulumi.Input[Optional[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict']]] = None,
-            delivery_identity: pulumi.Input[Optional[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict']]] = None,
-            delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict']]]]] = None,
+            azure_function_endpoint: pulumi.Input[Optional[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict', 'outputs.EventSubscriptionAzureFunctionEndpoint']]] = None,
+            dead_letter_identity: pulumi.Input[Optional[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict', 'outputs.EventSubscriptionDeadLetterIdentity']]] = None,
+            delivery_identity: pulumi.Input[Optional[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict', 'outputs.EventSubscriptionDeliveryIdentity']]] = None,
+            delivery_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict', 'outputs.EventSubscriptionDeliveryProperty']]]]] = None,
             event_delivery_schema: pulumi.Input[Optional[_builtins.str]] = None,
             eventhub_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             expiration_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
@@ -976,14 +976,14 @@ class EventSubscription(pulumi.CustomResource):
             included_event_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            retry_policy: pulumi.Input[Optional[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict']]] = None,
+            retry_policy: pulumi.Input[Optional[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict', 'outputs.EventSubscriptionRetryPolicy']]] = None,
             scope: pulumi.Input[Optional[_builtins.str]] = None,
             service_bus_queue_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             service_bus_topic_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict']]] = None,
-            storage_queue_endpoint: pulumi.Input[Optional[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict']]] = None,
-            subject_filter: pulumi.Input[Optional[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict']]] = None,
-            webhook_endpoint: pulumi.Input[Optional[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict']]] = None) -> 'EventSubscription':
+            storage_blob_dead_letter_destination: pulumi.Input[Optional[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict', 'outputs.EventSubscriptionStorageBlobDeadLetterDestination']]] = None,
+            storage_queue_endpoint: pulumi.Input[Optional[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict', 'outputs.EventSubscriptionStorageQueueEndpoint']]] = None,
+            subject_filter: pulumi.Input[Optional[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict', 'outputs.EventSubscriptionSubjectFilter']]] = None,
+            webhook_endpoint: pulumi.Input[Optional[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict', 'outputs.EventSubscriptionWebhookEndpoint']]] = None) -> 'EventSubscription':
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -991,14 +991,14 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict']] advanced_filter: A `advanced_filter` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionAdvancedFilterArgs', 'EventSubscriptionAdvancedFilterArgsDict', 'outputs.EventSubscriptionAdvancedFilter']] advanced_filter: A `advanced_filter` block as defined below.
         :param pulumi.Input[_builtins.bool] advanced_filtering_on_arrays_enabled: Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
-        :param pulumi.Input[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict']] dead_letter_identity: A `dead_letter_identity` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionAzureFunctionEndpointArgs', 'EventSubscriptionAzureFunctionEndpointArgsDict', 'outputs.EventSubscriptionAzureFunctionEndpoint']] azure_function_endpoint: An `azure_function_endpoint` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionDeadLetterIdentityArgs', 'EventSubscriptionDeadLetterIdentityArgsDict', 'outputs.EventSubscriptionDeadLetterIdentity']] dead_letter_identity: A `dead_letter_identity` block as defined below.
                
                > **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
-        :param pulumi.Input[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict']] delivery_identity: A `delivery_identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict']]]] delivery_properties: One or more `delivery_property` blocks as defined below.
+        :param pulumi.Input[Union['EventSubscriptionDeliveryIdentityArgs', 'EventSubscriptionDeliveryIdentityArgsDict', 'outputs.EventSubscriptionDeliveryIdentity']] delivery_identity: A `delivery_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventSubscriptionDeliveryPropertyArgs', 'EventSubscriptionDeliveryPropertyArgsDict', 'outputs.EventSubscriptionDeliveryProperty']]]] delivery_properties: One or more `delivery_property` blocks as defined below.
         :param pulumi.Input[_builtins.str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] eventhub_endpoint_id: Specifies the id where the Event Hub is located.
         :param pulumi.Input[_builtins.str] expiration_time_utc: Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -1006,14 +1006,14 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] included_event_types: A list of applicable event types that need to be part of the event subscription.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: A list of labels to assign to the event subscription.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict']] retry_policy: A `retry_policy` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionRetryPolicyArgs', 'EventSubscriptionRetryPolicyArgsDict', 'outputs.EventSubscriptionRetryPolicy']] retry_policy: A `retry_policy` block as defined below.
         :param pulumi.Input[_builtins.str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_bus_queue_endpoint_id: Specifies the id where the Service Bus Queue is located.
         :param pulumi.Input[_builtins.str] service_bus_topic_endpoint_id: Specifies the id where the Service Bus Topic is located.
-        :param pulumi.Input[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict']] subject_filter: A `subject_filter` block as defined below.
-        :param pulumi.Input[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict']] webhook_endpoint: A `webhook_endpoint` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionStorageBlobDeadLetterDestinationArgs', 'EventSubscriptionStorageBlobDeadLetterDestinationArgsDict', 'outputs.EventSubscriptionStorageBlobDeadLetterDestination']] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionStorageQueueEndpointArgs', 'EventSubscriptionStorageQueueEndpointArgsDict', 'outputs.EventSubscriptionStorageQueueEndpoint']] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionSubjectFilterArgs', 'EventSubscriptionSubjectFilterArgsDict', 'outputs.EventSubscriptionSubjectFilter']] subject_filter: A `subject_filter` block as defined below.
+        :param pulumi.Input[Union['EventSubscriptionWebhookEndpointArgs', 'EventSubscriptionWebhookEndpointArgsDict', 'outputs.EventSubscriptionWebhookEndpoint']] webhook_endpoint: A `webhook_endpoint` block as defined below.
                
                > **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
         """

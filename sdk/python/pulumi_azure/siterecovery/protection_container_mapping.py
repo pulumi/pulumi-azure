@@ -292,7 +292,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_update: pulumi.Input[Optional[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']]] = None,
+                 automatic_update: pulumi.Input[Optional[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict', 'outputs.ProtectionContainerMappingAutomaticUpdate']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -375,7 +375,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: a `automatic_update` block defined as below.
+        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict', 'outputs.ProtectionContainerMappingAutomaticUpdate']] automatic_update: a `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
@@ -477,7 +477,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automatic_update: pulumi.Input[Optional[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']]] = None,
+                 automatic_update: pulumi.Input[Optional[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict', 'outputs.ProtectionContainerMappingAutomaticUpdate']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -524,7 +524,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automatic_update: pulumi.Input[Optional[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']]] = None,
+            automatic_update: pulumi.Input[Optional[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict', 'outputs.ProtectionContainerMappingAutomaticUpdate']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -539,7 +539,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: a `automatic_update` block defined as below.
+        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict', 'outputs.ProtectionContainerMappingAutomaticUpdate']] automatic_update: a `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.

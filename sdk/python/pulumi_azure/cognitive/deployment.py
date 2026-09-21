@@ -265,10 +265,10 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
+                 model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict', 'outputs.DeploymentModel']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']]] = None,
                  version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -322,10 +322,10 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
-        :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']] model: A `model` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict', 'outputs.DeploymentModel']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[_builtins.str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         ...
@@ -398,10 +398,10 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
+                 model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict', 'outputs.DeploymentModel']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']]] = None,
                  version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -437,10 +437,10 @@ class Deployment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             dynamic_throttling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']]] = None,
+            model: pulumi.Input[Optional[Union['DeploymentModelArgs', 'DeploymentModelArgsDict', 'outputs.DeploymentModel']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']]] = None,
             version_upgrade_option: pulumi.Input[Optional[_builtins.str]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
@@ -451,10 +451,10 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] dynamic_throttling_enabled: Whether dynamic throttling is enabled.
-        :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict']] model: A `model` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['DeploymentModelArgs', 'DeploymentModelArgsDict', 'outputs.DeploymentModel']] model: A `model` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] rai_policy_name: The name of RAI policy.
-        :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['DeploymentSkuArgs', 'DeploymentSkuArgsDict', 'outputs.DeploymentSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[_builtins.str] version_upgrade_option: Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

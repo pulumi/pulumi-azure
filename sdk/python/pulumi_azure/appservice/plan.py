@@ -473,7 +473,7 @@ class Plan(pulumi.CustomResource):
                  per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
                  reserved: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict', 'outputs.PlanSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -589,7 +589,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[_builtins.bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict', 'outputs.PlanSku']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                
@@ -722,7 +722,7 @@ class Plan(pulumi.CustomResource):
                  per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
                  reserved: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict', 'outputs.PlanSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -771,7 +771,7 @@ class Plan(pulumi.CustomResource):
             per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
             reserved: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['PlanSkuArgs', 'PlanSkuArgsDict', 'outputs.PlanSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Plan':
         """
@@ -795,7 +795,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[_builtins.bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict', 'outputs.PlanSku']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                

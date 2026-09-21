@@ -138,7 +138,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
+                 security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict', 'outputs.FrontdoorSecurityPolicySecurityPolicies']]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Security Policy.
@@ -236,7 +236,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: A `security_policies` block as defined below.
+        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict', 'outputs.FrontdoorSecurityPolicySecurityPolicies']] security_policies: A `security_policies` block as defined below.
         """
         ...
     @overload
@@ -353,7 +353,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
+                 security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict', 'outputs.FrontdoorSecurityPolicySecurityPolicies']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -382,7 +382,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None) -> 'FrontdoorSecurityPolicy':
+            security_policies: pulumi.Input[Optional[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict', 'outputs.FrontdoorSecurityPolicySecurityPolicies']]] = None) -> 'FrontdoorSecurityPolicy':
         """
         Get an existing FrontdoorSecurityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -392,7 +392,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: A `security_policies` block as defined below.
+        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict', 'outputs.FrontdoorSecurityPolicySecurityPolicies']] security_policies: A `security_policies` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

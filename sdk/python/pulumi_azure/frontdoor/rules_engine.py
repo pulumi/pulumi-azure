@@ -220,7 +220,7 @@ class RulesEngine(pulumi.CustomResource):
                  frontdoor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict', 'outputs.RulesEngineRule']]]]] = None,
                  __props__=None):
         """
         > **Note:** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -331,7 +331,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] frontdoor_name: The name of the Front Door instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict', 'outputs.RulesEngineRule']]]] rules: A `rule` block as defined below.
         """
         ...
     @overload
@@ -461,7 +461,7 @@ class RulesEngine(pulumi.CustomResource):
                  frontdoor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict', 'outputs.RulesEngineRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -496,7 +496,7 @@ class RulesEngine(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]]] = None) -> 'RulesEngine':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict', 'outputs.RulesEngineRule']]]]] = None) -> 'RulesEngine':
         """
         Get an existing RulesEngine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -509,7 +509,7 @@ class RulesEngine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The location in which the Front Door Rules Engine exists.
         :param pulumi.Input[_builtins.str] name: The name of the Rules engine configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RulesEngineRuleArgs', 'RulesEngineRuleArgsDict', 'outputs.RulesEngineRule']]]] rules: A `rule` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

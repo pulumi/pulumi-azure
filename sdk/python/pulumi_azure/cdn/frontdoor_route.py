@@ -518,7 +518,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
+                 cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict', 'outputs.FrontdoorRouteCache']]] = None,
                  cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -657,7 +657,7 @@ class FrontdoorRoute(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict', 'outputs.FrontdoorRouteCache']] cache: A `cache` block as defined below.
                
                > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
@@ -823,7 +823,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
+                 cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict', 'outputs.FrontdoorRouteCache']]] = None,
                  cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -878,7 +878,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']]] = None,
+            cache: pulumi.Input[Optional[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict', 'outputs.FrontdoorRouteCache']]] = None,
             cdn_frontdoor_custom_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             cdn_frontdoor_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             cdn_frontdoor_origin_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -899,7 +899,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict']] cache: A `cache` block as defined below.
+        :param pulumi.Input[Union['FrontdoorRouteCacheArgs', 'FrontdoorRouteCacheArgsDict', 'outputs.FrontdoorRouteCache']] cache: A `cache` block as defined below.
                
                > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.

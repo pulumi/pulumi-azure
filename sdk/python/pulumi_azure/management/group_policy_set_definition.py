@@ -332,8 +332,8 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
-                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
+                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionGroup']]]]] = None,
+                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionReference']]]]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -396,8 +396,8 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] metadata: The metadata for the Policy Set Definition in JSON format.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         :param pulumi.Input[_builtins.str] parameters: The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionGroup']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionReference']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[_builtins.str] policy_type: The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
         """
         ...
@@ -479,8 +479,8 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
-                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
+                 policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionGroup']]]]] = None,
+                 policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionReference']]]]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -524,8 +524,8 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
             metadata: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[_builtins.str]] = None,
-            policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict']]]]] = None,
-            policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]]] = None,
+            policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionGroup']]]]] = None,
+            policy_definition_references: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionReference']]]]] = None,
             policy_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'GroupPolicySetDefinition':
         """
         Get an existing GroupPolicySetDefinition resource's state with the given name, id, and optional extra
@@ -540,8 +540,8 @@ class GroupPolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] metadata: The metadata for the Policy Set Definition in JSON format.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Set Definition. Changing this forces a new Policy Set Definition to be created.
         :param pulumi.Input[_builtins.str] parameters: The parameters for the Policy Set Definition in JSON format. Reducing the number of parameters forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionGroupArgs', 'GroupPolicySetDefinitionPolicyDefinitionGroupArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionGroup']]]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupPolicySetDefinitionPolicyDefinitionReferenceArgs', 'GroupPolicySetDefinitionPolicyDefinitionReferenceArgsDict', 'outputs.GroupPolicySetDefinitionPolicyDefinitionReference']]]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[_builtins.str] policy_type: The Policy Set Definition type. Possible values are `BuiltIn`, `Custom`, `NotSpecified`, and `Static`. Changing this forces a new Policy Set Definition to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

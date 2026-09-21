@@ -500,8 +500,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']]] = None,
-                 microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']]] = None,
+                 ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict', 'outputs.ExpressRouteCircuitPeeringIpv6']]] = None,
+                 microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict', 'outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig']]] = None,
                  peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  peering_type: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_peer_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -622,8 +622,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ipv4_enabled: A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
-        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']] ipv6: A `ipv6` block as defined below.
-        :param pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict', 'outputs.ExpressRouteCircuitPeeringIpv6']] ipv6: A `ipv6` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict', 'outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[_builtins.int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         :param pulumi.Input[_builtins.str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
                
@@ -767,8 +767,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']]] = None,
-                 microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']]] = None,
+                 ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict', 'outputs.ExpressRouteCircuitPeeringIpv6']]] = None,
+                 microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict', 'outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig']]] = None,
                  peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  peering_type: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_peer_address_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -826,8 +826,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             express_route_circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
             gateway_manager_etag: pulumi.Input[Optional[_builtins.str]] = None,
             ipv4_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']]] = None,
-            microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']]] = None,
+            ipv6: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict', 'outputs.ExpressRouteCircuitPeeringIpv6']]] = None,
+            microsoft_peering_config: pulumi.Input[Optional[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict', 'outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig']]] = None,
             peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
             peering_type: pulumi.Input[Optional[_builtins.str]] = None,
             primary_azure_port: pulumi.Input[Optional[_builtins.str]] = None,
@@ -848,8 +848,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] azure_asn: The ASN used by Azure.
         :param pulumi.Input[_builtins.str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ipv4_enabled: A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
-        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict']] ipv6: A `ipv6` block as defined below.
-        :param pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringIpv6Args', 'ExpressRouteCircuitPeeringIpv6ArgsDict', 'outputs.ExpressRouteCircuitPeeringIpv6']] ipv6: A `ipv6` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs', 'ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgsDict', 'outputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfig']] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
         :param pulumi.Input[_builtins.int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private.
         :param pulumi.Input[_builtins.str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
                

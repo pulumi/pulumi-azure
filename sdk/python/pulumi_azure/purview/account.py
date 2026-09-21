@@ -424,7 +424,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -472,7 +472,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[_builtins.bool] managed_event_hub_enabled: Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
                
@@ -543,7 +543,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -596,11 +596,11 @@ class Account(pulumi.CustomResource):
             aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
             catalog_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             guardian_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_event_hub_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]]] = None,
+            managed_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict', 'outputs.AccountManagedResource']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -618,7 +618,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_external_id: Configured in AWS to allow use of the role arn used for scanning
         :param pulumi.Input[_builtins.str] catalog_endpoint: Catalog endpoint.
         :param pulumi.Input[_builtins.str] guardian_endpoint: Guardian endpoint.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[_builtins.bool] managed_event_hub_enabled: Whether the Purview Account should create a managed Event Hub Namespace. Defaults to `true`.
                
@@ -626,7 +626,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
                > **Note:** `managed_resource_group_name` must be a new Resource Group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]] managed_resources: A `managed_resources` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict', 'outputs.AccountManagedResource']]]] managed_resources: A `managed_resources` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[_builtins.bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.

@@ -294,7 +294,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
                  secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
-                 value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict', 'outputs.WorkspaceNamedValueValueFromKeyVault']]] = None,
                  __props__=None):
         """
         Manages an API Management Workspace Named Value.
@@ -359,7 +359,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] value: The value of this API Management Workspace Named Value.
                
                > **Note:** Exactly one of `value` or `value_from_key_vault` must be specified.
-        :param pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']] value_from_key_vault: A `value_from_key_vault` block as defined below.
+        :param pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict', 'outputs.WorkspaceNamedValueValueFromKeyVault']] value_from_key_vault: A `value_from_key_vault` block as defined below.
                
                > **Note:** Exactly one of `value` or `value_from_key_vault` must be specified. If `value_from_key_vault` is specified, `secret` must also be set to `true`.
         """
@@ -441,7 +441,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
                  secret: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
-                 value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None,
+                 value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict', 'outputs.WorkspaceNamedValueValueFromKeyVault']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,7 +480,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
             secret: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             value: pulumi.Input[Optional[_builtins.str]] = None,
-            value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']]] = None) -> 'WorkspaceNamedValue':
+            value_from_key_vault: pulumi.Input[Optional[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict', 'outputs.WorkspaceNamedValueValueFromKeyVault']]] = None) -> 'WorkspaceNamedValue':
         """
         Get an existing WorkspaceNamedValue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -498,7 +498,7 @@ class WorkspaceNamedValue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] value: The value of this API Management Workspace Named Value.
                
                > **Note:** Exactly one of `value` or `value_from_key_vault` must be specified.
-        :param pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict']] value_from_key_vault: A `value_from_key_vault` block as defined below.
+        :param pulumi.Input[Union['WorkspaceNamedValueValueFromKeyVaultArgs', 'WorkspaceNamedValueValueFromKeyVaultArgsDict', 'outputs.WorkspaceNamedValueValueFromKeyVault']] value_from_key_vault: A `value_from_key_vault` block as defined below.
                
                > **Note:** Exactly one of `value` or `value_from_key_vault` must be specified. If `value_from_key_vault` is specified, `secret` must also be set to `true`.
         """

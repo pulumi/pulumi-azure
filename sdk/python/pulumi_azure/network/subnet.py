@@ -498,8 +498,8 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_outbound_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
-                 ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']]] = None,
+                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict', 'outputs.SubnetDelegation']]]]] = None,
+                 ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict', 'outputs.SubnetIpAddressPool']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -569,8 +569,8 @@ class Subnet(pulumi.CustomResource):
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']] ip_address_pool: An `ip_address_pool` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict', 'outputs.SubnetDelegation']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict', 'outputs.SubnetIpAddressPool']] ip_address_pool: An `ip_address_pool` block as defined below.
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the subnet. Changing this forces a new resource to be created.
@@ -673,8 +673,8 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_outbound_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
-                 ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']]] = None,
+                 delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict', 'outputs.SubnetDelegation']]]]] = None,
+                 ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict', 'outputs.SubnetIpAddressPool']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -720,8 +720,8 @@ class Subnet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             default_outbound_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
-            ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']]] = None,
+            delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict', 'outputs.SubnetDelegation']]]]] = None,
+            ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict', 'outputs.SubnetIpAddressPool']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
             private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -741,8 +741,8 @@ class Subnet(pulumi.CustomResource):
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.bool] default_outbound_access_enabled: Enable default outbound access to the internet for the subnet. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]] delegations: One or more `delegation` blocks as defined below.
-        :param pulumi.Input[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']] ip_address_pool: An `ip_address_pool` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict', 'outputs.SubnetDelegation']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict', 'outputs.SubnetIpAddressPool']] ip_address_pool: An `ip_address_pool` block as defined below.
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the subnet. Changing this forces a new resource to be created.

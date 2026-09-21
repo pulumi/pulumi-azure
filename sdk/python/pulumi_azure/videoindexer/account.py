@@ -263,12 +263,12 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['AccountStorageArgs', 'AccountStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -319,12 +319,12 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Video Indexer Account exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Video Indexer Account. Changing the name forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
-        :param pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']] storage: A `storage` block as defined below.
+        :param pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -394,12 +394,12 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['AccountStorageArgs', 'AccountStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -433,12 +433,12 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            storage: pulumi.Input[Optional[Union['AccountStorageArgs', 'AccountStorageArgsDict']]] = None,
+            storage: pulumi.Input[Optional[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -447,12 +447,12 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Video Indexer Account exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Video Indexer Account. Changing the name forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The public network access for the Video Indexer Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group that the Video Indexer Account will be associated with. Changing the name forces a new resource to be created.
-        :param pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict']] storage: A `storage` block as defined below.
+        :param pulumi.Input[Union['AccountStorageArgs', 'AccountStorageArgsDict', 'outputs.AccountStorage']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

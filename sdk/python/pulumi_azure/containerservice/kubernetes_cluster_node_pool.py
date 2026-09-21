@@ -1521,10 +1521,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
                  host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
+                 kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict', 'outputs.KubernetesClusterNodePoolKubeletConfig']]] = None,
                  kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
+                 linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict', 'outputs.KubernetesClusterNodePoolLinuxOsConfig']]] = None,
                  max_count: pulumi.Input[Optional[_builtins.int]] = None,
                  max_pods: pulumi.Input[Optional[_builtins.int]] = None,
                  min_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1532,7 +1532,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_count: pulumi.Input[Optional[_builtins.int]] = None,
                  node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+                 node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']]] = None,
                  node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
                  node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1550,10 +1550,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
                  ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
+                 upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']]] = None,
                  vm_size: pulumi.Input[Optional[_builtins.str]] = None,
                  vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
+                 windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']]] = None,
                  workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -1631,19 +1631,19 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[_builtins.str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict', 'outputs.KubernetesClusterNodePoolKubeletConfig']] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']] linux_os_config: A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict', 'outputs.KubernetesClusterNodePoolLinuxOsConfig']] linux_os_config: A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.int] max_pods: The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[_builtins.str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
                
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -1671,12 +1671,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[_builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
                
                > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
@@ -1771,10 +1771,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
                  host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
+                 kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict', 'outputs.KubernetesClusterNodePoolKubeletConfig']]] = None,
                  kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
+                 linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict', 'outputs.KubernetesClusterNodePoolLinuxOsConfig']]] = None,
                  max_count: pulumi.Input[Optional[_builtins.int]] = None,
                  max_pods: pulumi.Input[Optional[_builtins.int]] = None,
                  min_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1782,7 +1782,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_count: pulumi.Input[Optional[_builtins.int]] = None,
                  node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+                 node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']]] = None,
                  node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
                  node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1800,10 +1800,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
                  ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
+                 upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']]] = None,
                  vm_size: pulumi.Input[Optional[_builtins.str]] = None,
                  vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
+                 windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']]] = None,
                  workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -1879,10 +1879,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             gpu_instance: pulumi.Input[Optional[_builtins.str]] = None,
             host_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             host_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-            kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']]] = None,
+            kubelet_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict', 'outputs.KubernetesClusterNodePoolKubeletConfig']]] = None,
             kubelet_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
             kubernetes_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-            linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']]] = None,
+            linux_os_config: pulumi.Input[Optional[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict', 'outputs.KubernetesClusterNodePoolLinuxOsConfig']]] = None,
             max_count: pulumi.Input[Optional[_builtins.int]] = None,
             max_pods: pulumi.Input[Optional[_builtins.int]] = None,
             min_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1891,7 +1891,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             node_count: pulumi.Input[Optional[_builtins.int]] = None,
             node_image_version: pulumi.Input[Optional[_builtins.str]] = None,
             node_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']]] = None,
+            node_network_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']]] = None,
             node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             node_public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
             node_taints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1909,10 +1909,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             temporary_name_for_rotation: pulumi.Input[Optional[_builtins.str]] = None,
             ultra_ssd_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']]] = None,
+            upgrade_settings: pulumi.Input[Optional[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']]] = None,
             vm_size: pulumi.Input[Optional[_builtins.str]] = None,
             vnet_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-            windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']]] = None,
+            windows_profile: pulumi.Input[Optional[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']]] = None,
             workload_runtime: pulumi.Input[Optional[_builtins.str]] = None,
             zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'KubernetesClusterNodePool':
         """
@@ -1936,12 +1936,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
         :param pulumi.Input[_builtins.str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict']] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolKubeletConfigArgs', 'KubernetesClusterNodePoolKubeletConfigArgsDict', 'outputs.KubernetesClusterNodePoolKubeletConfig']] kubelet_config: A `kubelet_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict']] linux_os_config: A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolLinuxOsConfigArgs', 'KubernetesClusterNodePoolLinuxOsConfigArgsDict', 'outputs.KubernetesClusterNodePoolLinuxOsConfig']] linux_os_config: A `linux_os_config` block as defined below. Changing this requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.int] max_pods: The maximum number of pods that can run on each agent. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] mode: Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`.
         :param pulumi.Input[_builtins.str] name: The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -1949,7 +1949,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[_builtins.str] node_image_version: The current node image version running on this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict']] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolNodeNetworkProfileArgs', 'KubernetesClusterNodePoolNodeNetworkProfileArgsDict', 'outputs.KubernetesClusterNodePoolNodeNetworkProfile']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Should each node have a Public IP Address? Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `node_public_ip_enabled` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
@@ -1977,12 +1977,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[_builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
         :param pulumi.Input[_builtins.bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporary_name_for_rotation`.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict']] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolUpgradeSettingsArgs', 'KubernetesClusterNodePoolUpgradeSettingsArgsDict', 'outputs.KubernetesClusterNodePoolUpgradeSettings']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[_builtins.str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this property requires specifying `temporary_name_for_rotation`.
         :param pulumi.Input[_builtins.str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict', 'outputs.KubernetesClusterNodePoolWindowsProfile']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
                
                > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.

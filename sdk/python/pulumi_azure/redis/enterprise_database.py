@@ -383,7 +383,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict', 'outputs.EnterpriseDatabaseModule']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -451,7 +451,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
                > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict', 'outputs.EnterpriseDatabaseModule']]]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.
@@ -538,7 +538,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
+                 modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict', 'outputs.EnterpriseDatabaseModule']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -581,7 +581,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
             eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
             linked_database_group_nickname: pulumi.Input[Optional[_builtins.str]] = None,
             linked_database_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]]] = None,
+            modules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict', 'outputs.EnterpriseDatabaseModule']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             port: pulumi.Input[Optional[_builtins.int]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -601,7 +601,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linked_database_ids: A list of database resources to link with this database with a maximum of 5.
                
                > **Note:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database removed from the list will be forcefully unlinked. The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outage. The database cannot be linked again after force-unlink.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict']]]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnterpriseDatabaseModuleArgs', 'EnterpriseDatabaseModuleArgsDict', 'outputs.EnterpriseDatabaseModule']]]] modules: A `module` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created.

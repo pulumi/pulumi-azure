@@ -275,7 +275,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tls: pulumi.Input[Optional[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
+                 tls: pulumi.Input[Optional[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict', 'outputs.FrontdoorCustomDomainTls']]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Custom Domain.
@@ -433,7 +433,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
                
                > **Note:** `name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
-        :param pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']] tls: A `tls` block as defined below.
+        :param pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict', 'outputs.FrontdoorCustomDomainTls']] tls: A `tls` block as defined below.
         """
         ...
     @overload
@@ -600,7 +600,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tls: pulumi.Input[Optional[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
+                 tls: pulumi.Input[Optional[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict', 'outputs.FrontdoorCustomDomainTls']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -640,7 +640,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
             host_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            tls: pulumi.Input[Optional[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
+            tls: pulumi.Input[Optional[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict', 'outputs.FrontdoorCustomDomainTls']]] = None,
             validation_token: pulumi.Input[Optional[_builtins.str]] = None) -> 'FrontdoorCustomDomain':
         """
         Get an existing FrontdoorCustomDomain resource's state with the given name, id, and optional extra
@@ -664,7 +664,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
                
                > **Note:** `name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
-        :param pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']] tls: A `tls` block as defined below.
+        :param pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict', 'outputs.FrontdoorCustomDomainTls']] tls: A `tls` block as defined below.
         :param pulumi.Input[_builtins.str] validation_token: Challenge used for DNS TXT record or file based validation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

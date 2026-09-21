@@ -202,7 +202,7 @@ class Table(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict', 'outputs.TableAcl']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -243,7 +243,7 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict', 'outputs.TableAcl']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
@@ -305,7 +305,7 @@ class Table(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
+                 acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict', 'outputs.TableAcl']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -333,7 +333,7 @@ class Table(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
+            acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict', 'outputs.TableAcl']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -345,7 +345,7 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict', 'outputs.TableAcl']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Table.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.

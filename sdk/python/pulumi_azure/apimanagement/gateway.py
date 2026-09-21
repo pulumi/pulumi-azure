@@ -170,7 +170,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
+                 location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -224,7 +224,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the API Management Gateway.
-        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']] location_data: A `location_data` block as documented below.
+        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']] location_data: A `location_data` block as documented below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         ...
@@ -297,7 +297,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
+                 location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -328,7 +328,7 @@ class Gateway(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']]] = None,
+            location_data: pulumi.Input[Optional[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Gateway':
         """
         Get an existing Gateway resource's state with the given name, id, and optional extra
@@ -339,7 +339,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_management_id: The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the API Management Gateway.
-        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict']] location_data: A `location_data` block as documented below.
+        :param pulumi.Input[Union['GatewayLocationDataArgs', 'GatewayLocationDataArgsDict', 'outputs.GatewayLocationData']] location_data: A `location_data` block as documented below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

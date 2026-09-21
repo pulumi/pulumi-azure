@@ -162,7 +162,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict', 'outputs.FrontdoorBatchRuleSetRule']]]]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Batch Rule Set.
@@ -316,7 +316,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The resource ID of the Front Door Profile where this Front Door Batch Rule Set should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Batch Rule Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict']]]] rules: One or more `rule` blocks as defined below. The configured blocks represent the complete set of rules managed for this Front Door Batch Rule Set. The final rule ordering is determined by each block's `order` value. A maximum of `100` `rule` blocks may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict', 'outputs.FrontdoorBatchRuleSetRule']]]] rules: One or more `rule` blocks as defined below. The configured blocks represent the complete set of rules managed for this Front Door Batch Rule Set. The final rule ordering is determined by each block's `order` value. A maximum of `100` `rule` blocks may be defined.
                
                > **Note:** The `rule` blocks must be declared in ascending `order`, gaps between different rules are allowed. To insert, remove, or move a rule, update the full `rule` collection in the same ascending order that you want Terraform to store.
                
@@ -495,7 +495,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict', 'outputs.FrontdoorBatchRuleSetRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -524,7 +524,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict']]]]] = None) -> 'FrontdoorBatchRuleSet':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict', 'outputs.FrontdoorBatchRuleSetRule']]]]] = None) -> 'FrontdoorBatchRuleSet':
         """
         Get an existing FrontdoorBatchRuleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -534,7 +534,7 @@ class FrontdoorBatchRuleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The resource ID of the Front Door Profile where this Front Door Batch Rule Set should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Batch Rule Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict']]]] rules: One or more `rule` blocks as defined below. The configured blocks represent the complete set of rules managed for this Front Door Batch Rule Set. The final rule ordering is determined by each block's `order` value. A maximum of `100` `rule` blocks may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBatchRuleSetRuleArgs', 'FrontdoorBatchRuleSetRuleArgsDict', 'outputs.FrontdoorBatchRuleSetRule']]]] rules: One or more `rule` blocks as defined below. The configured blocks represent the complete set of rules managed for this Front Door Batch Rule Set. The final rule ordering is determined by each block's `order` value. A maximum of `100` `rule` blocks may be defined.
                
                > **Note:** The `rule` blocks must be declared in ascending `order`, gaps between different rules are allowed. To insert, remove, or move a rule, update the full `rule` collection in the same ascending order that you want Terraform to store.
                

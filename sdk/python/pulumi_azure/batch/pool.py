@@ -1006,35 +1006,35 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]]] = None,
-                 container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']]] = None,
-                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]]] = None,
-                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]]] = None,
+                 auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
+                 container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict']]]]] = None,
-                 fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict']]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict', 'outputs.PoolExtension']]]]] = None,
+                 fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict', 'outputs.PoolFixedScale']]] = None,
+                 identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict', 'outputs.PoolIdentity']]] = None,
                  inter_node_communication: pulumi.Input[Optional[_builtins.str]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
                  max_tasks_per_node: pulumi.Input[Optional[_builtins.int]] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict']]]]] = None,
+                 mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict', 'outputs.PoolMount']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']]] = None,
                  node_agent_sku_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]]] = None,
+                 node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]]] = None,
                  os_disk_placement: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']]] = None,
-                 start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']]] = None,
+                 start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']]] = None,
                  stop_pending_resize_operation: pulumi.Input[Optional[_builtins.bool]] = None,
-                 storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']]] = None,
+                 storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict', 'outputs.PoolStorageImageReference']]] = None,
                  target_node_communication_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict']]]]] = None,
-                 user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]]] = None,
+                 task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict', 'outputs.PoolTaskSchedulingPolicy']]]]] = None,
+                 user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict', 'outputs.PoolUserAccount']]]]] = None,
                  vm_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]]] = None,
+                 windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict', 'outputs.PoolWindow']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Batch pool.
@@ -1129,36 +1129,36 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+        :param pulumi.Input[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
                
                > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
-        :param pulumi.Input[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        :param pulumi.Input[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict']]]] extensions: An `extensions` block as defined below.
-        :param pulumi.Input[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
-        :param pulumi.Input[Union['PoolIdentityArgs', 'PoolIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict', 'outputs.PoolExtension']]]] extensions: An `extensions` block as defined below.
+        :param pulumi.Input[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict', 'outputs.PoolFixedScale']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
+        :param pulumi.Input[Union['PoolIdentityArgs', 'PoolIdentityArgsDict', 'outputs.PoolIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] inter_node_communication: Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] license_type: The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
         :param pulumi.Input[_builtins.int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A map of custom batch pool metadata.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict']]]] mounts: A `mount` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict', 'outputs.PoolMount']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
+        :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[_builtins.bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
-        :param pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict', 'outputs.PoolStorageImageReference']] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_node_communication_mode: The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict', 'outputs.PoolTaskSchedulingPolicy']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict', 'outputs.PoolUserAccount']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[_builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict', 'outputs.PoolWindow']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         ...
     @overload
@@ -1272,35 +1272,35 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]]] = None,
-                 container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']]] = None,
-                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]]] = None,
-                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]]] = None,
+                 auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
+                 container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
+                 data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
+                 disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict']]]]] = None,
-                 fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict']]] = None,
+                 extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict', 'outputs.PoolExtension']]]]] = None,
+                 fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict', 'outputs.PoolFixedScale']]] = None,
+                 identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict', 'outputs.PoolIdentity']]] = None,
                  inter_node_communication: pulumi.Input[Optional[_builtins.str]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
                  max_tasks_per_node: pulumi.Input[Optional[_builtins.int]] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict']]]]] = None,
+                 mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict', 'outputs.PoolMount']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']]] = None,
                  node_agent_sku_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]]] = None,
+                 node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]]] = None,
                  os_disk_placement: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']]] = None,
-                 start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']]] = None,
+                 security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']]] = None,
+                 start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']]] = None,
                  stop_pending_resize_operation: pulumi.Input[Optional[_builtins.bool]] = None,
-                 storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']]] = None,
+                 storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict', 'outputs.PoolStorageImageReference']]] = None,
                  target_node_communication_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict']]]]] = None,
-                 user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]]] = None,
+                 task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict', 'outputs.PoolTaskSchedulingPolicy']]]]] = None,
+                 user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict', 'outputs.PoolUserAccount']]]]] = None,
                  vm_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]]] = None,
+                 windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict', 'outputs.PoolWindow']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1361,35 +1361,35 @@ class Pool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
-            auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']]] = None,
-            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]]] = None,
-            container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']]] = None,
-            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]]] = None,
-            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]]] = None,
+            auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict', 'outputs.PoolCertificate']]]]] = None,
+            container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']]] = None,
+            data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]]] = None,
+            disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict']]]]] = None,
-            fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict']]] = None,
+            extensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict', 'outputs.PoolExtension']]]]] = None,
+            fixed_scale: pulumi.Input[Optional[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict', 'outputs.PoolFixedScale']]] = None,
+            identity: pulumi.Input[Optional[Union['PoolIdentityArgs', 'PoolIdentityArgsDict', 'outputs.PoolIdentity']]] = None,
             inter_node_communication: pulumi.Input[Optional[_builtins.str]] = None,
             license_type: pulumi.Input[Optional[_builtins.str]] = None,
             max_tasks_per_node: pulumi.Input[Optional[_builtins.int]] = None,
             metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict']]]]] = None,
+            mounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict', 'outputs.PoolMount']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict']]] = None,
+            network_configuration: pulumi.Input[Optional[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']]] = None,
             node_agent_sku_id: pulumi.Input[Optional[_builtins.str]] = None,
-            node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]]] = None,
+            node_placements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]]] = None,
             os_disk_placement: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']]] = None,
-            start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']]] = None,
+            security_profile: pulumi.Input[Optional[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']]] = None,
+            start_task: pulumi.Input[Optional[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']]] = None,
             stop_pending_resize_operation: pulumi.Input[Optional[_builtins.bool]] = None,
-            storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']]] = None,
+            storage_image_reference: pulumi.Input[Optional[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict', 'outputs.PoolStorageImageReference']]] = None,
             target_node_communication_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict']]]]] = None,
-            user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]]] = None,
+            task_scheduling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict', 'outputs.PoolTaskSchedulingPolicy']]]]] = None,
+            user_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict', 'outputs.PoolUserAccount']]]]] = None,
             vm_size: pulumi.Input[Optional[_builtins.str]] = None,
-            windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]]] = None) -> 'Pool':
+            windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict', 'outputs.PoolWindow']]]]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1398,36 +1398,36 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
+        :param pulumi.Input[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict', 'outputs.PoolAutoScale']] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale as defined below.
                
                > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
-        :param pulumi.Input[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        :param pulumi.Input[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict', 'outputs.PoolContainerConfiguration']] container_configuration: The container configuration used in the pool's VMs. One `container_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict', 'outputs.PoolDataDisk']]]] data_disks: A `data_disks` block describes the data disk settings as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict', 'outputs.PoolDiskEncryption']]]] disk_encryptions: A `disk_encryption` block, as defined below, describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict']]]] extensions: An `extensions` block as defined below.
-        :param pulumi.Input[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
-        :param pulumi.Input[Union['PoolIdentityArgs', 'PoolIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolExtensionArgs', 'PoolExtensionArgsDict', 'outputs.PoolExtension']]]] extensions: An `extensions` block as defined below.
+        :param pulumi.Input[Union['PoolFixedScaleArgs', 'PoolFixedScaleArgsDict', 'outputs.PoolFixedScale']] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale as defined below.
+        :param pulumi.Input[Union['PoolIdentityArgs', 'PoolIdentityArgsDict', 'outputs.PoolIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] inter_node_communication: Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. Values allowed are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] license_type: The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
         :param pulumi.Input[_builtins.int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A map of custom batch pool metadata.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict']]]] mounts: A `mount` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolMountArgs', 'PoolMountArgsDict', 'outputs.PoolMount']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolNetworkConfigurationArgs', 'PoolNetworkConfigurationArgsDict', 'outputs.PoolNetworkConfiguration']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolNodePlacementArgs', 'PoolNodePlacementArgsDict', 'outputs.PoolNodePlacement']]]] node_placements: A `node_placement` block that describes the placement policy for allocating nodes in the pool as defined below.
         :param pulumi.Input[_builtins.str] os_disk_placement: Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements> and Linux VMs at <https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements>. The only possible value is `CacheDisk`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
+        :param pulumi.Input[Union['PoolSecurityProfileArgs', 'PoolSecurityProfileArgsDict', 'outputs.PoolSecurityProfile']] security_profile: A `security_profile` block that describes the security settings for the Batch pool as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolStartTaskArgs', 'PoolStartTaskArgsDict', 'outputs.PoolStartTask']] start_task: A `start_task` block that describes the start task settings for the Batch pool as defined below.
         :param pulumi.Input[_builtins.bool] stop_pending_resize_operation: Whether to stop if there is a pending resize operation on this pool.
-        :param pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['PoolStorageImageReferenceArgs', 'PoolStorageImageReferenceArgsDict', 'outputs.PoolStorageImageReference']] storage_image_reference: A `storage_image_reference` block for the virtual machines that will compose the Batch pool as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_node_communication_mode: The desired node communication mode for the pool. Possible values are `Classic`, `Default` and `Simplified`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolTaskSchedulingPolicyArgs', 'PoolTaskSchedulingPolicyArgsDict', 'outputs.PoolTaskSchedulingPolicy']]]] task_scheduling_policies: A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool as defined below. If not specified, the default is spread as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolUserAccountArgs', 'PoolUserAccountArgsDict', 'outputs.PoolUserAccount']]]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[_builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict', 'outputs.PoolWindow']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

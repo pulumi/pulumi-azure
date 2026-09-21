@@ -327,8 +327,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict', 'outputs.ActivityLogAlertAction']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict', 'outputs.ActivityLogAlertCriteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -400,8 +400,8 @@ class ActivityLogAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict', 'outputs.ActivityLogAlertAction']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict', 'outputs.ActivityLogAlertCriteria']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
         :param pulumi.Input[_builtins.bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.
@@ -492,8 +492,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict', 'outputs.ActivityLogAlertAction']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict', 'outputs.ActivityLogAlertCriteria']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -535,8 +535,8 @@ class ActivityLogAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]]] = None,
-            criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict', 'outputs.ActivityLogAlertAction']]]]] = None,
+            criteria: pulumi.Input[Optional[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict', 'outputs.ActivityLogAlertCriteria']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -551,8 +551,8 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActivityLogAlertActionArgs', 'ActivityLogAlertActionArgsDict', 'outputs.ActivityLogAlertAction']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[Union['ActivityLogAlertCriteriaArgs', 'ActivityLogAlertCriteriaArgsDict', 'outputs.ActivityLogAlertCriteria']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] description: The description of this activity log alert.
         :param pulumi.Input[_builtins.bool] enabled: Should this Activity Log Alert be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the activity log alert rule should exist. Possible values are `global`, `westeurope`, `northeurope`, and `eastus2euap`. Changing this forces a new resource to be created.

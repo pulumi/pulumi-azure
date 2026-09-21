@@ -794,10 +794,10 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict']]]]] = None,
+                 cors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]]] = None,
                  http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
                  live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -807,10 +807,10 @@ class Service(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  serverless_connection_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  service_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 upstream_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict']]]]] = None,
+                 upstream_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]]] = None,
                  __props__=None):
         """
         Manages an Azure SignalR service.
@@ -870,10 +870,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[_builtins.bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -884,12 +884,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[_builtins.str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
-        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
                
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         ...
     @overload
@@ -968,10 +968,10 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict']]]]] = None,
+                 cors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]]] = None,
                  http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
                  live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -981,10 +981,10 @@ class Service(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  serverless_connection_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  service_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 upstream_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict']]]]] = None,
+                 upstream_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1039,12 +1039,12 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            cors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict']]]]] = None,
+            cors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]]] = None,
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
             http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
             ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-            live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
+            live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
             live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1060,10 +1060,10 @@ class Service(pulumi.CustomResource):
             server_port: pulumi.Input[Optional[_builtins.int]] = None,
             serverless_connection_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             service_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            upstream_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict']]]]] = None) -> 'Service':
+            upstream_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1073,12 +1073,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] connectivity_logs_enabled: Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict']]]] cors: A `cors` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCorArgs', 'ServiceCorArgsDict', 'outputs.ServiceCor']]]] cors: A `cors` block as documented below.
         :param pulumi.Input[_builtins.str] hostname: The FQDN of the SignalR service.
         :param pulumi.Input[_builtins.bool] http_request_logs_enabled: Specifies if Http Request Logs are enabled or not. Defaults to `false`.
-        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] ip_address: The publicly accessible IP of the SignalR service.
-        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
+        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] messaging_logs_enabled: Specifies if Messaging Logs are enabled or not. Defaults to `false`.
@@ -1095,12 +1095,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] server_port: The publicly accessible port of the SignalR service which is designed for customer server side use.
         :param pulumi.Input[_builtins.int] serverless_connection_timeout_in_seconds: Specifies the client connection timeout. Defaults to `30`.
         :param pulumi.Input[_builtins.str] service_mode: Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
-        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['ServiceSkuArgs', 'ServiceSkuArgsDict', 'outputs.ServiceSku']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
                
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceUpstreamEndpointArgs', 'ServiceUpstreamEndpointArgsDict', 'outputs.ServiceUpstreamEndpoint']]]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

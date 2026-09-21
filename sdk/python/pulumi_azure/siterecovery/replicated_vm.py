@@ -801,10 +801,10 @@ class ReplicatedVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict', 'outputs.ReplicatedVMManagedDisk']]]]] = None,
                  multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict', 'outputs.ReplicatedVMNetworkInterface']]]]] = None,
                  recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -824,7 +824,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
                  target_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
+                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict', 'outputs.ReplicatedVMUnmanagedDisk']]]]] = None,
                  __props__=None):
         """
         Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
@@ -1010,10 +1010,10 @@ class ReplicatedVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict', 'outputs.ReplicatedVMManagedDisk']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict', 'outputs.ReplicatedVMNetworkInterface']]]] network_interfaces: One or more `network_interface` block as defined below.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -1033,7 +1033,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] target_virtual_machine_size: Specifies the size the Virtual Machine should have.
         :param pulumi.Input[_builtins.str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] test_network_id: Network to use when a test failover is done.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict', 'outputs.ReplicatedVMUnmanagedDisk']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1238,10 +1238,10 @@ class ReplicatedVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict', 'outputs.ReplicatedVMManagedDisk']]]]] = None,
                  multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict', 'outputs.ReplicatedVMNetworkInterface']]]]] = None,
                  recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1261,7 +1261,7 @@ class ReplicatedVM(pulumi.CustomResource):
                  target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
                  target_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None,
+                 unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict', 'outputs.ReplicatedVMUnmanagedDisk']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1323,10 +1323,10 @@ class ReplicatedVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]]] = None,
+            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict', 'outputs.ReplicatedVMManagedDisk']]]]] = None,
             multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict', 'outputs.ReplicatedVMNetworkInterface']]]]] = None,
             recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1346,7 +1346,7 @@ class ReplicatedVM(pulumi.CustomResource):
             target_virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
             target_zone: pulumi.Input[Optional[_builtins.str]] = None,
             test_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-            unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]]] = None) -> 'ReplicatedVM':
+            unmanaged_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict', 'outputs.ReplicatedVMUnmanagedDisk']]]]] = None) -> 'ReplicatedVM':
         """
         Get an existing ReplicatedVM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1354,10 +1354,10 @@ class ReplicatedVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMManagedDiskArgs', 'ReplicatedVMManagedDiskArgsDict', 'outputs.ReplicatedVMManagedDisk']]]] managed_disks: One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replication for the replicated VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMNetworkInterfaceArgs', 'ReplicatedVMNetworkInterfaceArgsDict', 'outputs.ReplicatedVMNetworkInterface']]]] network_interfaces: One or more `network_interface` block as defined below.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this replicated vm. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
@@ -1377,7 +1377,7 @@ class ReplicatedVM(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] target_virtual_machine_size: Specifies the size the Virtual Machine should have.
         :param pulumi.Input[_builtins.str] target_zone: Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] test_network_id: Network to use when a test failover is done.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicatedVMUnmanagedDiskArgs', 'ReplicatedVMUnmanagedDiskArgsDict', 'outputs.ReplicatedVMUnmanagedDisk']]]] unmanaged_disks: One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

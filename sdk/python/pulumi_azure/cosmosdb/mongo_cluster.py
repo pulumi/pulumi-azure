@@ -803,16 +803,16 @@ class MongoCluster(pulumi.CustomResource):
                  authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
                  data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict', 'outputs.MongoClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
+                 restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict', 'outputs.MongoClusterRestore']]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  source_location: pulumi.Input[Optional[_builtins.str]] = None,
                  source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -869,12 +869,12 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] data_api_mode_enabled: Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
                
                > **Note:** `data_api_mode_enabled` can only be set when `create_mode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
         :param pulumi.Input[_builtins.str] high_availability_mode: The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
-        :param pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict', 'outputs.MongoClusterIdentity']] identity: An `identity` block as detailed below.
                
                > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -882,7 +882,7 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_features: The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict', 'outputs.MongoClusterRestore']] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
                
                > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
         :param pulumi.Input[_builtins.int] shard_count: The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
@@ -962,16 +962,16 @@ class MongoCluster(pulumi.CustomResource):
                  authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
                  data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict', 'outputs.MongoClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
+                 restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict', 'outputs.MongoClusterRestore']]] = None,
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  source_location: pulumi.Input[Optional[_builtins.str]] = None,
                  source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1032,18 +1032,18 @@ class MongoCluster(pulumi.CustomResource):
             administrator_username: pulumi.Input[Optional[_builtins.str]] = None,
             authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             compute_tier: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict', 'outputs.MongoClusterConnectionString']]]]] = None,
             create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']]] = None,
             data_api_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             high_availability_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict', 'outputs.MongoClusterIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             preview_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']]] = None,
+            restore: pulumi.Input[Optional[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict', 'outputs.MongoClusterRestore']]] = None,
             shard_count: pulumi.Input[Optional[_builtins.int]] = None,
             source_location: pulumi.Input[Optional[_builtins.str]] = None,
             source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1062,14 +1062,14 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]] connection_strings: One or more `connection_strings` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict', 'outputs.MongoClusterConnectionString']]]] connection_strings: One or more `connection_strings` blocks as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['MongoClusterCustomerManagedKeyArgs', 'MongoClusterCustomerManagedKeyArgsDict', 'outputs.MongoClusterCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] data_api_mode_enabled: Is the Data API for the MongoDB Cluster enabled? Defaults to `false`.
                
                > **Note:** `data_api_mode_enabled` can only be set when `create_mode` is `Default`. Once enabled, it can only be disabled by recreating the resource.
         :param pulumi.Input[_builtins.str] high_availability_mode: The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
-        :param pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[Union['MongoClusterIdentityArgs', 'MongoClusterIdentityArgsDict', 'outputs.MongoClusterIdentity']] identity: An `identity` block as detailed below.
                
                > **Note:** When adding or removing `identity`, a resource recreation will be triggered.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
@@ -1077,7 +1077,7 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_features: The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict']] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['MongoClusterRestoreArgs', 'MongoClusterRestoreArgsDict', 'outputs.MongoClusterRestore']] restore: A `restore` block as defined below. Required when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new resource to be created.
                
                > **Note:** When `PointInTimeRestore` is enabled, service API will also assign a value to `source_server_id`. The user has to explicitly set this property in the Terraform configuration or handle it using `ignore_changes`.
         :param pulumi.Input[_builtins.int] shard_count: The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.

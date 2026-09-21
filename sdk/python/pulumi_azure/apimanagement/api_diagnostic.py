@@ -521,10 +521,10 @@ class ApiDiagnostic(pulumi.CustomResource):
                  api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
                  api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
                  api_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 backend_request: pulumi.Input[Optional[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict']]] = None,
-                 backend_response: pulumi.Input[Optional[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict']]] = None,
-                 frontend_request: pulumi.Input[Optional[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict']]] = None,
-                 frontend_response: pulumi.Input[Optional[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict']]] = None,
+                 backend_request: pulumi.Input[Optional[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict', 'outputs.ApiDiagnosticBackendRequest']]] = None,
+                 backend_response: pulumi.Input[Optional[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict', 'outputs.ApiDiagnosticBackendResponse']]] = None,
+                 frontend_request: pulumi.Input[Optional[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict', 'outputs.ApiDiagnosticFrontendRequest']]] = None,
+                 frontend_response: pulumi.Input[Optional[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict', 'outputs.ApiDiagnosticFrontendResponse']]] = None,
                  http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -643,10 +643,10 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_management_logger_id: The ID (name) of the Diagnostics Logger.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
-        :param pulumi.Input[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict']] backend_request: A `backend_request` block as defined below.
-        :param pulumi.Input[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict']] backend_response: A `backend_response` block as defined below.
-        :param pulumi.Input[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict']] frontend_request: A `frontend_request` block as defined below.
-        :param pulumi.Input[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict']] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict', 'outputs.ApiDiagnosticBackendRequest']] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict', 'outputs.ApiDiagnosticBackendResponse']] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict', 'outputs.ApiDiagnosticFrontendRequest']] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict', 'outputs.ApiDiagnosticFrontendResponse']] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[_builtins.str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[_builtins.str] identifier: Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log client IP address.
@@ -784,10 +784,10 @@ class ApiDiagnostic(pulumi.CustomResource):
                  api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
                  api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
                  api_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 backend_request: pulumi.Input[Optional[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict']]] = None,
-                 backend_response: pulumi.Input[Optional[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict']]] = None,
-                 frontend_request: pulumi.Input[Optional[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict']]] = None,
-                 frontend_response: pulumi.Input[Optional[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict']]] = None,
+                 backend_request: pulumi.Input[Optional[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict', 'outputs.ApiDiagnosticBackendRequest']]] = None,
+                 backend_response: pulumi.Input[Optional[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict', 'outputs.ApiDiagnosticBackendResponse']]] = None,
+                 frontend_request: pulumi.Input[Optional[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict', 'outputs.ApiDiagnosticFrontendRequest']]] = None,
+                 frontend_response: pulumi.Input[Optional[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict', 'outputs.ApiDiagnosticFrontendResponse']]] = None,
                  http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -843,10 +843,10 @@ class ApiDiagnostic(pulumi.CustomResource):
             api_management_logger_id: pulumi.Input[Optional[_builtins.str]] = None,
             api_management_name: pulumi.Input[Optional[_builtins.str]] = None,
             api_name: pulumi.Input[Optional[_builtins.str]] = None,
-            backend_request: pulumi.Input[Optional[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict']]] = None,
-            backend_response: pulumi.Input[Optional[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict']]] = None,
-            frontend_request: pulumi.Input[Optional[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict']]] = None,
-            frontend_response: pulumi.Input[Optional[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict']]] = None,
+            backend_request: pulumi.Input[Optional[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict', 'outputs.ApiDiagnosticBackendRequest']]] = None,
+            backend_response: pulumi.Input[Optional[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict', 'outputs.ApiDiagnosticBackendResponse']]] = None,
+            frontend_request: pulumi.Input[Optional[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict', 'outputs.ApiDiagnosticFrontendRequest']]] = None,
+            frontend_response: pulumi.Input[Optional[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict', 'outputs.ApiDiagnosticFrontendResponse']]] = None,
             http_correlation_protocol: pulumi.Input[Optional[_builtins.str]] = None,
             identifier: pulumi.Input[Optional[_builtins.str]] = None,
             log_client_ip: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -865,10 +865,10 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_management_logger_id: The ID (name) of the Diagnostics Logger.
         :param pulumi.Input[_builtins.str] api_management_name: The name of the API Management Service instance. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[_builtins.str] api_name: The name of the API on which to configure the Diagnostics Logs. Changing this forces a new API Management Service API Diagnostics Logs to be created.
-        :param pulumi.Input[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict']] backend_request: A `backend_request` block as defined below.
-        :param pulumi.Input[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict']] backend_response: A `backend_response` block as defined below.
-        :param pulumi.Input[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict']] frontend_request: A `frontend_request` block as defined below.
-        :param pulumi.Input[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict']] frontend_response: A `frontend_response` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticBackendRequestArgs', 'ApiDiagnosticBackendRequestArgsDict', 'outputs.ApiDiagnosticBackendRequest']] backend_request: A `backend_request` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticBackendResponseArgs', 'ApiDiagnosticBackendResponseArgsDict', 'outputs.ApiDiagnosticBackendResponse']] backend_response: A `backend_response` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticFrontendRequestArgs', 'ApiDiagnosticFrontendRequestArgsDict', 'outputs.ApiDiagnosticFrontendRequest']] frontend_request: A `frontend_request` block as defined below.
+        :param pulumi.Input[Union['ApiDiagnosticFrontendResponseArgs', 'ApiDiagnosticFrontendResponseArgsDict', 'outputs.ApiDiagnosticFrontendResponse']] frontend_response: A `frontend_response` block as defined below.
         :param pulumi.Input[_builtins.str] http_correlation_protocol: The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`.
         :param pulumi.Input[_builtins.str] identifier: Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created.
         :param pulumi.Input[_builtins.bool] log_client_ip: Log client IP address.

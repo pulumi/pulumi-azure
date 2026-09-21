@@ -1166,14 +1166,14 @@ class Volume(pulumi.CustomResource):
                  accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']]] = None,
+                 cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
                  create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict']]] = None,
-                 data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
-                 data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
-                 data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
+                 data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
+                 data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict', 'outputs.VolumeDataProtectionBackupPolicy']]] = None,
+                 data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict', 'outputs.VolumeDataProtectionReplication']]] = None,
+                 data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict', 'outputs.VolumeDataProtectionSnapshotPolicy']]] = None,
                  encryption_key_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
+                 export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict', 'outputs.VolumeExportPolicyRule']]]]] = None,
                  kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1218,14 +1218,14 @@ class Volume(pulumi.CustomResource):
                > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']] cool_access: A `cool_access` block as defined below.
+        :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict']] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
-        :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
-        :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict', 'outputs.VolumeDataProtectionBackupPolicy']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict', 'outputs.VolumeDataProtectionReplication']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict', 'outputs.VolumeDataProtectionSnapshotPolicy']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict', 'outputs.VolumeExportPolicyRule']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
                
                > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.
@@ -1299,14 +1299,14 @@ class Volume(pulumi.CustomResource):
                  accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']]] = None,
+                 cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
                  create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict']]] = None,
-                 data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
-                 data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
-                 data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
+                 data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
+                 data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict', 'outputs.VolumeDataProtectionBackupPolicy']]] = None,
+                 data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict', 'outputs.VolumeDataProtectionReplication']]] = None,
+                 data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict', 'outputs.VolumeDataProtectionSnapshotPolicy']]] = None,
                  encryption_key_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
+                 export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict', 'outputs.VolumeExportPolicyRule']]]]] = None,
                  kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1399,14 +1399,14 @@ class Volume(pulumi.CustomResource):
             accept_grow_capacity_pool_for_short_term_clone_split: pulumi.Input[Optional[_builtins.str]] = None,
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
             azure_vmware_data_store_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']]] = None,
+            cool_access: pulumi.Input[Optional[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']]] = None,
             create_from_snapshot_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-            data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict']]] = None,
-            data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']]] = None,
-            data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']]] = None,
-            data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']]] = None,
+            data_protection_advanced_ransomware: pulumi.Input[Optional[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']]] = None,
+            data_protection_backup_policy: pulumi.Input[Optional[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict', 'outputs.VolumeDataProtectionBackupPolicy']]] = None,
+            data_protection_replication: pulumi.Input[Optional[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict', 'outputs.VolumeDataProtectionReplication']]] = None,
+            data_protection_snapshot_policy: pulumi.Input[Optional[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict', 'outputs.VolumeDataProtectionSnapshotPolicy']]] = None,
             encryption_key_source: pulumi.Input[Optional[_builtins.str]] = None,
-            export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]]] = None,
+            export_policy_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict', 'outputs.VolumeExportPolicyRule']]]]] = None,
             kerberos_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key_vault_private_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
             large_volume_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1442,14 +1442,14 @@ class Volume(pulumi.CustomResource):
                > **Note:** Short-term clones are not supported on large volumes or volumes enabled for cool access. Short-term clones automatically convert to regular volumes after 32 days. For more information, please refer to [Create a short-term clone volume in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/create-short-term-clone)
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] azure_vmware_data_store_enabled: Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict']] cool_access: A `cool_access` block as defined below.
+        :param pulumi.Input[Union['VolumeCoolAccessArgs', 'VolumeCoolAccessArgsDict', 'outputs.VolumeCoolAccess']] cool_access: A `cool_access` block as defined below.
         :param pulumi.Input[_builtins.str] create_from_snapshot_resource_id: Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name` and `account_name`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict']] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
-        :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
-        :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionAdvancedRansomwareArgs', 'VolumeDataProtectionAdvancedRansomwareArgsDict', 'outputs.VolumeDataProtectionAdvancedRansomware']] data_protection_advanced_ransomware: A `data_protection_advanced_ransomware` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionBackupPolicyArgs', 'VolumeDataProtectionBackupPolicyArgsDict', 'outputs.VolumeDataProtectionBackupPolicy']] data_protection_backup_policy: A `data_protection_backup_policy` block as defined below.
+        :param pulumi.Input[Union['VolumeDataProtectionReplicationArgs', 'VolumeDataProtectionReplicationArgsDict', 'outputs.VolumeDataProtectionReplication']] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeDataProtectionSnapshotPolicyArgs', 'VolumeDataProtectionSnapshotPolicyArgsDict', 'outputs.VolumeDataProtectionSnapshotPolicy']] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[_builtins.str] encryption_key_source: The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeExportPolicyRuleArgs', 'VolumeExportPolicyRuleArgsDict', 'outputs.VolumeExportPolicyRule']]]] export_policy_rules: One or more `export_policy_rule` block defined below.
         :param pulumi.Input[_builtins.bool] kerberos_enabled: Enable to allow Kerberos secured volumes. Requires appropriate export rules. Changing this forces a new resource to be created.
                
                > **Note:** `kerberos_enabled` requires that the parent `netapp.Account` has a *valid* AD connection defined. If the configuration is invalid, the volume will still be created but in a failed state. This requires manually deleting the volume and recreating it again via Terraform once the AD configuration has been corrected.

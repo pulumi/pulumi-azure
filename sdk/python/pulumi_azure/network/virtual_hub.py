@@ -447,7 +447,7 @@ class VirtualHub(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict', 'outputs.VirtualHubRoute']]]]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -501,7 +501,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict', 'outputs.VirtualHubRoute']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[_builtins.int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router. Defaults to `2`.
@@ -574,7 +574,7 @@ class VirtualHub(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict', 'outputs.VirtualHubRoute']]]]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_router_auto_scale_min_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -621,7 +621,7 @@ class VirtualHub(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict', 'outputs.VirtualHubRoute']]]]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_router_asn: pulumi.Input[Optional[_builtins.int]] = None,
@@ -642,7 +642,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Virtual Hub should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Virtual Hub should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteArgs', 'VirtualHubRouteArgsDict', 'outputs.VirtualHubRoute']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Virtual Hub.
         :param pulumi.Input[_builtins.int] virtual_router_asn: The Autonomous System Number of the Virtual Hub BGP router.

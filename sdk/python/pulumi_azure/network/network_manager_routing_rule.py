@@ -200,9 +200,9 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict', 'outputs.NetworkManagerRoutingRuleDestination']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
+                 next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict', 'outputs.NetworkManagerRoutingRuleNextHop']]] = None,
                  rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -271,9 +271,9 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the routing rule.
-        :param pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']] destination: A `destination` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict', 'outputs.NetworkManagerRoutingRuleDestination']] destination: A `destination` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']] next_hop: A `next_hop` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict', 'outputs.NetworkManagerRoutingRuleNextHop']] next_hop: A `next_hop` block as defined below.
         :param pulumi.Input[_builtins.str] rule_collection_id: The ID of the Network Manager Routing Rule Collection to which this rule belongs. Changing this forces a new resource to be created.
         """
         ...
@@ -361,9 +361,9 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
+                 destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict', 'outputs.NetworkManagerRoutingRuleDestination']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
+                 next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict', 'outputs.NetworkManagerRoutingRuleNextHop']]] = None,
                  rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -396,9 +396,9 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']]] = None,
+            destination: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict', 'outputs.NetworkManagerRoutingRuleDestination']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']]] = None,
+            next_hop: pulumi.Input[Optional[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict', 'outputs.NetworkManagerRoutingRuleNextHop']]] = None,
             rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'NetworkManagerRoutingRule':
         """
         Get an existing NetworkManagerRoutingRule resource's state with the given name, id, and optional extra
@@ -408,9 +408,9 @@ class NetworkManagerRoutingRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the routing rule.
-        :param pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict']] destination: A `destination` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerRoutingRuleDestinationArgs', 'NetworkManagerRoutingRuleDestinationArgsDict', 'outputs.NetworkManagerRoutingRuleDestination']] destination: A `destination` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Network Manager Routing Rule. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict']] next_hop: A `next_hop` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerRoutingRuleNextHopArgs', 'NetworkManagerRoutingRuleNextHopArgsDict', 'outputs.NetworkManagerRoutingRuleNextHop']] next_hop: A `next_hop` block as defined below.
         :param pulumi.Input[_builtins.str] rule_collection_id: The ID of the Network Manager Routing Rule Collection to which this rule belongs. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

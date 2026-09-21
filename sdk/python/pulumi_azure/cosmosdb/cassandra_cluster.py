@@ -502,7 +502,7 @@ class CassandraCluster(pulumi.CustomResource):
                  external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
-                 identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict', 'outputs.CassandraClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -535,7 +535,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
                
                > **Note:** To disable this feature, set this property to `0`.
-        :param pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict', 'outputs.CassandraClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[_builtins.bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.
@@ -585,7 +585,7 @@ class CassandraCluster(pulumi.CustomResource):
                  external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
-                 identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict', 'outputs.CassandraClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -640,7 +640,7 @@ class CassandraCluster(pulumi.CustomResource):
             external_gossip_certificate_pems: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             external_seed_node_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             hours_between_backups: pulumi.Input[Optional[_builtins.int]] = None,
-            identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict', 'outputs.CassandraClusterIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             repair_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -663,7 +663,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
                
                > **Note:** To disable this feature, set this property to `0`.
-        :param pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['CassandraClusterIdentityArgs', 'CassandraClusterIdentityArgsDict', 'outputs.CassandraClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[_builtins.bool] repair_enabled: Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`.

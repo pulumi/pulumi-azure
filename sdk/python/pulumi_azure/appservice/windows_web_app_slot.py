@@ -1114,25 +1114,25 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict', 'outputs.WindowsWebAppSlotAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict', 'outputs.WindowsWebAppSlotAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict', 'outputs.WindowsWebAppSlotBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict', 'outputs.WindowsWebAppSlotConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict', 'outputs.WindowsWebAppSlotIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict', 'outputs.WindowsWebAppSlotLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict', 'outputs.WindowsWebAppSlotSiteConfig']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict', 'outputs.WindowsWebAppSlotStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1190,22 +1190,22 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict', 'outputs.WindowsWebAppSlotAuthSettings']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict', 'outputs.WindowsWebAppSlotAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict', 'outputs.WindowsWebAppSlotBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict', 'outputs.WindowsWebAppSlotConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict', 'outputs.WindowsWebAppSlotIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
-        :param pulumi.Input[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict', 'outputs.WindowsWebAppSlotLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
                
                > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
@@ -1213,8 +1213,8 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
                
                > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
-        :param pulumi.Input[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict', 'outputs.WindowsWebAppSlotSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict', 'outputs.WindowsWebAppSlotStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
@@ -1301,25 +1301,25 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict', 'outputs.WindowsWebAppSlotAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict', 'outputs.WindowsWebAppSlotAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict', 'outputs.WindowsWebAppSlotBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict', 'outputs.WindowsWebAppSlotConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict', 'outputs.WindowsWebAppSlotIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict', 'outputs.WindowsWebAppSlotLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict', 'outputs.WindowsWebAppSlotSiteConfig']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict', 'outputs.WindowsWebAppSlotStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1389,24 +1389,24 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_id: pulumi.Input[Optional[_builtins.str]] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict']]] = None,
-            backup: pulumi.Input[Optional[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict']]] = None,
+            auth_settings: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict', 'outputs.WindowsWebAppSlotAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict', 'outputs.WindowsWebAppSlotAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict', 'outputs.WindowsWebAppSlotBackup']]] = None,
             client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
             client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict', 'outputs.WindowsWebAppSlotConnectionString']]]]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict', 'outputs.WindowsWebAppSlotIdentity']]] = None,
             key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
-            logs: pulumi.Input[Optional[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']]] = None,
+            logs: pulumi.Input[Optional[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict', 'outputs.WindowsWebAppSlotLogs']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1414,9 +1414,9 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotSiteCredentialArgs', 'WindowsWebAppSlotSiteCredentialArgsDict']]]]] = None,
-            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict', 'outputs.WindowsWebAppSlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotSiteCredentialArgs', 'WindowsWebAppSlotSiteCredentialArgsDict', 'outputs.WindowsWebAppSlotSiteCredential']]]]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict', 'outputs.WindowsWebAppSlotStorageAccount']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             virtual_network_image_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1432,26 +1432,26 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_service_id: The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
-        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsArgs', 'WindowsWebAppSlotAuthSettingsArgsDict', 'outputs.WindowsWebAppSlotAuthSettings']] auth_settings: An `auth_settings` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotAuthSettingsV2Args', 'WindowsWebAppSlotAuthSettingsV2ArgsDict', 'outputs.WindowsWebAppSlotAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotBackupArgs', 'WindowsWebAppSlotBackupArgsDict', 'outputs.WindowsWebAppSlotBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotConnectionStringArgs', 'WindowsWebAppSlotConnectionStringArgsDict', 'outputs.WindowsWebAppSlotConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Windows Web App Slot.
         :param pulumi.Input[_builtins.bool] enabled: Should the Windows Web App Slot be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by App Service Slot.
         :param pulumi.Input[_builtins.bool] https_only: Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotIdentityArgs', 'WindowsWebAppSlotIdentityArgsDict', 'outputs.WindowsWebAppSlotIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Windows Web App Slot.
-        :param pulumi.Input[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotLogsArgs', 'WindowsWebAppSlotLogsArgsDict', 'outputs.WindowsWebAppSlotLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
                
                > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the App Service Environment for this to complete reliably.
@@ -1463,9 +1463,9 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
                
                > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
-        :param pulumi.Input[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotSiteCredentialArgs', 'WindowsWebAppSlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['WindowsWebAppSlotSiteConfigArgs', 'WindowsWebAppSlotSiteConfigArgsDict', 'outputs.WindowsWebAppSlotSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotSiteCredentialArgs', 'WindowsWebAppSlotSiteCredentialArgsDict', 'outputs.WindowsWebAppSlotSiteCredential']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppSlotStorageAccountArgs', 'WindowsWebAppSlotStorageAccountArgsDict', 'outputs.WindowsWebAppSlotStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.

@@ -553,18 +553,18 @@ class AIServices(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict', 'outputs.AIServicesCustomerManagedKey']]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict', 'outputs.AIServicesIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict', 'outputs.AIServicesNetworkAcls']]] = None,
                  outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict', 'outputs.AIServicesStorage']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -626,20 +626,20 @@ class AIServices(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
-        :param pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict', 'outputs.AIServicesCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the AI Services Account.
-        :param pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict', 'outputs.AIServicesIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        :param pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict', 'outputs.AIServicesNetworkAcls']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] public_network_access: Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the AI Services Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this AI Services Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
                
                > **Note:** SKU `DC0` is the commitment tier for AI Services Account containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]] storages: A `storage` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict', 'outputs.AIServicesStorage']]]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -718,18 +718,18 @@ class AIServices(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict', 'outputs.AIServicesCustomerManagedKey']]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict', 'outputs.AIServicesIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
+                 network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict', 'outputs.AIServicesNetworkAcls']]] = None,
                  outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
+                 storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict', 'outputs.AIServicesStorage']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -774,21 +774,21 @@ class AIServices(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_subdomain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict', 'outputs.AIServicesCustomerManagedKey']]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict', 'outputs.AIServicesIdentity']]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']]] = None,
+            network_acls: pulumi.Input[Optional[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict', 'outputs.AIServicesNetworkAcls']]] = None,
             outbound_network_access_restricted: pulumi.Input[Optional[_builtins.bool]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]]] = None,
+            storages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict', 'outputs.AIServicesStorage']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AIServices':
         """
         Get an existing AIServices resource's state with the given name, id, and optional extra
@@ -800,14 +800,14 @@ class AIServices(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
                
                > **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
-        :param pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
+        :param pulumi.Input[Union['AIServicesCustomerManagedKeyArgs', 'AIServicesCustomerManagedKeyArgsDict', 'outputs.AIServicesCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint used to connect to the AI Services Account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdns: List of FQDNs allowed for the AI Services Account.
-        :param pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AIServicesIdentityArgs', 'AIServicesIdentityArgsDict', 'outputs.AIServicesIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether local authentication is enabled for the AI Services Account. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the AI Services Account. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
+        :param pulumi.Input[Union['AIServicesNetworkAclsArgs', 'AIServicesNetworkAclsArgsDict', 'outputs.AIServicesNetworkAcls']] network_acls: A `network_acls` block as defined below. When this property is specified, `custom_subdomain_name` is also required to be set.
         :param pulumi.Input[_builtins.bool] outbound_network_access_restricted: Whether outbound network access is restricted for the AI Services Account. Defaults to `false`.
         :param pulumi.Input[_builtins.str] primary_access_key: A primary access key which can be used to connect to the AI Services Account.
         :param pulumi.Input[_builtins.str] public_network_access: Whether public network access is allowed for the AI Services Account. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -816,7 +816,7 @@ class AIServices(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this AI Services Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
                
                > **Note:** SKU `DC0` is the commitment tier for AI Services Account containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict']]]] storages: A `storage` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AIServicesStorageArgs', 'AIServicesStorageArgsDict', 'outputs.AIServicesStorage']]]] storages: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

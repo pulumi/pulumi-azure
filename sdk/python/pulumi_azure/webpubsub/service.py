@@ -574,8 +574,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -636,8 +636,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
                > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
-        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
@@ -715,8 +715,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+                 live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -775,8 +775,8 @@ class Service(pulumi.CustomResource):
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
             external_ip: pulumi.Input[Optional[_builtins.str]] = None,
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
-            live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']]] = None,
+            live_trace: pulumi.Input[Optional[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -805,8 +805,8 @@ class Service(pulumi.CustomResource):
                > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input[_builtins.str] external_ip: The publicly accessible IP of the Web PubSub service.
         :param pulumi.Input[_builtins.str] hostname: The FQDN of the Web PubSub service.
-        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict', 'outputs.ServiceIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict', 'outputs.ServiceLiveTrace']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.

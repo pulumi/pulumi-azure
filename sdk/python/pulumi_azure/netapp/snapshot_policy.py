@@ -360,15 +360,15 @@ class SnapshotPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict']]] = None,
+                 daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict', 'outputs.SnapshotPolicyDailySchedule']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict']]] = None,
+                 hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict', 'outputs.SnapshotPolicyHourlySchedule']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict']]] = None,
+                 monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict', 'outputs.SnapshotPolicyMonthlySchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict']]] = None,
+                 weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict', 'outputs.SnapshotPolicyWeeklySchedule']]] = None,
                  __props__=None):
         """
         Manages a NetApp Snapshot Policy.
@@ -442,15 +442,15 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict']] daily_schedule: Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict', 'outputs.SnapshotPolicyDailySchedule']] daily_schedule: Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Defines that the NetApp Snapshot Policy is enabled or not.
-        :param pulumi.Input[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict']] hourly_schedule: Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict', 'outputs.SnapshotPolicyHourlySchedule']] hourly_schedule: Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict']] monthly_schedule: Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict', 'outputs.SnapshotPolicyMonthlySchedule']] monthly_schedule: Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict']] weekly_schedule: Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict', 'outputs.SnapshotPolicyWeeklySchedule']] weekly_schedule: Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
         """
         ...
     @overload
@@ -543,15 +543,15 @@ class SnapshotPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict']]] = None,
+                 daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict', 'outputs.SnapshotPolicyDailySchedule']]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict']]] = None,
+                 hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict', 'outputs.SnapshotPolicyHourlySchedule']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict']]] = None,
+                 monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict', 'outputs.SnapshotPolicyMonthlySchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict']]] = None,
+                 weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict', 'outputs.SnapshotPolicyWeeklySchedule']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -588,15 +588,15 @@ class SnapshotPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
-            daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict']]] = None,
+            daily_schedule: pulumi.Input[Optional[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict', 'outputs.SnapshotPolicyDailySchedule']]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict']]] = None,
+            hourly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict', 'outputs.SnapshotPolicyHourlySchedule']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict']]] = None,
+            monthly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict', 'outputs.SnapshotPolicyMonthlySchedule']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict']]] = None) -> 'SnapshotPolicy':
+            weekly_schedule: pulumi.Input[Optional[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict', 'outputs.SnapshotPolicyWeeklySchedule']]] = None) -> 'SnapshotPolicy':
         """
         Get an existing SnapshotPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -605,15 +605,15 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict']] daily_schedule: Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyDailyScheduleArgs', 'SnapshotPolicyDailyScheduleArgsDict', 'outputs.SnapshotPolicyDailySchedule']] daily_schedule: Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Defines that the NetApp Snapshot Policy is enabled or not.
-        :param pulumi.Input[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict']] hourly_schedule: Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyHourlyScheduleArgs', 'SnapshotPolicyHourlyScheduleArgsDict', 'outputs.SnapshotPolicyHourlySchedule']] hourly_schedule: Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict']] monthly_schedule: Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyMonthlyScheduleArgs', 'SnapshotPolicyMonthlyScheduleArgsDict', 'outputs.SnapshotPolicyMonthlySchedule']] monthly_schedule: Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict']] weekly_schedule: Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
+        :param pulumi.Input[Union['SnapshotPolicyWeeklyScheduleArgs', 'SnapshotPolicyWeeklyScheduleArgsDict', 'outputs.SnapshotPolicyWeeklySchedule']] weekly_schedule: Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

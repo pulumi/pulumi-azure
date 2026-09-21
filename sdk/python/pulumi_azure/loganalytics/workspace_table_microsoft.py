@@ -337,7 +337,7 @@ class WorkspaceTableMicrosoft(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict', 'outputs.WorkspaceTableMicrosoftColumn']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -386,7 +386,7 @@ class WorkspaceTableMicrosoft(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict']]]] columns: One or more `column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict', 'outputs.WorkspaceTableMicrosoftColumn']]]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the table.
         :param pulumi.Input[_builtins.str] display_name: The display name of the table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies a list of table labels.
@@ -456,7 +456,7 @@ class WorkspaceTableMicrosoft(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict', 'outputs.WorkspaceTableMicrosoftColumn']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -495,14 +495,14 @@ class WorkspaceTableMicrosoft(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict']]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict', 'outputs.WorkspaceTableMicrosoftColumn']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             solutions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            standard_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftStandardColumnArgs', 'WorkspaceTableMicrosoftStandardColumnArgsDict']]]]] = None,
+            standard_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftStandardColumnArgs', 'WorkspaceTableMicrosoftStandardColumnArgsDict', 'outputs.WorkspaceTableMicrosoftStandardColumn']]]]] = None,
             total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceTableMicrosoft':
         """
@@ -512,7 +512,7 @@ class WorkspaceTableMicrosoft(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict']]]] columns: One or more `column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftColumnArgs', 'WorkspaceTableMicrosoftColumnArgsDict', 'outputs.WorkspaceTableMicrosoftColumn']]]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: A description of the table.
         :param pulumi.Input[_builtins.str] display_name: The display name of the table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: Specifies a list of table labels.
@@ -521,7 +521,7 @@ class WorkspaceTableMicrosoft(pulumi.CustomResource):
                
                > **Note:** `retention_in_days` must be less than or equal to `total_retention_in_days`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] solutions: The list of solutions associated with this table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftStandardColumnArgs', 'WorkspaceTableMicrosoftStandardColumnArgsDict']]]] standard_columns: A `standard_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableMicrosoftStandardColumnArgs', 'WorkspaceTableMicrosoftStandardColumnArgsDict', 'outputs.WorkspaceTableMicrosoftStandardColumn']]]] standard_columns: A `standard_column` block as defined below.
         :param pulumi.Input[_builtins.int] total_retention_in_days: The table total retention in days, between `4` and `4383`.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
         """

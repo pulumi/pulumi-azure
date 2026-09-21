@@ -138,7 +138,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict', 'outputs.FleetUpdateStrategyStage']]]]] = None,
                  __props__=None):
         """
         Manages a Kubernetes Fleet Update Strategy.
@@ -188,7 +188,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]] stages: One or more `stage` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict', 'outputs.FleetUpdateStrategyStage']]]] stages: One or more `stage` blocks as defined below.
         """
         ...
     @overload
@@ -257,7 +257,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict', 'outputs.FleetUpdateStrategyStage']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -286,7 +286,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             kubernetes_fleet_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]]] = None) -> 'FleetUpdateStrategy':
+            stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict', 'outputs.FleetUpdateStrategyStage']]]]] = None) -> 'FleetUpdateStrategy':
         """
         Get an existing FleetUpdateStrategy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -296,7 +296,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]] stages: One or more `stage` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict', 'outputs.FleetUpdateStrategyStage']]]] stages: One or more `stage` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

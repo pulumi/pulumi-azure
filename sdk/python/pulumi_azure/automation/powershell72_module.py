@@ -169,7 +169,7 @@ class Powershell72Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
+                 module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict', 'outputs.Powershell72ModuleModuleLink']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -217,7 +217,7 @@ class Powershell72Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
-        :param pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']] module_link: A `module_link` block as defined below.
+        :param pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict', 'outputs.Powershell72ModuleModuleLink']] module_link: A `module_link` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -284,7 +284,7 @@ class Powershell72Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
+                 module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict', 'outputs.Powershell72ModuleModuleLink']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -315,7 +315,7 @@ class Powershell72Module(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
+            module_link: pulumi.Input[Optional[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict', 'outputs.Powershell72ModuleModuleLink']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Powershell72Module':
         """
@@ -326,7 +326,7 @@ class Powershell72Module(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
-        :param pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']] module_link: A `module_link` block as defined below.
+        :param pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict', 'outputs.Powershell72ModuleModuleLink']] module_link: A `module_link` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """

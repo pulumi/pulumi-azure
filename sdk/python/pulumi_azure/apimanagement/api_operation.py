@@ -393,10 +393,10 @@ class ApiOperation(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  method: pulumi.Input[Optional[_builtins.str]] = None,
                  operation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
+                 request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict', 'outputs.ApiOperationRequest']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
-                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict', 'outputs.ApiOperationResponse']]]]] = None,
+                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict', 'outputs.ApiOperationTemplateParameter']]]]] = None,
                  url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -455,10 +455,10 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this API Management Operation.
         :param pulumi.Input[_builtins.str] method: The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
         :param pulumi.Input[_builtins.str] operation_id: A unique identifier for this API Operation. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']] request: A `request` block as defined below.
+        :param pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict', 'outputs.ApiOperationRequest']] request: A `request` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]] responses: One or more `response` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]] template_parameters: One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict', 'outputs.ApiOperationResponse']]]] responses: One or more `response` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict', 'outputs.ApiOperationTemplateParameter']]]] template_parameters: One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         :param pulumi.Input[_builtins.str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
         ...
@@ -536,10 +536,10 @@ class ApiOperation(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  method: pulumi.Input[Optional[_builtins.str]] = None,
                  operation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
+                 request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict', 'outputs.ApiOperationRequest']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
-                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
+                 responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict', 'outputs.ApiOperationResponse']]]]] = None,
+                 template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict', 'outputs.ApiOperationTemplateParameter']]]]] = None,
                  url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -591,10 +591,10 @@ class ApiOperation(pulumi.CustomResource):
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             method: pulumi.Input[Optional[_builtins.str]] = None,
             operation_id: pulumi.Input[Optional[_builtins.str]] = None,
-            request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']]] = None,
+            request: pulumi.Input[Optional[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict', 'outputs.ApiOperationRequest']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]]] = None,
-            template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]]] = None,
+            responses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict', 'outputs.ApiOperationResponse']]]]] = None,
+            template_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict', 'outputs.ApiOperationTemplateParameter']]]]] = None,
             url_template: pulumi.Input[Optional[_builtins.str]] = None) -> 'ApiOperation':
         """
         Get an existing ApiOperation resource's state with the given name, id, and optional extra
@@ -609,10 +609,10 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this API Management Operation.
         :param pulumi.Input[_builtins.str] method: The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
         :param pulumi.Input[_builtins.str] operation_id: A unique identifier for this API Operation. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict']] request: A `request` block as defined below.
+        :param pulumi.Input[Union['ApiOperationRequestArgs', 'ApiOperationRequestArgsDict', 'outputs.ApiOperationRequest']] request: A `request` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict']]]] responses: One or more `response` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict']]]] template_parameters: One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationResponseArgs', 'ApiOperationResponseArgsDict', 'outputs.ApiOperationResponse']]]] responses: One or more `response` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiOperationTemplateParameterArgs', 'ApiOperationTemplateParameterArgsDict', 'outputs.ApiOperationTemplateParameter']]]] template_parameters: One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         :param pulumi.Input[_builtins.str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

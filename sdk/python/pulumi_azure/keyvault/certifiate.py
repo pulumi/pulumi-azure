@@ -374,8 +374,8 @@ class Certifiate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
-                 certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
+                 certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict', 'outputs.CertifiateCertificate']]] = None,
+                 certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict', 'outputs.CertifiateCertificatePolicy']]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -582,8 +582,8 @@ class Certifiate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        :param pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict', 'outputs.CertifiateCertificate']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict', 'outputs.CertifiateCertificatePolicy']] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
@@ -811,8 +811,8 @@ class Certifiate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
-                 certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
+                 certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict', 'outputs.CertifiateCertificate']]] = None,
+                 certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict', 'outputs.CertifiateCertificatePolicy']]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -853,11 +853,11 @@ class Certifiate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']]] = None,
-            certificate_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertifiateCertificateAttributeArgs', 'CertifiateCertificateAttributeArgsDict']]]]] = None,
+            certificate: pulumi.Input[Optional[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict', 'outputs.CertifiateCertificate']]] = None,
+            certificate_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertifiateCertificateAttributeArgs', 'CertifiateCertificateAttributeArgsDict', 'outputs.CertifiateCertificateAttribute']]]]] = None,
             certificate_data: pulumi.Input[Optional[_builtins.str]] = None,
             certificate_data_base64: pulumi.Input[Optional[_builtins.str]] = None,
-            certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']]] = None,
+            certificate_policy: pulumi.Input[Optional[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict', 'outputs.CertifiateCertificatePolicy']]] = None,
             key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -875,11 +875,11 @@ class Certifiate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertifiateCertificateAttributeArgs', 'CertifiateCertificateAttributeArgsDict']]]] certificate_attributes: A `certificate_attribute` block as defined below.
+        :param pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict', 'outputs.CertifiateCertificate']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertifiateCertificateAttributeArgs', 'CertifiateCertificateAttributeArgsDict', 'outputs.CertifiateCertificateAttribute']]]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[_builtins.str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[_builtins.str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict', 'outputs.CertifiateCertificatePolicy']] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.

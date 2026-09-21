@@ -136,7 +136,7 @@ class AwaitableGetShareResult(GetShareResult):
             storage_account_name=self.storage_account_name)
 
 
-def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']]] = None,
+def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict', 'outputs.GetShareAclResult']]] = None,
               metadata: Optional[Mapping[str, _builtins.str]] = None,
               name: Optional[_builtins.str] = None,
               storage_account_id: Optional[_builtins.str] = None,
@@ -167,7 +167,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
     * `Microsoft.Storage` - 2025-08-01
 
 
-    :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
+    :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict', 'outputs.GetShareAclResult']] acls: One or more acl blocks as defined below.
     :param Mapping[str, _builtins.str] metadata: A map of custom file share metadata.
     :param _builtins.str name: The name of the share.
     :param _builtins.str storage_account_id: The ID of the storage account in which the share exists.
@@ -194,7 +194,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
-def get_share_output(acls: pulumi.Input[Optional[Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']]]]] = None,
+def get_share_output(acls: pulumi.Input[Optional[Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict', 'outputs.GetShareAclResult']]]]] = None,
                      metadata: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                      name: pulumi.Input[Optional[_builtins.str]] = None,
                      storage_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -225,7 +225,7 @@ def get_share_output(acls: pulumi.Input[Optional[Optional[Sequence[Union['GetSha
     * `Microsoft.Storage` - 2025-08-01
 
 
-    :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
+    :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict', 'outputs.GetShareAclResult']] acls: One or more acl blocks as defined below.
     :param Mapping[str, _builtins.str] metadata: A map of custom file share metadata.
     :param _builtins.str name: The name of the share.
     :param _builtins.str storage_account_id: The ID of the storage account in which the share exists.

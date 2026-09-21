@@ -395,9 +395,9 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict']]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict', 'outputs.FirewallPolicyCustomRule']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict']]]]] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict', 'outputs.FirewallPolicyManagedRule']]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -535,9 +535,9 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict', 'outputs.FirewallPolicyCustomRule']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict', 'outputs.FirewallPolicyManagedRule']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[_builtins.str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -694,9 +694,9 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict']]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict', 'outputs.FirewallPolicyCustomRule']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict']]]]] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict', 'outputs.FirewallPolicyManagedRule']]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -737,11 +737,11 @@ class FirewallPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
             custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
-            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict']]]]] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict', 'outputs.FirewallPolicyCustomRule']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             frontend_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict']]]]] = None,
+            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict', 'outputs.FirewallPolicyManagedRule']]]]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -756,11 +756,11 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyCustomRuleArgs', 'FirewallPolicyCustomRuleArgsDict', 'outputs.FirewallPolicyCustomRule']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_endpoint_ids: The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         :param pulumi.Input[_builtins.str] location: The Azure Region where this Front Door Firewall Policy exists.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyManagedRuleArgs', 'FirewallPolicyManagedRuleArgsDict', 'outputs.FirewallPolicyManagedRule']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         :param pulumi.Input[_builtins.str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redirect_url: If action type is redirect, this field represents redirect URL for the client.

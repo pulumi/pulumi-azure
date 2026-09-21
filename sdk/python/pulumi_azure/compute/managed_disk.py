@@ -1364,7 +1364,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict', 'outputs.ManagedDiskEncryptionSettings']]] = None,
                  gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
                  image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1497,7 +1497,7 @@ class ManagedDisk(pulumi.CustomResource):
                
                > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
-        :param pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict', 'outputs.ManagedDiskEncryptionSettings']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
@@ -1656,7 +1656,7 @@ class ManagedDisk(pulumi.CustomResource):
                  disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict', 'outputs.ManagedDiskEncryptionSettings']]] = None,
                  gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
                  image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1751,7 +1751,7 @@ class ManagedDisk(pulumi.CustomResource):
             disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
             disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']]] = None,
+            encryption_settings: pulumi.Input[Optional[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict', 'outputs.ManagedDiskEncryptionSettings']]] = None,
             gallery_image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
             hyper_v_generation: pulumi.Input[Optional[_builtins.str]] = None,
             image_reference_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1814,7 +1814,7 @@ class ManagedDisk(pulumi.CustomResource):
                
                > **Note:** Expanding Ultra Disks and Premium SSD v2 disks without downtime has additional limitations. Allow up to 10 minutes for the correct size to be reflected, and a `rescan` function may be required. For more details, refer to [Expand with Ultra Disks and Premium SSD v2](https://learn.microsoft.com/azure/virtual-machines/linux/expand-disks?tabs=ubuntu#expand-with-ultra-disks-and-premium-ssd-v2).
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created.
-        :param pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[Union['ManagedDiskEncryptionSettingsArgs', 'ManagedDiskEncryptionSettingsArgsDict', 'outputs.ManagedDiskEncryptionSettings']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[_builtins.str] gallery_image_reference_id: ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created.
