@@ -361,13 +361,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict']]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict', 'outputs.TrafficManagerAzureEndpointCustomHeader']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict', 'outputs.TrafficManagerAzureEndpointSubnet']]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -435,13 +435,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict']]]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict', 'outputs.TrafficManagerAzureEndpointCustomHeader']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[_builtins.str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[_builtins.str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict', 'outputs.TrafficManagerAzureEndpointSubnet']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Azure Resource which should be used as a target.
         :param pulumi.Input[_builtins.int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """
@@ -528,13 +528,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict']]]]] = None,
+                 custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict', 'outputs.TrafficManagerAzureEndpointCustomHeader']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict', 'outputs.TrafficManagerAzureEndpointSubnet']]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  weight: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -571,13 +571,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             always_serve_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict']]]]] = None,
+            custom_headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict', 'outputs.TrafficManagerAzureEndpointCustomHeader']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             geo_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict', 'outputs.TrafficManagerAzureEndpointSubnet']]]]] = None,
             target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             weight: pulumi.Input[Optional[_builtins.int]] = None) -> 'TrafficManagerAzureEndpoint':
         """
@@ -588,13 +588,13 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict']]]] custom_headers: One or more `custom_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointCustomHeaderArgs', 'TrafficManagerAzureEndpointCustomHeaderArgsDict', 'outputs.TrafficManagerAzureEndpointCustomHeader']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         :param pulumi.Input[_builtins.str] name: The name of the Azure Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] priority: Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         :param pulumi.Input[_builtins.str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficManagerAzureEndpointSubnetArgs', 'TrafficManagerAzureEndpointSubnetArgsDict', 'outputs.TrafficManagerAzureEndpointSubnet']]]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Azure Resource which should be used as a target.
         :param pulumi.Input[_builtins.int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         """

@@ -324,9 +324,9 @@ class EligibleRoleAssignment(pulumi.CustomResource):
                  justification: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_id: pulumi.Input[Optional[_builtins.str]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict', 'outputs.EligibleRoleAssignmentSchedule']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None,
+                 ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict', 'outputs.EligibleRoleAssignmentTicket']]] = None,
                  __props__=None):
         """
         Manages a PIM Eligible Role Assignment.
@@ -416,9 +416,9 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] justification: The justification of the role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict', 'outputs.EligibleRoleAssignmentSchedule']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict', 'outputs.EligibleRoleAssignmentTicket']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -525,9 +525,9 @@ class EligibleRoleAssignment(pulumi.CustomResource):
                  justification: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_id: pulumi.Input[Optional[_builtins.str]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict', 'outputs.EligibleRoleAssignmentSchedule']]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None,
+                 ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict', 'outputs.EligibleRoleAssignmentTicket']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -568,9 +568,9 @@ class EligibleRoleAssignment(pulumi.CustomResource):
             principal_id: pulumi.Input[Optional[_builtins.str]] = None,
             principal_type: pulumi.Input[Optional[_builtins.str]] = None,
             role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']]] = None,
+            schedule: pulumi.Input[Optional[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict', 'outputs.EligibleRoleAssignmentSchedule']]] = None,
             scope: pulumi.Input[Optional[_builtins.str]] = None,
-            ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']]] = None) -> 'EligibleRoleAssignment':
+            ticket: pulumi.Input[Optional[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict', 'outputs.EligibleRoleAssignmentTicket']]] = None) -> 'EligibleRoleAssignment':
         """
         Get an existing EligibleRoleAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -586,9 +586,9 @@ class EligibleRoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] principal_id: Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: Type of principal to which the role will be assigned.
         :param pulumi.Input[_builtins.str] role_definition_id: The role definition ID for this eligible role assignment. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EligibleRoleAssignmentScheduleArgs', 'EligibleRoleAssignmentScheduleArgsDict', 'outputs.EligibleRoleAssignmentSchedule']] schedule: A `schedule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EligibleRoleAssignmentTicketArgs', 'EligibleRoleAssignmentTicketArgsDict', 'outputs.EligibleRoleAssignmentTicket']] ticket: A `ticket` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

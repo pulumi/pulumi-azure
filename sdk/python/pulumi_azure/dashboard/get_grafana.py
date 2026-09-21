@@ -234,7 +234,7 @@ class AwaitableGetGrafanaResult(GetGrafanaResult):
             zone_redundancy_enabled=self.zone_redundancy_enabled)
 
 
-def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict']] = None,
+def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict', 'outputs.GetGrafanaIdentityResult']] = None,
                 name: Optional[_builtins.str] = None,
                 resource_group_name: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGrafanaResult:
@@ -260,7 +260,7 @@ def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaId
     * `Microsoft.Dashboard` - 2025-08-01
 
 
-    :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict'] identity: The managed identity of the grafana resource.
+    :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict', 'outputs.GetGrafanaIdentityResult'] identity: The managed identity of the grafana resource.
     :param _builtins.str name: Name of the grafana dashboard.
     :param _builtins.str resource_group_name: Name of the resource group where resource belongs to.
     """
@@ -289,7 +289,7 @@ def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaId
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         zone_redundancy_enabled=pulumi.get(__ret__, 'zone_redundancy_enabled'))
-def get_grafana_output(identity: pulumi.Input[Optional[Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict']]]] = None,
+def get_grafana_output(identity: pulumi.Input[Optional[Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict', 'outputs.GetGrafanaIdentityResult']]]] = None,
                        name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrafanaResult]:
@@ -315,7 +315,7 @@ def get_grafana_output(identity: pulumi.Input[Optional[Optional[Union['GetGrafan
     * `Microsoft.Dashboard` - 2025-08-01
 
 
-    :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict'] identity: The managed identity of the grafana resource.
+    :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict', 'outputs.GetGrafanaIdentityResult'] identity: The managed identity of the grafana resource.
     :param _builtins.str name: Name of the grafana dashboard.
     :param _builtins.str resource_group_name: Name of the resource group where resource belongs to.
     """

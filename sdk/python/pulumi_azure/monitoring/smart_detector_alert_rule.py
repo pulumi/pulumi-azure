@@ -388,7 +388,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
+                 action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict', 'outputs.SmartDetectorAlertRuleActionGroup']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_type: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -451,7 +451,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']] action_group: An `action_group` block as defined below.
+        :param pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict', 'outputs.SmartDetectorAlertRuleActionGroup']] action_group: An `action_group` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Smart Detector Alert Rule.
         :param pulumi.Input[_builtins.str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Smart Detector Alert Rule enabled? Defaults to `true`.
@@ -533,7 +533,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
+                 action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict', 'outputs.SmartDetectorAlertRuleActionGroup']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  detector_type: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -586,7 +586,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']]] = None,
+            action_group: pulumi.Input[Optional[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict', 'outputs.SmartDetectorAlertRuleActionGroup']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             detector_type: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -604,7 +604,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict']] action_group: An `action_group` block as defined below.
+        :param pulumi.Input[Union['SmartDetectorAlertRuleActionGroupArgs', 'SmartDetectorAlertRuleActionGroupArgsDict', 'outputs.SmartDetectorAlertRuleActionGroup']] action_group: An `action_group` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Smart Detector Alert Rule.
         :param pulumi.Input[_builtins.str] detector_type: Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Smart Detector Alert Rule enabled? Defaults to `true`.

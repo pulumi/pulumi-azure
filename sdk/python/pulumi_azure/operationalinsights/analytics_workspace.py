@@ -669,7 +669,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
                  immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -725,7 +725,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
-        :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
@@ -807,7 +807,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                  cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
                  immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -867,7 +867,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             cmk_for_query_forced: pulumi.Input[Optional[_builtins.bool]] = None,
             daily_quota_gb: pulumi.Input[Optional[_builtins.float]] = None,
             data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']]] = None,
             immediate_data_purge_on30_days_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -894,7 +894,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[_builtins.float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
-        :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict', 'outputs.AnalyticsWorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.

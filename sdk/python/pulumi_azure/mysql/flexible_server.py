@@ -954,13 +954,13 @@ class FlexibleServer(pulumi.CustomResource):
                  administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
                  delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -969,7 +969,7 @@ class FlexibleServer(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict', 'outputs.FlexibleServerStorage']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1056,15 +1056,15 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
                
                > **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
-        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
                
                > **Note:** `identity` is required when `customer_managed_key` is specified.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
-        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']] high_availability: A `high_availability` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
@@ -1083,7 +1083,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
-        :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict', 'outputs.FlexibleServerStorage']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.
@@ -1185,13 +1185,13 @@ class FlexibleServer(pulumi.CustomResource):
                  administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
                  delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+                 high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+                 identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1200,7 +1200,7 @@ class FlexibleServer(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
+                 storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict', 'outputs.FlexibleServerStorage']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1259,14 +1259,14 @@ class FlexibleServer(pulumi.CustomResource):
             administrator_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             backup_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
             create_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']]] = None,
             delegated_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             geo_redundant_backup_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']]] = None,
+            high_availability: pulumi.Input[Optional[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']]] = None,
+            identity: pulumi.Input[Optional[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             point_in_time_restore_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
             private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1277,7 +1277,7 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             source_server_id: pulumi.Input[Optional[_builtins.str]] = None,
-            storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']]] = None,
+            storage: pulumi.Input[Optional[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict', 'outputs.FlexibleServerStorage']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
             zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'FlexibleServer':
@@ -1301,16 +1301,16 @@ class FlexibleServer(pulumi.CustomResource):
                > **Note:** When a server is first created it may not be immediately available for `geo restore` or `replica`. It may take a few minutes to several hours for the necessary metadata to be populated. Please see the [Geo Restore](https://learn.microsoft.com/azure/mysql/single-server/how-to-restore-server-portal#geo-restore) and the [Replica](https://learn.microsoft.com/azure/mysql/flexible-server/concepts-read-replicas#create-a-replica) for more information.
                
                > **Note:** When importing a MySQL Flexible Server, `create_mode` is not returned by the api so you will see a diff if `create_mode` is specified in your config. To prevent recreation, use the `ignore_changes` lifecycle meta-argument.
-        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerCustomerManagedKeyArgs', 'FlexibleServerCustomerManagedKeyArgsDict', 'outputs.FlexibleServerCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
                
                > **Note:** `identity` is required when `customer_managed_key` is specified.
         :param pulumi.Input[_builtins.str] delegated_subnet_id: The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] fqdn: The fully qualified domain name of the MySQL Flexible Server.
         :param pulumi.Input[_builtins.bool] geo_redundant_backup_enabled: Should geo redundant backup enabled? Defaults to `false`. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict']] high_availability: A `high_availability` block as defined below.
-        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerHighAvailabilityArgs', 'FlexibleServerHighAvailabilityArgsDict', 'outputs.FlexibleServerHighAvailability']] high_availability: A `high_availability` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerIdentityArgs', 'FlexibleServerIdentityArgsDict', 'outputs.FlexibleServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the MySQL Flexible Server should exist. Changing this forces a new MySQL Flexible Server to be created.
-        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerMaintenanceWindowArgs', 'FlexibleServerMaintenanceWindowArgsDict', 'outputs.FlexibleServerMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] point_in_time_restore_time_in_utc: The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new MySQL Flexible Server to be created.
         :param pulumi.Input[_builtins.str] private_dns_zone_id: The ID of the private DNS zone to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created.
@@ -1330,7 +1330,7 @@ class FlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
                
                > **Note:** The replica server is always created in the same resource group and subscription as the source server.
-        :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
+        :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict', 'outputs.FlexibleServerStorage']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[_builtins.str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, `8.0.21` and `8.4`.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`.

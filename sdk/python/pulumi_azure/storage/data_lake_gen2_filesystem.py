@@ -273,7 +273,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict', 'outputs.DataLakeGen2FilesystemAce']]]]] = None,
                  default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -322,7 +322,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict', 'outputs.DataLakeGen2FilesystemAce']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[_builtins.str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
@@ -392,7 +392,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
+                 aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict', 'outputs.DataLakeGen2FilesystemAce']]]]] = None,
                  default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -427,7 +427,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]]] = None,
+            aces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict', 'outputs.DataLakeGen2FilesystemAce']]]]] = None,
             default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
             group: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -441,7 +441,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataLakeGen2FilesystemAceArgs', 'DataLakeGen2FilesystemAceArgsDict', 'outputs.DataLakeGen2FilesystemAce']]]] aces: One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         :param pulumi.Input[_builtins.str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                

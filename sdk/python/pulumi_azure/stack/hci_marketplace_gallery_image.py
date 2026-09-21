@@ -358,7 +358,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
-                 identifier: pulumi.Input[Optional[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict']]] = None,
+                 identifier: pulumi.Input[Optional[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict', 'outputs.HciMarketplaceGalleryImageIdentifier']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -383,7 +383,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hyperv_generation: The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        :param pulumi.Input[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict']] identifier: An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        :param pulumi.Input[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict', 'outputs.HciMarketplaceGalleryImageIdentifier']] identifier: An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input[_builtins.str] os_type: The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
@@ -427,7 +427,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
-                 identifier: pulumi.Input[Optional[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict']]] = None,
+                 identifier: pulumi.Input[Optional[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict', 'outputs.HciMarketplaceGalleryImageIdentifier']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -478,7 +478,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
             hyperv_generation: pulumi.Input[Optional[_builtins.str]] = None,
-            identifier: pulumi.Input[Optional[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict']]] = None,
+            identifier: pulumi.Input[Optional[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict', 'outputs.HciMarketplaceGalleryImageIdentifier']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             os_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -495,7 +495,7 @@ class HciMarketplaceGalleryImage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] hyperv_generation: The hypervisor generation of the Azure Stack HCI Marketplace Gallery Image. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
-        :param pulumi.Input[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict']] identifier: An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
+        :param pulumi.Input[Union['HciMarketplaceGalleryImageIdentifierArgs', 'HciMarketplaceGalleryImageIdentifierArgsDict', 'outputs.HciMarketplaceGalleryImageIdentifier']] identifier: An `identifier` block as defined below. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Marketplace Gallery Image should exist. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Stack HCI Marketplace Gallery Image. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.
         :param pulumi.Input[_builtins.str] os_type: The Operating System type of the Azure Stack HCI Marketplace Gallery Image. Possible values are `Windows` and `Linux`. Changing this forces a new Azure Stack HCI Marketplace Gallery Image to be created.

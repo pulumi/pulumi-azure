@@ -137,8 +137,8 @@ class TokenPassword(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
-                 password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None,
+                 password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict', 'outputs.TokenPasswordPassword1']]] = None,
+                 password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']]] = None,
                  __props__=None):
         """
         Manages a Container Registry Token Password associated with a scope map.  For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
@@ -201,8 +201,8 @@ class TokenPassword(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_token_id: The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
-        :param pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']] password1: One `password` block as defined below.
-        :param pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']] password2: One `password` block as defined below.
+        :param pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict', 'outputs.TokenPasswordPassword1']] password1: One `password` block as defined below.
+        :param pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']] password2: One `password` block as defined below.
         """
         ...
     @overload
@@ -284,8 +284,8 @@ class TokenPassword(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
-                 password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None,
+                 password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict', 'outputs.TokenPasswordPassword1']]] = None,
+                 password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -313,8 +313,8 @@ class TokenPassword(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             container_registry_token_id: pulumi.Input[Optional[_builtins.str]] = None,
-            password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']]] = None,
-            password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']]] = None) -> 'TokenPassword':
+            password1: pulumi.Input[Optional[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict', 'outputs.TokenPasswordPassword1']]] = None,
+            password2: pulumi.Input[Optional[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']]] = None) -> 'TokenPassword':
         """
         Get an existing TokenPassword resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -323,8 +323,8 @@ class TokenPassword(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] container_registry_token_id: The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
-        :param pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict']] password1: One `password` block as defined below.
-        :param pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict']] password2: One `password` block as defined below.
+        :param pulumi.Input[Union['TokenPasswordPassword1Args', 'TokenPasswordPassword1ArgsDict', 'outputs.TokenPasswordPassword1']] password1: One `password` block as defined below.
+        :param pulumi.Input[Union['TokenPasswordPassword2Args', 'TokenPasswordPassword2ArgsDict', 'outputs.TokenPasswordPassword2']] password2: One `password` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

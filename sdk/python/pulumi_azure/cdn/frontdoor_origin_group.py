@@ -241,8 +241,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
-                 load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
+                 health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict', 'outputs.FrontdoorOriginGroupHealthProbe']]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict', 'outputs.FrontdoorOriginGroupLoadBalancing']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -293,8 +293,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        :param pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']] health_probe: A `health_probe` block as defined below.
-        :param pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']] load_balancing: A `load_balancing` block as defined below.
+        :param pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict', 'outputs.FrontdoorOriginGroupHealthProbe']] health_probe: A `health_probe` block as defined below.
+        :param pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict', 'outputs.FrontdoorOriginGroupLoadBalancing']] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[_builtins.int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
                
@@ -366,8 +366,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
-                 load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
+                 health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict', 'outputs.FrontdoorOriginGroupHealthProbe']]] = None,
+                 load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict', 'outputs.FrontdoorOriginGroupLoadBalancing']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -401,8 +401,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_frontdoor_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-            health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']]] = None,
-            load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']]] = None,
+            health_probe: pulumi.Input[Optional[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict', 'outputs.FrontdoorOriginGroupHealthProbe']]] = None,
+            load_balancing: pulumi.Input[Optional[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict', 'outputs.FrontdoorOriginGroupLoadBalancing']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             session_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'FrontdoorOriginGroup':
@@ -414,8 +414,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        :param pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict']] health_probe: A `health_probe` block as defined below.
-        :param pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict']] load_balancing: A `load_balancing` block as defined below.
+        :param pulumi.Input[Union['FrontdoorOriginGroupHealthProbeArgs', 'FrontdoorOriginGroupHealthProbeArgsDict', 'outputs.FrontdoorOriginGroupHealthProbe']] health_probe: A `health_probe` block as defined below.
+        :param pulumi.Input[Union['FrontdoorOriginGroupLoadBalancingArgs', 'FrontdoorOriginGroupLoadBalancingArgsDict', 'outputs.FrontdoorOriginGroupLoadBalancing']] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[_builtins.int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
                

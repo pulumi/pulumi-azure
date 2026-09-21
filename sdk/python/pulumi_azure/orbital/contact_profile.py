@@ -359,7 +359,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_tracking: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
+                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict', 'outputs.ContactProfileLink']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_elevation_degrees: pulumi.Input[Optional[_builtins.float]] = None,
                  minimum_variable_contact_duration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -449,7 +449,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[_builtins.str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict', 'outputs.ContactProfileLink']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[_builtins.str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -558,7 +558,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_tracking: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
+                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict', 'outputs.ContactProfileLink']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_elevation_degrees: pulumi.Input[Optional[_builtins.float]] = None,
                  minimum_variable_contact_duration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -607,7 +607,7 @@ class ContactProfile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_tracking: pulumi.Input[Optional[_builtins.str]] = None,
             event_hub_uri: pulumi.Input[Optional[_builtins.str]] = None,
-            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
+            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict', 'outputs.ContactProfileLink']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             minimum_elevation_degrees: pulumi.Input[Optional[_builtins.float]] = None,
             minimum_variable_contact_duration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -624,7 +624,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[_builtins.str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict', 'outputs.ContactProfileLink']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[_builtins.str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.

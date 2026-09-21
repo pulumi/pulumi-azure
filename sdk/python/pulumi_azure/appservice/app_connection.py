@@ -247,11 +247,11 @@ class AppConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict', 'outputs.AppConnectionAuthentication']]] = None,
                  client_type: pulumi.Input[Optional[_builtins.str]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
+                 secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict', 'outputs.AppConnectionSecretStore']]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vnet_solution: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -339,7 +339,7 @@ class AppConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict', 'outputs.AppConnectionAuthentication']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the data source function app. Changing this forces a new resource to be created.
@@ -449,11 +449,11 @@ class AppConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict', 'outputs.AppConnectionAuthentication']]] = None,
                  client_type: pulumi.Input[Optional[_builtins.str]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
+                 secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict', 'outputs.AppConnectionSecretStore']]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vnet_solution: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -488,11 +488,11 @@ class AppConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']]] = None,
+            authentication: pulumi.Input[Optional[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict', 'outputs.AppConnectionAuthentication']]] = None,
             client_type: pulumi.Input[Optional[_builtins.str]] = None,
             function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict']]] = None,
+            secret_store: pulumi.Input[Optional[Union['AppConnectionSecretStoreArgs', 'AppConnectionSecretStoreArgsDict', 'outputs.AppConnectionSecretStore']]] = None,
             target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             vnet_solution: pulumi.Input[Optional[_builtins.str]] = None) -> 'AppConnection':
         """
@@ -502,7 +502,7 @@ class AppConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['AppConnectionAuthenticationArgs', 'AppConnectionAuthenticationArgsDict', 'outputs.AppConnectionAuthentication']] authentication: The authentication info. An `authentication` block as defined below.
                
                > **Note:** If a Managed Identity is used, this will need to be configured on the App Service.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the data source function app. Changing this forces a new resource to be created.

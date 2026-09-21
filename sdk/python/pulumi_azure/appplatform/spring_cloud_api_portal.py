@@ -320,7 +320,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
+                 sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict', 'outputs.SpringCloudApiPortalSso']]] = None,
                  __props__=None):
         """
         Manages a Spring Cloud API Portal.
@@ -387,7 +387,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
-        :param pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict', 'outputs.SpringCloudApiPortalSso']] sso: A `sso` block as defined below.
         """
         ...
     @overload
@@ -473,7 +473,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
+                 sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict', 'outputs.SpringCloudApiPortalSso']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,7 +511,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             spring_cloud_service_id: pulumi.Input[Optional[_builtins.str]] = None,
-            sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']]] = None,
+            sso: pulumi.Input[Optional[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict', 'outputs.SpringCloudApiPortalSso']]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudApiPortal':
         """
         Get an existing SpringCloudApiPortal resource's state with the given name, id, and optional extra
@@ -527,7 +527,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the public network access enabled?
         :param pulumi.Input[_builtins.str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
-        :param pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudApiPortalSsoArgs', 'SpringCloudApiPortalSsoArgsDict', 'outputs.SpringCloudApiPortalSso']] sso: A `sso` block as defined below.
         :param pulumi.Input[_builtins.str] url: TODO.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

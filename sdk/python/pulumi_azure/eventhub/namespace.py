@@ -562,13 +562,13 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict', 'outputs.NamespaceCustomerManagedKey']]] = None,
+                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']]] = None,
                  premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -616,15 +616,15 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-        :param pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']] customer_managed_key: An `customer_managed_key` block as defined below.
-        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict', 'outputs.NamespaceCustomerManagedKey']] customer_managed_key: An `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
+        :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
                > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.
@@ -694,13 +694,13 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict', 'outputs.NamespaceCustomerManagedKey']]] = None,
+                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
+                 network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']]] = None,
                  premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -751,18 +751,18 @@ class Namespace(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict', 'outputs.NamespaceCustomerManagedKey']]] = None,
             default_primary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             default_primary_key: pulumi.Input[Optional[_builtins.str]] = None,
             default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']]] = None,
+            network_rule_set: pulumi.Input[Optional[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']]] = None,
             premium_messaging_partitions: pulumi.Input[Optional[_builtins.int]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -776,20 +776,20 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only.
-        :param pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict']] customer_managed_key: An `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['NamespaceCustomerManagedKeyArgs', 'NamespaceCustomerManagedKeyArgsDict', 'outputs.NamespaceCustomerManagedKey']] customer_managed_key: An `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.str] default_primary_connection_string: The primary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[_builtins.str] default_primary_key: The primary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[_builtins.str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[_builtins.str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[_builtins.str] endpoint: The URL to access the Service Bus Namespace.
-        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
+        :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict', 'outputs.NamespaceNetworkRuleSet']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
                
                > **Note:** It's not possible to change the partitioning option on any existing namespace. The number of partitions can only be set during namespace creation. Please check the doc https://learn.microsoft.com/en-us/azure/service-bus-messaging/enable-partitions-premium for more feature restrictions.

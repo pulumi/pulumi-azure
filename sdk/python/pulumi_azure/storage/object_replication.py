@@ -201,7 +201,7 @@ class ObjectReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict', 'outputs.ObjectReplicationRule']]]]] = None,
                  source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -276,7 +276,7 @@ class ObjectReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         :param pulumi.Input[_builtins.bool] metrics_enabled: Whether metrics are enabled for this object replication. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict', 'outputs.ObjectReplicationRule']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
         ...
@@ -370,7 +370,7 @@ class ObjectReplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict', 'outputs.ObjectReplicationRule']]]]] = None,
                  source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -406,7 +406,7 @@ class ObjectReplication(pulumi.CustomResource):
             destination_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
             destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict', 'outputs.ObjectReplicationRule']]]]] = None,
             source_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
             source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObjectReplication':
         """
@@ -419,7 +419,7 @@ class ObjectReplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_object_replication_id: The ID of the Object Replication in the destination storage account.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         :param pulumi.Input[_builtins.bool] metrics_enabled: Whether metrics are enabled for this object replication. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict', 'outputs.ObjectReplicationRule']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_object_replication_id: The ID of the Object Replication in the source storage account.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """

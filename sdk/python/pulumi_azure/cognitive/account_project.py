@@ -299,7 +299,7 @@ class AccountProject(pulumi.CustomResource):
                  cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict', 'outputs.AccountProjectIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -364,7 +364,7 @@ class AccountProject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account where the Project should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Cognitive Account Project.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Cognitive Account Project.
-        :param pulumi.Input[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict', 'outputs.AccountProjectIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cognitive Account Project should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Account Project. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -448,7 +448,7 @@ class AccountProject(pulumi.CustomResource):
                  cognitive_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict', 'outputs.AccountProjectIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -489,7 +489,7 @@ class AccountProject(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             endpoints: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict', 'outputs.AccountProjectIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AccountProject':
@@ -505,7 +505,7 @@ class AccountProject(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the Cognitive Account Project.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Cognitive Account Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] endpoints: A mapping of endpoint names to endpoint URLs for the project.
-        :param pulumi.Input[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountProjectIdentityArgs', 'AccountProjectIdentityArgsDict', 'outputs.AccountProjectIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cognitive Account Project should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Cognitive Account Project. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.

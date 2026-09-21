@@ -99,7 +99,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             tags=self.tags)
 
 
-def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']] = None,
+def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict', 'outputs.GetAccountIdentityResult']] = None,
                 name: Optional[_builtins.str] = None,
                 resource_group_name: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
@@ -142,7 +142,7 @@ def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountId
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_account_output(identity: pulumi.Input[Optional[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']]]] = None,
+def get_account_output(identity: pulumi.Input[Optional[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict', 'outputs.GetAccountIdentityResult']]]] = None,
                        name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:

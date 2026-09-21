@@ -990,13 +990,13 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
+                 azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict', 'outputs.ManagedInstanceAzureActiveDirectoryAdministrator']]] = None,
                  collation: pulumi.Input[Optional[_builtins.str]] = None,
                  database_format: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict', 'outputs.ManagedInstanceIdentity']]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1214,7 +1214,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
                
                > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
-        :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict', 'outputs.ManagedInstanceAzureActiveDirectoryAdministrator']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[_builtins.str] collation: Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_format: Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
                
@@ -1224,7 +1224,7 @@ class ManagedInstance(pulumi.CustomResource):
                
                > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
         :param pulumi.Input[_builtins.str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
-        :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict', 'outputs.ManagedInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
@@ -1467,13 +1467,13 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
+                 azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict', 'outputs.ManagedInstanceAzureActiveDirectoryAdministrator']]] = None,
                  collation: pulumi.Input[Optional[_builtins.str]] = None,
                  database_format: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_zone_partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict', 'outputs.ManagedInstanceIdentity']]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1558,7 +1558,7 @@ class ManagedInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
             administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
-            azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']]] = None,
+            azure_active_directory_administrator: pulumi.Input[Optional[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict', 'outputs.ManagedInstanceAzureActiveDirectoryAdministrator']]] = None,
             collation: pulumi.Input[Optional[_builtins.str]] = None,
             database_format: pulumi.Input[Optional[_builtins.str]] = None,
             dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1566,7 +1566,7 @@ class ManagedInstance(pulumi.CustomResource):
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             general_purpose_v2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hybrid_secondary_usage: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict', 'outputs.ManagedInstanceIdentity']]] = None,
             license_type: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             maintenance_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1596,7 +1596,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
                
                > **Note:** Unless `azure_active_directory_administrator.azuread_authentication_only_enabled` is set to `true`, `administrator_login` and `administrator_login_password` are required.
-        :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceAzureActiveDirectoryAdministratorArgs', 'ManagedInstanceAzureActiveDirectoryAdministratorArgsDict', 'outputs.ManagedInstanceAzureActiveDirectoryAdministrator']] azure_active_directory_administrator: An `azure_active_directory_administrator` block as defined below.
         :param pulumi.Input[_builtins.str] collation: Specifies how the SQL Managed Instance will be collated. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] database_format: Specifies the internal format of the SQL Managed Instance databases specific to the SQL engine version. Possible values are `AlwaysUpToDate` and `SQLServer2022`. Defaults to `SQLServer2022`.
                
@@ -1608,7 +1608,7 @@ class ManagedInstance(pulumi.CustomResource):
                
                > **Note:** The `general_purpose_v2_enabled` property can only be set to `true` when using a General Purpose (`GP_*`) SKU.
         :param pulumi.Input[_builtins.str] hybrid_secondary_usage: Specifies the hybrid secondary usage for disaster recovery of the SQL Managed Instance. Possible values are `Active` and `Passive`. Defaults to `Active`.
-        :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict', 'outputs.ManagedInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.

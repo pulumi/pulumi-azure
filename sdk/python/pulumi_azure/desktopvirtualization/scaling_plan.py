@@ -362,11 +362,11 @@ class ScalingPlan(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
+                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict', 'outputs.ScalingPlanHostPool']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict', 'outputs.ScalingPlanSchedule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -393,11 +393,11 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the Scaling Plan.
         :param pulumi.Input[_builtins.str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict', 'outputs.ScalingPlanHostPool']]]] host_pools: One or more `host_pool` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]] schedules: One or more `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict', 'outputs.ScalingPlanSchedule']]]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
@@ -443,11 +443,11 @@ class ScalingPlan(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
+                 host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict', 'outputs.ScalingPlanHostPool']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict', 'outputs.ScalingPlanSchedule']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -488,11 +488,11 @@ class ScalingPlan(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             exclusion_tag: pulumi.Input[Optional[_builtins.str]] = None,
             friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
-            host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
+            host_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict', 'outputs.ScalingPlanHostPool']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict', 'outputs.ScalingPlanSchedule']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScalingPlan':
         """
@@ -505,11 +505,11 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the Scaling Plan.
         :param pulumi.Input[_builtins.str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict', 'outputs.ScalingPlanHostPool']]]] host_pools: One or more `host_pool` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]] schedules: One or more `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict', 'outputs.ScalingPlanSchedule']]]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """

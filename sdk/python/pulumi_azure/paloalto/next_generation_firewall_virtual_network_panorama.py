@@ -383,12 +383,12 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict']]]]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict']]] = None,
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile']]] = None,
                  panorama_base64_config: pulumi.Input[Optional[_builtins.str]] = None,
                  plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -487,12 +487,12 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings']] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         :param pulumi.Input[_builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] panorama_base64_config: The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
         :param pulumi.Input[_builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
                
@@ -612,12 +612,12 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict']]]]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict']]] = None,
+                 destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]]] = None,
+                 dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile']]] = None,
                  panorama_base64_config: pulumi.Input[Optional[_builtins.str]] = None,
                  plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -658,14 +658,14 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict']]]]] = None,
-            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict']]] = None,
+            destination_nats: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]]] = None,
+            dns_settings: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             marketplace_offer_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict']]] = None,
+            network_profile: pulumi.Input[Optional[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile']]] = None,
             panorama_base64_config: pulumi.Input[Optional[_builtins.str]] = None,
-            panoramas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs', 'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict']]]]] = None,
+            panoramas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs', 'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaPanorama']]]]] = None,
             plan_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'NextGenerationFirewallVirtualNetworkPanorama':
@@ -676,14 +676,14 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDestinationNat']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaDnsSettings']] dns_settings: A `dns_settings` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
         :param pulumi.Input[_builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created.
-        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] panorama_base64_config: The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs', 'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict']]]] panoramas: A `panorama` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs', 'NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgsDict', 'outputs.NextGenerationFirewallVirtualNetworkPanoramaPanorama']]]] panoramas: A `panorama` block as defined below.
         :param pulumi.Input[_builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
                
                > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.

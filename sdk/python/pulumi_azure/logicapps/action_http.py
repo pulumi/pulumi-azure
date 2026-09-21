@@ -309,7 +309,7 @@ class ActionHttp(pulumi.CustomResource):
                  method: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
+                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict', 'outputs.ActionHttpRunAfter']]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -356,7 +356,7 @@ class ActionHttp(pulumi.CustomResource):
                
                > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict', 'outputs.ActionHttpRunAfter']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[_builtins.str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
         """
         ...
@@ -420,7 +420,7 @@ class ActionHttp(pulumi.CustomResource):
                  method: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
+                 run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict', 'outputs.ActionHttpRunAfter']]]]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -461,7 +461,7 @@ class ActionHttp(pulumi.CustomResource):
             method: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             queries: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]]] = None,
+            run_afters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict', 'outputs.ActionHttpRunAfter']]]]] = None,
             uri: pulumi.Input[Optional[_builtins.str]] = None) -> 'ActionHttp':
         """
         Get an existing ActionHttp resource's state with the given name, id, and optional extra
@@ -478,7 +478,7 @@ class ActionHttp(pulumi.CustomResource):
                
                > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict', 'outputs.ActionHttpRunAfter']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[_builtins.str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -667,10 +667,10 @@ class Server(pulumi.CustomResource):
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
+                 azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict', 'outputs.ServerAzureadAdministrator']]] = None,
                  connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -812,12 +812,12 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         :param pulumi.Input[_builtins.int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
-        :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict', 'outputs.ServerAzureadAdministrator']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[_builtins.str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[_builtins.bool] express_vulnerability_assessment_enabled: Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
                
                > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
-        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
@@ -988,10 +988,10 @@ class Server(pulumi.CustomResource):
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-                 azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
+                 azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict', 'outputs.ServerAzureadAdministrator']]] = None,
                  connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1051,11 +1051,11 @@ class Server(pulumi.CustomResource):
             administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
             administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
             administrator_login_password_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
-            azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']]] = None,
+            azuread_administrator: pulumi.Input[Optional[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict', 'outputs.ServerAzureadAdministrator']]] = None,
             connection_policy: pulumi.Input[Optional[_builtins.str]] = None,
             express_vulnerability_assessment_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1077,13 +1077,13 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx).
         :param pulumi.Input[_builtins.int] administrator_login_password_wo_version: An integer value used to trigger an update for `administrator_login_password_wo`. This property should be incremented when updating `administrator_login_password_wo`.
-        :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict']] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[Union['ServerAzureadAdministratorArgs', 'ServerAzureadAdministratorArgsDict', 'outputs.ServerAzureadAdministrator']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[_builtins.str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[_builtins.bool] express_vulnerability_assessment_enabled: Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
                
                > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `express_vulnerability_assessment_enabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
         :param pulumi.Input[_builtins.str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServerIdentityArgs', 'ServerIdentityArgsDict', 'outputs.ServerIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                

@@ -240,7 +240,7 @@ class Volume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
+                 create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict', 'outputs.VolumeCreateSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -336,7 +336,7 @@ class Volume(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict', 'outputs.VolumeCreateSource']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                
@@ -453,7 +453,7 @@ class Volume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
+                 create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict', 'outputs.VolumeCreateSource']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -488,7 +488,7 @@ class Volume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']]] = None,
+            create_source: pulumi.Input[Optional[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict', 'outputs.VolumeCreateSource']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             size_in_gib: pulumi.Input[Optional[_builtins.int]] = None,
             target_iqn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -503,7 +503,7 @@ class Volume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VolumeCreateSourceArgs', 'VolumeCreateSourceArgsDict', 'outputs.VolumeCreateSource']] create_source: A `create_source` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] size_in_gib: Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
                

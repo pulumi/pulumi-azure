@@ -366,7 +366,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict', 'outputs.AlertPrometheusRuleGroupRule']]]]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -473,7 +473,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict', 'outputs.AlertPrometheusRuleGroupRule']]]] rules: One or more `rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """
@@ -599,7 +599,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict', 'outputs.AlertPrometheusRuleGroupRule']]]]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -644,7 +644,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             rule_group_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]]] = None,
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict', 'outputs.AlertPrometheusRuleGroupRule']]]]] = None,
             scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AlertPrometheusRuleGroup':
         """
@@ -661,7 +661,7 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] rule_group_enabled: Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertPrometheusRuleGroupRuleArgs', 'AlertPrometheusRuleGroupRuleArgsDict', 'outputs.AlertPrometheusRuleGroupRule']]]] rules: One or more `rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Specifies the resource ID of the Azure Monitor Workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Alert Management Prometheus Rule Group.
         """

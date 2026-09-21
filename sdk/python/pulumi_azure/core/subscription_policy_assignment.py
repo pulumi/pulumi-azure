@@ -499,16 +499,16 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enforce: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict', 'outputs.SubscriptionPolicyAssignmentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict']]]]] = None,
+                 non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict', 'outputs.SubscriptionPolicyAssignmentNonComplianceMessage']]]]] = None,
                  not_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict']]]]] = None,
+                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict', 'outputs.SubscriptionPolicyAssignmentOverride']]]]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict']]]]] = None,
+                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict', 'outputs.SubscriptionPolicyAssignmentResourceSelector']]]]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -565,18 +565,18 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[_builtins.bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
-        :param pulumi.Input[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict', 'outputs.SubscriptionPolicyAssignmentIdentity']] identity: An `identity` block as defined below.
                
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict', 'outputs.SubscriptionPolicyAssignmentNonComplianceMessage']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict', 'outputs.SubscriptionPolicyAssignmentOverride']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         :param pulumi.Input[_builtins.str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict', 'outputs.SubscriptionPolicyAssignmentResourceSelector']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
         """
         ...
@@ -652,16 +652,16 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enforce: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict', 'outputs.SubscriptionPolicyAssignmentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict']]]]] = None,
+                 non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict', 'outputs.SubscriptionPolicyAssignmentNonComplianceMessage']]]]] = None,
                  not_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict']]]]] = None,
+                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict', 'outputs.SubscriptionPolicyAssignmentOverride']]]]] = None,
                  parameters: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict']]]]] = None,
+                 resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict', 'outputs.SubscriptionPolicyAssignmentResourceSelector']]]]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -703,16 +703,16 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             enforce: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict', 'outputs.SubscriptionPolicyAssignmentIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             metadata: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict']]]]] = None,
+            non_compliance_messages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict', 'outputs.SubscriptionPolicyAssignmentNonComplianceMessage']]]]] = None,
             not_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict']]]]] = None,
+            overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict', 'outputs.SubscriptionPolicyAssignmentOverride']]]]] = None,
             parameters: pulumi.Input[Optional[_builtins.str]] = None,
             policy_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict']]]]] = None,
+            resource_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict', 'outputs.SubscriptionPolicyAssignmentResourceSelector']]]]] = None,
             subscription_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubscriptionPolicyAssignment':
         """
         Get an existing SubscriptionPolicyAssignment resource's state with the given name, id, and optional extra
@@ -724,18 +724,18 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description which should be used for this Policy Assignment.
         :param pulumi.Input[_builtins.str] display_name: The Display Name for this Policy Assignment.
         :param pulumi.Input[_builtins.bool] enforce: Specifies if this Policy should be enforced or not? Defaults to `true`.
-        :param pulumi.Input[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SubscriptionPolicyAssignmentIdentityArgs', 'SubscriptionPolicyAssignmentIdentityArgsDict', 'outputs.SubscriptionPolicyAssignmentIdentity']] identity: An `identity` block as defined below.
                
                > **Note:** The `location` field must also be specified when `identity` is specified.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Policy.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentNonComplianceMessageArgs', 'SubscriptionPolicyAssignmentNonComplianceMessageArgsDict', 'outputs.SubscriptionPolicyAssignmentNonComplianceMessage']]]] non_compliance_messages: One or more `non_compliance_message` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] not_scopes: Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentOverrideArgs', 'SubscriptionPolicyAssignmentOverrideArgsDict', 'outputs.SubscriptionPolicyAssignmentOverride']]]] overrides: One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure)
         :param pulumi.Input[_builtins.str] parameters: A JSON mapping of any Parameters for this Policy.
         :param pulumi.Input[_builtins.str] policy_definition_id: The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionPolicyAssignmentResourceSelectorArgs', 'SubscriptionPolicyAssignmentResourceSelectorArgsDict', 'outputs.SubscriptionPolicyAssignmentResourceSelector']]]] resource_selectors: One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

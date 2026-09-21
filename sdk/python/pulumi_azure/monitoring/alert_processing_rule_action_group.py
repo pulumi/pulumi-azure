@@ -328,12 +328,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_action_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict', 'outputs.AlertProcessingRuleActionGroupCondition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict', 'outputs.AlertProcessingRuleActionGroupSchedule']]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -413,12 +413,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_action_group_ids: Specifies a list of Action Group IDs.
-        :param pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict', 'outputs.AlertProcessingRuleActionGroupCondition']] condition: A `condition` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict', 'outputs.AlertProcessingRuleActionGroupSchedule']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of resource IDs which will be the target of alert processing rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
@@ -517,12 +517,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_action_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict', 'outputs.AlertProcessingRuleActionGroupCondition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict', 'outputs.AlertProcessingRuleActionGroupSchedule']]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -562,12 +562,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             add_action_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']]] = None,
+            condition: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict', 'outputs.AlertProcessingRuleActionGroupCondition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']]] = None,
+            schedule: pulumi.Input[Optional[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict', 'outputs.AlertProcessingRuleActionGroupSchedule']]] = None,
             scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AlertProcessingRuleActionGroup':
         """
@@ -578,12 +578,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] add_action_group_ids: Specifies a list of Action Group IDs.
-        :param pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict', 'outputs.AlertProcessingRuleActionGroupCondition']] condition: A `condition` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict', 'outputs.AlertProcessingRuleActionGroupSchedule']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of resource IDs which will be the target of alert processing rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """

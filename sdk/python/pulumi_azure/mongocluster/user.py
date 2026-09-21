@@ -201,7 +201,7 @@ class User(pulumi.CustomResource):
                  mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict', 'outputs.UserRole']]]]] = None,
                  __props__=None):
         """
         Manages a Mongo Cluster User.
@@ -264,7 +264,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mongo_cluster_id: The ID of the Mongo Cluster where the User should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] object_id: The Object ID of the Entra ID User or Service Principal. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: The principal type for the Mongo Cluster User. Possible values are `user` and `servicePrincipal`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]] roles: One or more `role` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict', 'outputs.UserRole']]]] roles: One or more `role` blocks as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -346,7 +346,7 @@ class User(pulumi.CustomResource):
                  mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  principal_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None,
+                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict', 'outputs.UserRole']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -385,7 +385,7 @@ class User(pulumi.CustomResource):
             mongo_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
             object_id: pulumi.Input[Optional[_builtins.str]] = None,
             principal_type: pulumi.Input[Optional[_builtins.str]] = None,
-            roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]]] = None) -> 'User':
+            roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict', 'outputs.UserRole']]]]] = None) -> 'User':
         """
         Get an existing User resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -397,7 +397,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mongo_cluster_id: The ID of the Mongo Cluster where the User should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] object_id: The Object ID of the Entra ID User or Service Principal. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] principal_type: The principal type for the Mongo Cluster User. Possible values are `user` and `servicePrincipal`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict']]]] roles: One or more `role` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserRoleArgs', 'UserRoleArgsDict', 'outputs.UserRole']]]] roles: One or more `role` blocks as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

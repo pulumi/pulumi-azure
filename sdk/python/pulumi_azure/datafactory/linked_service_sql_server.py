@@ -399,8 +399,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict']]] = None,
-                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict']]] = None,
+                 key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultConnectionString']]] = None,
+                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultPassword']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -479,8 +479,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service SQL Server.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
-        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict']] key_vault_connection_string: A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
-        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultConnectionString']] key_vault_connection_string: A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultPassword']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
         :param pulumi.Input[_builtins.str] user_name: The on-premises Windows authentication user name.
@@ -578,8 +578,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict']]] = None,
-                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict']]] = None,
+                 key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultConnectionString']]] = None,
+                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultPassword']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -621,8 +621,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict']]] = None,
-            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict']]] = None,
+            key_vault_connection_string: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultConnectionString']]] = None,
+            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultPassword']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             user_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedServiceSqlServer':
@@ -639,8 +639,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service SQL Server.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
-        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict']] key_vault_connection_string: A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
-        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultConnectionStringArgs', 'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultConnectionString']] key_vault_connection_string: A `key_vault_connection_string` block as defined below. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required.
+        :param pulumi.Input[Union['LinkedServiceSqlServerKeyVaultPasswordArgs', 'LinkedServiceSqlServerKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSqlServerKeyVaultPassword']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
         :param pulumi.Input[_builtins.str] user_name: The on-premises Windows authentication user name.

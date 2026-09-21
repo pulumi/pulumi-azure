@@ -198,9 +198,9 @@ class RegistryCredentialSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
+                 authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict', 'outputs.RegistryCredentialSetAuthenticationCredentials']]] = None,
                  container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict', 'outputs.RegistryCredentialSetIdentity']]] = None,
                  login_server: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -319,9 +319,9 @@ class RegistryCredentialSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']] authentication_credentials: A `authentication_credentials` block as defined below.
+        :param pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict', 'outputs.RegistryCredentialSetAuthenticationCredentials']] authentication_credentials: A `authentication_credentials` block as defined below.
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
-        :param pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict', 'outputs.RegistryCredentialSetIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] login_server: The login server for the Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         """
@@ -459,9 +459,9 @@ class RegistryCredentialSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
+                 authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict', 'outputs.RegistryCredentialSetAuthenticationCredentials']]] = None,
                  container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict', 'outputs.RegistryCredentialSetIdentity']]] = None,
                  login_server: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -496,9 +496,9 @@ class RegistryCredentialSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']]] = None,
+            authentication_credentials: pulumi.Input[Optional[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict', 'outputs.RegistryCredentialSetAuthenticationCredentials']]] = None,
             container_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict', 'outputs.RegistryCredentialSetIdentity']]] = None,
             login_server: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'RegistryCredentialSet':
         """
@@ -508,9 +508,9 @@ class RegistryCredentialSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict']] authentication_credentials: A `authentication_credentials` block as defined below.
+        :param pulumi.Input[Union['RegistryCredentialSetAuthenticationCredentialsArgs', 'RegistryCredentialSetAuthenticationCredentialsArgsDict', 'outputs.RegistryCredentialSetAuthenticationCredentials']] authentication_credentials: A `authentication_credentials` block as defined below.
         :param pulumi.Input[_builtins.str] container_registry_id: The ID of the Container Registry. Changing this forces a new Container Registry Credential Set to be created.
-        :param pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['RegistryCredentialSetIdentityArgs', 'RegistryCredentialSetIdentityArgsDict', 'outputs.RegistryCredentialSetIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] login_server: The login server for the Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Container Registry Credential Set. Changing this forces a new Container Registry Credential Set to be created.
         """

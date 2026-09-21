@@ -298,11 +298,11 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  creator_role_assignment_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict', 'outputs.ProjectEnvironmentTypeIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict']]]]] = None,
+                 user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict', 'outputs.ProjectEnvironmentTypeUserRoleAssignment']]]]] = None,
                  __props__=None):
         """
         Manages a Dev Center Project Environment Type.
@@ -364,11 +364,11 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_role_assignment_roles: A list of roles to assign to the environment creator.
         :param pulumi.Input[_builtins.str] deployment_target_id: The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict', 'outputs.ProjectEnvironmentTypeIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Environment Type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict']]]] user_role_assignments: A `user_role_assignment` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict', 'outputs.ProjectEnvironmentTypeUserRoleAssignment']]]] user_role_assignments: A `user_role_assignment` block as defined below.
         """
         ...
     @overload
@@ -449,11 +449,11 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  creator_role_assignment_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict', 'outputs.ProjectEnvironmentTypeIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict']]]]] = None,
+                 user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict', 'outputs.ProjectEnvironmentTypeUserRoleAssignment']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -490,11 +490,11 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             creator_role_assignment_roles: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             deployment_target_id: pulumi.Input[Optional[_builtins.str]] = None,
             dev_center_project_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict', 'outputs.ProjectEnvironmentTypeIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict']]]]] = None) -> 'ProjectEnvironmentType':
+            user_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict', 'outputs.ProjectEnvironmentTypeUserRoleAssignment']]]]] = None) -> 'ProjectEnvironmentType':
         """
         Get an existing ProjectEnvironmentType resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -505,11 +505,11 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_role_assignment_roles: A list of roles to assign to the environment creator.
         :param pulumi.Input[_builtins.str] deployment_target_id: The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
         :param pulumi.Input[_builtins.str] dev_center_project_id: The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ProjectEnvironmentTypeIdentityArgs', 'ProjectEnvironmentTypeIdentityArgsDict', 'outputs.ProjectEnvironmentTypeIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dev Center Project Environment Type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict']]]] user_role_assignments: A `user_role_assignment` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentTypeUserRoleAssignmentArgs', 'ProjectEnvironmentTypeUserRoleAssignmentArgsDict', 'outputs.ProjectEnvironmentTypeUserRoleAssignment']]]] user_role_assignments: A `user_role_assignment` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

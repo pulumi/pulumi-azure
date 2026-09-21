@@ -170,7 +170,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  binding_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']]] = None,
+                 launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict', 'outputs.SpringCloudBuildPackBindingLaunch']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  spring_cloud_builder_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -234,7 +234,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        :param pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']] launch: A `launch` block as defined below.
+        :param pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict', 'outputs.SpringCloudBuildPackBindingLaunch']] launch: A `launch` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_builder_id: The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         """
@@ -317,7 +317,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  binding_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']]] = None,
+                 launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict', 'outputs.SpringCloudBuildPackBindingLaunch']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  spring_cloud_builder_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -346,7 +346,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             binding_type: pulumi.Input[Optional[_builtins.str]] = None,
-            launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']]] = None,
+            launch: pulumi.Input[Optional[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict', 'outputs.SpringCloudBuildPackBindingLaunch']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             spring_cloud_builder_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudBuildPackBinding':
         """
@@ -357,7 +357,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        :param pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']] launch: A `launch` block as defined below.
+        :param pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict', 'outputs.SpringCloudBuildPackBindingLaunch']] launch: A `launch` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         :param pulumi.Input[_builtins.str] spring_cloud_builder_id: The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         """

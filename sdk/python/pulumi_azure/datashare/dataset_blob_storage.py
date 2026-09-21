@@ -252,7 +252,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                  file_path: pulumi.Input[Optional[_builtins.str]] = None,
                  folder_path: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
+                 storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict', 'outputs.DatasetBlobStorageStorageAccount']]] = None,
                  __props__=None):
         """
         Manages a Data Share Blob Storage Dataset.
@@ -273,7 +273,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict', 'outputs.DatasetBlobStorageStorageAccount']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -313,7 +313,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                  file_path: pulumi.Input[Optional[_builtins.str]] = None,
                  folder_path: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
+                 storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict', 'outputs.DatasetBlobStorageStorageAccount']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -352,7 +352,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
             file_path: pulumi.Input[Optional[_builtins.str]] = None,
             folder_path: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None) -> 'DatasetBlobStorage':
+            storage_account: pulumi.Input[Optional[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict', 'outputs.DatasetBlobStorageStorageAccount']]] = None) -> 'DatasetBlobStorage':
         """
         Get an existing DatasetBlobStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -366,7 +366,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict', 'outputs.DatasetBlobStorageStorageAccount']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

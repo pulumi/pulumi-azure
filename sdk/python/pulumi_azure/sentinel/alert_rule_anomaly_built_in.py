@@ -575,15 +575,15 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
             frequency: pulumi.Input[Optional[_builtins.str]] = None,
             log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
-            multi_select_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInMultiSelectObservationArgs', 'AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict']]]]] = None,
+            multi_select_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInMultiSelectObservationArgs', 'AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInMultiSelectObservation']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            prioritized_exclude_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs', 'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict']]]]] = None,
-            required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs', 'AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict']]]]] = None,
+            prioritized_exclude_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs', 'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInPrioritizedExcludeObservation']]]]] = None,
+            required_data_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs', 'AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict', 'outputs.AlertRuleAnomalyBuiltInRequiredDataConnector']]]]] = None,
             settings_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-            single_select_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInSingleSelectObservationArgs', 'AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict']]]]] = None,
+            single_select_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInSingleSelectObservationArgs', 'AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInSingleSelectObservation']]]]] = None,
             tactics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            threshold_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInThresholdObservationArgs', 'AlertRuleAnomalyBuiltInThresholdObservationArgsDict']]]]] = None) -> 'AlertRuleAnomalyBuiltIn':
+            threshold_observations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInThresholdObservationArgs', 'AlertRuleAnomalyBuiltInThresholdObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInThresholdObservation']]]]] = None) -> 'AlertRuleAnomalyBuiltIn':
         """
         Get an existing AlertRuleAnomalyBuiltIn resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -601,15 +601,15 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] frequency: The frequency the Anomaly Alert Rule will be run.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         :param pulumi.Input[_builtins.str] mode: mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInMultiSelectObservationArgs', 'AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInMultiSelectObservationArgs', 'AlertRuleAnomalyBuiltInMultiSelectObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInMultiSelectObservation']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The Name of the built-in Anomaly Alert Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs', 'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs', 'AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict']]]] required_data_connectors: A `required_data_connector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs', 'AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInPrioritizedExcludeObservation']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInRequiredDataConnectorArgs', 'AlertRuleAnomalyBuiltInRequiredDataConnectorArgsDict', 'outputs.AlertRuleAnomalyBuiltInRequiredDataConnector']]]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[_builtins.str] settings_definition_id: The ID of the anomaly settings definition Id.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInSingleSelectObservationArgs', 'AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInSingleSelectObservationArgs', 'AlertRuleAnomalyBuiltInSingleSelectObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInSingleSelectObservation']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tactics: A list of categories of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] techniques: A list of techniques of attacks by which to classify the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInThresholdObservationArgs', 'AlertRuleAnomalyBuiltInThresholdObservationArgsDict']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyBuiltInThresholdObservationArgs', 'AlertRuleAnomalyBuiltInThresholdObservationArgsDict', 'outputs.AlertRuleAnomalyBuiltInThresholdObservation']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

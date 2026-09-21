@@ -293,7 +293,7 @@ class Spacecraft(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]]] = None,
+                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict', 'outputs.SpacecraftLink']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  norad_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -356,7 +356,7 @@ class Spacecraft(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict', 'outputs.SpacecraftLink']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] norad_id: NORAD ID of the Spacecraft.
@@ -438,7 +438,7 @@ class Spacecraft(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]]] = None,
+                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict', 'outputs.SpacecraftLink']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  norad_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -483,7 +483,7 @@ class Spacecraft(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]]] = None,
+            links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict', 'outputs.SpacecraftLink']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             norad_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -498,7 +498,7 @@ class Spacecraft(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpacecraftLinkArgs', 'SpacecraftLinkArgsDict', 'outputs.SpacecraftLink']]]] links: A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the Spacecraft exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] norad_id: NORAD ID of the Spacecraft.

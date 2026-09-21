@@ -362,7 +362,7 @@ class LinkedService(pulumi.CustomResource):
                  additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration_runtime: pulumi.Input[Optional[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict']]] = None,
+                 integration_runtime: pulumi.Input[Optional[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict', 'outputs.LinkedServiceIntegrationRuntime']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -439,7 +439,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[_builtins.str] description: The description for the Synapse Linked Service.
-        :param pulumi.Input[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict']] integration_runtime: A `integration_runtime` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict', 'outputs.LinkedServiceIntegrationRuntime']] integration_runtime: A `integration_runtime` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.
@@ -543,7 +543,7 @@ class LinkedService(pulumi.CustomResource):
                  additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integration_runtime: pulumi.Input[Optional[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict']]] = None,
+                 integration_runtime: pulumi.Input[Optional[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict', 'outputs.LinkedServiceIntegrationRuntime']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -586,7 +586,7 @@ class LinkedService(pulumi.CustomResource):
             additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            integration_runtime: pulumi.Input[Optional[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict']]] = None,
+            integration_runtime: pulumi.Input[Optional[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict', 'outputs.LinkedServiceIntegrationRuntime']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -602,7 +602,7 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Synapse Linked Service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Synapse Linked Service.
         :param pulumi.Input[_builtins.str] description: The description for the Synapse Linked Service.
-        :param pulumi.Input[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict']] integration_runtime: A `integration_runtime` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceIntegrationRuntimeArgs', 'LinkedServiceIntegrationRuntimeArgsDict', 'outputs.LinkedServiceIntegrationRuntime']] integration_runtime: A `integration_runtime` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse Linked Service. Changing this forces a new Synapse Linked Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Synapse Linked Service.
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Linked Service with. Changing this forces a new Synapse Linked Service to be created.

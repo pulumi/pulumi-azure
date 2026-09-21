@@ -700,23 +700,23 @@ class IoTHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']]] = None,
-                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]]] = None,
-                 enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]]] = None,
+                 cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict', 'outputs.IoTHubCloudToDevice']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict', 'outputs.IoTHubEndpoint']]]]] = None,
+                 enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict', 'outputs.IoTHubEnrichment']]]]] = None,
                  event_hub_partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  event_hub_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']]] = None,
-                 file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']]] = None,
+                 fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict', 'outputs.IoTHubFallbackRoute']]] = None,
+                 file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict', 'outputs.IoTHubFileUpload']]] = None,
+                 identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict', 'outputs.IoTHubIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]]] = None,
+                 network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict', 'outputs.IoTHubNetworkRuleSet']]]]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]]] = None,
-                 sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict', 'outputs.IoTHubRoute']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict', 'outputs.IoTHubSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -842,20 +842,20 @@ class IoTHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict', 'outputs.IoTHubEndpoint']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[_builtins.int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         :param pulumi.Input[_builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
-        :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict', 'outputs.IoTHubFallbackRoute']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
-        :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
-        :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict', 'outputs.IoTHubFileUpload']] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict', 'outputs.IoTHubIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict', 'outputs.IoTHubNetworkRuleSet']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict', 'outputs.IoTHubSku']] sku: A `sku` block as defined below.
         """
         ...
     @overload
@@ -999,23 +999,23 @@ class IoTHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']]] = None,
-                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]]] = None,
-                 enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]]] = None,
+                 cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict', 'outputs.IoTHubCloudToDevice']]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict', 'outputs.IoTHubEndpoint']]]]] = None,
+                 enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict', 'outputs.IoTHubEnrichment']]]]] = None,
                  event_hub_partition_count: pulumi.Input[Optional[_builtins.int]] = None,
                  event_hub_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']]] = None,
-                 file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']]] = None,
+                 fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict', 'outputs.IoTHubFallbackRoute']]] = None,
+                 file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict', 'outputs.IoTHubFileUpload']]] = None,
+                 identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict', 'outputs.IoTHubIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]]] = None,
+                 network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict', 'outputs.IoTHubNetworkRuleSet']]]]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]]] = None,
-                 sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']]] = None,
+                 routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict', 'outputs.IoTHubRoute']]]]] = None,
+                 sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict', 'outputs.IoTHubSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1066,9 +1066,9 @@ class IoTHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']]] = None,
-            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]]] = None,
-            enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]]] = None,
+            cloud_to_device: pulumi.Input[Optional[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict', 'outputs.IoTHubCloudToDevice']]] = None,
+            endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict', 'outputs.IoTHubEndpoint']]]]] = None,
+            enrichments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict', 'outputs.IoTHubEnrichment']]]]] = None,
             event_hub_events_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             event_hub_events_namespace: pulumi.Input[Optional[_builtins.str]] = None,
             event_hub_events_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1076,20 +1076,20 @@ class IoTHub(pulumi.CustomResource):
             event_hub_operations_path: pulumi.Input[Optional[_builtins.str]] = None,
             event_hub_partition_count: pulumi.Input[Optional[_builtins.int]] = None,
             event_hub_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-            fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']]] = None,
-            file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']]] = None,
+            fallback_route: pulumi.Input[Optional[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict', 'outputs.IoTHubFallbackRoute']]] = None,
+            file_upload: pulumi.Input[Optional[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict', 'outputs.IoTHubFileUpload']]] = None,
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict', 'outputs.IoTHubIdentity']]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]]] = None,
+            network_rule_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict', 'outputs.IoTHubNetworkRuleSet']]]]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]]] = None,
-            shared_access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict']]]]] = None,
-            sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']]] = None,
+            routes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict', 'outputs.IoTHubRoute']]]]] = None,
+            shared_access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict', 'outputs.IoTHubSharedAccessPolicy']]]]] = None,
+            sku: pulumi.Input[Optional[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict', 'outputs.IoTHubSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'IoTHub':
         """
@@ -1099,7 +1099,7 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict', 'outputs.IoTHubEndpoint']]]] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[_builtins.str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[_builtins.str] event_hub_events_path: The EventHub compatible path for events data
@@ -1107,19 +1107,19 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] event_hub_operations_path: The EventHub compatible path for operational data
         :param pulumi.Input[_builtins.int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         :param pulumi.Input[_builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
-        :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict', 'outputs.IoTHubFallbackRoute']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
                > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
-        :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
+        :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict', 'outputs.IoTHubFileUpload']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the IotHub Resource.
-        :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict', 'outputs.IoTHubIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict', 'outputs.IoTHubNetworkRuleSet']]]] network_rule_sets: A `network_rule_set` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
-        :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict', 'outputs.IoTHubSharedAccessPolicy']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
+        :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict', 'outputs.IoTHubSku']] sku: A `sku` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

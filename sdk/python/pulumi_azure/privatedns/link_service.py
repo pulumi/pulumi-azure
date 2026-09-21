@@ -455,7 +455,7 @@ class LinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
+                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict', 'outputs.LinkServiceNatIpConfiguration']]]]] = None,
                  proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -550,7 +550,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict', 'outputs.LinkServiceNatIpConfiguration']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[_builtins.bool] proxy_protocol_enabled: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -667,7 +667,7 @@ class LinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
+                 nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict', 'outputs.LinkServiceNatIpConfiguration']]]]] = None,
                  proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -716,7 +716,7 @@ class LinkService(pulumi.CustomResource):
             load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
+            nat_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict', 'outputs.LinkServiceNatIpConfiguration']]]]] = None,
             proxy_protocol_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -735,7 +735,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict', 'outputs.LinkServiceNatIpConfiguration']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[_builtins.bool] proxy_protocol_enabled: Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.

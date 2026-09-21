@@ -264,10 +264,10 @@ class RoleManagementPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict']]] = None,
-                 active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict']]] = None,
-                 eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict']]] = None,
-                 notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']]] = None,
+                 activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict', 'outputs.RoleManagementPolicyActivationRules']]] = None,
+                 active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyActiveAssignmentRules']]] = None,
+                 eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyEligibleAssignmentRules']]] = None,
+                 notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict', 'outputs.RoleManagementPolicyNotificationRules']]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -327,10 +327,10 @@ class RoleManagementPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict']] activation_rules: An `activation_rules` block as defined below.
-        :param pulumi.Input[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict']] active_assignment_rules: An `active_assignment_rules` block as defined below.
-        :param pulumi.Input[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict']] eligible_assignment_rules: An `eligible_assignment_rules` block as defined below.
-        :param pulumi.Input[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']] notification_rules: A `notification_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict', 'outputs.RoleManagementPolicyActivationRules']] activation_rules: An `activation_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyActiveAssignmentRules']] active_assignment_rules: An `active_assignment_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyEligibleAssignmentRules']] eligible_assignment_rules: An `eligible_assignment_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict', 'outputs.RoleManagementPolicyNotificationRules']] notification_rules: A `notification_rules` block as defined below.
         :param pulumi.Input[_builtins.str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """
@@ -409,10 +409,10 @@ class RoleManagementPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict']]] = None,
-                 active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict']]] = None,
-                 eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict']]] = None,
-                 notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']]] = None,
+                 activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict', 'outputs.RoleManagementPolicyActivationRules']]] = None,
+                 active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyActiveAssignmentRules']]] = None,
+                 eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyEligibleAssignmentRules']]] = None,
+                 notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict', 'outputs.RoleManagementPolicyNotificationRules']]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -446,12 +446,12 @@ class RoleManagementPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict']]] = None,
-            active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict']]] = None,
+            activation_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict', 'outputs.RoleManagementPolicyActivationRules']]] = None,
+            active_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyActiveAssignmentRules']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict']]] = None,
+            eligible_assignment_rules: pulumi.Input[Optional[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyEligibleAssignmentRules']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']]] = None,
+            notification_rules: pulumi.Input[Optional[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict', 'outputs.RoleManagementPolicyNotificationRules']]] = None,
             role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
             scope: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoleManagementPolicy':
         """
@@ -461,12 +461,12 @@ class RoleManagementPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict']] activation_rules: An `activation_rules` block as defined below.
-        :param pulumi.Input[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict']] active_assignment_rules: An `active_assignment_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyActivationRulesArgs', 'RoleManagementPolicyActivationRulesArgsDict', 'outputs.RoleManagementPolicyActivationRules']] activation_rules: An `activation_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyActiveAssignmentRulesArgs', 'RoleManagementPolicyActiveAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyActiveAssignmentRules']] active_assignment_rules: An `active_assignment_rules` block as defined below.
         :param pulumi.Input[_builtins.str] description: (String) The description of this policy.
-        :param pulumi.Input[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict']] eligible_assignment_rules: An `eligible_assignment_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyEligibleAssignmentRulesArgs', 'RoleManagementPolicyEligibleAssignmentRulesArgsDict', 'outputs.RoleManagementPolicyEligibleAssignmentRules']] eligible_assignment_rules: An `eligible_assignment_rules` block as defined below.
         :param pulumi.Input[_builtins.str] name: (String) The name of this policy, which is typically a UUID and may change over time.
-        :param pulumi.Input[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict']] notification_rules: A `notification_rules` block as defined below.
+        :param pulumi.Input[Union['RoleManagementPolicyNotificationRulesArgs', 'RoleManagementPolicyNotificationRulesArgsDict', 'outputs.RoleManagementPolicyNotificationRules']] notification_rules: A `notification_rules` block as defined below.
         :param pulumi.Input[_builtins.str] role_definition_id: The scoped Role Definition ID of the role for which this policy will apply. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scope: The scope to which this Role Management Policy will apply. Can refer to a management group, a subscription, a resource group or a resource. Changing this forces a new resource to be created.
         """

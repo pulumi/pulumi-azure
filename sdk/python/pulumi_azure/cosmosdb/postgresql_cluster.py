@@ -832,7 +832,7 @@ class PostgresqlCluster(pulumi.CustomResource):
                  coordinator_vcore_count: pulumi.Input[Optional[_builtins.int]] = None,
                  ha_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict', 'outputs.PostgresqlClusterMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_count: pulumi.Input[Optional[_builtins.int]] = None,
                  node_public_ip_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -900,7 +900,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[_builtins.bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict', 'outputs.PostgresqlClusterMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] node_count: The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         :param pulumi.Input[_builtins.bool] node_public_ip_access_enabled: Is public access enabled on worker nodes. Defaults to `false`.
@@ -983,7 +983,7 @@ class PostgresqlCluster(pulumi.CustomResource):
                  coordinator_vcore_count: pulumi.Input[Optional[_builtins.int]] = None,
                  ha_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict', 'outputs.PostgresqlClusterMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_count: pulumi.Input[Optional[_builtins.int]] = None,
                  node_public_ip_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1057,7 +1057,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             earliest_restore_time: pulumi.Input[Optional[_builtins.str]] = None,
             ha_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict']]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict', 'outputs.PostgresqlClusterMaintenanceWindow']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             node_count: pulumi.Input[Optional[_builtins.int]] = None,
             node_public_ip_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1067,7 +1067,7 @@ class PostgresqlCluster(pulumi.CustomResource):
             point_in_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
             preferred_primary_zone: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresqlClusterServerArgs', 'PostgresqlClusterServerArgsDict']]]]] = None,
+            servers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresqlClusterServerArgs', 'PostgresqlClusterServerArgsDict', 'outputs.PostgresqlClusterServer']]]]] = None,
             shards_on_coordinator_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             source_location: pulumi.Input[Optional[_builtins.str]] = None,
             source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1093,7 +1093,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] earliest_restore_time: The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
         :param pulumi.Input[_builtins.bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['PostgresqlClusterMaintenanceWindowArgs', 'PostgresqlClusterMaintenanceWindowArgsDict', 'outputs.PostgresqlClusterMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] node_count: The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         :param pulumi.Input[_builtins.bool] node_public_ip_access_enabled: Is public access enabled on worker nodes. Defaults to `false`.
@@ -1103,7 +1103,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] point_in_time_in_utc: The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] preferred_primary_zone: The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PostgresqlClusterServerArgs', 'PostgresqlClusterServerArgsDict']]]] servers: A `servers` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PostgresqlClusterServerArgs', 'PostgresqlClusterServerArgsDict', 'outputs.PostgresqlClusterServer']]]] servers: A `servers` block as defined below.
         :param pulumi.Input[_builtins.bool] shards_on_coordinator_enabled: Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster.
         :param pulumi.Input[_builtins.str] source_location: The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_resource_id: The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created.

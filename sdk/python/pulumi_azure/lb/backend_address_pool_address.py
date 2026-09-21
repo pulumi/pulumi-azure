@@ -396,7 +396,7 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             backend_address_ip_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
             backend_address_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
-            inbound_nat_rule_port_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict']]]]] = None,
+            inbound_nat_rule_port_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict', 'outputs.BackendAddressPoolAddressInboundNatRulePortMapping']]]]] = None,
             ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackendAddressPoolAddress':
@@ -411,7 +411,7 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
                
                > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         :param pulumi.Input[_builtins.str] backend_address_pool_id: The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict']]]] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolAddressInboundNatRulePortMappingArgs', 'BackendAddressPoolAddressInboundNatRulePortMappingArgsDict', 'outputs.BackendAddressPoolAddressInboundNatRulePortMapping']]]] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
         :param pulumi.Input[_builtins.str] ip_address: The Static IP Address which should be allocated to this Backend Address Pool.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.

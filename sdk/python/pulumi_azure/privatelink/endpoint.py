@@ -409,11 +409,11 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
-                 private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
+                 private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']]] = None,
+                 private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict', 'outputs.EndpointPrivateServiceConnection']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -592,11 +592,11 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
-        :param pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']] private_service_connection: A `private_service_connection` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict', 'outputs.EndpointPrivateServiceConnection']] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -794,11 +794,11 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
-                 private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
+                 private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']]] = None,
+                 private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict', 'outputs.EndpointPrivateServiceConnection']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -840,16 +840,16 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]]] = None,
+            custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict', 'outputs.EndpointCustomDnsConfig']]]]] = None,
             custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
-            private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict']]]]] = None,
-            private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
-            private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]]] = None,
+            private_dns_zone_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict', 'outputs.EndpointPrivateDnsZoneConfig']]]]] = None,
+            private_dns_zone_group: pulumi.Input[Optional[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']]] = None,
+            private_service_connection: pulumi.Input[Optional[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict', 'outputs.EndpointPrivateServiceConnection']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Endpoint':
@@ -860,16 +860,16 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]] custom_dns_configs: A `custom_dns_configs` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict', 'outputs.EndpointCustomDnsConfig']]]] custom_dns_configs: A `custom_dns_configs` block as defined below.
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict', 'outputs.EndpointIpConfiguration']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]] network_interfaces: A `network_interface` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict']]]] private_dns_zone_configs: A `private_dns_zone_configs` block as defined below.
-        :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
-        :param pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']] private_service_connection: A `private_service_connection` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict', 'outputs.EndpointNetworkInterface']]]] network_interfaces: A `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict', 'outputs.EndpointPrivateDnsZoneConfig']]]] private_dns_zone_configs: A `private_dns_zone_configs` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict', 'outputs.EndpointPrivateDnsZoneGroup']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict', 'outputs.EndpointPrivateServiceConnection']] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.

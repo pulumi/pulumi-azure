@@ -514,11 +514,11 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict', 'outputs.VaultEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict', 'outputs.VaultIdentity']]] = None,
                  immutability: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
+                 monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict', 'outputs.VaultMonitoring']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -568,15 +568,15 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
                
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        :param pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']] encryption: An `encryption` block as defined below. Required with `identity`.
+        :param pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict', 'outputs.VaultEncryption']] encryption: An `encryption` block as defined below. Required with `identity`.
                
                > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        :param pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict', 'outputs.VaultIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
                
                > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']] monitoring: A `monitoring` block as defined below.
+        :param pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict', 'outputs.VaultMonitoring']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
@@ -642,11 +642,11 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict', 'outputs.VaultEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict', 'outputs.VaultIdentity']]] = None,
                  immutability: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
+                 monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict', 'outputs.VaultMonitoring']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -693,11 +693,11 @@ class Vault(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             classic_vmware_replication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             cross_region_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict', 'outputs.VaultEncryption']]] = None,
+            identity: pulumi.Input[Optional[Union['VaultIdentityArgs', 'VaultIdentityArgsDict', 'outputs.VaultIdentity']]] = None,
             immutability: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']]] = None,
+            monitoring: pulumi.Input[Optional[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict', 'outputs.VaultMonitoring']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -716,15 +716,15 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
                
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
-        :param pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']] encryption: An `encryption` block as defined below. Required with `identity`.
+        :param pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict', 'outputs.VaultEncryption']] encryption: An `encryption` block as defined below. Required with `identity`.
                
                > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
-        :param pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict', 'outputs.VaultIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
                
                > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict']] monitoring: A `monitoring` block as defined below.
+        :param pulumi.Input[Union['VaultMonitoringArgs', 'VaultMonitoringArgsDict', 'outputs.VaultMonitoring']] monitoring: A `monitoring` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is it enabled to access the vault from public networks. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.

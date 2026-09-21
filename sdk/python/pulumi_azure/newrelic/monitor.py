@@ -441,15 +441,15 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
                  ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -522,7 +522,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
-        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -530,9 +530,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
-        :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         ...
@@ -622,15 +622,15 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
                  ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None,
                  user_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -673,15 +673,15 @@ class Monitor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
             account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
             ingestion_key: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             org_creation_source: pulumi.Input[Optional[_builtins.str]] = None,
             organization_id: pulumi.Input[Optional[_builtins.str]] = None,
-            plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']]] = None,
+            plan: pulumi.Input[Optional[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None,
             user_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
@@ -694,7 +694,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
-        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']] identity: An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -702,9 +702,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
                
                > **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
-        :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[Union['MonitorPlanArgs', 'MonitorPlanArgsDict', 'outputs.MonitorPlan']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[_builtins.str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

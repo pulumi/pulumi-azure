@@ -328,7 +328,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']]] = None,
+                 criteria: pulumi.Input[Optional[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict', 'outputs.ScheduledQueryRulesLogCriteria']]] = None,
                  data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -421,7 +421,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict', 'outputs.ScheduledQueryRulesLogCriteria']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -533,7 +533,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']]] = None,
+                 criteria: pulumi.Input[Optional[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict', 'outputs.ScheduledQueryRulesLogCriteria']]] = None,
                  data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -576,7 +576,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorized_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            criteria: pulumi.Input[Optional[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']]] = None,
+            criteria: pulumi.Input[Optional[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict', 'outputs.ScheduledQueryRulesLogCriteria']]] = None,
             data_source_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -592,7 +592,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesLogCriteriaArgs', 'ScheduledQueryRulesLogCriteriaArgsDict', 'outputs.ScheduledQueryRulesLogCriteria']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[_builtins.str] data_source_id: The resource URI over which log search query is to be run. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: The description of the scheduled query rule.
         :param pulumi.Input[_builtins.bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.

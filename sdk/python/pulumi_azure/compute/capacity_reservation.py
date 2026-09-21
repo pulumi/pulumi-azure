@@ -202,7 +202,7 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict', 'outputs.CapacityReservationSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -251,7 +251,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict', 'outputs.CapacityReservationSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """
@@ -319,7 +319,7 @@ class CapacityReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict', 'outputs.CapacityReservationSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -352,7 +352,7 @@ class CapacityReservation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict', 'outputs.CapacityReservationSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             zone: pulumi.Input[Optional[_builtins.str]] = None) -> 'CapacityReservation':
         """
@@ -364,7 +364,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['CapacityReservationSkuArgs', 'CapacityReservationSkuArgsDict', 'outputs.CapacityReservationSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """

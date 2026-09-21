@@ -236,7 +236,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict', 'outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission']]]]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -287,7 +287,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[_builtins.str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[_builtins.str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]] permissions: One or more `permission` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict', 'outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission']]]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[_builtins.str] role_name: Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         ...
@@ -357,7 +357,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict', 'outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission']]]]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -390,7 +390,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             managed_hsm_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict', 'outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission']]]]] = None,
             resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
             role_name: pulumi.Input[Optional[_builtins.str]] = None,
             role_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedHardwareSecurityModuleRoleDefinition':
@@ -404,7 +404,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[_builtins.str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[_builtins.str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]] permissions: One or more `permission` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict', 'outputs.ManagedHardwareSecurityModuleRoleDefinitionPermission']]]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_manager_id: The ID of the role definition resource without Key Vault base URL.
         :param pulumi.Input[_builtins.str] role_name: Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[_builtins.str] role_type: The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.

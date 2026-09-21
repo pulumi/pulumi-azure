@@ -233,7 +233,7 @@ class ChannelFacebook(pulumi.CustomResource):
                  facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict', 'outputs.ChannelFacebookPage']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -284,7 +284,7 @@ class ChannelFacebook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] facebook_application_id: The Facebook Application ID for the Facebook Channel.
         :param pulumi.Input[_builtins.str] facebook_application_secret: The Facebook Application Secret for the Facebook Channel.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]] pages: One or more `page` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict', 'outputs.ChannelFacebookPage']]]] pages: One or more `page` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -354,7 +354,7 @@ class ChannelFacebook(pulumi.CustomResource):
                  facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
+                 pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict', 'outputs.ChannelFacebookPage']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -397,7 +397,7 @@ class ChannelFacebook(pulumi.CustomResource):
             facebook_application_id: pulumi.Input[Optional[_builtins.str]] = None,
             facebook_application_secret: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]]] = None,
+            pages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict', 'outputs.ChannelFacebookPage']]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelFacebook':
         """
         Get an existing ChannelFacebook resource's state with the given name, id, and optional extra
@@ -410,7 +410,7 @@ class ChannelFacebook(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] facebook_application_id: The Facebook Application ID for the Facebook Channel.
         :param pulumi.Input[_builtins.str] facebook_application_secret: The Facebook Application Secret for the Facebook Channel.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict']]]] pages: One or more `page` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelFacebookPageArgs', 'ChannelFacebookPageArgsDict', 'outputs.ChannelFacebookPage']]]] pages: One or more `page` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

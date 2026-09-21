@@ -170,7 +170,7 @@ class PartnerConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
+                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict', 'outputs.PartnerConfigurationPartnerAuthorization']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -218,7 +218,7 @@ class PartnerConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]] partner_authorizations: One or more `partner_authorization` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict', 'outputs.PartnerConfigurationPartnerAuthorization']]]] partner_authorizations: One or more `partner_authorization` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Event Grid Partner Configuration.
         """
@@ -285,7 +285,7 @@ class PartnerConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
+                 partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict', 'outputs.PartnerConfigurationPartnerAuthorization']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -314,7 +314,7 @@ class PartnerConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_maximum_expiration_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-            partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]]] = None,
+            partner_authorizations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict', 'outputs.PartnerConfigurationPartnerAuthorization']]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'PartnerConfiguration':
         """
@@ -325,7 +325,7 @@ class PartnerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] default_maximum_expiration_time_in_days: Time used to validate the authorization expiration time for each authorized partner. Defaults to `7`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict']]]] partner_authorizations: One or more `partner_authorization` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerConfigurationPartnerAuthorizationArgs', 'PartnerConfigurationPartnerAuthorizationArgsDict', 'outputs.PartnerConfigurationPartnerAuthorization']]]] partner_authorizations: One or more `partner_authorization` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Event Grid Partner Configuration should exist. Changing this forces a new Event Grid Partner Configuration to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Event Grid Partner Configuration.
         """

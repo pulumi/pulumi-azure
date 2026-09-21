@@ -432,7 +432,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
                  instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  language_framework: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quota: pulumi.Input[Optional[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict']]] = None,
+                 quota: pulumi.Input[Optional[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict', 'outputs.SpringCloudContainerDeploymentQuota']]] = None,
                  server: pulumi.Input[Optional[_builtins.str]] = None,
                  spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -498,7 +498,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[_builtins.str] language_framework: Specifies the language framework of the container image. The only possible value is `springboot`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
-        :param pulumi.Input[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict']] quota: A `quota` block as defined below.
+        :param pulumi.Input[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict', 'outputs.SpringCloudContainerDeploymentQuota']] quota: A `quota` block as defined below.
         :param pulumi.Input[_builtins.str] server: The name of the registry that contains the container image.
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
         """
@@ -583,7 +583,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
                  instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  language_framework: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quota: pulumi.Input[Optional[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict']]] = None,
+                 quota: pulumi.Input[Optional[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict', 'outputs.SpringCloudContainerDeploymentQuota']]] = None,
                  server: pulumi.Input[Optional[_builtins.str]] = None,
                  spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -632,7 +632,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
             instance_count: pulumi.Input[Optional[_builtins.int]] = None,
             language_framework: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            quota: pulumi.Input[Optional[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict']]] = None,
+            quota: pulumi.Input[Optional[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict', 'outputs.SpringCloudContainerDeploymentQuota']]] = None,
             server: pulumi.Input[Optional[_builtins.str]] = None,
             spring_cloud_app_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'SpringCloudContainerDeployment':
         """
@@ -651,7 +651,7 @@ class SpringCloudContainerDeployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[_builtins.str] language_framework: Specifies the language framework of the container image. The only possible value is `springboot`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
-        :param pulumi.Input[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict']] quota: A `quota` block as defined below.
+        :param pulumi.Input[Union['SpringCloudContainerDeploymentQuotaArgs', 'SpringCloudContainerDeploymentQuotaArgsDict', 'outputs.SpringCloudContainerDeploymentQuota']] quota: A `quota` block as defined below.
         :param pulumi.Input[_builtins.str] server: The name of the registry that contains the container image.
         :param pulumi.Input[_builtins.str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
         """

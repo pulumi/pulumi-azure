@@ -1255,20 +1255,20 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
+                 analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict', 'outputs.AccountAnalyticalStorage']]] = None,
                  analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+                 backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict', 'outputs.AccountBackup']]] = None,
                  burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
-                 capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-                 consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
-                 cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict', 'outputs.AccountCapability']]]]] = None,
+                 capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict', 'outputs.AccountCapacity']]] = None,
+                 consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict', 'outputs.AccountConsistencyPolicy']]] = None,
+                 cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict', 'outputs.AccountCorsRule']]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict', 'outputs.AccountGeoLocation']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1287,9 +1287,9 @@ class Account(pulumi.CustomResource):
                  partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
+                 restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict', 'outputs.AccountRestore']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict', 'outputs.AccountVirtualNetworkRule']]]]] = None,
                  __props__=None):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
@@ -1400,8 +1400,8 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']] analytical_storage: An `analytical_storage` block as defined below.
-        :param pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']] capacity: A `capacity` block as defined below.
+        :param pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict', 'outputs.AccountAnalyticalStorage']] analytical_storage: An `analytical_storage` block as defined below.
+        :param pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict', 'outputs.AccountCapacity']] capacity: A `capacity` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
@@ -1544,20 +1544,20 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
+                 analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict', 'outputs.AccountAnalyticalStorage']]] = None,
                  analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+                 backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict', 'outputs.AccountBackup']]] = None,
                  burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
-                 capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-                 consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
-                 cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
+                 capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict', 'outputs.AccountCapability']]]]] = None,
+                 capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict', 'outputs.AccountCapacity']]] = None,
+                 consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict', 'outputs.AccountConsistencyPolicy']]] = None,
+                 cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict', 'outputs.AccountCorsRule']]] = None,
                  create_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
                  free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict', 'outputs.AccountGeoLocation']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1576,9 +1576,9 @@ class Account(pulumi.CustomResource):
                  partition_merge_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
+                 restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict', 'outputs.AccountRestore']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
+                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict', 'outputs.AccountVirtualNetworkRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1660,21 +1660,21 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_key_metadata_writes_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']]] = None,
+            analytical_storage: pulumi.Input[Optional[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict', 'outputs.AccountAnalyticalStorage']]] = None,
             analytical_storage_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             automatic_failover_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict']]] = None,
+            backup: pulumi.Input[Optional[Union['AccountBackupArgs', 'AccountBackupArgsDict', 'outputs.AccountBackup']]] = None,
             burst_capacity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict']]]]] = None,
-            capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']]] = None,
-            consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict']]] = None,
-            cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict']]] = None,
+            capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountCapabilityArgs', 'AccountCapabilityArgsDict', 'outputs.AccountCapability']]]]] = None,
+            capacity: pulumi.Input[Optional[Union['AccountCapacityArgs', 'AccountCapacityArgsDict', 'outputs.AccountCapacity']]] = None,
+            consistency_policy: pulumi.Input[Optional[Union['AccountConsistencyPolicyArgs', 'AccountConsistencyPolicyArgsDict', 'outputs.AccountConsistencyPolicy']]] = None,
+            cors_rule: pulumi.Input[Optional[Union['AccountCorsRuleArgs', 'AccountCorsRuleArgsDict', 'outputs.AccountCorsRule']]] = None,
             create_mode: pulumi.Input[Optional[_builtins.str]] = None,
             default_identity_type: pulumi.Input[Optional[_builtins.str]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             free_tier_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict']]]]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            geo_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountGeoLocationArgs', 'AccountGeoLocationArgsDict', 'outputs.AccountGeoLocation']]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             ip_range_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1700,7 +1700,7 @@ class Account(pulumi.CustomResource):
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             read_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict']]] = None,
+            restore: pulumi.Input[Optional[Union['AccountRestoreArgs', 'AccountRestoreArgsDict', 'outputs.AccountRestore']]] = None,
             secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_mongodb_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_readonly_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1708,7 +1708,7 @@ class Account(pulumi.CustomResource):
             secondary_readonly_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             secondary_sql_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict']]]]] = None,
+            virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountVirtualNetworkRuleArgs', 'AccountVirtualNetworkRuleArgsDict', 'outputs.AccountVirtualNetworkRule']]]]] = None,
             write_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -1717,8 +1717,8 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict']] analytical_storage: An `analytical_storage` block as defined below.
-        :param pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict']] capacity: A `capacity` block as defined below.
+        :param pulumi.Input[Union['AccountAnalyticalStorageArgs', 'AccountAnalyticalStorageArgsDict', 'outputs.AccountAnalyticalStorage']] analytical_storage: An `analytical_storage` block as defined below.
+        :param pulumi.Input[Union['AccountCapacityArgs', 'AccountCapacityArgsDict', 'outputs.AccountCapacity']] capacity: A `capacity` block as defined below.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the CosmosDB Account. Possible values are `Default` and `Restore`. Changing this forces a new resource to be created.
                
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.

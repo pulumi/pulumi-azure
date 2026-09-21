@@ -1168,28 +1168,28 @@ class LinuxWebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict', 'outputs.LinuxWebAppAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict', 'outputs.LinuxWebAppBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict', 'outputs.LinuxWebAppLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
-                 sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict', 'outputs.LinuxWebAppSiteConfig']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict', 'outputs.LinuxWebAppStickySettings']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1242,32 +1242,32 @@ class LinuxWebApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict', 'outputs.LinuxWebAppAuthSettings']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict', 'outputs.LinuxWebAppBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
-        :param pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict', 'outputs.LinuxWebAppLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
                
                > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
-        :param pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict', 'outputs.LinuxWebAppSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict', 'outputs.LinuxWebAppStickySettings']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
@@ -1349,28 +1349,28 @@ class LinuxWebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict', 'outputs.LinuxWebAppAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict', 'outputs.LinuxWebAppBackup']]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
+                 logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict', 'outputs.LinuxWebAppLogs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
-                 sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict', 'outputs.LinuxWebAppSiteConfig']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict', 'outputs.LinuxWebAppStickySettings']]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1443,25 +1443,25 @@ class LinuxWebApp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']]] = None,
-            backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']]] = None,
+            auth_settings: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict', 'outputs.LinuxWebAppAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict', 'outputs.LinuxWebAppBackup']]] = None,
             client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
             client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']]] = None,
             key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']]] = None,
+            logs: pulumi.Input[Optional[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict', 'outputs.LinuxWebAppLogs']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outbound_ip_address_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1470,10 +1470,10 @@ class LinuxWebApp(pulumi.CustomResource):
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSiteCredentialArgs', 'LinuxWebAppSiteCredentialArgsDict']]]]] = None,
-            sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']]] = None,
-            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict', 'outputs.LinuxWebAppSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppSiteCredentialArgs', 'LinuxWebAppSiteCredentialArgsDict', 'outputs.LinuxWebAppSiteCredential']]]]] = None,
+            sticky_settings: pulumi.Input[Optional[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict', 'outputs.LinuxWebAppStickySettings']]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_network_backup_restore_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1488,27 +1488,27 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs of App Settings.
-        :param pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppAuthSettingsArgs', 'LinuxWebAppAuthSettingsArgsDict', 'outputs.LinuxWebAppAuthSettings']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppAuthSettingsV2Args', 'LinuxWebAppAuthSettingsV2ArgsDict', 'outputs.LinuxWebAppAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppBackupArgs', 'LinuxWebAppBackupArgsDict', 'outputs.LinuxWebAppBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_certificate_enabled` is `false`. Defaults to `Required`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppConnectionStringArgs', 'LinuxWebAppConnectionStringArgsDict', 'outputs.LinuxWebAppConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Web App.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by App Service.
         :param pulumi.Input[_builtins.bool] https_only: Should the Linux Web App require HTTPS connections. Defaults to `false`.
-        :param pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppIdentityArgs', 'LinuxWebAppIdentityArgsDict', 'outputs.LinuxWebAppIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
-        :param pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppLogsArgs', 'LinuxWebAppLogsArgsDict', 'outputs.LinuxWebAppLogs']] logs: A `logs` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
                
                > **Note:** Terraform will perform a name availability check as part of the creation progress, if this Web App is part of an App Service Environment terraform will require Read permission on the ASE for this to complete reliably.
@@ -1519,10 +1519,10 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Web App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
-        :param pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSiteCredentialArgs', 'LinuxWebAppSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
-        :param pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['LinuxWebAppSiteConfigArgs', 'LinuxWebAppSiteConfigArgsDict', 'outputs.LinuxWebAppSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSiteCredentialArgs', 'LinuxWebAppSiteCredentialArgsDict', 'outputs.LinuxWebAppSiteCredential']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Union['LinuxWebAppStickySettingsArgs', 'LinuxWebAppStickySettingsArgsDict', 'outputs.LinuxWebAppStickySettings']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppStorageAccountArgs', 'LinuxWebAppStorageAccountArgsDict', 'outputs.LinuxWebAppStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
         :param pulumi.Input[_builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).

@@ -493,13 +493,13 @@ class Service(pulumi.CustomResource):
                  domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
+                 initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict', 'outputs.ServiceInitialReplicaSet']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
+                 notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict', 'outputs.ServiceNotifications']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
-                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict', 'outputs.ServiceSecureLdap']]] = None,
+                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict', 'outputs.ServiceSecurity']]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -650,13 +650,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
-        :param pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        :param pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict', 'outputs.ServiceInitialReplicaSet']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']] notifications: A `notifications` block as defined below.
+        :param pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict', 'outputs.ServiceNotifications']] notifications: A `notifications` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']] secure_ldap: A `secure_ldap` block as defined below.
-        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict', 'outputs.ServiceSecureLdap']] secure_ldap: A `secure_ldap` block as defined below.
+        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict', 'outputs.ServiceSecurity']] security: A `security` block as defined below.
         :param pulumi.Input[_builtins.str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
         """
@@ -826,13 +826,13 @@ class Service(pulumi.CustomResource):
                  domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
+                 initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict', 'outputs.ServiceInitialReplicaSet']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
+                 notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict', 'outputs.ServiceNotifications']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
-                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict', 'outputs.ServiceSecureLdap']]] = None,
+                 security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict', 'outputs.ServiceSecurity']]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -883,14 +883,14 @@ class Service(pulumi.CustomResource):
             domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
             domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             filtered_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
+            initial_replica_set: pulumi.Input[Optional[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict', 'outputs.ServiceInitialReplicaSet']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
+            notifications: pulumi.Input[Optional[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict', 'outputs.ServiceNotifications']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-            secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
-            security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+            secure_ldap: pulumi.Input[Optional[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict', 'outputs.ServiceSecureLdap']]] = None,
+            security: pulumi.Input[Optional[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict', 'outputs.ServiceSecurity']]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
             sync_owner: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -907,14 +907,14 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
-        :param pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        :param pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict', 'outputs.ServiceInitialReplicaSet']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']] notifications: A `notifications` block as defined below.
+        :param pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict', 'outputs.ServiceNotifications']] notifications: A `notifications` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_id: The Azure resource ID for the domain service.
-        :param pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']] secure_ldap: A `secure_ldap` block as defined below.
-        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict', 'outputs.ServiceSecureLdap']] secure_ldap: A `secure_ldap` block as defined below.
+        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict', 'outputs.ServiceSecurity']] security: A `security` block as defined below.
         :param pulumi.Input[_builtins.str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
         """

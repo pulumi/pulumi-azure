@@ -665,7 +665,7 @@ class Socketio(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict', 'outputs.SocketioIdentity']]] = None,
                  live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -676,7 +676,7 @@ class Socketio(pulumi.CustomResource):
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict', 'outputs.SocketioSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -718,7 +718,7 @@ class Socketio(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether Azure Active Directory authentication is enabled. Defaults to `true`.
-        :param pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict', 'outputs.SocketioIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] live_trace_connectivity_logs_enabled: Whether the connectivity log category for live trace is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] live_trace_enabled: Whether the live trace tool is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] live_trace_http_request_logs_enabled: Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
@@ -731,7 +731,7 @@ class Socketio(pulumi.CustomResource):
                > **Note:** `public_network_access` cannot be set to `Disabled` when `sku` is `Free_F1`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Web PubSub Service should exist. Changing this forces a new Web PubSub Service to be created.
         :param pulumi.Input[_builtins.str] service_mode: The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
-        :param pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']] sku: One or more `sku` blocks as defined below.
+        :param pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict', 'outputs.SocketioSku']] sku: One or more `sku` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Web PubSub Service.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
                
@@ -794,7 +794,7 @@ class Socketio(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict', 'outputs.SocketioIdentity']]] = None,
                  live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -805,7 +805,7 @@ class Socketio(pulumi.CustomResource):
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict', 'outputs.SocketioSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -859,7 +859,7 @@ class Socketio(pulumi.CustomResource):
             aad_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             external_ip: pulumi.Input[Optional[_builtins.str]] = None,
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict', 'outputs.SocketioIdentity']]] = None,
             live_trace_connectivity_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             live_trace_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             live_trace_http_request_logs_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -876,7 +876,7 @@ class Socketio(pulumi.CustomResource):
             secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             server_port: pulumi.Input[Optional[_builtins.int]] = None,
             service_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['SocketioSkuArgs', 'SocketioSkuArgsDict', 'outputs.SocketioSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tls_client_cert_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Socketio':
         """
@@ -889,7 +889,7 @@ class Socketio(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] aad_auth_enabled: Whether Azure Active Directory authentication is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] external_ip: The publicly accessible IP address of the Web PubSub Service.
         :param pulumi.Input[_builtins.str] hostname: The FQDN of the Web PubSub Service.
-        :param pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SocketioIdentityArgs', 'SocketioIdentityArgsDict', 'outputs.SocketioIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] live_trace_connectivity_logs_enabled: Whether the connectivity log category for live trace is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] live_trace_enabled: Whether the live trace tool is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] live_trace_http_request_logs_enabled: Whether the HTTP request log category for live trace is enabled. Defaults to `true`.
@@ -908,7 +908,7 @@ class Socketio(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] secondary_connection_string: The secondary connection string for the Web PubSub Service.
         :param pulumi.Input[_builtins.int] server_port: The publicly accessible port for server-side usage of the Web PubSub Service.
         :param pulumi.Input[_builtins.str] service_mode: The service mode of this Web PubSub Service. Defaults to `Default`. Possible values are `Default` and `Serverless`.
-        :param pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict']] sku: One or more `sku` blocks as defined below.
+        :param pulumi.Input[Union['SocketioSkuArgs', 'SocketioSkuArgsDict', 'outputs.SocketioSku']] sku: One or more `sku` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Web PubSub Service.
         :param pulumi.Input[_builtins.bool] tls_client_cert_enabled: Whether the service should request a client certificate during a TLS handshake. Defaults to `false`.
                

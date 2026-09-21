@@ -357,11 +357,11 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
                  chart_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 dataset: pulumi.Input[Optional[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict']]] = None,
+                 dataset: pulumi.Input[Optional[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict', 'outputs.SubscriptionCostManagementViewDataset']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict']]]]] = None,
+                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict', 'outputs.SubscriptionCostManagementViewKpi']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict']]]]] = None,
+                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict', 'outputs.SubscriptionCostManagementViewPivot']]]]] = None,
                  report_type: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeframe: pulumi.Input[Optional[_builtins.str]] = None,
@@ -426,11 +426,11 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
-        :param pulumi.Input[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict']] dataset: A `dataset` block as defined below.
+        :param pulumi.Input[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict', 'outputs.SubscriptionCostManagementViewDataset']] dataset: A `dataset` block as defined below.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management View.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict', 'outputs.SubscriptionCostManagementViewKpi']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict', 'outputs.SubscriptionCostManagementViewPivot']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         :param pulumi.Input[_builtins.str] report_type: The type of the report. The only possible value is `Usage`.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[_builtins.str] timeframe: The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
@@ -514,11 +514,11 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
                  chart_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 dataset: pulumi.Input[Optional[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict']]] = None,
+                 dataset: pulumi.Input[Optional[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict', 'outputs.SubscriptionCostManagementViewDataset']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict']]]]] = None,
+                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict', 'outputs.SubscriptionCostManagementViewKpi']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict']]]]] = None,
+                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict', 'outputs.SubscriptionCostManagementViewPivot']]]]] = None,
                  report_type: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeframe: pulumi.Input[Optional[_builtins.str]] = None,
@@ -567,11 +567,11 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
             chart_type: pulumi.Input[Optional[_builtins.str]] = None,
-            dataset: pulumi.Input[Optional[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict']]] = None,
+            dataset: pulumi.Input[Optional[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict', 'outputs.SubscriptionCostManagementViewDataset']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict']]]]] = None,
+            kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict', 'outputs.SubscriptionCostManagementViewKpi']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict']]]]] = None,
+            pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict', 'outputs.SubscriptionCostManagementViewPivot']]]]] = None,
             report_type: pulumi.Input[Optional[_builtins.str]] = None,
             subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
             timeframe: pulumi.Input[Optional[_builtins.str]] = None) -> 'SubscriptionCostManagementView':
@@ -584,11 +584,11 @@ class SubscriptionCostManagementView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
-        :param pulumi.Input[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict']] dataset: A `dataset` block as defined below.
+        :param pulumi.Input[Union['SubscriptionCostManagementViewDatasetArgs', 'SubscriptionCostManagementViewDatasetArgsDict', 'outputs.SubscriptionCostManagementViewDataset']] dataset: A `dataset` block as defined below.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management View.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewKpiArgs', 'SubscriptionCostManagementViewKpiArgsDict', 'outputs.SubscriptionCostManagementViewKpi']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionCostManagementViewPivotArgs', 'SubscriptionCostManagementViewPivotArgsDict', 'outputs.SubscriptionCostManagementViewPivot']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         :param pulumi.Input[_builtins.str] report_type: The type of the report. The only possible value is `Usage`.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created.
         :param pulumi.Input[_builtins.str] timeframe: The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.

@@ -653,20 +653,20 @@ class AlertRuleNrt(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict']]]]] = None,
+                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict', 'outputs.AlertRuleNrtAlertDetailsOverride']]]]] = None,
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]]] = None,
-                 event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']]] = None,
-                 incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict', 'outputs.AlertRuleNrtEntityMapping']]]]] = None,
+                 event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict', 'outputs.AlertRuleNrtEventGrouping']]] = None,
+                 incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict', 'outputs.AlertRuleNrtIncident']]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
-                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]]] = None,
+                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict', 'outputs.AlertRuleNrtSentinelEntityMapping']]]]] = None,
                  severity: pulumi.Input[Optional[_builtins.str]] = None,
                  suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -721,20 +721,20 @@ class AlertRuleNrt(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict']]]] alert_details_overrides: An `alert_details_override` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict', 'outputs.AlertRuleNrtAlertDetailsOverride']]]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[_builtins.str] description: The description of this Sentinel NRT Alert Rule.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of this Sentinel NRT Alert Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
-        :param pulumi.Input[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']] event_grouping: A `event_grouping` block as defined below.
-        :param pulumi.Input[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']] incident: A `incident` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict', 'outputs.AlertRuleNrtEntityMapping']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
+        :param pulumi.Input[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict', 'outputs.AlertRuleNrtEventGrouping']] event_grouping: A `event_grouping` block as defined below.
+        :param pulumi.Input[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict', 'outputs.AlertRuleNrtIncident']] incident: A `incident` block as defined below.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] query: The query of this Sentinel NRT Alert Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict', 'outputs.AlertRuleNrtSentinelEntityMapping']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
                > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[_builtins.str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
@@ -810,20 +810,20 @@ class AlertRuleNrt(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict']]]]] = None,
+                 alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict', 'outputs.AlertRuleNrtAlertDetailsOverride']]]]] = None,
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]]] = None,
-                 event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']]] = None,
-                 incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']]] = None,
+                 entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict', 'outputs.AlertRuleNrtEntityMapping']]]]] = None,
+                 event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict', 'outputs.AlertRuleNrtEventGrouping']]] = None,
+                 incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict', 'outputs.AlertRuleNrtIncident']]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
-                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]]] = None,
+                 sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict', 'outputs.AlertRuleNrtSentinelEntityMapping']]]]] = None,
                  severity: pulumi.Input[Optional[_builtins.str]] = None,
                  suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -877,20 +877,20 @@ class AlertRuleNrt(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict']]]]] = None,
+            alert_details_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict', 'outputs.AlertRuleNrtAlertDetailsOverride']]]]] = None,
             alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
             alert_rule_template_version: pulumi.Input[Optional[_builtins.str]] = None,
             custom_details: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]]] = None,
-            event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']]] = None,
-            incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']]] = None,
+            entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict', 'outputs.AlertRuleNrtEntityMapping']]]]] = None,
+            event_grouping: pulumi.Input[Optional[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict', 'outputs.AlertRuleNrtEventGrouping']]] = None,
+            incident: pulumi.Input[Optional[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict', 'outputs.AlertRuleNrtIncident']]] = None,
             log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query: pulumi.Input[Optional[_builtins.str]] = None,
-            sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]]] = None,
+            sentinel_entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict', 'outputs.AlertRuleNrtSentinelEntityMapping']]]]] = None,
             severity: pulumi.Input[Optional[_builtins.str]] = None,
             suppression_duration: pulumi.Input[Optional[_builtins.str]] = None,
             suppression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -903,20 +903,20 @@ class AlertRuleNrt(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict']]]] alert_details_overrides: An `alert_details_override` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtAlertDetailsOverrideArgs', 'AlertRuleNrtAlertDetailsOverrideArgsDict', 'outputs.AlertRuleNrtAlertDetailsOverride']]]] alert_details_overrides: An `alert_details_override` block as defined below.
         :param pulumi.Input[_builtins.str] alert_rule_template_guid: The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] alert_rule_template_version: The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] custom_details: A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         :param pulumi.Input[_builtins.str] description: The description of this Sentinel NRT Alert Rule.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of this Sentinel NRT Alert Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
-        :param pulumi.Input[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict']] event_grouping: A `event_grouping` block as defined below.
-        :param pulumi.Input[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict']] incident: A `incident` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtEntityMappingArgs', 'AlertRuleNrtEntityMappingArgsDict', 'outputs.AlertRuleNrtEntityMapping']]]] entity_mappings: A list of `entity_mapping` blocks as defined below.
+        :param pulumi.Input[Union['AlertRuleNrtEventGroupingArgs', 'AlertRuleNrtEventGroupingArgsDict', 'outputs.AlertRuleNrtEventGrouping']] event_grouping: A `event_grouping` block as defined below.
+        :param pulumi.Input[Union['AlertRuleNrtIncidentArgs', 'AlertRuleNrtIncidentArgsDict', 'outputs.AlertRuleNrtIncident']] incident: A `incident` block as defined below.
         :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         :param pulumi.Input[_builtins.str] query: The query of this Sentinel NRT Alert Rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleNrtSentinelEntityMappingArgs', 'AlertRuleNrtSentinelEntityMappingArgsDict', 'outputs.AlertRuleNrtSentinelEntityMapping']]]] sentinel_entity_mappings: A list of `sentinel_entity_mapping` blocks as defined below.
                
                > **Note:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         :param pulumi.Input[_builtins.str] severity: The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.

@@ -202,7 +202,7 @@ class ChannelDirectLine(pulumi.CustomResource):
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict', 'outputs.ChannelDirectLineSite']]]]] = None,
                  __props__=None):
         """
         Manages a Directline integration for a Bot Channel
@@ -247,7 +247,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict', 'outputs.ChannelDirectLineSite']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         ...
     @overload
@@ -311,7 +311,7 @@ class ChannelDirectLine(pulumi.CustomResource):
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]]] = None,
+                 sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict', 'outputs.ChannelDirectLineSite']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -350,7 +350,7 @@ class ChannelDirectLine(pulumi.CustomResource):
             extension_key2: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]]] = None) -> 'ChannelDirectLine':
+            sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict', 'outputs.ChannelDirectLineSite']]]]] = None) -> 'ChannelDirectLine':
         """
         Get an existing ChannelDirectLine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -363,7 +363,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] extension_key2: The second key for Directline App Service Extension.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict', 'outputs.ChannelDirectLineSite']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

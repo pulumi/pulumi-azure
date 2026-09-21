@@ -656,23 +656,23 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
+                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict', 'outputs.DeploymentAutoScaleProfile']]]]] = None,
                  automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
-                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
-                 frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
+                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict', 'outputs.DeploymentFrontendPrivate']]]]] = None,
+                 frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict', 'outputs.DeploymentFrontendPublic']]] = None,
+                 identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict', 'outputs.DeploymentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
+                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict', 'outputs.DeploymentLoggingStorageAccount']]]]] = None,
                  managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict', 'outputs.DeploymentNetworkInterface']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
+                 web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict', 'outputs.DeploymentWebApplicationFirewall']]] = None,
                  __props__=None):
         """
         Manages an NGINX Deployment.
@@ -746,18 +746,18 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict', 'outputs.DeploymentAutoScaleProfile']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[_builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[_builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
-        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below.
-        :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict', 'outputs.DeploymentFrontendPrivate']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
+        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict', 'outputs.DeploymentFrontendPublic']] frontend_public: A `frontend_public` block as defined below.
+        :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict', 'outputs.DeploymentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict', 'outputs.DeploymentNetworkInterface']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU.
                
@@ -765,7 +765,7 @@ class Deployment(pulumi.CustomResource):
                
                > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
-        :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']] web_application_firewall: A `web_application_firewall` blocks as defined below.
+        :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict', 'outputs.DeploymentWebApplicationFirewall']] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
         ...
     @overload
@@ -858,23 +858,23 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
+                 auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict', 'outputs.DeploymentAutoScaleProfile']]]]] = None,
                  automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
-                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
-                 frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
+                 frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict', 'outputs.DeploymentFrontendPrivate']]]]] = None,
+                 frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict', 'outputs.DeploymentFrontendPublic']]] = None,
+                 identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict', 'outputs.DeploymentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
+                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict', 'outputs.DeploymentLoggingStorageAccount']]]]] = None,
                  managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict', 'outputs.DeploymentNetworkInterface']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None,
+                 web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict', 'outputs.DeploymentWebApplicationFirewall']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -918,26 +918,26 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
+            auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict', 'outputs.DeploymentAutoScaleProfile']]]]] = None,
             automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
             dataplane_api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             email: pulumi.Input[Optional[_builtins.str]] = None,
-            frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
-            frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
+            frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict', 'outputs.DeploymentFrontendPrivate']]]]] = None,
+            frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict', 'outputs.DeploymentFrontendPublic']]] = None,
+            identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict', 'outputs.DeploymentIdentity']]] = None,
             ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
+            logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict', 'outputs.DeploymentLoggingStorageAccount']]]]] = None,
             managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict', 'outputs.DeploymentNetworkInterface']]]]] = None,
             nginx_version: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']]] = None) -> 'Deployment':
+            web_application_firewall: pulumi.Input[Optional[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict', 'outputs.DeploymentWebApplicationFirewall']]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -945,20 +945,20 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict', 'outputs.DeploymentAutoScaleProfile']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[_builtins.str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[_builtins.int] capacity: Specify the number of NGINX capacity units for this NGINX deployment.
                
                > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[_builtins.str] dataplane_api_endpoint: The dataplane API endpoint of the NGINX Deployment.
         :param pulumi.Input[_builtins.str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
-        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below.
-        :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict', 'outputs.DeploymentFrontendPrivate']]]] frontend_privates: One or more `frontend_private` blocks as defined below.
+        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict', 'outputs.DeploymentFrontendPublic']] frontend_public: A `frontend_public` block as defined below.
+        :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict', 'outputs.DeploymentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] ip_address: The IP address of the NGINX Deployment.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict', 'outputs.DeploymentNetworkInterface']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] nginx_version: The version of the NGINX Deployment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[_builtins.str] sku: Specifies the NGINX Deployment SKU.
@@ -967,7 +967,7 @@ class Deployment(pulumi.CustomResource):
                
                > **Note:** If you are setting the `sku` to `basic_Monthly`, you cannot specify a `capacity` or `auto_scale_profile`; basic plans do not support scaling. Other `sku`s require either `capacity` or `auto_scale_profile`. If you're using `basic_Monthly` with deployments created before v4.0, you may need to use Terraform's `ignore_changes` functionality to ignore changes to the `capacity` field.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
-        :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict']] web_application_firewall: A `web_application_firewall` blocks as defined below.
+        :param pulumi.Input[Union['DeploymentWebApplicationFirewallArgs', 'DeploymentWebApplicationFirewallArgsDict', 'outputs.DeploymentWebApplicationFirewall']] web_application_firewall: A `web_application_firewall` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

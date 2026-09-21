@@ -404,7 +404,7 @@ class ElasticSan(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict', 'outputs.ElasticSanSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -458,7 +458,7 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict', 'outputs.ElasticSanSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Elastic SAN resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
                
@@ -529,7 +529,7 @@ class ElasticSan(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict', 'outputs.ElasticSanSku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -575,7 +575,7 @@ class ElasticSan(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict', 'outputs.ElasticSanSku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             total_iops: pulumi.Input[Optional[_builtins.int]] = None,
             total_mbps: pulumi.Input[Optional[_builtins.int]] = None,
@@ -599,7 +599,7 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['ElasticSanSkuArgs', 'ElasticSanSkuArgsDict', 'outputs.ElasticSanSku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Elastic SAN resource.
         :param pulumi.Input[_builtins.int] total_iops: Total Provisioned IOps of the Elastic SAN resource.
         :param pulumi.Input[_builtins.int] total_mbps: Total Provisioned MBps Elastic SAN resource.

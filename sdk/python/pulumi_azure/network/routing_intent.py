@@ -137,7 +137,7 @@ class RoutingIntent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]]] = None,
+                 routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict', 'outputs.RoutingIntentRoutingPolicy']]]]] = None,
                  virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -201,7 +201,7 @@ class RoutingIntent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict', 'outputs.RoutingIntentRoutingPolicy']]]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         ...
@@ -284,7 +284,7 @@ class RoutingIntent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]]] = None,
+                 routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict', 'outputs.RoutingIntentRoutingPolicy']]]]] = None,
                  virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -313,7 +313,7 @@ class RoutingIntent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]]] = None,
+            routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict', 'outputs.RoutingIntentRoutingPolicy']]]]] = None,
             virtual_hub_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'RoutingIntent':
         """
         Get an existing RoutingIntent resource's state with the given name, id, and optional extra
@@ -323,7 +323,7 @@ class RoutingIntent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict']]]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RoutingIntentRoutingPolicyArgs', 'RoutingIntentRoutingPolicyArgsDict', 'outputs.RoutingIntentRoutingPolicy']]]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[_builtins.str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
