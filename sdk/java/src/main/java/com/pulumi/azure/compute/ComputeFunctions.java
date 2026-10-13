@@ -2551,7 +2551,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2599,7 +2599,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2647,7 +2647,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2695,7 +2695,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }
@@ -2743,7 +2743,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("firstDiskId", existingAzurermManagedDisk.disk()[0].id());
+     *         ctx.export("firstDiskId", existingAzurermManagedDisk.get("disk")[0].get("id"));
      *     }
      * }
      * }

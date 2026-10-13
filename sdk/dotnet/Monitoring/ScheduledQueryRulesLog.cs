@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Monitoring
     ///                 MetricName = "UsedCapacity",
     ///                 Aggregation = "Average",
     ///                 Operator = "LessThan",
-    ///                 Threshold = 10,
+    ///                 Threshold = 10.0,
     ///             },
     ///         },
     ///         Actions = new[]

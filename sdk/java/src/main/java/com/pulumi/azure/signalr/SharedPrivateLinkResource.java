@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  * 
  *         var test = new Service("test", ServiceArgs.builder()
  *             .name("tfex-signalr")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .sku(ServiceSkuArgs.builder()
  *                 .name("Standard_S1")
  *                 .capacity(1)
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource("exampleSharedPrivateLinkResource", SharedPrivateLinkResourceArgs.builder()
  *             .name("tfex-signalr-splr")
- *             .signalrServiceId(exampleAzurermSignalrService.id())
+ *             .signalrServiceId(exampleAzurermSignalrService.get("id"))
  *             .subResourceName("vault")
  *             .targetResourceId(exampleKeyVault.id())
  *             .build());

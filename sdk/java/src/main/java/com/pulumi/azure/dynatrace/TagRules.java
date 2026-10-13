@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var exampleMonitor = new Monitor("exampleMonitor", MonitorArgs.builder()
  *             .name("exmpledynatracemonitor")
  *             .resourceGroupName(example.name())
- *             .location(test.location())
+ *             .location(test.get("location"))
  *             .monitoringEnabled(true)
  *             .marketplaceSubscriptionStatus("Active")
  *             .identity(MonitorIdentityArgs.builder()
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTagRules = new TagRules("exampleTagRules", TagRulesArgs.builder()
  *             .name("default")
- *             .monitorId(testAzurermDynatraceMonitors.id())
+ *             .monitorId(testAzurermDynatraceMonitors.get("id"))
  *             .logRule(TagRulesLogRuleArgs.builder()
  *                 .filteringTags(TagRulesLogRuleFilteringTagArgs.builder()
  *                     .name("Environment")

@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *         var example = new Assignment("example", AssignmentArgs.builder()
  *             .scope(primary.id())
  *             .roleDefinitionId(String.format("%s%s", primary.id(),monitoringReader.id()))
- *             .principalId(exampleAzurermNewRelicMonitor.identity()[0].principalId())
+ *             .principalId(exampleAzurermNewRelicMonitor.get("identity")[0].get("principalId"))
  *             .build());
  * 
  *     }

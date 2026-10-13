@@ -95,7 +95,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.get("id"));
      *     }
      * }
      * }
@@ -147,7 +147,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.get("id"));
      *     }
      * }
      * }
@@ -199,7 +199,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.get("id"));
      *     }
      * }
      * }
@@ -251,7 +251,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.get("id"));
      *     }
      * }
      * }
@@ -303,7 +303,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.id());
+     *         ctx.export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.get("id"));
      *     }
      * }
      * }
@@ -615,7 +615,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.get("id"));
      *     }
      * }
      * }
@@ -667,7 +667,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.get("id"));
      *     }
      * }
      * }
@@ -719,7 +719,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.get("id"));
      *     }
      * }
      * }
@@ -771,7 +771,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.get("id"));
      *     }
      * }
      * }
@@ -823,7 +823,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.id());
+     *         ctx.export("privateDnsCnameRecordId", exampleAzurermPrivateDnsCnameRecord.get("id"));
      *     }
      * }
      * }
@@ -1085,7 +1085,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.get("id"));
      *     }
      * }
      * }
@@ -1137,7 +1137,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.get("id"));
      *     }
      * }
      * }
@@ -1189,7 +1189,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.get("id"));
      *     }
      * }
      * }
@@ -1241,7 +1241,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.get("id"));
      *     }
      * }
      * }
@@ -1293,7 +1293,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.id());
+     *         ctx.export("privateDnsMxRecordId", exampleAzurermPrivateDnsMxRecord.get("id"));
      *     }
      * }
      * }
@@ -1345,7 +1345,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.get("id"));
      *     }
      * }
      * }
@@ -1397,7 +1397,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.get("id"));
      *     }
      * }
      * }
@@ -1449,7 +1449,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.get("id"));
      *     }
      * }
      * }
@@ -1501,7 +1501,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.get("id"));
      *     }
      * }
      * }
@@ -1553,7 +1553,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.id());
+     *         ctx.export("privateDnsPtrRecordId", exampleAzurermPrivateDnsPtrRecord.get("id"));
      *     }
      * }
      * }
@@ -3044,7 +3044,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.get("id"));
      *     }
      * }
      * }
@@ -3095,7 +3095,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.get("id"));
      *     }
      * }
      * }
@@ -3146,7 +3146,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.get("id"));
      *     }
      * }
      * }
@@ -3197,7 +3197,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.get("id"));
      *     }
      * }
      * }
@@ -3248,7 +3248,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.id());
+     *         ctx.export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.get("id"));
      *     }
      * }
      * }
@@ -3300,7 +3300,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.get("id"));
      *     }
      * }
      * }
@@ -3352,7 +3352,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.get("id"));
      *     }
      * }
      * }
@@ -3404,7 +3404,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.get("id"));
      *     }
      * }
      * }
@@ -3456,7 +3456,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.get("id"));
      *     }
      * }
      * }
@@ -3508,7 +3508,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.id());
+     *         ctx.export("privateDnsSrvRecordId", exampleAzurermPrivateDnsSrvRecord.get("id"));
      *     }
      * }
      * }
@@ -3560,7 +3560,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.get("id"));
      *     }
      * }
      * }
@@ -3612,7 +3612,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.get("id"));
      *     }
      * }
      * }
@@ -3664,7 +3664,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.get("id"));
      *     }
      * }
      * }
@@ -3716,7 +3716,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.get("id"));
      *     }
      * }
      * }
@@ -3768,7 +3768,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.id());
+     *         ctx.export("privateDnsTxtRecordId", exampleAzurermPrivateDnsTxtRecord.get("id"));
      *     }
      * }
      * }

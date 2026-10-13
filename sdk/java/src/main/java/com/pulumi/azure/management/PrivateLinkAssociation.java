@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *         var exampleUuid = new Uuid("exampleUuid");
  * 
  *         var examplePrivateLinkAssociation = new PrivateLinkAssociation("examplePrivateLinkAssociation", PrivateLinkAssociationArgs.builder()
- *             .name(exampleUuid.result())
- *             .managementGroupId(exampleAzurermManagementGroup.id())
+ *             .name(exampleUuid.get("result"))
+ *             .managementGroupId(exampleAzurermManagementGroup.get("id"))
  *             .resourceManagementPrivateLinkId(examplePrivateLink.id())
  *             .publicNetworkAccessEnabled(true)
  *             .build());

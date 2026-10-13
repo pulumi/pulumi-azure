@@ -336,8 +336,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(test.id())
-     *             .roleDefinitionId(contributor.id())
+     *             .scope(test.get("id"))
+     *             .roleDefinitionId(contributor.get("id"))
      *             .build());
      * 
      *     }
@@ -379,7 +379,7 @@ public final class PimFunctions {
      * 
      *         final var mgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(exampleAzurermManagementGroup.id())
+     *             .scope(exampleAzurermManagementGroup.get("id"))
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -446,8 +446,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(test.id())
-     *             .roleDefinitionId(contributor.id())
+     *             .scope(test.get("id"))
+     *             .roleDefinitionId(contributor.get("id"))
      *             .build());
      * 
      *     }
@@ -489,7 +489,7 @@ public final class PimFunctions {
      * 
      *         final var mgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(exampleAzurermManagementGroup.id())
+     *             .scope(exampleAzurermManagementGroup.get("id"))
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -556,8 +556,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(test.id())
-     *             .roleDefinitionId(contributor.id())
+     *             .scope(test.get("id"))
+     *             .roleDefinitionId(contributor.get("id"))
      *             .build());
      * 
      *     }
@@ -599,7 +599,7 @@ public final class PimFunctions {
      * 
      *         final var mgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(exampleAzurermManagementGroup.id())
+     *             .scope(exampleAzurermManagementGroup.get("id"))
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -666,8 +666,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(test.id())
-     *             .roleDefinitionId(contributor.id())
+     *             .scope(test.get("id"))
+     *             .roleDefinitionId(contributor.get("id"))
      *             .build());
      * 
      *     }
@@ -709,7 +709,7 @@ public final class PimFunctions {
      * 
      *         final var mgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(exampleAzurermManagementGroup.id())
+     *             .scope(exampleAzurermManagementGroup.get("id"))
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -776,8 +776,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(test.id())
-     *             .roleDefinitionId(contributor.id())
+     *             .scope(test.get("id"))
+     *             .roleDefinitionId(contributor.get("id"))
      *             .build());
      * 
      *     }
@@ -819,7 +819,7 @@ public final class PimFunctions {
      * 
      *         final var mgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(exampleAzurermManagementGroup.id())
+     *             .scope(exampleAzurermManagementGroup.get("id"))
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()

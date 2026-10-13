@@ -37,7 +37,7 @@ namespace Pulumi.Azure.ChaosStudio
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "example-value",
-    ///             NodeCount = "example-value",
+    ///             NodeCount = int.Parse("example-value", System.Globalization.CultureInfo.InvariantCulture),
     ///             VmSize = "example-value",
     ///         },
     ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs

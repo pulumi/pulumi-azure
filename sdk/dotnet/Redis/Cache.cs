@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Redis
     ///         SkuName = "Standard",
     ///         NonSslPortEnabled = false,
     ///         MinimumTlsVersion = "1.2",
-    ///         RedisConfiguration = null,
+    ///         RedisConfiguration = new() { },
     ///     });
     /// 
     /// });

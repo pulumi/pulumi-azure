@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppService
     ///         Location = example.Location,
     ///         StorageAccountName = exampleAccount.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleWindowsFunctionAppSlot = new Azure.AppService.WindowsFunctionAppSlot("example", new()
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.AppService
     ///         Name = "example-windows-function-app-slot",
     ///         FunctionAppId = exampleWindowsFunctionApp.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("example", new()
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.AppService
     ///         Location = example.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleLinuxFunctionAppSlot = new Azure.AppService.LinuxFunctionAppSlot("example", new()
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.AppService
     ///         Name = "example-linux-function-app-slot",
     ///         FunctionAppId = exampleLinuxFunctionApp.Name,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleFunctionAppActiveSlot = new Azure.AppService.FunctionAppActiveSlot("example", new()

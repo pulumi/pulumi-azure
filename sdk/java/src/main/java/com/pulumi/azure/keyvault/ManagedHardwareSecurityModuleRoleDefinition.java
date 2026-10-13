@@ -48,17 +48,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ManagedHardwareSecurityModule("example", ManagedHardwareSecurityModuleArgs.builder()
  *             .name("example")
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+ *             .location(exampleAzurermResourceGroup.get("location"))
  *             .skuName("Standard_B1")
- *             .tenantId(current.tenantId())
- *             .adminObjectIds(current.objectId())
+ *             .tenantId(current.get("tenantId"))
+ *             .adminObjectIds(current.get("objectId"))
  *             .purgeProtectionEnabled(false)
  *             .activeConfig(Arrays.asList(Map.ofEntries(
  *                 Map.entry("securityDomainCertificate", Arrays.asList(                
- *                     cert[0].id(),
- *                     cert[1].id(),
- *                     cert[2].id())),
+ *                     cert[0].get("id"),
+ *                     cert[1].get("id"),
+ *                     cert[2].get("id"))),
  *                 Map.entry("securityDomainQuorum", 2)
  *             )))
  *             .build());

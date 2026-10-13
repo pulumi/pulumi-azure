@@ -539,8 +539,8 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getServiceEndpointConnections(GetServiceEndpointConnectionsArgs.builder()
-     *             .serviceId(exampleAzurermPrivateLinkService.id())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .serviceId(exampleAzurermPrivateLinkService.get("id"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
@@ -588,8 +588,8 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getServiceEndpointConnections(GetServiceEndpointConnectionsArgs.builder()
-     *             .serviceId(exampleAzurermPrivateLinkService.id())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .serviceId(exampleAzurermPrivateLinkService.get("id"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
@@ -637,8 +637,8 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getServiceEndpointConnections(GetServiceEndpointConnectionsArgs.builder()
-     *             .serviceId(exampleAzurermPrivateLinkService.id())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .serviceId(exampleAzurermPrivateLinkService.get("id"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
@@ -686,8 +686,8 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getServiceEndpointConnections(GetServiceEndpointConnectionsArgs.builder()
-     *             .serviceId(exampleAzurermPrivateLinkService.id())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .serviceId(exampleAzurermPrivateLinkService.get("id"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
@@ -735,8 +735,8 @@ public final class PrivatelinkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatelinkFunctions.getServiceEndpointConnections(GetServiceEndpointConnectionsArgs.builder()
-     *             .serviceId(exampleAzurermPrivateLinkService.id())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .serviceId(exampleAzurermPrivateLinkService.get("id"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());

@@ -40,7 +40,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Sku:               "Free_F1"[0],
+//				Sku:               "Free_F1"[0].(webpubsub.SocketioSkuArgs),
 //			})
 //			if err != nil {
 //				return err

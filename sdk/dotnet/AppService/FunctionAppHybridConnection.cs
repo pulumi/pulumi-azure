@@ -67,7 +67,7 @@ namespace Pulumi.Azure.AppService
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("example", new()

@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *             .name("example-output-synapse")
  *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
- *             .server(exampleWorkspace.connectivityEndpoints().applyValue(_connectivityEndpoints -> _connectivityEndpoints.sqlOnDemand()))
+ *             .server(exampleWorkspace.connectivityEndpoints().applyValue(_connectivityEndpoints -> _connectivityEndpoints.get("sqlOnDemand")))
  *             .user(exampleWorkspace.sqlAdministratorLogin())
  *             .password(exampleWorkspace.sqlAdministratorLoginPassword())
  *             .database("master")

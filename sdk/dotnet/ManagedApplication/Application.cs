@@ -59,11 +59,11 @@ namespace Pulumi.Azure.ManagedApplication
     ///                 {
     ///                     Separator = "/",
     ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }).Apply(invoke =&gt; invoke.Result).Length()).Apply(values =&gt;
+    ///                 }).Apply(invoke =&gt; invoke.Result.Length)).Apply(values =&gt;
     ///                 {
     ///                     var invoke = values.Item1;
     ///                     var length = values.Item2;
-    ///                     return invoke.Result[length - 1];
+    ///                     return invoke.Result[(int)(length - 1)];
     ///                 }),
     ///             },
     ///         },

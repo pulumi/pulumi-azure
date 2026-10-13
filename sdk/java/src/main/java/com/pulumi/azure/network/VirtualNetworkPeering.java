@@ -121,10 +121,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
- *         final var location = config.get("location").orElse(Arrays.asList(        
+ *         final var location = config.getObject("location", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Arrays.asList(        
  *             "uksouth",
  *             "southeastasia"));
- *         final var vnetAddressSpace = config.get("vnetAddressSpace").orElse(Arrays.asList(        
+ *         final var vnetAddressSpace = config.getObject("vnetAddressSpace", com.pulumi.core.TypeShape.map(String.class, Object.class)).orElse(Arrays.asList(        
  *             "10.0.0.0/16",
  *             "10.1.0.0/16"));
  *         for (var i = 0; i < location.size(); i++) {

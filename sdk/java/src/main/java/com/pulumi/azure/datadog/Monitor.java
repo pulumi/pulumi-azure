@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *         var example = new Assignment("example", AssignmentArgs.builder()
  *             .scope(primary.id())
  *             .roleDefinitionId(monitoringReader.roleDefinitionId())
- *             .principalId(exampleAzurermDatadogMonitor.identity()[0].principalId())
+ *             .principalId(exampleAzurermDatadogMonitor.get("identity")[0].get("principalId"))
  *             .build());
  * 
  *     }

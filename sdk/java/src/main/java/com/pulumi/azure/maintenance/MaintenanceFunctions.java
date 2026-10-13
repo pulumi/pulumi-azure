@@ -50,7 +50,7 @@ public final class MaintenanceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
      *     }
      * }
      * }
@@ -99,7 +99,7 @@ public final class MaintenanceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
      *     }
      * }
      * }
@@ -148,7 +148,7 @@ public final class MaintenanceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
      *     }
      * }
      * }
@@ -197,7 +197,7 @@ public final class MaintenanceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
      *     }
      * }
      * }
@@ -246,7 +246,7 @@ public final class MaintenanceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existingAzurermMaintenanceConfiguration.id());
+     *         ctx.export("id", existingAzurermMaintenanceConfiguration.get("id"));
      *     }
      * }
      * }

@@ -56,22 +56,22 @@ import javax.annotation.Nullable;
  * 
  *         var example = new ManagedHardwareSecurityModule("example", ManagedHardwareSecurityModuleArgs.builder()
  *             .name("example")
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+ *             .location(exampleAzurermResourceGroup.get("location"))
  *             .skuName("Standard_B1")
  *             .tenantId(current.tenantId())
  *             .adminObjectIds(current.objectId())
  *             .purgeProtectionEnabled(false)
  *             .securityDomainKeyVaultCertificateIds(            
- *                 cers.1().id(),
- *                 cers.2().id(),
- *                 cers.3().id())
+ *                 cers.get("1").get("id"),
+ *                 cers.get("2").get("id"),
+ *                 cers.get("3").get("id"))
  *             .securityDomainQuorum(2)
  *             .build());
  * 
  *         // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
  *         var hsm_crypto_user = new ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
- *             .managedHsmId(test.id())
+ *             .managedHsmId(test.get("id"))
  *             .name("1e243909-064c-6ac3-84e9-1c8bf8d6ad22")
  *             .scope("/keys")
  *             .roleDefinitionId("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b")
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  *         // this gives your service principal the HSM Crypto Officer role which lets you purge hsm keys
  *         var hsm_crypto_officer = new ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-officer", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
- *             .managedHsmId(test.id())
+ *             .managedHsmId(test.get("id"))
  *             .name("1e243909-064c-6ac3-84e9-1c8bf8d6ad23")
  *             .scope("/keys")
  *             .roleDefinitionId("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleManagedHardwareSecurityModuleKey = new ManagedHardwareSecurityModuleKey("exampleManagedHardwareSecurityModuleKey", ManagedHardwareSecurityModuleKeyArgs.builder()
  *             .name("example")
- *             .managedHsmId(test.id())
+ *             .managedHsmId(test.get("id"))
  *             .keyType("EC-HSM")
  *             .curve("P-521")
  *             .keyOpts("sign")

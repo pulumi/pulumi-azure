@@ -539,8 +539,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
+     *             .workspaceId(exampleAzurermDatabricksWorkspace.get("id"))
+     *             .privateEndpointId(exampleAzurermPrivateEndpoint.get("id"))
      *             .build());
      * 
      *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
@@ -588,8 +588,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
+     *             .workspaceId(exampleAzurermDatabricksWorkspace.get("id"))
+     *             .privateEndpointId(exampleAzurermPrivateEndpoint.get("id"))
      *             .build());
      * 
      *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
@@ -637,8 +637,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
+     *             .workspaceId(exampleAzurermDatabricksWorkspace.get("id"))
+     *             .privateEndpointId(exampleAzurermPrivateEndpoint.get("id"))
      *             .build());
      * 
      *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
@@ -686,8 +686,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
+     *             .workspaceId(exampleAzurermDatabricksWorkspace.get("id"))
+     *             .privateEndpointId(exampleAzurermPrivateEndpoint.get("id"))
      *             .build());
      * 
      *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
@@ -735,8 +735,8 @@ public final class DatabricksFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DatabricksFunctions.getWorkspacePrivateEndpointConnection(GetWorkspacePrivateEndpointConnectionArgs.builder()
-     *             .workspaceId(exampleAzurermDatabricksWorkspace.id())
-     *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
+     *             .workspaceId(exampleAzurermDatabricksWorkspace.get("id"))
+     *             .privateEndpointId(exampleAzurermPrivateEndpoint.get("id"))
      *             .build());
      * 
      *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());

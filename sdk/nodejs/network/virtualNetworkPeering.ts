@@ -61,14 +61,14 @@ import * as utilities from "../utilities";
  *     "10.1.0.0/16",
  * ];
  * const example: azure.core.ResourceGroup[] = [];
- * for (let range = 0; range < location.length; range++) {
+ * for (let range = 0; range < Object.keys(location).length; range++) {
  *     example.push(new azure.core.ResourceGroup(`example-${range}`, {
  *         name: `rg-global-vnet-peering-${range}`,
  *         location: location[range],
  *     }));
  * }
  * const vnet: azure.network.VirtualNetwork[] = [];
- * for (let range = 0; range < location.length; range++) {
+ * for (let range = 0; range < Object.keys(location).length; range++) {
  *     vnet.push(new azure.network.VirtualNetwork(`vnet-${range}`, {
  *         name: `vnet-${range}`,
  *         resourceGroupName: example.map(__item => __item.name)[range],
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * const nva: azure.network.Subnet[] = [];
- * for (let range = 0; range < location.length; range++) {
+ * for (let range = 0; range < Object.keys(location).length; range++) {
  *     nva.push(new azure.network.Subnet(`nva-${range}`, {
  *         name: "nva",
  *         resourceGroupName: example.map(__item => __item.name)[range],
@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  * }
  * // enable global peering between the two virtual network
  * const peering: azure.network.VirtualNetworkPeering[] = [];
- * for (let range = 0; range < location.length; range++) {
+ * for (let range = 0; range < Object.keys(location).length; range++) {
  *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${range}`, {
  *         name: pulumi.interpolate`peering-to-${vnet.map(__item => __item.name)[1 - range]}`,
  *         resourceGroupName: example.map(__item => __item.name)[range],

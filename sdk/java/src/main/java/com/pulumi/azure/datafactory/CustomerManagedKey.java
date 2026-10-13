@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type("SystemAssigned")
- *                 .identityIds(exampleAzurermUserAssignedIdentity.id())
+ *                 .identityIds(exampleAzurermUserAssignedIdentity.get("id"))
  *                 .build())
  *             .build());
  * 

@@ -363,7 +363,7 @@ import javax.annotation.Nullable;
  *                 .dataProtectionReplication(VolumeGroupOracleVolumeDataProtectionReplicationArgs.builder()
  *                     .endpointType("dst")
  *                     .remoteVolumeLocation(example.location())
- *                     .remoteVolumeResourceId(examplePrimaryVolumeGroupOracle.volumes().applyValue(_volumes -> _volumes[0].id()))
+ *                     .remoteVolumeResourceId(examplePrimaryVolumeGroupOracle.volumes().applyValue(_volumes -> _volumes.get(0).id()))
  *                     .replicationFrequency("10minutes")
  *                     .build())
  *                 .build())

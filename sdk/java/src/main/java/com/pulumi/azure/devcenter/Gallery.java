@@ -56,14 +56,14 @@ import javax.annotation.Nullable;
  * 
  *         var testUserAssignedIdentity = new UserAssignedIdentity("testUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("example-uai")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .build());
  * 
  *         var test = new DevCenter("test", DevCenterArgs.builder()
  *             .name("example-devcenter")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
+ *             .location(testAzurermResourceGroup.get("location"))
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(testUserAssignedIdentity.id())
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGallery = new Gallery("exampleGallery", GalleryArgs.builder()
- *             .devCenterId(exampleAzurermDevCenter.id())
+ *             .devCenterId(exampleAzurermDevCenter.get("id"))
  *             .sharedGalleryId(exampleSharedImageGallery.id())
  *             .name("example")
  *             .build());

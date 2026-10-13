@@ -54,7 +54,7 @@ namespace Pulumi.Azure.MSSql
     ///         ServerId = primary.Id,
     ///         SkuName = "S1",
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
-    ///         MaxSizeGb = 200,
+    ///         MaxSizeGb = 200.0,
     ///     });
     /// 
     ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("example", new()

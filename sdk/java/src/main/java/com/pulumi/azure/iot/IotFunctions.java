@@ -293,8 +293,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubDpsName(exampleAzurermIothubDps.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubDpsName(exampleAzurermIothubDps.get("name"))
      *             .build());
      * 
      *     }
@@ -342,8 +342,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubDpsName(exampleAzurermIothubDps.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubDpsName(exampleAzurermIothubDps.get("name"))
      *             .build());
      * 
      *     }
@@ -391,8 +391,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubDpsName(exampleAzurermIothubDps.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubDpsName(exampleAzurermIothubDps.get("name"))
      *             .build());
      * 
      *     }
@@ -440,8 +440,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubDpsName(exampleAzurermIothubDps.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubDpsName(exampleAzurermIothubDps.get("name"))
      *             .build());
      * 
      *     }
@@ -489,8 +489,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getDpsSharedAccessPolicy(GetDpsSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubDpsName(exampleAzurermIothubDps.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubDpsName(exampleAzurermIothubDps.get("name"))
      *             .build());
      * 
      *     }
@@ -748,8 +748,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubName(exampleAzurermIothub.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubName(exampleAzurermIothub.get("name"))
      *             .build());
      * 
      *     }
@@ -790,8 +790,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubName(exampleAzurermIothub.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubName(exampleAzurermIothub.get("name"))
      *             .build());
      * 
      *     }
@@ -832,8 +832,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubName(exampleAzurermIothub.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubName(exampleAzurermIothub.get("name"))
      *             .build());
      * 
      *     }
@@ -874,8 +874,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubName(exampleAzurermIothub.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubName(exampleAzurermIothub.get("name"))
      *             .build());
      * 
      *     }
@@ -916,8 +916,8 @@ public final class IotFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = IotFunctions.getSharedAccessPolicy(GetSharedAccessPolicyArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .iothubName(exampleAzurermIothub.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .iothubName(exampleAzurermIothub.get("name"))
      *             .build());
      * 
      *     }

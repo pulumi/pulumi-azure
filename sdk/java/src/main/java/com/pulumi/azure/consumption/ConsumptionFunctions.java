@@ -47,7 +47,7 @@ public final class ConsumptionFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name("existing")
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
+     *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -96,7 +96,7 @@ public final class ConsumptionFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name("existing")
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
+     *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -145,7 +145,7 @@ public final class ConsumptionFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name("existing")
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
+     *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -194,7 +194,7 @@ public final class ConsumptionFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name("existing")
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
+     *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -243,7 +243,7 @@ public final class ConsumptionFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = ConsumptionFunctions.getBudgetResourceGroup(GetBudgetResourceGroupArgs.builder()
      *             .name("existing")
-     *             .resourceGroupId(exampleAzurermResourceGroup.id())
+     *             .resourceGroupId(exampleAzurermResourceGroup.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -295,7 +295,7 @@ public final class ConsumptionFunctions {
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.get("id"));
      *     }
      * }
      * }
@@ -344,7 +344,7 @@ public final class ConsumptionFunctions {
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.get("id"));
      *     }
      * }
      * }
@@ -393,7 +393,7 @@ public final class ConsumptionFunctions {
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.get("id"));
      *     }
      * }
      * }
@@ -442,7 +442,7 @@ public final class ConsumptionFunctions {
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.get("id"));
      *     }
      * }
      * }
@@ -491,7 +491,7 @@ public final class ConsumptionFunctions {
      *             .subscriptionId("/subscriptions/00000000-0000-0000-0000-000000000000/")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermConsumptionBudget.id());
+     *         ctx.export("id", exampleAzurermConsumptionBudget.get("id"));
      *     }
      * }
      * }

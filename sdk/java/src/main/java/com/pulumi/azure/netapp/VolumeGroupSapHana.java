@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  *         final var adminUsername = "exampleadmin";
  * 
- *         final var adminPassword = example.result();
+ *         final var adminPassword = example.get("result");
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name(String.format("%s-resources", prefix))

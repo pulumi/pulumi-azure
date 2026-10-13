@@ -72,7 +72,7 @@ namespace Pulumi.Azure.AppService
     ///         RuntimeVersion = "20",
     ///         MaximumInstanceCount = 50,
     ///         InstanceMemoryInMb = 2048,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     /// });

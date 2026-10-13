@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  *         ctx.export("armExampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
  *             .input(example.outputContent())
- *             .build()).applyValue(_invoke -> _invoke.result().exampleOutput().value()));
+ *             .build()).applyValue(_invoke -> _invoke.result().get("exampleOutput").get("value")));
  *     }
  * }
  * }

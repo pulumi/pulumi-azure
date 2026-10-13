@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
- *             .name(server.hex())
+ *             .name(server.get("hex"))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
- *             .name(server.hex())
+ *             .name(server.get("hex"))
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -184,7 +184,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
- *             .name(server.hex())
+ *             .name(server.get("hex"))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
@@ -196,7 +196,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
- *             .name(server.hex())
+ *             .name(server.get("hex"))
  *             .appServiceName(exampleAppService.name())
  *             .location(example.location())
  *             .resourceGroupName(example.name())

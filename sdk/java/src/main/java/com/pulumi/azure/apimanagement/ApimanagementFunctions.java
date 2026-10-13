@@ -853,7 +853,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-gateway")
-     *             .apiManagementId(main.id())
+     *             .apiManagementId(main.get("id"))
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
@@ -915,7 +915,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-gateway")
-     *             .apiManagementId(main.id())
+     *             .apiManagementId(main.get("id"))
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
@@ -977,7 +977,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-gateway")
-     *             .apiManagementId(main.id())
+     *             .apiManagementId(main.get("id"))
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
@@ -1039,7 +1039,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-gateway")
-     *             .apiManagementId(main.id())
+     *             .apiManagementId(main.get("id"))
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
@@ -1101,7 +1101,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-gateway")
-     *             .apiManagementId(main.id())
+     *             .apiManagementId(main.get("id"))
      *             .build());
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()

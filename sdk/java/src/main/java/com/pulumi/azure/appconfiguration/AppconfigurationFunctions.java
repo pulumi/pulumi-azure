@@ -51,7 +51,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .key("appConfKey1")
      *             .label("somelabel")
      *             .build());
@@ -96,7 +96,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .key("appConfKey1")
      *             .label("somelabel")
      *             .build());
@@ -141,7 +141,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .key("appConfKey1")
      *             .label("somelabel")
      *             .build());
@@ -186,7 +186,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .key("appConfKey1")
      *             .label("somelabel")
      *             .build());
@@ -231,7 +231,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .key("appConfKey1")
      *             .label("somelabel")
      *             .build());
@@ -276,7 +276,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .build());
      * 
      *         ctx.export("value", test.items());
@@ -319,7 +319,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .build());
      * 
      *         ctx.export("value", test.items());
@@ -362,7 +362,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .build());
      * 
      *         ctx.export("value", test.items());
@@ -405,7 +405,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .build());
      * 
      *         ctx.export("value", test.items());
@@ -448,7 +448,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(appconf.id())
+     *             .configurationStoreId(appconf.get("id"))
      *             .build());
      * 
      *         ctx.export("value", test.items());

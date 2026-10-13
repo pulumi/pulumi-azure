@@ -167,8 +167,8 @@ import javax.annotation.Nullable;
  *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.tenantId())
- *                     .objectId(current.objectId())
+ *                     .tenantId(current.get("tenantId"))
+ *                     .objectId(current.get("objectId"))
  *                     .keyPermissions(                    
  *                         "Get",
  *                         "List",

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleGetVirtualMachine = (new Array(2)).map((_, i) => i).map(__index => (azure.compute.getVirtualMachine({
+ * const exampleGetVirtualMachine = Array.from({length: 2}, (_, i) => i).map(__index => (azure.compute.getVirtualMachine({
  *     name: "example-vm",
  *     resourceGroupName: "example-resources",
  * })));

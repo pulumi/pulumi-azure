@@ -53,7 +53,7 @@ namespace Pulumi.Azure.DevTest
     ///         },
     ///         TimeZoneId = "Pacific Standard Time",
     ///         TaskType = "LabVmsStartupTask",
-    ///         NotificationSettings = null,
+    ///         NotificationSettings = new() { },
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

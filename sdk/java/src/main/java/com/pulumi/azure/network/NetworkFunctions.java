@@ -644,8 +644,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .name(exampleAzurermExpressRouteCircuit.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .name(exampleAzurermExpressRouteCircuit.get("name"))
      *             .build());
      * 
      *         ctx.export("expressRouteCircuitId", example.id());
@@ -694,8 +694,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .name(exampleAzurermExpressRouteCircuit.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .name(exampleAzurermExpressRouteCircuit.get("name"))
      *             .build());
      * 
      *         ctx.export("expressRouteCircuitId", example.id());
@@ -744,8 +744,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .name(exampleAzurermExpressRouteCircuit.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .name(exampleAzurermExpressRouteCircuit.get("name"))
      *             .build());
      * 
      *         ctx.export("expressRouteCircuitId", example.id());
@@ -794,8 +794,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .name(exampleAzurermExpressRouteCircuit.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .name(exampleAzurermExpressRouteCircuit.get("name"))
      *             .build());
      * 
      *         ctx.export("expressRouteCircuitId", example.id());
@@ -844,8 +844,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .name(exampleAzurermExpressRouteCircuit.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .name(exampleAzurermExpressRouteCircuit.get("name"))
      *             .build());
      * 
      *         ctx.export("expressRouteCircuitId", example.id());
@@ -2434,8 +2434,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
-     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.get("name"))
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.get("resourceGroupName"))
      *             .build());
      * 
      *         ctx.export("ddosProtectionPlanId", example.id());
@@ -2483,8 +2483,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
-     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.get("name"))
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.get("resourceGroupName"))
      *             .build());
      * 
      *         ctx.export("ddosProtectionPlanId", example.id());
@@ -2532,8 +2532,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
-     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.get("name"))
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.get("resourceGroupName"))
      *             .build());
      * 
      *         ctx.export("ddosProtectionPlanId", example.id());
@@ -2581,8 +2581,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
-     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.get("name"))
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.get("resourceGroupName"))
      *             .build());
      * 
      *         ctx.export("ddosProtectionPlanId", example.id());
@@ -2630,8 +2630,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
-     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.get("name"))
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.get("resourceGroupName"))
      *             .build());
      * 
      *         ctx.export("ddosProtectionPlanId", example.id());
@@ -4380,7 +4380,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("location", example.location());
@@ -4429,7 +4429,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("location", example.location());
@@ -4478,7 +4478,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("location", example.location());
@@ -4527,7 +4527,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("location", example.location());
@@ -4576,7 +4576,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("location", example.location());
@@ -5144,8 +5144,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(exampleAzurermNetworkWatcher.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermNetworkWatcher.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("networkWatcherId", example.id());
@@ -5193,8 +5193,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(exampleAzurermNetworkWatcher.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermNetworkWatcher.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("networkWatcherId", example.id());
@@ -5242,8 +5242,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(exampleAzurermNetworkWatcher.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermNetworkWatcher.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("networkWatcherId", example.id());
@@ -5291,8 +5291,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(exampleAzurermNetworkWatcher.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermNetworkWatcher.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("networkWatcherId", example.id());
@@ -5340,8 +5340,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(exampleAzurermNetworkWatcher.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermNetworkWatcher.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("networkWatcherId", example.id());

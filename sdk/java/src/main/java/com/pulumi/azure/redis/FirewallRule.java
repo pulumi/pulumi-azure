@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCache = new Cache("exampleCache", CacheArgs.builder()
- *             .name(String.format("redis%s", server.hex()))
+ *             .name(String.format("redis%s", server.get("hex")))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .capacity(1)

@@ -50,7 +50,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.get("id"));
      *     }
      * }
      * }
@@ -103,7 +103,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.get("id"));
      *     }
      * }
      * }
@@ -156,7 +156,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.get("id"));
      *     }
      * }
      * }
@@ -209,7 +209,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.get("id"));
      *     }
      * }
      * }
@@ -262,7 +262,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("dashboard-rg")
      *             .build());
      * 
-     *         ctx.export("id", exampleAzurermDashboard.id());
+     *         ctx.export("id", exampleAzurermDashboard.get("id"));
      *     }
      * }
      * }

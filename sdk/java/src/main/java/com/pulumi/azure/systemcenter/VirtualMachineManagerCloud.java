@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
- *             .systemCenterVirtualMachineManagerServerInventoryItemId(example.applyValue(_example -> _example.inventoryItems()[0].id()))
+ *             .systemCenterVirtualMachineManagerServerInventoryItemId(example.applyValue(_example -> _example.inventoryItems().get(0).id()))
  *             .build());
  * 
  *     }}{@code

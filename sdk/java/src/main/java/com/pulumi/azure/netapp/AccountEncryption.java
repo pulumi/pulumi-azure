@@ -166,8 +166,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var crossTenant = new AccountEncryption("crossTenant", AccountEncryptionArgs.builder()
- *             .netappAccountId(example.id())
- *             .userAssignedIdentityId(exampleAzurermUserAssignedIdentity.id())
+ *             .netappAccountId(example.get("id"))
+ *             .userAssignedIdentityId(exampleAzurermUserAssignedIdentity.get("id"))
  *             .encryptionKey("https://keyvault-in-other-tenant.vault.azure.net/keys/encryption-key")
  *             .federatedClientId("12345678-1234-1234-1234-123456789012")
  *             .crossTenantKeyVaultResourceId("/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/remote-rg/providers/Microsoft.KeyVault/vaults/keyvault-in-other-tenant")

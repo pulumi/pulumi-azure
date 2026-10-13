@@ -53,7 +53,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -102,7 +102,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -151,7 +151,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -200,7 +200,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -249,7 +249,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getApiKey(GetApiKeyArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -298,7 +298,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -347,7 +347,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -396,7 +396,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -445,7 +445,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -494,7 +494,7 @@ public final class NginxFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("existing")
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -542,7 +542,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -590,7 +590,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -638,7 +638,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -686,7 +686,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -734,7 +734,7 @@ public final class NginxFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NginxFunctions.getConfiguration(GetConfigurationArgs.builder()
-     *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
+     *             .nginxDeploymentId(exampleAzurermNginxDeployment.get("id"))
      *             .build());
      * 
      *         ctx.export("id", example.id());

@@ -40,8 +40,8 @@ namespace Pulumi.Azure.Orbital
     ///         {
     ///             new Azure.Orbital.Inputs.SpacecraftLinkArgs
     ///             {
-    ///                 BandwidthMhz = 100,
-    ///                 CenterFrequencyMhz = 101,
+    ///                 BandwidthMhz = 100.0,
+    ///                 CenterFrequencyMhz = 101.0,
     ///                 Direction = "Uplink",
     ///                 Polarization = "LHCP",
     ///                 Name = "examplename",
@@ -115,8 +115,8 @@ namespace Pulumi.Azure.Orbital
     ///                     new Azure.Orbital.Inputs.ContactProfileLinkChannelArgs
     ///                     {
     ///                         Name = "channelname",
-    ///                         BandwidthMhz = 100,
-    ///                         CenterFrequencyMhz = 101,
+    ///                         BandwidthMhz = 100.0,
+    ///                         CenterFrequencyMhz = 101.0,
     ///                         EndPoints = new[]
     ///                         {
     ///                             new Azure.Orbital.Inputs.ContactProfileLinkChannelEndPointArgs

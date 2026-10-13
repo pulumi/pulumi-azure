@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketSelfSignedCert = new SelfSignedCert("bucketSelfSignedCert", SelfSignedCertArgs.builder()
- *             .privateKeyPem(bucket.privateKeyPem())
+ *             .privateKeyPem(bucket.get("privateKeyPem"))
  *             .subject(Arrays.asList(Map.of("commonName", "example-bucket.example.internal")))
  *             .dnsNames(Arrays.asList("example-bucket.example.internal"))
  *             .validityPeriodHours(8760)
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *             .server(VolumeBucketWithServerServerArgs.builder()
  *                 .fqdn("example-bucket.example.internal")
  *                 .certificatePem(StdFunctions.base64encode(Base64encodeArgs.builder()
- *                     .input(String.format("%s%s", bucketSelfSignedCert.certPem(),bucket.privateKeyPem()))
+ *                     .input(String.format("%s%s", bucketSelfSignedCert.get("certPem"),bucket.get("privateKeyPem")))
  *                     .build()).result())
  *                 .build())
  *             .build());

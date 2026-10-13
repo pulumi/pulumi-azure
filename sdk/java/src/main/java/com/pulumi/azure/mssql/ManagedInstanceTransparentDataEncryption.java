@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .name("acctest-vnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
- *             .location(test.location())
+ *             .location(test.get("location"))
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
@@ -166,7 +166,7 @@ import javax.annotation.Nullable;
  *             .name("acctest-vnet1-mssql")
  *             .resourceGroupName(example.name())
  *             .addressSpaces("10.0.0.0/16")
- *             .location(test.location())
+ *             .location(test.get("location"))
  *             .build());
  * 
  *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()

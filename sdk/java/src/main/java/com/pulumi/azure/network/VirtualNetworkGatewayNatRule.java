@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .virtualNetworkGatewayId(example.applyValue(_example -> _example.id()))
  *             .mode("EgressSnat")
  *             .type("Dynamic")
- *             .ipConfigurationId(example.applyValue(_example -> _example.ipConfigurations()[0].id()))
+ *             .ipConfigurationId(example.applyValue(_example -> _example.ipConfigurations().get(0).id()))
  *             .externalMappings(VirtualNetworkGatewayNatRuleExternalMappingArgs.builder()
  *                 .addressSpace("10.2.0.0/26")
  *                 .portRange("200")
