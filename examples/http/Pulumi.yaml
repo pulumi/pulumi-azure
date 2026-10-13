@@ -1,3 +1,0 @@
-name: azure-http
-runtime: nodejs
-description: Work with an http Azure FunctionApp

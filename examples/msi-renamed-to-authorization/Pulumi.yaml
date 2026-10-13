@@ -1,3 +1,0 @@
-name: aks
-runtime: nodejs
-description: Create an MSI Resource and show it has been aliased correctly
