@@ -66,8 +66,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new VaultResourceGuardAssociation("test", VaultResourceGuardAssociationArgs.builder()
- *             .vaultId(testAzurermRecoveryServicesVault.id())
- *             .resourceGuardId(testAzurermDataProtectionResourceGuard.id())
+ *             .vaultId(testAzurermRecoveryServicesVault.get("id"))
+ *             .resourceGuardId(testAzurermDataProtectionResourceGuard.get("id"))
  *             .build());
  * 
  *     }

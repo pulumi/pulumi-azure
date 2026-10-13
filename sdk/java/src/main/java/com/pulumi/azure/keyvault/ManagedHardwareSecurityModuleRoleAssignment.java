@@ -43,16 +43,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var user = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
- *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+ *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
  *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
  *             .build());
  * 
  *         var example = new ManagedHardwareSecurityModuleRoleAssignment("example", ManagedHardwareSecurityModuleRoleAssignmentArgs.builder()
  *             .name("a9dbe818-56e7-5878-c0ce-a1477692c1d6")
- *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+ *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
  *             .scope(user.scope())
  *             .roleDefinitionId(user.resourceManagerId())
- *             .principalId(current.objectId())
+ *             .principalId(current.get("objectId"))
  *             .build());
  * 
  *     }

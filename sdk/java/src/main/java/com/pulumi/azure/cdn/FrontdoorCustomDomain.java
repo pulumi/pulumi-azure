@@ -197,14 +197,14 @@ import javax.annotation.Nullable;
  *                     "_dnsauth",
  *                     StdFunctions.split(SplitArgs.builder()
  *                         .separator(".")
- *                         .text(exampleAzurermCdnFrontdoorCustomDomain.hostName())
+ *                         .text(exampleAzurermCdnFrontdoorCustomDomain.get("hostName"))
  *                         .build()).result()[0])
  *                 .build()).result())
- *             .zoneName(exampleAzurermDnsZone.name())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .zoneName(exampleAzurermDnsZone.get("name"))
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
  *             .ttl(3600)
  *             .records(TxtRecordRecordArgs.builder()
- *                 .value(exampleAzurermCdnFrontdoorCustomDomain.validationToken())
+ *                 .value(exampleAzurermCdnFrontdoorCustomDomain.get("validationToken"))
  *                 .build())
  *             .build());
  * 
@@ -245,12 +245,12 @@ import javax.annotation.Nullable;
  *         var example = new CNameRecord("example", CNameRecordArgs.builder()
  *             .name(StdFunctions.split(SplitArgs.builder()
  *                 .separator(".")
- *                 .text(exampleAzurermCdnFrontdoorCustomDomain.hostName())
+ *                 .text(exampleAzurermCdnFrontdoorCustomDomain.get("hostName"))
  *                 .build()).result()[0])
- *             .zoneName(exampleAzurermDnsZone.name())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .zoneName(exampleAzurermDnsZone.get("name"))
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
  *             .ttl(3600)
- *             .record(exampleAzurermCdnFrontdoorEndpoint.hostName())
+ *             .record(exampleAzurermCdnFrontdoorEndpoint.get("hostName"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleAzurermCdnFrontdoorRoute,

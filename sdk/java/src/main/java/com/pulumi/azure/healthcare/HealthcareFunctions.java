@@ -56,7 +56,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name("example-healthcare_dicom_service")
-     *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
+     *             .workspaceId(exampleAzurermHealthcareWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("azurermHealthcareDicomService", example.id());
@@ -105,7 +105,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name("example-healthcare_dicom_service")
-     *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
+     *             .workspaceId(exampleAzurermHealthcareWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("azurermHealthcareDicomService", example.id());
@@ -154,7 +154,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name("example-healthcare_dicom_service")
-     *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
+     *             .workspaceId(exampleAzurermHealthcareWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("azurermHealthcareDicomService", example.id());
@@ -203,7 +203,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name("example-healthcare_dicom_service")
-     *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
+     *             .workspaceId(exampleAzurermHealthcareWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("azurermHealthcareDicomService", example.id());
@@ -252,7 +252,7 @@ public final class HealthcareFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = HealthcareFunctions.getDicomService(GetDicomServiceArgs.builder()
      *             .name("example-healthcare_dicom_service")
-     *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
+     *             .workspaceId(exampleAzurermHealthcareWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("azurermHealthcareDicomService", example.id());

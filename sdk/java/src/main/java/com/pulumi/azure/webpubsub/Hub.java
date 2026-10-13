@@ -99,20 +99,20 @@ import javax.annotation.Nullable;
  *                     .userEventNameFilters(                    
  *                         "event1",
  *                         "event2")
- *                     .eventhubNamespaceName(test.name())
- *                     .eventhubName(test1.name())
+ *                     .eventhubNamespaceName(test.get("name"))
+ *                     .eventhubName(test1.get("name"))
  *                     .build(),
  *                 HubEventListenerArgs.builder()
  *                     .systemEventNameFilters("connected")
  *                     .userEventNameFilters("*")
- *                     .eventhubNamespaceName(test.name())
- *                     .eventhubName(test1.name())
+ *                     .eventhubNamespaceName(test.get("name"))
+ *                     .eventhubName(test1.get("name"))
  *                     .build(),
  *                 HubEventListenerArgs.builder()
  *                     .systemEventNameFilters("connected")
  *                     .userEventNameFilters("event1")
- *                     .eventhubNamespaceName(test.name())
- *                     .eventhubName(test1.name())
+ *                     .eventhubNamespaceName(test.get("name"))
+ *                     .eventhubName(test1.get("name"))
  *                     .build())
  *             .anonymousConnectionsEnabled(true)
  *             .build(), CustomResourceOptions.builder()

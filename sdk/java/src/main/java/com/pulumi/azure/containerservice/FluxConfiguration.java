@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  * 
  *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension("exampleKubernetesClusterExtension", KubernetesClusterExtensionArgs.builder()
  *             .name("example-ext")
- *             .clusterId(test.id())
+ *             .clusterId(test.get("id"))
  *             .extensionType("microsoft.flux")
  *             .build());
  * 
  *         var exampleFluxConfiguration = new FluxConfiguration("exampleFluxConfiguration", FluxConfigurationArgs.builder()
  *             .name("example-fc")
- *             .clusterId(test.id())
+ *             .clusterId(test.get("id"))
  *             .namespace("flux")
  *             .gitRepository(FluxConfigurationGitRepositoryArgs.builder()
  *                 .url("https://github.com/Azure/arc-k8s-demo")

@@ -217,7 +217,7 @@ import javax.annotation.Nullable;
  *             .serverId(exampleServer.id())
  *             .retentionInDays(6)
  *             .logMonitoringEnabled(false)
- *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
+ *             .storageAccountSubscriptionId(primaryAzurermSubscription.get("subscriptionId"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleAssignment,

@@ -83,7 +83,7 @@ namespace Pulumi.Azure.AppService
     ///         Name = "example-linuxwebapp",
     ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleConnection = new Azure.AppService.Connection("example", new()

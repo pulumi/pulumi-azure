@@ -51,8 +51,8 @@ import javax.annotation.Nullable;
  * 
  *         var example = new PostgresqlCluster("example", PostgresqlClusterArgs.builder()
  *             .name("examplecluster")
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+ *             .location(exampleAzurermResourceGroup.get("location"))
  *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)

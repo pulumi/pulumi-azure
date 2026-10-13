@@ -1795,7 +1795,7 @@ public final class ServicebusFunctions {
      *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.get("id"));
      *     }
      * }
      * }
@@ -1846,7 +1846,7 @@ public final class ServicebusFunctions {
      *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.get("id"));
      *     }
      * }
      * }
@@ -1897,7 +1897,7 @@ public final class ServicebusFunctions {
      *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.get("id"));
      *     }
      * }
      * }
@@ -1948,7 +1948,7 @@ public final class ServicebusFunctions {
      *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.get("id"));
      *     }
      * }
      * }
@@ -1999,7 +1999,7 @@ public final class ServicebusFunctions {
      *             .topicName("example-servicebus_topic")
      *             .build());
      * 
-     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.id());
+     *         ctx.export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.get("id"));
      *     }
      * }
      * }

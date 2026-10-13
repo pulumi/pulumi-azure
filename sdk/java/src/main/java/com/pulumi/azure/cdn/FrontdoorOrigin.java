@@ -269,7 +269,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .visibilitySubscriptionIds(current.subscriptionId())
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations.get(0).id()))
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
  *                 .name("primary")
  *                 .privateIpAddress("10.5.1.17")

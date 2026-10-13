@@ -45,7 +45,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new ManagedHardwareSecurityModuleKey("example", ManagedHardwareSecurityModuleKeyArgs.builder()
  *             .name("example-key")
- *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+ *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
  *             .keyType("EC-HSM")
  *             .curve("P-521")
  *             .keyOpts("sign")

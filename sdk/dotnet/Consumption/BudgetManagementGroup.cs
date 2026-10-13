@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Consumption
     ///     {
     ///         Name = "example",
     ///         ManagementGroupId = example.Id,
-    ///         Amount = 1000,
+    ///         Amount = 1000.0,
     ///         TimeGrain = "Monthly",
     ///         TimePeriod = new Azure.Consumption.Inputs.BudgetManagementGroupTimePeriodArgs
     ///         {

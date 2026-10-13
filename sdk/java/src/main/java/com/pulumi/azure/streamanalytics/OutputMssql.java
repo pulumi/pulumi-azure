@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDatabase = new Database("exampleDatabase", DatabaseArgs.builder()
  *             .name("exampledb")
- *             .serverId(test.id())
+ *             .serverId(test.get("id"))
  *             .build());
  * 
  *         var exampleOutputMssql = new OutputMssql("exampleOutputMssql", OutputMssqlArgs.builder()

@@ -68,9 +68,9 @@ public final class EventhubFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name("test")
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -118,9 +118,9 @@ public final class EventhubFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name("test")
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -168,9 +168,9 @@ public final class EventhubFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name("test")
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -218,9 +218,9 @@ public final class EventhubFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name("test")
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -268,9 +268,9 @@ public final class EventhubFunctions {
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getAuthorizationRule(GetAuthorizationRuleArgs.builder()
      *             .name("test")
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -562,10 +562,10 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .name(testAzurermEventhubConsumerGroup.get("name"))
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -612,10 +612,10 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .name(testAzurermEventhubConsumerGroup.get("name"))
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -662,10 +662,10 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .name(testAzurermEventhubConsumerGroup.get("name"))
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -712,10 +712,10 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .name(testAzurermEventhubConsumerGroup.get("name"))
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -762,10 +762,10 @@ public final class EventhubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = EventhubFunctions.getConsumeGroup(GetConsumeGroupArgs.builder()
-     *             .name(testAzurermEventhubConsumerGroup.name())
-     *             .namespaceName(testAzurermEventhubNamespace.name())
-     *             .eventhubName(testAzurermEventhub.name())
-     *             .resourceGroupName(testAzurermResourceGroup.name())
+     *             .name(testAzurermEventhubConsumerGroup.get("name"))
+     *             .namespaceName(testAzurermEventhubNamespace.get("name"))
+     *             .eventhubName(testAzurermEventhub.get("name"))
+     *             .resourceGroupName(testAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }

@@ -72,9 +72,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var db = new Account("db", AccountArgs.builder()
- *             .name(String.format("tfex-cosmos-db-%s", ri.result()))
- *             .location(example.location())
- *             .resourceGroupName(example.name())
+ *             .name(String.format("tfex-cosmos-db-%s", ri.get("result")))
+ *             .location(example.get("location"))
+ *             .resourceGroupName(example.get("name"))
  *             .offerType("Standard")
  *             .kind("MongoDB")
  *             .automaticFailoverEnabled(true)
@@ -145,15 +145,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserAssignedIdentity("example", UserAssignedIdentityArgs.builder()
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+ *             .location(exampleAzurermResourceGroup.get("location"))
  *             .name("example-resource")
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("example-resource")
- *             .location(exampleAzurermResourceGroup.location())
- *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
  *             .defaultIdentityType(StdFunctions.join(JoinArgs.builder()
  *                 .separator("=")
  *                 .input(                

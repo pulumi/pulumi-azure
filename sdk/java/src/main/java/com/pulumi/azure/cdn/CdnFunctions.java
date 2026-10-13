@@ -816,7 +816,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name("examplecdnfdwafpolicy")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -857,7 +857,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name("examplecdnfdwafpolicy")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -898,7 +898,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name("examplecdnfdwafpolicy")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -939,7 +939,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name("examplecdnfdwafpolicy")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -980,7 +980,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name("examplecdnfdwafpolicy")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }

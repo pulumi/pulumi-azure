@@ -813,7 +813,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -860,7 +860,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -907,7 +907,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -954,7 +954,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -1001,7 +1001,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackup(GetAutonomousDatabaseBackupArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -1048,7 +1048,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -1095,7 +1095,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -1142,7 +1142,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -1189,7 +1189,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }
@@ -1236,7 +1236,7 @@ public final class OracleFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = OracleFunctions.getAutonomousDatabaseBackups(GetAutonomousDatabaseBackupsArgs.builder()
-     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.id())
+     *             .autonomousDatabaseId(exampleAzurermOracleAutonomousDatabase.get("id"))
      *             .build());
      * 
      *     }

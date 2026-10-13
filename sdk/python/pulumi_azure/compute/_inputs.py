@@ -8368,7 +8368,7 @@ class ScaleSetIdentityArgsDict(TypedDict):
         sku={
             "name": vm_sku,
             "tier": "Standard",
-            "capacity": int(instance_count),
+            "capacity": instance_count,
         },
         identity={
             "type": "SystemAssigned",
@@ -8408,7 +8408,7 @@ class ScaleSetIdentityArgs:
                    sku={
                        "name": vm_sku,
                        "tier": "Standard",
-                       "capacity": int(instance_count),
+                       "capacity": instance_count,
                    },
                    identity={
                        "type": "SystemAssigned",
@@ -8460,7 +8460,7 @@ class ScaleSetIdentityArgs:
             sku={
                 "name": vm_sku,
                 "tier": "Standard",
-                "capacity": int(instance_count),
+                "capacity": instance_count,
             },
             identity={
                 "type": "SystemAssigned",

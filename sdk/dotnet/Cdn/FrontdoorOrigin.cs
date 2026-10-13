@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
     ///     {
     ///         Name = "example-origingroup",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         LoadBalancing = null,
+    ///         LoadBalancing = new() { },
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Cdn
     ///     {
     ///         Name = "example-origin-group",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         LoadBalancing = null,
+    ///         LoadBalancing = new() { },
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()

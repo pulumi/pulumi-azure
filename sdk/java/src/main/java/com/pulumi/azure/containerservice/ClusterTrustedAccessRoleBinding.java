@@ -77,15 +77,15 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .rbacAuthorizationEnabled(false)
- *             .tenantId(exampleAzurermClientConfig.tenantId())
+ *             .tenantId(exampleAzurermClientConfig.get("tenantId"))
  *             .skuName("example-value")
  *             .softDeleteRetentionDays("example-value")
  *             .build());
  * 
  *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleAzurermClientConfig.tenantId())
- *             .objectId(exampleAzurermClientConfig.objectId())
+ *             .tenantId(exampleAzurermClientConfig.get("tenantId"))
+ *             .objectId(exampleAzurermClientConfig.get("objectId"))
  *             .keyPermissions("example-value")
  *             .build());
  * 

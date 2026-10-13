@@ -46,7 +46,7 @@ namespace Pulumi.Azure.MSSql
     ///         ServerId = exampleServer.Id,
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///         LicenseType = "LicenseIncluded",
-    ///         MaxSizeGb = 2,
+    ///         MaxSizeGb = 2.0,
     ///         SkuName = "S0",
     ///         EnclaveType = "VBS",
     ///         Tags = 
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.MSSql
     ///         ServerId = exampleServer.Id,
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///         LicenseType = "LicenseIncluded",
-    ///         MaxSizeGb = 4,
+    ///         MaxSizeGb = 4.0,
     ///         ReadScale = true,
     ///         SkuName = "S0",
     ///         ZoneRedundant = true,

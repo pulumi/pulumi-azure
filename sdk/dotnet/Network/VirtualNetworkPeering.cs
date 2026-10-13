@@ -141,10 +141,10 @@ namespace Pulumi.Azure.Network
     ///         var range = new { Value = rangeIndex };
     ///         peering.Add(new Azure.Network.VirtualNetworkPeering($"peering-{range.Value}", new()
     ///         {
-    ///             Name = vnet.Select(__item =&gt; __item.Name).ToList()[1 - range.Value].Apply(names =&gt; $"peering-to-{names}"),
+    ///             Name = vnet.Select(__item =&gt; __item.Name).ToList()[(int)(1 - range.Value)].Apply(names =&gt; $"peering-to-{names}"),
     ///             ResourceGroupName = example.Select(__item =&gt; __item.Name).ToList()[range.Value],
     ///             VirtualNetworkName = vnet.Select(__item =&gt; __item.Name).ToList()[range.Value],
-    ///             RemoteVirtualNetworkId = vnet.Select(__item =&gt; __item.Id).ToList()[1 - range.Value],
+    ///             RemoteVirtualNetworkId = vnet.Select(__item =&gt; __item.Id).ToList()[(int)(1 - range.Value)],
     ///             AllowVirtualNetworkAccess = true,
     ///             AllowForwardedTraffic = true,
     ///             AllowGatewayTransit = false,

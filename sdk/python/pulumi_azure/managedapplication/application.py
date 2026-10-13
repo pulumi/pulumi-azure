@@ -379,9 +379,9 @@ class Application(pulumi.CustomResource):
             description="Test Managed App Definition",
             authorizations=[{
                 "service_principal_id": current.object_id,
-                "role_definition_id": len(std.split(separator="/",
-                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[int(length - 1)]),
+                "role_definition_id": std.split(separator="/",
+                    text=builtin.id).result[len(std.split(separator="/",
+                    text=builtin.id).result) - 1.apply(lambda x: int(x))],
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
@@ -463,9 +463,9 @@ class Application(pulumi.CustomResource):
             description="Test Managed App Definition",
             authorizations=[{
                 "service_principal_id": current.object_id,
-                "role_definition_id": len(std.split(separator="/",
-                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[int(length - 1)]),
+                "role_definition_id": std.split(separator="/",
+                    text=builtin.id).result[len(std.split(separator="/",
+                    text=builtin.id).result) - 1.apply(lambda x: int(x))],
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",

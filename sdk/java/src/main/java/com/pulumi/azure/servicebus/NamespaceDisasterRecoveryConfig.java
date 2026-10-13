@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()
  *             .name("examplerule")
- *             .namespaceId(exampleAzurermServicebusNamespace.id())
+ *             .namespaceId(exampleAzurermServicebusNamespace.get("id"))
  *             .listen(true)
  *             .send(true)
  *             .manage(false)

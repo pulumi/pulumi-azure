@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSuppression = new Suppression("exampleSuppression", SuppressionArgs.builder()
  *             .name("HardcodedSuppressionName")
- *             .recommendationId(test.recommendations()[0].recommendationName())
+ *             .recommendationId(test.get("recommendations")[0].get("recommendationName"))
  *             .resourceId(String.format("/subscriptions/%s", current.subscriptionId()))
  *             .ttl("01:00:00:00")
  *             .build());

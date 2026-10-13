@@ -167,7 +167,7 @@ import javax.annotation.Nullable;
  *         var exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs.builder()
  *             .networkInterfaceId(exampleNetworkInterface.id())
  *             .ipConfigurationName("testconfiguration1")
- *             .backendAddressPoolId(network.backendAddressPools().applyValue(_backendAddressPools -> _backendAddressPools[0].id()))
+ *             .backendAddressPoolId(network.backendAddressPools().applyValue(_backendAddressPools -> _backendAddressPools.get(0).id()))
  *             .build());
  * 
  *     }

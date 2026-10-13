@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *         var exampleCustomDomain = new CustomDomain("exampleCustomDomain", CustomDomainArgs.builder()
  *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
  *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
- *                     .input(api.fqdn())
+ *                     .input(api.get("fqdn"))
  *                     .prefix("asuid.")
  *                     .build()).result())
  *                 .suffix(".")
@@ -181,12 +181,12 @@ import javax.annotation.Nullable;
  *         var example = new CustomDomain("example", CustomDomainArgs.builder()
  *             .name(StdFunctions.trimsuffix(TrimsuffixArgs.builder()
  *                 .input(StdFunctions.trimprefix(TrimprefixArgs.builder()
- *                     .input(api.fqdn())
+ *                     .input(api.get("fqdn"))
  *                     .prefix("asuid.")
  *                     .build()).result())
  *                 .suffix(".")
  *                 .build()).result())
- *             .containerAppId(exampleAzurermContainerApp.id())
+ *             .containerAppId(exampleAzurermContainerApp.get("id"))
  *             .build());
  * 
  *     }

@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .autoApprovalSubscriptionIds("00000000-0000-0000-0000-000000000000")
  *             .visibilitySubscriptionIds("00000000-0000-0000-0000-000000000000")
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations.get(0).id()))
  *             .natIpConfigurations(            
  *                 LinkServiceNatIpConfigurationArgs.builder()
  *                     .name("primary")

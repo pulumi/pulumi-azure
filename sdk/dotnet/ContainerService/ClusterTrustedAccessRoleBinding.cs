@@ -44,7 +44,7 @@ namespace Pulumi.Azure.ContainerService
     ///         RbacAuthorizationEnabled = false,
     ///         TenantId = exampleAzurermClientConfig.TenantId,
     ///         SkuName = "example-value",
-    ///         SoftDeleteRetentionDays = "example-value",
+    ///         SoftDeleteRetentionDays = int.Parse("example-value", System.Globalization.CultureInfo.InvariantCulture),
     ///     });
     /// 
     ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
     ///             Name = "example-value",
-    ///             NodeCount = "example-value",
+    ///             NodeCount = int.Parse("example-value", System.Globalization.CultureInfo.InvariantCulture),
     ///             VmSize = "example-value",
     ///             UpgradeSettings = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolUpgradeSettingsArgs
     ///             {

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
- *             .name(String.format("k8s-workspace-%s", workspace.hex()))
+ *             .name(String.format("k8s-workspace-%s", workspace.get("hex")))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")

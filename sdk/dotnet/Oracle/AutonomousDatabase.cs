@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Oracle
     ///         AutoScalingForStorageEnabled = false,
     ///         VirtualNetworkId = "example",
     ///         AdminPassword = "example",
-    ///         AutoScalingEnabled = "example",
+    ///         AutoScalingEnabled = "example" == "true",
     ///         CharacterSet = "example",
     ///         ComputeCount = 1.23456,
     ///         NationalCharacterSet = "example",

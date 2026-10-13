@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var test = new Pipeline("test", PipelineArgs.builder()
  *             .name("example")
- *             .dataFactoryId(testAzurermDataFactory.id())
+ *             .dataFactoryId(testAzurermDataFactory.get("id"))
  *             .variables(Map.of("bob", "item1"))
  *             .activitiesJson("""
  * [

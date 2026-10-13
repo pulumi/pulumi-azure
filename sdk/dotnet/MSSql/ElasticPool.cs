@@ -45,7 +45,7 @@ namespace Pulumi.Azure.MSSql
     ///         Location = example.Location,
     ///         ServerName = exampleServer.Name,
     ///         LicenseType = "LicenseIncluded",
-    ///         MaxSizeGb = 756,
+    ///         MaxSizeGb = 756.0,
     ///         Sku = new Azure.MSSql.Inputs.ElasticPoolSkuArgs
     ///         {
     ///             Name = "BasicPool",
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.MSSql
     ///         PerDatabaseSettings = new Azure.MSSql.Inputs.ElasticPoolPerDatabaseSettingsArgs
     ///         {
     ///             MinCapacity = 0.25,
-    ///             MaxCapacity = 4,
+    ///             MaxCapacity = 4.0,
     ///         },
     ///     });
     /// 

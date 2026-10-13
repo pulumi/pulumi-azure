@@ -65,8 +65,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCatalog = new Catalog("exampleCatalog", CatalogArgs.builder()
  *             .name("example")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .devCenterId(test.id())
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
+ *             .devCenterId(test.get("id"))
  *             .catalogGithub(CatalogCatalogGithubArgs.builder()
  *                 .branch("foo")
  *                 .path("")

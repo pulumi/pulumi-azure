@@ -1095,7 +1095,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("keyType", example.keyType());
@@ -1137,7 +1137,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("keyType", example.keyType());
@@ -1179,7 +1179,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("keyType", example.keyType());
@@ -1221,7 +1221,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("keyType", example.keyType());
@@ -1263,7 +1263,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("keyType", example.keyType());
@@ -1797,8 +1797,8 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
-     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
      *         ctx.export("hsm-key-vesrion", example.version());
@@ -1842,8 +1842,8 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
-     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
      *         ctx.export("hsm-key-vesrion", example.version());
@@ -1887,8 +1887,8 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
-     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
      *         ctx.export("hsm-key-vesrion", example.version());
@@ -1932,8 +1932,8 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
-     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
      *         ctx.export("hsm-key-vesrion", example.version());
@@ -1977,8 +1977,8 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleKey(GetManagedHardwareSecurityModuleKeyArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
-     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
+     *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.get("name"))
      *             .build());
      * 
      *         ctx.export("hsm-key-vesrion", example.version());
@@ -2019,7 +2019,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2061,7 +2061,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2103,7 +2103,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2145,7 +2145,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2187,7 +2187,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.get("id"))
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2230,7 +2230,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("secretValue", example.value());
@@ -2272,7 +2272,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("secretValue", example.value());
@@ -2314,7 +2314,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("secretValue", example.value());
@@ -2356,7 +2356,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("secretValue", example.value());
@@ -2398,7 +2398,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(existing.id())
+     *             .keyVaultId(existing.get("id"))
      *             .build());
      * 
      *         ctx.export("secretValue", example.value());

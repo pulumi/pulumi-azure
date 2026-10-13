@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *         ctx.export("clientCertificate", exampleAutomaticCluster.kubeConfigs().applyValue(_kubeConfigs -> _kubeConfigs[0].clientCertificate()));
+ *         ctx.export("clientCertificate", exampleAutomaticCluster.kubeConfigs().applyValue(_kubeConfigs -> _kubeConfigs.get(0).clientCertificate()));
  *         ctx.export("kubeConfig", exampleAutomaticCluster.kubeConfigRaw());
  *     }
  * }
