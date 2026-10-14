@@ -1530,6 +1530,7 @@ v7 only. On `containerservice.Registry`:
 * `georeplications[].regionalEndpointEnabled` → `globalEndpointRoutingEnabled`, which is now required.
 * `trustPolicyEnabled` was removed.
 * `encryption` is no longer computed. If you configure customer-managed encryption, keep the `encryption` block in your program.
+* With more than one `georeplications` block, list them in alphabetical order of `location`, as the resource's documentation asks. v6 kept them in the order they were created, so any other order now shows an update in every preview. Applying that update changes nothing in Azure.
 
 **v6**
 
