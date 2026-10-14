@@ -1,0 +1,28 @@
+name: appinsights
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleWorkspace:
+    type: azure:operationalinsights:AnalyticsWorkspace
+    properties:
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+      sku: PerGB2018
+      retentionInDays: 30
+
+  exampleInsights:
+    type: azure:appinsights:Insights
+    properties:
+      location: ${exampleResourceGroup.location}
+      resourceGroupName: ${exampleResourceGroup.name}
+      workspaceId: ${exampleWorkspace.id}
+      applicationType: web
+      ipMaskingEnabled: false
+      localAuthenticationEnabled: false
+      dailyDataCapNotificationsEnabled: true

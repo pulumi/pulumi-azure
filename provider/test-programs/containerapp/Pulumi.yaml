@@ -1,0 +1,26 @@
+name: containerapp
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: West US 2
+
+  exampleWorkspace:
+    type: azure:operationalinsights:AnalyticsWorkspace
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: PerGB2018
+      retentionInDays: 30
+
+  # `logsDestination` is inferred from the workspace ID here, but no longer computed in v7.
+  # Environment names must be lower case, and they aren't lower-cased when auto-named.
+  environment:
+    type: azure:containerapp:Environment
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      logAnalyticsWorkspaceId: ${exampleWorkspace.id}

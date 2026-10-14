@@ -1,0 +1,63 @@
+name: frontdoor
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleProfile:
+    type: azure:cdn:FrontdoorProfile
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      skuName: Standard_AzureFrontDoor
+
+  exampleRuleSet:
+    type: azure:cdn:FrontdoorRuleSet
+    properties:
+      cdnFrontdoorProfileId: ${exampleProfile.id}
+
+  redirectHttp:
+    type: azure:cdn:FrontdoorRule
+    properties:
+      cdnFrontdoorRuleSetId: ${exampleRuleSet.id}
+      order: 1
+      behaviourOnMatch: Continue
+      conditions:
+        requestSchemes:
+          - operator: Equal
+            values: HTTP
+        requestPaths:
+          - operator: NotBeginsWith
+            values:
+              - internal/
+      actions:
+        # An empty `destinationHostname` is rejected now: omitting it preserves the incoming host.
+        urlRedirect:
+          redirectType: PermanentRedirect
+          redirectProtocol: Https
+
+  cacheStatic:
+    type: azure:cdn:FrontdoorRule
+    properties:
+      cdnFrontdoorRuleSetId: ${exampleRuleSet.id}
+      order: 2
+      conditions:
+        requestFileExtensions:
+          - operator: Equal
+            values:
+              - css
+              - js
+      actions:
+        routeConfigurationOverride:
+          caching:
+            behaviour: OverrideAlways
+            duration: "1.00:00:00"
+            compressionEnabled: true
+            queryStringBehaviour: IgnoreQueryString
+        modifyResponseHeaders:
+          - operator: Overwrite
+            headerName: Strict-Transport-Security
+            headerValue: max-age=31536000

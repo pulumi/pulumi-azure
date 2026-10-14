@@ -1,0 +1,65 @@
+name: frontdoor
+runtime: yaml
+
+# v7 rewrites `azure:cdn:FrontdoorRule`: every condition and action block is renamed, and
+# `negateCondition` is folded into the operator.
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  exampleProfile:
+    type: azure:cdn:FrontdoorProfile
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      skuName: Standard_AzureFrontDoor
+
+  exampleRuleSet:
+    type: azure:cdn:FrontdoorRuleSet
+    properties:
+      cdnFrontdoorProfileId: ${exampleProfile.id}
+
+  redirectHttp:
+    type: azure:cdn:FrontdoorRule
+    properties:
+      cdnFrontdoorRuleSetId: ${exampleRuleSet.id}
+      order: 1
+      behaviorOnMatch: Continue
+      conditions:
+        requestSchemeConditions:
+          - operator: Equal
+            matchValues: HTTP
+        urlPathConditions:
+          - operator: BeginsWith
+            matchValues:
+              - internal/
+            negateCondition: true
+      actions:
+        urlRedirectAction:
+          redirectType: PermanentRedirect
+          redirectProtocol: Https
+          destinationHostname: ""
+
+  cacheStatic:
+    type: azure:cdn:FrontdoorRule
+    properties:
+      cdnFrontdoorRuleSetId: ${exampleRuleSet.id}
+      order: 2
+      conditions:
+        urlFileExtensionConditions:
+          - operator: Equal
+            matchValues:
+              - css
+              - js
+      actions:
+        routeConfigurationOverrideAction:
+          cacheBehavior: OverrideAlways
+          cacheDuration: "1.00:00:00"
+          compressionEnabled: true
+          queryStringCachingBehavior: IgnoreQueryString
+        responseHeaderActions:
+          - headerAction: Overwrite
+            headerName: Strict-Transport-Security
+            value: max-age=31536000

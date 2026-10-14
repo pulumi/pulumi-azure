@@ -1,0 +1,23 @@
+name: containerregistry
+runtime: yaml
+
+resources:
+
+  exampleResourceGroup:
+    type: azure:core:ResourceGroup
+    properties:
+      location: East US
+
+  # v7 removes `trustPolicyEnabled`, and renames `georeplications[].regionalEndpointEnabled`
+  # to `globalEndpointRoutingEnabled`.
+  registry:
+    type: azure:containerservice:Registry
+    properties:
+      resourceGroupName: ${exampleResourceGroup.name}
+      location: ${exampleResourceGroup.location}
+      sku: Premium
+      trustPolicyEnabled: false
+      georeplications:
+        - location: West US 2
+          regionalEndpointEnabled: true
+          zoneRedundancyEnabled: false
