@@ -53,7 +53,7 @@ namespace Pulumi.Azure.AppService
     ///         Location = example.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleLinuxFunctionAppSlot = new Azure.AppService.LinuxFunctionAppSlot("example", new()
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.AppService
     ///         Name = "example-linux-function-app-slot",
     ///         FunctionAppId = exampleLinuxFunctionApp.Id,
     ///         StorageAccountName = exampleAccount.Name,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     /// });

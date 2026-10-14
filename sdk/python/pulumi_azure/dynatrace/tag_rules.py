@@ -169,8 +169,8 @@ class TagRules(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
-                 metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
+                 log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict', 'outputs.TagRulesLogRule']]] = None,
+                 metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict', 'outputs.TagRulesMetricRule']]] = None,
                  monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -248,8 +248,8 @@ class TagRules(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
-        :param pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']] metric_rule: Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
+        :param pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict', 'outputs.TagRulesLogRule']] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
+        :param pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict', 'outputs.TagRulesMetricRule']] metric_rule: Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         :param pulumi.Input[_builtins.str] monitor_id: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
         """
@@ -346,8 +346,8 @@ class TagRules(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
-                 metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
+                 log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict', 'outputs.TagRulesLogRule']]] = None,
+                 metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict', 'outputs.TagRulesMetricRule']]] = None,
                  monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -375,8 +375,8 @@ class TagRules(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']]] = None,
-            metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']]] = None,
+            log_rule: pulumi.Input[Optional[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict', 'outputs.TagRulesLogRule']]] = None,
+            metric_rule: pulumi.Input[Optional[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict', 'outputs.TagRulesMetricRule']]] = None,
             monitor_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TagRules':
         """
@@ -386,8 +386,8 @@ class TagRules(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict']] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
-        :param pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict']] metric_rule: Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
+        :param pulumi.Input[Union['TagRulesLogRuleArgs', 'TagRulesLogRuleArgsDict', 'outputs.TagRulesLogRule']] log_rule: Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
+        :param pulumi.Input[Union['TagRulesMetricRuleArgs', 'TagRulesMetricRuleArgsDict', 'outputs.TagRulesMetricRule']] metric_rule: Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
         :param pulumi.Input[_builtins.str] monitor_id: Name of the Dynatrace monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Name of the Dynatrace tag rules. Currently, the only supported value is `default`. Changing this forces a new resource to be created.
         """

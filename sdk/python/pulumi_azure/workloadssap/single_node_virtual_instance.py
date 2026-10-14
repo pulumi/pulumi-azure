@@ -422,7 +422,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_location: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict', 'outputs.SingleNodeVirtualInstanceIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -430,7 +430,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  sap_product: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict']]] = None,
+                 single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict', 'outputs.SingleNodeVirtualInstanceSingleServerConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -579,7 +579,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict', 'outputs.SingleNodeVirtualInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the managed Resource Group for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
@@ -587,7 +587,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sap_fqdn: The fully qualified domain name for the SAP system. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sap_product: The SAP Product type for the SAP Single Node Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict']] single_server_configuration: A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict', 'outputs.SingleNodeVirtualInstanceSingleServerConfiguration']] single_server_configuration: A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the SAP Single Node Virtual Instance.
         """
         ...
@@ -755,7 +755,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_location: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict', 'outputs.SingleNodeVirtualInstanceIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -763,7 +763,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  sap_product: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict']]] = None,
+                 single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict', 'outputs.SingleNodeVirtualInstanceSingleServerConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -810,7 +810,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_location: pulumi.Input[Optional[_builtins.str]] = None,
             environment: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict', 'outputs.SingleNodeVirtualInstanceIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -818,7 +818,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             sap_product: pulumi.Input[Optional[_builtins.str]] = None,
-            single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict']]] = None,
+            single_server_configuration: pulumi.Input[Optional[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict', 'outputs.SingleNodeVirtualInstanceSingleServerConfiguration']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'SingleNodeVirtualInstance':
         """
         Get an existing SingleNodeVirtualInstance resource's state with the given name, id, and optional extra
@@ -829,7 +829,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SingleNodeVirtualInstanceIdentityArgs', 'SingleNodeVirtualInstanceIdentityArgsDict', 'outputs.SingleNodeVirtualInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the managed Resource Group for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
@@ -837,7 +837,7 @@ class SingleNodeVirtualInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sap_fqdn: The fully qualified domain name for the SAP system. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sap_product: The SAP Product type for the SAP Single Node Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict']] single_server_configuration: A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SingleNodeVirtualInstanceSingleServerConfigurationArgs', 'SingleNodeVirtualInstanceSingleServerConfigurationArgsDict', 'outputs.SingleNodeVirtualInstanceSingleServerConfiguration']] single_server_configuration: A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the SAP Single Node Virtual Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

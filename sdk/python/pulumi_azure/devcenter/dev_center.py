@@ -249,7 +249,7 @@ class DevCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict', 'outputs.DevCenterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_catalog_item_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -314,7 +314,7 @@ class DevCenter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict', 'outputs.DevCenterIdentity']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.bool] project_catalog_item_sync_enabled: Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.
@@ -398,7 +398,7 @@ class DevCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict', 'outputs.DevCenterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_catalog_item_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -433,7 +433,7 @@ class DevCenter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dev_center_uri: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict', 'outputs.DevCenterIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             project_catalog_item_sync_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -447,7 +447,7 @@ class DevCenter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dev_center_uri: The URI of the Dev Center.
-        :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict', 'outputs.DevCenterIdentity']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.bool] project_catalog_item_sync_enabled: Whether the project catalogs associated with projects in this Dev Center are allowed to sync catalog items. Defaults to `false`.

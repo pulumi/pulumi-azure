@@ -234,7 +234,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                  backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict']]]]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict', 'outputs.BackupPolicyDiskRetentionRule']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -303,7 +303,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict', 'outputs.BackupPolicyDiskRetentionRule']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         """
@@ -391,7 +391,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                  backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict']]]]] = None,
+                 retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict', 'outputs.BackupPolicyDiskRetentionRule']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -428,7 +428,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
             backup_repeating_time_intervals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             default_retention_duration: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict']]]]] = None,
+            retention_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict', 'outputs.BackupPolicyDiskRetentionRule']]]]] = None,
             time_zone: pulumi.Input[Optional[_builtins.str]] = None,
             vault_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackupPolicyDisk':
         """
@@ -441,7 +441,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyDiskRetentionRuleArgs', 'BackupPolicyDiskRetentionRuleArgsDict', 'outputs.BackupPolicyDiskRetentionRule']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         :param pulumi.Input[_builtins.str] vault_id: The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         """

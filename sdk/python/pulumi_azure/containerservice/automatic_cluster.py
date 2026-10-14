@@ -488,16 +488,16 @@ class AutomaticCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict']]] = None,
-                 hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict']]] = None,
+                 api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict', 'outputs.AutomaticClusterApiServerAccess']]] = None,
+                 hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict', 'outputs.AutomaticClusterHostedSystem']]] = None,
+                 identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict', 'outputs.AutomaticClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict']]] = None,
+                 private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict', 'outputs.AutomaticClusterPrivateCluster']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict']]] = None,
+                 service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict', 'outputs.AutomaticClusterServiceMesh']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict']]] = None,
+                 web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict', 'outputs.AutomaticClusterWebAppRoutingIngress']]] = None,
                  __props__=None):
         """
         Manages a Managed Kubernetes Automatic Cluster (a special SKU of AKS / Azure Kubernetes Service)
@@ -608,16 +608,16 @@ class AutomaticCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict']] api_server_access: An `api_server_access` block as defined below.
-        :param pulumi.Input[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict']] hosted_system: A `hosted_system` block as defined below.
-        :param pulumi.Input[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict', 'outputs.AutomaticClusterApiServerAccess']] api_server_access: An `api_server_access` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict', 'outputs.AutomaticClusterHostedSystem']] hosted_system: A `hosted_system` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict', 'outputs.AutomaticClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict']] private_cluster: A `private_cluster` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict', 'outputs.AutomaticClusterPrivateCluster']] private_cluster: A `private_cluster` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict']] service_mesh: A `service_mesh` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict', 'outputs.AutomaticClusterServiceMesh']] service_mesh: A `service_mesh` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict']] web_app_routing_ingress: A `web_app_routing_ingress` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict', 'outputs.AutomaticClusterWebAppRoutingIngress']] web_app_routing_ingress: A `web_app_routing_ingress` block as defined below.
         """
         ...
     @overload
@@ -747,16 +747,16 @@ class AutomaticCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict']]] = None,
-                 hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict']]] = None,
+                 api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict', 'outputs.AutomaticClusterApiServerAccess']]] = None,
+                 hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict', 'outputs.AutomaticClusterHostedSystem']]] = None,
+                 identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict', 'outputs.AutomaticClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict']]] = None,
+                 private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict', 'outputs.AutomaticClusterPrivateCluster']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict']]] = None,
+                 service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict', 'outputs.AutomaticClusterServiceMesh']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict']]] = None,
+                 web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict', 'outputs.AutomaticClusterWebAppRoutingIngress']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -800,24 +800,24 @@ class AutomaticCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict']]] = None,
+            api_server_access: pulumi.Input[Optional[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict', 'outputs.AutomaticClusterApiServerAccess']]] = None,
             current_kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict']]] = None,
+            hosted_system: pulumi.Input[Optional[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict', 'outputs.AutomaticClusterHostedSystem']]] = None,
+            identity: pulumi.Input[Optional[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict', 'outputs.AutomaticClusterIdentity']]] = None,
             kube_config_raw: pulumi.Input[Optional[_builtins.str]] = None,
-            kube_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomaticClusterKubeConfigArgs', 'AutomaticClusterKubeConfigArgsDict']]]]] = None,
+            kube_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomaticClusterKubeConfigArgs', 'AutomaticClusterKubeConfigArgsDict', 'outputs.AutomaticClusterKubeConfig']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             node_resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             oidc_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
             portal_fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict']]] = None,
+            private_cluster: pulumi.Input[Optional[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict', 'outputs.AutomaticClusterPrivateCluster']]] = None,
             private_fully_qualified_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict']]] = None,
+            service_mesh: pulumi.Input[Optional[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict', 'outputs.AutomaticClusterServiceMesh']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict']]] = None) -> 'AutomaticCluster':
+            web_app_routing_ingress: pulumi.Input[Optional[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict', 'outputs.AutomaticClusterWebAppRoutingIngress']]] = None) -> 'AutomaticCluster':
         """
         Get an existing AutomaticCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -825,24 +825,24 @@ class AutomaticCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict']] api_server_access: An `api_server_access` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterApiServerAccessArgs', 'AutomaticClusterApiServerAccessArgsDict', 'outputs.AutomaticClusterApiServerAccess']] api_server_access: An `api_server_access` block as defined below.
         :param pulumi.Input[_builtins.str] current_kubernetes_version: The current version running on the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[_builtins.str] fully_qualified_domain_name: The FQDN of the Azure Kubernetes Managed Cluster.
-        :param pulumi.Input[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict']] hosted_system: A `hosted_system` block as defined below.
-        :param pulumi.Input[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterHostedSystemArgs', 'AutomaticClusterHostedSystemArgsDict', 'outputs.AutomaticClusterHostedSystem']] hosted_system: A `hosted_system` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterIdentityArgs', 'AutomaticClusterIdentityArgsDict', 'outputs.AutomaticClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomaticClusterKubeConfigArgs', 'AutomaticClusterKubeConfigArgsDict']]]] kube_configs: A `kube_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomaticClusterKubeConfigArgs', 'AutomaticClusterKubeConfigArgsDict', 'outputs.AutomaticClusterKubeConfig']]]] kube_configs: A `kube_config` block as defined below.
         :param pulumi.Input[_builtins.str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] node_resource_group_id: The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
         :param pulumi.Input[_builtins.str] oidc_issuer_url: The OIDC issuer URL that is associated with the cluster.
         :param pulumi.Input[_builtins.str] portal_fully_qualified_domain_name: The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        :param pulumi.Input[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict']] private_cluster: A `private_cluster` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterPrivateClusterArgs', 'AutomaticClusterPrivateClusterArgsDict', 'outputs.AutomaticClusterPrivateCluster']] private_cluster: A `private_cluster` block as defined below.
         :param pulumi.Input[_builtins.str] private_fully_qualified_domain_name: The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict']] service_mesh: A `service_mesh` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterServiceMeshArgs', 'AutomaticClusterServiceMeshArgsDict', 'outputs.AutomaticClusterServiceMesh']] service_mesh: A `service_mesh` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict']] web_app_routing_ingress: A `web_app_routing_ingress` block as defined below.
+        :param pulumi.Input[Union['AutomaticClusterWebAppRoutingIngressArgs', 'AutomaticClusterWebAppRoutingIngressArgsDict', 'outputs.AutomaticClusterWebAppRoutingIngress']] web_app_routing_ingress: A `web_app_routing_ingress` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

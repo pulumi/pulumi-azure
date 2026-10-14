@@ -233,7 +233,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
+                 key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict', 'outputs.IntegrationAccountCertificateKeyVaultKey']]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -282,7 +282,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
-        :param pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']] key_vault_key: A `key_vault_key` block as documented below.
+        :param pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict', 'outputs.IntegrationAccountCertificateKeyVaultKey']] key_vault_key: A `key_vault_key` block as documented below.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         :param pulumi.Input[_builtins.str] public_certificate: The public certificate for the Logic App Integration Account Certificate.
@@ -350,7 +350,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
+                 key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict', 'outputs.IntegrationAccountCertificateKeyVaultKey']]] = None,
                  metadata: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -385,7 +385,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']]] = None,
+            key_vault_key: pulumi.Input[Optional[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict', 'outputs.IntegrationAccountCertificateKeyVaultKey']]] = None,
             metadata: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_certificate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -398,7 +398,7 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
-        :param pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict']] key_vault_key: A `key_vault_key` block as documented below.
+        :param pulumi.Input[Union['IntegrationAccountCertificateKeyVaultKeyArgs', 'IntegrationAccountCertificateKeyVaultKeyArgsDict', 'outputs.IntegrationAccountCertificateKeyVaultKey']] key_vault_key: A `key_vault_key` block as documented below.
         :param pulumi.Input[_builtins.str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         :param pulumi.Input[_builtins.str] public_certificate: The public certificate for the Logic App Integration Account Certificate.

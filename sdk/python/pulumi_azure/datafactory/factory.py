@@ -459,9 +459,9 @@ class Factory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_managed_key_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict']]] = None,
-                 global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']]] = None,
+                 github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']]] = None,
+                 global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -469,7 +469,7 @@ class Factory(pulumi.CustomResource):
                  purview_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict']]] = None,
+                 vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict', 'outputs.FactoryVstsConfiguration']]] = None,
                  __props__=None):
         """
         Manages an Azure Data Factory (Version 2).
@@ -509,9 +509,9 @@ class Factory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
-        :param pulumi.Input[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict']] github_configuration: A `github_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict']]]] global_parameters: A list of `global_parameter` blocks as defined above.
-        :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']] github_configuration: A `github_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]] global_parameters: A list of `global_parameter` blocks as defined above.
+        :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -519,7 +519,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] purview_id: Specifies the ID of the purview account resource associated with the Data Factory.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict']] vsts_configuration: A `vsts_configuration` block as defined below.
+        :param pulumi.Input[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict', 'outputs.FactoryVstsConfiguration']] vsts_configuration: A `vsts_configuration` block as defined below.
         """
         ...
     @overload
@@ -578,9 +578,9 @@ class Factory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_managed_key_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict']]] = None,
-                 global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']]] = None,
+                 github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']]] = None,
+                 global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -588,7 +588,7 @@ class Factory(pulumi.CustomResource):
                  purview_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict']]] = None,
+                 vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict', 'outputs.FactoryVstsConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -625,9 +625,9 @@ class Factory(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             customer_managed_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             customer_managed_key_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
-            github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict']]] = None,
-            global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict']]]]] = None,
-            identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']]] = None,
+            github_configuration: pulumi.Input[Optional[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']]] = None,
+            global_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]]] = None,
+            identity: pulumi.Input[Optional[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_virtual_network_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -635,7 +635,7 @@ class Factory(pulumi.CustomResource):
             purview_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict']]] = None) -> 'Factory':
+            vsts_configuration: pulumi.Input[Optional[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict', 'outputs.FactoryVstsConfiguration']]] = None) -> 'Factory':
         """
         Get an existing Factory resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -645,9 +645,9 @@ class Factory(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] customer_managed_key_id: Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         :param pulumi.Input[_builtins.str] customer_managed_key_identity_id: Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied at factory creation if `customer_managed_key_id` is set. Can be left empty once factory is created to use the system assigned identity. See the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/data-factory/enable-customer-managed-key) for more information.
-        :param pulumi.Input[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict']] github_configuration: A `github_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict']]]] global_parameters: A list of `global_parameter` blocks as defined above.
-        :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FactoryGithubConfigurationArgs', 'FactoryGithubConfigurationArgsDict', 'outputs.FactoryGithubConfiguration']] github_configuration: A `github_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FactoryGlobalParameterArgs', 'FactoryGlobalParameterArgsDict', 'outputs.FactoryGlobalParameter']]]] global_parameters: A list of `global_parameter` blocks as defined above.
+        :param pulumi.Input[Union['FactoryIdentityArgs', 'FactoryIdentityArgsDict', 'outputs.FactoryIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] managed_virtual_network_enabled: Is Managed Virtual Network enabled?
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -655,7 +655,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] purview_id: Specifies the ID of the purview account resource associated with the Data Factory.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict']] vsts_configuration: A `vsts_configuration` block as defined below.
+        :param pulumi.Input[Union['FactoryVstsConfigurationArgs', 'FactoryVstsConfigurationArgsDict', 'outputs.FactoryVstsConfiguration']] vsts_configuration: A `vsts_configuration` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

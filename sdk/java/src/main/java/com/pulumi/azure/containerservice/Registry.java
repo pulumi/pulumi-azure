@@ -130,7 +130,7 @@ import javax.annotation.Nullable;
  * 
  *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
  *             .name("super-secret")
- *             .keyVaultId(existing.id())
+ *             .keyVaultId(existing.get("id"))
  *             .build());
  * 
  *         var acr = new Registry("acr", RegistryArgs.builder()

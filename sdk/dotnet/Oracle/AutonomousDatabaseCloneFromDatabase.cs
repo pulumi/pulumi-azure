@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Oracle
     ///         AdminPassword = "BEstrO0ng_#11",
     ///         BackupRetentionPeriodInDays = 7,
     ///         CharacterSet = "AL32UTF8",
-    ///         ComputeCount = 2,
+    ///         ComputeCount = 2.0,
     ///         ComputeModel = "ECPU",
     ///         DataStorageSizeInTbs = 1,
     ///         DbVersion = "19c",
@@ -47,7 +47,7 @@ namespace Pulumi.Azure.Oracle
     ///         AutoScalingForStorageEnabled = true,
     ///         MtlsConnectionRequired = true,
     ///         NationalCharacterSet = "AL16UTF16",
-    ///         AllowedIps = new[] {},
+    ///         AllowedIps = new() {},
     ///     });
     /// 
     ///     var exampleAutonomousDatabaseCloneFromDatabase = new Azure.Oracle.AutonomousDatabaseCloneFromDatabase("example", new()
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Oracle
     ///         AdminPassword = "BEstrO0ng_#11",
     ///         BackupRetentionPeriodInDays = 7,
     ///         CharacterSet = "AL32UTF8",
-    ///         ComputeCount = 2,
+    ///         ComputeCount = 2.0,
     ///         ComputeModel = "ECPU",
     ///         DataStorageSizeInTb = 1,
     ///         DatabaseVersion = "19c",
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Oracle
     ///         AutoScalingForStorageEnabled = true,
     ///         MtlsConnectionRequired = true,
     ///         NationalCharacterSet = "AL16UTF16",
-    ///         AllowedIpAddresses = new[] {},
+    ///         AllowedIpAddresses = new() {},
     ///     });
     /// 
     /// });

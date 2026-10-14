@@ -128,7 +128,7 @@ namespace Pulumi.Azure.Monitoring
     ///                             TimeWindow = "PT5M",
     ///                             TimeAggregation = "Average",
     ///                             Operator = "GreaterThan",
-    ///                             Threshold = 75,
+    ///                             Threshold = 75.0,
     ///                             MetricNamespace = "microsoft.compute/virtualmachinescalesets",
     ///                             Dimensions = new[]
     ///                             {
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Monitoring
     ///                             TimeWindow = "PT5M",
     ///                             TimeAggregation = "Average",
     ///                             Operator = "LessThan",
-    ///                             Threshold = 25,
+    ///                             Threshold = 25.0,
     ///                         },
     ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                         {
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.Monitoring
     ///                             TimeWindow = "PT5M",
     ///                             TimeAggregation = "Average",
     ///                             Operator = "GreaterThan",
-    ///                             Threshold = 90,
+    ///                             Threshold = 90.0,
     ///                         },
     ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                         {
@@ -334,7 +334,7 @@ namespace Pulumi.Azure.Monitoring
     ///                             TimeWindow = "PT5M",
     ///                             TimeAggregation = "Average",
     ///                             Operator = "LessThan",
-    ///                             Threshold = 10,
+    ///                             Threshold = 10.0,
     ///                         },
     ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                         {
@@ -492,7 +492,7 @@ namespace Pulumi.Azure.Monitoring
     ///                             TimeWindow = "PT5M",
     ///                             TimeAggregation = "Average",
     ///                             Operator = "GreaterThan",
-    ///                             Threshold = 90,
+    ///                             Threshold = 90.0,
     ///                         },
     ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                         {
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.Monitoring
     ///                             TimeWindow = "PT5M",
     ///                             TimeAggregation = "Average",
     ///                             Operator = "LessThan",
-    ///                             Threshold = 10,
+    ///                             Threshold = 10.0,
     ///                         },
     ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                         {

@@ -531,7 +531,7 @@ class Snapshot(pulumi.CustomResource):
                  create_option: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
-                 encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict', 'outputs.SnapshotEncryptionSettings']]] = None,
                  incremental_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -631,7 +631,7 @@ class Snapshot(pulumi.CustomResource):
                > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         :param pulumi.Input[_builtins.str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict', 'outputs.SnapshotEncryptionSettings']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **Note:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
@@ -748,7 +748,7 @@ class Snapshot(pulumi.CustomResource):
                  create_option: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
-                 encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']]] = None,
+                 encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict', 'outputs.SnapshotEncryptionSettings']]] = None,
                  incremental_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -800,7 +800,7 @@ class Snapshot(pulumi.CustomResource):
             create_option: pulumi.Input[Optional[_builtins.str]] = None,
             disk_access_id: pulumi.Input[Optional[_builtins.str]] = None,
             disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
-            encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']]] = None,
+            encryption_settings: pulumi.Input[Optional[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict', 'outputs.SnapshotEncryptionSettings']]] = None,
             incremental_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -826,7 +826,7 @@ class Snapshot(pulumi.CustomResource):
                > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         :param pulumi.Input[_builtins.str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict', 'outputs.SnapshotEncryptionSettings']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **Note:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.

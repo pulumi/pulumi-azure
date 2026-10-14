@@ -200,7 +200,7 @@ class ConnectionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict', 'outputs.ConnectionTypeField']]]]] = None,
                  is_global: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -252,7 +252,7 @@ class ConnectionType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]] fields: One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict', 'outputs.ConnectionTypeField']]]] fields: One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.bool] is_global: Whether the connection type is global. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
@@ -323,7 +323,7 @@ class ConnectionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict', 'outputs.ConnectionTypeField']]]]] = None,
                  is_global: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -358,7 +358,7 @@ class ConnectionType(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-            fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]]] = None,
+            fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict', 'outputs.ConnectionTypeField']]]]] = None,
             is_global: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ConnectionType':
@@ -370,7 +370,7 @@ class ConnectionType(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict']]]] fields: One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectionTypeFieldArgs', 'ConnectionTypeFieldArgsDict', 'outputs.ConnectionTypeField']]]] fields: One or more `field` blocks as defined below. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.bool] is_global: Whether the connection type is global. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.

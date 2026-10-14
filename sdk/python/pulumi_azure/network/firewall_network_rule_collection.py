@@ -234,7 +234,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict', 'outputs.FirewallNetworkRuleCollectionRule']]]]] = None,
                  __props__=None):
         """
         Manages a Network Rule Collection within an Azure Firewall.
@@ -319,7 +319,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict', 'outputs.FirewallNetworkRuleCollectionRule']]]] rules: One or more `rule` blocks as defined below.
         """
         ...
     @overload
@@ -423,7 +423,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict', 'outputs.FirewallNetworkRuleCollectionRule']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -464,7 +464,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None) -> 'FirewallNetworkRuleCollection':
+            rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict', 'outputs.FirewallNetworkRuleCollectionRule']]]]] = None) -> 'FirewallNetworkRuleCollection':
         """
         Get an existing FirewallNetworkRuleCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -477,7 +477,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict', 'outputs.FirewallNetworkRuleCollectionRule']]]] rules: One or more `rule` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

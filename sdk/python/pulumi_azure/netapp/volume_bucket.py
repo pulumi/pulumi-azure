@@ -330,8 +330,8 @@ class VolumeBucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict']]] = None,
-                 key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict']]] = None,
+                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict', 'outputs.VolumeBucketFileSystemNfsUser']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict', 'outputs.VolumeBucketKeyVault']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
@@ -460,8 +460,8 @@ class VolumeBucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_cifs_username: The CIFS username used by the bucket when accessing volume data over SMB. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict']] key_vault: A `key_vault` block as defined below. Used to store the generated bucket credentials in Azure Key Vault.
+        :param pulumi.Input[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict', 'outputs.VolumeBucketFileSystemNfsUser']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
+        :param pulumi.Input[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict', 'outputs.VolumeBucketKeyVault']] key_vault: A `key_vault` block as defined below. Used to store the generated bucket credentials in Azure Key Vault.
         :param pulumi.Input[_builtins.str] name: The S3-compatible name of the bucket. Must be 3-63 characters long, DNS-compliant (lowercase letters, digits, hyphens or periods), must start and end with a letter or number and must not look like an IPv4 address. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The volume sub-path mounted inside the bucket. Defaults to `/`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] permissions: The bucket permission level. Possible values are `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.
@@ -609,8 +609,8 @@ class VolumeBucket(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict']]] = None,
-                 key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict']]] = None,
+                 file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict', 'outputs.VolumeBucketFileSystemNfsUser']]] = None,
+                 key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict', 'outputs.VolumeBucketKeyVault']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  permissions: pulumi.Input[Optional[_builtins.str]] = None,
@@ -648,8 +648,8 @@ class VolumeBucket(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             file_system_cifs_username: pulumi.Input[Optional[_builtins.str]] = None,
-            file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict']]] = None,
-            key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict']]] = None,
+            file_system_nfs_user: pulumi.Input[Optional[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict', 'outputs.VolumeBucketFileSystemNfsUser']]] = None,
+            key_vault: pulumi.Input[Optional[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict', 'outputs.VolumeBucketKeyVault']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             path: pulumi.Input[Optional[_builtins.str]] = None,
             permissions: pulumi.Input[Optional[_builtins.str]] = None,
@@ -666,8 +666,8 @@ class VolumeBucket(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] file_system_cifs_username: The CIFS username used by the bucket when accessing volume data over SMB. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
-        :param pulumi.Input[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict']] key_vault: A `key_vault` block as defined below. Used to store the generated bucket credentials in Azure Key Vault.
+        :param pulumi.Input[Union['VolumeBucketFileSystemNfsUserArgs', 'VolumeBucketFileSystemNfsUserArgsDict', 'outputs.VolumeBucketFileSystemNfsUser']] file_system_nfs_user: A `file_system_nfs_user` block as defined below. Exactly one of `file_system_nfs_user` or `file_system_cifs_username` must be specified.
+        :param pulumi.Input[Union['VolumeBucketKeyVaultArgs', 'VolumeBucketKeyVaultArgsDict', 'outputs.VolumeBucketKeyVault']] key_vault: A `key_vault` block as defined below. Used to store the generated bucket credentials in Azure Key Vault.
         :param pulumi.Input[_builtins.str] name: The S3-compatible name of the bucket. Must be 3-63 characters long, DNS-compliant (lowercase letters, digits, hyphens or periods), must start and end with a letter or number and must not look like an IPv4 address. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The volume sub-path mounted inside the bucket. Defaults to `/`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] permissions: The bucket permission level. Possible values are `ReadOnly` and `ReadWrite`. Defaults to `ReadOnly`.

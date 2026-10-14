@@ -308,7 +308,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePrivateEndpointConnectionArgs', 'WorkspacePrivateEndpointConnectionArgsDict']]]]] = None,
+            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspacePrivateEndpointConnectionArgs', 'WorkspacePrivateEndpointConnectionArgsDict', 'outputs.WorkspacePrivateEndpointConnection']]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Workspace':
         """

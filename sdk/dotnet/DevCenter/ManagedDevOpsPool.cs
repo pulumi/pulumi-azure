@@ -61,7 +61,7 @@ namespace Pulumi.Azure.DevCenter
     ///                 },
     ///             },
     ///         },
-    ///         StatelessAgent = null,
+    ///         StatelessAgent = new() { },
     ///         VirtualMachineScaleSetFabric = new Azure.DevCenter.Inputs.ManagedDevOpsPoolVirtualMachineScaleSetFabricArgs
     ///         {
     ///             SkuName = "Standard_D2ads_v5",

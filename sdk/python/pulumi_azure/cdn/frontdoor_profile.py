@@ -288,8 +288,8 @@ class FrontdoorProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
-                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict', 'outputs.FrontdoorProfileIdentity']]] = None,
+                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict', 'outputs.FrontdoorProfileLogScrubbingRule']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
@@ -347,8 +347,8 @@ class FrontdoorProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
+        :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict', 'outputs.FrontdoorProfileIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict', 'outputs.FrontdoorProfileLogScrubbingRule']]]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
                
                > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
@@ -427,8 +427,8 @@ class FrontdoorProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
-                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict', 'outputs.FrontdoorProfileIdentity']]] = None,
+                 log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict', 'outputs.FrontdoorProfileLogScrubbingRule']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
@@ -465,8 +465,8 @@ class FrontdoorProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']]] = None,
-            log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict', 'outputs.FrontdoorProfileIdentity']]] = None,
+            log_scrubbing_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict', 'outputs.FrontdoorProfileLogScrubbingRule']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_guid: pulumi.Input[Optional[_builtins.str]] = None,
@@ -480,8 +480,8 @@ class FrontdoorProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict']]]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
+        :param pulumi.Input[Union['FrontdoorProfileIdentityArgs', 'FrontdoorProfileIdentityArgsDict', 'outputs.FrontdoorProfileIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorProfileLogScrubbingRuleArgs', 'FrontdoorProfileLogScrubbingRuleArgsDict', 'outputs.FrontdoorProfileLogScrubbingRule']]]] log_scrubbing_rules: One or more `log_scrubbing_rule` blocks as defined below.
                
                > **Note:** When no `log_scrubbing_rule` blocks are defined, log scrubbing will be automatically `disabled`. When one or more `log_scrubbing_rule` blocks are present, log scrubbing will be `enabled`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.

@@ -103,8 +103,8 @@ import javax.annotation.Nullable;
  * 
  *         var example2 = new Account("example2", AccountArgs.builder()
  *             .name("example-sa")
- *             .location(test.location())
- *             .resourceGroupName(test.name())
+ *             .location(test.get("location"))
+ *             .resourceGroupName(test.get("name"))
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .build());

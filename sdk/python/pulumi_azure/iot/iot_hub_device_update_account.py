@@ -281,7 +281,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict', 'outputs.IotHubDeviceUpdateAccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -331,7 +331,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict', 'outputs.IotHubDeviceUpdateAccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.
@@ -400,7 +400,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict', 'outputs.IotHubDeviceUpdateAccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -437,7 +437,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             host_name: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict', 'outputs.IotHubDeviceUpdateAccountIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -452,7 +452,7 @@ class IotHubDeviceUpdateAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] host_name: The API host name of the IoT Hub Device Update Account.
-        :param pulumi.Input[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['IotHubDeviceUpdateAccountIdentityArgs', 'IotHubDeviceUpdateAccountIdentityArgsDict', 'outputs.IotHubDeviceUpdateAccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the IoT Hub Device Update Account should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`.

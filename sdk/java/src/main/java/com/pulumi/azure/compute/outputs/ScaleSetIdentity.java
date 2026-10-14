@@ -43,8 +43,8 @@ public final class ScaleSetIdentity {
      *     public static void stack(Context ctx) {
      *         var example = new ScaleSet("example", ScaleSetArgs.builder()
      *             .name("vm-scaleset")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .location(exampleAzurermResourceGroup.location())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .location(exampleAzurermResourceGroup.get("location"))
      *             .sku(ScaleSetSkuArgs.builder()
      *                 .name(vmSku)
      *                 .tier("Standard")
@@ -109,8 +109,8 @@ public final class ScaleSetIdentity {
      *     public static void stack(Context ctx) {
      *         var example = new ScaleSet("example", ScaleSetArgs.builder()
      *             .name("vm-scaleset")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .location(exampleAzurermResourceGroup.location())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
+     *             .location(exampleAzurermResourceGroup.get("location"))
      *             .sku(ScaleSetSkuArgs.builder()
      *                 .name(vmSku)
      *                 .tier("Standard")

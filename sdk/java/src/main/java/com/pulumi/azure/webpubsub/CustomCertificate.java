@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleWebPubsubService = new WebPubsubService("exampleWebPubsubService", WebPubsubServiceArgs.builder()
  *             .name("example-webpubsub")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .sku(Arrays.asList(Map.ofEntries(
  *                 Map.entry("name", "Premium_P1"),
  *                 Map.entry("capacity", 1)
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
- *                     .objectId(testAzurermWebPubsubService.identity()[0].principalId())
+ *                     .objectId(testAzurermWebPubsubService.get("identity")[0].get("principalId"))
  *                     .certificatePermissions(                    
  *                         "Create",
  *                         "Get",
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * 
  *         var test = new CustomCertificate("test", CustomCertificateArgs.builder()
  *             .name("example-cert")
- *             .webPubsubId(exampleWebPubsubService.id())
+ *             .webPubsubId(exampleWebPubsubService.get("id"))
  *             .customCertificateId(exampleCertificate.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAzurermKeyVaultAccessPolicy)

@@ -352,7 +352,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict', 'outputs.WorkspaceTableCustomLogColumn']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -406,7 +406,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]] columns: One or more `column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict', 'outputs.WorkspaceTableCustomLogColumn']]]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the table.
         :param pulumi.Input[_builtins.str] display_name: The display name of the table.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
@@ -485,7 +485,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict', 'outputs.WorkspaceTableCustomLogColumn']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -526,14 +526,14 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict', 'outputs.WorkspaceTableCustomLogColumn']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             plan: pulumi.Input[Optional[_builtins.str]] = None,
             retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             solutions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            standard_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogStandardColumnArgs', 'WorkspaceTableCustomLogStandardColumnArgsDict']]]]] = None,
+            standard_columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogStandardColumnArgs', 'WorkspaceTableCustomLogStandardColumnArgsDict', 'outputs.WorkspaceTableCustomLogStandardColumn']]]]] = None,
             total_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceTableCustomLog':
         """
@@ -543,7 +543,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict']]]] columns: One or more `column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogColumnArgs', 'WorkspaceTableCustomLogColumnArgsDict', 'outputs.WorkspaceTableCustomLogColumn']]]] columns: One or more `column` blocks as defined below.
         :param pulumi.Input[_builtins.str] description: The description of the table.
         :param pulumi.Input[_builtins.str] display_name: The display name of the table.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace Table Custom Log. Changing this forces a new resource to be created.
@@ -556,7 +556,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
                
                > **Note:** `retention_in_days` cannot be set when `plan` is set to `Basic` because the retention is fixed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] solutions: A list of solutions associated with the table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogStandardColumnArgs', 'WorkspaceTableCustomLogStandardColumnArgsDict']]]] standard_columns: One or more `standard_column` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceTableCustomLogStandardColumnArgs', 'WorkspaceTableCustomLogStandardColumnArgsDict', 'outputs.WorkspaceTableCustomLogStandardColumn']]]] standard_columns: One or more `standard_column` blocks as defined below.
         :param pulumi.Input[_builtins.int] total_retention_in_days: The table's total retention in days. Possible values range between `4` and `730`; or `1095`, `1460`, `1826`, `2191`, `2556`, `2922`, `3288`, `3653`, `4018`, or `4383`.
         :param pulumi.Input[_builtins.str] workspace_id: The object ID of the Log Analytics Workspace that contains the table. Changing this forces a new resource to be created.
         """

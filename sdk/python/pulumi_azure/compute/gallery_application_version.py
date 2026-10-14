@@ -428,12 +428,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
                  gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
+                 manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict', 'outputs.GalleryApplicationVersionManageAction']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  package_file: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict', 'outputs.GalleryApplicationVersionSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict', 'outputs.GalleryApplicationVersionTargetRegion']]]]] = None,
                  __props__=None):
         """
         Manages a Gallery Application Version.
@@ -513,12 +513,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[_builtins.str] gallery_application_id: The ID of the Gallery Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']] manage_action: A `manage_action` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict', 'outputs.GalleryApplicationVersionManageAction']] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[_builtins.str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']] source: A `source` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict', 'outputs.GalleryApplicationVersionSource']] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Gallery Application Version.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]] target_regions: One or more `target_region` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict', 'outputs.GalleryApplicationVersionTargetRegion']]]] target_regions: One or more `target_region` blocks as defined below.
         """
         ...
     @overload
@@ -617,12 +617,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
                  gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
+                 manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict', 'outputs.GalleryApplicationVersionManageAction']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  package_file: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict', 'outputs.GalleryApplicationVersionSource']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
+                 target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict', 'outputs.GalleryApplicationVersionTargetRegion']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -668,12 +668,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             exclude_from_latest: pulumi.Input[Optional[_builtins.bool]] = None,
             gallery_application_id: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
+            manage_action: pulumi.Input[Optional[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict', 'outputs.GalleryApplicationVersionManageAction']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             package_file: pulumi.Input[Optional[_builtins.str]] = None,
-            source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
+            source: pulumi.Input[Optional[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict', 'outputs.GalleryApplicationVersionSource']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None) -> 'GalleryApplicationVersion':
+            target_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict', 'outputs.GalleryApplicationVersionTargetRegion']]]]] = None) -> 'GalleryApplicationVersion':
         """
         Get an existing GalleryApplicationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -687,12 +687,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[_builtins.str] gallery_application_id: The ID of the Gallery Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']] manage_action: A `manage_action` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict', 'outputs.GalleryApplicationVersionManageAction']] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[_builtins.str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']] source: A `source` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict', 'outputs.GalleryApplicationVersionSource']] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Gallery Application Version.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]] target_regions: One or more `target_region` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict', 'outputs.GalleryApplicationVersionTargetRegion']]]] target_regions: One or more `target_region` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

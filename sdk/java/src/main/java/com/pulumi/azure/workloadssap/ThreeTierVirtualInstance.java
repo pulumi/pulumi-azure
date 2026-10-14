@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *             .rsaBits(4096)
  *             .build());
  * 
- *         final var example = TlsFunctions.PublicKey(Map.of("privateKeyPem", examplePrivateKey.privateKeyPem()));
+ *         final var example = TlsFunctions.PublicKey(Map.of("privateKeyPem", examplePrivateKey.get("privateKeyPem")));
  * 
  *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
  *             .build());
@@ -174,8 +174,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .osProfile(ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
  *                             .adminUsername("testAdmin")
- *                             .sshPrivateKey(examplePrivateKey.privateKeyPem())
- *                             .sshPublicKey(example.publicKeyOpenssh())
+ *                             .sshPrivateKey(examplePrivateKey.get("privateKeyPem"))
+ *                             .sshPublicKey(example.get("publicKeyOpenssh"))
  *                             .build())
  *                         .build())
  *                     .build())
@@ -192,8 +192,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .osProfile(ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
  *                             .adminUsername("testAdmin")
- *                             .sshPrivateKey(examplePrivateKey.privateKeyPem())
- *                             .sshPublicKey(example.publicKeyOpenssh())
+ *                             .sshPrivateKey(examplePrivateKey.get("privateKeyPem"))
+ *                             .sshPublicKey(example.get("publicKeyOpenssh"))
  *                             .build())
  *                         .build())
  *                     .build())
@@ -211,8 +211,8 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .osProfile(ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
  *                             .adminUsername("testAdmin")
- *                             .sshPrivateKey(examplePrivateKey.privateKeyPem())
- *                             .sshPublicKey(example.publicKeyOpenssh())
+ *                             .sshPrivateKey(examplePrivateKey.get("privateKeyPem"))
+ *                             .sshPublicKey(example.get("publicKeyOpenssh"))
  *                             .build())
  *                         .build())
  *                     .diskVolumeConfigurations(                    

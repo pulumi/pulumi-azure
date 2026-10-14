@@ -402,7 +402,7 @@ class EmailServiceDomain(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             user_engagement_tracking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            verification_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict']]]]] = None) -> 'EmailServiceDomain':
+            verification_records: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict', 'outputs.EmailServiceDomainVerificationRecord']]]]] = None) -> 'EmailServiceDomain':
         """
         Get an existing EmailServiceDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -417,7 +417,7 @@ class EmailServiceDomain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Email Communication Service.
         :param pulumi.Input[_builtins.bool] user_engagement_tracking_enabled: Describes user engagement tracking is enabled or disabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict']]]] verification_records: (Optional) An `verification_records` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict', 'outputs.EmailServiceDomainVerificationRecord']]]] verification_records: (Optional) An `verification_records` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

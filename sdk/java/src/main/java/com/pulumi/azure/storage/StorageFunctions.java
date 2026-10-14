@@ -3720,7 +3720,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -3761,7 +3761,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -3802,7 +3802,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -3843,7 +3843,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -3884,7 +3884,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntities(GetTableEntitiesArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .filter("PartitionKey eq 'example'")
      *             .build());
      * 
@@ -3925,7 +3925,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -3967,7 +3967,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -4009,7 +4009,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -4051,7 +4051,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());
@@ -4093,7 +4093,7 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
-     *             .storageTableId(exampleAzurermStorageTable.id())
+     *             .storageTableId(exampleAzurermStorageTable.get("id"))
      *             .partitionKey("example-partition-key")
      *             .rowKey("example-row-key")
      *             .build());

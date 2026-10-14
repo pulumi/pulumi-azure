@@ -524,7 +524,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
-                 protected_settings_from_key_vault: pulumi.Input[Optional[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
+                 protected_settings_from_key_vault: pulumi.Input[Optional[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict', 'outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']]] = None,
                  provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  publisher: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -609,7 +609,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
                > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
-        :param pulumi.Input[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict', 'outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
@@ -721,7 +721,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
-                 protected_settings_from_key_vault: pulumi.Input[Optional[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
+                 protected_settings_from_key_vault: pulumi.Input[Optional[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict', 'outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']]] = None,
                  provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  publisher: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -776,7 +776,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             protected_settings: pulumi.Input[Optional[_builtins.str]] = None,
-            protected_settings_from_key_vault: pulumi.Input[Optional[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']]] = None,
+            protected_settings_from_key_vault: pulumi.Input[Optional[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict', 'outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']]] = None,
             provision_after_extensions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             publisher: pulumi.Input[Optional[_builtins.str]] = None,
             settings: pulumi.Input[Optional[_builtins.str]] = None,
@@ -800,7 +800,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
                > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
-        :param pulumi.Input[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs', 'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict', 'outputs.VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.

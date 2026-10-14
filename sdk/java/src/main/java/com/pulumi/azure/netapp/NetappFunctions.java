@@ -1321,7 +1321,7 @@ public final class NetappFunctions {
      *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export("netappSnapshotId", example.id());
+     *         ctx.export("netappSnapshotId", example.get("id"));
      *     }
      * }
      * }
@@ -1373,7 +1373,7 @@ public final class NetappFunctions {
      *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export("netappSnapshotId", example.id());
+     *         ctx.export("netappSnapshotId", example.get("id"));
      *     }
      * }
      * }
@@ -1425,7 +1425,7 @@ public final class NetappFunctions {
      *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export("netappSnapshotId", example.id());
+     *         ctx.export("netappSnapshotId", example.get("id"));
      *     }
      * }
      * }
@@ -1477,7 +1477,7 @@ public final class NetappFunctions {
      *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export("netappSnapshotId", example.id());
+     *         ctx.export("netappSnapshotId", example.get("id"));
      *     }
      * }
      * }
@@ -1529,7 +1529,7 @@ public final class NetappFunctions {
      *             .volumeName("acctestnetappvolume")
      *             .build());
      * 
-     *         ctx.export("netappSnapshotId", example.id());
+     *         ctx.export("netappSnapshotId", example.get("id"));
      *     }
      * }
      * }

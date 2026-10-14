@@ -216,7 +216,7 @@ class AwaitableGetElasticsearchResult(GetElasticsearchResult):
             tags=self.tags)
 
 
-def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']]] = None,
+def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict', 'outputs.GetElasticsearchLogResult']]] = None,
                       name: Optional[_builtins.str] = None,
                       resource_group_name: Optional[_builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticsearchResult:
@@ -243,7 +243,7 @@ def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', '
     * `Microsoft.Elastic` - 2023-06-01
 
 
-    :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.
+    :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict', 'outputs.GetElasticsearchLogResult']] logs: A `logs` block as defined below.
     :param _builtins.str name: The name of the Elasticsearch resource.
     :param _builtins.str resource_group_name: The name of the resource group in which the Elasticsearch exists.
     """
@@ -270,7 +270,7 @@ def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', '
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku_name=pulumi.get(__ret__, 'sku_name'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_elasticsearch_output(logs: pulumi.Input[Optional[Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']]]]] = None,
+def get_elasticsearch_output(logs: pulumi.Input[Optional[Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict', 'outputs.GetElasticsearchLogResult']]]]] = None,
                              name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticsearchResult]:
@@ -297,7 +297,7 @@ def get_elasticsearch_output(logs: pulumi.Input[Optional[Optional[Sequence[Union
     * `Microsoft.Elastic` - 2023-06-01
 
 
-    :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.
+    :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict', 'outputs.GetElasticsearchLogResult']] logs: A `logs` block as defined below.
     :param _builtins.str name: The name of the Elasticsearch resource.
     :param _builtins.str resource_group_name: The name of the resource group in which the Elasticsearch exists.
     """

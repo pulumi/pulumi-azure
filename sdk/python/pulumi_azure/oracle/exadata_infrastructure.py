@@ -458,7 +458,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                  database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]]] = None,
+                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.ExadataInfrastructureMaintenanceWindow']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  shape: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,7 +515,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.ExadataInfrastructureMaintenanceWindow']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
@@ -591,7 +591,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
                  database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]]] = None,
+                 maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.ExadataInfrastructureMaintenanceWindow']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  shape: pulumi.Input[Optional[_builtins.str]] = None,
@@ -646,7 +646,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
             database_server_type: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]]] = None,
+            maintenance_windows: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.ExadataInfrastructureMaintenanceWindow']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             shape: pulumi.Input[Optional[_builtins.str]] = None,
@@ -666,7 +666,7 @@ class ExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the cloud Exadata infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud Exadata Infrastructure resource. The name does not need to be unique. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Cloud Exadata Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExadataInfrastructureMaintenanceWindowArgs', 'ExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.ExadataInfrastructureMaintenanceWindow']]]] maintenance_windows: One or more `maintenance_window` blocks as defined below. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cloud Exadata Infrastructure. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the ODB@A Infrastructure should exist. Changing this forces a new Cloud Exadata Infrastructure to be created.
         :param pulumi.Input[_builtins.str] shape: The shape of the ODB@A infrastructure resource. Changing this forces a new Cloud Exadata Infrastructure to be created.

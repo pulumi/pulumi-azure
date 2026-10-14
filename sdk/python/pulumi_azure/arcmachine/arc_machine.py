@@ -232,7 +232,7 @@ class ArcMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict', 'outputs.ArcMachineIdentity']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -282,7 +282,7 @@ class ArcMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict', 'outputs.ArcMachineIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Arc machine. Changing this forces a new resource to be created.
@@ -351,7 +351,7 @@ class ArcMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict', 'outputs.ArcMachineIdentity']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -386,7 +386,7 @@ class ArcMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: pulumi.Input[Optional[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict', 'outputs.ArcMachineIdentity']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -399,7 +399,7 @@ class ArcMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ArcMachineIdentityArgs', 'ArcMachineIdentityArgsDict', 'outputs.ArcMachineIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: The kind of the Arc Machine. Possible values are `AVS`, `AWS`, `EPS`, `GCP`, `HCI`, `SCVMM` and `VMware`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Arc machine. Changing this forces a new resource to be created.

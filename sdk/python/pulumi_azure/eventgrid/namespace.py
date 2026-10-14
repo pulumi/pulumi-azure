@@ -362,15 +362,15 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
-                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict', 'outputs.NamespaceInboundIpRule']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]]] = None,
+                 topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict', 'outputs.NamespaceTopicSpacesConfiguration']]]]] = None,
                  __props__=None):
         """
         Manages an EventGrid Namespace
@@ -412,15 +412,15 @@ class Namespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
-        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict', 'outputs.NamespaceInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict', 'outputs.NamespaceTopicSpacesConfiguration']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -481,15 +481,15 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
-                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict', 'outputs.NamespaceInboundIpRule']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]]] = None,
+                 topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict', 'outputs.NamespaceTopicSpacesConfiguration']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -522,15 +522,15 @@ class Namespace(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
-            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']]] = None,
-            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict', 'outputs.NamespaceInboundIpRule']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]]] = None) -> 'Namespace':
+            topic_spaces_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict', 'outputs.NamespaceTopicSpacesConfiguration']]]]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -539,15 +539,15 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for an Eventgrid Namespace. Valid values can be between `1` and `40`.
-        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[Union['NamespaceIdentityArgs', 'NamespaceIdentityArgsDict', 'outputs.NamespaceIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceInboundIpRuleArgs', 'NamespaceInboundIpRuleArgsDict', 'outputs.NamespaceInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Event Grid Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: Whether or not public network access is allowed for this server. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Event Grid Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. The only possible value is `Standard`. Defaults to `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NamespaceTopicSpacesConfigurationArgs', 'NamespaceTopicSpacesConfigurationArgsDict', 'outputs.NamespaceTopicSpacesConfiguration']]]] topic_spaces_configurations: A `topic_spaces_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

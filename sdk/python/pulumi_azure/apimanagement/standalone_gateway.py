@@ -268,7 +268,7 @@ class StandaloneGateway(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict', 'outputs.StandaloneGatewaySku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -338,7 +338,7 @@ class StandaloneGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict', 'outputs.StandaloneGatewaySku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_type: Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
         """
@@ -427,7 +427,7 @@ class StandaloneGateway(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict', 'outputs.StandaloneGatewaySku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -464,7 +464,7 @@ class StandaloneGateway(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict', 'outputs.StandaloneGatewaySku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_network_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StandaloneGateway':
         """
@@ -478,7 +478,7 @@ class StandaloneGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this API Management Standalone Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the API Management Standalone Gateway should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['StandaloneGatewaySkuArgs', 'StandaloneGatewaySkuArgsDict', 'outputs.StandaloneGatewaySku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the API Management Standalone Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_network_type: Specifies the type of VPN in which API Management gateway needs to be configured. Possible values are `External` and `Internal`. Changing this forces a new resource to be created.
         """

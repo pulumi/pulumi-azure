@@ -244,7 +244,7 @@ class Capacity(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict', 'outputs.CapacitySku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -298,7 +298,7 @@ class Capacity(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict', 'outputs.CapacitySku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Fabric Capacity.
         """
         ...
@@ -369,7 +369,7 @@ class Capacity(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
+                 sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict', 'outputs.CapacitySku']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -404,7 +404,7 @@ class Capacity(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']]] = None,
+            sku: pulumi.Input[Optional[Union['CapacitySkuArgs', 'CapacitySkuArgsDict', 'outputs.CapacitySku']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Capacity':
         """
         Get an existing Capacity resource's state with the given name, id, and optional extra
@@ -419,7 +419,7 @@ class Capacity(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for the Fabric Capacity. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Fabric Capacity. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['CapacitySkuArgs', 'CapacitySkuArgsDict', 'outputs.CapacitySku']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Fabric Capacity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

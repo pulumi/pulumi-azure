@@ -73,8 +73,8 @@ namespace Pulumi.Azure.Synapse
     ///         Importance = "normal",
     ///         MaxResourcePercent = 100,
     ///         MinResourcePercent = 0,
-    ///         MaxResourcePercentPerRequest = 3,
-    ///         MinResourcePercentPerRequest = 3,
+    ///         MaxResourcePercentPerRequest = 3.0,
+    ///         MinResourcePercentPerRequest = 3.0,
     ///         QueryExecutionTimeoutInSeconds = 0,
     ///     });
     /// 

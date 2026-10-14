@@ -438,7 +438,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict']]]]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict', 'outputs.ConnectedRegistryNotification']]]]] = None,
                  parent_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
@@ -515,7 +515,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         :param pulumi.Input[_builtins.str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict']]]] notifications: One or more `notification` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict', 'outputs.ConnectedRegistryNotification']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[_builtins.str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[_builtins.str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         :param pulumi.Input[_builtins.str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.
@@ -609,7 +609,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict']]]]] = None,
+                 notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict', 'outputs.ConnectedRegistryNotification']]]]] = None,
                  parent_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
@@ -656,7 +656,7 @@ class ConnectedRegistry(pulumi.CustomResource):
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict']]]]] = None,
+            notifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict', 'outputs.ConnectedRegistryNotification']]]]] = None,
             parent_registry_id: pulumi.Input[Optional[_builtins.str]] = None,
             sync_message_ttl: pulumi.Input[Optional[_builtins.str]] = None,
             sync_schedule: pulumi.Input[Optional[_builtins.str]] = None,
@@ -677,7 +677,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`.
         :param pulumi.Input[_builtins.str] mode: The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict']]]] notifications: One or more `notification` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectedRegistryNotificationArgs', 'ConnectedRegistryNotificationArgsDict', 'outputs.ConnectedRegistryNotification']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[_builtins.str] parent_registry_id: The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created.
         :param pulumi.Input[_builtins.str] sync_message_ttl: The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`.
         :param pulumi.Input[_builtins.str] sync_schedule: The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`.

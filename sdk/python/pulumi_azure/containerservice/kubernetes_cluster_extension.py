@@ -397,7 +397,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
                  configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extension_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']]] = None,
                  release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  release_train: pulumi.Input[Optional[_builtins.str]] = None,
                  target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
@@ -457,7 +457,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
@@ -536,7 +536,7 @@ class KubernetesClusterExtension(pulumi.CustomResource):
                  configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extension_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
+                 plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']]] = None,
                  release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  release_train: pulumi.Input[Optional[_builtins.str]] = None,
                  target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
@@ -576,14 +576,14 @@ class KubernetesClusterExtension(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aks_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict']]]]] = None,
+            aks_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict', 'outputs.KubernetesClusterExtensionAksAssignedIdentity']]]]] = None,
             cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             current_version: pulumi.Input[Optional[_builtins.str]] = None,
             extension_type: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']]] = None,
+            plan: pulumi.Input[Optional[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']]] = None,
             release_namespace: pulumi.Input[Optional[_builtins.str]] = None,
             release_train: pulumi.Input[Optional[_builtins.str]] = None,
             target_namespace: pulumi.Input[Optional[_builtins.str]] = None,
@@ -595,14 +595,14 @@ class KubernetesClusterExtension(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict']]]] aks_assigned_identities: An `aks_assigned_identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KubernetesClusterExtensionAksAssignedIdentityArgs', 'KubernetesClusterExtensionAksAssignedIdentityArgsDict', 'outputs.KubernetesClusterExtensionAksAssignedIdentity']]]] aks_assigned_identities: An `aks_assigned_identity` block as defined below.
         :param pulumi.Input[_builtins.str] cluster_id: Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[_builtins.str] current_version: The current version of the extension.
         :param pulumi.Input[_builtins.str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for AKS](https://learn.microsoft.com/en-us/azure/aks/cluster-extensions?tabs=azure-cli#currently-available-extensions). Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Kubernetes Cluster Extension. Changing this forces a new Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KubernetesClusterExtensionPlanArgs', 'KubernetesClusterExtensionPlanArgsDict', 'outputs.KubernetesClusterExtensionPlan']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[_builtins.str] target_namespace: Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created.

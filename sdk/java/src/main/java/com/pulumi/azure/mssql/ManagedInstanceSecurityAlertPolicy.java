@@ -260,8 +260,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .managedInstanceName(exampleManagedInstance.name())
  *             .enabled(true)
- *             .storageEndpoint(exampleAzurermStorageAccount.primaryBlobEndpoint())
- *             .storageAccountAccessKey(exampleAzurermStorageAccount.primaryAccessKey())
+ *             .storageEndpoint(exampleAzurermStorageAccount.get("primaryBlobEndpoint"))
+ *             .storageAccountAccessKey(exampleAzurermStorageAccount.get("primaryAccessKey"))
  *             .disabledAlerts(            
  *                 "Sql_Injection",
  *                 "Data_Exfiltration")

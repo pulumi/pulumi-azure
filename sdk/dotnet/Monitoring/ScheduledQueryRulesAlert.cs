@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Monitoring
     ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
     ///         {
     ///             Operator = "GreaterThan",
-    ///             Threshold = 3,
+    ///             Threshold = 3.0,
     ///         },
     ///         Tags = 
     ///         {
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Monitoring
     ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
     ///         {
     ///             Operator = "GreaterThan",
-    ///             Threshold = 3,
+    ///             Threshold = 3.0,
     ///         },
     ///         Tags = 
     ///         {

@@ -83,8 +83,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup("exampleNetworkSecurityGroup", NetworkSecurityGroupArgs.builder()
  *             .name("example-nsg")
- *             .location(test.location())
- *             .resourceGroupName(test.name())
+ *             .location(test.get("location"))
+ *             .resourceGroupName(test.get("name"))
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()

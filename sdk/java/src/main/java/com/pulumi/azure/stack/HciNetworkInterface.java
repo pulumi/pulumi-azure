@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .dnsServers("10.0.0.8")
  *             .ipConfiguration(HciNetworkInterfaceIpConfigurationArgs.builder()
  *                 .privateIpAddress("10.0.0.2")
- *                 .subnetId(test.id())
+ *                 .subnetId(test.get("id"))
  *                 .build())
  *             .tags(Map.of("foo", "bar"))
  *             .build());

@@ -43,8 +43,8 @@ public final class ExtendedlocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExtendedlocationFunctions.getCustomLocation(GetCustomLocationArgs.builder()
-     *             .name(exampleAzurermExtendedLocationCustomLocation.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExtendedLocationCustomLocation.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("customLocationId", example.id());
@@ -92,8 +92,8 @@ public final class ExtendedlocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExtendedlocationFunctions.getCustomLocation(GetCustomLocationArgs.builder()
-     *             .name(exampleAzurermExtendedLocationCustomLocation.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExtendedLocationCustomLocation.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("customLocationId", example.id());
@@ -141,8 +141,8 @@ public final class ExtendedlocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExtendedlocationFunctions.getCustomLocation(GetCustomLocationArgs.builder()
-     *             .name(exampleAzurermExtendedLocationCustomLocation.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExtendedLocationCustomLocation.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("customLocationId", example.id());
@@ -190,8 +190,8 @@ public final class ExtendedlocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExtendedlocationFunctions.getCustomLocation(GetCustomLocationArgs.builder()
-     *             .name(exampleAzurermExtendedLocationCustomLocation.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExtendedLocationCustomLocation.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("customLocationId", example.id());
@@ -239,8 +239,8 @@ public final class ExtendedlocationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExtendedlocationFunctions.getCustomLocation(GetCustomLocationArgs.builder()
-     *             .name(exampleAzurermExtendedLocationCustomLocation.name())
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExtendedLocationCustomLocation.get("name"))
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *         ctx.export("customLocationId", example.id());

@@ -268,7 +268,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_principal_key: pulumi.Input[Optional[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']]] = None,
+                 service_principal_key: pulumi.Input[Optional[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict', 'outputs.CredentialServicePrincipalServicePrincipalKey']]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -359,7 +359,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_principal_id: The Client ID of the Service Principal.
-        :param pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']] service_principal_key: A `service_principal_key` block as defined below.
+        :param pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict', 'outputs.CredentialServicePrincipalServicePrincipalKey']] service_principal_key: A `service_principal_key` block as defined below.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID of the Service Principal.
         """
         ...
@@ -469,7 +469,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_principal_key: pulumi.Input[Optional[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']]] = None,
+                 service_principal_key: pulumi.Input[Optional[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict', 'outputs.CredentialServicePrincipalServicePrincipalKey']]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -508,7 +508,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             service_principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-            service_principal_key: pulumi.Input[Optional[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']]] = None,
+            service_principal_key: pulumi.Input[Optional[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict', 'outputs.CredentialServicePrincipalServicePrincipalKey']]] = None,
             tenant_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CredentialServicePrincipal':
         """
         Get an existing CredentialServicePrincipal resource's state with the given name, id, and optional extra
@@ -522,7 +522,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Credential.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] service_principal_id: The Client ID of the Service Principal.
-        :param pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']] service_principal_key: A `service_principal_key` block as defined below.
+        :param pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict', 'outputs.CredentialServicePrincipalServicePrincipalKey']] service_principal_key: A `service_principal_key` block as defined below.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID of the Service Principal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

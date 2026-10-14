@@ -374,7 +374,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict']]] = None,
+                 key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureFunctionKeyVaultKey']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -424,7 +424,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] key: The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
-        :param pulumi.Input[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict']] key_vault_key: A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        :param pulumi.Input[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureFunctionKeyVaultKey']] key_vault_key: A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] url: The url of the Azure Function.
@@ -491,7 +491,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict']]] = None,
+                 key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureFunctionKeyVaultKey']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -536,7 +536,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict']]] = None,
+            key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureFunctionKeyVaultKey']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'LinkedServiceAzureFunction':
@@ -555,7 +555,7 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] key: The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required
-        :param pulumi.Input[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict']] key_vault_key: A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
+        :param pulumi.Input[Union['LinkedServiceAzureFunctionKeyVaultKeyArgs', 'LinkedServiceAzureFunctionKeyVaultKeyArgsDict', 'outputs.LinkedServiceAzureFunctionKeyVaultKey']] key_vault_key: A `key_vault_key` block as defined below. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] url: The url of the Azure Function.

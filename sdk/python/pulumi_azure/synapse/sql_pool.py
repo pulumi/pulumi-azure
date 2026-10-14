@@ -397,7 +397,7 @@ class SqlPool(pulumi.CustomResource):
                  geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
+                 restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict', 'outputs.SqlPoolRestore']]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -460,7 +460,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[_builtins.str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        :param pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict', 'outputs.SqlPoolRestore']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[_builtins.str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
@@ -542,7 +542,7 @@ class SqlPool(pulumi.CustomResource):
                  geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
+                 restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict', 'outputs.SqlPoolRestore']]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -589,7 +589,7 @@ class SqlPool(pulumi.CustomResource):
             geo_backup_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_database_id: pulumi.Input[Optional[_builtins.str]] = None,
-            restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
+            restore: pulumi.Input[Optional[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict', 'outputs.SqlPoolRestore']]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
             synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -607,7 +607,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[_builtins.str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        :param pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict', 'outputs.SqlPoolRestore']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[_builtins.str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[_builtins.str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.

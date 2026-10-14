@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Monitoring
     ///                 MetricName = "Transactions",
     ///                 Aggregation = "Total",
     ///                 Operator = "GreaterThan",
-    ///                 Threshold = 50,
+    ///                 Threshold = 50.0,
     ///                 Dimensions = new[]
     ///                 {
     ///                     new Azure.Monitoring.Inputs.MetricAlertCriteriaDimensionArgs

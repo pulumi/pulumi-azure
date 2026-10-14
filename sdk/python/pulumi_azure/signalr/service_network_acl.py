@@ -168,8 +168,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict']]]]] = None,
-                 public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict']]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict', 'outputs.ServiceNetworkAclPrivateEndpoint']]]]] = None,
+                 public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict', 'outputs.ServiceNetworkAclPublicNetwork']]] = None,
                  signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -245,8 +245,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict']]]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict']] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict', 'outputs.ServiceNetworkAclPrivateEndpoint']]]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict', 'outputs.ServiceNetworkAclPublicNetwork']] public_network: A `public_network` block as defined below.
         :param pulumi.Input[_builtins.str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
         """
         ...
@@ -341,8 +341,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict']]]]] = None,
-                 public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict']]] = None,
+                 private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict', 'outputs.ServiceNetworkAclPrivateEndpoint']]]]] = None,
+                 public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict', 'outputs.ServiceNetworkAclPublicNetwork']]] = None,
                  signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -374,8 +374,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_action: pulumi.Input[Optional[_builtins.str]] = None,
-            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict']]]]] = None,
-            public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict']]] = None,
+            private_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict', 'outputs.ServiceNetworkAclPrivateEndpoint']]]]] = None,
+            public_network: pulumi.Input[Optional[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict', 'outputs.ServiceNetworkAclPublicNetwork']]] = None,
             signalr_service_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServiceNetworkAcl':
         """
         Get an existing ServiceNetworkAcl resource's state with the given name, id, and optional extra
@@ -385,8 +385,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict']]]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict']] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceNetworkAclPrivateEndpointArgs', 'ServiceNetworkAclPrivateEndpointArgsDict', 'outputs.ServiceNetworkAclPrivateEndpoint']]]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[Union['ServiceNetworkAclPublicNetworkArgs', 'ServiceNetworkAclPublicNetworkArgsDict', 'outputs.ServiceNetworkAclPublicNetwork']] public_network: A `public_network` block as defined below.
         :param pulumi.Input[_builtins.str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

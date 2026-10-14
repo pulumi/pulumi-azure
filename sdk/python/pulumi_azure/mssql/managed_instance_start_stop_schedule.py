@@ -202,7 +202,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict', 'outputs.ManagedInstanceStartStopScheduleSchedule']]]]] = None,
                  timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -414,7 +414,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Specifies the description of the schedule.
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]] schedules: A `schedule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict', 'outputs.ManagedInstanceStartStopScheduleSchedule']]]] schedules: A `schedule` block as defined below.
         :param pulumi.Input[_builtins.str] timezone_id: Specifies the time zone of the schedule. Defaults to `UTC`.
         """
         ...
@@ -645,7 +645,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
+                 schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict', 'outputs.ManagedInstanceStartStopScheduleSchedule']]]]] = None,
                  timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -680,7 +680,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
             managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
             next_execution_time: pulumi.Input[Optional[_builtins.str]] = None,
             next_run_action: pulumi.Input[Optional[_builtins.str]] = None,
-            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]]] = None,
+            schedules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict', 'outputs.ManagedInstanceStartStopScheduleSchedule']]]]] = None,
             timezone_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedInstanceStartStopSchedule':
         """
         Get an existing ManagedInstanceStartStopSchedule resource's state with the given name, id, and optional extra
@@ -693,7 +693,7 @@ class ManagedInstanceStartStopSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the ID of the Managed Instance. Changing this forces a new Sql Start Stop Managed Instance Schedule to be created.
         :param pulumi.Input[_builtins.str] next_execution_time: Timestamp when the next action will be executed in the corresponding schedule time zone.
         :param pulumi.Input[_builtins.str] next_run_action: Next action to be executed (Start or Stop).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict']]]] schedules: A `schedule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceStartStopScheduleScheduleArgs', 'ManagedInstanceStartStopScheduleScheduleArgsDict', 'outputs.ManagedInstanceStartStopScheduleSchedule']]]] schedules: A `schedule` block as defined below.
         :param pulumi.Input[_builtins.str] timezone_id: Specifies the time zone of the schedule. Defaults to `UTC`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

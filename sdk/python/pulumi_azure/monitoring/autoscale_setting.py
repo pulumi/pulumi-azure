@@ -330,9 +330,9 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
-                 predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
-                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
+                 notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict', 'outputs.AutoscaleSettingNotification']]] = None,
+                 predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict', 'outputs.AutoscaleSettingPredictive']]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict', 'outputs.AutoscaleSettingProfile']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -716,9 +716,9 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']] notification: Specifies a `notification` block as defined below.
-        :param pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']] predictive: A `predictive` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict', 'outputs.AutoscaleSettingNotification']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict', 'outputs.AutoscaleSettingPredictive']] predictive: A `predictive` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict', 'outputs.AutoscaleSettingProfile']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
@@ -1121,9 +1121,9 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
-                 predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
-                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
+                 notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict', 'outputs.AutoscaleSettingNotification']]] = None,
+                 predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict', 'outputs.AutoscaleSettingPredictive']]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict', 'outputs.AutoscaleSettingProfile']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1164,9 +1164,9 @@ class AutoscaleSetting(pulumi.CustomResource):
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
-            predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
-            profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
+            notification: pulumi.Input[Optional[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict', 'outputs.AutoscaleSettingNotification']]] = None,
+            predictive: pulumi.Input[Optional[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict', 'outputs.AutoscaleSettingPredictive']]] = None,
+            profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict', 'outputs.AutoscaleSettingProfile']]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'AutoscaleSetting':
@@ -1180,9 +1180,9 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']] notification: Specifies a `notification` block as defined below.
-        :param pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']] predictive: A `predictive` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict', 'outputs.AutoscaleSettingNotification']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict', 'outputs.AutoscaleSettingPredictive']] predictive: A `predictive` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict', 'outputs.AutoscaleSettingProfile']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.

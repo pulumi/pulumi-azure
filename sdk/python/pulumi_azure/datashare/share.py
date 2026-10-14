@@ -236,7 +236,7 @@ class Share(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
+                 snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict', 'outputs.ShareSnapshotSchedule']]] = None,
                  terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -296,7 +296,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The Data Share's description.
         :param pulumi.Input[_builtins.str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
-        :param pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']] snapshot_schedule: A `snapshot_schedule` block as defined below.
+        :param pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict', 'outputs.ShareSnapshotSchedule']] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[_builtins.str] terms: The terms of the Data Share.
         """
         ...
@@ -375,7 +375,7 @@ class Share(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
+                 snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict', 'outputs.ShareSnapshotSchedule']]] = None,
                  terms: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -410,7 +410,7 @@ class Share(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']]] = None,
+            snapshot_schedule: pulumi.Input[Optional[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict', 'outputs.ShareSnapshotSchedule']]] = None,
             terms: pulumi.Input[Optional[_builtins.str]] = None) -> 'Share':
         """
         Get an existing Share resource's state with the given name, id, and optional extra
@@ -423,7 +423,7 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The Data Share's description.
         :param pulumi.Input[_builtins.str] kind: The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Data Share. Changing this forces a new Data Share to be created.
-        :param pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict']] snapshot_schedule: A `snapshot_schedule` block as defined below.
+        :param pulumi.Input[Union['ShareSnapshotScheduleArgs', 'ShareSnapshotScheduleArgsDict', 'outputs.ShareSnapshotSchedule']] snapshot_schedule: A `snapshot_schedule` block as defined below.
         :param pulumi.Input[_builtins.str] terms: The terms of the Data Share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

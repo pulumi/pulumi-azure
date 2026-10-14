@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrafficManagerProfile = new TrafficManagerProfile("exampleTrafficManagerProfile", TrafficManagerProfileArgs.builder()
- *             .name(server.hex())
+ *             .name(server.get("hex"))
  *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod("Weighted")
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
- *                 .relativeName(server.hex())
+ *                 .relativeName(server.get("hex"))
  *                 .ttl(100)
  *                 .build())
  *             .monitorConfig(TrafficManagerProfileMonitorConfigArgs.builder()

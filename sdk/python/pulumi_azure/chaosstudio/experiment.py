@@ -231,12 +231,12 @@ class Experiment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict', 'outputs.ExperimentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict', 'outputs.ExperimentSelector']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict', 'outputs.ExperimentStep']]]]] = None,
                  __props__=None):
         """
         Manages a Chaos Studio Experiment.
@@ -345,12 +345,12 @@ class Experiment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict', 'outputs.ExperimentIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]] selectors: One or more `selectors` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]] steps: One or more `steps` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict', 'outputs.ExperimentSelector']]]] selectors: One or more `selectors` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict', 'outputs.ExperimentStep']]]] steps: One or more `steps` blocks as defined below.
         """
         ...
     @overload
@@ -478,12 +478,12 @@ class Experiment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict', 'outputs.ExperimentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
-                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None,
+                 selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict', 'outputs.ExperimentSelector']]]]] = None,
+                 steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict', 'outputs.ExperimentStep']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,12 +515,12 @@ class Experiment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict', 'outputs.ExperimentIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]]] = None,
-            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]]] = None) -> 'Experiment':
+            selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict', 'outputs.ExperimentSelector']]]]] = None,
+            steps: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict', 'outputs.ExperimentStep']]]]] = None) -> 'Experiment':
         """
         Get an existing Experiment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -528,12 +528,12 @@ class Experiment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['ExperimentIdentityArgs', 'ExperimentIdentityArgsDict', 'outputs.ExperimentIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict']]]] selectors: One or more `selectors` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict']]]] steps: One or more `steps` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentSelectorArgs', 'ExperimentSelectorArgsDict', 'outputs.ExperimentSelector']]]] selectors: One or more `selectors` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentStepArgs', 'ExperimentStepArgsDict', 'outputs.ExperimentStep']]]] steps: One or more `steps` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

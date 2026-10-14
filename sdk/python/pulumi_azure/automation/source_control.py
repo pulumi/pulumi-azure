@@ -365,7 +365,7 @@ class SourceControl(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish_runbook_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict']]] = None,
+                 security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict', 'outputs.SourceControlSecurity']]] = None,
                  source_control_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -424,7 +424,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[_builtins.bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[_builtins.str] repository_url: The Repository URL of the source control.
-        :param pulumi.Input[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict', 'outputs.SourceControlSecurity']] security: A `security` block as defined below.
         :param pulumi.Input[_builtins.str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         """
         ...
@@ -502,7 +502,7 @@ class SourceControl(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish_runbook_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  repository_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict']]] = None,
+                 security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict', 'outputs.SourceControlSecurity']]] = None,
                  source_control_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -551,7 +551,7 @@ class SourceControl(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             publish_runbook_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             repository_url: pulumi.Input[Optional[_builtins.str]] = None,
-            security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict']]] = None,
+            security: pulumi.Input[Optional[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict', 'outputs.SourceControlSecurity']]] = None,
             source_control_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'SourceControl':
         """
         Get an existing SourceControl resource's state with the given name, id, and optional extra
@@ -568,7 +568,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[_builtins.bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         :param pulumi.Input[_builtins.str] repository_url: The Repository URL of the source control.
-        :param pulumi.Input[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['SourceControlSecurityArgs', 'SourceControlSecurityArgsDict', 'outputs.SourceControlSecurity']] security: A `security` block as defined below.
         :param pulumi.Input[_builtins.str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Network
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
-    ///         BandwidthInGbps = 5,
+    ///         BandwidthInGbps = 5.0,
     ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
     ///         {
     ///             Tier = "Standard",

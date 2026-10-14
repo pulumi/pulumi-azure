@@ -204,7 +204,7 @@ class RouteFilter(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict', 'outputs.RouteFilterRule']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -249,7 +249,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']] rule: A `rule` block as defined below.
+        :param pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict', 'outputs.RouteFilterRule']] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         ...
@@ -313,7 +313,7 @@ class RouteFilter(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule: pulumi.Input[Optional[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict', 'outputs.RouteFilterRule']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -344,7 +344,7 @@ class RouteFilter(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            rule: pulumi.Input[Optional[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']]] = None,
+            rule: pulumi.Input[Optional[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict', 'outputs.RouteFilterRule']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'RouteFilter':
         """
         Get an existing RouteFilter resource's state with the given name, id, and optional extra
@@ -356,7 +356,7 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Route Filter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created.
-        :param pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict']] rule: A `rule` block as defined below.
+        :param pulumi.Input[Union['RouteFilterRuleArgs', 'RouteFilterRuleArgsDict', 'outputs.RouteFilterRule']] rule: A `rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Route Filter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -334,14 +334,14 @@ class Automation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict', 'outputs.AutomationAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict', 'outputs.AutomationSource']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -417,7 +417,7 @@ class Automation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict']]]] actions: One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict', 'outputs.AutomationAction']]]] actions: One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
         :param pulumi.Input[_builtins.str] description: Specifies the description for the Security Center Automation.
         :param pulumi.Input[_builtins.bool] enabled: Boolean to enable or disable this Security Center Automation. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
@@ -426,7 +426,7 @@ class Automation(pulumi.CustomResource):
                > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict', 'outputs.AutomationSource']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
         """
         ...
@@ -521,14 +521,14 @@ class Automation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict', 'outputs.AutomationAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict', 'outputs.AutomationSource']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -566,14 +566,14 @@ class Automation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict', 'outputs.AutomationAction']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict', 'outputs.AutomationSource']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Automation':
         """
         Get an existing Automation resource's state with the given name, id, and optional extra
@@ -582,7 +582,7 @@ class Automation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict']]]] actions: One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionArgs', 'AutomationActionArgsDict', 'outputs.AutomationAction']]]] actions: One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
         :param pulumi.Input[_builtins.str] description: Specifies the description for the Security Center Automation.
         :param pulumi.Input[_builtins.bool] enabled: Boolean to enable or disable this Security Center Automation. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
@@ -591,7 +591,7 @@ class Automation(pulumi.CustomResource):
                > **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud > Environment Settings > Account > Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationSourceArgs', 'AutomationSourceArgsDict', 'outputs.AutomationSource']]]] sources: One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags assigned to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

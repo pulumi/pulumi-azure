@@ -349,7 +349,7 @@ class Project(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
@@ -433,7 +433,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Project.
         :param pulumi.Input[_builtins.str] friendly_name: The display name of this AI Foundry Project.
         :param pulumi.Input[_builtins.bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
-        :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
@@ -536,7 +536,7 @@ class Project(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
@@ -576,7 +576,7 @@ class Project(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
             high_business_impact_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             primary_user_assigned_identity: pulumi.Input[Optional[_builtins.str]] = None,
@@ -593,7 +593,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of this AI Foundry Project.
         :param pulumi.Input[_builtins.str] friendly_name: The display name of this AI Foundry Project.
         :param pulumi.Input[_builtins.bool] high_business_impact_enabled: Whether High Business Impact (HBI) should be enabled or not. Enabling this setting will reduce diagnostic data collected by the service. Changing this forces a new AI Foundry Project to be created. Defaults to `false`.
-        :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict', 'outputs.ProjectIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the AI Foundry Project should exist. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity: The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.

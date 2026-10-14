@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Cdn
     ///     {
     ///         Name = "example-cdn-frontdoor-origin-group",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         LoadBalancing = null,
+    ///         LoadBalancing = new() { },
     ///     });
     /// 
     ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()

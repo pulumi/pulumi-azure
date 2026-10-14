@@ -595,13 +595,13 @@ class EventHubNamespace(pulumi.CustomResource):
                  auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict', 'outputs.EventHubNamespaceIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
+                 network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict', 'outputs.EventHubNamespaceNetworkRulesets']]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -651,7 +651,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[_builtins.int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         :param pulumi.Input[_builtins.str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict', 'outputs.EventHubNamespaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
@@ -659,7 +659,7 @@ class EventHubNamespace(pulumi.CustomResource):
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']] network_rulesets: A `network_rulesets` block as defined below.
+        :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict', 'outputs.EventHubNamespaceNetworkRulesets']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
@@ -728,13 +728,13 @@ class EventHubNamespace(pulumi.CustomResource):
                  auto_inflate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  dedicated_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict', 'outputs.EventHubNamespaceIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
+                 network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict', 'outputs.EventHubNamespaceNetworkRulesets']]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -793,13 +793,13 @@ class EventHubNamespace(pulumi.CustomResource):
             default_secondary_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             default_secondary_connection_string_alias: pulumi.Input[Optional[_builtins.str]] = None,
             default_secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict', 'outputs.EventHubNamespaceIdentity']]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             maximum_throughput_units: pulumi.Input[Optional[_builtins.int]] = None,
             minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']]] = None,
+            network_rulesets: pulumi.Input[Optional[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict', 'outputs.EventHubNamespaceNetworkRulesets']]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
@@ -820,7 +820,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_secondary_connection_string: The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
         :param pulumi.Input[_builtins.str] default_secondary_connection_string_alias: The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled.
         :param pulumi.Input[_builtins.str] default_secondary_key: The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-        :param pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['EventHubNamespaceIdentityArgs', 'EventHubNamespaceIdentityArgsDict', 'outputs.EventHubNamespaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
@@ -828,7 +828,7 @@ class EventHubNamespace(pulumi.CustomResource):
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict']] network_rulesets: A `network_rulesets` block as defined below.
+        :param pulumi.Input[Union['EventHubNamespaceNetworkRulesetsArgs', 'EventHubNamespaceNetworkRulesetsArgsDict', 'outputs.EventHubNamespaceNetworkRulesets']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.

@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .endpoint("messages/events")
  *             .eventhubConsumerGroupName("$Default")
  *             .iothubNamespace(exampleIoTHub.name())
- *             .sharedAccessPolicyKey(exampleIoTHub.sharedAccessPolicies().applyValue(_sharedAccessPolicies -> _sharedAccessPolicies[0].primaryKey()))
+ *             .sharedAccessPolicyKey(exampleIoTHub.sharedAccessPolicies().applyValue(_sharedAccessPolicies -> _sharedAccessPolicies.get(0).primaryKey()))
  *             .sharedAccessPolicyName("iothubowner")
  *             .serialization(StreamInputIotHubSerializationArgs.builder()
  *                 .type("Json")

@@ -296,12 +296,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict', 'outputs.AlertProcessingRuleSuppressionCondition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict', 'outputs.AlertProcessingRuleSuppressionSchedule']]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -375,12 +375,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict', 'outputs.AlertProcessingRuleSuppressionCondition']] condition: A `condition` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict', 'outputs.AlertProcessingRuleSuppressionSchedule']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of resource IDs which will be the target of Alert Processing Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
@@ -473,12 +473,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict', 'outputs.AlertProcessingRuleSuppressionCondition']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict', 'outputs.AlertProcessingRuleSuppressionSchedule']]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -514,12 +514,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']]] = None,
+            condition: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict', 'outputs.AlertProcessingRuleSuppressionCondition']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']]] = None,
+            schedule: pulumi.Input[Optional[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict', 'outputs.AlertProcessingRuleSuppressionSchedule']]] = None,
             scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'AlertProcessingRuleSuppression':
         """
@@ -529,12 +529,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict', 'outputs.AlertProcessingRuleSuppressionCondition']] condition: A `condition` block as defined below.
         :param pulumi.Input[_builtins.str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[_builtins.bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict', 'outputs.AlertProcessingRuleSuppressionSchedule']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of resource IDs which will be the target of Alert Processing Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """

@@ -847,15 +847,15 @@ class Group(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict']]]]] = None,
-                 diagnostics: pulumi.Input[Optional[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict']]] = None,
-                 dns_config: pulumi.Input[Optional[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict']]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict', 'outputs.GroupContainer']]]]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict', 'outputs.GroupDiagnostics']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict', 'outputs.GroupDnsConfig']]] = None,
                  dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_name_label_reuse_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 exposed_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['GroupIdentityArgs', 'GroupIdentityArgsDict']]] = None,
-                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict']]]]] = None,
-                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict']]]]] = None,
+                 exposed_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict', 'outputs.GroupExposedPort']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['GroupIdentityArgs', 'GroupIdentityArgsDict', 'outputs.GroupIdentity']]] = None,
+                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict', 'outputs.GroupImageRegistryCredential']]]]] = None,
+                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict', 'outputs.GroupInitContainer']]]]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -933,19 +933,19 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict', 'outputs.GroupContainer']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict', 'outputs.GroupDiagnostics']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict', 'outputs.GroupDnsConfig']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
                
                > **Note:** DNS label/name is not supported when deploying to virtual networks.
         :param pulumi.Input[_builtins.str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict', 'outputs.GroupExposedPort']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
                
                > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
-        :param pulumi.Input[Union['GroupIdentityArgs', 'GroupIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['GroupIdentityArgs', 'GroupIdentityArgsDict', 'outputs.GroupIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict', 'outputs.GroupImageRegistryCredential']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict', 'outputs.GroupInitContainer']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
                
                > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
@@ -1047,15 +1047,15 @@ class Group(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict']]]]] = None,
-                 diagnostics: pulumi.Input[Optional[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict']]] = None,
-                 dns_config: pulumi.Input[Optional[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict']]] = None,
+                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict', 'outputs.GroupContainer']]]]] = None,
+                 diagnostics: pulumi.Input[Optional[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict', 'outputs.GroupDiagnostics']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict', 'outputs.GroupDnsConfig']]] = None,
                  dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_name_label_reuse_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 exposed_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['GroupIdentityArgs', 'GroupIdentityArgsDict']]] = None,
-                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict']]]]] = None,
-                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict']]]]] = None,
+                 exposed_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict', 'outputs.GroupExposedPort']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['GroupIdentityArgs', 'GroupIdentityArgsDict', 'outputs.GroupIdentity']]] = None,
+                 image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict', 'outputs.GroupImageRegistryCredential']]]]] = None,
+                 init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict', 'outputs.GroupInitContainer']]]]] = None,
                  ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1120,16 +1120,16 @@ class Group(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict']]]]] = None,
-            diagnostics: pulumi.Input[Optional[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict']]] = None,
-            dns_config: pulumi.Input[Optional[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict']]] = None,
+            containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict', 'outputs.GroupContainer']]]]] = None,
+            diagnostics: pulumi.Input[Optional[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict', 'outputs.GroupDiagnostics']]] = None,
+            dns_config: pulumi.Input[Optional[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict', 'outputs.GroupDnsConfig']]] = None,
             dns_name_label: pulumi.Input[Optional[_builtins.str]] = None,
             dns_name_label_reuse_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            exposed_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]]] = None,
+            exposed_ports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict', 'outputs.GroupExposedPort']]]]] = None,
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['GroupIdentityArgs', 'GroupIdentityArgsDict']]] = None,
-            image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict']]]]] = None,
-            init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict']]]]] = None,
+            identity: pulumi.Input[Optional[Union['GroupIdentityArgs', 'GroupIdentityArgsDict', 'outputs.GroupIdentity']]] = None,
+            image_registry_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict', 'outputs.GroupImageRegistryCredential']]]]] = None,
+            init_containers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict', 'outputs.GroupInitContainer']]]]] = None,
             ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             ip_address_type: pulumi.Input[Optional[_builtins.str]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1152,20 +1152,20 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupContainerArgs', 'GroupContainerArgsDict', 'outputs.GroupContainer']]]] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['GroupDiagnosticsArgs', 'GroupDiagnosticsArgsDict', 'outputs.GroupDiagnostics']] diagnostics: A `diagnostics` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['GroupDnsConfigArgs', 'GroupDnsConfigArgsDict', 'outputs.GroupDnsConfig']] dns_config: A `dns_config` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] dns_name_label: The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
                
                > **Note:** DNS label/name is not supported when deploying to virtual networks.
         :param pulumi.Input[_builtins.str] dns_name_label_reuse_policy: The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupExposedPortArgs', 'GroupExposedPortArgsDict', 'outputs.GroupExposedPort']]]] exposed_ports: Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
                
                > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the container group derived from `dns_name_label`.
-        :param pulumi.Input[Union['GroupIdentityArgs', 'GroupIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['GroupIdentityArgs', 'GroupIdentityArgsDict', 'outputs.GroupIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupImageRegistryCredentialArgs', 'GroupImageRegistryCredentialArgsDict', 'outputs.GroupImageRegistryCredential']]]] image_registry_credentials: An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GroupInitContainerArgs', 'GroupInitContainerArgsDict', 'outputs.GroupInitContainer']]]] init_containers: The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ip_address: The IP address allocated to the container group.
         :param pulumi.Input[_builtins.str] ip_address_type: Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
                

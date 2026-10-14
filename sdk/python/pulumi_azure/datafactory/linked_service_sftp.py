@@ -717,9 +717,9 @@ class LinkedServiceSftp(pulumi.CustomResource):
                  host: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
-                 key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
-                 key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
+                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSftpKeyVaultPassword']]]]] = None,
+                 key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64']]] = None,
+                 key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -777,11 +777,11 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] host: The SFTP server hostname.
         :param pulumi.Input[_builtins.str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The name of the integration runtime to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]] key_vault_passwords: A `key_vault_password` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSftpKeyVaultPassword']]]] key_vault_passwords: A `key_vault_password` block as defined below.
                
                > **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
-        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']] key_vault_private_key_content_base64: A `key_vault_private_key_content_base64` block as defined below.
-        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']] key_vault_private_key_passphrase: A `key_vault_private_key_passphrase` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64']] key_vault_private_key_content_base64: A `key_vault_private_key_content_base64` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase']] key_vault_private_key_passphrase: A `key_vault_private_key_passphrase` block as defined below.
                
                > **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -860,9 +860,9 @@ class LinkedServiceSftp(pulumi.CustomResource):
                  host: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
-                 key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
-                 key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
+                 key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSftpKeyVaultPassword']]]]] = None,
+                 key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64']]] = None,
+                 key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -931,9 +931,9 @@ class LinkedServiceSftp(pulumi.CustomResource):
             host: pulumi.Input[Optional[_builtins.str]] = None,
             host_key_fingerprint: pulumi.Input[Optional[_builtins.str]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]]] = None,
-            key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']]] = None,
-            key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']]] = None,
+            key_vault_passwords: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSftpKeyVaultPassword']]]]] = None,
+            key_vault_private_key_content_base64: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64']]] = None,
+            key_vault_private_key_passphrase: pulumi.Input[Optional[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -960,11 +960,11 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] host: The SFTP server hostname.
         :param pulumi.Input[_builtins.str] host_key_fingerprint: The host key fingerprint of the SFTP server.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The name of the integration runtime to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict']]]] key_vault_passwords: A `key_vault_password` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkedServiceSftpKeyVaultPasswordArgs', 'LinkedServiceSftpKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSftpKeyVaultPassword']]]] key_vault_passwords: A `key_vault_password` block as defined below.
                
                > **Note:** Either `password` or `key_vault_password` is required when `authentication_type` is set to `Basic`.
-        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict']] key_vault_private_key_content_base64: A `key_vault_private_key_content_base64` block as defined below.
-        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict']] key_vault_private_key_passphrase: A `key_vault_private_key_passphrase` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args', 'LinkedServiceSftpKeyVaultPrivateKeyContentBase64ArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyContentBase64']] key_vault_private_key_content_base64: A `key_vault_private_key_content_base64` block as defined below.
+        :param pulumi.Input[Union['LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs', 'LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgsDict', 'outputs.LinkedServiceSftpKeyVaultPrivateKeyPassphrase']] key_vault_private_key_passphrase: A `key_vault_private_key_passphrase` block as defined below.
                
                > **Note:** One of `private_key_content_base64` or `private_key_path` (or their Key Vault equivalent) is required when `authentication_type` is set to `SshPublicKey`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.

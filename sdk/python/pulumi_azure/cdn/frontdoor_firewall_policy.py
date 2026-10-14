@@ -594,11 +594,11 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict', 'outputs.FrontdoorFirewallPolicyCustomRule']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
-                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
+                 log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict', 'outputs.FrontdoorFirewallPolicyLogScrubbing']]] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict', 'outputs.FrontdoorFirewallPolicyManagedRule']]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -760,17 +760,17 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                > **Note:** When you remove the `captcha_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict', 'outputs.FrontdoorFirewallPolicyCustomRule']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
                
                > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
                
                > **Note:** When you remove the `js_challenge_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
-        :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']] log_scrubbing: A `log_scrubbing` block as defined below.
+        :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict', 'outputs.FrontdoorFirewallPolicyLogScrubbing']] log_scrubbing: A `log_scrubbing` block as defined below.
                
                > **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict', 'outputs.FrontdoorFirewallPolicyManagedRule']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[_builtins.str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -951,11 +951,11 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                  captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
-                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
+                 custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict', 'outputs.FrontdoorFirewallPolicyCustomRule']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
-                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
+                 log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict', 'outputs.FrontdoorFirewallPolicyLogScrubbing']]] = None,
+                 managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict', 'outputs.FrontdoorFirewallPolicyManagedRule']]]]] = None,
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1007,12 +1007,12 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
             captcha_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             custom_block_response_body: pulumi.Input[Optional[_builtins.str]] = None,
             custom_block_response_status_code: pulumi.Input[Optional[_builtins.int]] = None,
-            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]]] = None,
+            custom_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict', 'outputs.FrontdoorFirewallPolicyCustomRule']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             frontend_endpoint_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             js_challenge_cookie_expiration_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-            log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']]] = None,
-            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]]] = None,
+            log_scrubbing: pulumi.Input[Optional[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict', 'outputs.FrontdoorFirewallPolicyLogScrubbing']]] = None,
+            managed_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict', 'outputs.FrontdoorFirewallPolicyManagedRule']]]]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1034,7 +1034,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                > **Note:** When you remove the `captcha_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict', 'outputs.FrontdoorFirewallPolicyCustomRule']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
         :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
@@ -1042,10 +1042,10 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                > **Note:** The `js_challenge_cookie_expiration_in_minutes` field can only be set on `Premium_AzureFrontDoor` sku's. Please see the [Product Documentation](https://learn.microsoft.com/azure/web-application-firewall/waf-javascript-challenge) for more information.
                
                > **Note:** When you remove the `js_challenge_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
-        :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict']] log_scrubbing: A `log_scrubbing` block as defined below.
+        :param pulumi.Input[Union['FrontdoorFirewallPolicyLogScrubbingArgs', 'FrontdoorFirewallPolicyLogScrubbingArgsDict', 'outputs.FrontdoorFirewallPolicyLogScrubbing']] log_scrubbing: A `log_scrubbing` block as defined below.
                
                > **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict']]]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyManagedRuleArgs', 'FrontdoorFirewallPolicyManagedRuleArgsDict', 'outputs.FrontdoorFirewallPolicyManagedRule']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] mode: The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
         :param pulumi.Input[_builtins.str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redirect_url: If action type is redirect, this field represents redirect URL for the client.

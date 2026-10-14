@@ -234,8 +234,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(test.tenantId())
- *             .objectId(test.principalId())
+ *             .tenantId(test.get("tenantId"))
+ *             .objectId(test.get("principalId"))
  *             .keyPermissions(            
  *                 "Get",
  *                 "UnwrapKey",

@@ -339,10 +339,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
                  container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
                  init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict', 'outputs.EnvironmentDaprComponentMetadata']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict', 'outputs.EnvironmentDaprComponentSecret']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -397,12 +397,12 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         :param pulumi.Input[_builtins.str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]] metadatas: One or more `metadata` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict', 'outputs.EnvironmentDaprComponentMetadata']]]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[_builtins.str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of scopes to which this component applies.
                
                > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]] secrets: A `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict', 'outputs.EnvironmentDaprComponentSecret']]]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[_builtins.str] version: The version of the component.
         """
         ...
@@ -476,10 +476,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
                  container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
                  init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
+                 metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict', 'outputs.EnvironmentDaprComponentMetadata']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict', 'outputs.EnvironmentDaprComponentSecret']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -521,10 +521,10 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
             container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
             init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
-            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]]] = None,
+            metadatas: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict', 'outputs.EnvironmentDaprComponentMetadata']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict', 'outputs.EnvironmentDaprComponentSecret']]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'EnvironmentDaprComponent':
         """
         Get an existing EnvironmentDaprComponent resource's state with the given name, id, and optional extra
@@ -537,12 +537,12 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] container_app_environment_id: The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] ignore_errors: Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         :param pulumi.Input[_builtins.str] init_timeout: The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict']]]] metadatas: One or more `metadata` blocks as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentMetadataArgs', 'EnvironmentDaprComponentMetadataArgsDict', 'outputs.EnvironmentDaprComponentMetadata']]]] metadatas: One or more `metadata` blocks as detailed below.
         :param pulumi.Input[_builtins.str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of scopes to which this component applies.
                
                > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]] secrets: A `secret` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict', 'outputs.EnvironmentDaprComponentSecret']]]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[_builtins.str] version: The version of the component.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

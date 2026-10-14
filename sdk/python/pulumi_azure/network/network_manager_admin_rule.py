@@ -393,13 +393,13 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
                  admin_rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict', 'outputs.NetworkManagerAdminRuleDestination']]]]] = None,
                  direction: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict', 'outputs.NetworkManagerAdminRuleSource']]]]] = None,
                  __props__=None):
         """
         Manages a Network Manager Admin Rule.
@@ -487,13 +487,13 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_rule_collection_id: Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Admin Rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_port_ranges: A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict']]]] destinations: One or more `destination` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict', 'outputs.NetworkManagerAdminRuleDestination']]]] destinations: One or more `destination` blocks as defined below.
         :param pulumi.Input[_builtins.str] direction: Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
         :param pulumi.Input[_builtins.int] priority: The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[_builtins.str] protocol: Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_port_ranges: A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict', 'outputs.NetworkManagerAdminRuleSource']]]] sources: One or more `source` blocks as defined below.
         """
         ...
     @overload
@@ -600,13 +600,13 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
                  admin_rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict']]]]] = None,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict', 'outputs.NetworkManagerAdminRuleDestination']]]]] = None,
                  direction: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict', 'outputs.NetworkManagerAdminRuleSource']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -651,13 +651,13 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             admin_rule_collection_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict']]]]] = None,
+            destinations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict', 'outputs.NetworkManagerAdminRuleDestination']]]]] = None,
             direction: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             protocol: pulumi.Input[Optional[_builtins.str]] = None,
             source_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict']]]]] = None) -> 'NetworkManagerAdminRule':
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict', 'outputs.NetworkManagerAdminRuleSource']]]]] = None) -> 'NetworkManagerAdminRule':
         """
         Get an existing NetworkManagerAdminRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -669,13 +669,13 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_rule_collection_id: Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
         :param pulumi.Input[_builtins.str] description: A description of the Network Manager Admin Rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] destination_port_ranges: A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict']]]] destinations: One or more `destination` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleDestinationArgs', 'NetworkManagerAdminRuleDestinationArgsDict', 'outputs.NetworkManagerAdminRuleDestination']]]] destinations: One or more `destination` blocks as defined below.
         :param pulumi.Input[_builtins.str] direction: Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
         :param pulumi.Input[_builtins.int] priority: The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         :param pulumi.Input[_builtins.str] protocol: Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_port_ranges: A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerAdminRuleSourceArgs', 'NetworkManagerAdminRuleSourceArgsDict', 'outputs.NetworkManagerAdminRuleSource']]]] sources: One or more `source` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -44,7 +44,7 @@ public final class LoganalyticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = LoganalyticsFunctions.getWorkspaceTable(GetWorkspaceTableArgs.builder()
      *             .name("InsightsMetrics")
-     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.id())
+     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("retentionInDays", example.retentionInDays());
@@ -93,7 +93,7 @@ public final class LoganalyticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = LoganalyticsFunctions.getWorkspaceTable(GetWorkspaceTableArgs.builder()
      *             .name("InsightsMetrics")
-     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.id())
+     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("retentionInDays", example.retentionInDays());
@@ -142,7 +142,7 @@ public final class LoganalyticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = LoganalyticsFunctions.getWorkspaceTable(GetWorkspaceTableArgs.builder()
      *             .name("InsightsMetrics")
-     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.id())
+     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("retentionInDays", example.retentionInDays());
@@ -191,7 +191,7 @@ public final class LoganalyticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = LoganalyticsFunctions.getWorkspaceTable(GetWorkspaceTableArgs.builder()
      *             .name("InsightsMetrics")
-     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.id())
+     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("retentionInDays", example.retentionInDays());
@@ -240,7 +240,7 @@ public final class LoganalyticsFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = LoganalyticsFunctions.getWorkspaceTable(GetWorkspaceTableArgs.builder()
      *             .name("InsightsMetrics")
-     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.id())
+     *             .workspaceId(exampleAzurermLogAnalyticsWorkspace.get("id"))
      *             .build());
      * 
      *         ctx.export("retentionInDays", example.retentionInDays());

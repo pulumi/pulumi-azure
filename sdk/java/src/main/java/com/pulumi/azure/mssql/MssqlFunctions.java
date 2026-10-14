@@ -969,7 +969,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name("managedsqlinstance")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1017,7 +1017,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name("managedsqlinstance")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1065,7 +1065,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name("managedsqlinstance")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1113,7 +1113,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name("managedsqlinstance")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }
@@ -1161,7 +1161,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name("managedsqlinstance")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.get("name"))
      *             .build());
      * 
      *     }

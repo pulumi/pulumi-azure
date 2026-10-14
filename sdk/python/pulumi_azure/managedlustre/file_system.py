@@ -476,14 +476,14 @@ class FileSystem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
-                 hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict', 'outputs.FileSystemEncryptionKey']]] = None,
+                 hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict', 'outputs.FileSystemHsmSetting']]] = None,
+                 identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict', 'outputs.FileSystemIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict', 'outputs.FileSystemMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
+                 root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict', 'outputs.FileSystemRootSquash']]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -544,16 +544,16 @@ class FileSystem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']] encryption_key: An `encryption_key` block as defined below.
+        :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict', 'outputs.FileSystemEncryptionKey']] encryption_key: An `encryption_key` block as defined below.
                
                > **Note:** Removing `encryption_key` forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict', 'outputs.FileSystemHsmSetting']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict', 'outputs.FileSystemIdentity']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict', 'outputs.FileSystemMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']] root_squash: A `root_squash` block as defined below.
+        :param pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict', 'outputs.FileSystemRootSquash']] root_squash: A `root_squash` block as defined below.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
@@ -633,14 +633,14 @@ class FileSystem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
-                 hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
+                 encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict', 'outputs.FileSystemEncryptionKey']]] = None,
+                 hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict', 'outputs.FileSystemHsmSetting']]] = None,
+                 identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict', 'outputs.FileSystemIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
+                 maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict', 'outputs.FileSystemMaintenanceWindow']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
+                 root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict', 'outputs.FileSystemRootSquash']]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -691,15 +691,15 @@ class FileSystem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']]] = None,
-            hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']]] = None,
+            encryption_key: pulumi.Input[Optional[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict', 'outputs.FileSystemEncryptionKey']]] = None,
+            hsm_setting: pulumi.Input[Optional[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict', 'outputs.FileSystemHsmSetting']]] = None,
+            identity: pulumi.Input[Optional[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict', 'outputs.FileSystemIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']]] = None,
+            maintenance_window: pulumi.Input[Optional[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict', 'outputs.FileSystemMaintenanceWindow']]] = None,
             mgs_address: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']]] = None,
+            root_squash: pulumi.Input[Optional[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict', 'outputs.FileSystemRootSquash']]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_capacity_in_tb: pulumi.Input[Optional[_builtins.int]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -712,17 +712,17 @@ class FileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict']] encryption_key: An `encryption_key` block as defined below.
+        :param pulumi.Input[Union['FileSystemEncryptionKeyArgs', 'FileSystemEncryptionKeyArgsDict', 'outputs.FileSystemEncryptionKey']] encryption_key: An `encryption_key` block as defined below.
                
                > **Note:** Removing `encryption_key` forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FileSystemHsmSettingArgs', 'FileSystemHsmSettingArgsDict', 'outputs.FileSystemHsmSetting']] hsm_setting: A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FileSystemIdentityArgs', 'FileSystemIdentityArgsDict', 'outputs.FileSystemIdentity']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict']] maintenance_window: A `maintenance_window` block as defined below.
+        :param pulumi.Input[Union['FileSystemMaintenanceWindowArgs', 'FileSystemMaintenanceWindowArgsDict', 'outputs.FileSystemMaintenanceWindow']] maintenance_window: A `maintenance_window` block as defined below.
         :param pulumi.Input[_builtins.str] mgs_address: IP Address of Managed Lustre File System Services.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict']] root_squash: A `root_squash` block as defined below.
+        :param pulumi.Input[Union['FileSystemRootSquashArgs', 'FileSystemRootSquashArgsDict', 'outputs.FileSystemRootSquash']] root_squash: A `root_squash` block as defined below.
         :param pulumi.Input[_builtins.str] sku_name: The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] storage_capacity_in_tb: The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.

@@ -83,7 +83,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         ApiManagementName = exampleService.Name,
     ///         ApiName = exampleApi.Name,
     ///         ApiManagementLoggerId = exampleLogger.Id,
-    ///         SamplingPercentage = 5,
+    ///         SamplingPercentage = 5.0,
     ///         AlwaysLogErrors = true,
     ///         LogClientIp = true,
     ///         Verbosity = "verbose",

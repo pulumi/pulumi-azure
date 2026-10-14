@@ -327,7 +327,7 @@ class StreamInputIotHub(pulumi.CustomResource):
                  iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
+                 serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict', 'outputs.StreamInputIotHubSerialization']]] = None,
                  shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
                  shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -392,7 +392,7 @@ class StreamInputIotHub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iothub_namespace: The name or the URI of the IoT Hub.
         :param pulumi.Input[_builtins.str] name: The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict', 'outputs.StreamInputIotHubSerialization']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[_builtins.str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[_builtins.str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -476,7 +476,7 @@ class StreamInputIotHub(pulumi.CustomResource):
                  iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
+                 serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict', 'outputs.StreamInputIotHubSerialization']]] = None,
                  shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
                  shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -531,7 +531,7 @@ class StreamInputIotHub(pulumi.CustomResource):
             iothub_namespace: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']]] = None,
+            serialization: pulumi.Input[Optional[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict', 'outputs.StreamInputIotHubSerialization']]] = None,
             shared_access_policy_key: pulumi.Input[Optional[_builtins.str]] = None,
             shared_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
             stream_analytics_job_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'StreamInputIotHub':
@@ -547,7 +547,7 @@ class StreamInputIotHub(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iothub_namespace: The name or the URI of the IoT Hub.
         :param pulumi.Input[_builtins.str] name: The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['StreamInputIotHubSerializationArgs', 'StreamInputIotHubSerializationArgsDict', 'outputs.StreamInputIotHubSerialization']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[_builtins.str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[_builtins.str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.

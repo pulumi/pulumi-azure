@@ -840,10 +840,10 @@ class VmwareReplicatedVm(pulumi.CustomResource):
                  default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
                  default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict', 'outputs.VmwareReplicatedVmManagedDisk']]]]] = None,
                  multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]]] = None,
                  physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -965,12 +965,12 @@ class VmwareReplicatedVm(pulumi.CustomResource):
                
                > **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
         :param pulumi.Input[_builtins.str] license_type: The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict', 'outputs.VmwareReplicatedVmManagedDisk']]]] managed_disks: One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
                
                > **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replicated VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]] network_interfaces: One or more `network_interface` block as defined below.
         :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the replicated VM is created.
@@ -1097,10 +1097,10 @@ class VmwareReplicatedVm(pulumi.CustomResource):
                  default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
                  default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
+                 managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict', 'outputs.VmwareReplicatedVmManagedDisk']]]]] = None,
                  multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]]] = None,
                  physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1174,10 +1174,10 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             default_recovery_disk_type: pulumi.Input[Optional[_builtins.str]] = None,
             default_target_disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
             license_type: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]]] = None,
+            managed_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict', 'outputs.VmwareReplicatedVmManagedDisk']]]]] = None,
             multi_vm_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]]] = None,
             physical_server_credential_name: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1221,12 +1221,12 @@ class VmwareReplicatedVm(pulumi.CustomResource):
                
                > **Note:** When `default_target_disk_encryption_set_id` co-exist with `managed_disk`, the value of `default_target_disk_encryption_set_id` must be as same as `target_disk_encryption_set_id` of every `managed_disk` or it forces a new resource to be created.
         :param pulumi.Input[_builtins.str] license_type: The license type of the VM. Possible values are `NoLicenseType`, `NotSpecified` and `WindowsServer`. Defaults to `NotSpecified`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict']]]] managed_disks: One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmManagedDiskArgs', 'VmwareReplicatedVmManagedDiskArgsDict', 'outputs.VmwareReplicatedVmManagedDisk']]]] managed_disks: One or more `managed_disk` block as defined below. It's available only if mobility service is already installed on the source VM.
                
                > **Note:** A replicated VM could be created without `managed_disk` block, once the block has been specified, changing it expect removing it forces a new resource to be created.
         :param pulumi.Input[_builtins.str] multi_vm_group_name: Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
         :param pulumi.Input[_builtins.str] name: The name of the replicated VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VmwareReplicatedVmNetworkInterfaceArgs', 'VmwareReplicatedVmNetworkInterfaceArgsDict', 'outputs.VmwareReplicatedVmNetworkInterface']]]] network_interfaces: One or more `network_interface` block as defined below.
         :param pulumi.Input[_builtins.str] physical_server_credential_name: The name of the credential to access the source VM. Changing this forces a new resource to be created. More information about the credentials could be found [here](https://learn.microsoft.com/en-us/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized).
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: The ID of the policy to use for this replicated VM.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the Recovery Services Vault where the replicated VM is created.

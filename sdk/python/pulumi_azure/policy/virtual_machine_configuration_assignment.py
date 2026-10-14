@@ -168,7 +168,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict', 'outputs.VirtualMachineConfigurationAssignmentConfiguration']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -284,7 +284,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']] configuration: A `configuration` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict', 'outputs.VirtualMachineConfigurationAssignmentConfiguration']] configuration: A `configuration` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
@@ -419,7 +419,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict', 'outputs.VirtualMachineConfigurationAssignmentConfiguration']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -450,7 +450,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: pulumi.Input[Optional[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']]] = None,
+            configuration: pulumi.Input[Optional[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict', 'outputs.VirtualMachineConfigurationAssignmentConfiguration']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VirtualMachineConfigurationAssignment':
@@ -461,7 +461,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']] configuration: A `configuration` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict', 'outputs.VirtualMachineConfigurationAssignmentConfiguration']] configuration: A `configuration` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.

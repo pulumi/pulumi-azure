@@ -344,7 +344,7 @@ class PartnerNamespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict', 'outputs.PartnerNamespaceInboundIpRule']]]]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -394,7 +394,7 @@ class PartnerNamespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict', 'outputs.PartnerNamespaceInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.
@@ -463,7 +463,7 @@ class PartnerNamespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
+                 inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict', 'outputs.PartnerNamespaceInboundIpRule']]]]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -506,7 +506,7 @@ class PartnerNamespace(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]]] = None,
+            inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict', 'outputs.PartnerNamespaceInboundIpRule']]]]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -523,7 +523,7 @@ class PartnerNamespace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint for the Event Grid Partner Namespace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PartnerNamespaceInboundIpRuleArgs', 'PartnerNamespaceInboundIpRuleArgsDict', 'outputs.PartnerNamespaceInboundIpRule']]]] inbound_ip_rules: One or more `inbound_ip_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether local authentication methods are enabled for the Event Grid Partner Namespace. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Event Grid Partner Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Event Grid Partner Namespace. Changing this forces a new Event Grid Partner Namespace to be created.

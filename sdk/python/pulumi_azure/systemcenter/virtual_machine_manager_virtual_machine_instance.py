@@ -320,12 +320,12 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
-                 infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
-                 operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
+                 hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceHardware']]] = None,
+                 infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure']]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface']]]]] = None,
+                 operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem']]] = None,
                  scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
+                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk']]]]] = None,
                  system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -405,16 +405,16 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceHardware']] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** This resource will be restarted while updating `hardware`.
-        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']] infrastructure: An `infrastructure` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]] network_interfaces: A `network_interface` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure']] infrastructure: An `infrastructure` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface']]]] network_interfaces: A `network_interface` block as defined below.
                
                > **Note:** This resource will be restarted while updating `network_interface`.
-        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem']] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]] storage_disks: A `storage_disk` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk']]]] storage_disks: A `storage_disk` block as defined below.
                
                > **Note:** This resource will be restarted while updating `storage_disk`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_center_virtual_machine_manager_availability_set_ids: A list of IDs of System Center Virtual Machine Manager Availability Set.
@@ -515,12 +515,12 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
-                 infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
-                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
-                 operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
+                 hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceHardware']]] = None,
+                 infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure']]] = None,
+                 network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface']]]]] = None,
+                 operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem']]] = None,
                  scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
+                 storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk']]]]] = None,
                  system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -556,12 +556,12 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
-            hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']]] = None,
-            infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']]] = None,
-            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]]] = None,
-            operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']]] = None,
+            hardware: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceHardware']]] = None,
+            infrastructure: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure']]] = None,
+            network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface']]]]] = None,
+            operating_system: pulumi.Input[Optional[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem']]] = None,
             scoped_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]]] = None,
+            storage_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk']]]]] = None,
             system_center_virtual_machine_manager_availability_set_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'VirtualMachineManagerVirtualMachineInstance':
         """
         Get an existing VirtualMachineManagerVirtualMachineInstance resource's state with the given name, id, and optional extra
@@ -571,16 +571,16 @@ class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location for the System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict']] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceHardwareArgs', 'VirtualMachineManagerVirtualMachineInstanceHardwareArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceHardware']] hardware: A `hardware` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** This resource will be restarted while updating `hardware`.
-        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict']] infrastructure: An `infrastructure` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict']]]] network_interfaces: A `network_interface` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs', 'VirtualMachineManagerVirtualMachineInstanceInfrastructureArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceInfrastructure']] infrastructure: An `infrastructure` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs', 'VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceNetworkInterface']]]] network_interfaces: A `network_interface` block as defined below.
                
                > **Note:** This resource will be restarted while updating `network_interface`.
-        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict']] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs', 'VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceOperatingSystem']] operating_system: An `operating_system` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] scoped_resource_id: The ID of the Hybrid Compute Machine where this System Center Virtual Machine Manager Virtual Machine Instance is stored. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict']]]] storage_disks: A `storage_disk` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs', 'VirtualMachineManagerVirtualMachineInstanceStorageDiskArgsDict', 'outputs.VirtualMachineManagerVirtualMachineInstanceStorageDisk']]]] storage_disks: A `storage_disk` block as defined below.
                
                > **Note:** This resource will be restarted while updating `storage_disk`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] system_center_virtual_machine_manager_availability_set_ids: A list of IDs of System Center Virtual Machine Manager Availability Set.

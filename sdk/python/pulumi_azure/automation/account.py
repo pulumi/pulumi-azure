@@ -404,8 +404,8 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -454,8 +454,8 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]] encryptions: An `encryption` block as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]]] encryptions: An `encryption` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
@@ -523,8 +523,8 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -574,13 +574,13 @@ class Account(pulumi.CustomResource):
             dsc_primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             dsc_secondary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             dsc_server_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]]] = None,
+            encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]]]] = None,
             hybrid_service_url: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountPrivateEndpointConnectionArgs', 'AccountPrivateEndpointConnectionArgsDict']]]]] = None,
+            private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountPrivateEndpointConnectionArgs', 'AccountPrivateEndpointConnectionArgsDict', 'outputs.AccountPrivateEndpointConnection']]]]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -595,9 +595,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dsc_primary_access_key: The Primary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[_builtins.str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[_builtins.str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]]] encryptions: An `encryption` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]]] encryptions: An `encryption` block as defined below.
         :param pulumi.Input[_builtins.str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.

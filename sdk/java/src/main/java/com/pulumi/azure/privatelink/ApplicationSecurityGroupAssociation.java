@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  *                 .primary(true)
  *                 .subnetId(service.id())
  *                 .build())
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations.get(0).id()))
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()

@@ -512,7 +512,7 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
+                 management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict', 'outputs.PrivateCloudManagementCluster']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -570,7 +570,7 @@ class PrivateCloud(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
                > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
-        :param pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']] management_cluster: A `management_cluster` block as defined below.
+        :param pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict', 'outputs.PrivateCloudManagementCluster']] management_cluster: A `management_cluster` block as defined below.
                > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         :param pulumi.Input[_builtins.str] network_subnet_cidr: The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
@@ -647,7 +647,7 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
+                 management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict', 'outputs.PrivateCloudManagementCluster']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -703,11 +703,11 @@ class PrivateCloud(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            circuits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict']]]]] = None,
+            circuits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict', 'outputs.PrivateCloudCircuit']]]]] = None,
             hcx_cloud_manager_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             internet_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']]] = None,
+            management_cluster: pulumi.Input[Optional[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict', 'outputs.PrivateCloudManagementCluster']]] = None,
             management_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_subnet_cidr: pulumi.Input[Optional[_builtins.str]] = None,
@@ -729,12 +729,12 @@ class PrivateCloud(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict']]]] circuits: A `circuit` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateCloudCircuitArgs', 'PrivateCloudCircuitArgsDict', 'outputs.PrivateCloudCircuit']]]] circuits: A `circuit` block as defined below.
         :param pulumi.Input[_builtins.str] hcx_cloud_manager_endpoint: The endpoint for the VMware HCX Cloud Manager.
         :param pulumi.Input[_builtins.bool] internet_connection_enabled: Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
                > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
-        :param pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict']] management_cluster: A `management_cluster` block as defined below.
+        :param pulumi.Input[Union['PrivateCloudManagementClusterArgs', 'PrivateCloudManagementClusterArgsDict', 'outputs.PrivateCloudManagementCluster']] management_cluster: A `management_cluster` block as defined below.
                > **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         :param pulumi.Input[_builtins.str] management_subnet_cidr: The network used to access VMware vCenter Server and NSX Manager.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.

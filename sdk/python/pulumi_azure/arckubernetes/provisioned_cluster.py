@@ -410,8 +410,8 @@ class ProvisionedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict', 'outputs.ProvisionedClusterAzureActiveDirectory']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict', 'outputs.ProvisionedClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -469,8 +469,8 @@ class ProvisionedCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] arc_agent_auto_upgrade_enabled: Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] arc_agent_desired_version: The version of the Arc agents to be installed on the cluster.
-        :param pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as defined below.
-        :param pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        :param pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict', 'outputs.ProvisionedClusterAzureActiveDirectory']] azure_active_directory: An `azure_active_directory` block as defined below.
+        :param pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict', 'outputs.ProvisionedClusterIdentity']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Arc Kubernetes Provisioned Cluster. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
@@ -547,8 +547,8 @@ class ProvisionedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+                 azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict', 'outputs.ProvisionedClusterAzureActiveDirectory']]] = None,
+                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict', 'outputs.ProvisionedClusterIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -594,9 +594,9 @@ class ProvisionedCluster(pulumi.CustomResource):
             agent_version: pulumi.Input[Optional[_builtins.str]] = None,
             arc_agent_auto_upgrade_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             arc_agent_desired_version: pulumi.Input[Optional[_builtins.str]] = None,
-            azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']]] = None,
+            azure_active_directory: pulumi.Input[Optional[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict', 'outputs.ProvisionedClusterAzureActiveDirectory']]] = None,
             distribution: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict', 'outputs.ProvisionedClusterIdentity']]] = None,
             infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
             kubernetes_version: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -616,9 +616,9 @@ class ProvisionedCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] agent_version: The version of the agent running on the cluster resource.
         :param pulumi.Input[_builtins.bool] arc_agent_auto_upgrade_enabled: Whether the Arc agents will be upgraded automatically to the latest version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] arc_agent_desired_version: The version of the Arc agents to be installed on the cluster.
-        :param pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict']] azure_active_directory: An `azure_active_directory` block as defined below.
+        :param pulumi.Input[Union['ProvisionedClusterAzureActiveDirectoryArgs', 'ProvisionedClusterAzureActiveDirectoryArgsDict', 'outputs.ProvisionedClusterAzureActiveDirectory']] azure_active_directory: An `azure_active_directory` block as defined below.
         :param pulumi.Input[_builtins.str] distribution: The distribution running on this Arc Kubernetes Provisioned Cluster.
-        :param pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
+        :param pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict', 'outputs.ProvisionedClusterIdentity']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.
         :param pulumi.Input[_builtins.str] infrastructure: The infrastructure on which the Arc Kubernetes Provisioned Cluster is running on.
         :param pulumi.Input[_builtins.str] kubernetes_version: The Kubernetes version of the cluster resource.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Arc Kubernetes Provisioned Cluster should exist. Changing this forces a new Arc Kubernetes Provisioned Cluster to be created.

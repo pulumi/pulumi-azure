@@ -386,7 +386,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_json: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict', 'outputs.FunctionAppFunctionFile']]]]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  language: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -546,7 +546,7 @@ class FunctionAppFunction(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] config_json: The config for this Function in JSON format.
         :param pulumi.Input[_builtins.bool] enabled: Should this function be enabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict', 'outputs.FunctionAppFunctionFile']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
                
@@ -727,7 +727,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_json: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict', 'outputs.FunctionAppFunctionFile']]]]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  language: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -772,7 +772,7 @@ class FunctionAppFunction(pulumi.CustomResource):
             config_json: pulumi.Input[Optional[_builtins.str]] = None,
             config_url: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
+            files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict', 'outputs.FunctionAppFunctionFile']]]]] = None,
             function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
             invocation_url: pulumi.Input[Optional[_builtins.str]] = None,
             language: pulumi.Input[Optional[_builtins.str]] = None,
@@ -793,7 +793,7 @@ class FunctionAppFunction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] config_json: The config for this Function in JSON format.
         :param pulumi.Input[_builtins.str] config_url: The URL of the configuration JSON.
         :param pulumi.Input[_builtins.bool] enabled: Should this function be enabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict', 'outputs.FunctionAppFunctionFile']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] invocation_url: The invocation URL.
         :param pulumi.Input[_builtins.str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.

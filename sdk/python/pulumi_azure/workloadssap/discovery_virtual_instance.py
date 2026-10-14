@@ -392,7 +392,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  central_server_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict', 'outputs.DiscoveryVirtualInstanceIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -450,7 +450,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] central_server_virtual_machine_id: The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict', 'outputs.DiscoveryVirtualInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
@@ -527,7 +527,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  central_server_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict', 'outputs.DiscoveryVirtualInstanceIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -576,7 +576,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             central_server_virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
             environment: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict', 'outputs.DiscoveryVirtualInstanceIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -594,7 +594,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] central_server_virtual_machine_id: The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DiscoveryVirtualInstanceIdentityArgs', 'DiscoveryVirtualInstanceIdentityArgsDict', 'outputs.DiscoveryVirtualInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.

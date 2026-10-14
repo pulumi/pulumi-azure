@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleNamespaceTopic = new NamespaceTopic("exampleNamespaceTopic", NamespaceTopicArgs.builder()
  *             .name("topic-namespace-example")
- *             .eventgridNamespaceId(test.id())
+ *             .eventgridNamespaceId(test.get("id"))
  *             .eventRetentionInDays(1)
  *             .build());
  * 

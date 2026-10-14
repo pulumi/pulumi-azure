@@ -79,22 +79,22 @@ import javax.annotation.Nullable;
  * 
  *         var test = new PublicIp("test", PublicIpArgs.builder()
  *             .name("example-public-ip")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .allocationMethod("Static")
  *             .sku("Standard")
  *             .build());
  * 
  *         var testVirtualNetwork = new VirtualNetwork("testVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example-VirtualNetwork")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .addressSpaces("10.88.0.0/16")
  *             .build());
  * 
  *         var netappSubnet = new Subnet("netappSubnet", SubnetArgs.builder()
  *             .name("example-Subnet")
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .virtualNetworkName(testVirtualNetwork.name())
  *             .addressPrefixes("10.88.2.0/24")
  *             .delegations(SubnetDelegationArgs.builder()
@@ -110,15 +110,15 @@ import javax.annotation.Nullable;
  * 
  *         var gatewaySubnet = new Subnet("gatewaySubnet", SubnetArgs.builder()
  *             .name("GatewaySubnet")
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .virtualNetworkName(testVirtualNetwork.name())
  *             .addressPrefixes("10.88.1.0/24")
  *             .build());
  * 
  *         var testVirtualNetworkGateway = new VirtualNetworkGateway("testVirtualNetworkGateway", VirtualNetworkGatewayArgs.builder()
  *             .name("example-vnet-gateway")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .type("ExpressRoute")
  *             .sku("Standard")
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
@@ -130,14 +130,14 @@ import javax.annotation.Nullable;
  * 
  *         var testAccount = new Account("testAccount", AccountArgs.builder()
  *             .name("example-NetAppAccount")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .build());
  * 
  *         var testPool = new Pool("testPool", PoolArgs.builder()
  *             .name("example-NetAppPool")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .accountName(testAccount.name())
  *             .serviceLevel("Standard")
  *             .sizeInTb(4)
@@ -145,8 +145,8 @@ import javax.annotation.Nullable;
  * 
  *         var testVolume = new Volume("testVolume", VolumeArgs.builder()
  *             .name("example-NetAppVolume")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .accountName(testAccount.name())
  *             .poolName(testPool.name())
  *             .volumePath("my-unique-file-path-%d")
@@ -167,8 +167,8 @@ import javax.annotation.Nullable;
  * 
  *         var testPrivateCloud = new PrivateCloud("testPrivateCloud", PrivateCloudArgs.builder()
  *             .name("example-PC")
- *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
+ *             .location(testAzurermResourceGroup.get("location"))
  *             .skuName("av36")
  *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
  *                 .size(3)
@@ -190,11 +190,11 @@ import javax.annotation.Nullable;
  * 
  *         var testVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection("testVirtualNetworkGatewayConnection", VirtualNetworkGatewayConnectionArgs.builder()
  *             .name("example-vnetgwconn")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .type("ExpressRoute")
  *             .virtualNetworkGatewayId(testVirtualNetworkGateway.id())
- *             .expressRouteCircuitId(testPrivateCloud.circuits().applyValue(_circuits -> _circuits[0].expressRouteId()))
+ *             .expressRouteCircuitId(testPrivateCloud.circuits().applyValue(_circuits -> _circuits.get(0).expressRouteId()))
  *             .authorizationKey(testExpressRouteAuthorization.expressRouteAuthorizationKey())
  *             .build());
  * 

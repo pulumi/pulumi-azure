@@ -334,7 +334,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict']]] = None,
+                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSnowflakeKeyVaultPassword']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -412,7 +412,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSnowflakeKeyVaultPassword']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
@@ -509,7 +509,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict']]] = None,
+                 key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSnowflakeKeyVaultPassword']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -550,7 +550,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict']]] = None,
+            key_vault_password: pulumi.Input[Optional[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSnowflakeKeyVaultPassword']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LinkedServiceSnowflake':
         """
@@ -566,7 +566,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
+        :param pulumi.Input[Union['LinkedServiceSnowflakeKeyVaultPasswordArgs', 'LinkedServiceSnowflakeKeyVaultPasswordArgsDict', 'outputs.LinkedServiceSnowflakeKeyVaultPassword']] key_vault_password: A `key_vault_password` block as defined below. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """

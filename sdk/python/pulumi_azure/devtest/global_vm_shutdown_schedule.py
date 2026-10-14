@@ -265,7 +265,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                  daily_recurrence_time: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict', 'outputs.GlobalVMShutdownScheduleNotificationSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -359,7 +359,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
+        :param pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict', 'outputs.GlobalVMShutdownScheduleNotificationSettings']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[_builtins.str] virtual_machine_id: The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
@@ -472,7 +472,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                  daily_recurrence_time: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict', 'outputs.GlobalVMShutdownScheduleNotificationSettings']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -513,7 +513,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             daily_recurrence_time: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']]] = None,
+            notification_settings: pulumi.Input[Optional[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict', 'outputs.GlobalVMShutdownScheduleNotificationSettings']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timezone: pulumi.Input[Optional[_builtins.str]] = None,
             virtual_machine_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'GlobalVMShutdownSchedule':
@@ -527,7 +527,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         :param pulumi.Input[_builtins.bool] enabled: Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
+        :param pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict', 'outputs.GlobalVMShutdownScheduleNotificationSettings']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[_builtins.str] virtual_machine_id: The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.

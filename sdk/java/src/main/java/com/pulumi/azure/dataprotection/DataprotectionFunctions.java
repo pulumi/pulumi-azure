@@ -47,7 +47,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
      *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.identities()[0].principalId());
      *     }
      * }
@@ -97,7 +97,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
      *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.identities()[0].principalId());
      *     }
      * }
@@ -147,7 +147,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
      *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.identities()[0].principalId());
      *     }
      * }
@@ -197,7 +197,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
      *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.identities()[0].principalId());
      *     }
      * }
@@ -247,7 +247,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.id());
+     *         ctx.export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.get("id"));
      *         ctx.export("azurermDataProtectionBackupVaultPrincipalId", example.identities()[0].principalId());
      *     }
      * }

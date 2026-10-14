@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleServerSecurityAlertPolicy = new ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", ServerSecurityAlertPolicyArgs.builder()
  *             .resourceGroupName(example.name())
- *             .serverName(exampleSqlServer.name())
+ *             .serverName(exampleSqlServer.get("name"))
  *             .state("Enabled")
  *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())

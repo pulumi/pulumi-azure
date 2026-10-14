@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .recoveryVaultId(exampleVault.id())
  *             .sourceVmName("example-vm")
  *             .applianceName("example-appliance")
- *             .recoveryReplicationPolicyId(exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.policyId())
+ *             .recoveryReplicationPolicyId(exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.get("policyId"))
  *             .physicalServerCredentialName("example-creds")
  *             .licenseType("NotSpecified")
  *             .targetBootDiagnosticsStorageAccountId(exampleAccount.id())

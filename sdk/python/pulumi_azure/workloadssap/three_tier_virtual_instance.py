@@ -422,7 +422,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_location: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict', 'outputs.ThreeTierVirtualInstanceIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -431,7 +431,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                  sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  sap_product: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None,
+                 three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict', 'outputs.ThreeTierVirtualInstanceThreeTierConfiguration']]] = None,
                  __props__=None):
         """
         Manages an SAP Three Tier Virtual Instance with a new SAP System.
@@ -702,7 +702,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Three Tier Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict', 'outputs.ThreeTierVirtualInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
@@ -711,7 +711,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sap_fqdn: The FQDN of the SAP system. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sap_product: The SAP Product type for the SAP Three Tier Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the SAP Three Tier Virtual Instance.
-        :param pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']] three_tier_configuration: A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict', 'outputs.ThreeTierVirtualInstanceThreeTierConfiguration']] three_tier_configuration: A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -1001,7 +1001,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_location: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict', 'outputs.ThreeTierVirtualInstanceIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1010,7 +1010,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                  sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  sap_product: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None,
+                 three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict', 'outputs.ThreeTierVirtualInstanceThreeTierConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1056,7 +1056,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_location: pulumi.Input[Optional[_builtins.str]] = None,
             environment: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict', 'outputs.ThreeTierVirtualInstanceIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resources_network_access_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1065,7 +1065,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
             sap_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             sap_product: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']]] = None) -> 'ThreeTierVirtualInstance':
+            three_tier_configuration: pulumi.Input[Optional[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict', 'outputs.ThreeTierVirtualInstanceThreeTierConfiguration']]] = None) -> 'ThreeTierVirtualInstance':
         """
         Get an existing ThreeTierVirtualInstance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1075,7 +1075,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_location: The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] environment: The environment type for the SAP Three Tier Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ThreeTierVirtualInstanceIdentityArgs', 'ThreeTierVirtualInstanceIdentityArgsDict', 'outputs.ThreeTierVirtualInstanceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the SAP Three Tier Virtual Instance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resources_network_access_type: The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
@@ -1084,7 +1084,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] sap_fqdn: The FQDN of the SAP system. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sap_product: The SAP Product type for the SAP Three Tier Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the SAP Three Tier Virtual Instance.
-        :param pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict']] three_tier_configuration: A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ThreeTierVirtualInstanceThreeTierConfigurationArgs', 'ThreeTierVirtualInstanceThreeTierConfigurationArgsDict', 'outputs.ThreeTierVirtualInstanceThreeTierConfiguration']] three_tier_configuration: A `three_tier_configuration` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

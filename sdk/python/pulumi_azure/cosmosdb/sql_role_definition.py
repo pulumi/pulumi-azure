@@ -273,7 +273,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  assignable_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict', 'outputs.SqlRoleDefinitionPermission']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -338,7 +338,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
                
                > **Note:** The resources referenced in assignable scopes need not exist.
         :param pulumi.Input[_builtins.str] name: An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict', 'outputs.SqlRoleDefinitionPermission']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_id: The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
@@ -420,7 +420,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  assignable_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict', 'outputs.SqlRoleDefinitionPermission']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -461,7 +461,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
             assignable_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]]] = None,
+            permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict', 'outputs.SqlRoleDefinitionPermission']]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'SqlRoleDefinition':
@@ -477,7 +477,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
                
                > **Note:** The resources referenced in assignable scopes need not exist.
         :param pulumi.Input[_builtins.str] name: An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict']]]] permissions: A `permissions` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlRoleDefinitionPermissionArgs', 'SqlRoleDefinitionPermissionArgsDict', 'outputs.SqlRoleDefinitionPermission']]]] permissions: A `permissions` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] role_definition_id: The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] type: The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.

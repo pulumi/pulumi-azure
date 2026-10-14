@@ -169,7 +169,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict', 'outputs.AssessmentStatus']]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -250,7 +250,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[_builtins.str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']] status: A `status` block as defined below.
+        :param pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict', 'outputs.AssessmentStatus']] status: A `status` block as defined below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         ...
@@ -350,7 +350,7 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict', 'outputs.AssessmentStatus']]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -383,7 +383,7 @@ class Assessment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             assessment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-            status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+            status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict', 'outputs.AssessmentStatus']]] = None,
             target_resource_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'Assessment':
         """
         Get an existing Assessment resource's state with the given name, id, and optional extra
@@ -394,7 +394,7 @@ class Assessment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_data: A map of additional data to associate with the assessment.
         :param pulumi.Input[_builtins.str] assessment_policy_id: The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        :param pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']] status: A `status` block as defined below.
+        :param pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict', 'outputs.AssessmentStatus']] status: A `status` block as defined below.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the target resource. Changing this forces a new security Assessment to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

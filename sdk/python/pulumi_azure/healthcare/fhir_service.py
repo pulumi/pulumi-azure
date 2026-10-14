@@ -472,15 +472,15 @@ class FhirService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict', 'outputs.FhirServiceAuthentication']]] = None,
                  configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registry_login_server_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict', 'outputs.FhirServiceCors']]] = None,
+                 identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict', 'outputs.FhirServiceIdentity']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict']]]]] = None,
+                 oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict', 'outputs.FhirServiceOciArtifact']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -553,15 +553,15 @@ class FhirService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A list of the access policies of the service instance.
-        :param pulumi.Input[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict', 'outputs.FhirServiceAuthentication']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_registry_login_server_urls: A list of azure container registry settings used for convert data operation of the service instance.
-        :param pulumi.Input[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict']] cors: A `cors` block as defined below.
-        :param pulumi.Input[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict', 'outputs.FhirServiceCors']] cors: A `cors` block as defined below.
+        :param pulumi.Input[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict', 'outputs.FhirServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict', 'outputs.FhirServiceOciArtifact']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Healthcare FHIR Service.
         :param pulumi.Input[_builtins.str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
@@ -653,15 +653,15 @@ class FhirService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict', 'outputs.FhirServiceAuthentication']]] = None,
                  configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registry_login_server_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict', 'outputs.FhirServiceCors']]] = None,
+                 identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict', 'outputs.FhirServiceIdentity']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict']]]]] = None,
+                 oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict', 'outputs.FhirServiceOciArtifact']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -705,15 +705,15 @@ class FhirService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_policy_object_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict']]] = None,
+            authentication: pulumi.Input[Optional[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict', 'outputs.FhirServiceAuthentication']]] = None,
             configuration_export_storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
             container_registry_login_server_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict']]] = None,
+            cors: pulumi.Input[Optional[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict', 'outputs.FhirServiceCors']]] = None,
+            identity: pulumi.Input[Optional[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict', 'outputs.FhirServiceIdentity']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict']]]]] = None,
+            oci_artifacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict', 'outputs.FhirServiceOciArtifact']]]]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -726,15 +726,15 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] access_policy_object_ids: A list of the access policies of the service instance.
-        :param pulumi.Input[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['FhirServiceAuthenticationArgs', 'FhirServiceAuthenticationArgsDict', 'outputs.FhirServiceAuthentication']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[_builtins.str] configuration_export_storage_account_name: Specifies the name of the storage account which the operation configuration information is exported to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] container_registry_login_server_urls: A list of azure container registry settings used for convert data operation of the service instance.
-        :param pulumi.Input[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict']] cors: A `cors` block as defined below.
-        :param pulumi.Input[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['FhirServiceCorsArgs', 'FhirServiceCorsArgsDict', 'outputs.FhirServiceCors']] cors: A `cors` block as defined below.
+        :param pulumi.Input[Union['FhirServiceIdentityArgs', 'FhirServiceIdentityArgsDict', 'outputs.FhirServiceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceOciArtifactArgs', 'FhirServiceOciArtifactArgsDict', 'outputs.FhirServiceOciArtifact']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public networks access is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Healthcare FHIR Service.

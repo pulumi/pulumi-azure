@@ -124,7 +124,7 @@ import (
 //
 // __res, err := core.NewResourceGroup(ctx, fmt.Sprintf("example-%v", key0), &core.ResourceGroupArgs{
 // Name: pulumi.Sprintf("rg-global-vnet-peering-%v", val0),
-// Location: location[val0],
+// Location: location[val0].(pulumi.String),
 // })
 // if err != nil {
 // return err

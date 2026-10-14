@@ -490,7 +490,7 @@ class OutputBlob(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict']]] = None,
+                 serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict', 'outputs.OutputBlobSerialization']]] = None,
                  storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -564,7 +564,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict', 'outputs.OutputBlobSerialization']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[_builtins.str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[_builtins.str] storage_container_name: The name of the Container within the Storage Account.
@@ -657,7 +657,7 @@ class OutputBlob(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict']]] = None,
+                 serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict', 'outputs.OutputBlobSerialization']]] = None,
                  storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -722,7 +722,7 @@ class OutputBlob(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             path_pattern: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict']]] = None,
+            serialization: pulumi.Input[Optional[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict', 'outputs.OutputBlobSerialization']]] = None,
             storage_account_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -743,7 +743,7 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['OutputBlobSerializationArgs', 'OutputBlobSerializationArgsDict', 'outputs.OutputBlobSerialization']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[_builtins.str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[_builtins.str] storage_container_name: The name of the Container within the Storage Account.

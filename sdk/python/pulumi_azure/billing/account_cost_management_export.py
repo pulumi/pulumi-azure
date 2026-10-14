@@ -326,8 +326,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']]] = None,
-                 export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+                 export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict', 'outputs.AccountCostManagementExportExportDataOptions']]] = None,
+                 export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict', 'outputs.AccountCostManagementExportExportDataStorageLocation']]] = None,
                  file_format: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -392,8 +392,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[_builtins.str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict', 'outputs.AccountCostManagementExportExportDataOptions']] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict', 'outputs.AccountCostManagementExportExportDataStorageLocation']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.
@@ -477,8 +477,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
                  billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']]] = None,
-                 export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+                 export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict', 'outputs.AccountCostManagementExportExportDataOptions']]] = None,
+                 export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict', 'outputs.AccountCostManagementExportExportDataStorageLocation']]] = None,
                  file_format: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -526,8 +526,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active: pulumi.Input[Optional[_builtins.bool]] = None,
             billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']]] = None,
-            export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']]] = None,
+            export_data_options: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict', 'outputs.AccountCostManagementExportExportDataOptions']]] = None,
+            export_data_storage_location: pulumi.Input[Optional[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict', 'outputs.AccountCostManagementExportExportDataStorageLocation']]] = None,
             file_format: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             recurrence_period_end_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -542,8 +542,8 @@ class AccountCostManagementExport(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Is the cost management export active? Default is `true`.
         :param pulumi.Input[_builtins.str] billing_account_id: The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict']] export_data_options: A `export_data_options` block as defined below.
-        :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict']] export_data_storage_location: A `export_data_storage_location` block as defined below.
+        :param pulumi.Input[Union['AccountCostManagementExportExportDataOptionsArgs', 'AccountCostManagementExportExportDataOptionsArgsDict', 'outputs.AccountCostManagementExportExportDataOptions']] export_data_options: A `export_data_options` block as defined below.
+        :param pulumi.Input[Union['AccountCostManagementExportExportDataStorageLocationArgs', 'AccountCostManagementExportExportDataStorageLocationArgsDict', 'outputs.AccountCostManagementExportExportDataStorageLocation']] export_data_storage_location: A `export_data_storage_location` block as defined below.
         :param pulumi.Input[_builtins.str] file_format: Format for export. Valid values are `Csv` only. Default is `Csv`.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recurrence_period_end_date: The date the export will stop capturing information.

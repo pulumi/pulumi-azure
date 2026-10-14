@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *             .rsaBits(4096)
  *             .build());
  * 
- *         final var example = TlsFunctions.PublicKey(Map.of("privateKeyPem", examplePrivateKey.privateKeyPem()));
+ *         final var example = TlsFunctions.PublicKey(Map.of("privateKeyPem", examplePrivateKey.get("privateKeyPem")));
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -142,8 +142,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .osProfile(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()
  *                         .adminUsername("testAdmin")
- *                         .sshPrivateKey(examplePrivateKey.privateKeyPem())
- *                         .sshPublicKey(example.publicKeyOpenssh())
+ *                         .sshPrivateKey(examplePrivateKey.get("privateKeyPem"))
+ *                         .sshPublicKey(example.get("publicKeyOpenssh"))
  *                         .build())
  *                     .build())
  *                 .diskVolumeConfigurations(                

@@ -267,7 +267,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict', 'outputs.VolumeGroupSapHanaVolume']]]]] = None,
                  __props__=None):
         """
         Manages a Application Volume Group for SAP HANA application.
@@ -689,7 +689,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict', 'outputs.VolumeGroupSapHanaVolume']]]] volumes: One or more `volume` blocks as defined below.
         """
         ...
     @overload
@@ -1130,7 +1130,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]]] = None,
+                 volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict', 'outputs.VolumeGroupSapHanaVolume']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1173,7 +1173,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]]] = None) -> 'VolumeGroupSapHana':
+            volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict', 'outputs.VolumeGroupSapHanaVolume']]]]] = None) -> 'VolumeGroupSapHana':
         """
         Get an existing VolumeGroupSapHana resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1187,7 +1187,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict', 'outputs.VolumeGroupSapHanaVolume']]]] volumes: One or more `volume` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

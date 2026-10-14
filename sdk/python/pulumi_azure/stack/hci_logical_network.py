@@ -299,7 +299,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
+                 subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict', 'outputs.HciLogicalNetworkSubnet']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -362,7 +362,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']] subnet: A `subnet` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict', 'outputs.HciLogicalNetworkSubnet']] subnet: A `subnet` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
         :param pulumi.Input[_builtins.str] virtual_switch_name: The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
         """
@@ -444,7 +444,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
+                 subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict', 'outputs.HciLogicalNetworkSubnet']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -487,7 +487,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']]] = None,
+            subnet: pulumi.Input[Optional[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict', 'outputs.HciLogicalNetworkSubnet']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_switch_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'HciLogicalNetwork':
         """
@@ -502,7 +502,7 @@ class HciLogicalNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict']] subnet: A `subnet` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['HciLogicalNetworkSubnetArgs', 'HciLogicalNetworkSubnetArgsDict', 'outputs.HciLogicalNetworkSubnet']] subnet: A `subnet` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
         :param pulumi.Input[_builtins.str] virtual_switch_name: The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
         """

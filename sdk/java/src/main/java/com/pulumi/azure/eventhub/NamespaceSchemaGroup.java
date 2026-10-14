@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * 
  *         var test = new EventHubNamespace("test", EventHubNamespaceArgs.builder()
  *             .name("example-ehn-schemaGroup")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .sku("Standard")
  *             .build());
  * 

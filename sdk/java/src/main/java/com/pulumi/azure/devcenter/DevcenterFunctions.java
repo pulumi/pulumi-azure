@@ -318,8 +318,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getAttachedNetwork(GetAttachedNetworkArgs.builder()
-     *             .name(exampleAzurermDevCenterAttachedNetwork.name())
-     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.devCenterId())
+     *             .name(exampleAzurermDevCenterAttachedNetwork.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -367,8 +367,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getAttachedNetwork(GetAttachedNetworkArgs.builder()
-     *             .name(exampleAzurermDevCenterAttachedNetwork.name())
-     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.devCenterId())
+     *             .name(exampleAzurermDevCenterAttachedNetwork.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -416,8 +416,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getAttachedNetwork(GetAttachedNetworkArgs.builder()
-     *             .name(exampleAzurermDevCenterAttachedNetwork.name())
-     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.devCenterId())
+     *             .name(exampleAzurermDevCenterAttachedNetwork.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -465,8 +465,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getAttachedNetwork(GetAttachedNetworkArgs.builder()
-     *             .name(exampleAzurermDevCenterAttachedNetwork.name())
-     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.devCenterId())
+     *             .name(exampleAzurermDevCenterAttachedNetwork.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -514,8 +514,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getAttachedNetwork(GetAttachedNetworkArgs.builder()
-     *             .name(exampleAzurermDevCenterAttachedNetwork.name())
-     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.devCenterId())
+     *             .name(exampleAzurermDevCenterAttachedNetwork.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterAttachedNetwork.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -563,8 +563,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getCatalog(GetCatalogArgs.builder()
-     *             .name(exampleAzurermDevCenterCatalog.name())
-     *             .devCenterId(exampleAzurermDevCenterCatalog.devCenterId())
+     *             .name(exampleAzurermDevCenterCatalog.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterCatalog.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -612,8 +612,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getCatalog(GetCatalogArgs.builder()
-     *             .name(exampleAzurermDevCenterCatalog.name())
-     *             .devCenterId(exampleAzurermDevCenterCatalog.devCenterId())
+     *             .name(exampleAzurermDevCenterCatalog.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterCatalog.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -661,8 +661,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getCatalog(GetCatalogArgs.builder()
-     *             .name(exampleAzurermDevCenterCatalog.name())
-     *             .devCenterId(exampleAzurermDevCenterCatalog.devCenterId())
+     *             .name(exampleAzurermDevCenterCatalog.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterCatalog.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -710,8 +710,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getCatalog(GetCatalogArgs.builder()
-     *             .name(exampleAzurermDevCenterCatalog.name())
-     *             .devCenterId(exampleAzurermDevCenterCatalog.devCenterId())
+     *             .name(exampleAzurermDevCenterCatalog.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterCatalog.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -759,8 +759,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getCatalog(GetCatalogArgs.builder()
-     *             .name(exampleAzurermDevCenterCatalog.name())
-     *             .devCenterId(exampleAzurermDevCenterCatalog.devCenterId())
+     *             .name(exampleAzurermDevCenterCatalog.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterCatalog.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -808,8 +808,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getDevBoxDefinition(GetDevBoxDefinitionArgs.builder()
-     *             .name(exampleAzurermDevCenterDevBoxDefinition.name())
-     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.devCenterId())
+     *             .name(exampleAzurermDevCenterDevBoxDefinition.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -857,8 +857,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getDevBoxDefinition(GetDevBoxDefinitionArgs.builder()
-     *             .name(exampleAzurermDevCenterDevBoxDefinition.name())
-     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.devCenterId())
+     *             .name(exampleAzurermDevCenterDevBoxDefinition.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -906,8 +906,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getDevBoxDefinition(GetDevBoxDefinitionArgs.builder()
-     *             .name(exampleAzurermDevCenterDevBoxDefinition.name())
-     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.devCenterId())
+     *             .name(exampleAzurermDevCenterDevBoxDefinition.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -955,8 +955,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getDevBoxDefinition(GetDevBoxDefinitionArgs.builder()
-     *             .name(exampleAzurermDevCenterDevBoxDefinition.name())
-     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.devCenterId())
+     *             .name(exampleAzurermDevCenterDevBoxDefinition.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1004,8 +1004,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getDevBoxDefinition(GetDevBoxDefinitionArgs.builder()
-     *             .name(exampleAzurermDevCenterDevBoxDefinition.name())
-     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.devCenterId())
+     *             .name(exampleAzurermDevCenterDevBoxDefinition.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterDevBoxDefinition.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1053,8 +1053,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterEnvironmentType.name())
-     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .name(exampleAzurermDevCenterEnvironmentType.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1102,8 +1102,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterEnvironmentType.name())
-     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .name(exampleAzurermDevCenterEnvironmentType.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1151,8 +1151,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterEnvironmentType.name())
-     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .name(exampleAzurermDevCenterEnvironmentType.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1200,8 +1200,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterEnvironmentType.name())
-     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .name(exampleAzurermDevCenterEnvironmentType.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1249,8 +1249,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getEnvironmentType(GetEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterEnvironmentType.name())
-     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.devCenterId())
+     *             .name(exampleAzurermDevCenterEnvironmentType.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterEnvironmentType.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1298,8 +1298,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getGallery(GetGalleryArgs.builder()
-     *             .name(exampleAzurermDevCenterGallery.name())
-     *             .devCenterId(exampleAzurermDevCenterGallery.devCenterId())
+     *             .name(exampleAzurermDevCenterGallery.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterGallery.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1347,8 +1347,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getGallery(GetGalleryArgs.builder()
-     *             .name(exampleAzurermDevCenterGallery.name())
-     *             .devCenterId(exampleAzurermDevCenterGallery.devCenterId())
+     *             .name(exampleAzurermDevCenterGallery.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterGallery.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1396,8 +1396,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getGallery(GetGalleryArgs.builder()
-     *             .name(exampleAzurermDevCenterGallery.name())
-     *             .devCenterId(exampleAzurermDevCenterGallery.devCenterId())
+     *             .name(exampleAzurermDevCenterGallery.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterGallery.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1445,8 +1445,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getGallery(GetGalleryArgs.builder()
-     *             .name(exampleAzurermDevCenterGallery.name())
-     *             .devCenterId(exampleAzurermDevCenterGallery.devCenterId())
+     *             .name(exampleAzurermDevCenterGallery.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterGallery.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -1494,8 +1494,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getGallery(GetGalleryArgs.builder()
-     *             .name(exampleAzurermDevCenterGallery.name())
-     *             .devCenterId(exampleAzurermDevCenterGallery.devCenterId())
+     *             .name(exampleAzurermDevCenterGallery.get("name"))
+     *             .devCenterId(exampleAzurermDevCenterGallery.get("devCenterId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2278,8 +2278,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectEnvironmentType(GetProjectEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectEnvironmentType.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectEnvironmentType.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2327,8 +2327,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectEnvironmentType(GetProjectEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectEnvironmentType.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectEnvironmentType.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2376,8 +2376,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectEnvironmentType(GetProjectEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectEnvironmentType.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectEnvironmentType.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2425,8 +2425,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectEnvironmentType(GetProjectEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectEnvironmentType.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectEnvironmentType.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2474,8 +2474,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectEnvironmentType(GetProjectEnvironmentTypeArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectEnvironmentType.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectEnvironmentType.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectEnvironmentType.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2523,8 +2523,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectPool.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectPool.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2572,8 +2572,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectPool.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectPool.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2621,8 +2621,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectPool.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectPool.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2670,8 +2670,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectPool.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectPool.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());
@@ -2719,8 +2719,8 @@ public final class DevcenterFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = DevcenterFunctions.getProjectPool(GetProjectPoolArgs.builder()
-     *             .name(exampleAzurermDevCenterProjectPool.name())
-     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.devCenterProjectId())
+     *             .name(exampleAzurermDevCenterProjectPool.get("name"))
+     *             .devCenterProjectId(exampleAzurermDevCenterProjectPool.get("devCenterProjectId"))
      *             .build());
      * 
      *         ctx.export("id", example.id());

@@ -167,7 +167,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
+                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict', 'outputs.HciDeploymentSettingScaleUnit']]]]] = None,
                  stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -190,7 +190,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arc_resource_ids: Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]] scale_units: One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict', 'outputs.HciDeploymentSettingScaleUnit']]]] scale_units: One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[_builtins.str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[_builtins.str] version: The deployment template version. The format must be a set of numbers separated by dots such as `10.0.0.0`. Changing this forces a new Stack HCI Deployment Setting to be created.
         """
@@ -232,7 +232,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
+                 scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict', 'outputs.HciDeploymentSettingScaleUnit']]]]] = None,
                  stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -267,7 +267,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arc_resource_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]]] = None,
+            scale_units: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict', 'outputs.HciDeploymentSettingScaleUnit']]]]] = None,
             stack_hci_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None) -> 'HciDeploymentSetting':
         """
@@ -278,7 +278,7 @@ class HciDeploymentSetting(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] arc_resource_ids: Specifies a list of IDs of Azure ARC machine resource to be part of cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict']]]] scale_units: One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HciDeploymentSettingScaleUnitArgs', 'HciDeploymentSettingScaleUnitArgsDict', 'outputs.HciDeploymentSettingScaleUnit']]]] scale_units: One or more `scale_unit` blocks as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[_builtins.str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster. Changing this forces a new Stack HCI Deployment Setting to be created.
         :param pulumi.Input[_builtins.str] version: The deployment template version. The format must be a set of numbers separated by dots such as `10.0.0.0`. Changing this forces a new Stack HCI Deployment Setting to be created.
         """

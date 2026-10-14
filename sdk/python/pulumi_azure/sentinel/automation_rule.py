@@ -431,9 +431,9 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]]] = None,
-                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]]] = None,
-                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]]] = None,
+                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict', 'outputs.AutomationRuleActionIncidentTask']]]]] = None,
+                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict', 'outputs.AutomationRuleActionIncident']]]]] = None,
+                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict', 'outputs.AutomationRuleActionPlaybook']]]]] = None,
                  condition_json: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -491,9 +491,9 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]] action_incidents: One or more `action_incident` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict', 'outputs.AutomationRuleActionIncidentTask']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict', 'outputs.AutomationRuleActionIncident']]]] action_incidents: One or more `action_incident` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict', 'outputs.AutomationRuleActionPlaybook']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[_builtins.str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
@@ -572,9 +572,9 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]]] = None,
-                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]]] = None,
-                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]]] = None,
+                 action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict', 'outputs.AutomationRuleActionIncidentTask']]]]] = None,
+                 action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict', 'outputs.AutomationRuleActionIncident']]]]] = None,
+                 action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict', 'outputs.AutomationRuleActionPlaybook']]]]] = None,
                  condition_json: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -623,9 +623,9 @@ class AutomationRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]]] = None,
-            action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]]] = None,
-            action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]]] = None,
+            action_incident_tasks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict', 'outputs.AutomationRuleActionIncidentTask']]]]] = None,
+            action_incidents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict', 'outputs.AutomationRuleActionIncident']]]]] = None,
+            action_playbooks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict', 'outputs.AutomationRuleActionPlaybook']]]]] = None,
             condition_json: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -642,9 +642,9 @@ class AutomationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict']]]] action_incidents: One or more `action_incident` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentTaskArgs', 'AutomationRuleActionIncidentTaskArgsDict', 'outputs.AutomationRuleActionIncidentTask']]]] action_incident_tasks: One or more `action_incident_task` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionIncidentArgs', 'AutomationRuleActionIncidentArgsDict', 'outputs.AutomationRuleActionIncident']]]] action_incidents: One or more `action_incident` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleActionPlaybookArgs', 'AutomationRuleActionPlaybookArgsDict', 'outputs.AutomationRuleActionPlaybook']]]] action_playbooks: One or more `action_playbook` blocks as defined below.
                
                > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         :param pulumi.Input[_builtins.str] condition_json: A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).

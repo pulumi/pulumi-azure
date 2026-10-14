@@ -421,18 +421,18 @@ class Schedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict']]] = None,
-                 hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict']]] = None,
+                 daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict', 'outputs.ScheduleDailyRecurrence']]] = None,
+                 hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict', 'outputs.ScheduleHourlyRecurrence']]] = None,
                  lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict', 'outputs.ScheduleNotificationSettings']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_type: pulumi.Input[Optional[_builtins.str]] = None,
                  time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict']]] = None,
+                 weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict', 'outputs.ScheduleWeeklyRecurrence']]] = None,
                  __props__=None):
         """
         Manages automated startup and shutdown schedules for Azure Dev Test Lab.
@@ -489,18 +489,18 @@ class Schedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict']] daily_recurrence: The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
-        :param pulumi.Input[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict']] hourly_recurrence: The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict', 'outputs.ScheduleDailyRecurrence']] daily_recurrence: The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict', 'outputs.ScheduleHourlyRecurrence']] hourly_recurrence: The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
         :param pulumi.Input[_builtins.str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
+        :param pulumi.Input[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict', 'outputs.ScheduleNotificationSettings']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[_builtins.str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        :param pulumi.Input[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict']] weekly_recurrence: The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict', 'outputs.ScheduleWeeklyRecurrence']] weekly_recurrence: The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
         """
         ...
     @overload
@@ -576,18 +576,18 @@ class Schedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict']]] = None,
-                 hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict']]] = None,
+                 daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict', 'outputs.ScheduleDailyRecurrence']]] = None,
+                 hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict', 'outputs.ScheduleHourlyRecurrence']]] = None,
                  lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict']]] = None,
+                 notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict', 'outputs.ScheduleNotificationSettings']]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_type: pulumi.Input[Optional[_builtins.str]] = None,
                  time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict']]] = None,
+                 weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict', 'outputs.ScheduleWeeklyRecurrence']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -629,18 +629,18 @@ class Schedule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict']]] = None,
-            hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict']]] = None,
+            daily_recurrence: pulumi.Input[Optional[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict', 'outputs.ScheduleDailyRecurrence']]] = None,
+            hourly_recurrence: pulumi.Input[Optional[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict', 'outputs.ScheduleHourlyRecurrence']]] = None,
             lab_name: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict']]] = None,
+            notification_settings: pulumi.Input[Optional[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict', 'outputs.ScheduleNotificationSettings']]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             task_type: pulumi.Input[Optional[_builtins.str]] = None,
             time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-            weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict']]] = None) -> 'Schedule':
+            weekly_recurrence: pulumi.Input[Optional[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict', 'outputs.ScheduleWeeklyRecurrence']]] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -648,18 +648,18 @@ class Schedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict']] daily_recurrence: The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
-        :param pulumi.Input[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict']] hourly_recurrence: The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleDailyRecurrenceArgs', 'ScheduleDailyRecurrenceArgsDict', 'outputs.ScheduleDailyRecurrence']] daily_recurrence: The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleHourlyRecurrenceArgs', 'ScheduleHourlyRecurrenceArgsDict', 'outputs.ScheduleHourlyRecurrence']] hourly_recurrence: The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block as defined below.
         :param pulumi.Input[_builtins.str] lab_name: The name of the dev test lab. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The location where the schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the dev test lab schedule. Valid value for name depends on the `task_type`. For instance for task_type `LabVmsStartupTask` the name needs to be `LabVmAutoStart`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
+        :param pulumi.Input[Union['ScheduleNotificationSettingsArgs', 'ScheduleNotificationSettingsArgsDict', 'outputs.ScheduleNotificationSettings']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the dev test lab schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] status: The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] task_type: The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`.
         :param pulumi.Input[_builtins.str] time_zone_id: The time zone ID (e.g. Pacific Standard time).
-        :param pulumi.Input[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict']] weekly_recurrence: The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleWeeklyRecurrenceArgs', 'ScheduleWeeklyRecurrenceArgsDict', 'outputs.ScheduleWeeklyRecurrence']] weekly_recurrence: The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

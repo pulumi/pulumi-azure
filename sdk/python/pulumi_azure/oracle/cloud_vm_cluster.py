@@ -1027,14 +1027,14 @@ class CloudVmCluster(pulumi.CustomResource):
                  cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
                  data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
                  data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
                  db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
                  db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
+                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict', 'outputs.CloudVmClusterFileSystemConfiguration']]]]] = None,
                  gi_version: pulumi.Input[Optional[_builtins.str]] = None,
                  hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1141,14 +1141,14 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
-        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']] data_collection_options: A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] data_storage_percentage: The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         :param pulumi.Input[_builtins.str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]] file_system_configurations: A `file_system_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict', 'outputs.CloudVmClusterFileSystemConfiguration']]]] file_system_configurations: A `file_system_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Cloud VM Cluster, either `BringYourOwnLicense` or `LicenseIncluded`. Changing this forces a new Cloud VM Cluster to be created.
@@ -1274,14 +1274,14 @@ class CloudVmCluster(pulumi.CustomResource):
                  cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+                 data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
                  data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
                  data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
                  db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
                  db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
+                 file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict', 'outputs.CloudVmClusterFileSystemConfiguration']]]]] = None,
                  gi_version: pulumi.Input[Optional[_builtins.str]] = None,
                  hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  license_model: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1377,14 +1377,14 @@ class CloudVmCluster(pulumi.CustomResource):
             cloud_exadata_infrastructure_id: pulumi.Input[Optional[_builtins.str]] = None,
             cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
             cpu_core_count: pulumi.Input[Optional[_builtins.int]] = None,
-            data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']]] = None,
+            data_collection_options: pulumi.Input[Optional[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']]] = None,
             data_storage_percentage: pulumi.Input[Optional[_builtins.int]] = None,
             data_storage_size_in_tbs: pulumi.Input[Optional[_builtins.float]] = None,
             db_node_storage_size_in_gbs: pulumi.Input[Optional[_builtins.int]] = None,
             db_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             domain: pulumi.Input[Optional[_builtins.str]] = None,
-            file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]]] = None,
+            file_system_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict', 'outputs.CloudVmClusterFileSystemConfiguration']]]]] = None,
             gi_version: pulumi.Input[Optional[_builtins.str]] = None,
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
             hostname_actual: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1416,14 +1416,14 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cloud Exadata infrastructure. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster name for Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores enabled on the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
-        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict']] data_collection_options: A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[Union['CloudVmClusterDataCollectionOptionsArgs', 'CloudVmClusterDataCollectionOptionsArgsDict', 'outputs.CloudVmClusterDataCollectionOptions']] data_collection_options: A `data_collection_options` block as defined below. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] data_storage_percentage: The percentage assigned to DATA storage (user data and database files). Changing this forces a new Cloud VM Cluster to be created. The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are `35`, `40`, `60` and `80`.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The data disk group size to be allocated in TBs. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The local node storage to be allocated in GBs. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_servers: The list of DB servers. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created. The name does not need to be unique.
         :param pulumi.Input[_builtins.str] domain: The name of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict']]]] file_system_configurations: A `file_system_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudVmClusterFileSystemConfigurationArgs', 'CloudVmClusterFileSystemConfigurationArgsDict', 'outputs.CloudVmClusterFileSystemConfiguration']]]] file_system_configurations: A `file_system_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] gi_version: A valid Oracle Grid Infrastructure (GI) software version. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname for the Cloud VM Cluster without suffix. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[_builtins.str] hostname_actual: The hostname for the Cloud VM Cluster with suffix.

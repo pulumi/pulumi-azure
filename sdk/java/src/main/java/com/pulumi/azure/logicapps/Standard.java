@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .name("example-logic-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(exampleAzurermAppServicePlan.id())
+ *             .appServicePlanId(exampleAzurermAppServicePlan.get("id"))
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .appSettings(Map.ofEntries(

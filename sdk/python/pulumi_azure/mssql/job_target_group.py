@@ -138,7 +138,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
+                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict', 'outputs.JobTargetGroupJobTarget']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -202,7 +202,7 @@ class JobTargetGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]] job_targets: One or more `job_target` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict', 'outputs.JobTargetGroupJobTarget']]]] job_targets: One or more `job_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
         """
         ...
@@ -285,7 +285,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
+                 job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict', 'outputs.JobTargetGroupJobTarget']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -312,7 +312,7 @@ class JobTargetGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             job_agent_id: pulumi.Input[Optional[_builtins.str]] = None,
-            job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]]] = None,
+            job_targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict', 'outputs.JobTargetGroupJobTarget']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None) -> 'JobTargetGroup':
         """
         Get an existing JobTargetGroup resource's state with the given name, id, and optional extra
@@ -322,7 +322,7 @@ class JobTargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] job_agent_id: The ID of the Elastic Job Agent. Changing this forces a new Job Target Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict']]]] job_targets: One or more `job_target` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobTargetGroupJobTargetArgs', 'JobTargetGroupJobTargetArgsDict', 'outputs.JobTargetGroupJobTarget']]]] job_targets: One or more `job_target` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Job Target Group. Changing this forces a new Job Target Group to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

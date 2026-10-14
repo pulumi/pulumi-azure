@@ -338,7 +338,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
+                 certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict', 'outputs.EnvironmentCertificateCertificateKeyVault']]] = None,
                  certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
                  container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -464,7 +464,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
                
                > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
-        :param pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict', 'outputs.EnvironmentCertificateCertificateKeyVault']] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.
@@ -611,7 +611,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
+                 certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict', 'outputs.EnvironmentCertificateCertificateKeyVault']]] = None,
                  certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
                  container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -651,7 +651,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_blob_base64: pulumi.Input[Optional[_builtins.str]] = None,
-            certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']]] = None,
+            certificate_key_vault: pulumi.Input[Optional[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict', 'outputs.EnvironmentCertificateCertificateKeyVault']]] = None,
             certificate_password: pulumi.Input[Optional[_builtins.str]] = None,
             container_app_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
@@ -671,7 +671,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] certificate_blob_base64: The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
                
                > **Note:** One of `certificate_blob_base64` and `certificate_key_vault` must be set.
-        :param pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict']] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['EnvironmentCertificateCertificateKeyVaultArgs', 'EnvironmentCertificateCertificateKeyVaultArgsDict', 'outputs.EnvironmentCertificateCertificateKeyVault']] certificate_key_vault: A `certificate_key_vault` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** one of `certificate_blob_base64` and `certificate_key_vault` must be set.
         :param pulumi.Input[_builtins.str] certificate_password: The password for the Certificate. Changing this forces a new resource to be created.

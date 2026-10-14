@@ -149,7 +149,7 @@ import javax.annotation.Nullable;
  *         var testExtensionAndStorageAccountPermission = new Assignment("testExtensionAndStorageAccountPermission", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Contributor")
- *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(_aksAssignedIdentities -> _aksAssignedIdentities[0].principalId()))
+ *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(_aksAssignedIdentities -> _aksAssignedIdentities.get(0).principalId()))
  *             .build());
  * 
  *         var testVaultMsiReadOnCluster = new Assignment("testVaultMsiReadOnCluster", AssignmentArgs.builder()

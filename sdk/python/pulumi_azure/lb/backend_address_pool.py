@@ -276,7 +276,7 @@ class BackendAddressPool(pulumi.CustomResource):
                  loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
+                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict', 'outputs.BackendAddressPoolTunnelInterface']]]]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -334,7 +334,7 @@ class BackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] synchronous_mode: The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
                
                > **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict', 'outputs.BackendAddressPoolTunnelInterface']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         ...
@@ -409,7 +409,7 @@ class BackendAddressPool(pulumi.CustomResource):
                  loadbalancer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
+                 tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict', 'outputs.BackendAddressPoolTunnelInterface']]]]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -448,7 +448,7 @@ class BackendAddressPool(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             outbound_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             synchronous_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]]] = None,
+            tunnel_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict', 'outputs.BackendAddressPoolTunnelInterface']]]]] = None,
             virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'BackendAddressPool':
         """
         Get an existing BackendAddressPool resource's state with the given name, id, and optional extra
@@ -466,7 +466,7 @@ class BackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] synchronous_mode: The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
                
                > **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackendAddressPoolTunnelInterfaceArgs', 'BackendAddressPoolTunnelInterfaceArgsDict', 'outputs.BackendAddressPoolTunnelInterface']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[_builtins.str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

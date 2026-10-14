@@ -263,7 +263,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
+                 elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict', 'outputs.ScaleSetStandbyPoolElasticityProfile']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -323,7 +323,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
-        :param pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']] elasticity_profile: An `elasticity_profile` block as defined below.
+        :param pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict', 'outputs.ScaleSetStandbyPoolElasticityProfile']] elasticity_profile: An `elasticity_profile` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
@@ -402,7 +402,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
+                 elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict', 'outputs.ScaleSetStandbyPoolElasticityProfile']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -443,7 +443,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             attached_virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-            elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']]] = None,
+            elasticity_profile: pulumi.Input[Optional[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict', 'outputs.ScaleSetStandbyPoolElasticityProfile']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -457,7 +457,7 @@ class ScaleSetStandbyPool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] attached_virtual_machine_scale_set_id: Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
-        :param pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict']] elasticity_profile: An `elasticity_profile` block as defined below.
+        :param pulumi.Input[Union['ScaleSetStandbyPoolElasticityProfileArgs', 'ScaleSetStandbyPoolElasticityProfileArgsDict', 'outputs.ScaleSetStandbyPoolElasticityProfile']] elasticity_profile: An `elasticity_profile` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Standby Pool. Changing this forces a new Standby Pool to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Standby Pool should exist. Changing this forces a new Standby Pool to be created.

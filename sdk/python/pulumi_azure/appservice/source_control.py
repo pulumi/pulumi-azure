@@ -347,7 +347,7 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
+                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict', 'outputs.SourceControlGithubActionConfiguration']]] = None,
                  repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -406,7 +406,7 @@ class SourceControl(pulumi.CustomResource):
                
                > **Note:** Function apps are not supported at this time.
         :param pulumi.Input[_builtins.str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict', 'outputs.SourceControlGithubActionConfiguration']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -484,7 +484,7 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
+                 github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict', 'outputs.SourceControlGithubActionConfiguration']]] = None,
                  repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  use_local_git: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -523,7 +523,7 @@ class SourceControl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_id: pulumi.Input[Optional[_builtins.str]] = None,
             branch: pulumi.Input[Optional[_builtins.str]] = None,
-            github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']]] = None,
+            github_action_configuration: pulumi.Input[Optional[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict', 'outputs.SourceControlGithubActionConfiguration']]] = None,
             repo_url: pulumi.Input[Optional[_builtins.str]] = None,
             rollback_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             scm_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -542,7 +542,7 @@ class SourceControl(pulumi.CustomResource):
                
                > **Note:** Function apps are not supported at this time.
         :param pulumi.Input[_builtins.str] branch: The branch name to use for deployments. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SourceControlGithubActionConfigurationArgs', 'SourceControlGithubActionConfigurationArgsDict', 'outputs.SourceControlGithubActionConfiguration']] github_action_configuration: A `github_action_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] repo_url: The URL for the repository. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] rollback_enabled: Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
                

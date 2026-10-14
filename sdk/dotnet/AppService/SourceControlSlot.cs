@@ -43,14 +43,14 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("example", new()
     ///     {
     ///         Name = "example-slot",
     ///         AppServiceId = exampleLinuxWebApp.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleSourceControlSlot = new Azure.AppService.SourceControlSlot("example", new()

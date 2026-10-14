@@ -583,8 +583,8 @@ class Key(pulumi.CustomResource):
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']]] = None,
-                 rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
+                 release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict', 'outputs.KeyReleasePolicy']]] = None,
+                 rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict', 'outputs.KeyRotationPolicy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -674,10 +674,10 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
-        :param pulumi.Input[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict', 'outputs.KeyReleasePolicy']] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
-        :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict', 'outputs.KeyRotationPolicy']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -782,8 +782,8 @@ class Key(pulumi.CustomResource):
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
-                 release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']]] = None,
-                 rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
+                 release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict', 'outputs.KeyReleasePolicy']]] = None,
+                 rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict', 'outputs.KeyRotationPolicy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -843,10 +843,10 @@ class Key(pulumi.CustomResource):
             not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
             public_key_openssh: pulumi.Input[Optional[_builtins.str]] = None,
             public_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
-            release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']]] = None,
+            release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict', 'outputs.KeyReleasePolicy']]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
-            rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
+            rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict', 'outputs.KeyRotationPolicy']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
             versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -875,12 +875,12 @@ class Key(pulumi.CustomResource):
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
         :param pulumi.Input[_builtins.str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
         :param pulumi.Input[_builtins.str] public_key_pem: The PEM encoded public key of this Key Vault Key.
-        :param pulumi.Input[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict', 'outputs.KeyReleasePolicy']] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
         :param pulumi.Input[_builtins.str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[_builtins.str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
-        :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']] rotation_policy: A `rotation_policy` block as defined below.
+        :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict', 'outputs.KeyRotationPolicy']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] version: The current version of the Key Vault Key.
         :param pulumi.Input[_builtins.str] versionless_id: The Base ID of the Key Vault Key.

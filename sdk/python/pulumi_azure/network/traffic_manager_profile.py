@@ -374,9 +374,9 @@ class TrafficManagerProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: pulumi.Input[Optional[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict', 'outputs.TrafficManagerProfileDnsConfig']]] = None,
                  max_return: pulumi.Input[Optional[_builtins.int]] = None,
-                 monitor_config: pulumi.Input[Optional[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict']]] = None,
+                 monitor_config: pulumi.Input[Optional[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict', 'outputs.TrafficManagerProfileMonitorConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_status: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -441,11 +441,11 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+        :param pulumi.Input[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict', 'outputs.TrafficManagerProfileDnsConfig']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input[_builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+        :param pulumi.Input[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict', 'outputs.TrafficManagerProfileMonitorConfig']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
@@ -535,9 +535,9 @@ class TrafficManagerProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_config: pulumi.Input[Optional[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict']]] = None,
+                 dns_config: pulumi.Input[Optional[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict', 'outputs.TrafficManagerProfileDnsConfig']]] = None,
                  max_return: pulumi.Input[Optional[_builtins.int]] = None,
-                 monitor_config: pulumi.Input[Optional[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict']]] = None,
+                 monitor_config: pulumi.Input[Optional[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict', 'outputs.TrafficManagerProfileMonitorConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  profile_status: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -583,10 +583,10 @@ class TrafficManagerProfile(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            dns_config: pulumi.Input[Optional[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict']]] = None,
+            dns_config: pulumi.Input[Optional[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict', 'outputs.TrafficManagerProfileDnsConfig']]] = None,
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             max_return: pulumi.Input[Optional[_builtins.int]] = None,
-            monitor_config: pulumi.Input[Optional[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict']]] = None,
+            monitor_config: pulumi.Input[Optional[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict', 'outputs.TrafficManagerProfileMonitorConfig']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             profile_status: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -600,12 +600,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
+        :param pulumi.Input[Union['TrafficManagerProfileDnsConfigArgs', 'TrafficManagerProfileDnsConfigArgsDict', 'outputs.TrafficManagerProfileDnsConfig']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[_builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
                > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        :param pulumi.Input[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
+        :param pulumi.Input[Union['TrafficManagerProfileMonitorConfigArgs', 'TrafficManagerProfileMonitorConfigArgsDict', 'outputs.TrafficManagerProfileMonitorConfig']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.

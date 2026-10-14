@@ -368,9 +368,9 @@ class FlowletDataFlow(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  script: pulumi.Input[Optional[_builtins.str]] = None,
                  script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
-                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict', 'outputs.FlowletDataFlowSink']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict', 'outputs.FlowletDataFlowSource']]]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict', 'outputs.FlowletDataFlowTransformation']]]]] = None,
                  __props__=None):
         """
         Manages a Flowlet Data Flow inside an Azure Data Factory.
@@ -536,9 +536,9 @@ class FlowletDataFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict', 'outputs.FlowletDataFlowSink']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict', 'outputs.FlowletDataFlowSource']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict', 'outputs.FlowletDataFlowTransformation']]]] transformations: One or more `transformation` blocks as defined below.
         """
         ...
     @overload
@@ -723,9 +723,9 @@ class FlowletDataFlow(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  script: pulumi.Input[Optional[_builtins.str]] = None,
                  script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
-                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None,
+                 sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict', 'outputs.FlowletDataFlowSink']]]]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict', 'outputs.FlowletDataFlowSource']]]]] = None,
+                 transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict', 'outputs.FlowletDataFlowTransformation']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -764,9 +764,9 @@ class FlowletDataFlow(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             script: pulumi.Input[Optional[_builtins.str]] = None,
             script_lines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]]] = None,
-            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]]] = None,
-            transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]]] = None) -> 'FlowletDataFlow':
+            sinks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict', 'outputs.FlowletDataFlowSink']]]]] = None,
+            sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict', 'outputs.FlowletDataFlowSource']]]]] = None,
+            transformations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict', 'outputs.FlowletDataFlowTransformation']]]]] = None) -> 'FlowletDataFlow':
         """
         Get an existing FlowletDataFlow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -781,9 +781,9 @@ class FlowletDataFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] script: The script for the Data Factory Flowlet Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] script_lines: The script lines for the Data Factory Flowlet Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSinkArgs', 'FlowletDataFlowSinkArgsDict', 'outputs.FlowletDataFlowSink']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowSourceArgs', 'FlowletDataFlowSourceArgsDict', 'outputs.FlowletDataFlowSource']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FlowletDataFlowTransformationArgs', 'FlowletDataFlowTransformationArgsDict', 'outputs.FlowletDataFlowTransformation']]]] transformations: One or more `transformation` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

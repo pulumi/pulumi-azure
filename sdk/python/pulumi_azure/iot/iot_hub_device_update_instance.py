@@ -234,7 +234,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_update_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  diagnostic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']]] = None,
+                 diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']]] = None,
                  iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -303,7 +303,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
+        :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
@@ -391,7 +391,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_update_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  diagnostic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']]] = None,
+                 diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']]] = None,
                  iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -426,7 +426,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             device_update_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             diagnostic_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']]] = None,
+            diagnostic_storage_account: pulumi.Input[Optional[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']]] = None,
             iothub_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'IotHubDeviceUpdateInstance':
@@ -439,7 +439,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] device_update_account_id: Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] diagnostic_enabled: Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
+        :param pulumi.Input[Union['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs', 'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict', 'outputs.IotHubDeviceUpdateInstanceDiagnosticStorageAccount']] diagnostic_storage_account: A `diagnostic_storage_account` block as defined below.
         :param pulumi.Input[_builtins.str] iothub_id: Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.

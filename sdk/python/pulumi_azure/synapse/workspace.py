@@ -696,13 +696,13 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']]] = None,
+                 azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict', 'outputs.WorkspaceAzureDevopsRepo']]] = None,
                  azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  compute_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict', 'outputs.WorkspaceCustomerManagedKey']]] = None,
                  data_exfiltration_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']]] = None,
+                 github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict', 'outputs.WorkspaceGithubRepo']]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
                  linking_allowed_for_aad_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -856,13 +856,13 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict', 'outputs.WorkspaceAzureDevopsRepo']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[_builtins.bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[_builtins.str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict', 'outputs.WorkspaceCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict']] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict', 'outputs.WorkspaceGithubRepo']] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.
@@ -1035,13 +1035,13 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']]] = None,
+                 azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict', 'outputs.WorkspaceAzureDevopsRepo']]] = None,
                  azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  compute_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict', 'outputs.WorkspaceCustomerManagedKey']]] = None,
                  data_exfiltration_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']]] = None,
+                 github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict', 'outputs.WorkspaceGithubRepo']]] = None,
+                 identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
                  linking_allowed_for_aad_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1101,14 +1101,14 @@ class Workspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']]] = None,
+            azure_devops_repo: pulumi.Input[Optional[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict', 'outputs.WorkspaceAzureDevopsRepo']]] = None,
             azuread_authentication_only: pulumi.Input[Optional[_builtins.bool]] = None,
             compute_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             connectivity_endpoints: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict', 'outputs.WorkspaceCustomerManagedKey']]] = None,
             data_exfiltration_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']]] = None,
+            github_repo: pulumi.Input[Optional[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict', 'outputs.WorkspaceGithubRepo']]] = None,
+            identity: pulumi.Input[Optional[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']]] = None,
             linking_allowed_for_aad_tenant_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1129,14 +1129,14 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']] azure_devops_repo: An `azure_devops_repo` block as defined below.
+        :param pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict', 'outputs.WorkspaceAzureDevopsRepo']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[_builtins.bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[_builtins.str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connectivity_endpoints: A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
-        :param pulumi.Input[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict', 'outputs.WorkspaceCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[_builtins.bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict']] github_repo: A `github_repo` block as defined below.
-        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict', 'outputs.WorkspaceGithubRepo']] github_repo: A `github_repo` block as defined below.
+        :param pulumi.Input[Union['WorkspaceIdentityArgs', 'WorkspaceIdentityArgsDict', 'outputs.WorkspaceIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] linking_allowed_for_aad_tenant_ids: Allowed AAD Tenant Ids For Linking.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: Workspace managed resource group. Changing this forces a new resource to be created.

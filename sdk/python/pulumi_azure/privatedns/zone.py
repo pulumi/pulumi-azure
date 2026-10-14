@@ -243,7 +243,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
+                 soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict', 'outputs.ZoneSoaRecord']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -285,7 +285,7 @@ class Zone(pulumi.CustomResource):
                
                > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict', 'outputs.ZoneSoaRecord']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -344,7 +344,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
+                 soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict', 'outputs.ZoneSoaRecord']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -381,7 +381,7 @@ class Zone(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             number_of_record_sets: pulumi.Input[Optional[_builtins.int]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']]] = None,
+            soa_record: pulumi.Input[Optional[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict', 'outputs.ZoneSoaRecord']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Zone':
         """
         Get an existing Zone resource's state with the given name, id, and optional extra
@@ -398,7 +398,7 @@ class Zone(pulumi.CustomResource):
                > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
         :param pulumi.Input[_builtins.int] number_of_record_sets: The current number of record sets in this Private DNS zone.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ZoneSoaRecordArgs', 'ZoneSoaRecordArgsDict', 'outputs.ZoneSoaRecord']] soa_record: An `soa_record` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

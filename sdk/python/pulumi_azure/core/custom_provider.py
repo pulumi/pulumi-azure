@@ -265,13 +265,13 @@ class CustomProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict', 'outputs.CustomProviderAction']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict']]]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict', 'outputs.CustomProviderResourceType']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict']]]]] = None,
+                 validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict', 'outputs.CustomProviderValidation']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Custom Provider.
@@ -313,13 +313,13 @@ class CustomProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict', 'outputs.CustomProviderAction']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict']]]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict', 'outputs.CustomProviderResourceType']]]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict']]]] validations: Any number of `validation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict', 'outputs.CustomProviderValidation']]]] validations: Any number of `validation` block as defined below.
         """
         ...
     @overload
@@ -380,13 +380,13 @@ class CustomProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict', 'outputs.CustomProviderAction']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict']]]]] = None,
+                 resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict', 'outputs.CustomProviderResourceType']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict']]]]] = None,
+                 validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict', 'outputs.CustomProviderValidation']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -415,13 +415,13 @@ class CustomProvider(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict']]]]] = None,
+            actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict', 'outputs.CustomProviderAction']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict']]]]] = None,
+            resource_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict', 'outputs.CustomProviderResourceType']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict']]]]] = None) -> 'CustomProvider':
+            validations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict', 'outputs.CustomProviderValidation']]]]] = None) -> 'CustomProvider':
         """
         Get an existing CustomProvider resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -429,13 +429,13 @@ class CustomProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderActionArgs', 'CustomProviderActionArgsDict', 'outputs.CustomProviderAction']]]] actions: Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict']]]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderResourceTypeArgs', 'CustomProviderResourceTypeArgsDict', 'outputs.CustomProviderResourceType']]]] resource_types: Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict']]]] validations: Any number of `validation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomProviderValidationArgs', 'CustomProviderValidationArgsDict', 'outputs.CustomProviderValidation']]]] validations: Any number of `validation` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

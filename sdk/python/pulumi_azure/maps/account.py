@@ -384,9 +384,9 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
-                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict', 'outputs.AccountCors']]] = None,
+                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict', 'outputs.AccountDataStore']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -434,9 +434,9 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict']] cors: A `cors` block as defined below
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]] data_stores: One or more `data_store` blocks as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict', 'outputs.AccountCors']] cors: A `cors` block as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict', 'outputs.AccountDataStore']]]] data_stores: One or more `data_store` blocks as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.
@@ -505,9 +505,9 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
-                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict', 'outputs.AccountCors']]] = None,
+                 data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict', 'outputs.AccountDataStore']]]]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -551,9 +551,9 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict']]] = None,
-            data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            cors: pulumi.Input[Optional[Union['AccountCorsArgs', 'AccountCorsArgsDict', 'outputs.AccountCors']]] = None,
+            data_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict', 'outputs.AccountDataStore']]]]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -570,9 +570,9 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict']] cors: A `cors` block as defined below
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict']]]] data_stores: One or more `data_store` blocks as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountCorsArgs', 'AccountCorsArgsDict', 'outputs.AccountCors']] cors: A `cors` block as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountDataStoreArgs', 'AccountDataStoreArgsDict', 'outputs.AccountDataStore']]]] data_stores: One or more `data_store` blocks as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Azure Maps Account. Changing this forces a new resource to be created.

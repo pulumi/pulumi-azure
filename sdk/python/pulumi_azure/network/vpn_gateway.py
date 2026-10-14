@@ -345,7 +345,7 @@ class VpnGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
+                 bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict', 'outputs.VpnGatewayBgpSettings']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -407,7 +407,7 @@ class VpnGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bgp_route_translation_for_nat_enabled: Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
-        :param pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']] bgp_settings: A `bgp_settings` block as defined below.
+        :param pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict', 'outputs.VpnGatewayBgpSettings']] bgp_settings: A `bgp_settings` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
@@ -488,7 +488,7 @@ class VpnGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
+                 bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict', 'outputs.VpnGatewayBgpSettings']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -530,8 +530,8 @@ class VpnGateway(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bgp_route_translation_for_nat_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']]] = None,
-            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict']]]]] = None,
+            bgp_settings: pulumi.Input[Optional[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict', 'outputs.VpnGatewayBgpSettings']]] = None,
+            ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict', 'outputs.VpnGatewayIpConfiguration']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -547,8 +547,8 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bgp_route_translation_for_nat_enabled: Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
-        :param pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict']] bgp_settings: A `bgp_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict']]]] ip_configurations: An `ip_configuration` block as defined below.
+        :param pulumi.Input[Union['VpnGatewayBgpSettingsArgs', 'VpnGatewayBgpSettingsArgsDict', 'outputs.VpnGatewayBgpSettings']] bgp_settings: A `bgp_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayIpConfigurationArgs', 'VpnGatewayIpConfigurationArgsDict', 'outputs.VpnGatewayIpConfiguration']]]] ip_configurations: An `ip_configuration` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.

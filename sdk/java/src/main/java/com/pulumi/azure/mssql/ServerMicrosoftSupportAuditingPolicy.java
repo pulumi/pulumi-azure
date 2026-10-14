@@ -217,7 +217,7 @@ import javax.annotation.Nullable;
  *             .blobStorageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .serverId(exampleServer.id())
  *             .logMonitoringEnabled(false)
- *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
+ *             .storageAccountSubscriptionId(primaryAzurermSubscription.get("subscriptionId"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleAssignment,

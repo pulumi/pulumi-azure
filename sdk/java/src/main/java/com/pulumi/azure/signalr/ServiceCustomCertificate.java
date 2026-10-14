@@ -64,8 +64,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
  *             .name("example-signalr")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .sku(ServiceSkuArgs.builder()
  *                 .name("Premium_P1")
  *                 .capacity(1)
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.tenantId())
- *                     .objectId(testAzurermSignalrService.identity()[0].principalId())
+ *                     .objectId(testAzurermSignalrService.get("identity")[0].get("principalId"))
  *                     .certificatePermissions(                    
  *                         "Create",
  *                         "Get",

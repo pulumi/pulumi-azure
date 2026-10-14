@@ -57,7 +57,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         Trace = new Azure.AppPlatform.Inputs.SpringCloudServiceTraceArgs
     ///         {
     ///             ConnectionString = exampleInsights.ConnectionString,
-    ///             SampleRate = 10,
+    ///             SampleRate = 10.0,
     ///         },
     ///         Tags = 
     ///         {

@@ -578,12 +578,12 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+                 key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict', 'outputs.AccountKeyVaultReference']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict', 'outputs.AccountNetworkProfile']]] = None,
                  pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -641,12 +641,12 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict', 'outputs.AccountKeyVaultReference']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict', 'outputs.AccountNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
                
@@ -733,12 +733,12 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-                 key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+                 key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict', 'outputs.AccountKeyVaultReference']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
+                 network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict', 'outputs.AccountNetworkProfile']]] = None,
                  pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -788,12 +788,12 @@ class Account(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             allowed_authentication_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
-            key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
+            key_vault_reference: pulumi.Input[Optional[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict', 'outputs.AccountKeyVaultReference']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']]] = None,
+            network_profile: pulumi.Input[Optional[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict', 'outputs.AccountNetworkProfile']]] = None,
             pool_allocation_mode: pulumi.Input[Optional[_builtins.str]] = None,
             primary_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -812,12 +812,12 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_endpoint: The account endpoint used to interact with the Batch service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
-        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
+        :param pulumi.Input[Union['AccountEncryptionArgs', 'AccountEncryptionArgsDict', 'outputs.AccountEncryption']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AccountKeyVaultReferenceArgs', 'AccountKeyVaultReferenceArgsDict', 'outputs.AccountKeyVaultReference']] key_vault_reference: A `key_vault_reference` block, as defined below, that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[Union['AccountNetworkProfileArgs', 'AccountNetworkProfileArgsDict', 'outputs.AccountNetworkProfile']] network_profile: A `network_profile` block as defined below.
         :param pulumi.Input[_builtins.str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[_builtins.str] primary_access_key: The Batch account primary access key.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.

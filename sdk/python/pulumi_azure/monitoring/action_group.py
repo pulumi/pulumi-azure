@@ -584,23 +584,23 @@ class ActionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict']]]]] = None,
-                 automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict']]]]] = None,
-                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict']]]]] = None,
-                 azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict']]]]] = None,
-                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict']]]]] = None,
+                 arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict', 'outputs.ActionGroupArmRoleReceiver']]]]] = None,
+                 automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict', 'outputs.ActionGroupAutomationRunbookReceiver']]]]] = None,
+                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict', 'outputs.ActionGroupAzureAppPushReceiver']]]]] = None,
+                 azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict', 'outputs.ActionGroupAzureFunctionReceiver']]]]] = None,
+                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict', 'outputs.ActionGroupEmailReceiver']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict']]]]] = None,
-                 itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict']]]]] = None,
+                 event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict', 'outputs.ActionGroupEventHubReceiver']]]]] = None,
+                 itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict', 'outputs.ActionGroupItsmReceiver']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict']]]]] = None,
+                 logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict', 'outputs.ActionGroupLogicAppReceiver']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  short_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict']]]]] = None,
+                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict', 'outputs.ActionGroupSmsReceiver']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict']]]]] = None,
-                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict']]]]] = None,
+                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict', 'outputs.ActionGroupVoiceReceiver']]]]] = None,
+                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict', 'outputs.ActionGroupWebhookReceiver']]]]] = None,
                  __props__=None):
         """
         Manages an Action Group within Azure Monitor.
@@ -714,23 +714,23 @@ class ActionGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict']]]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict']]]] automation_runbook_receivers: One or more `automation_runbook_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict']]]] azure_app_push_receivers: One or more `azure_app_push_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict']]]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict']]]] email_receivers: One or more `email_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict', 'outputs.ActionGroupArmRoleReceiver']]]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict', 'outputs.ActionGroupAutomationRunbookReceiver']]]] automation_runbook_receivers: One or more `automation_runbook_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict', 'outputs.ActionGroupAzureAppPushReceiver']]]] azure_app_push_receivers: One or more `azure_app_push_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict', 'outputs.ActionGroupAzureFunctionReceiver']]]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict', 'outputs.ActionGroupEmailReceiver']]]] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict', 'outputs.ActionGroupEventHubReceiver']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict', 'outputs.ActionGroupItsmReceiver']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict', 'outputs.ActionGroupLogicAppReceiver']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Action Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] short_name: The short name of the action group. This will be used in SMS messages.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict']]]] sms_receivers: One or more `sms_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict', 'outputs.ActionGroupSmsReceiver']]]] sms_receivers: One or more `sms_receiver` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict']]]] voice_receivers: One or more `voice_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict']]]] webhook_receivers: One or more `webhook_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict', 'outputs.ActionGroupVoiceReceiver']]]] voice_receivers: One or more `voice_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict', 'outputs.ActionGroupWebhookReceiver']]]] webhook_receivers: One or more `webhook_receiver` blocks as defined below.
         """
         ...
     @overload
@@ -863,23 +863,23 @@ class ActionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict']]]]] = None,
-                 automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict']]]]] = None,
-                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict']]]]] = None,
-                 azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict']]]]] = None,
-                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict']]]]] = None,
+                 arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict', 'outputs.ActionGroupArmRoleReceiver']]]]] = None,
+                 automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict', 'outputs.ActionGroupAutomationRunbookReceiver']]]]] = None,
+                 azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict', 'outputs.ActionGroupAzureAppPushReceiver']]]]] = None,
+                 azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict', 'outputs.ActionGroupAzureFunctionReceiver']]]]] = None,
+                 email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict', 'outputs.ActionGroupEmailReceiver']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict']]]]] = None,
-                 itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict']]]]] = None,
+                 event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict', 'outputs.ActionGroupEventHubReceiver']]]]] = None,
+                 itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict', 'outputs.ActionGroupItsmReceiver']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict']]]]] = None,
+                 logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict', 'outputs.ActionGroupLogicAppReceiver']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  short_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict']]]]] = None,
+                 sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict', 'outputs.ActionGroupSmsReceiver']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict']]]]] = None,
-                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict']]]]] = None,
+                 voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict', 'outputs.ActionGroupVoiceReceiver']]]]] = None,
+                 webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict', 'outputs.ActionGroupWebhookReceiver']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -920,23 +920,23 @@ class ActionGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict']]]]] = None,
-            automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict']]]]] = None,
-            azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict']]]]] = None,
-            azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict']]]]] = None,
-            email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict']]]]] = None,
+            arm_role_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict', 'outputs.ActionGroupArmRoleReceiver']]]]] = None,
+            automation_runbook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict', 'outputs.ActionGroupAutomationRunbookReceiver']]]]] = None,
+            azure_app_push_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict', 'outputs.ActionGroupAzureAppPushReceiver']]]]] = None,
+            azure_function_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict', 'outputs.ActionGroupAzureFunctionReceiver']]]]] = None,
+            email_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict', 'outputs.ActionGroupEmailReceiver']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict']]]]] = None,
-            itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict']]]]] = None,
+            event_hub_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict', 'outputs.ActionGroupEventHubReceiver']]]]] = None,
+            itsm_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict', 'outputs.ActionGroupItsmReceiver']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict']]]]] = None,
+            logic_app_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict', 'outputs.ActionGroupLogicAppReceiver']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             short_name: pulumi.Input[Optional[_builtins.str]] = None,
-            sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict']]]]] = None,
+            sms_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict', 'outputs.ActionGroupSmsReceiver']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict']]]]] = None,
-            webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict']]]]] = None) -> 'ActionGroup':
+            voice_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict', 'outputs.ActionGroupVoiceReceiver']]]]] = None,
+            webhook_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict', 'outputs.ActionGroupWebhookReceiver']]]]] = None) -> 'ActionGroup':
         """
         Get an existing ActionGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -944,23 +944,23 @@ class ActionGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict']]]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict']]]] automation_runbook_receivers: One or more `automation_runbook_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict']]]] azure_app_push_receivers: One or more `azure_app_push_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict']]]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict']]]] email_receivers: One or more `email_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupArmRoleReceiverArgs', 'ActionGroupArmRoleReceiverArgsDict', 'outputs.ActionGroupArmRoleReceiver']]]] arm_role_receivers: One or more `arm_role_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAutomationRunbookReceiverArgs', 'ActionGroupAutomationRunbookReceiverArgsDict', 'outputs.ActionGroupAutomationRunbookReceiver']]]] automation_runbook_receivers: One or more `automation_runbook_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureAppPushReceiverArgs', 'ActionGroupAzureAppPushReceiverArgsDict', 'outputs.ActionGroupAzureAppPushReceiver']]]] azure_app_push_receivers: One or more `azure_app_push_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupAzureFunctionReceiverArgs', 'ActionGroupAzureFunctionReceiverArgsDict', 'outputs.ActionGroupAzureFunctionReceiver']]]] azure_function_receivers: One or more `azure_function_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEmailReceiverArgs', 'ActionGroupEmailReceiverArgsDict', 'outputs.ActionGroupEmailReceiver']]]] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupEventHubReceiverArgs', 'ActionGroupEventHubReceiverArgsDict', 'outputs.ActionGroupEventHubReceiver']]]] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupItsmReceiverArgs', 'ActionGroupItsmReceiverArgsDict', 'outputs.ActionGroupItsmReceiver']]]] itsm_receivers: One or more `itsm_receiver` blocks as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupLogicAppReceiverArgs', 'ActionGroupLogicAppReceiverArgsDict', 'outputs.ActionGroupLogicAppReceiver']]]] logic_app_receivers: One or more `logic_app_receiver` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Action Group. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] short_name: The short name of the action group. This will be used in SMS messages.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict']]]] sms_receivers: One or more `sms_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupSmsReceiverArgs', 'ActionGroupSmsReceiverArgsDict', 'outputs.ActionGroupSmsReceiver']]]] sms_receivers: One or more `sms_receiver` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict']]]] voice_receivers: One or more `voice_receiver` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict']]]] webhook_receivers: One or more `webhook_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupVoiceReceiverArgs', 'ActionGroupVoiceReceiverArgsDict', 'outputs.ActionGroupVoiceReceiver']]]] voice_receivers: One or more `voice_receiver` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ActionGroupWebhookReceiverArgs', 'ActionGroupWebhookReceiverArgsDict', 'outputs.ActionGroupWebhookReceiver']]]] webhook_receivers: One or more `webhook_receiver` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

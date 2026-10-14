@@ -116,8 +116,8 @@ import javax.annotation.Nullable;
  * 
  *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(_storageAccountIdentities -> _storageAccountIdentities[0].tenantId()))
- *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(_storageAccountIdentities -> _storageAccountIdentities[0].principalId()))
+ *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(_storageAccountIdentities -> _storageAccountIdentities.get(0).tenantId()))
+ *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(_storageAccountIdentities -> _storageAccountIdentities.get(0).principalId()))
  *             .keyPermissions(            
  *                 "Create",
  *                 "Delete",

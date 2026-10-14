@@ -200,8 +200,8 @@ class Catalog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
-                 catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
+                 catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict', 'outputs.CatalogCatalogAdogit']]] = None,
+                 catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict', 'outputs.CatalogCatalogGithub']]] = None,
                  dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -260,8 +260,8 @@ class Catalog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']] catalog_adogit: A `catalog_adogit` block as defined below.
-        :param pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']] catalog_github: A `catalog_github` block as defined below.
+        :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict', 'outputs.CatalogCatalogAdogit']] catalog_adogit: A `catalog_adogit` block as defined below.
+        :param pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict', 'outputs.CatalogCatalogGithub']] catalog_github: A `catalog_github` block as defined below.
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
@@ -339,8 +339,8 @@ class Catalog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
-                 catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
+                 catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict', 'outputs.CatalogCatalogAdogit']]] = None,
+                 catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict', 'outputs.CatalogCatalogGithub']]] = None,
                  dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -372,8 +372,8 @@ class Catalog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']]] = None,
-            catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']]] = None,
+            catalog_adogit: pulumi.Input[Optional[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict', 'outputs.CatalogCatalogAdogit']]] = None,
+            catalog_github: pulumi.Input[Optional[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict', 'outputs.CatalogCatalogGithub']]] = None,
             dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Catalog':
@@ -384,8 +384,8 @@ class Catalog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict']] catalog_adogit: A `catalog_adogit` block as defined below.
-        :param pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict']] catalog_github: A `catalog_github` block as defined below.
+        :param pulumi.Input[Union['CatalogCatalogAdogitArgs', 'CatalogCatalogAdogitArgsDict', 'outputs.CatalogCatalogAdogit']] catalog_adogit: A `catalog_adogit` block as defined below.
+        :param pulumi.Input[Union['CatalogCatalogGithubArgs', 'CatalogCatalogGithubArgsDict', 'outputs.CatalogCatalogGithub']] catalog_github: A `catalog_github` block as defined below.
         :param pulumi.Input[_builtins.str] dev_center_id: Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.

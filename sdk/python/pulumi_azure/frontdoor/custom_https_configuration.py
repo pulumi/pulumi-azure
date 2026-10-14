@@ -136,7 +136,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
+                 custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict', 'outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]] = None,
                  custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -233,7 +233,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']] custom_https_configuration: A `custom_https_configuration` block as defined above.
+        :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict', 'outputs.CustomHttpsConfigurationCustomHttpsConfiguration']] custom_https_configuration: A `custom_https_configuration` block as defined above.
         :param pulumi.Input[_builtins.bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[_builtins.str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
@@ -349,7 +349,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
+                 custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict', 'outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]] = None,
                  custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -378,7 +378,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
+            custom_https_configuration: pulumi.Input[Optional[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict', 'outputs.CustomHttpsConfigurationCustomHttpsConfiguration']]] = None,
             custom_https_provisioning_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             frontend_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'CustomHttpsConfiguration':
         """
@@ -388,7 +388,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']] custom_https_configuration: A `custom_https_configuration` block as defined above.
+        :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict', 'outputs.CustomHttpsConfigurationCustomHttpsConfiguration']] custom_https_configuration: A `custom_https_configuration` block as defined above.
         :param pulumi.Input[_builtins.bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[_builtins.str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """

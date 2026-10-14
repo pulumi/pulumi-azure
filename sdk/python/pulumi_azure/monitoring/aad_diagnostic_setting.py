@@ -250,7 +250,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
+                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict', 'outputs.AadDiagnosticSettingEnabledLog']]]]] = None,
                  eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -315,7 +315,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict', 'outputs.AadDiagnosticSettingEnabledLog']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[_builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
                
                > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
@@ -403,7 +403,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
+                 enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict', 'outputs.AadDiagnosticSettingEnabledLog']]]]] = None,
                  eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -434,7 +434,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
+            enabled_logs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict', 'outputs.AadDiagnosticSettingEnabledLog']]]]] = None,
             eventhub_authorization_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
             eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
             log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -447,7 +447,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict', 'outputs.AadDiagnosticSettingEnabledLog']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
         :param pulumi.Input[_builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
                
                > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.

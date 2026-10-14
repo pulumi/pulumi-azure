@@ -44,7 +44,7 @@ public final class SystemcenterFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
      *             .inventoryType("Cloud")
-     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
+     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.get("id"))
      *             .build());
      * 
      *     }
@@ -92,7 +92,7 @@ public final class SystemcenterFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
      *             .inventoryType("Cloud")
-     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
+     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.get("id"))
      *             .build());
      * 
      *     }
@@ -140,7 +140,7 @@ public final class SystemcenterFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
      *             .inventoryType("Cloud")
-     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
+     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.get("id"))
      *             .build());
      * 
      *     }
@@ -188,7 +188,7 @@ public final class SystemcenterFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
      *             .inventoryType("Cloud")
-     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
+     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.get("id"))
      *             .build());
      * 
      *     }
@@ -236,7 +236,7 @@ public final class SystemcenterFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
      *             .inventoryType("Cloud")
-     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.id())
+     *             .systemCenterVirtualMachineManagerServerId(exampleAzurermSystemCenterVirtualMachineManagerServer.get("id"))
      *             .build());
      * 
      *     }

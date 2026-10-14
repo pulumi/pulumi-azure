@@ -45,14 +45,14 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("example", new()
     ///     {
     ///         Name = "example-windows-web-app-slot",
     ///         AppServiceId = exampleWindowsWebApp.Name,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("example", new()
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("example", new()
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.AppService
     ///         AppServiceName = exampleLinuxWebApp.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleWebAppActiveSlot = new Azure.AppService.WebAppActiveSlot("example", new()

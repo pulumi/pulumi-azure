@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
- *             .name(server.hex())
+ *             .name(server.get("hex"))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServicePlanId(exampleAppServicePlan.id())

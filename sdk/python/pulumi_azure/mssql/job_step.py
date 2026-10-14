@@ -461,7 +461,7 @@ class JobStep(pulumi.CustomResource):
                  job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
+                 output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict', 'outputs.JobStepOutputTarget']]] = None,
                  retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
                  retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
                  sql_script: pulumi.Input[Optional[_builtins.str]] = None,
@@ -557,7 +557,7 @@ class JobStep(pulumi.CustomResource):
                
                > **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
-        :param pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']] output_target: An `output_target` block as defined below.
+        :param pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict', 'outputs.JobStepOutputTarget']] output_target: An `output_target` block as defined below.
         :param pulumi.Input[_builtins.int] retry_attempts: The number of retry attempts. Defaults to `10`.
         :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2.0`.
         :param pulumi.Input[_builtins.str] sql_script: The T-SQL script to be executed by this Elastic Job Step.
@@ -668,7 +668,7 @@ class JobStep(pulumi.CustomResource):
                  job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
+                 output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict', 'outputs.JobStepOutputTarget']]] = None,
                  retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
                  retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
                  sql_script: pulumi.Input[Optional[_builtins.str]] = None,
@@ -719,7 +719,7 @@ class JobStep(pulumi.CustomResource):
             job_target_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             maximum_retry_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']]] = None,
+            output_target: pulumi.Input[Optional[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict', 'outputs.JobStepOutputTarget']]] = None,
             retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
             retry_interval_backoff_multiplier: pulumi.Input[Optional[_builtins.float]] = None,
             sql_script: pulumi.Input[Optional[_builtins.str]] = None,
@@ -744,7 +744,7 @@ class JobStep(pulumi.CustomResource):
                
                > **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Elastic Job Step. Changing this forces a new Elastic Job Step to be created.
-        :param pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict']] output_target: An `output_target` block as defined below.
+        :param pulumi.Input[Union['JobStepOutputTargetArgs', 'JobStepOutputTargetArgsDict', 'outputs.JobStepOutputTarget']] output_target: An `output_target` block as defined below.
         :param pulumi.Input[_builtins.int] retry_attempts: The number of retry attempts. Defaults to `10`.
         :param pulumi.Input[_builtins.float] retry_interval_backoff_multiplier: The multiplier for time between retries. Defaults to `2.0`.
         :param pulumi.Input[_builtins.str] sql_script: The T-SQL script to be executed by this Elastic Job Step.

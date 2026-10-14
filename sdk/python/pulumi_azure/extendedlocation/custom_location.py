@@ -326,7 +326,7 @@ class CustomLocation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict', 'outputs.CustomLocationAuthentication']]] = None,
                  cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -352,7 +352,7 @@ class CustomLocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict', 'outputs.CustomLocationAuthentication']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
         :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.
@@ -397,7 +397,7 @@ class CustomLocation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
+                 authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict', 'outputs.CustomLocationAuthentication']]] = None,
                  cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -442,7 +442,7 @@ class CustomLocation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']]] = None,
+            authentication: pulumi.Input[Optional[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict', 'outputs.CustomLocationAuthentication']]] = None,
             cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -458,7 +458,7 @@ class CustomLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict']] authentication: An `authentication` block as defined below.
+        :param pulumi.Input[Union['CustomLocationAuthenticationArgs', 'CustomLocationAuthenticationArgsDict', 'outputs.CustomLocationAuthentication']] authentication: An `authentication` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Specifies the list of Cluster Extension IDs.
         :param pulumi.Input[_builtins.str] display_name: Specifies the display name of the Custom Location.
         :param pulumi.Input[_builtins.str] host_resource_id: Specifies the host resource ID. Changing this forces a new resource to be created.

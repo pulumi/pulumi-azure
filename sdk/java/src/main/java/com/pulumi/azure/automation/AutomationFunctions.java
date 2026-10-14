@@ -1648,7 +1648,7 @@ public final class AutomationFunctions {
      *             .automationAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.get("string"));
      *     }
      * }
      * }
@@ -1702,7 +1702,7 @@ public final class AutomationFunctions {
      *             .automationAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.get("string"));
      *     }
      * }
      * }
@@ -1756,7 +1756,7 @@ public final class AutomationFunctions {
      *             .automationAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.get("string"));
      *     }
      * }
      * }
@@ -1810,7 +1810,7 @@ public final class AutomationFunctions {
      *             .automationAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.get("string"));
      *     }
      * }
      * }
@@ -1864,7 +1864,7 @@ public final class AutomationFunctions {
      *             .automationAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
+     *         ctx.export("stringVars", exampleAzurermAutomationVariableString.get("string"));
      *     }
      * }
      * }

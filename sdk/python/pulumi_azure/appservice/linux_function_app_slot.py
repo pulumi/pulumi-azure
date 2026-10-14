@@ -1265,14 +1265,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict', 'outputs.LinuxFunctionAppSlotBackup']]] = None,
                  builtin_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict', 'outputs.LinuxFunctionAppSlotConnectionString']]]]] = None,
                  content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1280,15 +1280,15 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict', 'outputs.LinuxFunctionAppSlotIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict', 'outputs.LinuxFunctionAppSlotSiteConfig']]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict', 'outputs.LinuxFunctionAppSlotStorageAccount']]]]] = None,
                  storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_uses_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1354,16 +1354,16 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict']] auth_settings: an `auth_settings` block as detailed below.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict']] backup: a `backup` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettings']] auth_settings: an `auth_settings` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettingsV2']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict', 'outputs.LinuxFunctionAppSlotBackup']] backup: a `backup` block as detailed below.
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]] connection_strings: a `connection_string` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict', 'outputs.LinuxFunctionAppSlotConnectionString']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[_builtins.bool] enabled: Is the Linux Function App Slot enabled. Defaults to `true`.
@@ -1371,15 +1371,15 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] function_app_id: The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict', 'outputs.LinuxFunctionAppSlotIdentity']] identity: An `identity` block as detailed below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict']] site_config: a `site_config` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict', 'outputs.LinuxFunctionAppSlotSiteConfig']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict', 'outputs.LinuxFunctionAppSlotStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[_builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
                > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
@@ -1476,14 +1476,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettingsV2']]] = None,
+                 backup: pulumi.Input[Optional[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict', 'outputs.LinuxFunctionAppSlotBackup']]] = None,
                  builtin_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict', 'outputs.LinuxFunctionAppSlotConnectionString']]]]] = None,
                  content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1491,15 +1491,15 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict', 'outputs.LinuxFunctionAppSlotIdentity']]] = None,
                  key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict', 'outputs.LinuxFunctionAppSlotSiteConfig']]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]]] = None,
+                 storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict', 'outputs.LinuxFunctionAppSlotStorageAccount']]]]] = None,
                  storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_uses_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1574,14 +1574,14 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict']]] = None,
-            backup: pulumi.Input[Optional[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict']]] = None,
+            auth_settings: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettingsV2']]] = None,
+            backup: pulumi.Input[Optional[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict', 'outputs.LinuxFunctionAppSlotBackup']]] = None,
             builtin_logging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
             client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict', 'outputs.LinuxFunctionAppSlotConnectionString']]]]] = None,
             content_share_force_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             daily_memory_time_quota: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1592,7 +1592,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             functions_extension_version: pulumi.Input[Optional[_builtins.str]] = None,
             hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict', 'outputs.LinuxFunctionAppSlotIdentity']]] = None,
             key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1602,11 +1602,11 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             possible_outbound_ip_addresses: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotSiteCredentialArgs', 'LinuxFunctionAppSlotSiteCredentialArgsDict']]]]] = None,
+            site_config: pulumi.Input[Optional[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict', 'outputs.LinuxFunctionAppSlotSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotSiteCredentialArgs', 'LinuxFunctionAppSlotSiteCredentialArgsDict', 'outputs.LinuxFunctionAppSlotSiteCredential']]]]] = None,
             storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]]] = None,
+            storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict', 'outputs.LinuxFunctionAppSlotStorageAccount']]]]] = None,
             storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_uses_managed_identity: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1622,16 +1622,16 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict']] auth_settings: an `auth_settings` block as detailed below.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict']] backup: a `backup` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsArgs', 'LinuxFunctionAppSlotAuthSettingsArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettings']] auth_settings: an `auth_settings` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotAuthSettingsV2Args', 'LinuxFunctionAppSlotAuthSettingsV2ArgsDict', 'outputs.LinuxFunctionAppSlotAuthSettingsV2']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotBackupArgs', 'LinuxFunctionAppSlotBackupArgsDict', 'outputs.LinuxFunctionAppSlotBackup']] backup: a `backup` block as detailed below.
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
                
                > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]] connection_strings: a `connection_string` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict', 'outputs.LinuxFunctionAppSlotConnectionString']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
@@ -1642,7 +1642,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[_builtins.str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
         :param pulumi.Input[_builtins.bool] https_only: Can the Function App Slot only be accessed via HTTPS?. Defaults to `false`.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict']] identity: An `identity` block as detailed below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotIdentityArgs', 'LinuxFunctionAppSlotIdentityArgsDict', 'outputs.LinuxFunctionAppSlotIdentity']] identity: An `identity` block as detailed below.
         :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App Slot.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Function App Slot. Changing this forces a new resource to be created.
@@ -1652,11 +1652,11 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used.
-        :param pulumi.Input[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict']] site_config: a `site_config` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotSiteCredentialArgs', 'LinuxFunctionAppSlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppSlotSiteConfigArgs', 'LinuxFunctionAppSlotSiteConfigArgsDict', 'outputs.LinuxFunctionAppSlotSiteConfig']] site_config: a `site_config` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotSiteCredentialArgs', 'LinuxFunctionAppSlotSiteCredentialArgsDict', 'outputs.LinuxFunctionAppSlotSiteCredential']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict', 'outputs.LinuxFunctionAppSlotStorageAccount']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[_builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
                > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.

@@ -386,7 +386,7 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
+                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict', 'outputs.ServerIpv4FirewallRule']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -446,7 +446,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[_builtins.str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict', 'outputs.ServerIpv4FirewallRule']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] power_bi_service_enabled: Indicates if the Power BI service is allowed to access or not.
@@ -527,7 +527,7 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
+                 ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict', 'outputs.ServerIpv4FirewallRule']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -573,7 +573,7 @@ class Server(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             admin_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             backup_blob_container_uri: pulumi.Input[Optional[_builtins.str]] = None,
-            ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]]] = None,
+            ipv4_firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict', 'outputs.ServerIpv4FirewallRule']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             power_bi_service_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -591,7 +591,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] admin_users: List of email addresses of admin users.
         :param pulumi.Input[_builtins.str] backup_blob_container_uri: URI and SAS token for a blob container to store backups.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerIpv4FirewallRuleArgs', 'ServerIpv4FirewallRuleArgsDict', 'outputs.ServerIpv4FirewallRule']]]] ipv4_firewall_rules: One or more `ipv4_firewall_rule` block(s) as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] power_bi_service_enabled: Indicates if the Power BI service is allowed to access or not.

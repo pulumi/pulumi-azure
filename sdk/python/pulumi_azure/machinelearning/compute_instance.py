@@ -440,15 +440,15 @@ class ComputeInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
+                 assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict', 'outputs.ComputeInstanceAssignToUser']]] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict', 'outputs.ComputeInstanceIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
+                 ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict', 'outputs.ComputeInstanceSsh']]] = None,
                  subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
@@ -545,17 +545,17 @@ class ComputeInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict', 'outputs.ComputeInstanceAssignToUser']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict', 'outputs.ComputeInstanceIdentity']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
                
                > **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
-        :param pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict', 'outputs.ComputeInstanceSsh']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
                
                > **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.
@@ -673,15 +673,15 @@ class ComputeInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
+                 assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict', 'outputs.ComputeInstanceAssignToUser']]] = None,
                  authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict', 'outputs.ComputeInstanceIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
+                 ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict', 'outputs.ComputeInstanceSsh']]] = None,
                  subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None,
@@ -720,15 +720,15 @@ class ComputeInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']]] = None,
+            assign_to_user: pulumi.Input[Optional[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict', 'outputs.ComputeInstanceAssignToUser']]] = None,
             authorization_type: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict', 'outputs.ComputeInstanceIdentity']]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']]] = None,
+            ssh: pulumi.Input[Optional[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict', 'outputs.ComputeInstanceSsh']]] = None,
             subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             virtual_machine_size: pulumi.Input[Optional[_builtins.str]] = None) -> 'ComputeInstance':
@@ -739,17 +739,17 @@ class ComputeInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceAssignToUserArgs', 'ComputeInstanceAssignToUserArgsDict', 'outputs.ComputeInstanceAssignToUser']] assign_to_user: A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] authorization_type: The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
-        :param pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceIdentityArgs', 'ComputeInstanceIdentityArgsDict', 'outputs.ComputeInstanceIdentity']] identity: An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute instance will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
                
                > **Note:** The property `subnet_resource_id` becomes required if `node_public_ip_enabled` is set to `false`, and the instance's workspace is not using a managed network (i.e. the workspace's outbound isolation mode is `Disabled`).
-        :param pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
+        :param pulumi.Input[Union['ComputeInstanceSshArgs', 'ComputeInstanceSshArgsDict', 'outputs.ComputeInstanceSsh']] ssh: A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
                
                > **Note:** The property `subnet_resource_id` can be set only if the instance's workspace is not using Azure-managed networking.

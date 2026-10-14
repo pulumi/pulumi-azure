@@ -63,7 +63,7 @@ namespace Pulumi.Azure.AppService
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleStaticWebAppFunctionAppRegistration = new Azure.AppService.StaticWebAppFunctionAppRegistration("example", new()

@@ -233,8 +233,8 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory: pulumi.Input[Optional[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 active_directory: pulumi.Input[Optional[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict', 'outputs.AccountActiveDirectory']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -297,8 +297,8 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict']] active_directory: A `active_directory` block as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
+        :param pulumi.Input[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict', 'outputs.AccountActiveDirectory']] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -380,8 +380,8 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory: pulumi.Input[Optional[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+                 active_directory: pulumi.Input[Optional[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict', 'outputs.AccountActiveDirectory']]] = None,
+                 identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -413,8 +413,8 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_directory: pulumi.Input[Optional[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']]] = None,
+            active_directory: pulumi.Input[Optional[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict', 'outputs.AccountActiveDirectory']]] = None,
+            identity: pulumi.Input[Optional[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -426,8 +426,8 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict']] active_directory: A `active_directory` block as defined below.
-        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict']] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
+        :param pulumi.Input[Union['AccountActiveDirectoryArgs', 'AccountActiveDirectoryArgsDict', 'outputs.AccountActiveDirectory']] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input[Union['AccountIdentityArgs', 'AccountIdentityArgsDict', 'outputs.AccountIdentity']] identity: The `identity` block where it is used when customer managed keys based encryption will be enabled as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.

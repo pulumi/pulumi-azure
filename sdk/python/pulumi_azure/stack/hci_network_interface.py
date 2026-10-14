@@ -305,7 +305,7 @@ class HciNetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
+                 ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict', 'outputs.HciNetworkInterfaceIpConfiguration']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mac_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -382,7 +382,7 @@ class HciNetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']] ip_configuration: An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict', 'outputs.HciNetworkInterfaceIpConfiguration']] ip_configuration: An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mac_address: The MAC address of the Network Interface. Changing this forces a new resource to be created.
                
@@ -480,7 +480,7 @@ class HciNetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
+                 ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict', 'outputs.HciNetworkInterfaceIpConfiguration']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mac_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -521,7 +521,7 @@ class HciNetworkInterface(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_location_id: pulumi.Input[Optional[_builtins.str]] = None,
             dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']]] = None,
+            ip_configuration: pulumi.Input[Optional[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict', 'outputs.HciNetworkInterfaceIpConfiguration']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             mac_address: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -536,7 +536,7 @@ class HciNetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_location_id: The ID of the Custom Location where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IPv4 addresses of DNS servers available to VMs deployed in the Network Interface. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict']] ip_configuration: An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['HciNetworkInterfaceIpConfigurationArgs', 'HciNetworkInterfaceIpConfigurationArgsDict', 'outputs.HciNetworkInterfaceIpConfiguration']] ip_configuration: An `ip_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Azure Stack HCI Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] mac_address: The MAC address of the Network Interface. Changing this forces a new resource to be created.
                

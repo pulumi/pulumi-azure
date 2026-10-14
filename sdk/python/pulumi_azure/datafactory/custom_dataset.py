@@ -399,7 +399,7 @@ class CustomDataset(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict']]] = None,
+                 linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict', 'outputs.CustomDatasetLinkedService']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  schema_json: pulumi.Input[Optional[_builtins.str]] = None,
@@ -517,7 +517,7 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict']] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict', 'outputs.CustomDatasetLinkedService']] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
@@ -655,7 +655,7 @@ class CustomDataset(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict']]] = None,
+                 linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict', 'outputs.CustomDatasetLinkedService']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  schema_json: pulumi.Input[Optional[_builtins.str]] = None,
@@ -704,7 +704,7 @@ class CustomDataset(pulumi.CustomResource):
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             folder: pulumi.Input[Optional[_builtins.str]] = None,
-            linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict']]] = None,
+            linked_service: pulumi.Input[Optional[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict', 'outputs.CustomDatasetLinkedService']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             schema_json: pulumi.Input[Optional[_builtins.str]] = None,
@@ -722,7 +722,7 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict']] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input[Union['CustomDatasetLinkedServiceArgs', 'CustomDatasetLinkedServiceArgsDict', 'outputs.CustomDatasetLinkedService']] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[_builtins.str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.

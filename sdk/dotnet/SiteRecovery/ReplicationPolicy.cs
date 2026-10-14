@@ -41,8 +41,8 @@ namespace Pulumi.Azure.SiteRecovery
     ///         Name = "policy",
     ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = vault.Name,
-    ///         RecoveryPointRetentionInMinutes = 24 * 60,
-    ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
+    ///         RecoveryPointRetentionInMinutes = (int)(24 * 60),
+    ///         ApplicationConsistentSnapshotFrequencyInMinutes = (int)(4 * 60),
     ///     });
     /// 
     /// });

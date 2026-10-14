@@ -547,17 +547,17 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
-                 ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict']]] = None,
+                 ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict', 'outputs.VirtualNetworkEncryption']]] = None,
                  flow_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]]] = None,
+                 ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict', 'outputs.VirtualNetworkIpAddressPool']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_vnet_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -632,21 +632,21 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
-        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: List of IP addresses of DNS servers
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
-        :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']] encryption: A `encryption` block as defined below.
+        :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict', 'outputs.VirtualNetworkEncryption']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict', 'outputs.VirtualNetworkIpAddressPool']]]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -738,17 +738,17 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
-                 ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict']]] = None,
+                 ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict', 'outputs.VirtualNetworkEncryption']]] = None,
                  flow_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]]] = None,
+                 ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict', 'outputs.VirtualNetworkIpAddressPool']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_vnet_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]]] = None,
+                 subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -788,18 +788,18 @@ class VirtualNetwork(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             address_spaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             bgp_community: pulumi.Input[Optional[_builtins.str]] = None,
-            ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict']]] = None,
+            ddos_protection_plan: pulumi.Input[Optional[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']]] = None,
             dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict', 'outputs.VirtualNetworkEncryption']]] = None,
             flow_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             guid: pulumi.Input[Optional[_builtins.str]] = None,
-            ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]]] = None,
+            ip_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict', 'outputs.VirtualNetworkIpAddressPool']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             private_endpoint_vnet_policies: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]]] = None,
+            subnets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'VirtualNetwork':
         """
         Get an existing VirtualNetwork resource's state with the given name, id, and optional extra
@@ -814,22 +814,22 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bgp_community: The BGP community attribute in format `<as-number>:<community-value>`.
                
                > **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
-        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
+        :param pulumi.Input[Union['VirtualNetworkDdosProtectionPlanArgs', 'VirtualNetworkDdosProtectionPlanArgsDict', 'outputs.VirtualNetworkDdosProtectionPlan']] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: List of IP addresses of DNS servers
                
                > **NOTE** Since `dns_servers` can be configured both inline and via the separate `network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created.
-        :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict']] encryption: A `encryption` block as defined below.
+        :param pulumi.Input[Union['VirtualNetworkEncryptionArgs', 'VirtualNetworkEncryptionArgsDict', 'outputs.VirtualNetworkEncryption']] encryption: A `encryption` block as defined below.
         :param pulumi.Input[_builtins.int] flow_timeout_in_minutes: The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes.
         :param pulumi.Input[_builtins.str] guid: The GUID of the Virtual Network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict']]]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkIpAddressPoolArgs', 'VirtualNetworkIpAddressPoolArgsDict', 'outputs.VirtualNetworkIpAddressPool']]]] ip_address_pools: One or more `ip_address_pool` blocks as defined below. Only one association of each IP type(IPv4 or IPv6) is allowed.
                
                > **Note:** Exactly one of `address_space` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] location: The location/region where the virtual network is created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] private_endpoint_vnet_policies: The Private Endpoint VNet Policies for the Virtual Network. Possible values are `Disabled` and `Basic`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnetArgsDict', 'outputs.VirtualNetworkSubnet']]]] subnets: Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
                
                > **NOTE** Since `subnet` can be configured both inline and via the separate `network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.

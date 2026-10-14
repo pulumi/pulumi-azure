@@ -408,10 +408,10 @@ class ManagedRedis(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
-                 default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict', 'outputs.ManagedRedisCustomerManagedKey']]] = None,
+                 default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict', 'outputs.ManagedRedisDefaultDatabase']]] = None,
                  high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict', 'outputs.ManagedRedisIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -534,14 +534,14 @@ class ManagedRedis(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
-        :param pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']] default_database: A `default_database` block as defined below.
+        :param pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict', 'outputs.ManagedRedisCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict', 'outputs.ManagedRedisDefaultDatabase']] default_database: A `default_database` block as defined below.
                
                > **Note:** `default_database` is Required when creating a new Managed Redis.
                
                > **Note:** A `default_database` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
         :param pulumi.Input[_builtins.bool] high_availability_enabled: Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
-        :param pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict', 'outputs.ManagedRedisIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Managed Redis instance should exist. Refer to "Redis Cache" on the [product availability documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) for supported locations. Changing this forces a new Managed Redis instance to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Managed Redis instance. Changing this forces a new Managed Redis instance to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Managed Redis instance. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -687,10 +687,10 @@ class ManagedRedis(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
-                 default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
+                 customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict', 'outputs.ManagedRedisCustomerManagedKey']]] = None,
+                 default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict', 'outputs.ManagedRedisDefaultDatabase']]] = None,
                  high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict', 'outputs.ManagedRedisIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -731,11 +731,11 @@ class ManagedRedis(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']]] = None,
-            default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']]] = None,
+            customer_managed_key: pulumi.Input[Optional[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict', 'outputs.ManagedRedisCustomerManagedKey']]] = None,
+            default_database: pulumi.Input[Optional[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict', 'outputs.ManagedRedisDefaultDatabase']]] = None,
             high_availability_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hostname: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict', 'outputs.ManagedRedisIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -749,15 +749,15 @@ class ManagedRedis(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
-        :param pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict']] default_database: A `default_database` block as defined below.
+        :param pulumi.Input[Union['ManagedRedisCustomerManagedKeyArgs', 'ManagedRedisCustomerManagedKeyArgsDict', 'outputs.ManagedRedisCustomerManagedKey']] customer_managed_key: A `customer_managed_key` block as defined below.
+        :param pulumi.Input[Union['ManagedRedisDefaultDatabaseArgs', 'ManagedRedisDefaultDatabaseArgsDict', 'outputs.ManagedRedisDefaultDatabase']] default_database: A `default_database` block as defined below.
                
                > **Note:** `default_database` is Required when creating a new Managed Redis.
                
                > **Note:** A `default_database` can be deleted or recreated in-place but most properties will trigger an entire cluster replacement if changed. Data will be lost and Managed Redis will be unavailable during recreation.
         :param pulumi.Input[_builtins.bool] high_availability_enabled: Whether to enable high availability for the Managed Redis instance. Defaults to `true`. Changing this forces a new Managed Redis instance to be created.
         :param pulumi.Input[_builtins.str] hostname: DNS name of the cluster endpoint.
-        :param pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ManagedRedisIdentityArgs', 'ManagedRedisIdentityArgsDict', 'outputs.ManagedRedisIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Managed Redis instance should exist. Refer to "Redis Cache" on the [product availability documentation](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) for supported locations. Changing this forces a new Managed Redis instance to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Managed Redis instance. Changing this forces a new Managed Redis instance to be created.
         :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Managed Redis instance. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.

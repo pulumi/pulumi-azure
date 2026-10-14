@@ -435,7 +435,7 @@ class Assignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict', 'outputs.AssignmentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -531,7 +531,7 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict', 'outputs.AssignmentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -650,7 +650,7 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict', 'outputs.AssignmentIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -702,7 +702,7 @@ class Assignment(pulumi.CustomResource):
             blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict', 'outputs.AssignmentIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             lock_exclude_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             lock_exclude_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -723,7 +723,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[_builtins.str] description: The Description on the Blueprint
         :param pulumi.Input[_builtins.str] display_name: The display name of the blueprint
-        :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['AssignmentIdentityArgs', 'AssignmentIdentityArgsDict', 'outputs.AssignmentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.

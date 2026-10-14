@@ -46,7 +46,7 @@ public final class AttestationFunctions {
      *             Map.entry("resourceGroupName", "example-resource-group")
      *         ));
      * 
-     *         ctx.export("id", example.id());
+     *         ctx.export("id", example.get("id"));
      *     }
      * }
      * }
@@ -94,7 +94,7 @@ public final class AttestationFunctions {
      *             Map.entry("resourceGroupName", "example-resource-group")
      *         ));
      * 
-     *         ctx.export("id", example.id());
+     *         ctx.export("id", example.get("id"));
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class AttestationFunctions {
      *             Map.entry("resourceGroupName", "example-resource-group")
      *         ));
      * 
-     *         ctx.export("id", example.id());
+     *         ctx.export("id", example.get("id"));
      *     }
      * }
      * }
@@ -190,7 +190,7 @@ public final class AttestationFunctions {
      *             Map.entry("resourceGroupName", "example-resource-group")
      *         ));
      * 
-     *         ctx.export("id", example.id());
+     *         ctx.export("id", example.get("id"));
      *     }
      * }
      * }
@@ -238,7 +238,7 @@ public final class AttestationFunctions {
      *             Map.entry("resourceGroupName", "example-resource-group")
      *         ));
      * 
-     *         ctx.export("id", example.id());
+     *         ctx.export("id", example.get("id"));
      *     }
      * }
      * }

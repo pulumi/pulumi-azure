@@ -666,7 +666,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict', 'outputs.EnvironmentIdentity']]] = None,
                  infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -678,7 +678,7 @@ class Environment(pulumi.CustomResource):
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict', 'outputs.EnvironmentWorkloadProfile']]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -728,7 +728,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict', 'outputs.EnvironmentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -750,7 +750,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] public_network_access: The public network access setting for the Container App Environment. Possible values are `Enabled` and `Disabled`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict', 'outputs.EnvironmentWorkloadProfile']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -821,7 +821,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict', 'outputs.EnvironmentIdentity']]] = None,
                  infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -833,7 +833,7 @@ class Environment(pulumi.CustomResource):
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
+                 workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict', 'outputs.EnvironmentWorkloadProfile']]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -883,7 +883,7 @@ class Environment(pulumi.CustomResource):
             dapr_application_insights_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             default_domain: pulumi.Input[Optional[_builtins.str]] = None,
             docker_bridge_cidr: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict', 'outputs.EnvironmentIdentity']]] = None,
             infrastructure_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             infrastructure_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             internal_load_balancer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -898,7 +898,7 @@ class Environment(pulumi.CustomResource):
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             static_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]]] = None,
+            workload_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict', 'outputs.EnvironmentWorkloadProfile']]]]] = None,
             zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Environment':
         """
         Get an existing Environment resource's state with the given name, id, and optional extra
@@ -911,7 +911,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[_builtins.str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
-        :param pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['EnvironmentIdentityArgs', 'EnvironmentIdentityArgsDict', 'outputs.EnvironmentIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
@@ -936,7 +936,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] static_ip_address: The Static IP address of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentWorkloadProfileArgs', 'EnvironmentWorkloadProfileArgsDict', 'outputs.EnvironmentWorkloadProfile']]]] workload_profiles: One or more `workload_profile` blocks as defined below.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.

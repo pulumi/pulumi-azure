@@ -449,10 +449,10 @@ class Configuration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
+                 antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict', 'outputs.ConfigurationAntimalware']]] = None,
                  automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
+                 azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict', 'outputs.ConfigurationAzureSecurityBaseline']]] = None,
+                 backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict', 'outputs.ConfigurationBackup']]] = None,
                  boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -554,10 +554,10 @@ class Configuration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict', 'outputs.ConfigurationAntimalware']] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[_builtins.bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict', 'outputs.ConfigurationAzureSecurityBaseline']] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict', 'outputs.ConfigurationBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.
@@ -677,10 +677,10 @@ class Configuration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
+                 antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict', 'outputs.ConfigurationAntimalware']]] = None,
                  automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
-                 backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
+                 azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict', 'outputs.ConfigurationAzureSecurityBaseline']]] = None,
+                 backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict', 'outputs.ConfigurationBackup']]] = None,
                  boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -724,10 +724,10 @@ class Configuration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']]] = None,
+            antimalware: pulumi.Input[Optional[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict', 'outputs.ConfigurationAntimalware']]] = None,
             automation_account_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']]] = None,
-            backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']]] = None,
+            azure_security_baseline: pulumi.Input[Optional[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict', 'outputs.ConfigurationAzureSecurityBaseline']]] = None,
+            backup: pulumi.Input[Optional[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict', 'outputs.ConfigurationBackup']]] = None,
             boot_diagnostics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             defender_for_cloud_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             guest_configuration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -744,10 +744,10 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict']] antimalware: A `antimalware` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAntimalwareArgs', 'ConfigurationAntimalwareArgsDict', 'outputs.ConfigurationAntimalware']] antimalware: A `antimalware` block as defined below.
         :param pulumi.Input[_builtins.bool] automation_account_enabled: Whether the automation account is enabled. Defaults to `false`.
-        :param pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict']] azure_security_baseline: A `azure_security_baseline` block as defined below.
-        :param pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['ConfigurationAzureSecurityBaselineArgs', 'ConfigurationAzureSecurityBaselineArgsDict', 'outputs.ConfigurationAzureSecurityBaseline']] azure_security_baseline: A `azure_security_baseline` block as defined below.
+        :param pulumi.Input[Union['ConfigurationBackupArgs', 'ConfigurationBackupArgsDict', 'outputs.ConfigurationBackup']] backup: A `backup` block as defined below.
         :param pulumi.Input[_builtins.bool] boot_diagnostics_enabled: Whether the boot diagnostics are enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] defender_for_cloud_enabled: Whether the defender for cloud is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] guest_configuration_enabled: Whether the guest configuration is enabled. Defaults to `false`.

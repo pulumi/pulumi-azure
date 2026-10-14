@@ -105,8 +105,8 @@ import javax.annotation.Nullable;
  * 
  *         var global = new Prefix("global", PrefixArgs.builder()
  *             .name("example-Global-CustomIPPrefix")
- *             .location(test.location())
- *             .resourceGroupName(test.name())
+ *             .location(test.get("location"))
+ *             .resourceGroupName(test.get("name"))
  *             .cidr("2001:db8:1::/48")
  *             .roaValidityEndDate("2199-12-12")
  *             .wanValidationSignedMessage("signed message for WAN validation")
@@ -114,8 +114,8 @@ import javax.annotation.Nullable;
  * 
  *         var regional = new Prefix("regional", PrefixArgs.builder()
  *             .name("example-Regional-CustomIPPrefix")
- *             .location(test.location())
- *             .resourceGroupName(test.name())
+ *             .location(test.get("location"))
+ *             .resourceGroupName(test.get("name"))
  *             .parentCustomIpPrefixId(global.id())
  *             .cidr(StdFunctions.cidrsubnet(Map.ofEntries(
  *                 Map.entry("input", global.cidr()),

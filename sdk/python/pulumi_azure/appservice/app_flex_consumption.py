@@ -1298,18 +1298,18 @@ class AppFlexConsumption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
+                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict', 'outputs.AppFlexConsumptionAlwaysReady']]]]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict', 'outputs.AppFlexConsumptionConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']]] = None,
                  instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1319,8 +1319,8 @@ class AppFlexConsumption(pulumi.CustomResource):
                  runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
-                 sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']]] = None,
                  storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1397,7 +1397,7 @@ class AppFlexConsumption(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict', 'outputs.AppFlexConsumptionAlwaysReady']]]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **Note:** For storage related settings, please use related properties that are available such as `storage_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
@@ -1407,18 +1407,18 @@ class AppFlexConsumption(pulumi.CustomResource):
                > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
                
                > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
-        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict', 'outputs.AppFlexConsumptionConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_concurrency: The Http concurrency of the instances on which your app runs. The supported value are from `1` to `1000`.
                
                > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
-        :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[_builtins.int] maximum_instance_count: The number of workers this function app can scale out to. The supported value are from `1` to `1000`.
@@ -1430,8 +1430,8 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
-        :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[_builtins.str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
                > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
@@ -1539,18 +1539,18 @@ class AppFlexConsumption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
+                 always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict', 'outputs.AppFlexConsumptionAlwaysReady']]]]] = None,
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
-                 auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
+                 auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']]] = None,
+                 auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']]] = None,
                  client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
+                 connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict', 'outputs.AppFlexConsumptionConnectionString']]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']]] = None,
                  instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1560,8 +1560,8 @@ class AppFlexConsumption(pulumi.CustomResource):
                  runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
                  service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
-                 sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
+                 site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']]] = None,
+                 sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']]] = None,
                  storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1649,21 +1649,21 @@ class AppFlexConsumption(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]]] = None,
+            always_readies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict', 'outputs.AppFlexConsumptionAlwaysReady']]]]] = None,
             app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']]] = None,
-            auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']]] = None,
+            auth_settings: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']]] = None,
+            auth_settings_v2: pulumi.Input[Optional[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']]] = None,
             client_certificate_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             client_certificate_exclusion_paths: pulumi.Input[Optional[_builtins.str]] = None,
             client_certificate_mode: pulumi.Input[Optional[_builtins.str]] = None,
-            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]]] = None,
+            connection_strings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict', 'outputs.AppFlexConsumptionConnectionString']]]]] = None,
             custom_domain_verification_id: pulumi.Input[Optional[_builtins.str]] = None,
             default_hostname: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             hosting_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
             http_concurrency: pulumi.Input[Optional[_builtins.int]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
-            identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']]] = None,
             instance_memory_in_mb: pulumi.Input[Optional[_builtins.int]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1678,9 +1678,9 @@ class AppFlexConsumption(pulumi.CustomResource):
             runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
             runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
             service_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
-            site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']]] = None,
-            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict']]]]] = None,
-            sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']]] = None,
+            site_config: pulumi.Input[Optional[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']]] = None,
+            site_credentials: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict', 'outputs.AppFlexConsumptionSiteCredential']]]]] = None,
+            sticky_settings: pulumi.Input[Optional[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']]] = None,
             storage_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
             storage_container_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1697,7 +1697,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict']]]] always_readies: One or more `always_ready` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionAlwaysReadyArgs', 'AppFlexConsumptionAlwaysReadyArgsDict', 'outputs.AppFlexConsumptionAlwaysReady']]]] always_readies: One or more `always_ready` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
                > **Note:** For storage related settings, please use related properties that are available such as `storage_access_key`, terraform will assign the value to keys such as `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, `AzureWebJobsStorage` in app_setting.
@@ -1707,12 +1707,12 @@ class AppFlexConsumption(pulumi.CustomResource):
                > **Note:** For health check related settings, please use `health_check_eviction_time_in_min`, terraform will assign the value to the key `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` in app setting.
                
                > **Note:** For those app settings that are deprecated or replaced by another properties for flex consumption function app, please check https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings.
-        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsArgs', 'AppFlexConsumptionAuthSettingsArgsDict', 'outputs.AppFlexConsumptionAuthSettings']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionAuthSettingsV2Args', 'AppFlexConsumptionAuthSettingsV2ArgsDict', 'outputs.AppFlexConsumptionAuthSettingsV2']] auth_settings_v2: An `auth_settings_v2` block as defined below.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict', 'outputs.AppFlexConsumptionConnectionString']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname of the Linux Function App.
         :param pulumi.Input[_builtins.bool] enabled: Is the Function App enabled? Defaults to `true`.
@@ -1721,7 +1721,7 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** A value will be assigned by the system if `http_concurrency` is not specified.
         :param pulumi.Input[_builtins.bool] https_only: Is Https Connection enforced to the function app. Defaults to `false`
-        :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict', 'outputs.AppFlexConsumptionIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.int] instance_memory_in_mb: The memory size of the instances on which your app runs. Reference the Microsoft Documentation for the [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory). Defaults to `2048`.
         :param pulumi.Input[_builtins.str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
@@ -1738,9 +1738,9 @@ class AppFlexConsumption(pulumi.CustomResource):
                
                > **Note:** To get the most up-to-date list of supported versions, use command `az functionapp list-runtimes` or visit [Supported languages in Azure Functions](https://learn.microsoft.com/en-us/azure/azure-functions/supported-languages)
         :param pulumi.Input[_builtins.str] service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
-        :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
-        :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionSiteConfigArgs', 'AppFlexConsumptionSiteConfigArgsDict', 'outputs.AppFlexConsumptionSiteConfig']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionSiteCredentialArgs', 'AppFlexConsumptionSiteCredentialArgsDict', 'outputs.AppFlexConsumptionSiteCredential']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict', 'outputs.AppFlexConsumptionStickySettings']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[_builtins.str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
                > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.

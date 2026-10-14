@@ -43,7 +43,7 @@ namespace Pulumi.Azure.AppService
     ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
-    ///         SiteConfig = null,
+    ///         SiteConfig = new() { },
     ///     });
     /// 
     ///     var exampleSourceControl = new Azure.AppService.SourceControl("example", new()

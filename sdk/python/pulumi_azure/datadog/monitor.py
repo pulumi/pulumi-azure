@@ -342,15 +342,15 @@ class Monitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict', 'outputs.MonitorDatadogOrganization']]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None,
                  __props__=None):
         """
         Manages a datadog Monitor.
@@ -420,15 +420,15 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']] datadog_organization: A `datadog_organization` block as defined below.
-        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict', 'outputs.MonitorDatadogOrganization']] datadog_organization: A `datadog_organization` block as defined below.
+        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.bool] monitoring_enabled: Is monitoring enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] name: The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name which should be used for this sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Datadog Monitor.
-        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: A `user` block as defined below.
+        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']] user: A `user` block as defined below.
         """
         ...
     @overload
@@ -517,15 +517,15 @@ class Monitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+                 datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict', 'outputs.MonitorDatadogOrganization']]] = None,
+                 identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
+                 user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -563,8 +563,8 @@ class Monitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']]] = None,
+            datadog_organization: pulumi.Input[Optional[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict', 'outputs.MonitorDatadogOrganization']]] = None,
+            identity: pulumi.Input[Optional[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             marketplace_subscription_status: pulumi.Input[Optional[_builtins.str]] = None,
             monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -572,7 +572,7 @@ class Monitor(pulumi.CustomResource):
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None) -> 'Monitor':
+            user: pulumi.Input[Optional[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -580,8 +580,8 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict']] datadog_organization: A `datadog_organization` block as defined below.
-        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['MonitorDatadogOrganizationArgs', 'MonitorDatadogOrganizationArgsDict', 'outputs.MonitorDatadogOrganization']] datadog_organization: A `datadog_organization` block as defined below.
+        :param pulumi.Input[Union['MonitorIdentityArgs', 'MonitorIdentityArgsDict', 'outputs.MonitorIdentity']] identity: A `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param pulumi.Input[_builtins.bool] monitoring_enabled: Is monitoring enabled? Defaults to `true`.
@@ -589,7 +589,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[_builtins.str] sku_name: The name which should be used for this sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Datadog Monitor.
-        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']] user: A `user` block as defined below.
+        :param pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict', 'outputs.MonitorUser']] user: A `user` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

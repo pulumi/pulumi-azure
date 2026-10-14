@@ -209,10 +209,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
+                 cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict', 'outputs.EndpointCustomDomainCdnManagedHttps']]] = None,
                  host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
+                 user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict', 'outputs.EndpointCustomDomainUserManagedHttps']]] = None,
                  __props__=None):
         """
         Manages a Custom Domain for a CDN (classic) Endpoint.
@@ -278,10 +278,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']] cdn_managed_https: A `cdn_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict', 'outputs.EndpointCustomDomainCdnManagedHttps']] cdn_managed_https: A `cdn_managed_https` block as defined below.
         :param pulumi.Input[_builtins.str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']] user_managed_https: A `user_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict', 'outputs.EndpointCustomDomainUserManagedHttps']] user_managed_https: A `user_managed_https` block as defined below.
                
                > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
@@ -368,10 +368,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
+                 cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict', 'outputs.EndpointCustomDomainCdnManagedHttps']]] = None,
                  host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
+                 user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict', 'outputs.EndpointCustomDomainUserManagedHttps']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -401,10 +401,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-            cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
+            cdn_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict', 'outputs.EndpointCustomDomainCdnManagedHttps']]] = None,
             host_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None) -> 'EndpointCustomDomain':
+            user_managed_https: pulumi.Input[Optional[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict', 'outputs.EndpointCustomDomainUserManagedHttps']]] = None) -> 'EndpointCustomDomain':
         """
         Get an existing EndpointCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -413,10 +413,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']] cdn_managed_https: A `cdn_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict', 'outputs.EndpointCustomDomainCdnManagedHttps']] cdn_managed_https: A `cdn_managed_https` block as defined below.
         :param pulumi.Input[_builtins.str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']] user_managed_https: A `user_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict', 'outputs.EndpointCustomDomainUserManagedHttps']] user_managed_https: A `user_managed_https` block as defined below.
                
                > **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """

@@ -328,7 +328,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: pulumi.Input[Optional[_builtins.str]] = None,
-                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
+                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict', 'outputs.WorkbookTemplateGallery']]]]] = None,
                  localized: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -428,7 +428,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict', 'outputs.WorkbookTemplateGallery']]]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[_builtins.str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
@@ -547,7 +547,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: pulumi.Input[Optional[_builtins.str]] = None,
-                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
+                 galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict', 'outputs.WorkbookTemplateGallery']]]]] = None,
                  localized: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -590,7 +590,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             author: pulumi.Input[Optional[_builtins.str]] = None,
-            galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
+            galleries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict', 'outputs.WorkbookTemplateGallery']]]]] = None,
             localized: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -606,7 +606,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict', 'outputs.WorkbookTemplateGallery']]]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[_builtins.str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.

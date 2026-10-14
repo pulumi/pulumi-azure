@@ -140,8 +140,8 @@ import javax.annotation.Nullable;
  * 
  *         var kv = new KeyVault("kv", KeyVaultArgs.builder()
  *             .name("kv")
- *             .location(testAzurermResourceGroup.location())
- *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.get("location"))
+ *             .resourceGroupName(testAzurermResourceGroup.get("name"))
  *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()
- *             .configurationStoreId(testAzurermAppConfiguration.id())
+ *             .configurationStoreId(testAzurermAppConfiguration.get("id"))
  *             .key("key1")
  *             .type("vault")
  *             .label("label1")

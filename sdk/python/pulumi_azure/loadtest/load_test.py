@@ -282,8 +282,8 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict', 'outputs.LoadTestEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict', 'outputs.LoadTestIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -334,8 +334,8 @@ class LoadTest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the resource.
-        :param pulumi.Input[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict', 'outputs.LoadTestEncryption']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict', 'outputs.LoadTestIdentity']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
@@ -405,8 +405,8 @@ class LoadTest(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict', 'outputs.LoadTestEncryption']]] = None,
+                 identity: pulumi.Input[Optional[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict', 'outputs.LoadTestIdentity']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -442,8 +442,8 @@ class LoadTest(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             data_plane_uri: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            encryption: pulumi.Input[Optional[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']]] = None,
-            identity: pulumi.Input[Optional[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict', 'outputs.LoadTestEncryption']]] = None,
+            identity: pulumi.Input[Optional[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict', 'outputs.LoadTestIdentity']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -457,8 +457,8 @@ class LoadTest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_plane_uri: Resource data plane URI.
         :param pulumi.Input[_builtins.str] description: Description of the resource.
-        :param pulumi.Input[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
-        :param pulumi.Input[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
+        :param pulumi.Input[Union['LoadTestEncryptionArgs', 'LoadTestEncryptionArgsDict', 'outputs.LoadTestEncryption']] encryption: An `encryption` block as defined below. Changing this forces a new Load Test to be created.
+        :param pulumi.Input[Union['LoadTestIdentityArgs', 'LoadTestIdentityArgsDict', 'outputs.LoadTestIdentity']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Load Test.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.

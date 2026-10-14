@@ -292,12 +292,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']]] = None,
-                 boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]]] = None,
-                 failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']]] = None,
+                 azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict', 'outputs.ReplicationRecoveryPlanAzureToAzureSettings']]] = None,
+                 boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanBootRecoveryGroup']]]]] = None,
+                 failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']]] = None,
+                 shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']]] = None,
                  source_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -495,12 +495,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
-        :param pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']] failover_recovery_group: One `failover_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict', 'outputs.ReplicationRecoveryPlanAzureToAzureSettings']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanBootRecoveryGroup']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']] failover_recovery_group: One `failover_recovery_group` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
         :param pulumi.Input[_builtins.str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[_builtins.str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """
@@ -717,12 +717,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']]] = None,
-                 boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]]] = None,
-                 failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']]] = None,
+                 azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict', 'outputs.ReplicationRecoveryPlanAzureToAzureSettings']]] = None,
+                 boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanBootRecoveryGroup']]]]] = None,
+                 failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']]] = None,
+                 shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']]] = None,
                  source_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -764,12 +764,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']]] = None,
-            boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]]] = None,
-            failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']]] = None,
+            azure_to_azure_settings: pulumi.Input[Optional[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict', 'outputs.ReplicationRecoveryPlanAzureToAzureSettings']]] = None,
+            boot_recovery_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanBootRecoveryGroup']]]]] = None,
+            failover_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             recovery_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
-            shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']]] = None,
+            shutdown_recovery_group: pulumi.Input[Optional[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']]] = None,
             source_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None,
             target_recovery_fabric_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ReplicationRecoveryPlan':
         """
@@ -779,12 +779,12 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
-        :param pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']] failover_recovery_group: One `failover_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict', 'outputs.ReplicationRecoveryPlanAzureToAzureSettings']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanBootRecoveryGroup']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanFailoverRecoveryGroup']] failover_recovery_group: One `failover_recovery_group` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict', 'outputs.ReplicationRecoveryPlanShutdownRecoveryGroup']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
         :param pulumi.Input[_builtins.str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         :param pulumi.Input[_builtins.str] target_recovery_fabric_id: ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         """

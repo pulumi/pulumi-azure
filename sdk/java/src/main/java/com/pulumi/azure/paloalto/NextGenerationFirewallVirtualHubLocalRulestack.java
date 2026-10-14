@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *         var exampleNextGenerationFirewallVirtualHubLocalRulestack = new NextGenerationFirewallVirtualHubLocalRulestack("exampleNextGenerationFirewallVirtualHubLocalRulestack", NextGenerationFirewallVirtualHubLocalRulestackArgs.builder()
  *             .name("example-ngfwvn")
  *             .resourceGroupName(example.name())
- *             .rulestackId(exampleAzurermPaloAltoLocalRulestack.id())
+ *             .rulestackId(exampleAzurermPaloAltoLocalRulestack.get("id"))
  *             .networkProfile(NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs.builder()
  *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .virtualHubId(exampleVirtualHub.id())

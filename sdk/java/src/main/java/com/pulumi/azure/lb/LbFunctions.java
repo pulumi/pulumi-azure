@@ -63,7 +63,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
-     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("backendIpConfigurationIds", beap.get("backendIpConfigurations").stream().map(element -> element.get("id")).collect(toList()));
      *     }
      * }
      * }
@@ -119,7 +119,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
-     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("backendIpConfigurationIds", beap.get("backendIpConfigurations").stream().map(element -> element.get("id")).collect(toList()));
      *     }
      * }
      * }
@@ -175,7 +175,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
-     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("backendIpConfigurationIds", beap.get("backendIpConfigurations").stream().map(element -> element.get("id")).collect(toList()));
      *     }
      * }
      * }
@@ -231,7 +231,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
-     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("backendIpConfigurationIds", beap.get("backendIpConfigurations").stream().map(element -> element.get("id")).collect(toList()));
      *     }
      * }
      * }
@@ -287,7 +287,7 @@ public final class LbFunctions {
      *             .build());
      * 
      *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
-     *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
+     *         ctx.export("backendIpConfigurationIds", beap.get("backendIpConfigurations").stream().map(element -> element.get("id")).collect(toList()));
      *     }
      * }
      * }

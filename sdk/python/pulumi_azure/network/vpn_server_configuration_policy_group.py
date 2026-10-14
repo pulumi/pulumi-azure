@@ -202,7 +202,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict', 'outputs.VpnServerConfigurationPolicyGroupPolicy']]]]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -260,7 +260,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]] policies: One or more `policy` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict', 'outputs.VpnServerConfigurationPolicyGroupPolicy']]]] policies: One or more `policy` blocks as documented below.
         :param pulumi.Input[_builtins.int] priority: The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         :param pulumi.Input[_builtins.str] vpn_server_configuration_id: The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         """
@@ -337,7 +337,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
+                 policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict', 'outputs.VpnServerConfigurationPolicyGroupPolicy']]]]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -370,7 +370,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             is_default: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
+            policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict', 'outputs.VpnServerConfigurationPolicyGroupPolicy']]]]] = None,
             priority: pulumi.Input[Optional[_builtins.int]] = None,
             vpn_server_configuration_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpnServerConfigurationPolicyGroup':
         """
@@ -382,7 +382,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]] policies: One or more `policy` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict', 'outputs.VpnServerConfigurationPolicyGroupPolicy']]]] policies: One or more `policy` blocks as documented below.
         :param pulumi.Input[_builtins.int] priority: The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         :param pulumi.Input[_builtins.str] vpn_server_configuration_id: The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         """

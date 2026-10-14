@@ -487,14 +487,14 @@ class ComputeCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict', 'outputs.ComputeClusterIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']]] = None,
-                 ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']]] = None,
+                 scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict', 'outputs.ComputeClusterScaleSettings']]] = None,
+                 ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict', 'outputs.ComputeClusterSsh']]] = None,
                  ssh_public_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -592,14 +592,14 @@ class ComputeCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict', 'outputs.ComputeClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below.
-        :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict', 'outputs.ComputeClusterScaleSettings']] scale_settings: A `scale_settings` block as defined below.
+        :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict', 'outputs.ComputeClusterSsh']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster.
@@ -716,14 +716,14 @@ class ComputeCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict']]] = None,
+                 identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict', 'outputs.ComputeClusterIdentity']]] = None,
                  local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']]] = None,
-                 ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']]] = None,
+                 scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict', 'outputs.ComputeClusterScaleSettings']]] = None,
+                 ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict', 'outputs.ComputeClusterSsh']]] = None,
                  ssh_public_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -771,14 +771,14 @@ class ComputeCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
-            identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict']]] = None,
+            identity: pulumi.Input[Optional[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict', 'outputs.ComputeClusterIdentity']]] = None,
             local_auth_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             machine_learning_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             node_public_ip_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-            scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']]] = None,
-            ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']]] = None,
+            scale_settings: pulumi.Input[Optional[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict', 'outputs.ComputeClusterScaleSettings']]] = None,
+            ssh: pulumi.Input[Optional[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict', 'outputs.ComputeClusterSsh']]] = None,
             ssh_public_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             subnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -792,14 +792,14 @@ class ComputeCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ComputeClusterIdentityArgs', 'ComputeClusterIdentityArgsDict', 'outputs.ComputeClusterIdentity']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.bool] local_auth_enabled: Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] machine_learning_workspace_id: The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] node_public_ip_enabled: Whether the compute cluster will have a public ip. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
-        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict']] scale_settings: A `scale_settings` block as defined below.
-        :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        :param pulumi.Input[Union['ComputeClusterScaleSettingsArgs', 'ComputeClusterScaleSettingsArgsDict', 'outputs.ComputeClusterScaleSettings']] scale_settings: A `scale_settings` block as defined below.
+        :param pulumi.Input[Union['ComputeClusterSshArgs', 'ComputeClusterSshArgsDict', 'outputs.ComputeClusterSsh']] ssh: Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.bool] ssh_public_access_enabled: A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[_builtins.str] subnet_resource_id: The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Machine Learning Compute Cluster.

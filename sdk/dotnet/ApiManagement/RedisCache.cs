@@ -48,7 +48,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Basic",
     ///         EnableNonSslPort = false,
     ///         MinimumTlsVersion = "1.2",
-    ///         RedisConfiguration = null,
+    ///         RedisConfiguration = new() { },
     ///     });
     /// 
     ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("example", new()

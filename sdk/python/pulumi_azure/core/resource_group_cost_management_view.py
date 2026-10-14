@@ -357,11 +357,11 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
                  chart_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict']]] = None,
+                 dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict', 'outputs.ResourceGroupCostManagementViewDataset']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict']]]]] = None,
+                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict', 'outputs.ResourceGroupCostManagementViewKpi']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict']]]]] = None,
+                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict', 'outputs.ResourceGroupCostManagementViewPivot']]]]] = None,
                  report_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeframe: pulumi.Input[Optional[_builtins.str]] = None,
@@ -429,11 +429,11 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
-        :param pulumi.Input[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict']] dataset: A `dataset` block as defined below.
+        :param pulumi.Input[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict', 'outputs.ResourceGroupCostManagementViewDataset']] dataset: A `dataset` block as defined below.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management View.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict', 'outputs.ResourceGroupCostManagementViewKpi']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict', 'outputs.ResourceGroupCostManagementViewPivot']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         :param pulumi.Input[_builtins.str] report_type: The type of the report. The only possible value is `Usage`.
         :param pulumi.Input[_builtins.str] resource_group_id: The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[_builtins.str] timeframe: The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
@@ -520,11 +520,11 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
                  chart_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict']]] = None,
+                 dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict', 'outputs.ResourceGroupCostManagementViewDataset']]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict']]]]] = None,
+                 kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict', 'outputs.ResourceGroupCostManagementViewKpi']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict']]]]] = None,
+                 pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict', 'outputs.ResourceGroupCostManagementViewPivot']]]]] = None,
                  report_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  timeframe: pulumi.Input[Optional[_builtins.str]] = None,
@@ -573,11 +573,11 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             accumulated: pulumi.Input[Optional[_builtins.bool]] = None,
             chart_type: pulumi.Input[Optional[_builtins.str]] = None,
-            dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict']]] = None,
+            dataset: pulumi.Input[Optional[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict', 'outputs.ResourceGroupCostManagementViewDataset']]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict']]]]] = None,
+            kpis: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict', 'outputs.ResourceGroupCostManagementViewKpi']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict']]]]] = None,
+            pivots: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict', 'outputs.ResourceGroupCostManagementViewPivot']]]]] = None,
             report_type: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             timeframe: pulumi.Input[Optional[_builtins.str]] = None) -> 'ResourceGroupCostManagementView':
@@ -590,11 +590,11 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accumulated: Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[_builtins.str] chart_type: Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
-        :param pulumi.Input[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict']] dataset: A `dataset` block as defined below.
+        :param pulumi.Input[Union['ResourceGroupCostManagementViewDatasetArgs', 'ResourceGroupCostManagementViewDatasetArgsDict', 'outputs.ResourceGroupCostManagementViewDataset']] dataset: A `dataset` block as defined below.
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management View.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewKpiArgs', 'ResourceGroupCostManagementViewKpiArgsDict', 'outputs.ResourceGroupCostManagementViewKpi']]]] kpis: One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceGroupCostManagementViewPivotArgs', 'ResourceGroupCostManagementViewPivotArgsDict', 'outputs.ResourceGroupCostManagementViewPivot']]]] pivots: One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         :param pulumi.Input[_builtins.str] report_type: The type of the report. The only possible value is `Usage`.
         :param pulumi.Input[_builtins.str] resource_group_id: The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created.
         :param pulumi.Input[_builtins.str] timeframe: The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
