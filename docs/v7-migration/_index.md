@@ -34,7 +34,7 @@ In Go, update every import path from `sdk/v6` to `sdk/v7`.
 
 1. Apply the v6-compatible changes, then confirm `pulumi preview` shows no changes.
 2. Bump the package to v7 and fix the compile errors using the sections below.
-3. Run `pulumi refresh`. This lets the provider rewrite existing state into the v7 shape before any diff is calculated. Several resources depend on this; see [Private DNS](#private-dns-records-and-links).
+3. Run `pulumi refresh`. This lets the provider rewrite existing state into the v7 shape before any diff is calculated. For example, it gives storage containers created by name their new `id`; see [Storage](#containers-queues-shares-tables-and-blobs-reference-their-parent-by-id).
 4. Run `pulumi preview --diff`. Review every replacement and every update to a property you didn't touch. Most unexpected updates come from [changed defaults](#changed-defaults).
 5. Run `pulumi up`.
 
@@ -245,8 +245,6 @@ const account = new azure.storage.Account("site", {
     },
     queueProperties: {
         logging: { delete: true, read: true, write: true, version: "1.0", retentionPolicyDays: 7 },
-        hourMetrics: { version: "1.0", includeApis: true, retentionPolicyDays: 7 },
-        minuteMetrics: { version: "1.0", includeApis: false, retentionPolicyDays: 7 },
     },
 });
 ```
@@ -274,10 +272,10 @@ const website = new azure.storage.AccountStaticWebsite("site", {
 const queueProperties = new azure.storage.AccountQueueProperties("site", {
     storageAccountId: account.id,
     logging: { delete: true, read: true, write: true, version: "1.0", retentionPolicyDays: 7 },
-    hourMetrics: { version: "1.0", includeApis: true, retentionPolicyDays: 7 },
-    minuteMetrics: { version: "1.0", includeApis: false, retentionPolicyDays: 7 },
 });
 ```
+
+`AccountQueueProperties` also accepts `hourMetrics` and `minuteMetrics`. In v6 these couldn't be set on `storage.Account`, because its schema left out the `enabled` flag that the provider requires.
 
 ### Customer-managed keys use a single key ID
 
@@ -392,7 +390,7 @@ const link = new azure.privatedns.ZoneVirtualNetworkLink("link", {
 });
 ```
 
-> **Run `pulumi refresh` before `pulumi up`.** `privateDnsZoneId` changes force a replacement, and v6 state does not contain the property. Until a refresh fills it in from the record's ID, `pulumi preview` will show each record and link being replaced. After a refresh the preview should show no changes. If it still proposes a replacement, check that `privateDnsZoneId` points at the same zone as before.
+v6 state doesn't contain `privateDnsZoneId`, so the provider derives it from each record's or link's ID, and existing records and links are not replaced. Changing `privateDnsZoneId` forces a replacement, so if `pulumi preview` proposes one, check that it points at the same zone as before.
 
 ## Event Hubs and Service Bus
 
@@ -1010,7 +1008,7 @@ export const platformUpdates = vm.vmAgentPlatformUpdatesEnabled;
 **Can be applied on v6.** On `containerservice.KubernetesCluster`:
 
 * **`nodeProvisioningProfile` is now required.** Use `{ mode: "Manual" }` for the v6 behaviour, where you manage node pools yourself.
-* **`oidcIssuerEnabled` now defaults to `true`.** For an existing cluster that never set it, the next `pulumi up` would turn the OIDC issuer on, and that cannot be undone. Set it explicitly (to `false` if you don't want it) before upgrading.
+* **`oidcIssuerEnabled` now defaults to `true`.** In v6, leaving it unset let Azure decide, and Azure turns the OIDC issuer on for clusters on Kubernetes 1.34 and later. Set it explicitly to the cluster's current value, which is in the stack's state (`pulumi stack export`). The issuer can't be turned off once it's on, so setting `false` on a cluster that has it replaces the cluster. Setting `true` on a cluster without it turns it on for good.
 * `linuxOsConfig.transparentHugePageEnabled` → `transparentHugePage`, on `defaultNodePool` and on `KubernetesClusterNodePool`.
 * `kubeletConfig.containerLogMaxLine` → `containerLogMaxFiles`, on `defaultNodePool` and on `KubernetesClusterNodePool`.
 
@@ -1058,9 +1056,9 @@ const cluster = new azure.containerservice.KubernetesCluster("aks", {
     // Now required. `Manual` is the v6 behaviour (you manage node pools yourself);
     // `Auto` turns on node auto-provisioning.
     nodeProvisioningProfile: { mode: "Manual" },
-    // Now defaults to `true`, and enabling it cannot be undone.
-    // Pin it to keep an existing cluster unchanged.
-    oidcIssuerEnabled: false,
+    // Now defaults to `true`. Pin it to the cluster's current value: the issuer
+    // can't be turned off once it's on, so `false` would replace a cluster that has it.
+    oidcIssuerEnabled: true,
 });
 ```
 
@@ -1837,7 +1835,7 @@ const env = new azure.containerapp.Environment("apps", {
 
 | Resource | Property | v6 default | v7 default |
 | :---- | :---- | :---- | :---- |
-| `containerservice.KubernetesCluster` | `oidcIssuerEnabled` | `false` | `true` (irreversible once applied) |
+| `containerservice.KubernetesCluster` | `oidcIssuerEnabled` | decided by Azure (on from Kubernetes 1.34) | `true` (can't be turned off once on) |
 | `storage.Account` | `allowNestedItemsToBePublic` | `true` | `false` |
 | `containerapp.Environment` | `logsDestination` | computed from `logAnalyticsWorkspaceId` | empty (streaming only); must be `"log-analytics"` to use a workspace |
 | `containerservice.Registry` | `encryption` | computed | empty, meaning no customer-managed key |
